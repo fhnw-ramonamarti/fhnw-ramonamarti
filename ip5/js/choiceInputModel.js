@@ -11,7 +11,7 @@ import {
     DEBOUNCE_TEXT,
     CHOICEBOX_OPEN,
     Attribute,
-} from "https://webengineering-fhnw.github.io/Kolibri/src/kolibri/presentationModel.js";
+} from "./presentationModel.js";
 
 export {ChoiceDetailModel, ChoiceMasterModel, ChoiceAttribute};
 

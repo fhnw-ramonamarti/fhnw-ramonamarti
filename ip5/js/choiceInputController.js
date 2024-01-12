@@ -13,7 +13,7 @@ import {
     DEBOUNCE_TEXT,
     CHOICEBOX_OPEN,
     EDITABLE,
-} from "https://webengineering-fhnw.github.io/Kolibri/src/kolibri/presentationModel.js";
+} from "./presentationModel.js";
 
 import { ChoiceDetailModel, ChoiceMasterModel, ChoiceAttribute } from "./choiceInputModel.js";
 
