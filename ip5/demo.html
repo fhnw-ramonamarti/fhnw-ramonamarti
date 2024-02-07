@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Choice Input</title>
+        <link
+            rel="shortcut icon"
+            type="image/png"
+            href="https://webengineering-fhnw.github.io/Kolibri/img/logo/logo-60x54.png"
+        />
+        <style>
+            @import url("https://webengineering-fhnw.github.io/Kolibri/css/kolibri-base.css");
+            @import url("./css/kolibri-light-colors.css");
+            @import url("https://webengineering-fhnw.github.io/Kolibri/css/kolibri-light-fonts.css");
+
+            @import url("./css/kolibri-input-elements-colours.css");
+            @import url("./css/kolibri-input-elements-dd.css");
+
+            .selectionElement input,
+            fieldset {
+                border: none;
+            }
+
+            span:has(> input) {
+                display: flex;
+                align-items: center;
+                height: 100%;
+            }
+
+            main {
+                display: flex;
+                gap: 2rem;
+                padding: 3rem;
+                flex-wrap: wrap;
+            }
+
+            main > div{
+                display: flex;
+                flex-direction: column;
+            }
+
+            input,
+            select {
+                padding: 5px;
+                height: 30px;
+                min-width: 150px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <main>
+            <div>
+                <label for="select">Select</label>
+                <select name="select" id="select" class="countriesData">
+                    <option value="none" disabled selected>Choose Country</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="datalist">Datalist</label>
+                <input type="text" name="datalist" id="datalist" list="data" placeholder="Choose Country" />
+                <datalist id="data" class="countriesData"> </datalist>
+            </div>
+
+            <div id="form-holder"></div>
+        </main>
+        <script type="module">
+            import { countryList } from "./countries.js";
+            import { ChoiceDetailController, ChoiceMasterController } from "./js/choiceInputController.js";
+            import { projectChoiceInput } from "./js/choiceInputProjector.js";
+
+            const createDetailController = () => {
+                const formStructureDetail = {
+                    value: "",
+                    placeholder: "Choose a country",
+                    label: "New Component",
+                    name: "country",
+                };
+                return ChoiceDetailController(formStructureDetail);
+            };
+            const createMasterController = () => {
+                const formStructureMaster = {
+                    elementList: countryList,
+                    sectionElement: { continent: "All" },
+                    focusObject: {},
+                };
+                return ChoiceMasterController("continent", "country")(formStructureMaster);
+            };
+            const createControllers = () => {
+                return [createDetailController(), createMasterController()];
+            };
+            const start = (classname) => {
+                return projectChoiceInput(...createControllers(), classname);
+            };
+            const formHolder = document.querySelector("#form-holder");
+            if (null != formHolder) {
+                formHolder.append(...start());
+            }
+        </script>
+        <script type="module">
+            import { countryList } from "./countries.js";
+            document.querySelectorAll(".countriesData").forEach((e) => {
+                countryList
+                    .map((c) => c.country)
+                    .forEach((c) => {
+                        e.innerHTML += `<option value="${c}">${c}</option>`;
+                    });
+            });
+        </script>
+    </body>
+</html>
