@@ -1,6 +1,11 @@
-\documentclass{report}
+\documentclass[twoside]{report}
+
 \usepackage[utf8]{inputenc}
 \usepackage[english, ngerman]{babel}
+\usepackage[nottoc]{tocbibind}
+\usepackage{graphicx}
+\usepackage{apacite}
+\usepackage{geometry}
 
 % title page start
 \title{Kolibri\\
@@ -18,15 +23,22 @@
 \include{chapters/honesty}
 \include{chapters/thanks}
 
+\tableofcontents
+
 \include{chapters/intro}
 \include{chapters/basics}
 % main chaapters here
 \include{chapters/end}
 
 % listings
+\bibliographystyle{apacite}
+\bibliography{chapters/references}
 
+\listoffigures
+\listoftables
 
+% appendix
+\appendix
 \include{chapters/appendix}
-
 
 \end{document}
