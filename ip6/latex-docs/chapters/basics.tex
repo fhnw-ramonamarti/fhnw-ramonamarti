@@ -1,12 +1,47 @@
 \chapter{Grundlagen}
+...
 
 \section{Generalisierung}
 
-\begin{figure}[ht]
+\section{Auswahlkomponenten im Vergleich}
+
+\begin{table}[!ht]
+    \rowcolors{2}{gray!30}{gray!20}
+    \caption{Vergleich der Auswahlmöglichkeiten}
     \centering
-    \includegraphics[width=60mm,scale=0.5]{img/kolibri-logo.png}
-    \caption{Kolibri Logo}
-    \label{Abbildung:Kolibri}
-\end{figure}
+    \scalebox{0.85}{
+        \small
+        \begin{tabular}{ p{2.5cm} || p{2.8cm} | p{3.3cm} | p{3.3cm} | p{3.3cm} }
+            Kriterium & Buttons/Links & Select & List & Country Input \\ [0.5ex]
+            \hline
+            \hline
+            Optimale Anzahl Elemente & 1 - 2 & 7 ± 2 & 70 ± 20 & ca. 250 \\ [0.5ex]
+            \hline
+            Falsche Auswahl möglich & \xmark & \xmark & \cmark & \cmark \\ [0.5ex]
+            \hline
+            Invalide möglich & \xmark & \cmark & \cmark & \cmark \\ [0.5ex]
+            \hline
+            Werte-Typ & Skalar & Skalar & Skalar & Objekt \\ [0.5ex]
+            \hline
+            Aktion bei Symbol-Eingabe & keine & Sprung (Fokus) zu passendem/ nachhfolgendem Wert & Filtern der Listen-Werte & Sprung zu zuletzt passendem Wert \\ [0.5ex]
+            \hline
+            Vorteile & Direkte Aktion, einfache Nutzung & Mehrfachauswahl, vordefinierte Optionen & Große Datensätze, Eingabeunterstützung, Musterprüfung & Speziell für Länderauswahl angepasst, unterstützt große Datensätze, strukturierte Objektrückgabe \\ [0.5ex]
+            \hline
+            Nachteile & Begrenzte Interaktion, nicht für mehrere Auswahlmöglichkeiten geeignet & Nicht skalierbar für große Datensätze & Kann mit sehr großen Datensätzen unhandlich werden & Festgelegt auf spezifischen Anwendungsfall (Länderauswahl) \\ [0.5ex]
+            \hline
+            Anwendungen & Navigationslinks, Bestätigungsbuttons & Formularfelder mit begrenzten Auswahlmöglic & Filterbare Listen, Suchergebnis & Dropdown zur Länderauswahl in Formularen \\ [0.5ex]
+        \end{tabular}
+    }
+\end{table}
+
+
+% ----------------------------------------------------------------
+
+% \begin{figure}[ht]
+%     \centering
+%     \includegraphics[width=60mm,scale=0.5]{img/kolibri-logo.png}
+%     \caption{Kolibri Logo}
+%     \label{Abbildung:Kolibri}
+% \end{figure}
 
 ...\cite{online}
