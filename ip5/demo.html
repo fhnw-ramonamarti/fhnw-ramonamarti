@@ -28,54 +28,88 @@
                 height: 100%;
             }
 
-            main {
+            section, main {
                 display: flex;
                 gap: 2rem;
                 padding: 3rem;
                 flex-wrap: wrap;
             }
 
-            main > div{
+            section > div {
                 display: flex;
                 flex-direction: column;
             }
 
-            input,
+            input[type="radio"] {
+                width: 20px;
+            }
+
+            input:not([type="radio"]),
             select {
                 padding: 5px;
                 height: 30px;
                 min-width: 150px;
+            }
+
+            label {
+                display: flex;
+            }
+
+            .hidden {
+                display: none;
             }
         </style>
     </head>
 
     <body>
         <main>
-            <div>
-                <label for="select">Select</label>
-                <select name="select" id="select" class="countriesData">
-                    <option value="none" disabled selected>Choose Country</option>
-                </select>
-            </div>
+            <section class="hidden">
+                <div>
+                    <label for="select">Select</label>
+                    <select name="select" id="select" class="countriesData">
+                        <option value="none" disabled selected>Choose Country</option>
+                    </select>
+                </div>
 
-            <div>
-                <label for="datalist">Datalist</label>
-                <input type="text" name="datalist" id="datalist" list="data" placeholder="Choose Country" />
-                <datalist id="data" class="countriesData"> </datalist>
-            </div>
+                <div>
+                    <label for="datalist">Datalist</label>
+                    <input type="text" name="datalist" id="datalist" list="data" placeholder="Choose Country" />
+                    <datalist id="data" class="countriesData"> </datalist>
+                </div>
 
-            <div id="form-holder"></div>
+                <div id="form-holder"></div>
+            </section>
+
+            <section class="">
+                <div>
+                    <label for="radio">Buttons/Links (3)</label>
+                    <div id="radio" class="countriesData"></div>
+                </div>
+
+                <div>
+                    <label for="select">Select (6)</label>
+                    <select name="select" id="select" class="countriesData"></select>
+                </div>
+
+                <div>
+                    <label for="datalist">Datalist (52)</label>
+                    <input type="text" name="datalist" id="datalist" list="data2" placeholder="Choose Country" />
+                    <datalist id="data2" class="countriesData"> </datalist>
+                </div>
+
+                <div id="form-holder2"></div>
+            </section>
         </main>
         <script type="module">
             import { countryList } from "./countries.js";
             import { ChoiceDetailController, ChoiceMasterController } from "./js/choiceInputController.js";
             import { projectChoiceInput } from "./js/choiceInputProjector.js";
 
-            const createDetailController = () => {
+            const createDetailController = (e = true) => {
                 const formStructureDetail = {
                     value: "",
                     placeholder: "Choose a country",
-                    label: "New Component",
+                    label: e ? "All Countries (~250)" : "New Component",
                     name: "country",
                 };
                 return ChoiceDetailController(formStructureDetail);
@@ -94,7 +128,7 @@
             const start = (classname) => {
                 return projectChoiceInput(...createControllers(), classname);
             };
-            const formHolder = document.querySelector("#form-holder");
+            const formHolder = document.querySelector("#form-holder2");
             if (null != formHolder) {
                 formHolder.append(...start());
             }
@@ -102,11 +136,29 @@
         <script type="module">
             import { countryList } from "./countries.js";
             document.querySelectorAll(".countriesData").forEach((e) => {
-                countryList
-                    .map((c) => c.country)
-                    .forEach((c) => {
-                        e.innerHTML += `<option value="${c}">${c}</option>`;
-                    });
+                switch (e.id) {
+                    case "radio":
+                        ["Switzerland", "Germany", "Austria"].forEach((c) => {
+                            e.innerHTML += `<label>
+                                        <input type="radio" name="radio" value="${c}" />
+                                        ${c}
+                                    </label>`;
+                        });
+                        break;
+                    case "select":
+                        ["Switzerland", "Germany", "Austria", "France", "Lichtenstein", "Italy"].sort().forEach((c) => {
+                            e.innerHTML += `<option value="${c}">${c}</option>`;
+                        });
+                        break;
+                    case "data2":
+                        countryList
+                            .filter((c) => c.continent === "Europe")
+                            .map((c) => c.country)
+                            .forEach((c) => {
+                                e.innerHTML += `<option value="${c}">${c}</option>`;
+                            });
+                        break;
+                }
             });
         </script>
     </body>
