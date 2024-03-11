@@ -4,9 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TBD</title>
+    <style>
+        /* CSS */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('hintergrundbild.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .button-link {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #1E19FF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button-link:hover {
+            background-color: #FF2CA5; /* Hover */
+        }
+    </style>
 </head>
-<body>
-    <a href="./ip5/index.html">IP5</a>
-    <a href="./ip6/index.html">IP6</a>
-</body>
+<div>
+    <a class="button-link" href="./ip5/index.html">IP5</a>
+    <a class="button-link" href="./ip6/index.html">IP6</a>
+</div>
 </html>
