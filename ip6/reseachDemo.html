@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Choice Input</title>
+        <link
+            rel="shortcut icon"
+            type="image/png"
+            href="https://webengineering-fhnw.github.io/Kolibri/img/logo/logo-60x54.png"
+        />
+        <style>
+            @import url("https://webengineering-fhnw.github.io/Kolibri/css/kolibri-base.css");
+            @import url("../ip5/css/kolibri-light-colors.css");
+            @import url("https://webengineering-fhnw.github.io/Kolibri/css/kolibri-light-fonts.css");
+
+            @import url("../ip5/css/kolibri-input-elements-colours.css");
+            @import url("../ip5/css/kolibri-input-elements-dd.css");
+
+            .selectionElement input,
+            fieldset {
+                border: none;
+            }
+
+            span:has(> input) {
+                display: flex;
+                align-items: center;
+                height: 100%;
+            }
+
+            section,
+            section form,
+            main {
+                display: flex;
+                gap: 2rem;
+                padding: 3rem;
+                flex-wrap: wrap;
+            }
+
+            section > div {
+                display: flex;
+                flex-direction: column;
+            }
+
+            input[type="radio"] {
+                width: 20px;
+            }
+
+            input:not([type="radio"]),
+            select {
+                padding: 5px;
+                height: 30px;
+                min-width: 150px;
+            }
+
+            label {
+                display: flex;
+            }
+
+            .hidden {
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <main>
+            <h3>Without form</h3>
+            <section class="">
+                <div>
+                    <label for="select">Select</label>
+                    <select name="select" id="select" class="countriesData"></select>
+                </div>
+
+                <div>
+                    <label for="datalist">Datalist</label>
+                    <input type="text" name="datalist" id="datalist" list="data" placeholder="Choose Country" />
+                    <datalist id="data" class="countriesData"> </datalist>
+                </div>
+            </section>
+            <h3>With form</h3>
+            <section class="">
+                <form action="#" method="get">
+                    <div>
+                        <label for="select">Select</label>
+                        <select name="select" id="select2" class="countriesData"></select>
+                    </div>
+    
+                    <div>
+                        <label for="datalist">Datalist</label>
+                        <input type="text" name="datalist" id="datalist" list="data2" placeholder="Choose Country" />
+                        <datalist id="data2" class="countriesData"> </datalist>
+                    </div>
+                </form>
+            </section>
+            <h3>Multiselect</h3>
+            <section class="">
+                <form action="#" method="get">
+                    <div>
+                        <label for="select">Select</label>
+                        <select name="select" id="select2" class="countriesData" multiple></select>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <script type="module">
+            import { countryList } from "../ip5/countries.js";
+            document.querySelectorAll(".countriesData").forEach((e) => {
+                switch (e.id) {
+                    case "select":
+                    case "select2":
+                    case "data":
+                    case "data2":
+                        countryList
+                            .filter((c) => c.continent === "Europe")
+                            .map((c) => c.country)
+                            .forEach((c) => {
+                                e.innerHTML += `<option value="${c}">${c}</option>`;
+                            });
+                        break;
+                }
+            });
+        </script>
+    </body>
+</html>
