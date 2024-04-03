@@ -64,7 +64,7 @@
             [multiple] {
                 min-height: 120px;
             }
-            body{
+            body {
                 overflow: scroll;
             }
             section {
@@ -118,12 +118,12 @@
                             <option value="dog">Dog</option>
                             <option value="cat">Cat</option>
                             <option value="hamster">Hamster</option>
-                          </optgroup>
-                          <optgroup label="Flying pets">
+                        </optgroup>
+                        <optgroup label="Flying pets">
                             <option value="parrot">Parrot</option>
                             <option value="macaw">Macaw</option>
                             <option value="albatross">Albatross</option>
-                          </optgroup>
+                        </optgroup>
                     </select>
                 </div>
             </section>
@@ -221,7 +221,14 @@
             <section class="">
                 <div>
                     <label for="datalist5">Datalist</label>
-                    <input readonly type="text" name="datalist5" id="datalist5" list="data5" placeholder="Choose Country" />
+                    <input
+                        readonly
+                        type="text"
+                        name="datalist5"
+                        id="datalist5"
+                        list="data5"
+                        placeholder="Choose Country"
+                    />
                     <datalist id="data5" class="countriesData"> </datalist>
                 </div>
             </section>
@@ -233,7 +240,14 @@
                 </div>
                 <div>
                     <label for="datalist6">Datalist</label>
-                    <input disabled type="text" name="datalist6" id="datalist6" list="data6" placeholder="Choose Country" />
+                    <input
+                        disabled
+                        type="text"
+                        name="datalist6"
+                        id="datalist6"
+                        list="data6"
+                        placeholder="Choose Country"
+                    />
                     <datalist id="data6" class="countriesData"> </datalist>
                 </div>
                 <div>
@@ -255,34 +269,43 @@
                     case "select2":
                     case "select_2":
                     case "select_2_":
-                    case "select3":
                     case "select5":
                     case "select6":
                     case "data":
                     case "data2":
-                    case "data3":
                     case "data5":
                     case "data6":
-                    countryList
-                        .filter((c) => c.continent === "Europe")
-                        .map((c) => c.country)
-                        .forEach((c) => {
-                            e.innerHTML += `<option value="${c}">${c}</option>`;
-                        });
-                    break;
+                        countryList
+                            .filter((c) => c.continent === "Europe")
+                            .map((c) => c.country)
+                            .forEach((c) => {
+                                e.innerHTML += `<option value="${c}">${c}</option>`;
+                            });
+                        break;
                     case "select6_":
                     case "data6_":
                         countryList
                             .filter((c) => c.continent === "Europe")
                             .map((c) => c.country)
                             .forEach((c) => {
-                                e.innerHTML += `<option value="${c}" ${c.startsWith("S")?"disabled":""}>${c}</option>`;
+                                e.innerHTML += `<option value="${c}" ${
+                                    c.startsWith("S") ? "disabled" : ""
+                                }>${c}</option>`;
+                            });
+                        break;
+                    case "select3":
+                    case "data3":
+                        countryList
+                            .filter((c) => c.continent === "Europe" && c.country.includes("w"))
+                            .map((c) => c.country)
+                            .forEach((c) => {
+                                e.innerHTML += `<option value="${c}">${c}Label</option>`;
                             });
                         break;
                     case "select4":
                     case "data4":
                         countryList
-                            .filter((c) => c.continent === "Europe")
+                            .filter((c) => c.continent === "Europe" && c.country.includes("w"))
                             .map((c) => c.country)
                             .forEach((c) => {
                                 e.innerHTML += `<option value="${c}"></option>`;
@@ -290,7 +313,6 @@
                         break;
                 }
             });
-
         </script>
     </body>
 </html>
