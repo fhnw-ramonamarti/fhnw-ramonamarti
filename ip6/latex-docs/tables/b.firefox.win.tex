@@ -1,6 +1,6 @@
 \clearpage
 \begin{table}[ht!]
-    \caption{Vergleich Interaktion Datalist \& Select in Edge (Windows)}
+    \caption{Vergleich Interaktion Datalist \& Select in Firefox (Windows)}
     \bigskip
     \centering
     \footnotesize
@@ -13,14 +13,14 @@
             \multirow{2}{*}{$\uparrow$ / $\downarrow$} & Liste öffnen                            & Wert wechseln                     & \multirow{2}{*}{Wert wechseln} \\
             \cline{2-3}                                & Fokus-Wert wechseln \cellcolor{gray!20} & Wert wechseln \cellcolor{gray!20} &  \\
             \hline
-            \multirow{2}{*}{$\leftarrow$ / $\rightarrow$} & Cursor bewegen                     & Element wechseln      & \multirow{2}{*}{-} \\
-            \cline{2-3}                                   & Cursor bewegen \cellcolor{gray!20} & - \cellcolor{gray!20} &  \\
+            \multirow{2}{*}{$\leftarrow$ / $\rightarrow$} & Cursor bewegen                                                                 & Element wechseln      & \multirow{2}{*}{Wert wechseln} \\
+            \cline{2-3}                                   & \specialcell{Cursor bewegen / \\ Fokussierter Wert wählen} \cellcolor{gray!20} & - \cellcolor{gray!20} &  \\
             \hline
             \multirow{3}{*}{Buchstaben} & Schreiben, Liste gefiltert öffnen\tnote{1}            & \specialcell{Wert ändern auf \\ Suchergebnis\tnote{2}}                     & \multirow{3}{*}{\specialcell{Auswahl aufheben \\ \& Wert ändern \\ auf Suchergebnis\tnote{2}}} \\
             \cline{2-3}                 & Schreiben, Liste filtern\tnote{1} \cellcolor{gray!20} & \specialcell{Wert ändern auf \\ Suchergenbis\tnote{2}} \cellcolor{gray!20} & \\
             \hline
-            \multirow{2}{*}{Leerschlag} & Schreiben, Liste gefiltert öffnen\tnote{1} & Liste öffnen & \multirow{2}{*}{-} \\
-            \cline{2-3}                 & Schreiben, Liste filtern\tnote{1} \cellcolor{gray!20}       & - \cellcolor{gray!20} & \\
+            \multirow{2}{*}{Leerschlag} & Schreiben, Liste gefiltert öffnen\tnote{1}            & Liste öffnen          & \multirow{2}{*}{-} \\
+            \cline{2-3}                 & Schreiben, Liste filtern\tnote{1} \cellcolor{gray!20} & - \cellcolor{gray!20} & \\
             \hline
             \multirow{2}{*}{Backspace} & \specialcell{Symbol löschen \& Liste gefiltert \\ öffnen\tnote{1} (wenn Feld nicht leer)} & -                     & \multirow{2}{*}{-} \\
             \cline{2-3}                & Symbol löschen \& Liste filtern\tnote{1} \cellcolor{gray!20}                              & - \cellcolor{gray!20} & \\
@@ -28,22 +28,22 @@
             \multirow{2}{*}{Esc} & -                                    & -                                    & \multirow{2}{*}{-} \\
             \cline{2-3}          & Liste schliessen \cellcolor{gray!20} & Liste schliessen \cellcolor{gray!20} & \\
             \hline \hline
-            \multirow{3}{*}{Enter} & \specialcell{Formular senden / \\ ohne Form nichts}                                     & Liste öffnen                                                         & \multirow{2}{*}{-} \\
+            \multirow{3}{*}{Enter} & \specialcell{Formular senden / \\ ohne Form nichts}                                     & -                                                                    & \multirow{2}{*}{-} \\
             \cline{2-3}            & \specialcell{Fokussierter Wert wählen / \\ ohne Fokus Form senden } \cellcolor{gray!20} & \specialcell{Wert wählen \& \\ Liste schliessen} \cellcolor{gray!20} &  \\
             \hline
-            \multirow{2}{*}{Tab} & Inputfeld wechseln                     & Inputfeld wechseln                   & \multirow{2}{*}{-} \\
+            \multirow{2}{*}{Tab} & Inputfeld wechseln                     & Inputfeld wechseln                   & \multirow{2}{*}{Inputfeld wechseln} \\
             \cline{2-3}          & Inputfeld wechseln \cellcolor{gray!20} & Liste schliessen \cellcolor{gray!20} & \\
             \hline
-            \multirow{3}{*}{\specialcell{PageUp /\\ PageDown}} & Fenster scrollen                                                                            & Jeden 3. Wert wählen                                                                   & \multirow{3}{*}{\specialcell{Wert an nächster \\ $size - 1$ wählen \\ \scriptsize{(size = Attribut)}}} \\
+            \multirow{3}{*}{\specialcell{PageUp /\\ PageDown}} & Liste öffnen                                                                                & Jeden 20. Wert wählen                                                                  & \multirow{3}{*}{\specialcell{Wert an nächster \\ View-Höhe wählen }} \\
             \cline{2-3}                                        & \specialcell{Wert an View-Start / Ende \\ dann Seitenweise fokussieren} \cellcolor{gray!20} & \specialcell{Wert an View-Start / Ende \\ dann Seitenweise wählen} \cellcolor{gray!20} & \\
             \hline
             \multirow{3}{*}{Home / End} & \specialcell{Wert von Listen-Anfang / \\ -Ende fokussieren}                     & Erster / letzter Wert wählen                     & \multirow{2}{*}{\specialcell{Erster / letzter \\ Wert wählen}} \\
             \cline{2-3}                 & \specialcell{Wert von Listen-Anfang / \\ -Ende fokussieren} \cellcolor{gray!20} & Erster / letzter Wert wählen \cellcolor{gray!20} & \\
             \hline \hline
-            \multirow{4}{*}{Scroll} & Browser-Default                                                                                                                           & Browser-Default                                                                                                          & \multirow{4}{*}{\specialcell{\textit{Innen}: Werte \\ bewegen ohne \\ Fokus / Wert \\ zu ändern}} \\
-            \cline{2-3}             & \specialcell{\textit{Aussen}: Liste bleibt \\ $fixed$ offen \\ \textit{Innen}: Werte bewegen \\ ohne Fokus zu ändern} \cellcolor{gray!20} & \specialcell{\textit{Aussen}: Liste schliesst \\ \textit{Innen}: Werte bewegen \\ ohne Fokus ändern} \cellcolor{gray!20} & \\
+            \multirow{4}{*}{Scroll} & Browser-Default                                                                                                                   & Browser-Default                                                                                                          & \multirow{4}{*}{\specialcell{\textit{Innen}: Werte \\ bewegen ohne \\ Fokus / Wert \\ zu ändern}} \\
+            \cline{2-3}             & \specialcell{\textit{Aussen}: Liste schliesst \\ \textit{Innen}: Werte bewegen \\ \& Fokus ändert am Ende} \cellcolor{gray!20} & \specialcell{\textit{Aussen}: Liste schliesst \\ \textit{Innen}: Werte bewegen \\ ohne Fokus ändern} \cellcolor{gray!20} & \\
             \hline
-            \multirow{2}{*}{Hover} & -                                  & -                                  & \multirow{2}{*}{-} \\
+            \multirow{2}{*}{Hover} & UI-Anpassung                       & -                                  & \multirow{2}{*}{-} \\
             \cline{2-3}            & Fokus wechseln \cellcolor{gray!20} & Fokus wechseln \cellcolor{gray!20} & \\
             \hline
             \multirow{2}{*}{Click} & Liste öffnen                    & Liste öffnen                                                         & \multirow{2}{*}{\specialcell{Auswahl aufheben \\ \& Wert wählen}} \\
@@ -58,7 +58,7 @@
         \end{tabular}
         \begin{tablenotes}
             \scriptsize
-            \item[1] Filter: Input-Begriffe \textit{and}-verknüpft enthalten; 
+            \item[1] Filter: Leerschlag als normales Symbol gezählt; 
                             Liste verändern je nach Anzahl passender Werte
             \item[2] Suche: Erster zu der Eingabe passender Wert aus der Liste, wenn Eingabe nicht passend $\Rightarrow$ letzter noch übereinstimmender Wert; 
                             Liste unverändert; nach Pause / Debounce-Ablauf $\Rightarrow$ neue Suche
