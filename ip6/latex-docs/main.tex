@@ -9,6 +9,10 @@
 \usepackage{capt-of}
 \usepackage[table]{xcolor}
 \usepackage{pifont}
+\usepackage{import}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage[referable]{threeparttablex}
 
 \graphicspath{ {./img/} }
 
@@ -18,6 +22,11 @@
 \newcommand\Tstrut{\rule{0pt}{2.9ex}} % top
 \newcommand\Bstrut{\rule[-1.2ex]{0pt}{0pt}} % bottom
 \newcommand\TBstrut{\Tstrut\Bstrut} % top & bottom
+
+\newcommand{\specialcell}[2][l]{ % in table line break
+  \begin{tabular}[#1]{@{}l@{}}\hspace{-1mm}#2\end{tabular}}
+
+\newgeometry{inner=5cm, outer=2.5cm, top=2.5cm, bottom=2.5cm}
 
 % title page start
 \title{Kolibri\\

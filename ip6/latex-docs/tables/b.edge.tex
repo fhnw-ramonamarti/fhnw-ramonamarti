@@ -1,0 +1,66 @@
+\clearpage
+\begin{table}[ht!]
+    \caption{Vergleich Interaktion Datalist \& Select in Edge (Windows)}
+    \bigskip
+    \centering
+    \small
+    \begin{threeparttable}
+        \begin{tabular}{ l || l | l | l }
+            \multirow{3}{*}{\bf{Kriterium}} & \bf{Datalist}             & \bf{Select}               & \multirow{3}{*}{\bf{Multiselect}} \\
+            \cline{2-3}                     & geschlossen               & geschlossen               &  \\
+            \cline{2-3}                     & offen \cellcolor{gray!20} & offen \cellcolor{gray!20} &  \\
+            \hline \hline
+            \multirow{2}{*}{$\uparrow$ / $\downarrow$} & Liste öffnen                            & Wert wechseln                     & \multirow{2}{*}{Wert wechseln} \\
+            \cline{2-3}                                & Fokus-Wert wechseln \cellcolor{gray!20} & Wert wechseln \cellcolor{gray!20} &  \\
+            \hline
+            \multirow{2}{*}{$\leftarrow$ / $\rightarrow$} & Cursor bewegen                     & Element wechseln      & \multirow{2}{*}{-} \\
+            \cline{2-3}                                   & Cursor bewegen \cellcolor{gray!20} & - \cellcolor{gray!20} &  \\
+            \hline
+            \multirow{3}{*}{Buchstaben} & \specialcell{Schreiben, Liste \\ gefiltert öffnen\tnote{1}}            & \specialcell{Wert ändern auf \\ Sucheergebnis\tnote{2}}                     & \multirow{3}{*}{\specialcell{Auswahl aufheben \\ \& Wert ändern auf \\ Sucheergebnis\tnote{2}}} \\
+            \cline{2-3}                 & \specialcell{Schreiben, \\ Liste filtern\tnote{1}} \cellcolor{gray!20} & \specialcell{Wert ändern auf \\ Sucheergenbis\tnote{2}} \cellcolor{gray!20} & \\
+            \hline
+            \multirow{2}{*}{Leerschlag} & Schreiben                     & Liste öffnen          & \multirow{2}{*}{-} \\
+            \cline{2-3}                 & Schreiben \cellcolor{gray!20} & - \cellcolor{gray!20} & \\
+            \hline
+            \multirow{2}{*}{Backspace} & \specialcell{Symbol löschen \& \\ gefilterte List öffnen\tnote{1} \\ (wenn Feld nicht leer)} & -                     & \multirow{2}{*}{-} \\
+            \cline{2-3}                & \specialcell{Symbol löschen \& \\ List filtern\tnote{1}} \cellcolor{gray!20}                 & - \cellcolor{gray!20} & \\
+            \hline
+            \multirow{2}{*}{Esc} & -                                    & -                                    & \multirow{2}{*}{-} \\
+            \cline{2-3}          & Liste schliessen \cellcolor{gray!20} & Liste schliessen \cellcolor{gray!20} & \\
+            \hline \hline
+            \multirow{4}{*}{Enter} & \specialcell{Formular senden / \\ ohne Form nichts}                                                    & Liste öffnen                                                         & \multirow{2}{*}{-} \\
+            \cline{2-3}            & \specialcell{Fokussierter Wert \\ wählen / ohne Fokus \\ Form senden } \cellcolor{gray!20} & \specialcell{Wert wählen \& \\ Liste schliessen} \cellcolor{gray!20} &  \\
+            \hline
+            \multirow{2}{*}{Tab} & Inputfeld wechseln                     & Inputfeld wechseln                   & \multirow{2}{*}{-} \\
+            \cline{2-3}          & Inputfeld wechseln \cellcolor{gray!20} & Liste schliessen \cellcolor{gray!20} & \\
+            \hline
+            \multirow{3}{*}{\specialcell{PageUp /\\ PageDown}} & Fenster scrollen                                                       & Zu jedem 3. Wert springen                                                         & \multirow{2}{*}{\specialcell{$size - 1$ springen \\ (Tag-Attribut)}} \\
+            \cline{2-3}                                        & \specialcell{Zu erstem / letztem \\ Wert springen} \cellcolor{gray!20} & \specialcell{Zu View-Start / Ende \\ dann Seitenweise spring} \cellcolor{gray!20} & \\
+            \hline
+            \multirow{2}{*}{Home / End} & \specialcell{Zu Input-Anfang / \\ -Ende springen}                     & \specialcell{Ersten / letzten \\ Wert wählen}                     & \multirow{2}{*}{\specialcell{Ersten / letzten \\ Wert wählen}} \\
+            \cline{2-3}                 & \specialcell{Zu Input-Anfang / \\ -Ende springen} \cellcolor{gray!20} & \specialcell{Ersten / letzten \\ Wert wählen} \cellcolor{gray!20} & \\
+            \hline \hline
+            \multirow{4}{*}{Scroll} & Browser-Default                                                                                                                           & Browser-Default                                                                                                          & \multirow{4}{*}{\specialcell{\textit{Innen}: Werte \\ bewegen ohne \\ Fokus / Wert \\ zu ändern}} \\
+            \cline{2-3}             & \specialcell{\textit{Aussen}: Liste bleibt \\ $fixed$ offen \\ \textit{Innen}: Werte bewegen \\ ohne Fokus zu ändern} \cellcolor{gray!20} & \specialcell{\textit{Aussen}: Liste schliesst \\ \textit{Innen}: Werte bewegen \\ ohne Fokus ändern} \cellcolor{gray!20} & \\
+            \hline
+            \multirow{2}{*}{Hover} & -                                  & -                                  & \multirow{2}{*}{-} \\
+            \cline{2-3}            & Fokus wechseln \cellcolor{gray!20} & Fokus wechseln \cellcolor{gray!20} & \\
+            \hline
+            \multirow{2}{*}{Click} & Liste öffnen                    & Liste öffnen                                                         & \multirow{2}{*}{\specialcell{Auswahl aufheben \\ \& Wert wählen}} \\
+            \cline{2-3}            & Wert wählen \cellcolor{gray!20} & \specialcell{Wert wählen \& \\ Liste schliessen} \cellcolor{gray!20} & \\
+            \hline \hline
+            \multirow{2}{*}{\specialcell{Ctrl \& Z\\ (Undo)}} & Undo im Input                     & -                     & \multirow{2}{*}{-} \\
+            \cline{2-3}                                       & Undo im Input \cellcolor{gray!20} & - \cellcolor{gray!20} & \\
+            \hline
+            \multirow{2}{*}{\specialcell{Ctrl \& Y\\ (Redo)}} & Redo im Input                     & -                     & \multirow{2}{*}{-} \\
+            \cline{2-3}                                       & Redo im Input \cellcolor{gray!20} & - \cellcolor{gray!20} & \\
+            \hline
+        \end{tabular}
+        \begin{tablenotes}
+            \item[1] Filter: Begriffe aus Inputfeld bei Leerschlag $AND$-verknüpft (Reihenfolge egal); 
+                            Liste verkleinern / vergrössern je nach Anzahl passernder Werte
+            \item[2] Suche: erstes zu der Eingabe passender Wert aus der Liste, wenn Eingabe nicht passt $\Rightarrow$ zuletzt noch übereinstimmender Wert; 
+                            Liste bleibt unverändert; nach Pause neue Suche
+        \end{tablenotes}
+    \end{threeparttable}
+\end{table}
