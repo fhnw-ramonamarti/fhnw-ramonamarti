@@ -19,11 +19,17 @@
 \newcommand{\cmark}{\ding{51}} % ✓
 \newcommand{\xmark}{\ding{55}} % ✗
 
+\newcommand{\tablesettings}[1]{\caption{#1} \bigskip \centering}
+\newcommand{\trr}[1]{\multirow{2}{*}{#1}}
+\newcommand{\trrr}[1]{\multirow{3}{*}{#1}}
+\newcommand{\trrrr}[1]{\multirow{4}{*}{#1}}
+\newcommand\ccgray{\cellcolor{gray!20}}
+
 \newcommand\Tstrut{\rule{0pt}{2.9ex}} % top
 \newcommand\Bstrut{\rule[-1.2ex]{0pt}{0pt}} % bottom
 \newcommand\TBstrut{\Tstrut\Bstrut} % top & bottom
 
-\newcommand{\specialcell}[2][l]{ % in table line break
+\newcommand{\tbbr}[2][l]{ % in table line break
   \begin{tabular}[#1]{@{}l@{}}\hspace{-1mm}#2\end{tabular}}
 
 \newgeometry{inner=5cm, outer=2.5cm, top=2.5cm, bottom=2.5cm}
