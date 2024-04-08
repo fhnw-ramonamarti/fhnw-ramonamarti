@@ -1,6 +1,5 @@
-\clearpage
 \begin{table}[ht!]
-    \tablesettings{Vergleich Interaktion Datalist \& Select in Firefox (Windows)}
+    \tablesettings{Vergleich Interaktion Datalist \& Select in Chrome (Mac / Windows)}
     \footnotesize
     \begin{threeparttable}
         \begin{tabular}{ l || l | l | l }
@@ -11,8 +10,8 @@
             \trr{$\uparrow$ / $\downarrow$} & Liste öffnen                & Wert wechseln         & \trr{Wert wechseln} \\
             \cline{2-3}                     & Fokus-Wert wechseln \ccgray & Wert wechseln \ccgray &  \\
             \hline
-            \trr{$\leftarrow$ / $\rightarrow$} & Cursor bewegen                                              & Element wechseln & \trr{Wert wechseln} \\
-            \cline{2-3}                        & \tbbr{Cursor bewegen / \\ Fokussierter Wert wählen} \ccgray & - \ccgray        &  \\
+            \trr{$\leftarrow$ / $\rightarrow$} & Cursor bewegen         & Element wechseln & \trr{-} \\
+            \cline{2-3}                        & Cursor bewegen \ccgray & - \ccgray        &  \\
             \hline
             \trrr{Buchstaben} & Schreiben, Liste gefiltert öffnen\tnote{1} & \tbbr{Wert ändern auf \\ Suchergebnis\tnote{2}}         & \trrr{\tbbr{Auswahl aufheben \\ \& Wert ändern \\ auf Suchergebnis\tnote{2}}} \\
             \cline{2-3}       & Schreiben, Liste filtern\tnote{1} \ccgray  & \tbbr{Wert ändern auf \\ Suchergenbis\tnote{2}} \ccgray & \\
@@ -26,22 +25,22 @@
             \trr{Esc}   & -                        & -                        & \trr{-} \\
             \cline{2-3} & Liste schliessen \ccgray & Liste schliessen \ccgray & \\
             \hline \hline
-            \trrr{Enter} & \tbbr{Formular senden / \\ ohne Form nichts}                         & -                                                 & \trr{-} \\
+            \trrr{Enter} & \tbbr{Formular senden / \\ ohne Form nichts}                         & Liste öffnen                                      & \trr{-} \\
             \cline{2-3}  & \tbbr{Fokussierter Wert wählen / \\ ohne Fokus Form senden } \ccgray & \tbbr{Wert wählen \& \\ Liste schliessen} \ccgray &  \\
             \hline
-            \trr{Tab}   & Inputfeld wechseln         & Inputfeld wechseln       & \trr{Inputfeld wechseln} \\
+            \trr{Tab}   & Inputfeld wechseln         & Inputfeld wechseln       & \trr{-} \\
             \cline{2-3} & Inputfeld wechseln \ccgray & Liste schliessen \ccgray & \\
             \hline
-            \trrr{\tbbr{PageUp /\\ PageDown}} & Liste öffnen                                                             & Jeden 20. Wert wählen                                               & \trrr{\tbbr{Wert an nächster \\ View-Höhe wählen }} \\
+            \trrr{\tbbr{PageUp /\\ PageDown}} & Fenster scrollen                                                         & Jeden 3. Wert wählen                                                & \trrr{\tbbr{Wert an nächster \\ $size - 1$ wählen \\ \scriptsize{(size = Attribut)}}} \\
             \cline{2-3}                       & \tbbr{Wert an View-Start / Ende \\ dann Seitenweise fokussieren} \ccgray & \tbbr{Wert an View-Start / Ende \\ dann Seitenweise wählen} \ccgray & \\
             \hline
             \trrr{Home / End} & \tbbr{Wert von Listen-Anfang / \\ -Ende fokussieren}         & Erster / letzter Wert wählen         & \trr{\tbbr{Erster / letzter \\ Wert wählen}} \\
             \cline{2-3}       & \tbbr{Wert von Listen-Anfang / \\ -Ende fokussieren} \ccgray & Erster / letzter Wert wählen \ccgray & \\
             \hline \hline
-            \trrrr{Scroll} & Browser-Default                                                                                             & Browser-Default                                                                                       & \trrrr{\tbbr{\textit{Innen}: Werte \\ bewegen ohne \\ Fokus / Wert \\ zu ändern}} \\
-            \cline{2-3}    & \tbbr{\textit{Aussen}: Liste schliesst \\ \textit{Innen}: Werte bewegen \\ \& Fokus ändert am Ende} \ccgray & \tbbr{\textit{Aussen}: Liste schliesst \\ \textit{Innen}: Werte bewegen \\ ohne Fokus ändern} \ccgray & \\
+            \trrrr{Scroll} & Browser-Default                                                                                                        & Browser-Default                                                                                       & \trrrr{\tbbr{\textit{Innen}: Werte \\ bewegen ohne \\ Fokus / Wert \\ zu ändern}} \\
+            \cline{2-3}    & \tbbr{\textit{Aussen}: Liste bleibt \\ $fixed$ offen \\ \textit{Innen}: Werte bewegen \\ ohne Fokus zu ändern} \ccgray & \tbbr{\textit{Aussen}: Liste schliesst \\ \textit{Innen}: Werte bewegen \\ ohne Fokus ändern} \ccgray & \\
             \hline
-            \trr{Hover} & UI-Anpassung           & -                      & \trr{-} \\
+            \trr{Hover} & -                      & UI-Anpassung           & \trr{-} \\
             \cline{2-3} & Fokus wechseln \ccgray & Fokus wechseln \ccgray & \\
             \hline
             \trr{Click} & Liste öffnen        & Liste öffnen                                      & \trr{\tbbr{Auswahl aufheben \\ \& Wert wählen}} \\
@@ -56,7 +55,7 @@
         \end{tabular}
         \begin{tablenotes}
             \scriptsize
-            \item[1] Filter: Leerschlag als normales Symbol gezählt; 
+            \item[1] Filter: Input-Begriffe \textit{and}-verknüpft enthalten; 
                             Liste verändern je nach Anzahl passender Werte
             \item[2] Suche: Erster zu der Eingabe passender Wert aus der Liste, wenn Eingabe nicht passend $\Rightarrow$ letzter noch übereinstimmender Wert; 
                             Liste unverändert; nach Pause / Debounce-Ablauf $\Rightarrow$ neue Suche

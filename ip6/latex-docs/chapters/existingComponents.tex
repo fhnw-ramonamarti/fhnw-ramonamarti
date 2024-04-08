@@ -1,0 +1,65 @@
+\chapter{Existierende Auswahlkomponenten}
+
+\import{../tables}{c.choice.general.tex}
+
+
+\section{HTML Datalist vs. Select}
+
+\subsection{Datalist}
+
+
+\subsection{Select}
+
+
+
+
+\section{Browser-Inkonsistenzen}
+Die Komponenten Select \& Datalist können sich im UI und der Bedingung leicht varieren,
+besonders hinsichtlich der visuellen Darstellung und des Verhaltens von Navigationspfeilen oder anderen Steuerelementen.
+
+\clearpage
+\subsection{Edge Browser}
+\import{../tables}{c.edge.tex}
+Auf Windows wehält sich Edge sehr ähnlich wie Chrome, da die Codebasis beider Browser Chromium ist.
+Im Design gibt es jedoch Unterschiede bei der Darstellung von den Listen oder Navigationspfeilen. 
+
+\clearpage
+\subsection{Chrome Browser}
+\import{../tables}{c.chrome.tex}
+
+Auf dem Mac verhält sich Chrome ähnlich wie auf Windows, jedoch können sich Designaspekte unterscheiden. 
+Zum Beispiel könnte der Navigationspfeil in einem anderen Stil dargestellt werden oder 
+die Animationen beim Öffnen von Dropdowns könnten glatter sein.
+
+\clearpage
+\subsection{Firefox Browser}
+\import{../tables}{c.firefox.tex}
+
+Firefox zeigt auf dem Mac konsistentes Verhalten wie auf Windows, jedoch mit typischen MacOS Designanpassungen. 
+Elemente wie Buttons und Listen könnten abgerundetere Ecken haben und 
+die Interaktions-Feedbacks können sich leicht von der Windows-Version unterscheiden.
+
+\clearpage
+\subsection{Safari Browser}
+\import{../tables}{c.safari.tex}
+
+Ähnlich wie in Chrome und Firefox auf Windows, aber Designelemente wie Schatten oder Ränder können subtiler sein. 
+Safari tendiert dazu, ein minimalistischeres Design zu verwenden, was sich in der Darstellung von Dropdowns und Comboboxen widerspiegelt.
+
+
+\clearpage
+\subsection{Fazit}
+
+Generell ändern sich die Verhaltensweisen der Standardkomponenten in verschiedenen Browsern in Bezug auf Design und Interaktionsmechanismen. 
+Hierbei spielen das Betriebssystem-spezifische Styling und die individuellen Implementierungen der Browser eine Rolle. 
+Die Grundfunktionen zeigen sich ähnlich, wobei etwaige Unterschiede oft in der visuellen Darstellung und in Details der Interaktion 
+(z.B. beim Öffnen der Dropdowns oder der Navigation innerhalb der Listen) liegen. 
+Wichtig ist somit die Konsistenzprüfung, um sicherzustellen, dass Webanwendungen über verschiedene Plattformen
+und Browser hinweg einheitlich funktionieren und eine optimale Benutzererfahrung bieten. 
+Das Verhalten kann je nach Browserversion und Betriebssystem variieren.
+
+\section{Anwendungsfälle}
+\begin{itemize}
+    \item Länderauswahl (nach Kontinenten filtern)
+    \item Jahrgang auswählen (nach Dekade filtern)
+\end{itemize}
