@@ -2,9 +2,11 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[english, ngerman]{babel}
-\usepackage[nottoc]{tocbibind}
+% \usepackage[nottoc]{tocbibind}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa,sorting=ynt]{biblatex}
 \usepackage{graphicx}
-\usepackage{apacite}
+% \usepackage{apacite}
 \usepackage{geometry}
 \usepackage{capt-of}
 \usepackage[table]{xcolor}
@@ -14,7 +16,17 @@
 \usepackage{multirow}
 \usepackage[referable]{threeparttablex}
 
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{lgray}{rgb}{0.9,0.9,0.9}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
 \graphicspath{ {./img/} }
+\addbibresource{chapters/references.bib}
 
 \newcommand{\cmark}{\ding{51}} % ✓
 \newcommand{\xmark}{\ding{55}} % ✗
@@ -32,7 +44,31 @@
 \newcommand{\tbbr}[2][l]{ % in table line break
   \begin{tabular}[#1]{@{}l@{}}\hspace{-1mm}#2\end{tabular}}
 
+\renewcommand\lstlistingname{Code} % name of listing caption
+
 \newgeometry{inner=5cm, outer=2.5cm, top=2.5cm, bottom=2.5cm}
+
+% code blocks with lstlisting: html, java, 
+\lstdefinestyle{code}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=code}
+
 
 % title page start
 \title{Kolibri\\
@@ -42,8 +78,6 @@
 % title page end
 
 \begin{document}
-
-\cite{online} % todo delete
 
 % \begin{figure}[h]
 %     \centering
@@ -71,8 +105,10 @@
 % listings
 \include{chapters/glossary}
 
-\bibliographystyle{apacite}
-\bibliography{chapters/references}
+% \bibliographystyle{apacite}
+% \bibliography{chapters/references}
+\printbibliography[title={Quelleverzeichnis}]
+
 
 \listoffigures
 \listoftables

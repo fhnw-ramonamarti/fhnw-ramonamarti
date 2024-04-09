@@ -1,21 +1,116 @@
 \chapter{Existierende Auswahlkomponenten}
 
+Dieses Kapitel zeigt einen Überblick als auch Vergleiche der bestehenden Optionen eine Auswahl zu treffen. 
+Es werden die generellen Möglichkeiten einander gegenübergestellt, sowie die bisher bekanntesten Komponenten $select$ und $datalist$ genauer inspiziert.
+Darin wird auf die Interaktionen und die Darstellung bezug genommen. 
+\\
+Zu den bereits existierenden Komponenten zum Start dieser Arbeit zählen Buttons bzw. Links, $select$-, $datalist$-Element und das Country Select.
+Unter dem Country Select ist das Resultat des Projekt 5 zu verstehen.
+In der folgende Tabelle \ref{table:generalComparing} zeigt einen Vergleich der genannten Möglichkeiten.
+
 \import{../tables}{c.choice.general.tex}
 
 
 \section{HTML Datalist vs. Select}
 
+\subsection{Options}
+
+\begin{lstlisting}[language = html, caption = Code: Option Example, label = code:OptionExample]
+    <option value="ValueToSend">LabelToShow</option>
+    <option value="DefaultValue" selected>DefaultLabel</option>
+    <option value="Value" disabled>DisabledLabel</option>
+\end{lstlisting}
+
+Das $option$-Tag wird bei beiden Auswahlkomponenten - $datalist$ und $select$ - verwendet. 
+Die einzelnen Optionen wie in Code \ref{code:OptionExample} Zeile 1 besitzen ein $value$-Attribut und einen Inhalt - das Label.
+Der Wert kann als Inhalt verwendet werden, wenn anstatt das $value$- das $label$-Attribut genutzt wird.
+Das $label$ wird jedoch von Firefox nicht unterstützt.
+Werden $value$ und $label$ weggelassen, erhalten beide den Wert innerhalb des Tags.
+Das HTML-Element kann das Attribut $disabled$ oder $selected$ erhalten.
+Eine $selected$ Option wie in Code \ref{code:OptionExample} Zeile 2 wird initial ausgefüllt und funktioniert nur im zumsammenhang mit dem $select$-Containert. 
+Ist ein Eintrag $sidabled$ wie in Code \ref{code:OptionExample} Zeile 3 kann dieser nicht ausgewählt werden und unterscheidet sich im UI, wenn dieser überhaupt sichtbar ist.
+\\
+Das Designen von $soption$s beschränkt sich auf die Text- / Hintergrundfarbe, welche jedoch nur in Firefox funktionieren. 
+Die anderen Browser lassen kein Styling der Auswahl-Elemente zu bzw. zeigen diese nicht an.
+Es ist nur ein scalarer Text als Inhalt erlaubt. 
+Das bedeutet, es können keine weiteren Tags verschachtelt werden.
+Als Eltern-Elemente sind $select$, $optgroup$ und $datalist$ erlaubt.
+Alle gängigen Browser unterstützen dieses Tag.
+
 \subsection{Datalist}
+
+\begin{lstlisting}[language = html, caption = Code: Datalist Example, label = code:DatalistExample]
+    <input type="text" name="animal" list="data" placeholder="Animal" />
+    <datalist id="data">
+        <option value="Dog"></option>
+        <option value="Cat"></option>
+        <option value="Mouse"></option>
+    </datalist>
+\end{lstlisting}
+
+Die Datalist besteht aus zwei Teilen - einem Input-Feld und einem Daten-Container - wie in Code \ref{code:DatalistExample} ersichtlich. 
+Im folgenden Unterkapitel \textbf{Input} wird detaillerter auf das Eingabe-Feld und dessen Typen eingegangen.
+Die Datenliste besitzt keine spezeillen eigenen Attribute.
+Von den globalen Attributen sollte jedoch zumindest eine $id$ vergeben werden.
+Die Id dient zur Verknüpfung der Liste mit dem Input-Feld. 
+Das Stylen der $datalist$ ist sehr begrenzt bzw. nicht möglich. 
+Der Daten-Container reagiert nicht auf den Zoom des Browsers.
+Gewisse Screenreader ingorieren die Vorschlagsliste und lesen diese somit nicht vor.
+\\
+Die $option$s einer $datalist$ besitzen normalerweise nur ein $value$-Attribut und kein Label oder nur Inhalt.
+Bei einer zusätzlichen Label-Definition kann das je nach Browser zu abweichenden Darstellungen kommen. 
+Während Firefox nur das Label in der Liste anzeigt, werden in den anderen Browsern Label und Value gemeinsam visualisiert. 
+Die Browser, welche Label und Value anzeigen, heben den Wert ein wenig hervor.
+Die Darstellung kann zu Missverständissen führen, da bei der Auswahl nur der Value in das Eingabe-Feld eingefügt wird. 
+Die $options$-Werte können sich dem Typ des Inputs anpassen. 
+Generell unterstützen alle Browser die $datalist$, aber Firefox nur begrenzt.
+\\
+(\cite{optionMdn}) Nicht alle Browser unterstützen die Liste für jeden Eingabe-Typ.
+Der textuelle Typ funktioniert in allen Browsern und die Liste öffnet sich nach ein Klick bzw. Doppelklick auf das Feld.
+Vordefinierte Datum- und Zeit-Typen funktionieren nur in den Chromium basierten Browsern. 
+Die anderen Browser - Firefox und Safari - zeigen den normalen Eingabe-Container, als ob die Liste nicht verknüpft ist.
+Wenn eine Liste mit einer Range verwendet wird, zeigen alle Browser die Optionen durch Markierungen an der jeweiligen Stelle auf dem Slider.
+Die Kombination einer $datalist$ mit einer Farbpalette zeigt eine breite, aber unterschiedliche Unterstützung. 
+Firefox auf OSX ist unter den gängigen Browser der einzige, welche die Liste nicht darstellt.
+Zusammengefasst bieten Chromium-basierte Browser die beste Unterstützung für Listen mit den unterschliedlichten Typen.
+
+
+\subsubsection{Input}
+in Code \ref{code:DatalistExample} auf Zeile 1 wird mit dem $list$-Attribut mit den Auswahloptionen verknüpft.
 
 
 \subsection{Select}
 
+\begin{lstlisting}[language = html, caption = Select Example, label = code:SelectExample]
+    <select name="animal">
+        <option value="" disabled>Animal</option>
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="mouse">Mouse</option>
+    </select>
+\end{lstlisting}
+% mehere selcected letztes verwendet
 
-
+\subsubsection{Optgroup}
+\begin{lstlisting}[language = html, caption = Optgroup Example, label = code:OptgroupExample]
+    <select name="animal">
+        <optgroup label="Big animal">
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+        </optgroup>
+        <optgroup label="Small animal">
+            <option value="mouse">Mouse</option>
+            <option value="hamster">Hamster</option>
+        </optgroup>
+    </select>
+\end{lstlisting}
 
 \section{Browser-Inkonsistenzen}
 Die Komponenten Select \& Datalist können sich im UI und der Bedingung leicht varieren,
 besonders hinsichtlich der visuellen Darstellung und des Verhaltens von Navigationspfeilen oder anderen Steuerelementen.
+
+\subsection{UI Unterschiede}
+
 
 \clearpage
 \subsection{Edge Browser}
