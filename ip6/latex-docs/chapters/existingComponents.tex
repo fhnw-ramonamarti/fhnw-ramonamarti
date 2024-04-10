@@ -37,6 +37,79 @@ Das bedeutet, es können keine weiteren Tags verschachtelt werden.
 Als Eltern-Elemente sind $select$, $optgroup$ und $datalist$ erlaubt.
 Alle gängigen Browser unterstützen dieses Tag.
 
+
+
+\subsection{Select}
+
+\begin{lstlisting}[language = html, caption = Select Example, label = code:SelectExample]
+    <select name="animal">
+        <option value="" disabled>Animal</option>
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="mouse">Mouse</option>
+    </select>
+\end{lstlisting}
+
+Das $select$-Tag benötigt kein weiteres Element ausser die $option$s – ersichtlich im Code \ref{code:SelectExample}, um den Wert zu speichern.
+Die typischen Attrribute für Eingaben-Felder wie $disabled$, $form$, $name$ und $required$ sind auch bei einem $select$ verwendbar.
+Durch das $disabled$ zeigt sich das Element in einer ausgegrauten erscheinung und bietet dem Nutzer keine Interaktionsmöglichkeiten mehr.
+Dieses Attribut kann vom Container - z.B. $fieldset$ - geerbt werden.
+Das $form$ definiert das dazugehörige Formular und $name$ den Key für das Key-Value Paar bzw. Name des Feldes im Formular. 
+Mit dem $required$ wird eine Eingabe erzungen, um das senden des Formulars friezuschalten.
+Für eine bessere Accessability sollte eine $id$ vergeben werden, damit ein Label dem $select$ zugewiesen werden kann.
+Standardmässig ist für dieses Feld nur eine einzelne Auswahl möglich.
+Durch die Ergänzung des Attribut $multible$ ist es möglich mehrere Werte zu markieren.
+Bei einem Multiselect können mehrere Listenelemente mit vorausgewählt werden.
+Wenn jedoch bei einem einfachen $select$ mehere Optionen das $selected$-Attribut enthalten, wird das letzte als Default eingesetzt und die anderen ignoriert.
+Das $autocomplete$ funktioniert wie bei anderen Inputs, indem Hinweise für das User Agent Feature auftauchen.
+Um nach dem Laden der Seite direkt den Fokus auf das Feld zu setzen, kann das Attribut $autofocus$ ergäntzt werden.
+Die Definition des $size$-Attributs steuert die Anzahl sichtbarer Elemente, wobei der Default für single $select$s bei 1 und mehrfache Auswahl bei 4 liegt.
+Das $select$ erhält von allen allen Browsern Unterstützung mit Ausnahme des $size$-Attributs.
+Die Grösse wird auf den meisten Mobile-Browsern nicht unterstützt.
+\\ 
+Abgesehen von der Grösse durch die $size$ kann das Element kaum umgestaltet werden.
+Es gibt jedoch die sehr aufendiwge Möglichkeit, den Inhalt zu klonen und durch Wrapper neu zu stylen.
+In diesem Fall müssen aber die Logik und die Interaktionen für die Accessability neu implementiert werden.
+Gewisse Stylings können getroffen werden, wobei aber nicht jeder Browser diese in der selben Weise übernehmen.
+Durch die komplexe Strukutr des $selet$s ist eine eigene Darstellung schwierig zu kontrollieren.
+\\
+Der Inhalt des Tags können $option$s oder $optgroup$s sein.
+Mehr zur $optgroup$ kommt im nachfolgenden Unterkapitel.
+In der ARIA-Rolle wird die Komponente als Combobox ohne $size$ und $multible$ oder Listbox gehandhabt.
+\\
+Die mehrfache Auswahl rein per Tastatur bietet in der Interakion geringer Möglichkeiten als mit der Maus.
+Mit gedrückter Cmd bzw. Ctrl (Mac bzw. Windows) Taste können mit der Maus weitere Elemente dazugewählt werden.
+Sollen in einem Beriech alle Elemente zwischen dem ersten und dem letzten ebenfalls markiert werden, kann stattdessen Shift gedrückt gehalten werden.
+Wenn beide Techniken zur Anwendung kommen, muss zuerst der Teil mit Shift gewählt werden, da sonst die vorher gehende Auswahl aufgehoben wird.
+Um nur mit der Tastatur mehrere Werte zu markieren, muss zuerst zum ersten Element navigiert werden.
+Mit Shift und den Pfeiltasten hoch und runter ist ein Bereich wählbar.
+Firefox unterstützt noch die einzelne Mehrfachauswahl über die Tastatur, indem mit Ctrl der Focus hoch und runter bewegt wird und mit der Leertaste selektiert werden kann.
+Auf dem Mac müssen die Tastenkombinationen jedoch zuerst in der Systemeinstellung ausgeschaltet oder umgestellt werden, da es Systembefehle sind.
+
+
+\subsubsection{Optgroup}
+
+\begin{lstlisting}[language = html, caption = Optgroup Example, label = code:OptgroupExample]
+    <select name="animal">
+        <optgroup label="Big animal">
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+        </optgroup>
+        <optgroup label="Small animal">
+            <option value="mouse">Mouse</option>
+            <option value="hamster">Hamster</option>
+        </optgroup>
+    </select>
+\end{lstlisting}
+
+Die $optgroup$ dient als Zusatz-Element um in $select$s Optionen zu Gruppieren und mit einem Zwischentitel zu versehen.
+Der Titel ist nicht selektierbar und lässt sich durch das $label$-Attribut setzen. 
+Um ein ganzer Block von Auswahlmöglichkeiten auszugrauen, bietet sich das $disabled$ an.
+Die Optionen, welche in diesem Tag enthalten sind, erben das Attribut.
+Als Inhalt dienen $option$-Elemente und selbst besitzt es als Eltern-Tag ein $select$.
+Es besitzt die ARIA-Rolle einer Gruppe und wird von allen Browsern unterstützt.
+
+
 \subsection{Datalist}
 
 \begin{lstlisting}[language = html, caption = Code: Datalist Example, label = code:DatalistExample]
@@ -56,6 +129,7 @@ Die Id dient zur Verknüpfung der Liste mit dem Input-Feld.
 Das Stylen der $datalist$ ist sehr begrenzt bzw. nicht möglich. 
 Der Daten-Container reagiert nicht auf den Zoom des Browsers.
 Gewisse Screenreader ingorieren die Vorschlagsliste und lesen diese somit nicht vor.
+In der ARIA-Rolle wird das Element als Listbox interpretiert.
 \\
 Die $option$s einer $datalist$ besitzen normalerweise nur ein $value$-Attribut und kein Label oder nur Inhalt.
 Bei einer zusätzlichen Label-Definition kann das je nach Browser zu abweichenden Darstellungen kommen. 
@@ -76,38 +150,85 @@ Zusammengefasst bieten Chromium-basierte Browser die beste Unterstützung für L
 
 
 \subsubsection{Input}
-in Code \ref{code:DatalistExample} auf Zeile 1 wird mit dem $list$-Attribut mit den Auswahloptionen verknüpft.
+Dieser Abschnitt behandelt nur den Teil, welcher im Bezug auf die $datalist$ von Belang ist.
+Das Input - in Code \ref{code:DatalistExample} auf Zeile 1 - wird durch das $list$-Attribut mit den Auswahloptionen verknüpft.
+Bei der Verwendung zusammen mit der $datalist$ ist dieses Attribut pflicht.
+Dadurch erscheinen die Auswahloptionen während der Bedienung des Input-Feldes. 
+\\
+Die in diesem Kontext für alle Typen geltenden Attribute werden in diesem Paragraph genauer angeschaut.
+Mit dem $autocomplete$ dient zur Anzeige der Hinweise für das Autofill Featuere der Browser.
+Wie in den früheren Abschnitten bereits beschrieben kann durch das $disable$ die Interaktion ausgeschatet werden und somit die Komponente deaktiviert werden.
+Wenn das Eingabe-Feld ausserhalb eines Formulars platziert ist, kann durch das Attribut $form$ ein Verknüpfung zu einem auf der Seite existierenden Formular hergestett werden.
+Der Name mit $name$ dient zur Identifizierung des definierten Wertes im $value$-Attrribut in einem abgesendet Formular.
+Der Typ des Eingabefeldes - angegeben durch das $type$ - definiert, welche UI-Erscheinung das Input im Browser erhält und welche Werte zulässig sind.
+Als Standard-Typ ist $text$ definiert, wodurch dieses Attribut optional ist.
+Mehr zu den für diese Arbeit wichtigen Typen ist im Unterkapitel \textbf{Input-Typen mit Datalist-Unterstützung} zu lesen.
+Die $id$ als globale Eigenschaft dient bei den Eingabe-Felder zusätzlich noch zur Verkünpfung mit einem $label$-Element und somit einer bessern Accessability.
+\\
+Weiter existieren noch die zwei Attribute $readonly$ und $required$, welche alle Typen ausser $range$ und $color$ definiert sind.
+Durch die Ergänzung der ersten Eigenschaft ist der Wert nicht mehr änderbar, aber es bleibt im Verlauf der fokussierbaren Komponenten enthalten.
+Um die Eingabe zu erzwingen, kann das $required$ angewendet werden.
+Die Eigenschaften $min$, $max$ und $step$ helfen nummerischen Typen\footnotemark zu konfigurieren.
+\footnotetext{gemeint sind: $date$, $month$, $week$, $time$, $datetime-local$, $number$, $range$}
+Die ersten beiden begrenzen die Werte auf einen Bereich oder ein Intervall.
+Mit $step$ lässt sich noch die Grösse eines Schrittes einstellen.
+Die textlichen Felder\footnotemark besitzen die Attribute $maxlength$, $minlength$, $pattern$ und $size$.
+\footnotetext{in diesem Zusammenheng: $text$, $search$, $url$, $tel$, $email$, $password$}
+Diese Texttypen zusammen mit $number$ können durch $placeholder$ einen Patzhaltertext erhalten.
+Die Min- und Max-Länge schränken die Textlänge der Eingabe ein.
+Um eine Eingabe weiter zu begrenzen, kann ein Muster mit Regex im $pattern$-Attribut vorgegeben werden.
+Dieses wird vor dem Senden des Fodmulars validiert und bei Fehlern mit invalide markiert.
+Gewisse Typen - wie z.B. $url$, $tel$ und $email$ - haben bereits eine Pattern hinterlegt.
+Mit $size$ lässt sich die Grösse bzw. Anzahl sichtbarer Zeichen angeben.
+Weitere Informationen zum Styling eines Inputfeld stehen im Unterkapitel \textbf{CSS für Input-Felder}.
+\\
+Das Input enhält keinen Inhalt und ist ein selbst-schliessendes Tag.
+Die ARIA-Rolle ist vom Typ abhängig und kann als Textbox, Combobox, Spinbutton, Sliter, Searchbox, Telbox oder keiner spezeillen Rolle zugeordent sein.
+In den hier erwähnten Möglichkeiten der Kompontente existiert eine grossflächige Browserunterstützung.
+Die einzigen Ausnahmen beziehen sich auf die Typen $week$ und $month$, welche im Firefox und Safari nicht funktionieren.
 
+\subsubsection{Input-Typen mit Datalist-Unterstützung}
+Angefangen mit den texutellen Typen existieren $text$, $search$, $number$, $email$, $url$ und $tel$.
+Diese Typen Erscheinen als mehr oder weniger normales, einzeiliges Texteingabefeld.
+Die ersten zwei der Auflistung verwalten einen Text ohne spezeille Anforderungen. 
+Um die Werte als Zahlen zu speichern, dient der Typ $number$, welche dem UI noch zwei Buttons ergänzt.
+Die letzten drei Typen sind Textfelder, welche bereits ein passendes Pattern für E-Mail, URL oder Telefonnummer hinterlegt haben.
+Zudem zeigen diese Felder bei dynamischen Tastaturen eine der Situation angepasste\footnotemark.
+\footnotetext{z.B. ist bei $email$ @ und . immer sichtbar, oder bei $tel$ sind die Zahlen besser dargestellt}
+Typen in der Kategorie Date-Time sind $month$, $week$, $date$, $time$ und $datetime-local$.
 
-\subsection{Select}
+Bei einer ungefähren Eingabe einer Zahl auf einem Intervall bietet sich $range$ an.
+Im UI zeigt sich diese Komponente als Slider, wobei sich der Standard Wert in der Mitte findet.
+Zur Festlegun der Limiten dienen $min$ und $max$.
+Für eine Farbauswahl kann der Typ $color$ zur Anwendung kommen. 
+Dieser zeigt in den gängigen Browser nach dem aufklappen ein Palette, welche sich aber in der Darstellung unterscheiden kann. 
+Firefox beispielsweise greift auf die vom System gestellt Farbpalette zurück, wo Chromium-basierte Browser eine eigene bieten.
 
-\begin{lstlisting}[language = html, caption = Select Example, label = code:SelectExample]
-    <select name="animal">
-        <option value="" disabled>Animal</option>
-        <option value="dog">Dog</option>
-        <option value="cat">Cat</option>
-        <option value="mouse">Mouse</option>
-    </select>
-\end{lstlisting}
-% mehere selcected letztes verwendet
+\subsubsection{CSS für Input-Felder}
+Bei einem Input bestehen mehr Möglichkeiten dieses umzugestalten.
+Es existieren eigene CSS-Pseudo-Klassen, wobei folgend nur ein Teil aufgezählt wird.
 
-\subsubsection{Optgroup}
-\begin{lstlisting}[language = html, caption = Optgroup Example, label = code:OptgroupExample]
-    <select name="animal">
-        <optgroup label="Big animal">
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-        </optgroup>
-        <optgroup label="Small animal">
-            <option value="mouse">Mouse</option>
-            <option value="hamster">Hamster</option>
-        </optgroup>
-    </select>
-\end{lstlisting}
+\begin{itemize}
+    \item \textbf{:enabled} bzw. \textbf{:disabled} - reagiert auf das $disabled$-Attribut
+    \item \textbf{:read-write} bzw. \textbf{:read-only} - reagiert auf das $readonly$-Attribut
+    \item \textbf{:valid} bzw. \textbf{:invalid} - reagiert auf die Client-Side Validität\footnotemark des Felds, sobald das Formular versendet wird
+    \item \textbf{:user-invalid} - reagiert auf die Client-Side Validität des Felds, sobald das Feld verlassen wird
+    \item \textbf{:in-range} bzw. \textbf{:out-of-range} - reagiert auf das $min$- und $max$-Attribut
+    \item \textbf{:optional} bzw. \textbf{:required} - reagiert auf das $required$-Attribut
+    \item \textbf{:blank} - reagiert wenn ein Feld leer ist
+\end{itemize}
+\footnotetext{Einhaltung der Regeln für das Input wie ein gegebenes $pattern$}
+
+Weiter gibt es noch die das Pseudo-Element \textbf{::placeholder}, welches das Stylen des Platzhalter erlaubt.
+In Feldern mit einem Cursor\footnotemark kann dieser mit dem CSS-Property \textbf{caret-color} umgefärbt werden.
+\footnotetext{hier gemeint: blinkender Strich in einem Eingabefeld}
+Generell kann der normale Input-Feld relativ gut designt werden - im Vergleich zur $datalist$ und dem $select$.
+
 
 \section{Browser-Inkonsistenzen}
 Die Komponenten Select \& Datalist können sich im UI und der Bedingung leicht varieren,
 besonders hinsichtlich der visuellen Darstellung und des Verhaltens von Navigationspfeilen oder anderen Steuerelementen.
+
 
 \subsection{UI Unterschiede}
 
