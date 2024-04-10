@@ -231,7 +231,24 @@ besonders hinsichtlich der visuellen Darstellung und des Verhaltens von Navigati
 
 
 \subsection{UI Unterschiede}
-
+Das $select$ ist in der geschlossenen Form immer mit mindestens einem Pfeil nach unten auf der rechten Seite ausgestattet.
+Safari (OSX und iOS) verwendet sogar einen Doppelpfeil (nach oben und unten) als Icon.
+Firefox zeigt das Feld in grau, während alle anderen Browser einen weissen Hintergrund verwenden.
+Safari auf iOS stellt die Komponente ohne Rahmen dar und desswegen ist der Hintergrund in einem hellen Grau gehalten.
+Die geöffnete Liste ist bei Firefox als einziges ein wenig konsistenter, diese in einem mittel- bis hellgrauen Container kommt.
+Die anderen Browser sind einstellungsabhängig und zeigen den Container in einem dunklen grau oder weiss an.
+Je nach Anzahl der enthaltenen Elemente erscheint die Liste darunter (darüber) oder überdeckt das $select$ selbst sogar.
+Grunsätzlich lässt sich das Element in Safari am wenigsten stylen.
+\\
+Die $datalist$ ist inkonsistenter, da bespielsweise nicht in jedem Browser ein Icon angezeigt wird.
+Safari (Mac) und Firefox stellen keinen visuellen Hinweis auf einen Listen-Container dar.
+Safari auf iOS zeigt hingegen in jedem Fall - bezogen auf den textuellen Typ - einen Pfeil nach unten an.
+Die anderen Browser liegen dazwischen und blenden das Icon (Dreieck nach unten) auf der rechten Seite beim Hovern oder beim Besitzen des Fokus ein.
+Das Öffnen der Liste in Firefox unterscheidet sich ebenfalls, da, wenn das Feld den Fokus noch nicht besitzt, zwei Mal geklickt werden muss.
+Die anderen Browser lassen die Liste bereits beim ersten Kick erscheinen.
+Die Liste selbst verhält sich je nach Browser und Inhalt verschieden, indem sie seitlich oder darunter (darüber) erscheint.
+Der Container übernimmt die Farbe des Systems nicht sowie das $select$.
+Das Feld selbst wird nie überdeckt.
 
 \clearpage
 \subsection{Edge Browser}
