@@ -1,0 +1,50 @@
+\begin{table}[ht!]
+    \label{table:interactionNewComponent}
+    \tablesettings{Aktionen bei der neuen Komponente}
+    \rowcolors{2}{white}{gray!20}
+    \footnotesize
+    \begin{threeparttable}
+        \begin{tabular}{ l || l | l }
+            \bf{Kriterium}    & \bf{geschlossen} & \bf{offen} \\
+            \hline \hline
+            $\uparrow$ / $\downarrow$     & Wert wechseln       & Wert wechseln       \\
+            \hline
+            $\leftarrow$ / $\rightarrow$  & -                   & Spalte wechseln     \\
+            \hline
+            Buchstaben  & Wert ändern auf Suchergebnis\tnote{1} & Wert ändern auf Suchergebnis\tnote{1}  \\
+            \hline
+            Leerschlag  & Liste öffnen    & Wert ändern auf Suchergebnis\tnote{1}     \\
+            \hline
+            Backspace   & Auswahl löschen & Auswahl löschen        \\
+            \hline
+            Esc         & -               & Liste schliessen       \\
+            \hline \hline
+            Enter       & \tbbr{Formular senden / \\ ohne Form nichts} & Wert ändern  \\
+            \hline
+            Tab         & Inputfeld wechseln              & Spalte wechseln     \\
+            \hline
+            PageUp / PageDown  & Browser-Default\tnote{2} & \tbbr{Wert an View-Start / Ende \\ dann Seitenweise wählen} \\
+            \hline
+            Home / End & Erster / letzter Wert wählen     & Erster / letzter Wert wählen  \\
+            \hline \hline
+            Scroll     & Browser-Default\tnote{2}         & \tbbr{\textit{Aussen}: Liste schliessen \\
+                                                                  \textit{Innen}: Werte bewegen \\ ohne Fokus zu ändern} \\
+            \hline
+            Hover      & -                & Wert highlighten       \\
+            \hline
+            Click      & Liste öffnen     & \tbbr{\textit{in Liste}: Wert wählen \\
+                                                  \textit{in Wertfeld}: Liste schliessen} \\
+            \hline \hline
+            Ctrl \& Z (Undo)    & -       & Undo auf gewählten Wert ausführen         \\
+            \hline
+            Ctrl \& Y (Redo)    & -       & Redo auf gewählten Wert ausführen         \\
+            \hline
+        \end{tabular}
+        \begin{tablenotes}
+            \scriptsize
+            \item[1] Suche: Erster zu der Eingabe passender Wert aus der Liste, wenn Eingabe nicht passend $\Rightarrow$ letzter noch übereinstimmender Wert; 
+                            Liste unverändert; nach Pause / Debounce-Ablauf $\Rightarrow$ neue Suche
+            \item[2] Gemeint: Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
+        \end{tablenotes}
+    \end{threeparttable}
+\end{table}
