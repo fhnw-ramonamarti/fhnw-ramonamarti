@@ -8,8 +8,8 @@
             \cline{2-3}           & geschlossen   & geschlossen   &  \\
             \cline{2-3}           & offen \ccgray & offen \ccgray &  \\
             \hline \hline
-            \trr{$\uparrow$ / $\downarrow$} & Liste öffnen                & Wert wechseln         & \trr{Wert wechseln} \\
-            \cline{2-3}                     & Fokus-Wert wechseln \ccgray & Wert wechseln \ccgray &  \\
+            \trr{$\uparrow$ / $\downarrow$} & Liste öffnen                    & Wert wechseln         & \trr{Wert wechseln} \\
+            \cline{2-3}                     & Highlight-Wert wechseln \ccgray & Wert wechseln \ccgray &  \\
             \hline
             \trr{$\leftarrow$ / $\rightarrow$} & Cursor bewegen\tnote{1}         & Element wechseln & \trr{-} \\
             \cline{2-3}                        & Cursor bewegen\tnote{1} \ccgray & - \ccgray        &  \\
@@ -20,29 +20,29 @@
             \trr{Leerschlag} & Schreiben, Liste gefiltert öffnen\tnote{2} & Liste öffnen & \trr{-} \\
             \cline{2-3}      & Schreiben, Liste filtern\tnote{2} \ccgray  & - \ccgray    & \\
             \hline
-            \trr{Backspace} & \tbbr{Symbol löschen \& Liste gefiltert \\ öffnen\tnote{2} (wenn Feld nicht leer)} & -         & \trr{-} \\
+            \trr{Backspace} & \tbbr{Symbol löschen \& Liste gefiltert\tnote{2} \\ öffnen (wenn Feld nicht leer)} & -         & \trr{-} \\
             \cline{2-3}     & Symbol löschen \& Liste filtern\tnote{2} \ccgray                                   & - \ccgray & \\
             \hline
             \trr{Esc}   & -                        & -                        & \trr{-} \\
             \cline{2-3} & Liste schliessen \ccgray & Liste schliessen \ccgray & \\
             \hline \hline
-            \trrr{Enter} & \tbbr{Formular senden / \\ ohne Form nichts}                         & Liste öffnen                                      & \trr{-} \\
-            \cline{2-3}  & \tbbr{Fokussierter Wert wählen / \\ ohne Fokus Form senden } \ccgray & \tbbr{Wert wählen \& \\ Liste schliessen} \ccgray &  \\
+            \trrr{Enter} & \tbbr{Formular senden / \\ ohne Form nichts}                                & Liste öffnen                                      & \trr{-} \\
+            \cline{2-3}  & \tbbr{Gehighlighteter Wert wählen / \\ ohne Highlight Form senden } \ccgray & \tbbr{Wert wählen \& \\ Liste schliessen} \ccgray &  \\
             \hline
             \trr{Tab}   & Inputfeld wechseln         & Inputfeld wechseln       & \trr{-} \\
             \cline{2-3} & Inputfeld wechseln \ccgray & Liste schliessen \ccgray & \\
             \hline
             \trrr{\tbbr{PageUp /\\ PageDown}} & Fenster scrollen                                                         & Jeden 3. Wert wählen                                                & \trrr{\tbbr{Wert an nächster \\ $size - 1$ wählen \\ \scriptsize{(size = Attribut)}}} \\
-            \cline{2-3}                       & \tbbr{Wert an View-Start / Ende \\ dann Seitenweise fokussieren} \ccgray & \tbbr{Wert an View-Start / Ende \\ dann Seitenweise wählen} \ccgray & \\
+            \cline{2-3}                       & \tbbr{Wert an View-Start / Ende \\ dann Seitenweise highlighten} \ccgray & \tbbr{Wert an View-Start / Ende \\ dann Seitenweise wählen} \ccgray & \\
             \hline
-            \trrr{Home / End} & \tbbr{Wert von Listen-Anfang / \\ -Ende fokussieren}         & Erster / letzter Wert wählen         & \trr{\tbbr{Erster / letzter \\ Wert wählen}} \\
-            \cline{2-3}       & \tbbr{Wert von Listen-Anfang / \\ -Ende fokussieren} \ccgray & Erster / letzter Wert wählen \ccgray & \\
+            \trrr{Home / End} & \tbbr{Wert von Listen-Anfang / \\ -Ende highlighten}         & Erster / letzter Wert wählen         & \trr{\tbbr{Erster / letzter \\ Wert wählen}} \\
+            \cline{2-3}       & \tbbr{Wert von Listen-Anfang / \\ -Ende highlighten} \ccgray & Erster / letzter Wert wählen \ccgray & \\
             \hline \hline
-            \trrrr{Scroll} & Browser-Default\tnote{4}                                                                                               & Browser-Default\tnote{4}                                                                              & \trrrr{\tbbr{\textit{Innen}: Werte \\ bewegen ohne \\ Fokus / Wert \\ zu ändern}} \\
-            \cline{2-3}    & \tbbr{\textit{Aussen}: Liste bleibt \\ $fixed$ offen \\ \textit{Innen}: Werte bewegen \\ ohne Fokus zu ändern} \ccgray & \tbbr{\textit{Aussen}: Liste schliessen \\ \textit{Innen}: Werte bewegen \\ ohne Fokus ändern} \ccgray & \\
+            \trrrr{Scroll} & Browser-Default\tnote{4}                                                                                                   & Browser-Default\tnote{4}                                                                                   & \trrrr{\tbbr{\textit{Innen}: Werte \\ bewegen ohne \\ Highlight / Wert \\ zu ändern}} \\
+            \cline{2-3}    & \tbbr{\textit{Aussen}: Liste bleibt \\ $fixed$ offen \\ \textit{Innen}: Werte bewegen \\ ohne Highlight zu ändern} \ccgray & \tbbr{\textit{Aussen}: Liste schliessen \\ \textit{Innen}: Werte bewegen \\ ohne Highlight ändern} \ccgray & \\
             \hline
-            \trr{Hover} & -                      & UI-Anpassung           & \trr{-} \\
-            \cline{2-3} & Fokus wechseln \ccgray & Fokus wechseln \ccgray & \\
+            \trr{Hover} & -                          & UI-Anpassung               & \trr{-} \\
+            \cline{2-3} & Highlight wechseln \ccgray & Highlight wechseln \ccgray & \\
             \hline
             \trr{Click} & Liste öffnen        & Liste öffnen                                      & \trr{\tbbr{Auswahl aufheben \\ \& Wert wählen}} \\
             \cline{2-3} & Wert wählen \ccgray & \tbbr{Wert wählen \& \\ Liste schliessen} \ccgray & \\
