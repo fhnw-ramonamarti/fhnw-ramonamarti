@@ -1,5 +1,114 @@
 \chapter{Grundlagen}
 
-\section{Generalisierung}
+Um spätere Missverständisse zu vermeiden, klärt dieser Teil das grundlegende Verständnis einer Auswahlkomponente und den Hintergrund der Browser.
+Im Zusammenhang mit der Auswahlkomponente muss klar sein, welche Status diese als auch Bestandteile dessen besitzen können.
+Um eine Basis für das Erstellen einer konsitenten Auswahlkomponente zu ermöglichen, zeigt der Browser-Teil den Grund für die existierenden Unterschiede.
+Zudem klärt eines dieser Unterkapitel den Ablauf des Rendern einer HTML-Seite und bietet ein besseres Verständnis für die Entwicklung der neuen Komponente.
 
-% highlight als fokus was gewählt werden würde
+
+\section{Zustände in einer Auswahlkomponent}
+
+Dieser Abschnitt klärt die Zustände, welche in einer Auswahlkomponente auftreten können.
+Als Ausgangslage dient eine Eingabemöglichkeit, die eine Master-Detail-Ansicht aufweist.
+Zudem sind keine speziellen Voreinstellungen getroffen.
+\\
+Je nach Darstellung der Komponente kann diese $offen$ oder $geschlossen$ dargestellt werden.
+Wenn nur einer der beiden Zustände möglich ist, ist es meistens der offene.
+Im geschlossenen Status zeigt das Erscheinungsbild nur die Detail-Ansicht an, welcher im mindesten den selektierten Wert anzeigen sollte.
+Eine offene Auswahlmöglichkeit zeigt beide Teile der Master-Detail-View dar.
+Der Master-Teil zeigt alle Values einer Liste an.
+
+Bei dem $normalen$ bzw. nicht fokussierten Status ist die Komponente nicht an- oder ausgewählt.
+Dies ist die standardmässige Darstellung, wenn eine Webseite diese Komponente enthält.
+In diesem Fall betreffen Interaktionen über die Tastatur nicht das Element.
+In den meisten Erscheinungen ist nur die Detail-Ansicht sichtbar und der andere Teil ist ausgeblendet.
+Wählt der Nutzer die Komponente mit der Maus oder der Tastatur an, steht sie im $Fokus$ bzw. ist sie $fokussiert$.
+Bedienungen über das Keyboard beziehen sich hierbei auf den Baustein.
+In den meisten Fällen ändert sich die Darstellung des Eingabefeldes z.B. durch einen blauen Rahmen.
+
+Ist ein Wert in der Master-Ansicht ausgewählt und wird in der Detail-View angezeigt, ist dieser $selekitert$.
+Die $Selektion$ wird beim versenden eines verlinkten Formulars als Value mitgeschickt.
+Häufig ist dieser in der Liste aller Werte hervorgehoben, um die Auswahl anzuzeigen.
+In gewissen Situationen existiert noch der Zustand, das in der Master-View ein Wert im $Highlight$ steht. 
+Bestätigt der Nutzer das $gehighlightete$ Value, wechselt der Status auf selektiert.
+Mit dem Hovern der Maus oder über die Tastatur kann der Highlight-Wert geändert werden.
+Dieser Wert hat keinen Einfluss auf das versendete Formular und ist nur im Master zu finden.
+
+Nachfolgend werden noch die Details zum Thema Browser geklärt.
+
+
+\section{Browser \& HTML Renderer}
+
+Dieses Kapitel beschreibt von der Theorie über die pöpulären Browser bis hin zum Ablauf des Rendering die wichtigsten Aspekte.
+Dabei werden nur die bekanntesten Implementationen behandelt.
+
+Ein Webbrowser dient hauptsächlich als Zugang ins Internet und zur Anzeige von Webressourcen wie HTML, CSS und JavaScript.
+Er besteht aus einer Benutzeroberfläche, einer Browser- und einer Layout/Rendering-Engine.
+Um diese Inhalte verständlich auf dem UI darzustellen, verwendet die Browser-Engine einen sogenannten Renderer - mehr dazu später.
+Die Benutzeroberfläche dient als Schnittstelle zwischen dem Benutzer und der Datenschicht. 
+Die Rendering-Engine interpretiert die gegebenen Inhalte, wobei der Renderer anhand des Inhaltstyps gewählt wird. 
+Einer der Engines ist der HTML-Renderer, eine Software, welche den strukturierten Text aus dem HTML-File formatiert mit dem gegebenen Style anzeigt.
+Beim UI und der Bedienung zeigen sich die Uneinigkeiten zwischen den Browser-Herstellern, indem die Rendering-Engine den Code nicht gleich interpretiert.
+
+Im nächsten Unterkapitel ist der detaillierte Ablauf zur Anzeige eines HTNL-Dokuments und die Rolle des Rendering zu lesen.
+
+
+\subsection{Ablauf Parsing \& Rendering}
+
+Der Aufruf einer Webseite beginnt mit dem HTTP-Request auf welchen eine HTTP-Response folgt.
+In diesem Bericht sind die gerade genannten Teile vor dem eigentlichen erhalten der Daten nicht weiter wichtig.
+Der Response liefert schlussendlich die anzuzeigenden Daten, welche in diesem Fall die tragende Rolle spielen.
+Die Rohbytes der HTML-Dateien werden in Zeichen konvertiert, welche die Programmierer geschrieben haben.
+Ein Parser verarbeitet die einzelnen Charaktere weiter zu sogenannten Tokens.
+Hierbei kommt ein Satz von Regeln zur Anwendung, welche bei HTML als Tags in den Diamant-Klammern $<>$ stehen.
+Durch die Definierung der Struktur über die Tokens versteht der Browser den Inhalt der Dateien.
+Die fertigen Tokens werden in Nodes umgewandelt, welche jeweils eigene Eigenschaften besitzen können.
+Aus den entstandenen Nodes entsteht durch Verknüpfungen eine Baumstruktur - der DOM.
+Das Document Object Model (DOM) beschreibt die Eltern-Kind- und Geschwister-Beziehung der Nodes.
+% vllt bild mit ablauf parsen
+
+Wenn im HTML eine CSS-Datei verlinkt ist, muss dieses zuerst nachgefordert werden.
+Nach Erhalt der Rohdaten der Style-Dateien parst der Browser diese zuest in Charaktere und anschliessend in Tokens.
+Die Baumstruktur besteht auch hier aus den Tokens gebildeten Nodes. 
+Dieses Ergebnis nennt sich CSS Object Model - kurz CSSOM - und enthält die Design-Informationen der Elemente.
+
+Der DOM und der CSSOM sind unabhänig und der Browser kombiniert diese zu einem Renderbaum.
+Der resultierenden Baum repräsentiert nur sichtbare Elemente, wohingegen der DOM alle Elemente enthält.
+Das Layout wird im Renderbaum ergäntzt und berechnet die Position und Grösse der Elemente.
+
+Der DOM als auch der CSSOM werden parallel zum jeweiligen Parsen gerendert.
+Das Rendering ist jeweils nur ein Schritt hinder dem Parser und verarbeitet dessen Resultate direkt weiter.
+Dabei wird der Platz im Dokument dem Element und dem Inhalt zugewiesen und diese dort angezeigt.
+Extern nachgeladene Ressourcen wie Bilder können etwas länger dauern, weswegen die Seiten manchmal ohne diese vorgeladen werden.
+
+Stösst der HTML-Parser auf ein $script$-Tag, stoppt dieser den Prozess des HTML-Parsen bis das Script fertig ausgeführt ist - ausser das Tag enthält das $async$-Attribut.
+Dies dient der Sicherheit, weil JavaScript den DOM als auch CSSOM ändern kann und der Browser nicht weiss was passieren wird.
+Deswegen spielt es eine Rolle, zu welchem Zeitpunkt das Script eingebunden ist - egal ob intern oder extern. 
+Der Browser führt während des Scripts den Prozess des CSSOM weiter fort.
+
+Zusammengefasst kann gesagt werden, dass das Parsen von HTML-Files ein Schritt vor dem Rendern ist und dasselbe gilt für CSS-Dateien. 
+Beim Script ist genau überlegt zu handeln, da der Zeitpunkt der Ausführung eine wichtige Rolle spielt.
+Folgendes Unterkapitel zeigt die verbreitesten Browser der jeweilig aktuellsten Version mit dessen Rendering-Engine.
+
+
+\subsection{Bekannte Implementationen}
+
+Am populärsten mit ungefähr 65\% Maarktanteil sind Browser auf der Chromium-Basis, welche mit dem HTML-Renderer Blink arbeiten. 
+Zu diesen Browser zählen Google Chrome, Brave, Microsoft Edge, Opera, Vivaldi, Samsung Internet und noch mehr.
+Blink ist eine Abspaltnung der Renderung-Engine WebKit und wird von der Open-Source Comunity Chromium, Google, Intel und Samsung entwickelt.
+
+WebKit selbst findet sich weiterhin im OS-X Webbrowser Safari wieder, welcher mit etwa 15\% Anteil vertreten ist.
+Der Renderer ist ein Fork von der KHTML-Engine und kommt von den Entwicklern Apple, Google, KDE, Nokia und weitere. 
+KHTML selbst von KDE wird nicht mehr fortgeführt.
+
+Die restlichen Browser sind jeweils mit 7\% oder weniger Marktanteil vertreten.
+Dazu zählen mozilla-basierte Browser wie Firefox, Tor oder Pale Moon, welcher das HTML mit Gecko oder einem Fork dessen renderen.
+Mozilla Foundation ist zuständig für die Weiterentwicklung dieser Rendering-Engine.
+Weiter existiert der Internet Explorer, welcher mit Trident auf Windows und mit Tasman auf Mac rendern.
+Dieser Browser erhält keinen Support mehr und der Marktanteil sinkt immer weiter.
+Die Renderer als auf Forks werden nur noch Maintained, aber nicht mehr weiterentwickelt.
+
+Diese Informationen führen zur Entscheidung, dass die Implementationen der Komponente hauptsächlich auf Chome, Safari und Firefox getestet werden.
+Die Auswahl der drei Browser decken den grössten Teil der auf dem Markt verwendeten Browser und Rendering-Engines ab.
+Dadurch kann eine browserübergreifende Konsistenz garantiert werden.
+Das nachfolgende Kapitel zeigt die Probleme der unterschiedlichen HTML-Renderer auf.

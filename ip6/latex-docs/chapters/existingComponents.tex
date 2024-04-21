@@ -3,7 +3,7 @@
 Dieses Kapitel zeigt einen Überblick als auch Vergleiche der bestehenden Optionen eine Auswahl zu treffen. 
 Es werden die generellen Möglichkeiten einander gegenübergestellt, sowie die bisher bekanntesten Komponenten $select$ und $datalist$ genauer inspiziert.
 Darin wird auf die Interaktionen und die Darstellung bezug genommen. 
-\\
+
 Zu den bereits existierenden Komponenten zum Start dieser Arbeit zählen Buttons bzw. Links, $select$-, $datalist$-Element und das Country Select.
 Unter dem Country Select ist das Resultat des Projekt 5 zu verstehen.
 In der folgende Tabelle \ref{table:generalComparing} zeigt einen Vergleich der genannten Möglichkeiten.
@@ -11,6 +11,11 @@ In der folgende Tabelle \ref{table:generalComparing} zeigt einen Vergleich der g
 \import{../tables}{c.choice.general.tex}
 
 \section{HTML Datalist vs. Select}
+
+Die folgenden Unterkapitel zeigen die Möglichkeiten auf, welche die HTML-Elemente $input$, $option$, $datalist$ und $select$ bieten.
+Zudem zeigen tabellarische Gegenüberstellungen die Unterschiede und Inkonsitenzen dieser in verschiedenen Browsern und Betriebssystemen auf.
+Hierbei liegt der Fokus mehr auf der Interaktion mit den Komponenten als auf der Darstellung.
+
 
 \subsection{Options}
 
@@ -28,7 +33,7 @@ Werden $value$ und $label$ weggelassen, erhalten beide den Wert innerhalb des Ta
 Das HTML-Element kann das Attribut $disabled$ oder $selected$ erhalten.
 Eine $selected$ Option wie in Code \ref{code:OptionExample} Zeile 2 wird initial ausgefüllt und funktioniert nur im zumsammenhang mit dem $select$-Containert. 
 Ist ein Eintrag $sidabled$ wie in Code \ref{code:OptionExample} Zeile 3 kann dieser nicht ausgewählt werden und unterscheidet sich im UI, wenn dieser überhaupt sichtbar ist.
-\\
+
 Das Designen von $soption$s beschränkt sich auf die Text- / Hintergrundfarbe, welche jedoch nur in Firefox funktionieren. 
 Die anderen Browser lassen kein Styling der Auswahl-Elemente zu bzw. zeigen diese nicht an.
 Es ist nur ein scalarer Text als Inhalt erlaubt. 
@@ -65,17 +70,17 @@ Um nach dem Laden der Seite direkt den Fokus auf das Feld zu setzen, kann das At
 Die Definition des $size$-Attributs steuert die Anzahl sichtbarer Elemente, wobei der Default für single $select$s bei 1 und mehrfache Auswahl bei 4 liegt.
 Das $select$ erhält von allen allen Browsern Unterstützung mit Ausnahme des $size$-Attributs.
 Die Grösse wird auf den meisten Mobile-Browsern nicht unterstützt.
-\\ 
+
 Abgesehen von der Grösse durch die $size$ kann das Element kaum umgestaltet werden.
 Es gibt jedoch die sehr aufendiwge Möglichkeit, den Inhalt zu klonen und durch Wrapper neu zu stylen.
 In diesem Fall müssen aber die Logik und die Interaktionen für die Accessability neu implementiert werden.
 Gewisse Stylings können getroffen werden, wobei aber nicht jeder Browser diese in der selben Weise übernehmen.
 Durch die komplexe Strukutr des $selet$s ist eine eigene Darstellung schwierig zu kontrollieren.
-\\
+
 Der Inhalt des Tags können $option$s oder $optgroup$s sein.
 Mehr zur $optgroup$ kommt im nachfolgenden Unterkapitel.
 In der ARIA-Rolle wird die Komponente als Combobox ohne $size$ und $multible$ oder Listbox gehandhabt.
-\\
+
 Die mehrfache Auswahl rein per Tastatur bietet in der Interakion geringer Möglichkeiten als mit der Maus.
 Mit gedrückter Cmd bzw. Ctrl (Mac bzw. Windows) Taste können mit der Maus weitere Elemente dazugewählt werden.
 Sollen in einem Beriech alle Elemente zwischen dem ersten und dem letzten ebenfalls markiert werden, kann stattdessen Shift gedrückt gehalten werden.
@@ -129,7 +134,7 @@ Das Stylen der $datalist$ ist sehr begrenzt bzw. nicht möglich.
 Der Daten-Container reagiert nicht auf den Zoom des Browsers.
 Gewisse Screenreader ingorieren die Vorschlagsliste und lesen diese somit nicht vor.
 In der ARIA-Rolle wird das Element als Listbox interpretiert.
-\\
+
 Die $option$s einer $datalist$ besitzen normalerweise nur ein $value$-Attribut und kein Label oder nur Inhalt.
 Bei einer zusätzlichen Label-Definition kann das je nach Browser zu abweichenden Darstellungen kommen. 
 Während Firefox nur das Label in der Liste anzeigt, werden in den anderen Browsern Label und Value gemeinsam visualisiert. 
@@ -137,7 +142,7 @@ Die Browser, welche Label und Value anzeigen, heben den Wert ein wenig hervor.
 Die Darstellung kann zu Missverständissen führen, da bei der Auswahl nur der Value in das Eingabe-Feld eingefügt wird. 
 Die $options$-Werte können sich dem Typ des Inputs anpassen. 
 Generell unterstützen alle Browser die $datalist$, aber Firefox nur begrenzt.
-\\
+
 (\cite{optionMdn}) Nicht alle Browser unterstützen die Liste für jeden Eingabe-Typ.
 Der textuelle Typ funktioniert in allen Browsern und die Liste öffnet sich nach ein Klick bzw. Doppelklick auf das Feld.
 Vordefinierte Datum- und Zeit-Typen funktionieren nur in den Chromium basierten Browsern. 
@@ -149,11 +154,12 @@ Zusammengefasst bieten Chromium-basierte Browser die beste Unterstützung für L
 
 
 \subsubsection{Input}
+
 Dieser Abschnitt behandelt nur den Teil, welcher im Bezug auf die $datalist$ von Belang ist.
 Das Input - in Code \ref{code:DatalistExample} auf Zeile 1 - wird durch das $list$-Attribut mit den Auswahloptionen verknüpft.
 Bei der Verwendung zusammen mit der $datalist$ ist dieses Attribut pflicht.
 Dadurch erscheinen die Auswahloptionen während der Bedienung des Input-Feldes. 
-\\
+
 Die in diesem Kontext für alle Typen geltenden Attribute werden in diesem Paragraph genauer angeschaut.
 Mit dem $autocomplete$ dient zur Anzeige der Hinweise für das Autofill Featuere der Browser.
 Wie in den früheren Abschnitten bereits beschrieben kann durch das $disable$ die Interaktion ausgeschatet werden und somit die Komponente deaktiviert werden.
@@ -163,7 +169,7 @@ Der Typ des Eingabefeldes - angegeben durch das $type$ - definiert, welche UI-Er
 Als Standard-Typ ist $text$ definiert, wodurch dieses Attribut optional ist.
 Mehr zu den für diese Arbeit wichtigen Typen ist im Unterkapitel \textbf{Input-Typen mit Datalist-Unterstützung} zu lesen.
 Die $id$ als globale Eigenschaft dient bei den Eingabe-Felder zusätzlich noch zur Verkünpfung mit einem $label$-Element und somit einer bessern Accessability.
-\\
+
 Weiter existieren noch die zwei Attribute $readonly$ und $required$, welche alle Typen ausser $range$ und $color$ definiert sind.
 Durch die Ergänzung der ersten Eigenschaft ist der Wert nicht mehr änderbar, aber es bleibt im Verlauf der fokussierbaren Komponenten enthalten.
 Um die Eingabe zu erzwingen, kann das $required$ angewendet werden.
@@ -180,7 +186,7 @@ Dieses wird vor dem Senden des Fodmulars validiert und bei Fehlern mit invalide 
 Gewisse Typen - wie z.B. $url$, $tel$ und $email$ - haben bereits eine Pattern hinterlegt.
 Mit $size$ lässt sich die Grösse bzw. Anzahl sichtbarer Zeichen angeben.
 Weitere Informationen zum Styling eines Inputfeld stehen im Unterkapitel \textbf{CSS für Input-Felder}.
-\\
+
 Das Input enhält keinen Inhalt und ist ein selbst-schliessendes Tag.
 Die ARIA-Rolle ist vom Typ abhängig und kann als Textbox, Combobox, Spinbutton, Sliter, Searchbox, Telbox oder keiner spezeillen Rolle zugeordent sein.
 In den hier erwähnten Möglichkeiten der Kompontente existiert eine grossflächige Browserunterstützung.
@@ -238,7 +244,7 @@ Die geöffnete Liste ist bei Firefox als einziges ein wenig konsistenter, diese 
 Die anderen Browser sind einstellungsabhängig und zeigen den Container in einem dunklen grau oder weiss an.
 Je nach Anzahl der enthaltenen Elemente erscheint die Liste darunter (darüber) oder überdeckt das $select$ selbst sogar.
 Grunsätzlich lässt sich das Element in Safari am wenigsten stylen.
-\\
+
 Die $datalist$ ist inkonsistenter, da bespielsweise nicht in jedem Browser ein Icon angezeigt wird.
 Safari (Mac) und Firefox stellen keinen visuellen Hinweis auf einen Listen-Container dar.
 Safari auf iOS zeigt hingegen in jedem Fall - bezogen auf den textuellen Typ - einen Pfeil nach unten an.
