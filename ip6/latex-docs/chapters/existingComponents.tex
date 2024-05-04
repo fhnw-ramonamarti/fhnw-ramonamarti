@@ -31,10 +31,10 @@ Der Wert kann als Inhalt verwendet werden, wenn anstatt das $value$- das $label$
 Das $label$ wird jedoch von Firefox nicht unterstützt.
 Werden $value$ und $label$ weggelassen, erhalten beide den Wert innerhalb des Tags.
 Das HTML-Element kann das Attribut $disabled$ oder $selected$ erhalten.
-Eine $selected$ Option wie in Code \ref{code:OptionExample} Zeile 2 wird initial ausgefüllt und funktioniert nur im zumsammenhang mit dem $select$-Containert. 
-Ist ein Eintrag $sidabled$ wie in Code \ref{code:OptionExample} Zeile 3 kann dieser nicht ausgewählt werden und unterscheidet sich im UI, wenn dieser überhaupt sichtbar ist.
+Eine $selected$ Option wie in Code \ref{code:OptionExample} Zeile 2 wird initial ausgefüllt und funktioniert nur im Zusammenhang mit dem $select$-Container. 
+Ist ein Eintrag $disabled$ wie in Code \ref{code:OptionExample} Zeile 3 kann dieser nicht ausgewählt werden und unterscheidet sich im UI, wenn dieser überhaupt sichtbar ist.
 
-Das Designen von $soption$s beschränkt sich auf die Text- / Hintergrundfarbe, welche jedoch nur in Firefox funktionieren. 
+Das Designen von $option$s beschränkt sich auf die Text- / Hintergrundfarbe, welche jedoch nur in Firefox funktionieren. 
 Die anderen Browser lassen kein Styling der Auswahl-Elemente zu bzw. zeigen diese nicht an.
 Es ist nur ein scalarer Text als Inhalt erlaubt. 
 Das bedeutet, es können keine weiteren Tags verschachtelt werden.
@@ -45,7 +45,7 @@ Alle gängigen Browser unterstützen dieses Tag.
 
 \subsection{Select}
 
-\begin{lstlisting}[language = html, caption = Select Example, label = code:SelectExample]
+\begin{lstlisting}[language = html, caption = Code: Select Example, label = code:SelectExample]
     <select name="animal">
         <option value="" disabled>Animal</option>
         <option value="dog">Dog</option>
@@ -56,15 +56,15 @@ Alle gängigen Browser unterstützen dieses Tag.
 
 Das $select$-Tag benötigt kein weiteres Element ausser die $option$s – ersichtlich im Code \ref{code:SelectExample}, um den Wert zu speichern.
 Die typischen Attrribute für Eingaben-Felder wie $disabled$, $form$, $name$ und $required$ sind auch bei einem $select$ verwendbar.
-Durch das $disabled$ zeigt sich das Element in einer ausgegrauten erscheinung und bietet dem Nutzer keine Interaktionsmöglichkeiten mehr.
+Durch das $disabled$ zeigt sich das Element in einer ausgegrauten Erscheinung und bietet dem Nutzer keine Interaktionsmöglichkeiten mehr.
 Dieses Attribut kann vom Container - z.B. $fieldset$ - geerbt werden.
 Das $form$ definiert das dazugehörige Formular und $name$ den Key für das Key-Value Paar bzw. Name des Feldes im Formular. 
-Mit dem $required$ wird eine Eingabe erzungen, um das senden des Formulars friezuschalten.
+Mit dem $required$ wird eine Eingabe erzwungen, um das senden des Formulars freizuschalten.
 Für eine bessere Accessability sollte eine $id$ vergeben werden, damit ein Label dem $select$ zugewiesen werden kann.
 Standardmässig ist für dieses Feld nur eine einzelne Auswahl möglich.
 Durch die Ergänzung des Attribut $multible$ ist es möglich mehrere Werte zu markieren.
 Bei einem Multiselect können mehrere Listenelemente mit vorausgewählt werden.
-Wenn jedoch bei einem einfachen $select$ mehere Optionen das $selected$-Attribut enthalten, wird das letzte als Default eingesetzt und die anderen ignoriert.
+Wenn jedoch bei einem einfachen $select$ mehrere Optionen das $selected$-Attribut enthalten, wird das letzte als Default eingesetzt und die anderen ignoriert.
 Das $autocomplete$ funktioniert wie bei anderen Inputs, indem Hinweise für das User Agent Feature auftauchen.
 Um nach dem Laden der Seite direkt den Fokus auf das Feld zu setzen, kann das Attribut $autofocus$ ergäntzt werden.
 Die Definition des $size$-Attributs steuert die Anzahl sichtbarer Elemente, wobei der Default für single $select$s bei 1 und mehrfache Auswahl bei 4 liegt.
@@ -93,7 +93,7 @@ Auf dem Mac müssen die Tastenkombinationen jedoch zuerst in der Systemeinstellu
 
 \subsubsection{Optgroup}
 
-\begin{lstlisting}[language = html, caption = Optgroup Example, label = code:OptgroupExample]
+\begin{lstlisting}[language = html, caption = Code: Optgroup Example, label = code:OptgroupExample]
     <select name="animal">
         <optgroup label="Big animal">
             <option value="dog">Dog</option>
@@ -126,7 +126,7 @@ Es besitzt die ARIA-Rolle einer Gruppe und wird von allen Browsern unterstützt.
 \end{lstlisting}
 
 Die Datalist besteht aus zwei Teilen - einem Input-Feld und einem Daten-Container - wie in Code \ref{code:DatalistExample} ersichtlich. 
-Im folgenden Unterkapitel \textbf{Input} wird detaillerter auf das Eingabe-Feld und dessen Typen eingegangen.
+Im folgenden Unterkapitel \textbf{Input} wird detaillierter auf das Eingabe-Feld und dessen Typen eingegangen.
 Die Datenliste besitzt keine spezeillen eigenen Attribute.
 Von den globalen Attributen sollte jedoch zumindest eine $id$ vergeben werden.
 Die Id dient zur Verknüpfung der Liste mit dem Input-Feld. 
@@ -162,9 +162,9 @@ Dadurch erscheinen die Auswahloptionen während der Bedienung des Input-Feldes.
 
 Die in diesem Kontext für alle Typen geltenden Attribute werden in diesem Paragraph genauer angeschaut.
 Mit dem $autocomplete$ dient zur Anzeige der Hinweise für das Autofill Featuere der Browser.
-Wie in den früheren Abschnitten bereits beschrieben kann durch das $disable$ die Interaktion ausgeschatet werden und somit die Komponente deaktiviert werden.
+Wie in den früheren Abschnitten bereits beschrieben kann durch das $disable$ die Interaktion ausgeschaltet werden und somit die Komponente deaktiviert werden.
 Wenn das Eingabe-Feld ausserhalb eines Formulars platziert ist, kann durch das Attribut $form$ ein Verknüpfung zu einem auf der Seite existierenden Formular hergestett werden.
-Der Name mit $name$ dient zur Identifizierung des definierten Wertes im $value$-Attrribut in einem abgesendet Formular.
+Der Name mit $name$ dient zur Identifizierung des definierten Wertes im $value$-Attribut in einem abgesendet Formular.
 Der Typ des Eingabefeldes - angegeben durch das $type$ - definiert, welche UI-Erscheinung das Input im Browser erhält und welche Werte zulässig sind.
 Als Standard-Typ ist $text$ definiert, wodurch dieses Attribut optional ist.
 Mehr zu den für diese Arbeit wichtigen Typen ist im Unterkapitel \textbf{Input-Typen mit Datalist-Unterstützung} zu lesen.
@@ -173,12 +173,12 @@ Die $id$ als globale Eigenschaft dient bei den Eingabe-Felder zusätzlich noch z
 Weiter existieren noch die zwei Attribute $readonly$ und $required$, welche alle Typen ausser $range$ und $color$ definiert sind.
 Durch die Ergänzung der ersten Eigenschaft ist der Wert nicht mehr änderbar, aber es bleibt im Verlauf der fokussierbaren Komponenten enthalten.
 Um die Eingabe zu erzwingen, kann das $required$ angewendet werden.
-Die Eigenschaften $min$, $max$ und $step$ helfen nummerischen Typen\footnotemark zu konfigurieren.
+Die Eigenschaften $min$, $max$ und $step$ helfen numerischen Typen\footnotemark zu konfigurieren.
 \footnotetext{gemeint sind: $date$, $month$, $week$, $time$, $datetime-local$, $number$, $range$}
 Die ersten beiden begrenzen die Werte auf einen Bereich oder ein Intervall.
 Mit $step$ lässt sich noch die Grösse eines Schrittes einstellen.
 Die textlichen Felder\footnotemark besitzen die Attribute $maxlength$, $minlength$, $pattern$ und $size$.
-\footnotetext{in diesem Zusammenheng: $text$, $search$, $url$, $tel$, $email$, $password$}
+\footnotetext{in diesem Zusammenhang: $text$, $search$, $url$, $tel$, $email$, $password$}
 Diese Texttypen zusammen mit $number$ können durch $placeholder$ einen Patzhaltertext erhalten.
 Die Min- und Max-Länge schränken die Textlänge der Eingabe ein.
 Um eine Eingabe weiter zu begrenzen, kann ein Muster mit Regex im $pattern$-Attribut vorgegeben werden.
@@ -193,7 +193,7 @@ In den hier erwähnten Möglichkeiten der Kompontente existiert eine grossfläch
 Die einzigen Ausnahmen beziehen sich auf die Typen $week$ und $month$, welche im Firefox und Safari nicht funktionieren.
 
 \subsubsection{{\color{dgray} Input-Typen mit Datalist-Unterstützung}}
-Angefangen mit den texutellen Typen existieren $text$, $search$, $number$, $email$, $url$ und $tel$.
+Angefangen mit den textuellen Typen existieren $text$, $search$, $number$, $email$, $url$ und $tel$.
 Diese Typen Erscheinen als mehr oder weniger normales, einzeiliges Texteingabefeld.
 Die ersten zwei der Auflistung verwalten einen Text ohne spezeille Anforderungen. 
 Um die Werte als Zahlen zu speichern, dient der Typ $number$, welche dem UI noch zwei Buttons ergänzt.
@@ -231,7 +231,7 @@ Generell kann das normale Input-Feld relativ gut designt werden - im Vergleich z
 
 \clearpage
 \section{Browser-Inkonsistenzen}
-Die Komponenten Select \& Datalist können sich im UI und der Bedingung leicht varieren,
+Die Komponenten Select \& Datalist können sich im UI und der Bedingung leicht variieren,
 besonders hinsichtlich der visuellen Darstellung und des Verhaltens von Navigationspfeilen oder anderen Steuerelementen.
 
 
@@ -301,6 +301,7 @@ Auf Mobile
 \clearpage
 \subsection{Fazit}
 
+% todo rewrite with focus on differences visible in tables
 Generell ändern sich die Verhaltensweisen der Standardkomponenten in verschiedenen Browsern in Bezug auf Design und Interaktionsmechanismen. 
 Hierbei spielen das Betriebssystemspezifische Styling und die individuellen Implementierungen der Browser eine Rolle. Die Grundfunktionen zeigen sich ähnlich, 
 wobei etwaige Unterschiede oft in der visuellen Darstellung und in Details der Interaktion (z.B. beim Öffnen der Dropdowns oder der Navigation innerhalb der Listen) liegen. 
