@@ -13,11 +13,11 @@ In der folgende Tabelle \ref{table:generalComparing} zeigt einen Vergleich der g
 \section{HTML Datalist vs. Select}
 
 Die folgenden Unterkapitel zeigen die Möglichkeiten auf, welche die HTML-Elemente $input$, $option$, $datalist$ und $select$ bieten.
-Zudem zeigen tabellarische Gegenüberstellungen die Unterschiede und Inkonsitenzen dieser in verschiedenen Browsern und Betriebssystemen auf.
+Zudem zeigen tabellarische Gegenüberstellungen die Unterschiede und Inkonsistenzen dieser in verschiedenen Browsern und Betriebssystemen auf.
 Hierbei liegt der Fokus mehr auf der Interaktion mit den Komponenten als auf der Darstellung.
 
 
-\subsection{Options}
+\subsection{Option}
 
 \begin{lstlisting}[language = html, caption = Code: Option Example, label = code:OptionExample]
     <option value="ValueToSend">LabelToShow</option>
@@ -185,14 +185,14 @@ Um eine Eingabe weiter zu begrenzen, kann ein Muster mit Regex im $pattern$-Attr
 Dieses wird vor dem Senden des Fodmulars validiert und bei Fehlern mit invalide markiert.
 Gewisse Typen - wie z.B. $url$, $tel$ und $email$ - haben bereits eine Pattern hinterlegt.
 Mit $size$ lässt sich die Grösse bzw. Anzahl sichtbarer Zeichen angeben.
-Weitere Informationen zum Styling eines Inputfeld stehen im Unterkapitel \textbf{CSS für Input-Felder}.
+Weitere Informationen zum Styling eines Input-Feldes stehen im Unterkapitel \textbf{CSS für Input-Felder}.
 
 Das Input enhält keinen Inhalt und ist ein selbst-schliessendes Tag.
 Die ARIA-Rolle ist vom Typ abhängig und kann als Textbox, Combobox, Spinbutton, Sliter, Searchbox, Telbox oder keiner spezeillen Rolle zugeordent sein.
 In den hier erwähnten Möglichkeiten der Kompontente existiert eine grossflächige Browserunterstützung.
 Die einzigen Ausnahmen beziehen sich auf die Typen $week$ und $month$, welche im Firefox und Safari nicht funktionieren.
 
-\subsubsection{Input-Typen mit Datalist-Unterstützung}
+\subsubsection{{\color{dgray} Input-Typen mit Datalist-Unterstützung}}
 Angefangen mit den texutellen Typen existieren $text$, $search$, $number$, $email$, $url$ und $tel$.
 Diese Typen Erscheinen als mehr oder weniger normales, einzeiliges Texteingabefeld.
 Die ersten zwei der Auflistung verwalten einen Text ohne spezeille Anforderungen. 
@@ -209,7 +209,7 @@ Für eine Farbauswahl kann der Typ $color$ zur Anwendung kommen.
 Dieser zeigt in den gängigen Browser nach dem aufklappen ein Palette, welche sich aber in der Darstellung unterscheiden kann. 
 Firefox beispielsweise greift auf die vom System gestellt Farbpalette zurück, wo Chromium-basierte Browser eine eigene bieten.
 
-\subsubsection{CSS für Input-Felder}
+\subsubsection{{\color{dgray} CSS für Input-Felder}}
 Bei einem Input bestehen mehr Möglichkeiten dieses umzugestalten.
 Es existieren eigene CSS-Pseudo-Klassen, wobei folgend nur ein Teil aufgezählt wird.
 
@@ -227,7 +227,7 @@ Es existieren eigene CSS-Pseudo-Klassen, wobei folgend nur ein Teil aufgezählt 
 Weiter gibt es noch die das Pseudo-Element \textbf{::placeholder}, welches das Stylen des Platzhalter erlaubt.
 In Feldern mit einem Cursor\footnotemark kann dieser mit dem CSS-Property \textbf{caret-color} umgefärbt werden.
 \footnotetext{hier gemeint: blinkender Strich in einem Eingabefeld}
-Generell kann der normale Input-Feld relativ gut designt werden - im Vergleich zur $datalist$ und dem $select$.
+Generell kann das normale Input-Feld relativ gut designt werden - im Vergleich zur $datalist$ und dem $select$.
 
 \clearpage
 \section{Browser-Inkonsistenzen}
