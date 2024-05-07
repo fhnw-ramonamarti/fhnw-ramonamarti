@@ -46,11 +46,91 @@
                 height: 30px;
                 min-width: 150px;
             }
+
+            .nested-dropdown-container:hover .nested-dropdown {
+                display: flex;
+            }
+
+            .dropdown-container {
+                display: inline-block;
+                position: relative;
+            }
+
+            .dropdown-container select {
+                width: 180px;
+            }
+
+            .nested-dropdown {
+                position: absolute;
+                left: 0;
+                z-index: 1;
+                background-color: white;
+                border: 1px solid #ccc;
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+            }
+
+            .dropdown-container.show .nested-dropdown {
+                display: flex;
+            }
+
         </style>
     </head>
 
     <body>
         <main>
+            <div>
+                <label for="select2">Primary Select</label>
+                <select name="select" id="select2">
+                    <option value="none" selected>Choose an Option</option>
+                    <option value="nested">Show Nested Options</option>
+                    <option value="other">Other Options</option>
+                </select>
+            </div>
+
+            <div class="nested-select-container" id="nested-select-container">
+                <label for="nested-select1">Nested Select 1</label>
+                <select name="nested-select1" id="nested-select1">
+                    <option value="nested1a">Nested Option 1A</option>
+                    <option value="nested1b">Nested Option 1B</option>
+                </select>
+
+                <label for="nested-select2">Nested Select 2</label>
+                <select name="nested-select2" id="nested-select2">
+                    <option value="nested2a">Nested Option 2A</option>
+                    <option value="nested2b">Nested Option 2B</option>
+                </select>
+            </div>
+
+            <div class="dropdown-container">
+                <label for="main-select">Primary Selection</label>
+                <select id="main-select">
+                    <option value="none" selected>Select Continent and Country</option>
+                    <option value="open">Open Nested Selects</option>
+                </select>
+
+                <div class="nested-dropdown">
+                    <div>
+                        <label for="continent-select">Choose Continent</label>
+                        <select id="continent-select">
+                            <option value="none" disabled selected>Choose Continent</option>
+                            <option value="africa">Africa</option>
+                            <option value="asia">Asia</option>
+                            <option value="europe">Europe</option>
+                            <option value="north-america">North America</option>
+                            <option value="south-america">South America</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="country-select">Choose Country</label>
+                        <select id="country-select" disabled>
+                            <option value="none" disabled selected>Choose Country</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
             <div>
                 <label for="select">Select</label>
                 <select name="select" id="select" class="countriesData">
@@ -66,10 +146,40 @@
 
             <div id="form-holder"></div>
         </main>
+
         <script type="module">
             import { countryList } from "./countries.js";
             import { ChoiceDetailController, ChoiceMasterController } from "./js/choiceInputController.js";
             import { projectChoiceInput } from "./js/choiceInputProjector.js";
+
+            const continentCountries = {
+                africa: ["Nigeria", "Egypt", "South Africa"],
+                asia: ["China", "India", "Japan"],
+                europe: ["France", "Germany", "United Kingdom"],
+                "north-america": ["Canada", "United States", "Mexico"],
+                "south-america": ["Brazil", "Argentina", "Colombia"],
+            };
+
+            const continentSelect = document.querySelector("#continent-select");
+            const countrySelect = document.querySelector("#country-select");
+
+            continentSelect.addEventListener("change", () => {
+                const continent = continentSelect.value;
+                const countries = continentCountries[continent] || [];
+
+                // Clear previous options
+                countrySelect.innerHTML = '<option value="none" disabled selected>Choose Country</option>';
+
+                // Populate country options based on the selected continent
+                countries.forEach(country => {
+                    const option = document.createElement("option");
+                    option.value = country.toLowerCase().replace(" ", "-");
+                    option.textContent = country;
+                    countrySelect.appendChild(option);
+                });
+
+                countrySelect.disabled = countries.length === 0;
+            });
 
             const createDetailController = () => {
                 const formStructureDetail = {
@@ -98,16 +208,6 @@
             if (null != formHolder) {
                 formHolder.append(...start());
             }
-        </script>
-        <script type="module">
-            import { countryList } from "./countries.js";
-            document.querySelectorAll(".countriesData").forEach((e) => {
-                countryList
-                    .map((c) => c.country)
-                    .forEach((c) => {
-                        e.innerHTML += `<option value="${c}">${c}</option>`;
-                    });
-            });
         </script>
     </body>
 </html>
