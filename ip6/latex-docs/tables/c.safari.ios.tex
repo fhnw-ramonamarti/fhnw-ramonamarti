@@ -1,0 +1,40 @@
+\begin{table}[ht!]
+    \label{table:interactionSafariIos}
+    \tablesettings{Vergleich Interaktion Datalist \& Select in Safari (iOS, mobile)}
+    \footnotesize
+    \begin{threeparttable}
+        \begin{tabular}{ l || l | l | l }
+            \trrr{\bf{Kriterium}} & \bf{Datalist} & \bf{Select}   & \bf{Multiselect} \\
+            \cline{2-4}           & geschlossen   & geschlossen   & geschlossen \\
+            \cline{2-4}           & offen \ccgray & offen \ccgray & offen \ccgray \\
+            \hline \hline
+            \trrr{Buchstaben} & Schreiben             & nicht möglich         & nicht möglich         \\
+            \cline{2-4}       & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray \\
+            \hline
+            \trr{Leerschlag} & Schreiben             & nicht möglich         & nicht möglich         \\
+            \cline{2-4}      & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray \\
+            \hline
+            \trr{Backspace} & Symbol löschen        & nicht möglich         & nicht möglich         \\
+            \cline{2-4}     & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray \\
+            \hline \hline
+            \trrr{Enter} & \tbbr{Formular senden / \\ ohne Form nichts} & nicht möglich         & nicht möglich         \\
+            \cline{2-4}  & nicht möglich \ccgray                        & nicht möglich \ccgray & nicht möglich \ccgray \\
+            \hline \hline
+            \trrrr{Scroll} & Browser-Default\tnote{1}                                                                           & Browser-Default\tnote{1}                                                            & Browser-Default\tnote{1} \\
+            \cline{2-4}    & \tbbr{\textit{Aussen}: Liste schliessen \\ \textit{Innen}: Werte bewegen \\ ohne Änderung} \ccgray & \tbbr{\textit{Aussen}: - \\ \textit{Innen}: Werte bewegen \\ ohne Änderung} \ccgray & \tbbr{\textit{Aussen}: Browser-Default\tnote{1} \\ \textit{Innen}: Werte bewegen \\ ohne Änderung} \ccgray \\
+            \hline
+            \trr{Click} & \tbbr{\textit{in Feld}: - \\ \textit{Pfeil}: Liste gefiltert öffnen\tnote{2}} & Liste öffnen                                    & Liste öffnen \\
+            \cline{2-4} & \tbbr{Wert wählen, \\ Liste schliessen} \ccgray                               & \tbbr{Wert wählen, \\ Liste schliessen} \ccgray & \tbbr{\textit{Aussen}: Liste schliessen \\ \textit{Innen}: Wert wählen / \\ abwählen} \ccgray \\
+            \hline \hline
+            \trr{\tbbr{Schütteln\\ (Undo / Redo)}} & iOS-Default\tnote{3}         & -         & - \\
+            \cline{2-4}                            & iOS-Default\tnote{3} \ccgray & - \ccgray & - \\
+            \hline 
+        \end{tabular}
+        \begin{tablenotes}
+            \scriptsize
+            \item[1] Gemeint: Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
+            \item[2] Filter: Leerschlag als normales Symbol gezählt; Liste verändern je nach Anzahl passender Werte
+            \item[3] Rückgängig bzw. Wiederholen, wenn zuvor im Feld etwas getippt wurde; bei nur Wert wählen keine Aktion
+        \end{tablenotes}
+    \end{threeparttable}
+\end{table}

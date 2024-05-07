@@ -1,0 +1,36 @@
+\begin{table}[ht!]
+    \label{table:interactionDuckduckAndroid}
+    \tablesettings{Vergleich Interaktion Datalist \& Select in DuckduckGo (Android, mobile)}
+    \footnotesize
+    \begin{threeparttable}
+        \begin{tabular}{ l || l | l | l }
+            \trrr{\bf{Kriterium}} & \bf{Datalist} & \bf{Select}   & \bf{Multiselect} \\
+            \cline{2-4}           & geschlossen   & geschlossen   & geschlossen \\
+            \cline{2-4}           & offen \ccgray & offen \ccgray & offen \ccgray \\
+            \hline \hline
+            \trrr{Buchstaben} & Schreiben, Liste gefiltert öffnen\tnote{1} & nicht möglich         & nicht möglich         \\
+            \cline{2-4}       & Schreiben, Liste filtern\tnote{1} \ccgray  & nicht möglich \ccgray & nicht möglich \ccgray \\
+            \hline
+            \trr{Leerschlag} & Schreiben, Liste gefiltert öffnen\tnote{1} & nicht möglich         & nicht möglich         \\
+            \cline{2-4}      & Schreiben, Liste filtern\tnote{1} \ccgray  & nicht möglich \ccgray & nicht möglich \ccgray \\
+            \hline
+            \trr{Backspace} & \tbbr{Symbol löschen, Liste gefiltert\tnote{1} \\ öffnen (wenn Feld nicht leer)} & nicht möglich         & nicht möglich         \\
+            \cline{2-4}     & Symbol löschen, Liste filtern\tnote{1} \ccgray                                   & nicht möglich \ccgray & nicht möglich \ccgray \\
+            \hline \hline
+            \trrr{Enter} & \tbbr{Formular senden / ohne Form \\ zum nächsten Feld springen}         & nicht möglich         & nicht möglich         \\
+            \cline{2-4}  & \tbbr{Formular senden / ohne Form \\ zum nächsten Feld springen} \ccgray & nicht möglich \ccgray & nicht möglich \ccgray \\
+            \hline \hline
+            \trrrr{Scroll} & Browser-Default\tnote{2}                                                            & Browser-Default\tnote{2}                        & Browser-Default\tnote{2} \\
+            \cline{2-4}    & \tbbr{\textit{Aussen}: Liste bleibt offen \\ \textit{Innen}: Werte bewegen} \ccgray & \tbbr{\textit{Innen}: \\ Werte bewegen} \ccgray & \tbbr{\textit{Innen}: \\ Werte bewegen} \ccgray \\
+            \hline
+            \trr{Click} & \tbbr{\textit{in Feld}: - \\ \textit{Pfeil}: Liste gefiltert öffnen\tnote{1}}                        & Liste öffnen                                                    & Liste öffnen \\
+            \cline{2-4} & \tbbr{\textit{Innen}: Wert wählen, \\ Liste schliessen \\ \textit{Aussen}: Liste schliessen} \ccgray & \tbbr{\textit{Innen}: Wert wählen, \\ Liste schliessen} \ccgray & \tbbr{\textit{Innen}: Wert \\ wählen / abwählen} \ccgray \\
+            \hline 
+        \end{tabular}
+        \begin{tablenotes}
+            \scriptsize
+            \item[1] Filter: Leerschlag als normales Symbol gezählt; Liste verändern je nach Anzahl passender Werte; nicht scrollbar
+            \item[2] Gemeint: Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
+        \end{tablenotes}
+    \end{threeparttable}
+\end{table}

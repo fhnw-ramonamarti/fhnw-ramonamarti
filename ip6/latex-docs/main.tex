@@ -2,15 +2,74 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[english, ngerman]{babel}
-\usepackage[nottoc]{tocbibind}
+% \usepackage[nottoc]{tocbibind}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa,sorting=ynt]{biblatex}
 \usepackage{graphicx}
-\usepackage{apacite}
+% \usepackage{apacite}
 \usepackage{geometry}
+\usepackage{capt-of}
 \usepackage[table]{xcolor}
 \usepackage{pifont}
+\usepackage{import}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage[referable]{threeparttablex}
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{lgray}{rgb}{0.9,0.9,0.9}
+\definecolor{dgray}{rgb}{0.3,0.3,0.4}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\graphicspath{ {./img/} }
+\addbibresource{chapters/references.bib}
 
 \newcommand{\cmark}{\ding{51}} % ✓
 \newcommand{\xmark}{\ding{55}} % ✗
+
+\newcommand{\tablesettings}[1]{\caption{#1} \bigskip \centering}
+\newcommand{\trr}[1]{\multirow{2}{*}{#1}}
+\newcommand{\trrr}[1]{\multirow{3}{*}{#1}}
+\newcommand{\trrrr}[1]{\multirow{4}{*}{#1}}
+\newcommand\ccgray{\cellcolor{gray!20}}
+
+\newcommand\Tstrut{\rule{0pt}{2.9ex}} % top
+\newcommand\Bstrut{\rule[-1.2ex]{0pt}{0pt}} % bottom
+\newcommand\TBstrut{\Tstrut\Bstrut} % top & bottom
+
+\newcommand{\tbbr}[2][l]{ % in table line break
+  \begin{tabular}[#1]{@{}l@{}}\hspace{-1mm}#2\end{tabular}}
+
+\renewcommand\lstlistingname{Code} % name of listing caption
+
+\newgeometry{inner=5cm, outer=2.5cm, top=2.5cm, bottom=2.5cm}
+
+% code blocks with lstlisting: html, java, 
+\lstdefinestyle{code}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=code}
+
 
 % title page start
 \title{Kolibri\\
@@ -20,6 +79,13 @@
 % title page end
 
 \begin{document}
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=60mm,scale=0.5]{kolibri-logo.png}
+%     \caption{Kolibri Logo}
+%     \label{Abbildung:Kolibri}
+% \end{figure}
 
 \maketitle
 
@@ -33,11 +99,18 @@
 \include{chapters/intro}
 \include{chapters/basics}
 % main chaapters here
+\include{chapters/existingComponents}
+\include{chapters/newComponent}
+
 \include{chapters/end}
 
 % listings
-\bibliographystyle{apacite}
-\bibliography{chapters/references}
+\include{chapters/glossary}
+
+% \bibliographystyle{apacite}
+% \bibliography{chapters/references}
+\printbibliography[title={Quelleverzeichnis}]
+
 
 \listoffigures
 \listoftables

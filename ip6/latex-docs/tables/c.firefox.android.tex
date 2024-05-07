@@ -1,0 +1,35 @@
+\begin{table}[ht!]
+    \label{table:interactionFirefoxAndroid}
+    \tablesettings{Vergleich Interaktion Datalist \& Select in Firefox (Android, mobile)}
+    \footnotesize
+    \begin{threeparttable}
+        \begin{tabular}{ l || l | l | l }
+            \trrr{\bf{Kriterium}} & \bf{Datalist} & \bf{Select}   & \bf{Multiselect} \\
+            \cline{2-4}           & geschlossen   & geschlossen   & geschlossen \\
+            \cline{2-4}           & offen \ccgray & offen \ccgray & offen \ccgray \\
+            \hline \hline
+            \trrr{Buchstaben} & Schreiben             & nicht möglich         & nicht möglich         \\
+            \cline{2-4}       & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray \\
+            \hline
+            \trr{Leerschlag} & Schreiben             & nicht möglich         & nicht möglich         \\
+            \cline{2-4}      & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray \\
+            \hline
+            \trr{Backspace} & Symbol löschen        & nicht möglich         & nicht möglich         \\
+            \cline{2-4}     & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray \\
+            \hline \hline
+            \trrr{Enter} & \tbbr{Formular senden / \\ ohne Form nichts} & nicht möglich         & nicht möglich         \\
+            \cline{2-4}  & nicht möglich \ccgray                        & nicht möglich \ccgray & nicht möglich \ccgray \\
+            \hline \hline
+            \trrrr{Scroll} & Browser-Default\tnote{1} & Browser-Default\tnote{1}                                      & Werte bewegen \\
+            \cline{2-4}    & - \ccgray                & \tbbr{\textit{Innen}: Werte bewegen \\ ohne Änderung} \ccgray & \tbbr{\textit{Innen}: \\ Werte bewegen} \ccgray \\
+            \hline
+            \trr{Click} & -         & Liste öffnen                                                   & Liste öffnen \\
+            \cline{2-4} & - \ccgray & \tbbr{\textit{Innen}: Wert wählen, \\Liste schliessen} \ccgray & \tbbr{\textit{Innen}: Wert wählen / \\ abwählen} \ccgray \\
+            \hline 
+        \end{tabular}
+        \begin{tablenotes}
+            \scriptsize
+            \item[1] Gemeint: Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
+        \end{tablenotes}
+    \end{threeparttable}
+\end{table}
