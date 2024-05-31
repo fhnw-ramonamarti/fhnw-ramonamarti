@@ -6,10 +6,34 @@ Um eine Basis für das Erstellen einer konsitenten Auswahlkomponente zu ermögli
 Zudem klärt eines dieser Unterkapitel den Ablauf des Rendern einer HTML-Seite und bietet ein besseres Verständnis für die Entwicklung der neuen Komponente.
 
 
+\section{Ausgangslage}
+
+Kolibri, ein von der FHNW betriebenes Toolkit, wird laufend weiterentwickelt.
+Die Open-Source Werkzeuge können von Entwicklern ganz einfach importiert und verwendet werden.
+Um Kolibri schlank zu halten, kommen keine externen Abhänigkeiten zur Verwendung.
+Mit einer Vanilla JS Codebasis bietet das Tool eine breite Auswahl an, deckt aber noch nicht alle Interaktionen ab.
+
+In diesem Projekt dient der in der Vorarbeit erstellte Fork als Ausgangslage.
+Ein Merge des Branches $experimental$ dieses Forks und des $Kolibri-16$ der originalen Codebasis stellt die Aktuallität sicher.
+Das SimpleInput ist eines der Tools, welches bei der Implementation der neuen Auswahlkomponente als hilfreich erweisen kann.
+
+Der Zugriff auf das Designtool Figma ermöglicht das Verwenden des existierenden Designsystems und der bereits eingebundenen Elemente. 
+Der Aufbau der Elemente als Komponenten vereinfacht die Wiederverwendung. 
+Der Satz von Icons kann bei Bedarf erweitert werden.
+
+Eine weiter wichtige Ausgangslage ist ein gemeinsames Verständnis von verwendeten Begriffen. 
+Um dies sicherzustellen, beschreibt das nächste Kapitel die Zustände einer Auswahlkomponente als auch derer Elemente.
+Diese Definitionen gelten im gesamten Bericht.
+
+
 \section{Zustände in einer Auswahlkomponente}
 
 Dieser Abschnitt klärt die Zustände, welche in einer Auswahlkomponente auftreten können.
-Als Ausgangslage dient eine Eingabemöglichkeit, die eine Master-Detail-Ansicht aufweist.
+Als Ausgangslage dient eine Eingabemöglichkeit, die eine Master-Detail-Ansicht\footnotemark aufweist.
+\footnotetext{
+    Master beschreibt den Bereich, welcher alle möglich Auswahlwerte enthält.  
+    Detail beschreibt den Bereich, welcher den aktuell ausgewählten (selektierten) Wert enthält.
+}
 Zudem sind keine speziellen Voreinstellungen getroffen.
 \\
 Je nach Darstellung der Komponente kann diese $offen$ oder $geschlossen$ dargestellt werden.
@@ -27,15 +51,17 @@ Bedienungen über das Keyboard beziehen sich hierbei auf den Baustein.
 In den meisten Fällen ändert sich die Darstellung des Eingabefeldes z.B. durch einen blauen Rahmen.
 
 Ist ein Wert in der Master-Ansicht ausgewählt und wird in der Detail-View angezeigt, ist dieser $selektiert$.
-Die $Selektion$ wird beim versenden eines verlinkten Formulars als Value mitgeschickt.
+Die $Selektion$ wird beim Versenden eines verlinkten Formulars als Value mitgeschickt.
 Häufig ist dieser in der Liste aller Werte hervorgehoben, um die Auswahl anzuzeigen.
 In gewissen Situationen existiert noch der Zustand, das in der Master-View ein Wert im $Highlight$ steht. 
-Bestätigt der Nutzer das $Highlight$, wechselt der Status auf selektiert.
-Mit dem Hovern der Maus oder über die Tastatur kann der Highlight-Wert geändert werden.
-Dieser Wert hat keinen Einfluss auf das versendete Formular und ist nur im Master zu finden.
+Bestätigt der Nutzer das $Highlight$ mit der Maus, wechselt der Status auf selektiert.
+Mit dem Überfahren der Maus kann der Highlight-Wert geändert werden.
+Geschieht die Naviagtion durch die Werte mit der Tastatur, erhält genau ein Wert die $Cursor Position$. 
+Durch das betätigen gewisser vordefinierter Tasten ändert sich die $Cursor Position$.
+Bei einer Bestätigung mit die Tastatur ändert sich der Wert der $Cursor Position$ auf selektiert.
+Die letzten zwei Zustandswert haben keinen Einfluss auf das versendete Formular und sind nur im Master zu finden.
 
 Nachfolgend werden noch die Details zum Thema Browser geklärt.
-
 
 \section{Browser \& HTML Renderer}
 
