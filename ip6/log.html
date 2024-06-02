@@ -41,6 +41,10 @@
             ul li {
                 list-style: disc;
             }
+            ul ul li {
+                list-style: circle;
+                margin-left: 2rem;
+            }
 
             div.kolibri-logo-svg {
                 height: 200px;
@@ -123,7 +127,53 @@
             <!-- a11y support: can be tabbed to -->
             <section>
                 <dl>
-                    <dt>26.4 - 06.05</dt>
+                    <dt>17.5 - 7.06</dt>
+                    <dd>
+                        <ul>
+                            <li>Clean up misplaced input controller (from projector to controller)</li>
+                            <li>Try example with 3 columns with extention of logic</li>
+                            <li>Change projecting option container to use of popover API</li>
+                            <li>Extend documentation with basics - Ausgangslage & cursor position status</li>
+                            <li>Publish Kolibri fork to link demo pages & prepare user tests</li>
+                            <li>Preparing user tests for programmers</li>
+                        </ul>
+                    </dd>
+                    <dt>10.5 - 17.5</dt>
+                    <dd>
+                        <ul>
+                            <li>Restructure whole select to following types (supporting max. 2 columns)
+                                <ul>
+                                    <li>optionsModel</li>
+                                    <li>optionsController</li>
+                                    <li>columnOptionsProjector</li>
+                                    <li>columnOptionsComponent</li>
+                                    <li>ColumnView</li>
+                                    <li>selectController</li>
+                                    <li>selectProjector</li>
+                                    <li>selectComponent</li>
+                                    <li>SelectView</li>
+                                </ul>
+                            </li>
+                            <li>Testing for all new types</li>
+                            <li>Add data service for new structure and demo page</li>
+                            <li>Create demo page in SelectView also with images in options</li>
+                            <li>Extend first version of interaction</li>
+                        </ul>
+                    </dd>
+                    <dt>06.5 - 10.5</dt>
+                    <dd>
+                        <ul>
+                            <li>Demo page of using nested selects</li>
+                            <li>Refactor controller for flexability & simplicity</li>
+                            <li>Define rules of interation</li>
+                            <li>Define highlight & cursor position as status for elements</li>
+                            <li>Add higlight & cursor position to view</li>
+                            <li>Refactor namings & format files</li>
+                            <li>First version of interaction controller & projector based on old structure</li>
+                            <li>Add example of other uses of selects (menu)</li>
+                        </ul>
+                    </dd>
+                    <dt>26.4 - 06.5</dt>
                     <dd>
                         <ul>
                             <li>More detailed design ideas for new component</li>
@@ -131,6 +181,7 @@
                             <li>First implemenation of master-detail controller for new component (based on person example)</li>
                             <li>First implemenation of master-detail projector for new component (based on person example)</li>
                             <li>Demo view of first implementation </li>
+                            <li>Collect ideas for usages of selects with categories (designed in Figma)</li>
                         </ul>
                     </dd>
                     <dt>10.4 - 26.4</dt>
