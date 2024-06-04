@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Auswahlkomponente User Test</title>
+        <link
+            rel="shortcut icon"
+            type="image/png"
+            href="https://fhnw-ramonamarti.github.io/Kolibri/img/logo/logo-60x54.png"
+            />
+            <!-- href="http://127.0.0.1:5500/docs/img/logo/logo-60x54.png" -->
+        <link
+            rel="stylesheet"
+            href="https://fhnw-ramonamarti.github.io/Kolibri/css/kolibri-base.css"
+            />
+            <!-- href="http://127.0.0.1:5500/docs/css/kolibri-base.css" -->
+        <style>
+            .newComponent {
+                color: red;
+                font-weight: bold;
+            }
+            label {
+                display: flex;
+                align-items: center;
+            }
+            select,
+            input {
+                border: #ccc solid 1px;
+                font-size: 1rem;
+                height: 2rem;
+                border-radius: 4px;
+            }
+            .task .select-input-component {
+                width: 320px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="demo" id="demo1"></div>
+        <div class="task" id="task1"></div>
+        <div class="demo" id="demo2"></div>
+        <div class="task" id="task2"></div>
+        <div class="demo" id="demo3"></div>
+        <div class="task" id="task3"></div>
+        <script type="module" src="starter.js"></script>
+        <script type="module" src="userTesting.js"></script>
+    </body>
+</html>
