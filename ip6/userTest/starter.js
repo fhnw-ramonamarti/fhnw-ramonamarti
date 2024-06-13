@@ -1,6 +1,3 @@
-// import { projectForm, FORM_CSS }  from "http://127.0.0.1:5500/docs/src/kolibri/projector/simpleForm/simpleFormProjector.js"
-// import { SimpleFormController }   from "http://127.0.0.1:5500/docs/src/kolibri/projector/simpleForm/simpleFormController.js"
-// import { TEXT, CHOICE, COMBOBOX } from "http://127.0.0.1:5500/docs/src/kolibri/util/dom.js";
 import { projectForm, FORM_CSS }  from "https://fhnw-ramonamarti.github.io/Kolibri/src/kolibri/projector/simpleForm/simpleFormProjector.js"
 import { SimpleFormController }   from "https://fhnw-ramonamarti.github.io/Kolibri/src/kolibri/projector/simpleForm/simpleFormController.js"
 import { TEXT, CHOICE, COMBOBOX } from "https://fhnw-ramonamarti.github.io/Kolibri/src/kolibri/util/dom.js";

@@ -1,13 +1,19 @@
-import { SelectComponent, pageCss } from "http://127.0.0.1:5500/docs/src/examples/select-new/selectComponent.js";
-// import { SelectComponent, pageCss } from "https://fhnw-ramonamarti.github.io/Kolibri/src/examples/select-new/selectComponent.js";
+import { SelectComponent, pageCss } from "https://fhnw-ramonamarti.github.io/Kolibri/src/examples/select-new/selectComponent.js";
 import * as Service                 from "./dataService.js";
 
-// load style for new component
+// load styles for new component
 const style = document.createElement("style");
 style.textContent = pageCss;
 document.querySelector("head").append(style);
 
-// helper to replace elements to form
+/**
+ * helper to replace elements to form
+ * @param {*} id - id of the html element to place the projected elements in
+ * @param {*} labelElement - new label to relape in the form
+ * @param {*} inputElement - new input element to relape in the form
+ * @example
+        addSelectViewToUi("task1", lunchLabelElement, lunchInputElement);
+ */
 const addSelectViewToUi = (id, labelElement, inputElement) => {
     const inputContainer = document.getElementById(id);
     const labelContainer = document.getElementById(id + "-label");
@@ -15,55 +21,83 @@ const addSelectViewToUi = (id, labelElement, inputElement) => {
     inputContainer.replaceWith(inputElement);
 }
 
-
-// ----- TASK 1 --------
-
-const selectAttributes1 = {
-    name: "lunch",
-    label: "Lunch",
-};
-const serviceColumns1 = [
-    Service.getLunchTypes
-];
-const [_1, label1, input1] = SelectComponent(selectAttributes1, serviceColumns1);
-addSelectViewToUi("task1-lunch", label1, input1);
-
-// ----- TASK 2 --------
-
-const selectAttributes2_1 = {
-    name: "home-region",
-    label: "Home region",
-    numberOfColumns: 2
-};
-const serviceColumns2_1 = [
-    Service.getRegionsByCountryChDeAt,
-    Service.getCountriesChDeAt
-];
-const [_2_1, label2_1, input2_1] = SelectComponent(selectAttributes2_1, serviceColumns2_1);
-addSelectViewToUi("task2-home-region", label2_1, input2_1);
+// NOTE: You can read about our project in README.md file. 
+// Please follow the TODO's for the five tasks.
+// The tasks are structured in the UI as follows:
+//      1. Demo container with the usage of an existing way to create a selection input.
+//      2. Task container with TODO's placeholder is positioned in the form 
+//              where the new componenent should be fit in.
 
 
-const selectAttributes2_2 = {
-    name: "birth-region",
-    label: "Birth region",
-    numberOfColumns: 2
-};
-const serviceColumns2_2 = [
-    Service.getRegionsByCountry,
-    Service.getCountries
-];
-const [_2_2, label2_2, input2_2] = SelectComponent(selectAttributes2_2, serviceColumns2_2);
-addSelectViewToUi("task2-birth-region", label2_2, input2_2);
+// ----- TASK 1 ----------
+/*
+    TODO: Create a selection input using our new component.
+    The label should be 'Lunch' and the name 'lunch'.
+    The resulting component should provide 1 column with the data.
+    The data is provided by the function `Service.getLunchTypes()` 
+    and can be used to fulfill the task.
+    To add the created view elements to the form you can use 
+    the function `addSelectViewToUi` from the top.
+    The id of the container to fill the view elements in is 'task1-lunch'.
+*/
+
+// TODO: SOLUTION TASK 1 HERE
 
 
-const selectAttributes2_3 = {
-    name: "birth-year",
-    label: "Birth year",
-    numberOfColumns: 2
-};
-const serviceColumns2_3 = [
-    Service.getYearsByDecade,
-    Service.getDecades
-];
-const [_2_3, label2_3, input2_3] = SelectComponent(selectAttributes2_3, serviceColumns2_3);
-addSelectViewToUi("task2-birth-year", label2_3, input2_3);
+
+// ----- TASK 2 ----------
+// ----- TASK 2.1 --------
+/*
+    TODO: Create a selection input using our new component.
+    The label should be 'Home region' and the name 'home-region'.
+    The resulting component should provide 2 column with the value data and categories.
+    The value data is provided by the function `Service.getRegionsByCountryChDeAt()`, 
+    the categories are provided by the function `Service.getCountriesChDeAt()` 
+    and they can be used to fulfill the task.
+    To add the created view elements to the form you can use 
+    the function `addSelectViewToUi` from the top.
+    The id of the container to fill the data view elements is 'task2-home-region'.
+*/
+
+// TODO: SOLUTION TASK 2.1 HERE
+
+
+
+// ----- TASK 2.2 --------
+/*
+    TODO: Create a selection input using our new component.
+    The label should be 'Birth region' and the name 'birth-region'.
+    The resulting component should provide 2 column with the value data and categories.
+    The value data is provided by the function `Service.getRegionsByCountry()`, 
+    the categories are provided by the function `Service.getCountries()` 
+    and they can be used to fulfill the task.
+    To add the created view elements to the form you can use 
+    the function `addSelectViewToUi` from the top.
+    The id of the container to fill the data view elements is 'task2-birth-region'.
+*/
+
+// TODO: SOLUTION TASK 2.2 HERE
+
+
+
+// ----- TASK 2.3 --------
+/*
+    TODO: Create a selection input using our new component.
+    The label should be 'Birth year' and the name 'birth-year'.
+    The resulting component should provide 2 column with the value data and categories.
+    The value data is provided by the function `Service.getYearsByDecade()`, 
+    the categories are provided by the function `Service.getDecades()` 
+    and they can be used to fulfill the task.
+    To add the created view elements to the form you can use 
+    the function `addSelectViewToUi` from the top.
+    The id of the container to fill the data view elements is 'task2-birth-year'.
+*/
+
+// TODO: SOLUTION TASK 2.3 HERE
+
+
+
+
+// ------------------------
+// Please fill out the question form to give us feedback about how the tasks worked. 
+// Please send your solution as a zip back to Ramona Marti on MS Teams.
