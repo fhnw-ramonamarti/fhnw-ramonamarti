@@ -3,24 +3,57 @@
 
 \section{Problemstellung}
 
+Im Web exestieren diverse Möglichkeiten zur Erstellung eines Auswahl-Input mit vorgegebenen Werten.
+Die HTML-Elemente bieten über die verschiedenen Browser keine konsistente Darstellung und Interaktion an.
+Dazu sind sie nicht schön anzusehen und nur sehr gering stylebar. 
+Die Werte sind begrenzt auf Text und Unicode-Symbole.
+Die Komponente ist nicht effizient bedienbar - besonders bei einer grossen Menge an Werten.
 
-% Ein zentrales Problem, das in diesem Projekt adressiert wird, ist die Unzulänglichkeit der standardisierten Auswahlkomponenten im Web – insbesondere die select und datalist Elemente. Diese weisen Mängel in Design, Integration in einheitliche Datenmodelle, Konsistenz im Interaktionsdesign und Benutzereffizienz auf. Beispielsweise wenn grosse Datenmengen dargestellt werden müssen, kann die unzureichende Gestaltung von select Elementen zu einer verwirrenden Benutzererfahrung führen. Das nachfolgende Kapitel 1.2 basiert auf den hier genannten Problemen.
+Als Alternative zu den Basis-Elementen existieren unzählige Bibliotheken, welche solche Eingabemöglichkeiten unterstützen.
+Diese besitzen externe Abhänigkeiten, welche das eigene Projekt unnötig aufblasen.
+Zudem benötigen viele dieser Libraries eine längere Einarbeitungszeit, um die Funktionalitäten verstehen und anwenden zu können.
+
+Das Vorgängerprojekt deckt die Probleme ab, ist aber nur auf die Auswahl eines Landes zugeschnitten.
+Eine Anwendung dieser Komponente mit anderen Inhalten kann zu unerwünschten Verhalten führen.
+Die oben genannten Probleme dienen als Basis für das folgende Kapitel.
 
 
 \section{Ziel}
 
-
-% Das primäre Ziel dieser Arbeit ist die Gestaltung und Implementierung einer Dropdown-Auswahlkomponente. Diese ermöglicht eine effiziente und ansprechende Auswahl aus mehreren vorgegebenen Optionen. Einerseits umfasst dieses Projekt die Synchronisation von Design und Implementation. Weiter beinhaltet die Komponente die Integration in das Kolibri-Designsystem. Die Auswertung von Benutzertests hilft beim Visualisieren der Inhalte sowie dem Interaktionsdesign. Automatisierte Umsetzungstests begünstigen einen fehlerfreien Code. Ebenfalls beinhaltet die Erstellung dieser Komponente die Anbindung an Kolibri-Modelle, -Controller und -Projektoren sowie die Durchführung von Usability-Tests. Spezifische Kriterien für die Bewertung des Erfolgs der Komponente, einschliesslich Benutzerzufriedenheit und Integrationseffizienz, nehmen ihren Platz ein. Dabei gilt zu beachten, dass sich die Ziele nicht ausserhalb des definierten Projekts bewegen.
+Die neue Komponenten zielt ab, die Auswahl eines Werten von einer begrenzten, vorgegeben Menge zu ermöglichen.
+Dazu wird die voran gegangene Länderauswahl generalisiert und ausgebaut.
+Die Eingabe soll weiterhin effizient bleiben und sich konsistent über alle Browser zeigen.
+Als Werte sind nebst Texten auch Bilder wünschenswert.
+Die Qualität ist auf dem Kolibri-Standard zu halten und durch Tests zu beweisen.
+Der Nachweis der Anwendbarkeit wird über Usertests mit Programmierern als auch Anwendern gezeigt.
+Automatisierte Komponententests stellen die Korrektheit der Implementation sicher.
+Bei der Implementation wird darauf geachtet, dass die Design Patterns des Kolibri ihre Anwendung finden.
+Dabei soll das Design und die Interaktion mit dem Toolkit synchronisiert sein.
+Hierbei ist zu beachten, die Ziele nicht ausserhalb des Projekts zu definieren.
 
 
 \section{Out of Scope}
 
-% milti select, accessability
-% Dieses Projekt konzentriert sich ausschliesslich auf die Entwicklung der Auswahlkomponente und deren Integration in das bestehende Kolibri-Framework. Aspekte ausserhalb dieses Rahmens, wie die Überarbeitung anderer UI-Komponenten oder die Erweiterung der Kern-Codebasis von Kolibri, fallen nicht in den Umfang dieser Arbeit. Dadurch wird sichergestellt, dass die Arbeit fokussiert und zielgerichtet bleibt.
-% Der Fokus für das Projekt liegt spezifisch auf der Entwicklung einer Auswahlkomponente für Länder. Dies bedeutet, dass andere potenzielle Anwendungsbereiche wie die Integration von Datums- oder Jahreszahl-Auswahl keine Berücksichtigung finden. Dieser begrenzte Fokus ermöglicht, eine massgeschneiderte Lösung zu entwickeln. Diese ist speziell auf die Anforderungen und Herausforderungen der Länderauswahl zugeschnitten. Dadurch gelingt die Sicherstellung, dass die vorhandenen Ressourcen gezielt für die Optimierung der Benutzererfahrung und Funktionalität im Kontext der Länderauswahl einsetzbar sind. 
+Dieses Projekt bezieht sich auf die Entwicklung ein Komponente für Nutzer ohne Seheinschränkungen.
+Daher spielt die Accessability nur eine begrenzte Rolle.
+Screen-Reader müssen nicht beachtet werden, da dies zu umfangreich ist.
+Für die generalisierte Komponente reicht es, wenn die Auswahl eines Wertes möchlich ist.
+Die Auswahl mehrer Werte im selben Eingabe-Elemente ist nicht gefordert.
+Weiter ist die Eingabe eines eigenen Wertes in die neue Komponente ebenfalls ausserhalb der Anforderungen.
+
+Um den Fokus des Projekts auf der generalisierten Auswahlkomponente zu halten, sind keine Änderungen ausserhalb des Rahmens gefordert.
+Im Rahmen befindet sich das Erweitern des SimpleInput um die Möglichkeiten eines Auswahl-Inputs.
+Anpassungen der Kern-Codebasis gehören nicht in den Rahmen dieses Projekts.
+Durch die Eingrenzung der Anforderungen wird sichergestellt, dass die Ressourcen auf die Ziele aufgeteilt werden können.
 
 
 \section{Leitfaden}
 
+Der Bericht teilt sich in die Teile Grundlagen, existierende und neue Komponente. 
 
-% Dieser Bericht gliedert sich in die Teile Recherche, Design und Implementation. Das Konzeptionelle findet sich in den Kapiteln 2 bis 3.2 wieder. Der Abschnitt 3.3 prüft das erarbeitete Konzept. Dieses findet in nachfolgendem Unterkapitel 3.4 seine Umsetzung. Das Resultat des Designs als auch der Implementation ist unter der Nummer 4 Länder-Auswahlkomponente beschrieben. Kapitel 5 bewertet das Produkt und die erhaltenen Erkenntnisse.
+
+% Das Konzeptionelle findet sich in den Kapiteln 2 bis 3.2 wieder. 
+% Der Abschnitt 3.3 prüft das erarbeitete Konzept. 
+% Dieses findet in nachfolgendem Unterkapitel 3.4 seine Umsetzung. 
+% Das Resultat des Designs als auch der Implementation ist unter der Nummer 4 Länder-Auswahlkomponente beschrieben. 
+% Kapitel 5 bewertet das Produkt und die erhaltenen Erkenntnisse.

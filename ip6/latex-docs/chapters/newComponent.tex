@@ -11,17 +11,62 @@
 
 \section{Interaktionen}
 
+Für die Bedienung der Komponente gilt es Regeln festzulegen, damit ein gemeinsames Verständis entsteht.
+Wie in den Grundlagen bereits beschrieben kann sich ein Wert aus der Komponentenliste verschiedene in Zuständen befinden.
+In diesem Absatz spielen Selektion, Highlight und Cursor Position eine Rolle.
+Zur Auffrischung: 
+
+\begin{itemize}
+    \item \textbf{Selektion}: Ausgewählter Wert der Spalte
+    \item \textbf{Highlight}: Element unterhalb des Maus Zeiger
+    \item \textbf{Cursor Position}: Element-Position für die Tastatur
+\end{itemize}
+
+\noindent
+Bei der Festlegung der Maus-Interaktion fiel die Entschiedung auf folgendes:
+
+\begin{itemize}
+    \item \textbf{mouseover}: visuelles Highlighting des Elements ohne Selektionsänderung
+    \item \textbf{click}: wie mit der Tastatur
+\end{itemize}
+
+\noindent
+Hingegen die Tastatur-Steuerung mit den Pfeiltasten hält sich an diese Bedienungen:
+
+\begin{itemize}
+    \item direkte Selektionsänderung ohne weiter Bestätigung
+    \item Änderung der Cursor Position
+\end{itemize}
+
+\noindent
+Anhand dieser Regeln enstanden folgendene Aktionen als Basis für den ersten Projektor der neuen Komponente. 
+
+
+\clearpage
 \import{../tables}{d.newComponent.tex}
 
-Diese Aktionen dienen als Basis für den ersten Projektor der neuen Komponente. 
-Sie können in weiteren Pojektoren angepasst bzw. geändert werden.
+Die Interaktionen können in weiteren Pojektoren angepasst bzw. geändert werden.
 
-% immutable ist besser, browser testing (kennt browser Funktionen), clean coding rules, kiss (simple stupid) vorgehen, decorator pattern, inkrementelle entlickung, separation of concern
-% eintscheidung treffen, bewusst weglassen, stand der technik
 
 
 \section{Umsetzung}
 
+% ...
+
+
+\subsection{Prinzipien}
+
+% immutable ist besser, clean coding rules, kiss (simple stupid) vorgehen, inkrementelle entlickung, separation of concern
+% eintscheidung treffen, bewusst weglassen, stand der technik
+
+
+\subsection{Patterns}
+
+% decorator pattern, projector pattern, null object pattern
+
+
 \subsection{Popover}
+
 % popover api 2024
 % dialog popup
+
