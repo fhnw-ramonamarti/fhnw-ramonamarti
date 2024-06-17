@@ -16,6 +16,7 @@
 \usepackage{makecell}
 \usepackage{multirow}
 \usepackage[referable]{threeparttablex}
+\usepackage{pdfpages}
 
 \usepackage{listings}
 \usepackage{color}
@@ -90,12 +91,17 @@
 
 \maketitle
 
+\pagenumbering{roman}
+
 \include{chapters/abstract}
 
 \include{chapters/honesty}
 \include{chapters/thanks}
 
 \tableofcontents
+
+\newpage
+\pagenumbering{arabic}
 
 \include{chapters/intro}
 \include{chapters/basics}
