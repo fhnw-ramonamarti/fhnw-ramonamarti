@@ -10,9 +10,9 @@ export {
 };
 
 /** @type { () => String } */
-const getAllContinents = () => [
-    ...new Set(...allCountriesWithContinent.map((country) => country.continent)),
-];
+const getAllContinents = () => {allCountriesWithContinent.map((country) => country.continent);return [
+    ...new Set(allCountriesWithContinent.map((country) => country.continent)),
+]};
 
 /** @type { (...String) => String } */
 const getCountries = (...continents) =>
