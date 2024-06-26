@@ -9,46 +9,45 @@ export {
     getLunchTypes,
 };
 
-/** @type { () => String } */
+/** @type { (String) => String } */
 const getAllContinents = () => [
     ...new Set(...allCountriesWithContinent.map((country) => country.continent)),
 ];
 
-/** @type { (...String) => String } */
-const getCountries = (...continents) =>
+/** @type { (String) => String } */
+const getCountries = (continent) =>
     allCountriesWithContinent
-        .filter((e) => allRegionsWithCountry.map((c) => c.country).includes(e.country))
-        .filter((e) => continents.length === 0 || continents.includes(e.continent))
+        .filter((e) => e.continent === continent || !continent)
         .map((country) => country.country);
 
-/** @type { (...String) => String } */
-const getRegionsByCountry = (...countries) =>
+/** @type { (String) => String } */
+const getRegionsByCountry = (country) =>
     allRegionsWithCountry
-        .filter((e) => countries.length === 0 || countries.includes(e.country))
+        .filter((e) => e.country === country || !country)
         .map((region) => region.region).sort();
 
-/** @type { () => String } */
+/** @type { (String) => String } */
 const getCountriesChDeAt = () => ["Switzerland", "Germany", "Austria"];
 
-/** @type { (...String) => String } */
-const getRegionsByCountryChDeAt = (...countries) =>
+/** @type { (String) => String } */
+const getRegionsByCountryChDeAt = (country) =>
     allRegionsWithCountry
         .filter(
-            (e) => countries.length === 0 && ["CH", "DE", "AT"].includes(e.code) || countries.includes(e.country)
+            (e) => e.country === country || (!country && ["CH", "DE", "AT"].includes(e.code))
         )
         .map((region) => region.region).sort();
 
-/** @type { (...String) => String } */
-const getYearsByDecade = (...decades) => {
-    const decadeStarts = decades.map(decade => decade.slice(0, 3));
+/** @type { (String) => String } */
+const getYearsByDecade = (decade) => {
+    const decadeStart = decade?.slice(0, 3);
     const data = [...Array(90).keys()].map((e) => e + 1930 + "");
-    return data.filter((e) => (e) => decadeStarts.length === 0 || decadeStarts.includes(e.slice(0, 3)));
+    return data.filter((e) => !decade || e.startsWith(decadeStart));
 };
 
-/** @type { () => String } */
+/** @type { (String) => String } */
 const getDecades = () => [...Array(9).keys()].map((e) => e * 10 + 1930 + "'s");
 
-/** @type { () => String } */
+/** @type { (String) => String } */
 const getLunchTypes = () => ["all", "vegetarian", "vegan", "flexetarian", "gluten-free", "lactose-free"];
 
 // ------- data --------------------------------
@@ -11643,7 +11642,7 @@ const allRegionsWithCountry = [
         ],
     },
     {
-        countryName: "Micronesia",
+        countryName: "Micronesia, Federated States of",
         countryShortCode: "FM",
         regions: [
             {

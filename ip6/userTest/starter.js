@@ -72,12 +72,12 @@ const demo2 = () => {
     const years = Service.getYearsByDecade().map((year) => ({ value: year }));
 
     /** @type { Array<OptionType> } */
-    const filterRegionsChDeAt = (countryCode) =>
-        Service.getRegionsByCountryChDeAt(countryCode).map((region) => ({ value: region }));
+    const filterRegionsChDeAt = (...countryCode) =>
+        Service.getRegionsByCountryChDeAt(...countryCode).map((region) => ({ value: region }));
 
     /** @type { Array<OptionType> } */
-    const filterRegions = (countryCode) =>
-        Service.getRegionsByCountry(countryCode).map((region) => ({ value: region }));
+    const filterRegions = (...countryCode) =>
+        Service.getRegionsByCountry(...countryCode).map((region) => ({ value: region }));
     const formStructure = [
         { value: "", label: "Name",       name: "name",      type: TEXT },
         {
