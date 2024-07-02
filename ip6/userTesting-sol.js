@@ -1,7 +1,7 @@
 import {
     SelectComponent,
     pageCss,
-} from "http://127.0.0.1:5500/docs/src/examples/select-new/selectComponent.js";
+} from "http://127.0.0.1:5500/docs/src/kolibri/selectComponent/selectComponent.js";
 // } from "https://fhnw-ramonamarti.github.io/Kolibri/src/examples/select-new/selectComponent.js";
 import * as Service from "./userTest/dataService.js";
 
