@@ -46,7 +46,13 @@ Anhand dieser Regeln enstanden folgendene Aktionen als Basis für den ersten Pro
 \import{../tables}{d.newComponent.tex}
 
 Das Undo und das Redo auf der Komponente erhält im ersten Projektor keine speziell Definition.
-% Leerschlag & Buchstaben
+Anders als bei den existierenden Komponenten, ist bei der neuen die Leetaste neu belegt. 
+Bei der geschlossenen Komponente ist das Verhalten mit dem Öffnen der Liste teilweise übernommen.
+Ist die Liste bereits offen, wird der sich aktuell unter der Cursorposition befindliche Wert selektiert.
+Die Buchstaben zum Filtern oder Suchen von Werten ist nicht in der Komponente enthalten.
+Weiter sind die Funktionen Undo und Redo nicht spezifisch definiert.
+Die speziellen Tasten Home, End, PageUp und PageDown werden in diesem Pojektor nicht berücksichtigt.
+Der Grund dafür ist, dass diese Funktionen auf dem Mac jeweils hinter einer Tastenkombination versteckt sind.
 Die Interaktionen können in weiteren Pojektoren angepasst bzw. geändert werden.
 
 
@@ -72,3 +78,93 @@ Die Interaktionen können in weiteren Pojektoren angepasst bzw. geändert werden
 % popover api 2024
 % dialog popup
 
+
+% entscheidungen
+% kein filtern, keine suche => nicht unbedingt sortierte werte
+
+\subsection{Performance}
+
+Um eine gute Performance zu bieten, ist es notwendig den Aufbau-Prozess einer Webseite zu kennen.
+Dieser Ablauf ist im Kapitel \textbf{Grundalgen} unter \textbf{Ablauf Parsing \& Rendering} genau beschrieben.
+Die folgende Abbildung \ref{Abbildung:RenderingProcessRecap} zeigt den Prozess im Überblick.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=120mm]{rendering-process.png}
+    \caption{Rendering Prozess}
+    \label{Abbildung:RenderingProcessRecap}
+\end{figure}
+
+Hierbei ist ein wichtiger Punkt, dass der Browser den Renderbaum (in der Abbildung \ref{Abbildung:RenderingProcessRecap} rot) maximal 60 Mal pro Sekunde neu zeichnen kann.
+Daher müssen viele kleine Änderungen ausserhalb des Renderbaums - am besten in einem sogenannten Shadow-DOM - geschehen.
+Ein Shadow-DOM ist ein Teilbaum, welcher nicht im Renderbaum angehängt ist.
+Um dies zu bewerkstelligen, ist es sinnvoll, die Änderungen nach dem Abhängen des Elternknotens zu vollziehen. 
+Nach den Änderungen kann der Teilbaum wieder an den gewünschten Ort platziert werden.
+
+\begin{lstlisting}[language = java, caption = Code: Performance Optimierung (columnOptionsComponent.js), label = code:PerformanceOptimization]
+    const addAllOptions = (options) => {
+        const placeHolder = createHolder();
+        columnView.replaceWith(placeHolder);
+        if (options.length > 50) {
+            setTimeout(() => {
+                options.forEach((option) => {
+                    optionsController.addOption(option);
+                });
+                updateScrollbar(columnView);
+                placeHolder.replaceWith(columnView);
+            }, 80);
+        } else {
+            options.forEach((option) => {
+                optionsController.addOption(option);
+            });
+            updateScrollbar(columnView);
+            placeHolder.replaceWith(columnView);
+        }
+    };
+\end{lstlisting}
+Code \ref{code:PerformanceOptimization} ist eine Stelle, die diese Technick verwendet.
+Hier wird ein Platzhalter mit einem Lade-Indikator an die Ursprungstelle gesetzt, damit der Nutzer ein Feedback erhält.
+Sobald der SpaltenContainer abgekoppelt ist, lädt die Funktion die Optionen in den Shadow-DOM.
+Nach Abschluss wird der Container mit den neuen Elementen an die originale Stelle zurückersetzt.
+
+
+\subsection{User Tests}
+
+
+\subsubsection{Programmierer}
+
+
+
+\subsubsection{Formular-Ausfüller}
+
+
+
+% Keyboard navigation. Using keyboard to narrow down possible categories/values (maybe fuzzy searching), otherwise it takes me longer to find something than compared to a standard dropdown, even if the list there is bigger.
+% Teams Nachricht an Lea ;)
+% ich finde es etwas unintuitiv beim SelectComponent neben den offensichtlich verständlichen selectAttriutes (labl, name, numberOfColumns) noch ein Callback mitzugeben.
+
+% ich hätti mir mehr beschreibung gewünscht wie ich die komponente verwenden muss. (ich musste eher dannach suchen.
+% Bessere Dokumentation war verwirrend (Code).
+% - Doku: In der Code Doku von SelectComponent dürfte der Return Value besser beschrieben werden (welches Array Element ist was). Das wird erst in den Anwendungsbeispielen klar.
+% - Detail: numberOfColumns ist etwas "verbose"
+% Es würde helfen, wenn die Types im JSDOC spezifiziert wären und wenn die Library eingebunden wäre. Dann wäre die Dokumentation leichter auffindbar.
+% War mir am Anfang nicht klar dass was SelectComponent() zurückgibt und ob das Input-element sowie dass label-element selbst erstellt werden soll. Danach war es intuitiv anzuwenden.
+
+% ---------
+
+% Nitpicking: while I see why the component is imported from a URL for the user tests, it makes it hard to use on a spotty network.
+% ich persönlich hatte zu beginn schwierigkeiten zu verstehen wie das "framework" funktioniert. die beschreibung für die tasks (ab task2) sind zum teil etwas unklar =>
+
+% The value data is provided by the function `Service.getRegionsByCountry()`,
+% the categories are provided by the function `Service.getCountries()`
+
+% RegionsByCountry muss man noch das Country mitgeben. Hätte in der beschreibung drinstehen können.
+
+\subsection{Diskussion}
+
+% herausforderungen
+% komplexeste probleme
+% erfolge
+% unerwartete wendungen
+
+\subsection{Fazit}

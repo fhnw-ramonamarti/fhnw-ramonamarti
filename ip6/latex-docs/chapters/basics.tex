@@ -62,7 +62,6 @@ Geschieht die Naviagtion durch die Werte mit der Tastatur, erhält genau ein Wer
 Durch das betätigen gewisser vordefinierter Tasten ändert sich die $Cursor Position$.
 Bei einer Bestätigung mit die Tastatur ändert sich der Wert der $Cursor Position$ auf selektiert.
 Die letzten zwei Zustandswert haben keinen Einfluss auf das versendete Formular und sind nur im Master zu finden.
-
 Nachfolgend werden noch die Details zum Thema Browser geklärt.
 
 \section{Browser \& HTML Renderer}
@@ -77,7 +76,6 @@ Die Benutzeroberfläche dient als Schnittstelle zwischen dem Benutzer und der Da
 Die Rendering-Engine interpretiert die gegebenen Inhalte, wobei der Renderer anhand des Inhaltstyps gewählt wird. 
 Einer der Engines ist der HTML-Renderer, eine Software, welche den strukturierten Text aus dem HTML-File formatiert mit dem gegebenen Style anzeigt.
 Beim UI und der Bedienung zeigen sich die Uneinigkeiten zwischen den Browser-Herstellern, indem die Rendering-Engine den Code nicht gleich interpretiert.
-
 Im nächsten Unterkapitel ist der detaillierte Ablauf zur Anzeige eines HTNL-Dokuments und die Rolle des Rendering zu lesen.
 
 
@@ -86,14 +84,21 @@ Im nächsten Unterkapitel ist der detaillierte Ablauf zur Anzeige eines HTNL-Dok
 Der Aufruf einer Webseite beginnt mit dem HTTP-Request auf welchen eine HTTP-Response folgt.
 In diesem Bericht sind die gerade genannten Teile vor dem eigentlichen erhalten der Daten nicht weiter wichtig.
 Der Response liefert schlussendlich die anzuzeigenden Daten, welche in diesem Fall die tragende Rolle spielen.
-Die Rohbytes der HTML-Dateien werden in Zeichen konvertiert, welche die Programmierer geschrieben haben.
-Ein Parser verarbeitet die einzelnen Charaktere weiter zu sogenannten Tokens.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=120mm]{rendering-process.png}
+    \caption{Rendering Prozess}
+    \label{Abbildung:RenderingProcess}
+\end{figure}
+
+Die Rohbytes der HTML-Dateien aus Abbildung \ref{Abbildung:RenderingProcess} werden in Zeichen konvertiert, welche die Entwickler geschrieben haben.
+Ein Parser verarbeitet die einzelnen Charakter weiter zu sogenannten Tokens.
 Hierbei kommt ein Satz von Regeln zur Anwendung, welche bei HTML als Tags in den Diamant-Klammern $<>$ stehen.
 Durch die Definierung der Struktur über die Tokens versteht der Browser den Inhalt der Dateien.
 Die fertigen Tokens werden in Nodes umgewandelt, welche jeweils eigene Eigenschaften besitzen können.
 Aus den entstandenen Nodes entsteht durch Verknüpfungen eine Baumstruktur - der DOM.
 Das Document Object Model (DOM) beschreibt die Eltern-Kind- und Geschwister-Beziehung der Nodes.
-% vllt bild mit ablauf parsen
 
 Wenn im HTML eine CSS-Datei verlinkt ist, muss dieses zuerst nachgefordert werden.
 Nach Erhalt der Rohdaten der Style-Dateien parst der Browser diese zuest in Charaktere und anschliessend in Tokens.
@@ -110,13 +115,13 @@ Dabei wird der Platz im Dokument dem Element und dem Inhalt zugewiesen und diese
 Extern nachgeladene Ressourcen wie Bilder können etwas länger dauern, weswegen die Seiten manchmal ohne diese vorgeladen werden.
 
 Stösst der HTML-Parser auf ein $script$-Tag, stoppt dieser den Prozess des HTML-Parsen bis das Script fertig ausgeführt ist - ausser das Tag enthält das $async$-Attribut.
-Dies dient der Sicherheit, weil JavaScript den DOM als auch CSSOM ändern kann und der Browser nicht weiss was passieren wird.
+Dies dient der Sicherheit, weil JavaScript den DOM als auch CSSOM ändern kann und der Browser nicht weiss, was passieren wird.
 Deswegen spielt es eine Rolle, zu welchem Zeitpunkt das Script eingebunden ist - egal ob intern oder extern. 
 Der Browser führt während des Scripts den Prozess des CSSOM weiter fort.
 
 Zusammengefasst kann gesagt werden, dass das Parsen von HTML-Files ein Schritt vor dem Rendern ist und dasselbe gilt für CSS-Dateien. 
 Beim Script ist genau überlegt zu handeln, da der Zeitpunkt der Ausführung eine wichtige Rolle spielt.
-Folgendes Unterkapitel zeigt die verbreitesten Browser der jeweilig aktuellsten Version mit dessen Rendering-Engine.
+Folgendes Unterkapitel zeigt die verbreitesten Browser der jeweilig aktuellsten Version mit dessen Rendering-Engines.
 
 
 \subsection{Bekannte Implementationen}
