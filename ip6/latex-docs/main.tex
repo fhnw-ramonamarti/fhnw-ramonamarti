@@ -3,11 +3,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english, ngerman]{babel}
 \usepackage[T1]{fontenc} % for coping umlaute in pdf
-% \usepackage[nottoc]{tocbibind}
 \usepackage{csquotes}
 \usepackage[backend=biber,style=apa,sorting=ynt]{biblatex}
 \usepackage{graphicx}
-% \usepackage{apacite}
 \usepackage{geometry}
 \usepackage{capt-of}
 \usepackage[table]{xcolor}
@@ -17,6 +15,7 @@
 \usepackage{multirow}
 \usepackage[referable]{threeparttablex}
 \usepackage{pdfpages}
+\usepackage{fancyhdr}
 
 \usepackage{listings}
 \usepackage{color}
@@ -49,7 +48,7 @@
 
 \renewcommand\lstlistingname{Code} % name of listing caption
 
-\newgeometry{inner=5cm, outer=2.5cm, top=2.5cm, bottom=2.5cm}
+\newgeometry{inner=5cm, outer=2.5cm, top=3cm, bottom=3cm}
 
 % code blocks with lstlisting: html, java, 
 \lstdefinestyle{code}{
@@ -72,35 +71,64 @@
 }
 \lstset{style=code}
 
+% page header and footer - start
+% \rightmark = sub heading, \leftmark = chapter
+\fancypagestyle{kolibri}{
+    \fancyhf{} % clear
+    \fancyhead[LE,RO]{\rightmark} % outer
+    \fancyhead[C]{}
+    \fancyhead[LO,RE]{\leftmark} % inner
+    \fancyfoot[LE,RO]{\thepage} % outer
+    \fancyfoot[C]{\includegraphics[width=16pt]{kolibri-logo2.png}}
+    \fancyfoot[LO,RE]{\includegraphics[width=25mm]{fhnw-logo.jpg}} % inner
 
-% title page start
-\title{Kolibri\\
-        {\large Bachlor Thesis}}
+    \renewcommand{\headrulewidth}{0.2mm}
+    \renewcommand{\footrulewidth}{0.2mm}
+    \renewcommand{\headruleskip}{2pt}
+    \renewcommand{\footruleskip}{2pt}
+}
+\fancypagestyle{plain}{
+    \fancyhf{} % clear
+    \fancyhead[LE,RO]{} % outer
+    \fancyhead[C]{}
+    \fancyhead[LO,RE]{} % inner
+    \fancyfoot[LE,RO]{\thepage} % outer
+    \fancyfoot[C]{\includegraphics[width=16pt]{kolibri-logo2.png}}
+    \fancyfoot[LO,RE]{\includegraphics[width=25mm]{fhnw-logo.jpg}} % inner
+
+    \renewcommand{\headrulewidth}{0mm}
+    \renewcommand{\footrulewidth}{0.2mm}
+    \renewcommand{\headruleskip}{0pt}
+    \renewcommand{\footruleskip}{2pt}
+}
+\setlength{\headheight}{16pt}
+% page header and footer - end
+
+% title page - start
+\title{ Generalisierte Auswahlkomponente für das \\
+Web UI Toolkit "Kolibri"\\ {\large Bachlor Thesis}}
 \author{Ramona Marti \& Lea Burki}
 \date{August 2024}
-% title page end
+% title page - end
 
 \begin{document}
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=60mm,scale=0.5]{kolibri-logo.png}
-%     \caption{Kolibri Logo}
-%     \label{Abbildung:Kolibri}
-% \end{figure}
-
+\pagestyle{empty}
 \maketitle
 
 \pagenumbering{roman}
+\pagestyle{kolibri}
 
 \include{chapters/abstract}
 
 \include{chapters/honesty}
 \include{chapters/thanks}
 
+\pagestyle{plain}
 \tableofcontents
 
 \newpage
+\pagestyle{kolibri}
 \pagenumbering{arabic}
 
 \include{chapters/intro}
@@ -116,6 +144,7 @@
 
 % \bibliographystyle{apacite}
 % \bibliography{chapters/references}
+\setcounter{biburllcpenalty}{9000}
 \printbibliography[title={Quelleverzeichnis}]
 
 
