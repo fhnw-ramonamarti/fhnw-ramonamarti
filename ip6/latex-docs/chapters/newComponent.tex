@@ -72,6 +72,49 @@ Die Interaktionen können in weiteren Pojektoren angepasst bzw. geändert werden
 
 % decorator pattern, projector pattern, null object pattern
 
+% 3.1.2 Refactoring
+% (Gillis, 2024) Refactoring zielt darauf ab, den Code übersichtlicher und lesbarer zu gestalten. Eine Schritt für Schritt Umstrukturierung ermöglicht es, komplexe Passagen ohne Funktionalitätsänderung, die Verständlichkeit zu erhöhen. Diese Methode hilft Fehlerquellen zu finden, welche zuvor in der Komplexität versteckt waren. Teilweise werden gewisse Schwachstellen sogar gelöst. Zweck ist es Abhängigkeiten aufzulösen und bestenfalls unabhängige Komponenten zu erstellen. Die bessere Lesbarkeit unterstützt eine spätere Wartung und erhöht die Widerstandsfähigkeit. Der Prozess ist iterativ. Am Ende ist der Code idealerweise möglichst komprimiert und besteht aus extrahierten Komponenten, welche klar in ihrem Verwendungszweck sind. Die Verschachtelungen sind grösstenteils aufgelöst oder umgeschrieben. Wichtig ist, nach einem Refactoring alle Funktionen erneut zu testen.
+
+% 3.1.3 JSDoc
+% Dieser Teil geht nur auf die wichtigsten Eckpunkte von JSDoc ein. Es beschreibt nur die verwendete Komponente und nicht das volle Potenzial. Die folgenden Passagen referenzieren das Thema JSDoc von rstacruz (2024).
+% Um Funktionen zu erklären und den Anwender zu unterstützen, kann folgendes Code Snippet 3.1 mit angepasstem Inhalt über der Code-Komponente platziert werden.
+
+% Zeile 2 des Code Snippet 3.1 gibt eine zusammenfassende Beschreibung, welchen Zweck die Funktion hat. Optional kann in einem weiteren Absatz mehr Details zu der Funktion gegeben werden. Das @link referenziert bereits existierende Typen, um in den IDEs einfacher navigieren zu können. Die Zeilen 4 und 5 listen die Parameter @param und deren Zweck auf. Zugleich legen sie den erlaubten Typ der Argumente in den geschweiften Klammern fest. Zeile 6 definiert den Rückgabetyp @return, welcher im Erfolgsfall erstellt wird. Fehler, die von der Funktion geworfen werden (Zeile 7), erhalten eine Beschreibung startend mit dem @throws. Als weitere Unterstützung stellt @example (Zeile 9) ein Beispiel bereit. 
+
+% Wenn die Funktion ein neues Objekt wie in Code Snippet 3.2 erstellt, erhält diese die Markierung @constructor (Zeile 5). Um generische Funktionen zu dokumentieren, wird @template (Zeile 6) zu Hilfe genommen und als Typ in der weiteren Beschreibung verwendet. Die Sichtbarkeit der Funktion oder Variable beschränkt sich mit @private (Zeile 4) auf das aktuelle File. 
+% JSDoc erweitert JavaScript mit der Möglichkeit Variablen und Konstanten Typen zuzuweisen oder gar eigene Typen zu erstellen. 
+
+% Zeile 2 des Code Snippet 3.3 definiert durch @typdef einen neuen, einfachen Typ, welcher die Monate Januar bis April als Werte zulässt. Es ist sogar möglich verschiedene Typen wie Zahlen und Texte zu kombinieren. Der neue Typ mit @typedef auf Zeile 6 definiert ein Objekt, welches aus einem Tag, einem Monat und einem Jahr besteht. Hierbei stammt der Monat (Zeile 8) aus dem zuvor erstellten Typ von Zeile 2 und die anderen Felder mit @property identifizieren sich als Zahlen (Zeilen 7 und 9). Die eigenen Typen können wie die vordefinierten verwendet werden (Zeile 13).
+
+% 3.1.4 Projector Pattern
+% (König, 2024) Das Projector Pattern (Abbildung 3.3) ist eine Erweiterung des MVC Pattern. Zu Model, View und Control kommen Projectors, welche mit den Controllern verschiedene Views generieren. 
+
+% Die Projectors binden durch die Controller das Model bzw. PresentationModel an die View. Die Art der Bindung hängt von den Eigenschaften der View und dem Zweck des Projectors ab. Controller können mehrere Presentationsmodelle generieren, behalten diese aber privat. Dafür veröffentlichen sie Methoden, die von den Projectors verwendet werden. Da die Zugriffe auf Modelle alle über die Controller laufen, setzt dieser alle Geschäftsregeln durch. Ein PresentationModel generiert Attribute. Diese wiederum generieren benötigte Observables, welche mehr Informationen als nur den Wert enthalten. Wichtig ist, dass der View keine Kenntnis von den anderen Komponenten erlangt.
+
+% 3.1.5 Master-Detail View
+% Eine Master-Detail View kommt zur Anwendung, wenn eine Liste von Elementen angezeigt wird. Zugleich ist ein spezifisches Element davon mit allen Informationen in der View sichtbar. Der Master View (auch Explorer genannt) enthält die Liste. In dieser sind nur wenige Informationen oder nur ein Wert pro Eintrag ersichtlich. 
+
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=120mm]{diagram-select-component-old.png}
+    \caption{Diagramm Select Component - 1. Version}
+    \label{Abbildung:DiagramSelectComponentOld}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=120mm]{diagram-column-component-with-desc.png}
+    \caption{Diagramm Column Component}
+    \label{Abbildung:DiagramColumnComponent}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=120mm]{diagram-select-component-with-desc.png}
+    \caption{Diagramm Select Component}
+    \label{Abbildung:DiagramSelectComponent}
+\end{figure}
 
 \subsection{Popover}
 
@@ -127,6 +170,7 @@ Hier wird ein Platzhalter mit einem Lade-Indikator an die Ursprungstelle gesetzt
 Sobald der SpaltenContainer abgekoppelt ist, lädt die Funktion die Optionen in den Shadow-DOM.
 Nach Abschluss wird der Container mit den neuen Elementen an die originale Stelle zurückersetzt.
 
+(\cite{efficientDomManipulation}) Weiter kann auf 
 
 \subsection{User Tests}
 
