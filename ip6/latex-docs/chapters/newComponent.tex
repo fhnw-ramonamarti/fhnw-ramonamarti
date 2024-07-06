@@ -71,6 +71,9 @@ Die Interaktionen können in weiteren Pojektoren angepasst bzw. geändert werden
 \subsection{Patterns}
 
 % decorator pattern, projector pattern, null object pattern
+% (\cite{nullObjectPattern}) 
+% (\cite{decoratorPattern}) 
+% (\cite{projectorPattern}) 
 
 % 3.1.2 Refactoring
 % (Gillis, 2024) Refactoring zielt darauf ab, den Code übersichtlicher und lesbarer zu gestalten. Eine Schritt für Schritt Umstrukturierung ermöglicht es, komplexe Passagen ohne Funktionalitätsänderung, die Verständlichkeit zu erhöhen. Diese Methode hilft Fehlerquellen zu finden, welche zuvor in der Komplexität versteckt waren. Teilweise werden gewisse Schwachstellen sogar gelöst. Zweck ist es Abhängigkeiten aufzulösen und bestenfalls unabhängige Komponenten zu erstellen. Die bessere Lesbarkeit unterstützt eine spätere Wartung und erhöht die Widerstandsfähigkeit. Der Prozess ist iterativ. Am Ende ist der Code idealerweise möglichst komprimiert und besteht aus extrahierten Komponenten, welche klar in ihrem Verwendungszweck sind. Die Verschachtelungen sind grösstenteils aufgelöst oder umgeschrieben. Wichtig ist, nach einem Refactoring alle Funktionen erneut zu testen.
@@ -134,8 +137,8 @@ In der neuen Version der Select-Komponenten findet sich diese Variante wieder.
 Hier ist auch Zusatzaufwand notwendig, aber weniger als bei den beiden oben genannten Container-Implementationen.
 Der Grundaufbau der Popover-Container ist im folgenden Code \ref{code:PopoverExample} dargestellt.
 
-\begin{lstlisting}[language = html, caption = Code: Popover-Container Beispiel, label = code:PopoverExample]
-    <div id="select-component-0-options" class="options-component" popover="auto"> </div>
+\begin{lstlisting}[language = html5, caption = Popover-Container Beispiel, label = code:PopoverExample]
+<div id="select-component-0-options" class="options-component" popover="auto"> </div>
 \end{lstlisting}
 
 Bei diesem Codeausschnitt ist wichtig, dass das Atttribut $popover$ den Wert $auto$ erhält.
@@ -165,26 +168,26 @@ Ein Shadow-DOM ist ein Teilbaum, welcher nicht im Renderbaum angehängt ist.
 Um dies zu bewerkstelligen, ist es sinnvoll, die Änderungen nach dem Abhängen des Elternknotens zu vollziehen. 
 Nach den Änderungen kann der Teilbaum wieder an den gewünschten Ort platziert werden.
 
-\begin{lstlisting}[language = java, caption = Code: Performance Optimierung (columnOptionsComponent.js), label = code:PerformanceOptimization]
-    const addAllOptions = (options) => {
-        const placeHolder = createHolder();
-        columnView.replaceWith(placeHolder);
-        if (options.length > 50) {
-            setTimeout(() => {
-                options.forEach((option) => {
-                    optionsController.addOption(option);
-                });
-                updateScrollbar(columnView);
-                placeHolder.replaceWith(columnView);
-            }, 80);
-        } else {
+\begin{lstlisting}[language = js, caption = Performance Optimierung (columnOptionsComponent.js), label = code:PerformanceOptimization]
+const addAllOptions = (options) => {
+    const placeHolder = createHolder();
+    columnView.replaceWith(placeHolder);
+    if (options.length > 50) {
+        setTimeout(() => {
             options.forEach((option) => {
                 optionsController.addOption(option);
             });
             updateScrollbar(columnView);
             placeHolder.replaceWith(columnView);
-        }
-    };
+        }, 80);
+    } else {
+        options.forEach((option) => {
+            optionsController.addOption(option);
+        });
+        updateScrollbar(columnView);
+        placeHolder.replaceWith(columnView);
+    }
+};
 \end{lstlisting}
 
 Code \ref{code:PerformanceOptimization} ist eine Stelle, die diese Technick verwendet.
@@ -200,10 +203,11 @@ In diesem Projekt ist es für die Anzeige der Label jedoch nötig innerHTML zu n
 Dies liegt daran, dass ein Label auf ein Bild enthalten kann.
 Der Inline-Style ist nur an einer Stelle in Gebrauch, damit die Properties nicht überschrieben werden können.
 
-\begin{lstlisting}[language = html, caption = Code: Inline-Style für Inputfeld, label = code:InlineStyle]
+\begin{lstlisting}[language = html5, caption = Inline-Style für Inputfeld, label = code:InlineStyle]
 inputElement.setAttribute(
-    "style", "all: unset !important; z-index: -1 !important; position: absolute !important;" +
-        "inset: 5px !important; color: transparent !important; pointer-events: none !important;"
+    "style", "all: unset !important; z-index: -1 !important; " +
+    "position: absolute !important; inset: 5px !important; " +
+    "color: transparent !important; pointer-events: none !important;"
 );
 \end{lstlisting}
 

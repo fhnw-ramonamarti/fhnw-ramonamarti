@@ -19,10 +19,10 @@ Hierbei liegt der Fokus mehr auf der Interaktion mit den Komponenten als auf der
 
 \subsection{Option}
 
-\begin{lstlisting}[language = html, caption = Code: Option Example, label = code:OptionExample]
-    <option value="ValueToSend">LabelToShow</option>
-    <option value="DefaultValue" selected>DefaultLabel</option>
-    <option value="Value" disabled>DisabledLabel</option>
+\begin{lstlisting}[language = html5, caption = Option Example, label = code:OptionExample]
+<option value="ValueToSend">LabelToShow</option>
+<option value="DefaultValue" selected>DefaultLabel</option>
+<option value="Value" disabled>DisabledLabel</option>
 \end{lstlisting}
 
 Das $option$-Tag wird bei beiden Auswahlkomponenten - $datalist$ und $select$ - verwendet. 
@@ -45,13 +45,13 @@ Alle gängigen Browser unterstützen dieses Tag.
 
 \subsection{Select}
 
-\begin{lstlisting}[language = html, caption = Code: Select Example, label = code:SelectExample]
-    <select name="animal">
-        <option value="" disabled>Animal</option>
-        <option value="dog">Dog</option>
-        <option value="cat">Cat</option>
-        <option value="mouse">Mouse</option>
-    </select>
+\begin{lstlisting}[language = html5, caption = Select Example, label = code:SelectExample]
+<select name="animal">
+    <option value="" disabled>Animal</option>
+    <option value="dog">Dog</option>
+    <option value="cat">Cat</option>
+    <option value="mouse">Mouse</option>
+</select>
 \end{lstlisting}
 
 Das $select$-Tag benötigt kein weiteres Element ausser die $option$s – ersichtlich im Code \ref{code:SelectExample}, um den Wert zu speichern.
@@ -93,17 +93,17 @@ Auf dem Mac müssen die Tastenkombinationen jedoch zuerst in der Systemeinstellu
 
 \subsubsection{Optgroup}
 
-\begin{lstlisting}[language = html, caption = Code: Optgroup Example, label = code:OptgroupExample]
-    <select name="animal">
-        <optgroup label="Big animal">
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-        </optgroup>
-        <optgroup label="Small animal">
-            <option value="mouse">Mouse</option>
-            <option value="hamster">Hamster</option>
-        </optgroup>
-    </select>
+\begin{lstlisting}[language = html5, caption = Optgroup Example, label = code:OptgroupExample]
+<select name="animal">
+    <optgroup label="Big animal">
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+    </optgroup>
+    <optgroup label="Small animal">
+        <option value="mouse">Mouse</option>
+        <option value="hamster">Hamster</option>
+    </optgroup>
+</select>
 \end{lstlisting}
 
 Die $optgroup$ dient als Zusatz-Element um in $select$s Optionen zu Gruppieren und mit einem Zwischentitel zu versehen.
@@ -116,13 +116,14 @@ Es besitzt die ARIA-Rolle einer Gruppe und wird von allen Browsern unterstützt.
 
 \subsection{Datalist}
 
-\begin{lstlisting}[language = html, caption = Code: Datalist Example, label = code:DatalistExample]
-    <input type="text" name="animal" list="data" placeholder="Animal" />
-    <datalist id="data">
-        <option value="Dog"></option>
-        <option value="Cat"></option>
-        <option value="Mouse"></option>
-    </datalist>
+\begin{lstlisting}[language = html5, caption = Datalist Example, label = code:DatalistExample]
+<input type="text" name="animal" 
+       list="data" placeholder="Animal" />
+<datalist id="data">
+    <option value="Dog"></option>
+    <option value="Cat"></option>
+    <option value="Mouse"></option>
+</datalist>
 \end{lstlisting}
 
 Die Datalist besteht aus zwei Teilen - einem Input-Feld und einem Daten-Container - wie in Code \ref{code:DatalistExample} ersichtlich. 

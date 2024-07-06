@@ -2,7 +2,86 @@
 
 \includepdf[pages=-]{../appendix/24FS_IMVS17_Generalisierte_Auswahlkomponente_Kolibri.pdf}
 
+
 \chapter{Existierende Komponenten - Bilder}
+
+\section*{Select}
+\graphicspath{ {./img/select/} }
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=120mm]{closed.android.duckduck.png}
+    \caption{Rendering Prozess}
+    \label{Abbildung:}
+\end{figure}
+
+\section*{Datalist}
+\graphicspath{ {./img/datalist/} }
+
+\graphicspath{ {./img/} }
 
 
 \chapter{User Test für Programmierer}
+
+\lstinputlisting[language = js, caption = userTesting.js, label = code:userTestingJs]{../userTest/userTesting.js}
+\lstinputlisting[language = html5, caption = userTesting.html, label = code:userTestingHtml]{../userTest/userTesting.html}
+\lstinputlisting[language = js, caption = starter.js, label = code:starterJs]{../userTest/starter.js}
+\begin{lstlisting}[language = js, caption = dataServiceJs, label = code:dataService.js]
+export {
+    getAllContinents,
+    getCountries,
+    getCountriesChDeAt,
+    getRegionsByCountry,
+    getRegionsByCountryChDeAt,
+    getYearsByDecade,
+    getDecades,
+    getLunchTypes,
+};
+
+/** @type { (String) => String } */
+const getAllContinents = () => [
+    ...new Set(...allCountriesWithContinent.map((country) => country.continent)),
+];
+
+/** @type { (String) => String } */
+const getCountries = (continent) =>
+    allCountriesWithContinent
+        .filter((e) => e.continent === continent || !continent)
+        .map((country) => country.country);
+
+/** @type { (String) => String } */
+const getRegionsByCountry = (country) =>
+    allRegionsWithCountry
+        .filter((e) => e.country === country || !country)
+        .map((region) => region.region).sort();
+
+/** @type { (String) => String } */
+const getCountriesChDeAt = () => ["Switzerland", "Germany", "Austria"];
+
+/** @type { (String) => String } */
+const getRegionsByCountryChDeAt = (country) =>
+    allRegionsWithCountry
+        .filter(
+            (e) => e.country === country || (!country && ["CH", "DE", "AT"].includes(e.code))
+        )
+        .map((region) => region.region).sort();
+
+/** @type { (String) => String } */
+const getYearsByDecade = (decade) => {
+    const decadeStart = decade?.slice(0, 3);
+    const data = [...Array(90).keys()].map((e) => e + 1930 + "");
+    return data.filter((e) => !decade || e.startsWith(decadeStart));
+};
+
+/** @type { (String) => String } */
+const getDecades = () => [...Array(9).keys()].map((e) => e * 10 + 1930 + "'s");
+
+/** @type { (String) => String } */
+const getLunchTypes = () => ["all", "vegetarian", "vegan", "flexetarian", "gluten-free", "lactose-free"];
+
+/* data tables for `allCountriesWithContinent` and `allRegionsWithCountry` */
+/* Link: https://github.com/fhnw-ramonamarti/fhnw-ramonamarti.github.io/blob/main/ip6/userTest/dataService_old.js */
+\end{lstlisting}
+
+
+\chapter{}
