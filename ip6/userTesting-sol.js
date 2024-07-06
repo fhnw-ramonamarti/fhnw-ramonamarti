@@ -36,7 +36,7 @@ const selectAttributes2_1 = {
     numberOfColumns: 2,
 };
 const serviceColumns2_1 = [Service.getCountriesChDeAt, Service.getRegionsByCountryChDeAt];
-const [, label2_1, input2_1] = SelectComponent(selectAttributes2_1, serviceColumns2_1).getComponentView().children;
+const [label2_1, input2_1] = SelectComponent(selectAttributes2_1, serviceColumns2_1).getComponentView().children;
 addSelectViewToUi("task2-home-region", label2_1, input2_1);
 
 const selectAttributes2_2 = {
@@ -45,7 +45,7 @@ const selectAttributes2_2 = {
     numberOfColumns: 2,
 };
 const serviceColumns2_2 = [Service.getCountries, Service.getRegionsByCountry];
-const [, label2_2, input2_2] = SelectComponent(selectAttributes2_2, serviceColumns2_2).getComponentView().children;
+const [label2_2, input2_2] = SelectComponent(selectAttributes2_2, serviceColumns2_2).getComponentView().children;
 addSelectViewToUi("task2-birth-region", label2_2, input2_2);
 
 const selectAttributes2_3 = {
@@ -54,5 +54,5 @@ const selectAttributes2_3 = {
     numberOfColumns: 2,
 };
 const serviceColumns2_3 = [Service.getDecades, Service.getYearsByDecade];
-const [, label2_3, input2_3] = SelectComponent(selectAttributes2_3, serviceColumns2_3).getComponentView().children;
+const [label2_3, input2_3] = SelectComponent(selectAttributes2_3, serviceColumns2_3).getComponentView().children;
 addSelectViewToUi("task2-birth-year", label2_3, input2_3);
