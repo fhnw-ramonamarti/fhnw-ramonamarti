@@ -55,18 +55,32 @@ Die Interaktionen können in weiteren Pojektoren angepasst bzw. geändert werden
 
 
 
-\section{Umsetzung}
+\section{Prinzipien \& Regeln}
 
-% ...
+Dieses Projekt hält sich an diverse Prinzipien, um stabilen und verständlichen Code zu garantieren.
+Ein Ansatz ist alle Objekte so Immutable als möglich zu halten.
+Dadurch können unerwartete Änderungen vermieden werden.
+Weiter gilt es, die Bestandteile im KISS-Stil umzusetzen.
+Dazu zählt, dass die einzelnen Objekte und Funktionen möglichst privat zu gestalten sind.
+Die Bausteine sind kurz und übersichtlicht aufzubauen.
+Zu diesem Zweck soll Separation of Concern eingesetzt werden, sodass jede Funktion nur eine Aufgabe zu erfüllen hat.
+Damit der Code einfach und lesbar bleibt bzw. wird, gilt es, Entschiedungen zu treffen.
+Zu diesen Entschlüssen zählt das bewusste Weglassen von Funktionalität und somit auch Komplexität.
+
+Beim implementieren ist darauf zu achten, den Code sauber zu formatieren.
+Zudem ist es sinnvoll, die Änderungen regelmässig mit dem Code-Analyse-Tool von Intellij auf ihre Qualität zu prüfen. 
+Diese Prinzipien und Regeln unterstützen eine ordentliche Entwicklungsumgebung für eine stabile Komponente.
+Das Kapitel Patterns bietet eine weitere Möglichkeit den Code strukturiert zu halten.
 
 
-\subsection{Prinzipien}
+\section{Patterns}
 
-% immutable ist besser, clean coding rules, kiss (simple stupid) vorgehen, inkrementelle entlickung, separation of concern
-% eintscheidung treffen, bewusst weglassen, stand der technik
+In diesem Projekt finden sich einige Code-Patterns wieder.
+Die wichtigesten wie Null-Object, Projector und Decorator sind in den nachfolgenden Unterkapitel genauer erläutert.
+Unter anderem spielt die Master-Detail-View eine weitere Rolle, aber im Zusammenhang mit der Komponente eher nebensächlich.
+Zudem ist die Anwendung nicht typisch bzw. genau abgegrenzt.
+Durch die verwendeten Patterns erhält die Implementation eine Struktur und läuft stabiler.
 
-
-\subsection{Patterns}
 
 \subsection{Null Object Pattern}
 
@@ -190,7 +204,7 @@ Damit bietet die neue Komponete zwei verschiedene Möglichkeiten der Anwendung.
 Das nächste Kapitel geht noch genauer auf einen Teil des SelectProjectors aus Abbildung \ref{Abbildung:DiagramSelectComponent} ein.
 
 
-\subsection{Dropdown-Container}
+\section{Dropdown-Container}
 
 Um alle Options zu gegebender Zeit in geeigenter Form anzuzeigen anzeigen zu können.
 Eine Möglichkeit ist, den Container als HTML-Dialog zu gestalten.
@@ -219,7 +233,7 @@ Es kann ebenfalls auf den Status und das Event des Togglens zugegtriffen werden.
 Durch diese Funktionalitäten ist der Controller konsistent mitführbar.
 
 
-\subsection{Performance}
+\section{Performance}
 
 Um eine gute Performance zu bieten, ist es notwendig den Aufbau-Prozess einer Webseite zu kennen.
 Dieser Ablauf ist im Kapitel \textbf{Grundalgen} unter \textbf{Ablauf Parsing \& Rendering} genau beschrieben.
@@ -314,14 +328,14 @@ Dadurch spart der Ladevorgang 4 bis 5 Sekunden an Wartezeit.
 Im nachfolgenden Kapitel stehen Resultate und Feedbacks zu den durchgeführten User-Tests mit Programmierern als auch Endnutzern.
 
 
-\subsection{User Tests}
+\section{User Tests}
 
 
-\subsubsection{Programmierer}
+\subsection{Programmierer}
 
 
 
-\subsubsection{Formular-Ausfüller}
+\subsection{Formular-Ausfüller}
 
 
 
@@ -353,9 +367,6 @@ Im nachfolgenden Kapitel stehen Resultate und Feedbacks zu den durchgeführten U
 %  Isch betz speziell, dass `serviceCallbacks` array in vercherter reihefolg muen drii geh werde wies denne ahhzeigt wird...
 %  Wenn mer 2 Kollone het, aber rechts ke uuswahl, de chan mer au nüt uuswähle... Ja isch z erwarte aber isch au ih de Demo vorhande
 %  För mich isch ned immer klaar gsii, wenns nah meh optione unde oder obedraa het. Ih de Browser Dropdown liste gseht mer das sehr schnell dur pfiili obe und unde
-
-\section{Resultat}
-
 
 
 \section{Diskussion}
