@@ -51,8 +51,6 @@ Bei der geschlossenen Komponente ist das Verhalten mit dem Öffnen der Liste tei
 Ist die Liste bereits offen, wird der sich aktuell unter der Cursorposition befindliche Wert selektiert.
 Die Buchstaben zum Filtern oder Suchen von Werten ist nicht in der Komponente enthalten.
 Weiter sind die Funktionen Undo und Redo nicht spezifisch definiert.
-Die speziellen Tasten Home, End, PageUp und PageDown werden in diesem Pojektor nicht berücksichtigt.
-Der Grund dafür ist, dass diese Funktionen auf dem Mac jeweils hinter einer Tastenkombination versteckt sind.
 Die Interaktionen können in weiteren Pojektoren angepasst bzw. geändert werden.
 
 
@@ -70,33 +68,51 @@ Die Interaktionen können in weiteren Pojektoren angepasst bzw. geändert werden
 
 \subsection{Patterns}
 
-% decorator pattern, projector pattern, null object pattern
-% (\cite{nullObjectPattern}) 
-% (\cite{decoratorPattern}) 
-% (\cite{projectorPattern}) 
+\subsection{Null Object Pattern}
 
-% 3.1.2 Refactoring
-% (Gillis, 2024) Refactoring zielt darauf ab, den Code übersichtlicher und lesbarer zu gestalten. Eine Schritt für Schritt Umstrukturierung ermöglicht es, komplexe Passagen ohne Funktionalitätsänderung, die Verständlichkeit zu erhöhen. Diese Methode hilft Fehlerquellen zu finden, welche zuvor in der Komplexität versteckt waren. Teilweise werden gewisse Schwachstellen sogar gelöst. Zweck ist es Abhängigkeiten aufzulösen und bestenfalls unabhängige Komponenten zu erstellen. Die bessere Lesbarkeit unterstützt eine spätere Wartung und erhöht die Widerstandsfähigkeit. Der Prozess ist iterativ. Am Ende ist der Code idealerweise möglichst komprimiert und besteht aus extrahierten Komponenten, welche klar in ihrem Verwendungszweck sind. Die Verschachtelungen sind grösstenteils aufgelöst oder umgeschrieben. Wichtig ist, nach einem Refactoring alle Funktionen erneut zu testen.
+Ein Pattern, welches im Verlauf der Arbeit eine wichtige Rolle eingenommen hat, ist das Null-Object Pattern.
+(\cite{nullObjectPattern}) Null hat den Nachteil, dass alle Funktionsaufrufe darauf zu Fehlern fürhren.
+Das Null-Object besteht aus vordefinierten Default-Werten und besitzt Do-Nothing-Implementationen für alle Funktionen.
+Durch die Verwendung dieses speziellen Objekts entfällt eine ansonsten notwendige Nullwertürüfung.
+Zudem ist jedes erstellte Null-Object gleich dem anderen.
 
-% 3.1.3 JSDoc
-% Dieser Teil geht nur auf die wichtigsten Eckpunkte von JSDoc ein. Es beschreibt nur die verwendete Komponente und nicht das volle Potenzial. Die folgenden Passagen referenzieren das Thema JSDoc von rstacruz (2024).
-% Um Funktionen zu erklären und den Anwender zu unterstützen, kann folgendes Code Snippet 3.1 mit angepasstem Inhalt über der Code-Komponente platziert werden.
+In dieser Komponente wird eine Null-Option benötigt, damit eine Selektion zurückgesetzt werden kann.
+Die Verwendung des Null-Objects findet sich an mehreren Stellen des Codes wieder.
+Der folgende Code \ref{code:nullOption} zeigt die Definition der angewendeten Null-Option.
 
-% Zeile 2 des Code Snippet 3.1 gibt eine zusammenfassende Beschreibung, welchen Zweck die Funktion hat. Optional kann in einem weiteren Absatz mehr Details zu der Funktion gegeben werden. Das @link referenziert bereits existierende Typen, um in den IDEs einfacher navigieren zu können. Die Zeilen 4 und 5 listen die Parameter @param und deren Zweck auf. Zugleich legen sie den erlaubten Typ der Argumente in den geschweiften Klammern fest. Zeile 6 definiert den Rückgabetyp @return, welcher im Erfolgsfall erstellt wird. Fehler, die von der Funktion geworfen werden (Zeile 7), erhalten eine Beschreibung startend mit dem @throws. Als weitere Unterstützung stellt @example (Zeile 9) ein Beispiel bereit. 
+\begin{lstlisting}[language = js, caption = Null-Option, label = code:nullOption]
+/** @private @returns { OptionType } */
+const reset = () => {
+    return Option(null, null);
+};
 
-% Wenn die Funktion ein neues Objekt wie in Code Snippet 3.2 erstellt, erhält diese die Markierung @constructor (Zeile 5). Um generische Funktionen zu dokumentieren, wird @template (Zeile 6) zu Hilfe genommen und als Typ in der weiteren Beschreibung verwendet. Die Sichtbarkeit der Funktion oder Variable beschränkt sich mit @private (Zeile 4) auf das aktuelle File. 
-% JSDoc erweitert JavaScript mit der Möglichkeit Variablen und Konstanten Typen zuzuweisen oder gar eigene Typen zu erstellen. 
+/** @public @type { OptionType } */
+const nullOption = reset();
+\end{lstlisting}
 
-% Zeile 2 des Code Snippet 3.3 definiert durch @typdef einen neuen, einfachen Typ, welcher die Monate Januar bis April als Werte zulässt. Es ist sogar möglich verschiedene Typen wie Zahlen und Texte zu kombinieren. Der neue Typ mit @typedef auf Zeile 6 definiert ein Objekt, welches aus einem Tag, einem Monat und einem Jahr besteht. Hierbei stammt der Monat (Zeile 8) aus dem zuvor erstellten Typ von Zeile 2 und die anderen Felder mit @property identifizieren sich als Zahlen (Zeilen 7 und 9). Die eigenen Typen können wie die vordefinierten verwendet werden (Zeile 13).
+Hierbei muss nur die nullOption selbst exportiert werden und das Reset bleibt private.
+Um die selbe Funktionalität wie die gewünschten Objekte zu bieten, erhält diese Konstante den Typ Option.
+Der Codeauschnitt \ref{code:nullOption} befindet sich in der Datei optionsModel.
+Mehr zur File-Konstruktor Aufteilung ist in den nächsten zwei Unterkapitel zu lesen.
 
-% 3.1.4 Projector Pattern
-% (König, 2024) Das Projector Pattern (Abbildung 3.3) ist eine Erweiterung des MVC Pattern. Zu Model, View und Control kommen Projectors, welche mit den Controllern verschiedene Views generieren. 
+\subsection{Projector Pattern}
 
-% Die Projectors binden durch die Controller das Model bzw. PresentationModel an die View. Die Art der Bindung hängt von den Eigenschaften der View und dem Zweck des Projectors ab. Controller können mehrere Presentationsmodelle generieren, behalten diese aber privat. Dafür veröffentlichen sie Methoden, die von den Projectors verwendet werden. Da die Zugriffe auf Modelle alle über die Controller laufen, setzt dieser alle Geschäftsregeln durch. Ein PresentationModel generiert Attribute. Diese wiederum generieren benötigte Observables, welche mehr Informationen als nur den Wert enthalten. Wichtig ist, dass der View keine Kenntnis von den anderen Komponenten erlangt.
+(\cite{projectorPattern}) Das Projector Pattern basiert auf dem verbreiteten Model-View-Controll Pattern.
+Das Model verwaltet die Daten, welche dargestellt werden sollen.
+Zudem enthalt die Komponente des Patterns die Geschäftslogik und verarbeitet die Regeln und Anfragen für die Daten.
+Ein Controller generiert privat gehaltene Modelle.
+Dabei werden nur die notwendigen Funktionen zur Verfügung gestellt.
+Dazu gehören häufig Getter, Setter und Listener auf die observierten Werte.
+Der Projektor bindet Daten-Modelle über den Controller an die View.
+Auf der anderen Seite wird die View an die Models gebunden, dies erneut mit die Verwendung des Controllers.
+Aus den Bindings und den Daten generiert ein Projetor die passende View.
+Die View ist passiv und hat keine Kenntnis über die anderen Komponenten.
 
-% 3.1.5 Master-Detail View
-% Eine Master-Detail View kommt zur Anwendung, wenn eine Liste von Elementen angezeigt wird. Zugleich ist ein spezifisches Element davon mit allen Informationen in der View sichtbar. Der Master View (auch Explorer genannt) enthält die Liste. In dieser sind nur wenige Informationen oder nur ein Wert pro Eintrag ersichtlich. 
-
+Dieses Pattern zeigte sich als eines wichtigsten für die Erstellung der neuen Komponente.
+In den folgenden Grafiken sind Models als Zylinder, Controller als schiefes Rechteck und Projectors als Oval dargestellt.
+Die Raute mit Option ist ein Daten-Typ, der über das gesamte Projekt seine Andwendung findet.
+Das Puzzle wird im späteren Unterkapitel Decorator Pattern genauer beschrieben.
+Die erste Implementation, welche dieses Pattern verwendet, ist auf Abbildung \ref{Abbildung:DiagramSelectComponentOld}.
 
 \begin{figure}[!htb]
     \centering
@@ -105,6 +121,12 @@ Die Interaktionen können in weiteren Pojektoren angepasst bzw. geändert werden
     \label{Abbildung:DiagramSelectComponentOld}
 \end{figure}
 
+Der starter beinhaltet allte Bestandteile, welche für eine Anwendung benötigt werden.
+Diese Version zeigte jedoch noch viel Komplexität und duplizierenden Code in den einzelnen Funktionen.
+Nach einer genauen Analyse der Komponente war klas, dass sich das Pattern zwei Mal anwenden lässt.
+Die neue Aufteilung ergibt die zwei folgenden Abbildungen \ref{Abbildung:DiagramColumnComponent} und \ref{Abbildung:DiagramSelectComponent}.
+Die Implementation derer gaschah in einem Refactoring mit grösserem Rahmen.
+
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{diagram-column-component-with-desc.png}
@@ -112,12 +134,60 @@ Die Interaktionen können in weiteren Pojektoren angepasst bzw. geändert werden
     \label{Abbildung:DiagramColumnComponent}
 \end{figure}
 
+Zum einen findet sich das Projector Pattern in einer einzelnen Spalte in der Options-Liste wieder.
+Pro Kolonne exestiert eine Auswahl und eine Menge von Optionen.
+Diese beiden Bestandteile besitzen je einen eigenes Model und ein eingenen Controller.
+Der Projektor generiert in diesem Fall eine gemeinsame View mit Bindings zu den beiden Controller.
+Die ColumnComponent verwaltet die Teile, welche eine Anwendung mit sich zieht (Mehr dazu später).
+
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{diagram-select-component-with-desc.png}
     \caption{Diagramm Select Component}
     \label{Abbildung:DiagramSelectComponent}
 \end{figure}
+
+Die Anwendungskomponete findet sich als Bestandteil des zweiten Projector Pattern wieder.
+Ein SelectController verwaltet eine bis mehrere ColumnComponents als auch eine Cursor Position für die Tastaturnavigation.
+Das Element für die Navigation verwendet im Hintergrund ebenfalls einen SelectedOptionController. 
+Diese ist die selbe wie in der Abbildung \ref{Abbildung:DiagramColumnComponent} und findet hier eine Wiederverwendung.
+Die Projektoren der einzelnen Teile greifen alle auf den selben Controller zu, um die Bindings zu definieren.
+Der Master-Detail-Aufbau der neuen Komponente findet sich in der Aufteilung der Projektoren wieder.
+Der Detail-Teil kümmert sich um die aktuellen Auswahl und das Eingabefeld.
+Die Master-Komponete verwaltet alle Spalten mit den Kategorie- und Werte-Optionen, sowie dessen Bindings.
+In einer weiteren Funktion werden die beiden Projektoren zusammengeführt und in eine gemeinsame View eingebettet.
+Auch diese Projector Pattern Anwendung schliesst mit einer Component - der SelectComponent - ab.
+Mehr zu dieser und der Column-Component steht im nächsten Kapitel.
+
+
+\subsection{Decorator Pattern}
+
+(\cite{decoratorPattern}) Ein Decorator bietet zusätzliches Verhalten ohne das Originale Objekt zu verändern.
+Zudem können verschiedene Funktionen kombiniert werden.
+Dieses Pattern ermöglicht eine modulare und anpassbare Software oder in diesem Projekt Auswahlkomponente zu gestalten.
+
+Wie im vorherigen Kapitel erwähnt, besteht die neue Komponente unter anderem aus zwei sogenannten Component-Bausteinen.
+Diese Bestandteile verwenden das Decorator Pattern in sofern, dass die Funktionalität des Controller mit der View kombiniert wird.
+Dadurch kann die neue Kompnente einfacher angewendet werden.
+
+\begin{lstlisting}[language = js, caption = SelectComponentByTableValue dekoriert SelectComponentByCallback, label = code:componentDecorator]
+const SelectComponentByTableValues = (
+    selectAttributes,
+    optionsTable,
+    sortColumnOptionsAlphabetical = false
+) => {
+    /* code for mapping between table and callbacks */
+    const component = SelectComponentByCallbacks(selectAttributes, callbacks);
+    return {
+        ...component,
+    };
+};
+\end{lstlisting}
+
+Ein weiterer Einsatzort ist bereits in der Abbildung \ref{Abbildung:DiagramSelectComponent} aus dem Vorkapitel zu erahnen.
+Der rotbraune SelectComponentByTableValue in Code \ref{code:componentDecorator} dekoriert die SelectComponentByCallback.
+Damit bietet die neue Komponete zwei verschiedene Möglichkeiten der Anwendung.
+Das nächste Kapitel geht noch genauer auf einen Teil des SelectProjectors aus Abbildung \ref{Abbildung:DiagramSelectComponent} ein.
 
 
 \subsection{Dropdown-Container}
@@ -284,7 +354,11 @@ Im nachfolgenden Kapitel stehen Resultate und Feedbacks zu den durchgeführten U
 %  Wenn mer 2 Kollone het, aber rechts ke uuswahl, de chan mer au nüt uuswähle... Ja isch z erwarte aber isch au ih de Demo vorhande
 %  För mich isch ned immer klaar gsii, wenns nah meh optione unde oder obedraa het. Ih de Browser Dropdown liste gseht mer das sehr schnell dur pfiili obe und unde
 
-\subsection{Diskussion}
+\section{Resultat}
+
+
+
+\section{Diskussion}
 
 % herausforderungen
 % komplexeste probleme
@@ -292,4 +366,4 @@ Im nachfolgenden Kapitel stehen Resultate und Feedbacks zu den durchgeführten U
 % unerwartete wendungen
 % entscheidungen, gründe => kein filter/ suche
 
-\subsection{Fazit}
+\section{Fazit}
