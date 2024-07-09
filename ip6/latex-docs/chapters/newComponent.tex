@@ -207,7 +207,7 @@ Zur Auffrischung:
 \end{itemize}
 
 \noindent
-Bei der Festlegung der Maus-Interaktion fiel die Entschiedung auf folgendes:
+Bei der Festlegung der Maus-Interaktion fiel die Entscheidung auf folgendes:
 
 \begin{itemize}
     \item \textbf{mouseover}: visuelles Highlighting des Elements ohne Selektionsänderung
@@ -223,19 +223,19 @@ Hingegen die Tastatur-Steuerung mit den Pfeiltasten hält sich an diese Bedienun
 \end{itemize}
 
 \noindent
-Anhand dieser Regeln enstanden folgendene Aktionen als Basis für den ersten Projektor der neuen Komponente. 
+Anhand dieser Regeln entstanden folgende Aktionen als Basis für den ersten Projektor der neuen Komponente. 
 
 
 \clearpage
 \import{../tables}{d.newComponent.tex}
 
 Das Undo und das Redo auf der Komponente erhält im ersten Projektor keine speziell Definition.
-Anders als bei den existierenden Komponenten, ist bei der neuen die Leetaste neu belegt. 
+Anders als bei den existierenden Komponenten, ist bei der neuen die Leertaste neu belegt. 
 Bei der geschlossenen Komponente ist das Verhalten mit dem Öffnen der Liste teilweise übernommen.
 Ist die Liste bereits offen, wird der sich aktuell unter der Cursorposition befindliche Wert selektiert.
 Die Buchstaben zum Filtern oder Suchen von Werten ist nicht in der Komponente enthalten.
 Weiter sind die Funktionen Undo und Redo nicht spezifisch definiert.
-Die Interaktionen können in weiteren Pojektoren angepasst bzw. geändert werden.
+Die Interaktionen können in weiteren Projektoren angepasst bzw. geändert werden.
 
 
 
@@ -246,9 +246,9 @@ Ein Ansatz ist alle Objekte so Immutable als möglich zu halten.
 Dadurch können unerwartete Änderungen vermieden werden.
 Weiter gilt es, die Bestandteile im KISS-Stil umzusetzen.
 Dazu zählt, dass die einzelnen Objekte und Funktionen möglichst privat zu gestalten sind.
-Die Bausteine sind kurz und übersichtlicht aufzubauen.
+Die Bausteine sind kurz und übersichtlich aufzubauen.
 Zu diesem Zweck soll Separation of Concern eingesetzt werden, sodass jede Funktion nur eine Aufgabe zu erfüllen hat.
-Damit der Code einfach und lesbar bleibt bzw. wird, gilt es, Entschiedungen zu treffen.
+Damit der Code einfach und lesbar bleibt bzw. wird, gilt es, Entscheidungen zu treffen.
 Zu diesen Entschlüssen zählt das bewusste Weglassen von Funktionalität und somit auch Komplexität.
 
 Beim implementieren ist darauf zu achten, den Code sauber zu formatieren.
@@ -269,9 +269,9 @@ Durch die verwendeten Patterns erhält die Implementation eine Struktur und läu
 \subsection{Null Object Pattern}
 
 Ein Pattern, welches im Verlauf der Arbeit eine wichtige Rolle eingenommen hat, ist das Null-Object Pattern.
-(\cite{nullObjectPattern}) Null hat den Nachteil, dass alle Funktionsaufrufe darauf zu Fehlern fürhren.
+(\cite{nullObjectPattern}) Null hat den Nachteil, dass alle Funktionsaufrufe darauf zu Fehlern führen.
 Das Null-Object besteht aus vordefinierten Default-Werten und besitzt Do-Nothing-Implementationen für alle Funktionen.
-Durch die Verwendung dieses speziellen Objekts entfällt eine ansonsten notwendige Nullwertürüfung.
+Durch die Verwendung dieses speziellen Objekts entfällt eine ansonsten notwendige Nullwertprüfung.
 Zudem ist jedes erstellte Null-Object gleich dem anderen.
 
 In dieser Komponente wird eine Null-Option benötigt, damit eine Selektion zurückgesetzt werden kann.
@@ -290,7 +290,7 @@ const nullOption = reset();
 
 Hierbei muss nur die nullOption selbst exportiert werden und das Reset bleibt private.
 Um die selbe Funktionalität wie die gewünschten Objekte zu bieten, erhält diese Konstante den Typ Option.
-Der Codeauschnitt \ref{code:nullOption} befindet sich in der Datei optionsModel.
+Der Codeausschnitt \ref{code:nullOption} befindet sich in der Datei optionsModel.
 Mehr zur File-Konstruktor Aufteilung ist in den nächsten zwei Unterkapitel zu lesen.
 
 \subsection{Projector Pattern}
@@ -308,7 +308,7 @@ Die View ist passiv und hat keine Kenntnis über die anderen Komponenten.
 
 Dieses Pattern zeigte sich als eines wichtigsten für die Erstellung der neuen Komponente.
 In den folgenden Grafiken sind Models als Zylinder, Controller als schiefes Rechteck und Projectors als Oval dargestellt.
-Die Raute mit Option ist ein Daten-Typ, der über das gesamte Projekt seine Andwendung findet.
+Die Raute mit Option ist ein Daten-Typ, der über das gesamte Projekt seine Anwendung findet.
 Das Puzzle wird im späteren Unterkapitel Decorator Pattern genauer beschrieben.
 Die erste Implementation, welche dieses Pattern verwendet, ist auf Abbildung \ref{Abbildung:DiagramSelectComponentOld}.
 
@@ -319,11 +319,11 @@ Die erste Implementation, welche dieses Pattern verwendet, ist auf Abbildung \re
     \label{Abbildung:DiagramSelectComponentOld}
 \end{figure}
 
-Der starter beinhaltet allte Bestandteile, welche für eine Anwendung benötigt werden.
+Der starter beinhaltet alle Bestandteile, welche für eine Anwendung benötigt werden.
 Diese Version zeigte jedoch noch viel Komplexität und duplizierenden Code in den einzelnen Funktionen.
-Nach einer genauen Analyse der Komponente war klas, dass sich das Pattern zwei Mal anwenden lässt.
+Nach einer genauen Analyse der Komponente war klar, dass sich das Pattern zwei Mal anwenden lässt.
 Die neue Aufteilung ergibt die zwei folgenden Abbildungen \ref{Abbildung:DiagramColumnComponent} und \ref{Abbildung:DiagramSelectComponent}.
-Die Implementation derer gaschah in einem Refactoring mit grösserem Rahmen.
+Die Implementation derer geschah in einem Refactoring mit grösserem Rahmen.
 
 \begin{figure}[!htb]
     \centering
@@ -333,8 +333,8 @@ Die Implementation derer gaschah in einem Refactoring mit grösserem Rahmen.
 \end{figure}
 
 Zum einen findet sich das Projector Pattern in einer einzelnen Spalte in der Options-Liste wieder.
-Pro Kolonne exestiert eine Auswahl und eine Menge von Optionen.
-Diese beiden Bestandteile besitzen je einen eigenes Model und ein eingenen Controller.
+Pro Kolonne existiert eine Auswahl und eine Menge von Optionen.
+Diese beiden Bestandteile besitzen je einen eigenes Model und ein eigenen Controller.
 Der Projektor generiert in diesem Fall eine gemeinsame View mit Bindings zu den beiden Controller.
 Die ColumnComponent verwaltet die Teile, welche eine Anwendung mit sich zieht (Mehr dazu später).
 
@@ -345,14 +345,14 @@ Die ColumnComponent verwaltet die Teile, welche eine Anwendung mit sich zieht (M
     \label{Abbildung:DiagramSelectComponent}
 \end{figure}
 
-Die Anwendungskomponete findet sich als Bestandteil des zweiten Projector Pattern wieder.
+Die Anwendungskomponente findet sich als Bestandteil des zweiten Projector Pattern wieder.
 Ein SelectController verwaltet eine bis mehrere ColumnComponents als auch eine Cursor Position für die Tastaturnavigation.
 Das Element für die Navigation verwendet im Hintergrund ebenfalls einen SelectedOptionController. 
 Diese ist die selbe wie in der Abbildung \ref{Abbildung:DiagramColumnComponent} und findet hier eine Wiederverwendung.
 Die Projektoren der einzelnen Teile greifen alle auf den selben Controller zu, um die Bindings zu definieren.
 Der Master-Detail-Aufbau der neuen Komponente findet sich in der Aufteilung der Projektoren wieder.
 Der Detail-Teil kümmert sich um die aktuellen Auswahl und das Eingabefeld.
-Die Master-Komponete verwaltet alle Spalten mit den Kategorie- und Werte-Optionen, sowie dessen Bindings.
+Die Master-Komponente verwaltet alle Spalten mit den Kategorie- und Werte-Optionen, sowie dessen Bindings.
 In einer weiteren Funktion werden die beiden Projektoren zusammengeführt und in eine gemeinsame View eingebettet.
 Auch diese Projector Pattern Anwendung schliesst mit einer Component - der SelectComponent - ab.
 Mehr zu dieser und der Column-Component steht im nächsten Kapitel.
@@ -366,7 +366,7 @@ Dieses Pattern ermöglicht eine modulare und anpassbare Software oder in diesem 
 
 Wie im vorherigen Kapitel erwähnt, besteht die neue Komponente unter anderem aus zwei sogenannten Component-Bausteinen.
 Diese Bestandteile verwenden das Decorator Pattern in sofern, dass die Funktionalität des Controller mit der View kombiniert wird.
-Dadurch kann die neue Kompnente einfacher angewendet werden.
+Dadurch kann die neue Komponente einfacher angewendet werden.
 
 \begin{lstlisting}[style = htmlcssjs, caption = SelectComponentByTableValue dekoriert SelectComponentByCallback, label = code:componentDecorator]
 const SelectComponentByTableValues = (
@@ -384,13 +384,13 @@ const SelectComponentByTableValues = (
 
 Ein weiterer Einsatzort ist bereits in der Abbildung \ref{Abbildung:DiagramSelectComponent} aus dem Vorkapitel zu erahnen.
 Der rotbraune SelectComponentByTableValue in Code \ref{code:componentDecorator} dekoriert die SelectComponentByCallback.
-Damit bietet die neue Komponete zwei verschiedene Möglichkeiten der Anwendung.
+Damit bietet die neue Komponente zwei verschiedene Möglichkeiten der Anwendung.
 Das nächste Kapitel geht noch genauer auf einen Teil des SelectProjectors aus Abbildung \ref{Abbildung:DiagramSelectComponent} ein.
 
 
 \section{Dropdown-Container}
 
-Um alle Options zu gegebender Zeit in geeigenter Form anzuzeigen anzeigen zu können.
+Um alle Options zu gegebener Zeit in geeigneter Form anzuzeigen anzeigen zu können.
 Eine Möglichkeit ist, den Container als HTML-Dialog zu gestalten.
 Die gebotenen Funktionen sind jedoch nicht auf die Anwendung dieser Komponente geeignet.
 Für den gewünschten Zweck erfordert die Dialog-Komponente noch einige Anpassungen.
@@ -412,12 +412,12 @@ Der Grundaufbau der Popover-Container ist im folgenden Code \ref{code:PopoverExa
 > </div>
 \end{lstlisting}
 
-Bei diesem Codeausschnitt ist wichtig, dass das Atttribut $popover$ den Wert $auto$ erhält.
+Bei diesem Codeausschnitt ist wichtig, dass das Attribut $popover$ den Wert $auto$ erhält.
 Dies bewirkt, dass die Popover sich automatisch schliessen, wenn ein Klick ausserhalb des Container passiert.
 Das Öffnen und Schliessen des Dropdown-Teil kann über das $popovertarget$-Attribut mit der Popover-Id auf der Bedienkomponente gesteuert werden.
 Als Alternative dazu besteht die Möglichkeit, das Popover über JavaScript zu steuern.
-Es kann ebenfalls auf den Status und das Event des Togglens zugegtriffen werden.
-Durch diese Funktionalitäten ist der Controller konsistent mitführbar.
+Es kann ebenfalls auf den Status und das Event des Togglens zugegriffen werden.
+Durch diese Funktionalitäten ist der Controller konsistent zum UI zu halten.
 
 
 \section{Performance}
@@ -461,14 +461,14 @@ const addAllOptions = (options) => {
 };
 \end{lstlisting}
 
-Code \ref{code:PerformanceOptimization} ist eine Stelle, die diese Technick verwendet.
-Hier wird ein Platzhalter mit einem Lade-Indikator an die Ursprungstelle gesetzt, damit der Nutzer ein Feedback erhält.
+Code \ref{code:PerformanceOptimization} ist eine Stelle, die diese Technik verwendet.
+Hier wird ein Platzhalter mit einem Lade-Indikator an die Ursprungsstelle gesetzt, damit der Nutzer ein Feedback erhält.
 Sobald der SpaltenContainer abgekoppelt ist, lädt die Funktion die Optionen in den Shadow-DOM.
 Nach Abschluss wird der Container mit den neuen Elementen an die originale Stelle zurückersetzt.
 
 (\cite{efficientDomManipulation}) Weiter ist darauf achten, dass CSS-Klassen an Stelle von Inline-Styles verwendet werden sollten.
 Das Cachen von mehrfach verwendete Selektoren verbessert die Effizienz des DOMs.
-Die Selektore sollten hierarchisch möglichst flach und nicht verschachtelt sein.
+Die Selektoren sollten hierarchisch möglichst flach und nicht verschachtelt sein.
 Zudem ist es, wenn es die Situation erlaubt, besser nicht mit innerHTML zu arbeiten.
 In diesem Projekt ist es für die Anzeige der Label jedoch nötig innerHTML zu nutzen.
 Dies liegt daran, dass ein Label auf ein Bild enthalten kann.

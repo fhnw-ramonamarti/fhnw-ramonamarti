@@ -293,9 +293,10 @@
 % \rightmark = sub heading, \leftmark = chapter
 \fancypagestyle{kolibri}{
     \fancyhf{} % clear
-    \fancyhead[LE,RO]{\rightmark} % outer
+    \fancyhead[RO]{\rightmark} % outer left page
+    \fancyhead[LE]{\leftmark} % outer right page
     \fancyhead[C]{}
-    \fancyhead[LO,RE]{\leftmark} % inner
+    \fancyhead[LO,RE]{} % inner
     \fancyfoot[LE,RO]{\thepage} % outer
     \fancyfoot[C]{\includegraphics[width=16pt]{kolibri-logo2.png}}
     \fancyfoot[LO,RE]{\includegraphics[width=25mm]{fhnw-logo.jpg}} % inner

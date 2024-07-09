@@ -1,8 +1,8 @@
 \chapter{Grundlagen}
 
-Um spätere Missverständisse zu vermeiden, klärt dieser Teil das grundlegende Verständnis einer Auswahlkomponente und den Hintergrund der Browser.
+Um spätere Missverständnisse zu vermeiden, klärt dieser Teil das grundlegende Verständnis einer Auswahlkomponente und den Hintergrund der Browser.
 Im Zusammenhang mit der Auswahlkomponente muss klar sein, welche Status diese als auch Bestandteile dessen besitzen können.
-Um eine Basis für das Erstellen einer konsitenten Auswahlkomponente zu ermöglichen, zeigt der Browser-Teil den Grund für die existierenden Unterschiede.
+Um eine Basis für das Erstellen einer konsistenten Auswahlkomponente zu ermöglichen, zeigt der Browser-Teil den Grund für die existierenden Unterschiede.
 Zudem klärt eines dieser Unterkapitel den Ablauf des Rendern einer HTML-Seite und bietet ein besseres Verständnis für die Entwicklung der neuen Komponente.
 
 
@@ -10,11 +10,11 @@ Zudem klärt eines dieser Unterkapitel den Ablauf des Rendern einer HTML-Seite u
 
 Kolibri, ein von der FHNW betriebenes Toolkit, wird laufend weiterentwickelt.
 Die Open-Source Werkzeuge können von Entwicklern ganz einfach importiert und verwendet werden.
-Um Kolibri schlank zu halten, kommen keine externen Abhänigkeiten zur Verwendung.
+Um Kolibri schlank zu halten, kommen keine externen Abhängigkeiten zur Verwendung.
 Mit einer Vanilla JS Codebasis bietet das Tool eine breite Auswahl an, deckt aber noch nicht alle Interaktionen ab.
 
 In diesem Projekt dient der in der Vorarbeit erstellte Fork als Ausgangslage.
-Ein Merge des Branches $experimental$ dieses Forks und des $Kolibri-16$ der originalen Codebasis stellt die Aktuallität sicher.
+Ein Merge des Branches $experimental$ dieses Forks und des $Kolibri-16$ der originalen Codebasis stellt die Aktualität sicher.
 Das SimpleInput ist eines der Tools, welches bei der Implementation der neuen Auswahlkomponente als hilfreich erweisen kann.
 
 Der Zugriff auf das Designtool Figma ermöglicht das Verwenden des existierenden Designsystems und der bereits eingebundenen Elemente. 
@@ -58,7 +58,7 @@ Häufig ist dieser in der Liste aller Werte hervorgehoben, um die Auswahl anzuze
 In gewissen Situationen existiert noch der Zustand, das in der Master-View ein Wert im $Highlight$ steht. 
 Bestätigt der Nutzer das $Highlight$ mit der Maus, wechselt der Status auf selektiert.
 Mit dem Überfahren der Maus kann der Highlight-Wert geändert werden.
-Geschieht die Naviagtion durch die Werte mit der Tastatur, erhält genau ein Wert die $Cursor Position$. 
+Geschieht die Navigation durch die Werte mit der Tastatur, erhält genau ein Wert die $Cursor Position$. 
 Durch das betätigen gewisser vordefinierter Tasten ändert sich die $Cursor Position$.
 Bei einer Bestätigung mit die Tastatur ändert sich der Wert der $Cursor Position$ auf selektiert.
 Die letzten zwei Zustandswert haben keinen Einfluss auf das versendete Formular und sind nur im Master zu finden.
@@ -66,7 +66,7 @@ Nachfolgend werden noch die Details zum Thema Browser geklärt.
 
 \section{Browser \& HTML Renderer}
 
-Dieses Kapitel beschreibt von der Theorie über die pöpulären Browser bis hin zum Ablauf des Rendering die wichtigsten Aspekte.
+Dieses Kapitel beschreibt von der Theorie über die populären Browser bis hin zum Ablauf des Rendering die wichtigsten Aspekte.
 Dabei werden nur die bekanntesten Implementationen behandelt.
 
 Ein Webbrowser dient hauptsächlich als Zugang ins Internet und zur Anzeige von Webressourcen wie HTML, CSS und JavaScript.
@@ -95,19 +95,19 @@ Der Response liefert schlussendlich die anzuzeigenden Daten, welche in diesem Fa
 Die Rohbytes der HTML-Dateien aus Abbildung \ref{Abbildung:RenderingProcess} werden in Zeichen konvertiert, welche die Entwickler geschrieben haben.
 Ein Parser verarbeitet die einzelnen Charakter weiter zu sogenannten Tokens.
 Hierbei kommt ein Satz von Regeln zur Anwendung, welche bei HTML als Tags in den Diamant-Klammern $<>$ stehen.
-Durch die Definierung der Struktur über die Tokens versteht der Browser den Inhalt der Dateien.
+Durch die Definition der Struktur über die Tokens versteht der Browser den Inhalt der Dateien.
 Die fertigen Tokens werden in Nodes umgewandelt, welche jeweils eigene Eigenschaften besitzen können.
 Aus den entstandenen Nodes entsteht durch Verknüpfungen eine Baumstruktur - der DOM.
 Das Document Object Model (DOM) beschreibt die Eltern-Kind- und Geschwister-Beziehung der Nodes.
 
 Wenn im HTML eine CSS-Datei verlinkt ist, muss dieses zuerst nachgefordert werden.
-Nach Erhalt der Rohdaten der Style-Dateien parst der Browser diese zuest in Charaktere und anschliessend in Tokens.
+Nach Erhalt der Rohdaten der Style-Dateien parst der Browser diese zuerst in Charaktere und anschliessend in Tokens.
 Die Baumstruktur besteht auch hier aus den Tokens gebildeten Nodes. 
 Dieses Ergebnis nennt sich CSS Object Model - kurz CSSOM - und enthält die Design-Informationen der Elemente.
 
-Der DOM und der CSSOM sind unabhänig und der Browser kombiniert diese zu einem Renderbaum.
+Der DOM und der CSSOM sind unabhängig und der Browser kombiniert diese zu einem Renderbaum.
 Der resultierenden Baum repräsentiert nur sichtbare Elemente, wohingegen der DOM alle Elemente enthält.
-Das Layout wird im Renderbaum ergäntzt und berechnet die Position und Grösse der Elemente.
+Das Layout wird im Renderbaum ergänzt und berechnet die Position und Grösse der Elemente.
 
 Der DOM als auch der CSSOM werden parallel zum jeweiligen Parsen gerendert.
 Das Rendering ist jeweils nur ein Schritt hinder dem Parser und verarbeitet dessen Resultate direkt weiter.
@@ -121,14 +121,14 @@ Der Browser führt während des Scripts den Prozess des CSSOM weiter fort.
 
 Zusammengefasst kann gesagt werden, dass das Parsen von HTML-Files ein Schritt vor dem Rendern ist und dasselbe gilt für CSS-Dateien. 
 Beim Script ist genau überlegt zu handeln, da der Zeitpunkt der Ausführung eine wichtige Rolle spielt.
-Folgendes Unterkapitel zeigt die verbreitesten Browser der jeweilig aktuellsten Version mit dessen Rendering-Engines.
+Folgendes Unterkapitel zeigt die verbreitetsten Browser der jeweilig aktuellsten Version mit dessen Rendering-Engines.
 
 
 \subsection{Bekannte Implementationen}
 
-(\cite{blinkRenderer}) Am populärsten mit ungefähr 65\% Maarktanteil sind Browser auf der Chromium-Basis, welche mit dem HTML-Renderer Blink arbeiten. 
+(\cite{blinkRenderer}) Am populärsten mit ungefähr 65\% Marktanteil sind Browser auf der Chromium-Basis, welche mit dem HTML-Renderer Blink arbeiten. 
 (\cite{chromiumBrowser}) Zu diesen Browser zählen Google Chrome, Brave, Microsoft Edge, Opera, Vivaldi, Samsung Internet und noch mehr.
-(\cite{blinkRenderer}) Blink ist eine Abspaltnung der Renderung-Engine WebKit und wird von der Open-Source Comunity Chromium, Google, Intel und Samsung entwickelt.
+(\cite{blinkRenderer}) Blink ist eine Abspaltung der Renderung-Engine WebKit und wird von der Open-Source Community Chromium, Google, Intel und Samsung entwickelt.
 
 (\cite{webkitRenderer}) WebKit selbst findet sich weiterhin im OS-X Webbrowser Safari wieder, welcher mit etwa 15\% Anteil vertreten ist.
 Der Renderer ist ein Fork von der KHTML-Engine und kommt von den Entwicklern Apple, Google, KDE, Nokia und weitere. 
@@ -141,7 +141,7 @@ KHTML selbst von KDE wird nicht mehr fortgeführt.
 Dieser Browser erhält keinen Support mehr und der Marktanteil sinkt immer weiter.
 Die Renderer als auf Forks werden nur noch Maintained, aber nicht mehr weiterentwickelt.
 
-Diese Informationen führen zur Entscheidung, dass die Implementationen der Komponente hauptsächlich auf Chome, Safari und Firefox getestet werden.
+Diese Informationen führen zur Entscheidung, dass die Implementationen der Komponente hauptsächlich auf Chrome, Safari und Firefox getestet werden.
 Die Auswahl der drei Browser decken den grössten Teil der auf dem Markt verwendeten Browser und Rendering-Engines ab.
 Dadurch kann eine browserübergreifende Konsistenz garantiert werden.
 Das nachfolgende Kapitel zeigt die Probleme der unterschiedlichen HTML-Renderer auf.
