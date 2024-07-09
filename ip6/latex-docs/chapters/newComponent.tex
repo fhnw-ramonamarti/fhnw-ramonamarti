@@ -1,12 +1,196 @@
 \chapter{Neue Auswahlkomponenten}
 
+
 \section{Design}
 
-\subsection{Mögliche Designoptionen eines Elements}
+Das Design der neuen Auswahlkomponente ist stark vom Kolibri-Designsystem inspiriert, jedoch mit einigen Anpassungen, um die Lesbarkeit und Benutzerfreundlichkeit zu optimieren. 
+Der Fokus liegt darauf, eine konsistente und ansprechende Benutzererfahrung zu schaffen, die sich über alle modernen Browser hinweg hält.
+
+
+\subsection{Designansatz}
+
+Die Gestaltung der Dropdown-Komponente basiert auf dem Designsystem Kolibri, um eine konsistente Benutzererfahrung zu gewährleisten. 
+Kolibri bietet bereits ein umfassendes Set von Richtlinien und Komponenten, die es ermöglichen, Anwendungen einheitlich und benutzerfreundlich zu gestalten.
+
+
+% \subsection{Mögliche Designoptionen eines Elements}
 
 % border, background-color, font-color, underline, italic, font-weight, line left side
 % pro cons pro möglichkeit mit passenden farboptionen
 % kombination 2er status eines elements
+
+
+\subsection{Figma-Prototypen}
+ 
+Zur Visualisierung und interaktiven Testung des Designs kam Figma zum Einsatz. 
+Figma ist ein webbasiertes Tool zur Erstellung von UI/UX-Designs, das Echtzeit-Kollaboration ermöglicht. 
+Durch die Nutzung von Figma konnten schnell Prototypen erstellt und diese mit Stakeholdern und Nutzern geteilt werden, um Feedback zu sammeln und Iterationen vorzunehmen.
+ 
+Die folgenden Screenshots zeigen die in Figma erstellten Prototypen der Dropdown-Komponente:
+ 
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=\textwidth]{figma-prototype-1.png}
+    \caption{Figma Prototyp - Dropdown Komponente 1}
+    \label{Abbildung:figmaPrototype1}
+\end{figure}
+ 
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=\textwidth]{figma-prototype-2.png}
+    \caption{Figma Prototyp - Dropdown Komponente 2}
+    \label{Abbildung:figmaPrototype2}
+\end{figure}
+ 
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=\textwidth]{figma-prototype-3.png}
+    \caption{Figma Prototyp - Dropdown Komponente 3}
+    \label{Abbildung:figmaPrototype3}
+\end{figure}
+
+
+\subsection{Farbpalette und Kontrast}
+
+Während das Kolibri-Designsystem eine Vielzahl von Farben bietet, wurden spezifische Anpassungen vorgenommen, um sicherzustellen, dass die Dropdown-Komponente gut lesbar ist. 
+Die Farben wurden so ausgewählt, dass sie einen hohen Kontrast bieten und somit die Nutzerfreundlichkeit erhöhen. Dies ist besonders wichtig, um die Barrierefreiheit der Anwendung zu verbessern.
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=70mm]{design-colors.png}
+    \caption{Kolibri Design System - Farbpalette}
+    \label{Abbildung:designColors}
+\end{figure}
+
+Die originalen Farben wurden im neuen Dropdown anders verwendet:
+
+\begin{itemize}
+    \item \textbf{Original} $\rightarrow$ \textbf{neu}
+    \item Kolibri-Light/Yellow/300 $\rightarrow$ selected
+    \item Kolibri-Light/Danger/--kb-danger-accent $\rightarrow$ highlighted
+    \item Kolibri-Light/Waring/--kb-warning-dark $\rightarrow$ selected 2
+\end{itemize}
+
+Hier sind die importierten CSS-Dateien, die als Grundlage für unser Styling dienten:
+
+\begin{lstlisting}[style = htmlcssjs, caption = CSS Imports, label = code:cssImports]
+@import "../../../css/kolibri-base.css";
+@import "../../../css/kolibri-light-colors.css";
+\end{lstlisting}
+
+
+\subsection{Layout und Typografie}
+
+Die Dropdown-Komponente wurde mit CSS gestaltet, um die in Figma entworfenen Designs umzusetzen. 
+Hier ist der relevante CSS-Code, der zur Gestaltung der Dropdown-Komponente verwendet wurde:
+
+\begin{lstlisting}[style = htmlcssjs, caption = style.css der Demo-Page, label = code:styleDemoPage]
+body {
+    perspective: 100vw;
+}
+
+.card {
+    max-width:  40em;
+    margin:     1em auto 2em auto;
+    padding:    2em 4em;
+    box-shadow: var(--kolibri-box-shadow);
+    min-width:  620px;
+}
+
+h1 {
+    text-align:  center;
+    font-family: var(--font-sans-serif), sans-serif;
+    margin-top:  0;
+}
+
+h3, h4 {
+    margin-top: 3rem;
+}
+
+.holder {
+    min-width: 160px;
+    width: fit-content;
+    margin: 1rem 0;
+}
+
+.holder > div {
+    margin: 0;
+    width: 100%;
+}
+\end{lstlisting}
+
+
+\subsection{Interaktionsdesign}
+
+Die Dropdown-Komponente wurde so gestaltet, dass sie sowohl für Maus- als auch Tastaturbenutzer optimal funktioniert. 
+Beim Design der Interaktionen wurde darauf geachtet, dass die Komponente intuitiv und leicht zugänglich bleibt. 
+Die hervorgehobenen Elemente (highlighted) und ausgewählten Optionen (selected) werden durch spezifische CSS-Klassen gekennzeichnet, um die Benutzerführung zu erleichtern.
+
+\begin{lstlisting}[style = htmlcssjs, caption = Style Beispiel für Zustand Highlight, label = code:styleExample]
+.highlighted {
+    background-color: #e0e0e0;
+}
+\end{lstlisting}
+
+
+\subsection{Komponentengrösse und Layoutanpassungen}
+
+Um sicherzustellen, dass die Dropdown-Komponente auf verschiedenen Bildschirmgrössen gut aussieht und funktioniert, wurden Mindest- und Maximalbreiten sowie flexible Layouts definiert.
+
+\begin{lstlisting}[style = htmlcssjs, caption = Flexible Layouts für Demo-Page, label = code:layoutDemoPage]
+#componentCity .select-input-component {
+    min-width:  400px;
+}
+
+#componentImg .select-input-component,
+#componentCountry .select-input-component {
+    min-width:  320px;
+}
+
+#componentImg .options-column {
+    width: auto;
+}
+
+#componentImg img {
+    width:  2rem;
+    max-height: 1.3rem;
+    object-fit: contain;
+}
+
+form {
+    display: flex;
+    gap: 2rem;
+ 
+    > button {
+        border-radius: 5px;
+        color: white;
+        background-color: var(--kolibri-color-output);
+        font-weight: bold;
+        outline: none;
+        border: none;
+        padding: .5rem;
+ 
+        &:focus {
+            filter: brightness(150%);
+        }
+    }
+}
+
+label {
+    display: flex;
+    align-items: center;
+}
+\end{lstlisting}
+
+
+\subsection{Benutzerfeedback und Prototyping}
+
+Der Einsatz von interaktiven Figma-Prototypen ist hilfreich beim Evaluieren der initialen Benutzerfreundlichkeit und intuitiven Bedienung. 
+Die Rückmeldungen von Benutzerinteraktionen wurden in das Design integriert, um die Usability kontinuierlich zu verbessern. 
+Beispiele für die Prototypen und verschiedene Zustände der Dropdown-Komponente sind in den beigefügten Bildern ersichtlich.
+
+Die Gestaltung der Dropdown-Komponente umfasst sowohl visuelle als auch funktionale Aspekte, die durch gezielte CSS-Anpassungen und ein durchdachtes Interaktionsdesign realisiert wurden. 
+Ziel war es, eine ansprechende und benutzerfreundliche Komponente zu schaffen, die sich nahtlos in das Kolibri-Designsystem einfügt und gleichzeitig durch optimierte Lesbarkeit und Bedienbarkeit überzeugt.
 
 
 \section{Interaktionen}
@@ -94,7 +278,7 @@ In dieser Komponente wird eine Null-Option benötigt, damit eine Selektion zurü
 Die Verwendung des Null-Objects findet sich an mehreren Stellen des Codes wieder.
 Der folgende Code \ref{code:nullOption} zeigt die Definition der angewendeten Null-Option.
 
-\begin{lstlisting}[language = js, caption = Null-Option, label = code:nullOption]
+\begin{lstlisting}[style = htmlcssjs, caption = Null-Option, label = code:nullOption]
 /** @private @returns { OptionType } */
 const reset = () => {
     return Option(null, null);
@@ -184,7 +368,7 @@ Wie im vorherigen Kapitel erwähnt, besteht die neue Komponente unter anderem au
 Diese Bestandteile verwenden das Decorator Pattern in sofern, dass die Funktionalität des Controller mit der View kombiniert wird.
 Dadurch kann die neue Kompnente einfacher angewendet werden.
 
-\begin{lstlisting}[language = js, caption = SelectComponentByTableValue dekoriert SelectComponentByCallback, label = code:componentDecorator]
+\begin{lstlisting}[style = htmlcssjs, caption = SelectComponentByTableValue dekoriert SelectComponentByCallback, label = code:componentDecorator]
 const SelectComponentByTableValues = (
     selectAttributes,
     optionsTable,
@@ -221,7 +405,7 @@ In der neuen Version der Select-Komponenten findet sich diese Variante wieder.
 Hier ist auch Zusatzaufwand notwendig, aber weniger als bei den beiden oben genannten Container-Implementationen.
 Der Grundaufbau der Popover-Container ist im folgenden Code \ref{code:PopoverExample} dargestellt.
 
-\begin{lstlisting}[language = html5, caption = Popover-Container Beispiel, label = code:PopoverExample]
+\begin{lstlisting}[style = htmlcssjs, caption = Popover-Container Beispiel, label = code:PopoverExample]
 <div popover="auto"
     id="select-component-0-options" 
     class="options-component" 
@@ -255,7 +439,7 @@ Ein Shadow-DOM ist ein Teilbaum, welcher nicht im Renderbaum angehängt ist.
 Um dies zu bewerkstelligen, ist es sinnvoll, die Änderungen nach dem Abhängen des Elternknotens zu vollziehen. 
 Nach den Änderungen kann der Teilbaum wieder an den gewünschten Ort platziert werden.
 
-\begin{lstlisting}[language = js, caption = Performance Optimierung (columnOptionsComponent.js), label = code:PerformanceOptimization]
+\begin{lstlisting}[style = htmlcssjs, caption = Performance Optimierung (columnOptionsComponent.js), label = code:PerformanceOptimization]
 const addAllOptions = (options) => {
     const placeHolder = createHolder();
     columnView.replaceWith(placeHolder);
@@ -290,7 +474,7 @@ In diesem Projekt ist es für die Anzeige der Label jedoch nötig innerHTML zu n
 Dies liegt daran, dass ein Label auf ein Bild enthalten kann.
 Der Inline-Style ist nur an einer Stelle in Gebrauch, damit die Properties nicht überschrieben werden können.
 
-\begin{lstlisting}[language = html5, caption = Inline-Style für Inputfeld, label = code:InlineStyle]
+\begin{lstlisting}[style = htmlcssjs, caption = Inline-Style für Inputfeld, label = code:InlineStyle]
 inputElement.setAttribute(
     "style", "all: unset !important; z-index: -1 !important; " +
     "position: absolute !important; inset: 5px !important; " +
