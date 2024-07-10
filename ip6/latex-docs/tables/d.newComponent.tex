@@ -7,12 +7,12 @@
         \begin{tabular}{ l || l | l }
             \bf{Kriterium}    & \bf{geschlossen} & \bf{offen} \\
             \hline \hline
-            $\uparrow$ / $\downarrow$     & $\downarrow$: Liste öffnen    & Wert / Kategorie ändern \\
+            $\uparrow$ / $\downarrow$     & Wert ändern         & Wert / Kategorie ändern \\
             \hline
-            $\leftarrow$ / $\rightarrow$  & -                             & - / Spalte ändern       \\
+            $\leftarrow$ / $\rightarrow$  & -                   & Spalte ändern (Cursor Position) \\
             \hline
-            % Buchstaben  & Wert ändern auf Suchergebnis\tnote{1} & Wert ändern auf Suchergebnis\tnote{1}  \\
-            % \hline
+            Buchstaben  & Wert ändern auf Suchergebnis\tnote{1} & Wert ändern auf Suchergebnis\tnote{1}  \\
+            \hline
             Leerschlag  & Liste öffnen    & Wert ändern       \\
             \hline
             Backspace   & Auswahl löschen & Auswahl löschen   \\
@@ -25,7 +25,7 @@
             \hline
             PageUp / PageDown  & Browser-Default\tnote{2} & \tbbr{Jeder 10te Wert wählen} \\
             \hline
-            Home / End & -                & Erster / letzter Wert wählen  \\
+            Home / End & Erster / letzter Wert wählen     & Erster / letzter Wert wählen  \\
             \hline \hline
             Scroll     & Browser-Default\tnote{2}         & \tbbr{\textit{Aussen}: Liste bleibt offen \\
                                                                   \textit{Innen}: Werte bewegen \\ mit Highlight-Änderung} \\
@@ -38,8 +38,8 @@
         \end{tabular}
         \begin{tablenotes}
             \scriptsize
-            \item[1] Suche: Erster zu der Eingabe passender Wert aus der Liste, wenn Eingabe nicht passend $\Rightarrow$ letzter noch übereinstimmender Wert; 
-                            Liste unverändert; nach Pause / Debounce-Ablauf $\Rightarrow$ neue Suche
+            \item[1] Suche: Erster mit dem eingaben Symbol passender Wert aus der Liste, wenn Eingabe nicht passend $\Rightarrow$ nächster nachfolgender Wert; 
+                            Liste unverändert; nach jedem Symbol $\Rightarrow$ neue Suche
             \item[2] Gemeint: Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
         \end{tablenotes}
     \end{threeparttable}

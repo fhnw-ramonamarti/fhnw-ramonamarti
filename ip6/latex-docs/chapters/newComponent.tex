@@ -19,47 +19,48 @@ Kolibri bietet bereits ein umfassendes Set von Richtlinien und Komponenten, die 
 % pro cons pro möglichkeit mit passenden farboptionen
 % kombination 2er status eines elements
 
-
+\clearpage
 \subsection{Figma-Prototypen}
- 
+
 Zur Visualisierung und interaktiven Testung des Designs kam Figma zum Einsatz. 
 Figma ist ein webbasiertes Tool zur Erstellung von UI/UX-Designs, das Echtzeit-Kollaboration ermöglicht. 
 Durch die Nutzung von Figma konnten schnell Prototypen erstellt und diese mit Stakeholdern und Nutzern geteilt werden, um Feedback zu sammeln und Iterationen vorzunehmen.
- 
+
 Die folgenden Screenshots zeigen die in Figma erstellten Prototypen der Dropdown-Komponente:
- 
+
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=\textwidth]{figma-prototype-1.png}
+    \includegraphics[width=100mm]{figma-prototype-1.png}
     \caption{Figma Prototyp - Dropdown Komponente 1}
-    \label{Abbildung:figmaPrototype1}
+    \label{img:figmaPrototype1}
 \end{figure}
- 
+
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=\textwidth]{figma-prototype-2.png}
+    \includegraphics[width=100mm]{figma-prototype-2.png}
     \caption{Figma Prototyp - Dropdown Komponente 2}
-    \label{Abbildung:figmaPrototype2}
+    \label{img:figmaPrototype2}
 \end{figure}
- 
+
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=\textwidth]{figma-prototype-3.png}
+    \includegraphics[width=100mm]{figma-prototype-3.png}
     \caption{Figma Prototyp - Dropdown Komponente 3}
-    \label{Abbildung:figmaPrototype3}
+    \label{img:figmaPrototype3}
 \end{figure}
 
 
 \subsection{Farbpalette und Kontrast}
 
 Während das Kolibri-Designsystem eine Vielzahl von Farben bietet, wurden spezifische Anpassungen vorgenommen, um sicherzustellen, dass die Dropdown-Komponente gut lesbar ist. 
-Die Farben wurden so ausgewählt, dass sie einen hohen Kontrast bieten und somit die Nutzerfreundlichkeit erhöhen. Dies ist besonders wichtig, um die Barrierefreiheit der Anwendung zu verbessern.
+Die Farben wurden so ausgewählt, dass sie einen hohen Kontrast bieten und somit die Nutzerfreundlichkeit erhöhen. 
+Dies ist besonders wichtig, um die Barrierefreiheit der Anwendung zu verbessern.
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=70mm]{design-colors.png}
     \caption{Kolibri Design System - Farbpalette}
-    \label{Abbildung:designColors}
+    \label{img:designColors}
 \end{figure}
 
 Die originalen Farben wurden im neuen Dropdown anders verwendet:
@@ -68,7 +69,7 @@ Die originalen Farben wurden im neuen Dropdown anders verwendet:
     \item \textbf{Original} $\rightarrow$ \textbf{neu}
     \item Kolibri-Light/Yellow/300 $\rightarrow$ selected
     \item Kolibri-Light/Danger/--kb-danger-accent $\rightarrow$ highlighted
-    \item Kolibri-Light/Waring/--kb-warning-dark $\rightarrow$ selected 2
+    \item Kolibri-Light/Waring/--kb-warning-dark $\rightarrow$ cursor position
 \end{itemize}
 
 Hier sind die importierten CSS-Dateien, die als Grundlage für unser Styling dienten:
@@ -160,7 +161,7 @@ Um sicherzustellen, dass die Dropdown-Komponente auf verschiedenen Bildschirmgr�
 form {
     display: flex;
     gap: 2rem;
- 
+
     > button {
         border-radius: 5px;
         color: white;
@@ -169,7 +170,7 @@ form {
         outline: none;
         border: none;
         padding: .5rem;
- 
+
         &:focus {
             filter: brightness(150%);
         }
@@ -211,15 +212,16 @@ Bei der Festlegung der Maus-Interaktion fiel die Entscheidung auf folgendes:
 
 \begin{itemize}
     \item \textbf{mouseover}: visuelles Highlighting des Elements ohne Selektionsänderung
-    \item \textbf{click}: wie mit der Tastatur
+    \item \textbf{click}: Änderung der Cursor Position \& direkte Selektionsänderung
 \end{itemize}
 
 \noindent
 Hingegen die Tastatur-Steuerung mit den Pfeiltasten hält sich an diese Bedienungen:
 
 \begin{itemize}
-    \item direkte Selektionsänderung ohne weiter Bestätigung
     \item Änderung der Cursor Position
+    \item \textbf{selbe Spalte}: direkte Selektionsänderung ohne weiter Bestätigung
+    \item \textbf{Spaltenänderung}: keine Selektionsänderung
 \end{itemize}
 
 \noindent
@@ -310,26 +312,26 @@ Dieses Pattern zeigte sich als eines wichtigsten für die Erstellung der neuen K
 In den folgenden Grafiken sind Models als Zylinder, Controller als schiefes Rechteck und Projectors als Oval dargestellt.
 Die Raute mit Option ist ein Daten-Typ, der über das gesamte Projekt seine Anwendung findet.
 Das Puzzle wird im späteren Unterkapitel Decorator Pattern genauer beschrieben.
-Die erste Implementation, welche dieses Pattern verwendet, ist auf Abbildung \ref{Abbildung:DiagramSelectComponentOld}.
+Die erste Implementation, welche dieses Pattern verwendet, ist auf Abbildung \ref{img:DiagramSelectComponentOld}.
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{diagram-select-component-old.png}
     \caption{Diagramm Select Component - 1. Version}
-    \label{Abbildung:DiagramSelectComponentOld}
+    \label{img:DiagramSelectComponentOld}
 \end{figure}
 
 Der starter beinhaltet alle Bestandteile, welche für eine Anwendung benötigt werden.
 Diese Version zeigte jedoch noch viel Komplexität und duplizierenden Code in den einzelnen Funktionen.
 Nach einer genauen Analyse der Komponente war klar, dass sich das Pattern zwei Mal anwenden lässt.
-Die neue Aufteilung ergibt die zwei folgenden Abbildungen \ref{Abbildung:DiagramColumnComponent} und \ref{Abbildung:DiagramSelectComponent}.
+Die neue Aufteilung ergibt die zwei folgenden Abbildungen \ref{img:DiagramColumnComponent} und \ref{img:DiagramSelectComponent}.
 Die Implementation derer geschah in einem Refactoring mit grösserem Rahmen.
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{diagram-column-component-with-desc.png}
     \caption{Diagramm Column Component}
-    \label{Abbildung:DiagramColumnComponent}
+    \label{img:DiagramColumnComponent}
 \end{figure}
 
 Zum einen findet sich das Projector Pattern in einer einzelnen Spalte in der Options-Liste wieder.
@@ -342,13 +344,13 @@ Die ColumnComponent verwaltet die Teile, welche eine Anwendung mit sich zieht (M
     \centering
     \includegraphics[width=120mm]{diagram-select-component-with-desc.png}
     \caption{Diagramm Select Component}
-    \label{Abbildung:DiagramSelectComponent}
+    \label{img:DiagramSelectComponent}
 \end{figure}
 
 Die Anwendungskomponente findet sich als Bestandteil des zweiten Projector Pattern wieder.
 Ein SelectController verwaltet eine bis mehrere ColumnComponents als auch eine Cursor Position für die Tastaturnavigation.
 Das Element für die Navigation verwendet im Hintergrund ebenfalls einen SelectedOptionController. 
-Diese ist die selbe wie in der Abbildung \ref{Abbildung:DiagramColumnComponent} und findet hier eine Wiederverwendung.
+Diese ist die selbe wie in der Abbildung \ref{img:DiagramColumnComponent} und findet hier eine Wiederverwendung.
 Die Projektoren der einzelnen Teile greifen alle auf den selben Controller zu, um die Bindings zu definieren.
 Der Master-Detail-Aufbau der neuen Komponente findet sich in der Aufteilung der Projektoren wieder.
 Der Detail-Teil kümmert sich um die aktuellen Auswahl und das Eingabefeld.
@@ -382,10 +384,10 @@ const SelectComponentByTableValues = (
 };
 \end{lstlisting}
 
-Ein weiterer Einsatzort ist bereits in der Abbildung \ref{Abbildung:DiagramSelectComponent} aus dem Vorkapitel zu erahnen.
+Ein weiterer Einsatzort ist bereits in der Abbildung \ref{img:DiagramSelectComponent} aus dem Vorkapitel zu erahnen.
 Der rotbraune SelectComponentByTableValue in Code \ref{code:componentDecorator} dekoriert die SelectComponentByCallback.
 Damit bietet die neue Komponente zwei verschiedene Möglichkeiten der Anwendung.
-Das nächste Kapitel geht noch genauer auf einen Teil des SelectProjectors aus Abbildung \ref{Abbildung:DiagramSelectComponent} ein.
+Das nächste Kapitel geht noch genauer auf einen Teil des SelectProjectors aus Abbildung \ref{img:DiagramSelectComponent} ein.
 
 
 \section{Dropdown-Container}
@@ -424,16 +426,16 @@ Durch diese Funktionalitäten ist der Controller konsistent zum UI zu halten.
 
 Um eine gute Performance zu bieten, ist es notwendig den Aufbau-Prozess einer Webseite zu kennen.
 Dieser Ablauf ist im Kapitel \textbf{Grundalgen} unter \textbf{Ablauf Parsing \& Rendering} genau beschrieben.
-Die folgende Abbildung \ref{Abbildung:RenderingProcessRecap} zeigt den Prozess im Überblick.
+Die folgende Abbildung \ref{img:RenderingProcessRecap} zeigt den Prozess im Überblick.
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{rendering-process.png}
     \caption{Rendering Prozess}
-    \label{Abbildung:RenderingProcessRecap}
+    \label{img:RenderingProcessRecap}
 \end{figure}
 
-Hierbei ist ein wichtiger Punkt, dass der Browser den Renderbaum (in der Abbildung \ref{Abbildung:RenderingProcessRecap} rot) maximal 60 Mal pro Sekunde neu zeichnen kann.
+Hierbei ist ein wichtiger Punkt, dass der Browser den Renderbaum (in der Abbildung \ref{img:RenderingProcessRecap} rot) maximal 60 Mal pro Sekunde neu zeichnen kann.
 Daher müssen viele kleine Änderungen ausserhalb des Renderbaums - am besten in einem sogenannten Shadow-DOM - geschehen.
 Ein Shadow-DOM ist ein Teilbaum, welcher nicht im Renderbaum angehängt ist.
 Um dies zu bewerkstelligen, ist es sinnvoll, die Änderungen nach dem Abhängen des Elternknotens zu vollziehen. 
@@ -485,7 +487,7 @@ inputElement.setAttribute(
 Diese Regeln in Code \ref{code:InlineStyle} sorgen dafür, dass das Eingabefeld transparent als auch zurückgesetzt.
 Zudem ist das Input im Hintergrund und in der selben Grösse wie der Auswahlteil der Komponente ist.
 
-\subsubsection{Performance Vergleich}
+\subsubsection{\color{dgray} Performance Vergleich}
 
 Durch die Anpassungen der Performance Optimierung, verbesserte sich die Ladezeit bei grossen Datenmenge enorm.
 Die Testseite enthält 4 existierende und 4 neue Auswahlkomponenten mit den selben Inhalten wie je eines der Existierenden.
@@ -496,20 +498,20 @@ Die folgenden zwei Bilder zeigen die Messung während des Seitenaufbaus.
     \centering
     \includegraphics[width=100mm]{performance-before-user-tests.png}
     \caption{Performance Test vor Anpassungen}
-    \label{Abbildung:PerformanceTestBefore}
+    \label{img:PerformanceTestBefore}
 \end{figure}
 
-Auf der Grafik \ref{Abbildung:PerformanceTestBefore} ist zu sehen, dass der Seitenaufbau anfangs sehr lange dauerte.
+Auf der Grafik \ref{img:PerformanceTestBefore} ist zu sehen, dass der Seitenaufbau anfangs sehr lange dauerte.
 Dies war auch ein Feedback der Nutzer, mehr dazu später.
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=100mm]{performance-after-user-tests.png}
     \caption{Performance Test nach Anpassungen}
-    \label{Abbildung:PerformanceTestAfter}
+    \label{img:PerformanceTestAfter}
 \end{figure}
 
-Der Vergleich zwischen Abbildung \ref{Abbildung:PerformanceTestBefore} und \ref{Abbildung:PerformanceTestAfter} zeigt, dass die Seite um einen Faktor 13 besser ist.
+Der Vergleich zwischen Abbildung \ref{img:PerformanceTestBefore} und \ref{img:PerformanceTestAfter} zeigt, dass die Seite um einen Faktor 13 besser ist.
 In der oberen Grafik wurden sehr viele Aktionen auf dem Renderbaum ausgeführt, welche durch ein Refactoring auf einen Shadow-DOM verschoben wurden.
 Dadurch spart der Ladevorgang 4 bis 5 Sekunden an Wartezeit.
 Im nachfolgenden Kapitel stehen Resultate und Feedbacks zu den durchgeführten User-Tests mit Programmierern als auch Endnutzern.
