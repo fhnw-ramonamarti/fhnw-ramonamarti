@@ -1,10 +1,11 @@
 \chapter{Existierende Auswahlkomponenten}
 
+% todo rewrite paragraph
 Dieses Kapitel zeigt einen Überblick als auch Vergleiche der bestehenden Optionen eine Auswahl zu treffen. 
 Es werden die generellen Möglichkeiten einander gegenübergestellt, sowie die bisher bekanntesten Komponenten $select$ und $datalist$ genauer inspiziert.
 Darin wird auf die Interaktionen und die Darstellung Bezug genommen. 
 
-Zu den bereits existierenden Komponenten zum Start dieser Arbeit zählen Buttons bzw. Links, $select$-, $datalist$-Element und das Country Select.
+¨Zu den bereits existierenden Komponenten zum Start dieser Arbeit zählen Buttons bzw. Links, $select$-, $datalist$-Element und das Country Select.
 Unter dem Country Select ist das Resultat des Projekt 5 zu verstehen.
 In der folgende Tabelle \ref{table:generalComparing} zeigt einen Vergleich der genannten Möglichkeiten.
 
@@ -28,7 +29,7 @@ Hierbei liegt der Fokus mehr auf der Interaktion mit den Komponenten als auf der
 Das $option$-Tag wird bei beiden Auswahlkomponenten - $datalist$ und $select$ - verwendet. 
 Die einzelnen Optionen wie in Code \ref{code:OptionExample} Zeile 1 besitzen ein $value$-Attribut und einen Inhalt - das Label.
 Der Wert kann als Inhalt verwendet werden, wenn anstatt das $value$- das $label$-Attribut genutzt wird.
-Das $label$ wird jedoch von Firefox nicht unterstützt.
+Diese Variante wird jedoch von Firefox nicht unterstützt.
 Werden $value$ und $label$ weggelassen, erhalten beide den Wert innerhalb des Tags.
 Das HTML-Element kann das Attribut $disabled$ oder $selected$ erhalten.
 Eine $selected$ Option wie in Code \ref{code:OptionExample} Zeile 2 wird initial ausgefüllt und funktioniert nur im Zusammenhang mit dem $select$-Container. 
@@ -54,37 +55,37 @@ Alle gängigen Browser unterstützen dieses Tag.
 </select>
 \end{lstlisting}
 
-Das $select$-Tag benötigt kein weiteres Element ausser die $option$s – ersichtlich im Code \ref{code:SelectExample}, um den Wert zu speichern.
-Die typischen Attribute für Eingaben-Felder wie $disabled$, $form$, $name$ und $required$ sind auch bei einem $select$ verwendbar.
+Um den Wert zu speichern, benötigt das $select$-Tag ausser die $option$s kein weiteres Element – ersichtlich im Code \ref{code:SelectExample}.
+Die typischen Attribute für Eingaben-Felder wie $disabled$, $form$, $name$ und $required$ sind auch bei einem Select verwendbar.
 Durch das $disabled$ zeigt sich das Element in einer ausgegrauten Erscheinung und bietet dem Nutzer keine Interaktionsmöglichkeiten mehr.
 Dieses Attribut kann vom Container - z.B. $fieldset$ - geerbt werden.
-Das $form$ definiert das dazugehörige Formular und $name$ den Key für das Key-Value Paar bzw. Name des Feldes im Formular. 
-Mit dem $required$ wird eine Eingabe erzwungen, um das senden des Formulars freizuschalten.
-Für eine bessere Accessibility sollte eine $id$ vergeben werden, damit ein Label dem $select$ zugewiesen werden kann.
+Die $form$-Eigenschaft definiert das dazugehörige Formular und $name$ den Key für das Key-Value Paar bzw. Name des Feldes im Formular. 
+Mit dem $required$ wird eine Eingabe erzwungen, um das Senden des Formulars freizuschalten.
+Für eine bessere Accessibility sollte eine $id$ vergeben werden, damit dem Select ein Label zugewiesen werden kann.
 Standardmässig ist für dieses Feld nur eine einzelne Auswahl möglich.
-Durch die Ergänzung des Attribut $multiple$ ist es möglich mehrere Werte zu markieren.
-Bei einem Multiselect können mehrere Listenelemente mit vorausgewählt werden.
-Wenn jedoch bei einem einfachen $select$ mehrere Optionen das $selected$-Attribut enthalten, wird das letzte als Default eingesetzt und die anderen ignoriert.
-Das $autocomplete$ funktioniert wie bei anderen Inputs, indem Hinweise für das User Agent Feature auftauchen.
-Um nach dem Laden der Seite direkt den Fokus auf das Feld zu setzen, kann das Attribut $autofocus$ ergänzt werden.
-Die Definition des $size$-Attributs steuert die Anzahl sichtbarer Elemente, wobei der Default für single $select$s bei 1 und mehrfache Auswahl bei 4 liegt.
-Das $select$ erhält von allen allen Browsern Unterstützung mit Ausnahme des $size$-Attributs.
-Die Grösse wird auf den meisten Mobile-Browsern nicht unterstützt.
+Durch die Ergänzung des Attributs $multiple$ ist es möglich mehrere Werte zu markieren.
+Bei einem Multiselect können mehrere Listenelemente mit vorausgewählt werden. % todo signle & multi selct in glossar
+Wenn jedoch bei einem Signle-Select mehrere Optionen das $selected$-Attribut enthalten, wird das letzte als Default eingesetzt und die anderen ignoriert.
+Das $autocomplete$ funktioniert wie bei anderen Inputs, indem Vorschläge vom User-Agent-Feature auftauchen.
+Mit dem Attribut $autofocus$ kann der Fokus nach dem Laden direkt auf das Feld gesetzt werden.
+Die Definition des $size$-Attributs steuert die Anzahl sichtbarer Elemente, wobei der Default für Single-Selects bei eins und mehrfache Auswahl bei vier liegt.
+Ausser von dem $size$-Attribut erhält das Select von allen allen Browsern Unterstützung.
+Auf den meisten Mobile-Browsern wird die Grösse nicht supportet.
 
-Abgesehen von der Grösse durch die $size$ kann das Element kaum umgestaltet werden.
-Es gibt jedoch die sehr aufwendige Möglichkeit, den Inhalt zu klonen und durch Wrapper neu zu stylen.
+Abgesehen von der Grösse ist die Umgestaltung des Elements kaum möglich.
+Es gibt jedoch aufwendige Wege, den Inhalt zu klonen und durch Wrapper neu zu stylen.
 In diesem Fall müssen aber die Logik und die Interaktionen für die Accessibility neu implementiert werden.
 Gewisse Stylings können getroffen werden, wobei aber nicht jeder Browser diese in der selben Weise übernehmen.
-Durch die komplexe Struktur des $select$s ist eine eigene Darstellung schwierig zu kontrollieren.
+Durch die komplexe Struktur des Selects ist eine eigene Darstellung schwierig zu kontrollieren.
 
 (\cite{selectMdn}) Der Inhalt des Tags können $option$s oder $optgroup$s sein.
 Mehr zur $optgroup$ kommt im nachfolgenden Unterkapitel.
-In der ARIA-Rolle wird die Komponente als Combobox ohne $size$ und $multiple$ oder Listbox gehandhabt.
+In der ARIA-Rolle wird die Komponente als Combobox (ohne $size$ \& $multiple$) oder Listbox gehandhabt.
 
-Die mehrfache Auswahl rein per Tastatur bietet in der Interaktion geringer Möglichkeiten als mit der Maus.
-Mit gedrückter Cmd bzw. Ctrl (Mac bzw. Windows) Taste können mit der Maus weitere Elemente mitausgewählt werden.
-Sollen in einem Beriech alle Elemente zwischen dem ersten und dem letzten ebenfalls markiert werden, kann stattdessen Shift gedrückt gehalten werden.
-Wenn beide Techniken zur Anwendung kommen, muss zuerst der Teil mit Shift gewählt werden, da sonst die vorher gehende Auswahl aufgehoben wird.
+Die mehrfache Auswahl rein per Tastatur bietet in der Interaktion geringere Möglichkeiten als mit der Maus.
+Mit gedrückter Cmd (Mac) bzw. Ctrl (Windows) Taste können mit der Maus weitere Elemente mitausgewählt werden.
+Sollen in einem Bereich alle Elemente zwischen dem Ersten und dem Letzten ebenfalls markiert werden, kann stattdessen Shift gedrückt gehalten werden.
+Wenn beide Techniken zur Anwendung kommen, muss zuerst der Teil mit Shift gewählt werden, da sonst die zuvor markierte Auswahl aufgehoben wird.
 Um nur mit der Tastatur mehrere Werte zu markieren, muss zuerst zum ersten Element navigiert werden.
 Mit Shift und den Pfeiltasten hoch und runter ist ein Bereich wählbar.
 Firefox unterstützt noch die einzelne Mehrfachauswahl über die Tastatur, indem mit Ctrl der Focus hoch und runter bewegt wird und mit der Leertaste selektiert werden kann.
@@ -107,11 +108,11 @@ Auf dem Mac müssen die Tastenkombinationen jedoch zuerst in der Systemeinstellu
 \end{lstlisting}
 
 Die $optgroup$ dient als Zusatz-Element um in $select$s Optionen zu Gruppieren und mit einem Zwischentitel zu versehen.
-Der Titel ist nicht selektierbar und lässt sich durch das $label$-Attribut setzen. 
+Der Titel lässt sich durch das $label$-Attribut setzen, ist aber nicht selektierbar. 
 Um ein ganzer Block von Auswahlmöglichkeiten auszugrauen, bietet sich das $disabled$ an.
 Die Optionen, welche in diesem Tag enthalten sind, erben das Attribut.
 Als Inhalt dienen $option$-Elemente und selbst besitzt es als Eltern-Tag ein $select$.
-Es besitzt die ARIA-Rolle einer Gruppe und wird von allen Browsern unterstützt.
+Die $optgroup$ besitzt die ARIA-Rolle einer Gruppe und wird von allen Browsern unterstützt.
 
 
 \subsection{Datalist}
@@ -126,7 +127,7 @@ Es besitzt die ARIA-Rolle einer Gruppe und wird von allen Browsern unterstützt.
 </datalist>
 \end{lstlisting}
 
-Die Datalist besteht aus zwei Teilen - einem Input-Feld und einem Daten-Container - wie in Code \ref{code:DatalistExample} ersichtlich. 
+Wie in Code \ref{code:DatalistExample} ersichtlich besteht die Datalist aus zwei Teilen - einem Input-Feld und einem Daten-Container. 
 Im folgenden Unterkapitel \textbf{Input} wird detaillierter auf das Eingabe-Feld und dessen Typen eingegangen.
 Die Datenliste besitzt keine speziellen eigenen Attribute.
 Von den globalen Attributen sollte jedoch zumindest eine $id$ vergeben werden.
@@ -145,14 +146,14 @@ Die Darstellung kann zu Missverständnissen führen, da bei der Auswahl nur der 
 Die $option$s-Werte können sich dem Typ des Inputs anpassen. 
 Generell unterstützen alle Browser die $datalist$, aber Firefox nur begrenzt.
 
-(\cite{datalistMdn}) Nicht alle Browser unterstützen die Liste für jeden Eingabe-Typ.
-Der textuelle Typ funktioniert in allen Browsern und die Liste öffnet sich nach ein Klick bzw. Doppelklick auf das Feld.
+(\cite{datalistMdn}) Nicht alle Browser unterstützen die Datenliste für jeden Eingabe-Typ.
+Der textuelle Typ funktioniert in allen Browsern und die Liste öffnet sich nach einem Klick bzw. Doppelklick auf das Feld.
 Vordefinierte Datum- und Zeit-Typen funktionieren nur in den Chromium basierten Browsern. 
-Die anderen Browser - Firefox und Safari - zeigen den normalen Eingabe-Container, als ob die Liste nicht verknüpft ist.
+Firefox und Safari zeigen den normalen Eingabe-Container, als ob die Liste nicht verknüpft ist.
 Wenn eine Liste mit einer Range verwendet wird, zeigen alle Browser die Optionen durch Markierungen an der jeweiligen Stelle auf dem Slider.
 Die Kombination einer $datalist$ mit einer Farbpalette zeigt eine breite, aber unterschiedliche Unterstützung. 
-Firefox auf OSX ist unter den gängigen Browser der einzige, welche die Liste nicht darstellt.
-Zusammengefasst bieten Chromium-basierte Browser die beste Unterstützung für Listen mit den unterschliedlichsten Typen.
+Unter den gängigen Browsern ist Firefox auf OSX der Einzige, welche die Liste nicht darstellt.
+Zusammengefasst bieten für Listen mit den unterschliedlichsten Typen Chromium-basierte Browser die beste Unterstützung.
 
 
 \subsubsection{\color{dgray} Input}
@@ -162,17 +163,17 @@ Das Input - in Code \ref{code:DatalistExample} auf Zeile 1 - wird durch das $lis
 Bei der Verwendung zusammen mit der $datalist$ ist dieses Attribut Pflicht.
 Dadurch erscheinen die Auswahloptionen während der Bedienung des Input-Feldes. 
 
-Die in diesem Kontext für alle Typen geltenden Attribute werden in diesem Paragraph genauer angeschaut.
-Mit dem $autocomplete$ dient zur Anzeige der Hinweise für das Autofill Featuere der Browser.
-Wie in den früheren Abschnitten bereits beschrieben kann durch das $disable$ die Interaktion ausgeschaltet werden und somit die Komponente deaktiviert werden.
-Wenn das Eingabe-Feld ausserhalb eines Formulars platziert ist, kann durch das Attribut $form$ ein Verknüpfung zu einem auf der Seite existierenden Formular hergestett werden.
-Der Name mit $name$ dient zur Identifizierung des definierten Wertes im $value$-Attribut in einem abgesendet Formular.
+Die in diesem Kontext für alle Typen geltenden Attribute werden in diesem Paragraphen genauer behandelt.
+Das $autocomplete$-Attribut dient zur Anzeige der Hinweise für das Autofill-Feature der Browser.
+Wie in den früheren Abschnitten bereits beschrieben kann durch das $disabled$ die Interaktion ausgeschaltet werden und somit die Komponente deaktiviert werden.
+Wenn das Eingabe-Feld ausserhalb eines Formulars platziert ist, kann durch das Attribut $form$ eine Verknüpfung zu einem auf der Seite existierenden Formular hergestellt werden.
+Die Eigenschaft $name$ dient zur Identifizierung des Wertes im $value$-Attribut im abgesendeten Formular.
 Der Typ des Eingabefeldes - angegeben durch das $type$ - definiert, welche UI-Erscheinung das Input im Browser erhält und welche Werte zulässig sind.
 Als Standard-Typ ist $text$ definiert, wodurch dieses Attribut optional ist.
 Mehr zu den für diese Arbeit wichtigen Typen ist im Unterkapitel \textbf{Input-Typen mit Datalist-Unterstützung} zu lesen.
-Die $id$ als globale Eigenschaft dient bei den Eingabe-Felder zusätzlich noch zur Verknüpfung mit einem $label$-Element und somit einer bessern Accessibility.
+Die $id$ als globale Eigenschaft dient bei den Eingabe-Feldern zusätzlich noch zur Verknüpfung mit einem Label-Element und somit einer bessern Accessibility.
 
-Weiter existieren noch die zwei Attribute $readonly$ und $required$, welche alle Typen ausser $range$ und $color$ definiert sind.
+Weiter existieren noch die zwei Attribute $readonly$ und $required$, welche bei allen Typen ausser $range$ und $color$ definiert sind.
 Durch die Ergänzung der ersten Eigenschaft ist der Wert nicht mehr änderbar, aber es bleibt im Verlauf der fokussierbaren Komponenten enthalten.
 Um die Eingabe zu erzwingen, kann das $required$ angewendet werden.
 Die Eigenschaften $min$, $max$ und $step$ helfen numerischen Typen\footnotemark zu konfigurieren.
@@ -183,7 +184,7 @@ Die textlichen Felder\footnotemark besitzen die Attribute $maxlength$, $minlengt
 \footnotetext{in diesem Zusammenhang: $text$, $search$, $url$, $tel$, $email$, $password$}
 Diese Texttypen zusammen mit $number$ können durch $placeholder$ einen Patzhaltertext erhalten.
 Die Min- und Max-Länge schränken die Textlänge der Eingabe ein.
-Um eine Eingabe weiter zu begrenzen, kann ein Muster mit Regex im $pattern$-Attribut vorgegeben werden.
+Um eine Eingabe weiter zu begrenzen, kann ein Muster mit Regex im $pattern$-Attribut vorgegeben werden. % todo regex glossar
 Dieses wird vor dem Senden des Formulars validiert und bei Fehlern mit invalide markiert.
 Gewisse Typen - wie z.B. $url$, $tel$ und $email$ - haben bereits eine Pattern hinterlegt.
 Mit $size$ lässt sich die Grösse bzw. Anzahl sichtbarer Zeichen angeben.
@@ -196,11 +197,11 @@ Die einzigen Ausnahmen beziehen sich auf die Typen $week$ und $month$, welche im
 
 \subsubsection{{\color{dgray} Input-Typen mit Datalist-Unterstützung}}
 (\cite{datalistMdn}) Angefangen mit den textuellen Typen existieren $text$, $search$, $number$, $email$, $url$ und $tel$.
-Diese Typen Erscheinen als mehr oder weniger normales, einzeiliges Texteingabefeld.
+Diese Typen erscheinen als mehr oder weniger normales, einzeiliges Texteingabefeld.
 Die ersten zwei der Auflistung verwalten einen Text ohne spezielle Anforderungen. 
 Um die Werte als Zahlen zu speichern, dient der Typ $number$, welche dem UI noch zwei Buttons ergänzt.
 Die letzten drei Typen sind Textfelder, welche bereits ein passendes Pattern für E-Mail, URL oder Telefonnummer hinterlegt haben.
-Zudem zeigen diese Felder bei dynamischen Tastaturen eine der Situation angepasste\footnotemark.
+Zudem zeigen diese Felder bei dynamischen Tastaturen eine der Situation angepasstes Layout\footnotemark.
 \footnotetext{z.B. ist bei $email$ @ und . immer sichtbar, oder bei $tel$ sind die Zahlen besser dargestellt}
 Typen in der Kategorie Date-Time sind $month$, $week$, $date$, $time$ und $datetime-local$.
 
@@ -208,8 +209,8 @@ Bei einer ungefähren Eingabe einer Zahl auf einem Intervall bietet sich $range$
 Im UI zeigt sich diese Komponente als Slider, wobei sich der Standard Wert in der Mitte findet.
 Zur Festlegung der Limiten dienen $min$ und $max$.
 Für eine Farbauswahl kann der Typ $color$ zur Anwendung kommen. 
-Dieser zeigt in den gängigen Browser nach dem aufklappen ein Palette, welche sich aber in der Darstellung unterscheiden kann. % todo rewrite
-Firefox beispielsweise greift auf die vom System gestellt Farbpalette zurück, wo Chromium-basierte Browser eine eigene bieten.
+Die gängigen Browser zeigen nach dem Aufklappen Farbpaletten, welche sich aber in der Darstellung unterscheiden. 
+Firefox beispielsweise greift auf die vom System gestellte Farbpalette zurück, wo Chromium-basierte Browser eine Eigene bieten.
 
 \subsubsection{{\color{dgray} CSS für Input-Felder}}
 (\cite{inputMdn}) Bei einem Input bestehen mehr Möglichkeiten dieses umzugestalten.

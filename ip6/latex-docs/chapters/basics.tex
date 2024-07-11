@@ -110,8 +110,8 @@ Der resultierenden Baum repräsentiert nur sichtbare Elemente, wohingegen der DO
 Das Layout wird im Renderbaum ergänzt und berechnet die Position und Grösse der Elemente.
 
 Der DOM als auch der CSSOM werden parallel zum jeweiligen Parsen gerendert.
-Das Rendering ist jeweils nur ein Schritt hinder dem Parser und verarbeitet dessen Resultate direkt weiter.
-Dabei wird der Platz im Dokument dem Element und dem Inhalt zugewiesen und diese dort angezeigt.
+Das Rendering ist jeweils nur ein Schritt hinter dem Parser und verarbeitet dessen Resultate direkt weiter.
+Dabei wird der Platz im Dokument dem Element und dem Inhalt zugewiesen und beide jeweils dort angezeigt. % todo rewrite
 Extern nachgeladene Ressourcen wie Bilder können etwas länger dauern, weswegen die Seiten manchmal ohne diese vorgeladen werden.
 
 Stösst der HTML-Parser auf ein $script$-Tag, stoppt dieser den Prozess des HTML-Parsen bis das Script fertig ausgeführt ist - ausser das Tag enthält das $async$-Attribut.
@@ -127,19 +127,19 @@ Folgendes Unterkapitel zeigt die verbreitetsten Browser der jeweilig aktuellsten
 \subsection{Bekannte Implementationen}
 
 (\cite{blinkRenderer}) Am populärsten mit ungefähr 65\% Marktanteil sind Browser auf der Chromium-Basis, welche mit dem HTML-Renderer Blink arbeiten. 
-(\cite{chromiumBrowser}) Zu diesen Browser zählen Google Chrome, Brave, Microsoft Edge, Opera, Vivaldi, Samsung Internet und noch mehr.
-(\cite{blinkRenderer}) Blink ist eine Abspaltung der Renderung-Engine WebKit und wird von der Open Source Community Chromium, Google, Intel und Samsung entwickelt.
+(\cite{chromiumBrowser}) Zu diesen Browser zählen Google Chrome, Brave, Microsoft Edge, Opera, Vivaldi, Samsung Internet und weitere.
+(\cite{blinkRenderer}) Blink ist eine Abspaltung der Rendering-Engine WebKit und wird von der Open Source Community Chromium, Google, Intel und Samsung entwickelt.
 
-(\cite{webkitRenderer}) WebKit selbst findet sich weiterhin im OS-X Webbrowser Safari wieder, welcher mit etwa 15\% Anteil vertreten ist.
+(\cite{webkitRenderer}) WebKit selbst findet sich weiterhin im OSX Webbrowser Safari wieder, welcher mit etwa 15\% Anteil vertreten ist.
 Der Renderer ist ein Fork von der KHTML-Engine und kommt von den Entwicklern Apple, Google, KDE, Nokia und weitere. 
-KHTML selbst von KDE wird nicht mehr fortgeführt.
+KHTML wird nicht mehr fortgeführt.
 
 (\cite{geckoRenderer}) Die restlichen Browser sind jeweils mit 7\% oder weniger Marktanteil vertreten.
 (\cite{mozillaBrowser}) Dazu zählen mozilla-basierte Browser wie Firefox, Tor oder Pale Moon, welcher das HTML mit Gecko oder einem Fork dessen renderen.
 (\cite{geckoRenderer}) Mozilla Foundation ist zuständig für die Weiterentwicklung dieser Rendering-Engine.
 (\cite{otherRenderer}) Weiter existiert der Internet Explorer, welcher mit Trident auf Windows und mit Tasman auf Mac rendern.
 Dieser Browser erhält keinen Support mehr und der Marktanteil sinkt immer weiter.
-Die Renderer als auf Forks werden nur noch Maintained, aber nicht mehr weiterentwickelt.
+Die Renderer als auch Forks werden nur noch Maintained, aber nicht mehr weiterentwickelt.
 
 Diese Informationen führen zur Entscheidung, dass die Implementationen der Komponente hauptsächlich auf Chrome, Safari und Firefox getestet werden.
 Die Auswahl der drei Browser decken den grössten Teil der auf dem Markt verwendeten Browser und Rendering-Engines ab.
