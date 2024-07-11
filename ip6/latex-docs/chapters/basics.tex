@@ -1,21 +1,21 @@
-\chapter{Grundlagen}
+\chapter{Hintergrund}
 
-Um spätere Missverständnisse zu vermeiden, klärt dieser Teil das grundlegende Verständnis einer Auswahlkomponente und den Hintergrund der Browser.
+Um spätere Missverständnisse zu vermeiden, erklären diese Grundlagen das Basis-Verständnis einer Auswahlkomponente und grundlegendes zum Thema Browser.
 Im Zusammenhang mit der Auswahlkomponente muss klar sein, welche Status diese als auch Bestandteile dessen besitzen können.
-Um eine Basis für das Erstellen einer konsistenten Auswahlkomponente zu ermöglichen, zeigt der Browser-Teil den Grund für die existierenden Unterschiede.
+Um eine Basis für das Erstellen einer konsistenten Auswahlkomponente zu ermöglichen, zeigt der Browser-Abschnitt den Grund für die existierenden Unterschiede.
 Zudem klärt eines dieser Unterkapitel den Ablauf des Rendern einer HTML-Seite und bietet ein besseres Verständnis für die Entwicklung der neuen Komponente.
 
 
 \section{Ausgangslage}
 
 Kolibri, ein von der FHNW betriebenes Toolkit, wird laufend weiterentwickelt.
-Die Open-Source Werkzeuge können von Entwicklern ganz einfach importiert und verwendet werden.
+Die Open Source Werkzeuge können von Entwicklern ganz einfach importiert und verwendet werden.
 Um Kolibri schlank zu halten, kommen keine externen Abhängigkeiten zur Verwendung.
-Mit einer Vanilla JS Codebasis bietet das Tool eine breite Auswahl an, deckt aber noch nicht alle Interaktionen ab.
+Mit einer VanillaJS Codebasis bietet das Tool eine breite Auswahl an, deckt aber noch nicht alle Interaktionen ab.
 
 In diesem Projekt dient der in der Vorarbeit erstellte Fork als Ausgangslage.
 Ein Merge des Branches $experimental$ dieses Forks und des $Kolibri-16$ der originalen Codebasis stellt die Aktualität sicher.
-Das SimpleInput ist eines der Tools, welches bei der Implementation der neuen Auswahlkomponente als hilfreich erweisen kann.
+Das $SimpleInput$ ist eines der Tools, welches sich bei der Implementation der neuen Auswahlkomponente als hilfreich erweisen kann.
 
 Der Zugriff auf das Designtool Figma ermöglicht das Verwenden des existierenden Designsystems und der bereits eingebundenen Elemente. 
 Der Aufbau der Elemente als Komponenten vereinfacht die Wiederverwendung. 
@@ -31,37 +31,37 @@ Diese Definitionen gelten im gesamten Bericht.
 Dieser Abschnitt klärt die Zustände, welche in einer Auswahlkomponente auftreten können.
 Als Ausgangslage dient eine Eingabemöglichkeit, die eine Master-Detail-Ansicht\footnotemark aufweist.
 \footnotetext{
-    Master beschreibt den Bereich, welcher alle möglich Auswahlwerte enthält.  
+    Master beschreibt den Bereich, welcher alle möglichen Auswahlwerte enthält.  
     Detail beschreibt den Bereich, welcher den aktuell ausgewählten (selektierten) Wert enthält.
 }
 Zudem sind keine speziellen Voreinstellungen getroffen.
 \\
 Je nach Darstellung der Komponente kann diese $offen$ oder $geschlossen$ dargestellt werden.
-Wenn nur einer der beiden Zustände möglich ist, ist es meistens der offene.
-Im geschlossenen Status zeigt das Erscheinungsbild nur die Detail-Ansicht an, welcher im mindesten den selektierten Wert anzeigen sollte.
+Wenn nur einer der beiden Zustände möglich ist, ist es meistens der Offene.
+Im geschlossenen Status zeigt das Erscheinungsbild nur die Detail-Ansicht an, welcher mindestens den selektierten Wert anzeigt.
 Eine offene Auswahlmöglichkeit zeigt beide Teile der Master-Detail-View dar.
 Der Master-Teil zeigt alle Values einer Liste an.
 
 Bei dem $normalen$ bzw. nicht fokussierten Status ist die Komponente nicht an- oder ausgewählt.
 Dies ist die standardmässige Darstellung, wenn eine Webseite diese Komponente enthält.
-In diesem Fall betreffen Interaktionen über die Tastatur nicht das Element.
-In den meisten Erscheinungen ist nur die Detail-Ansicht sichtbar und der andere Teil ist ausgeblendet.
+In diesem Fall betreffen Interaktionen über die Tastatur nicht das Element. % todo besser schreiben, unklar
+In den meisten Erscheinungen ist nur die Detail-Ansicht sichtbar und der Master-Container ist ausgeblendet.
 Wählt der Nutzer die Komponente mit der Maus oder der Tastatur an, steht sie im $Fokus$ bzw. ist sie $fokussiert$.
 Bedienungen über das Keyboard beziehen sich hierbei auf den Baustein.
 In den meisten Fällen ändert sich die Darstellung des Eingabefeldes z.B. durch einen blauen Rahmen.
 
 Ist ein Wert in der Master-Ansicht ausgewählt und wird in der Detail-View angezeigt, ist dieser $selektiert$.
 Die $Selektion$ wird beim Versenden eines verlinkten Formulars als Value mitgeschickt.
-Ist die $Selektion$ in einer Kategorie-Spalte - sollte es eine geben, wird dieser nicht mitgeschickt.
+Sollte es eine $Selektion$ in einer Kategorie-Spalte geben, wird diese nicht mitgeschickt.
 Stattdessen filtert die Kategorie-Selektion die Wert-Spalte.
 Häufig ist dieser in der Liste aller Werte hervorgehoben, um die Auswahl anzuzeigen.
-In gewissen Situationen existiert noch der Zustand, das in der Master-View ein Wert im $Highlight$ steht. 
+In gewissen Situationen existiert noch der Zustand, dass in der Master-View ein Wert im $Highlight$ steht. 
 Bestätigt der Nutzer das $Highlight$ mit der Maus, wechselt der Status auf selektiert.
-Mit dem Überfahren der Maus kann der Highlight-Wert geändert werden.
+Durch Hovern kann der Highlight-Wert geändert werden. % todo hover in glossar
 Geschieht die Navigation durch die Werte mit der Tastatur, erhält genau ein Wert die $Cursor Position$. 
 Durch das betätigen gewisser vordefinierter Tasten ändert sich die $Cursor Position$.
-Bei einer Bestätigung mit die Tastatur ändert sich der Wert der $Cursor Position$ auf selektiert.
-Die letzten zwei Zustandswert haben keinen Einfluss auf das versendete Formular und sind nur im Master zu finden.
+Bei einer Bestätigung mit der Tastatur ändert sich der Wert der $Cursor Position$ auf selektiert.
+Die letzten zwei Zustandswerte haben keinen Einfluss auf das versendete Formular und sind nur im Master zu finden.
 Nachfolgend werden noch die Details zum Thema Browser geklärt.
 
 \section{Browser \& HTML Renderer}
@@ -74,9 +74,9 @@ Er besteht aus einer Benutzeroberfläche, einer Browser- und einer Layout/Render
 Um diese Inhalte verständlich auf dem UI darzustellen, verwendet die Browser-Engine einen sogenannten Renderer - mehr dazu später.
 Die Benutzeroberfläche dient als Schnittstelle zwischen dem Benutzer und der Datenschicht. 
 Die Rendering-Engine interpretiert die gegebenen Inhalte, wobei der Renderer anhand des Inhaltstyps gewählt wird. 
-Einer der Engines ist der HTML-Renderer, eine Software, welche den strukturierten Text aus dem HTML-File formatiert mit dem gegebenen Style anzeigt.
+Einer der Engines ist der HTML-Renderer, eine Software, welche den strukturierten Text aus dem HTML-File formatiert und mit dem gegebenen Style anzeigt.
 Beim UI und der Bedienung zeigen sich die Uneinigkeiten zwischen den Browser-Herstellern, indem die Rendering-Engine den Code nicht gleich interpretiert.
-Im nächsten Unterkapitel ist der detaillierte Ablauf zur Anzeige eines HTNL-Dokuments und die Rolle des Rendering zu lesen.
+Im nächsten Unterkapitel ist der detaillierte Ablauf zur Anzeige eines HTML-Dokuments und die Rolle des Rendering zu lesen.
 
 
 \subsection{Ablauf Parsing \& Rendering}
@@ -128,7 +128,7 @@ Folgendes Unterkapitel zeigt die verbreitetsten Browser der jeweilig aktuellsten
 
 (\cite{blinkRenderer}) Am populärsten mit ungefähr 65\% Marktanteil sind Browser auf der Chromium-Basis, welche mit dem HTML-Renderer Blink arbeiten. 
 (\cite{chromiumBrowser}) Zu diesen Browser zählen Google Chrome, Brave, Microsoft Edge, Opera, Vivaldi, Samsung Internet und noch mehr.
-(\cite{blinkRenderer}) Blink ist eine Abspaltung der Renderung-Engine WebKit und wird von der Open-Source Community Chromium, Google, Intel und Samsung entwickelt.
+(\cite{blinkRenderer}) Blink ist eine Abspaltung der Renderung-Engine WebKit und wird von der Open Source Community Chromium, Google, Intel und Samsung entwickelt.
 
 (\cite{webkitRenderer}) WebKit selbst findet sich weiterhin im OS-X Webbrowser Safari wieder, welcher mit etwa 15\% Anteil vertreten ist.
 Der Renderer ist ein Fork von der KHTML-Engine und kommt von den Entwicklern Apple, Google, KDE, Nokia und weitere. 
