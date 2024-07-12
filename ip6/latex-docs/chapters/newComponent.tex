@@ -1,5 +1,7 @@
 \chapter{Neue Auswahlkomponenten}
 
+% todo paragraph
+
 
 \section{Design}
 
@@ -22,11 +24,11 @@ Kolibri bietet bereits ein umfassendes Set von Richtlinien und Komponenten, die 
 \clearpage
 \subsection{Figma-Prototypen}
 
-Zur Visualisierung und interaktiven Testung des Designs kam Figma zum Einsatz. 
+Zur Visualisierung und interaktiven Testing des Designs kam Figma zum Einsatz. 
 Figma ist ein webbasiertes Tool zur Erstellung von UI/UX-Designs, das Echtzeit-Kollaboration ermöglicht. 
 Durch die Nutzung von Figma konnten schnell Prototypen erstellt und diese mit Stakeholdern und Nutzern geteilt werden, um Feedback zu sammeln und Iterationen vorzunehmen.
 
-Die folgenden Screenshots zeigen die in Figma erstellten Prototypen der Dropdown-Komponente:
+Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3} zeigen die in Figma erstellten Prototypen der Dropdown-Komponente:
 
 \begin{figure}[!htb]
     \centering
@@ -53,8 +55,7 @@ Die folgenden Screenshots zeigen die in Figma erstellten Prototypen der Dropdown
 \subsection{Farbpalette und Kontrast}
 
 Während das Kolibri-Designsystem eine Vielzahl von Farben bietet, wurden spezifische Anpassungen vorgenommen, um sicherzustellen, dass die Dropdown-Komponente gut lesbar ist. 
-Die Farben wurden so ausgewählt, dass sie einen hohen Kontrast bieten und somit die Nutzerfreundlichkeit erhöhen. 
-Dies ist besonders wichtig, um die Barrierefreiheit der Anwendung zu verbessern.
+Um eine bessere Nutzerfreundlichkeit zu erhalten, gestaltet sich die Farbauswal (Abbildung \ref{img:designColors}) so, dass sie hohen Kontrast bietet und somit die Barrierefreiheit der Anwendung verbessert.
 
 \begin{figure}[!htb]
     \centering
@@ -63,16 +64,16 @@ Dies ist besonders wichtig, um die Barrierefreiheit der Anwendung zu verbessern.
     \label{img:designColors}
 \end{figure}
 
-Die originalen Farben wurden im neuen Dropdown anders verwendet:
+Die originalen Farben erhalten im neuen Dropdown eine angepasst Verwendung:
 
 \begin{itemize}
     \item \textbf{Original} $\rightarrow$ \textbf{neu}
     \item Kolibri-Light/Yellow/300 $\rightarrow$ selected
     \item Kolibri-Light/Danger/--kb-danger-accent $\rightarrow$ highlighted
-    \item Kolibri-Light/Waring/--kb-warning-dark $\rightarrow$ cursor position
+    \item Kolibri-Light/Warning/--kb-warning-dark $\rightarrow$ cursor position
 \end{itemize}
 
-Hier sind die importierten CSS-Dateien, die als Grundlage für unser Styling dienten:
+Der Code \ref{code:cssImports} zeigt die importierten CSS-Dateien, die als Grundlage für dieses Styling dienen:
 
 \begin{lstlisting}[style = htmlcssjs, caption = CSS Imports, label = code:cssImports]
 @import "../../../css/kolibri-base.css";
@@ -82,8 +83,10 @@ Hier sind die importierten CSS-Dateien, die als Grundlage für unser Styling die
 
 \subsection{Layout und Typografie}
 
-Die Dropdown-Komponente wurde mit CSS gestaltet, um die in Figma entworfenen Designs umzusetzen. 
-Hier ist der relevante CSS-Code, der zur Gestaltung der Dropdown-Komponente verwendet wurde:
+Um die in Figma entworfenen Designs umzusetzen, erhält die Dropdown-Komponente eigenes CSS.
+Nachfolgend im Codeausschnitt \ref{code:styleDemoPage} ist der relevante CSS-Code, der zur Gestaltung der Dropdown-Komponente verwendet wird:
+% todo code passt nicht zu text => code ist in selectprojector / columnoptionsprojetor jeweils unten
+% todo reduzieren auf wesentliche stellen & beschreiben
 
 \begin{lstlisting}[style = htmlcssjs, caption = style.css der Demo-Page, label = code:styleDemoPage]
 body {
@@ -123,21 +126,25 @@ h3, h4 {
 
 \subsection{Interaktionsdesign}
 
-Die Dropdown-Komponente wurde so gestaltet, dass sie sowohl für Maus- als auch Tastaturbenutzer optimal funktioniert. 
-Beim Design der Interaktionen wurde darauf geachtet, dass die Komponente intuitiv und leicht zugänglich bleibt. 
-Die hervorgehobenen Elemente (highlighted) und ausgewählten Optionen (selected) werden durch spezifische CSS-Klassen gekennzeichnet, um die Benutzerführung zu erleichtern.
+Die Dropdown-Komponente ist so gestaltet, dass sie sowohl für Maus- als auch Tastaturbenutzer optimal funktioniert. 
+Das Design der Interaktionen bietet eine intuitive und leicht zugängliche Bedienung der Komponente.
+Um die Benutzerführung zu erleichtern, erhalten die hervorgehobenen (highlighted) bzw. ausgewählten (selected) Optionen eine Kennzeichnung durch spezifische CSS-Klassen.
+Der CSS-Code \ref{code:styleExample} zeigt einen Style-Ausschnitt auf ein gehighlightetes Element.
 
+% todo insert correct code in highlight
 \begin{lstlisting}[style = htmlcssjs, caption = Style Beispiel für Zustand Highlight, label = code:styleExample]
 .highlighted {
-    background-color: #e0e0e0;
+    background-color: #e0e0e0; 
 }
 \end{lstlisting}
 
 
 \subsection{Komponentengrösse und Layoutanpassungen}
 
-Um sicherzustellen, dass die Dropdown-Komponente auf verschiedenen Bildschirmgrössen gut aussieht und funktioniert, wurden Mindest- und Maximalbreiten sowie flexible Layouts definiert.
+Mit der Definition von Mindest- und Maximalbreite sowie flexiblen Layouts ist sichergestellt, 
+dass die Dropdown-Komponente auf verschiedenen Bildschirmgrössen funktioniert und sich gut darstellen lässt.
 
+% todo code wieder für demo und nicht komponte => ändern & beschreiben
 \begin{lstlisting}[style = htmlcssjs, caption = Flexible Layouts für Demo-Page, label = code:layoutDemoPage]
 #componentCity .select-input-component {
     min-width:  400px;
@@ -187,24 +194,26 @@ label {
 \subsection{Benutzerfeedback und Prototyping}
 
 Der Einsatz von interaktiven Figma-Prototypen ist hilfreich beim Evaluieren der initialen Benutzerfreundlichkeit und intuitiven Bedienung. 
-Die Rückmeldungen von Benutzerinteraktionen wurden in das Design integriert, um die Usability kontinuierlich zu verbessern. 
-Beispiele für die Prototypen und verschiedene Zustände der Dropdown-Komponente sind in den beigefügten Bildern ersichtlich.
+Mit der Integration der Rückmeldungen von Benutzerinteraktionen in das Design verbessert sich die Usability kontinuierlich.
+Beispiele für die Prototypen und verschiedene Zustände der Dropdown-Komponente ist im oberen Hälfte des Bildes \ref{img:figmaPrototype1} ersichtlich.
 
-Die Gestaltung der Dropdown-Komponente umfasst sowohl visuelle als auch funktionale Aspekte, die durch gezielte CSS-Anpassungen und ein durchdachtes Interaktionsdesign realisiert wurden. 
-Ziel war es, eine ansprechende und benutzerfreundliche Komponente zu schaffen, die sich nahtlos in das Kolibri-Designsystem einfügt und gleichzeitig durch optimierte Lesbarkeit und Bedienbarkeit überzeugt.
+Die Gestaltung der Auswahlkomponente umfasst sowohl visuelle als auch funktionale Aspekte. 
+Gezielte CSS-Anpassungen und ein durchdachtes Interaktionsdesign finden in der Realisierung ihren Platz. 
+Das Ziel ist, eine ansprechende und benutzerfreundliche Komponente zu schaffen. 
+Sie fügt sich nahtlos in das Kolibri-Designsystem ein und überzeugt gleichzeitig durch optimierte Les- und Bedienbarkeit.
 
 
 \section{Interaktionen}
 
-Für die Bedienung der Komponente gilt es Regeln festzulegen, damit ein gemeinsames Verständis entsteht.
-Wie in den Grundlagen bereits beschrieben kann sich ein Wert aus der Komponentenliste verschiedene in Zuständen befinden.
+Damit ein gemeinsames Verständis entsteht, gilt es für die Bedienung der Komponente Regeln festzulegen.
+Wie in den Grundlagen bereits beschrieben kann sich ein Wert aus dem Optionen-Container in verschiedenen Zuständen befinden.
 In diesem Absatz spielen Selektion, Highlight und Cursor Position eine Rolle.
 Zur Auffrischung: 
 
 \begin{itemize}
     \item \textbf{Selektion}: Ausgewählter Wert der Spalte
-    \item \textbf{Highlight}: Element unterhalb des Maus Zeiger
-    \item \textbf{Cursor Position}: Element-Position für die Tastatur
+    \item \textbf{Highlight}: Element unterhalb des Mauszeigers
+    \item \textbf{Cursor Position}: Position (Element) der Tastatur
 \end{itemize}
 
 \noindent
@@ -216,11 +225,11 @@ Bei der Festlegung der Maus-Interaktion fiel die Entscheidung auf folgendes:
 \end{itemize}
 
 \noindent
-Hingegen die Tastatur-Steuerung mit den Pfeiltasten hält sich an diese Bedienungen:
+Die Tastatur-Steuerung mit den Pfeiltasten hingegen hält sich an diese Bedienungen:
 
 \begin{itemize}
     \item Änderung der Cursor Position
-    \item \textbf{selbe Spalte}: direkte Selektionsänderung ohne weiter Bestätigung
+    \item \textbf{selbe Spalte}: direkte Selektionsänderung ohne weitere Bestätigung
     \item \textbf{Spaltenänderung}: keine Selektionsänderung
 \end{itemize}
 
@@ -231,25 +240,22 @@ Anhand dieser Regeln entstanden folgende Aktionen als Basis für den ersten Proj
 \clearpage
 \import{../tables}{d.newComponent.tex}
 
-Das Undo und das Redo auf der Komponente erhält im ersten Projektor keine speziell Definition.
-Anders als bei den existierenden Komponenten, ist bei der neuen die Leertaste neu belegt. 
-Bei der geschlossenen Komponente ist das Verhalten mit dem Öffnen der Liste teilweise übernommen.
-Ist die Liste bereits offen, wird der sich aktuell unter der Cursorposition befindliche Wert selektiert.
-Die Buchstaben zum Filtern oder Suchen von Werten ist nicht in der Komponente enthalten.
-Weiter sind die Funktionen Undo und Redo nicht spezifisch definiert.
+Das Undo und das Redo auf der Komponente erhält im ersten Projektor keine spezielle Definition.
+Gewisse Verhaltensweisen finden sich im geschlossenen als auch offenen Zustand der Komponente wieder.
+Anders als bei den existierenden Komponenten, ist bei der Neuen die Leertaste neu belegt. 
+Ist die Liste bereits offen, wird der sich aktuell unter der Cursor Position befindliche Wert selektiert.
 Die Interaktionen können in weiteren Projektoren angepasst bzw. geändert werden.
-
 
 
 \section{Prinzipien \& Regeln}
 
-Dieses Projekt hält sich an diverse Prinzipien, um stabilen und verständlichen Code zu garantieren.
-Ein Ansatz ist alle Objekte so Immutable als möglich zu halten.
+Um stabilen und verständlichen Code zu garantieren, hält sich dieses Projekt an diverse Prinzipien.
+Ein Ansatz ist alle Objekte so immutable als möglich zu halten.
 Dadurch können unerwartete Änderungen vermieden werden.
 Weiter gilt es, die Bestandteile im KISS-Stil umzusetzen.
 Dazu zählt, dass die einzelnen Objekte und Funktionen möglichst privat zu gestalten sind.
 Die Bausteine sind kurz und übersichtlich aufzubauen.
-Zu diesem Zweck soll Separation of Concern eingesetzt werden, sodass jede Funktion nur eine Aufgabe zu erfüllen hat.
+Zu diesem Zweck soll Separation of Concern eingesetzt werden, so dass jede Funktion nur eine Aufgabe zu erfüllen hat.
 Damit der Code einfach und lesbar bleibt bzw. wird, gilt es, Entscheidungen zu treffen.
 Zu diesen Entschlüssen zählt das bewusste Weglassen von Funktionalität und somit auch Komplexität.
 
@@ -262,10 +268,10 @@ Das Kapitel Patterns bietet eine weitere Möglichkeit den Code strukturiert zu h
 \section{Patterns}
 
 In diesem Projekt finden sich einige Code-Patterns wieder.
-Die wichtigesten wie Null-Object, Projector und Decorator sind in den nachfolgenden Unterkapitel genauer erläutert.
-Unter anderem spielt die Master-Detail-View eine weitere Rolle, aber im Zusammenhang mit der Komponente eher nebensächlich.
+Die Wichtigesten wie Null-Object, Projector und Decorator sind in den nachfolgenden Unterkapitel genauer erläutert.
+Eine weitere Rolle spielt unter anderem die Master-Detail-View, aber im Zusammenhang mit der Komponente eher nebensächlich.
 Zudem ist die Anwendung nicht typisch bzw. genau abgegrenzt.
-Durch die verwendeten Patterns erhält die Implementation eine Struktur und läuft stabiler.
+Die Implementation erhält durch die verwendeten Patterns eine Struktur und läuft stabiler.
 
 
 \subsection{Null Object Pattern}
@@ -274,11 +280,11 @@ Ein Pattern, welches im Verlauf der Arbeit eine wichtige Rolle eingenommen hat, 
 (\cite{nullObjectPattern}) Null hat den Nachteil, dass alle Funktionsaufrufe darauf zu Fehlern führen.
 Das Null-Object besteht aus vordefinierten Default-Werten und besitzt Do-Nothing-Implementationen für alle Funktionen.
 Durch die Verwendung dieses speziellen Objekts entfällt eine ansonsten notwendige Nullwertprüfung.
-Zudem ist jedes erstellte Null-Object gleich dem anderen.
+Zudem ist jedes erstellte Null-Object wertegleich.
 
-In dieser Komponente wird eine Null-Option benötigt, damit eine Selektion zurückgesetzt werden kann.
+Um eine Selektion zurücksetzen zu können, muss diese Komponente eine Null-Option enthalten.
 Die Verwendung des Null-Objects findet sich an mehreren Stellen des Codes wieder.
-Der folgende Code \ref{code:nullOption} zeigt die Definition der angewendeten Null-Option.
+Die Definition der angewendeten Null-Option zeigt der nachfolgende Code.
 
 \begin{lstlisting}[style = htmlcssjs, caption = Null-Option, label = code:nullOption]
 /** @private @returns { OptionType } */
@@ -290,13 +296,13 @@ const reset = () => {
 const nullOption = reset();
 \end{lstlisting}
 
-Hierbei muss nur die nullOption selbst exportiert werden und das Reset bleibt private.
-Um die selbe Funktionalität wie die gewünschten Objekte zu bieten, erhält diese Konstante den Typ Option.
-Der Codeausschnitt \ref{code:nullOption} befindet sich in der Datei optionsModel.
-Mehr zur File-Konstruktor Aufteilung ist in den nächsten zwei Unterkapitel zu lesen.
+Hierbei muss nur die $nullOption$ selbst exportiert werden und das Reset bleibt $private$.
+Um die selbe Funktionalität wie die gewünschten Objekte zu bieten, erhält diese Konstante den Typ $Option$.
+Der Codeausschnitt \ref{code:nullOption} befindet sich in der Datei $optionsModel.js$.
+Mehr zur File Aufteilung ist in den nächsten zwei Unterkapiteln zu lesen.
 
 \subsection{Projector Pattern}
-
+% todo change ref to könig
 (\cite{projectorPattern}) Das Projector Pattern basiert auf dem verbreiteten Model-View-Controll Pattern.
 Das Model verwaltet die Daten, welche dargestellt werden sollen.
 Zudem enthalt die Komponente des Patterns die Geschäftslogik und verarbeitet die Regeln und Anfragen für die Daten.

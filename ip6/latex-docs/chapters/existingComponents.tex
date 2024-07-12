@@ -5,7 +5,7 @@ Dieses Kapitel zeigt einen Überblick als auch Vergleiche der bestehenden Option
 Es werden die generellen Möglichkeiten einander gegenübergestellt, sowie die bisher bekanntesten Komponenten $select$ und $datalist$ genauer inspiziert.
 Darin wird auf die Interaktionen und die Darstellung Bezug genommen. 
 
-¨Zu den bereits existierenden Komponenten zum Start dieser Arbeit zählen Buttons bzw. Links, $select$-, $datalist$-Element und das Country Select.
+Zu den bereits existierenden Komponenten zum Start dieser Arbeit zählen Buttons bzw. Links, $select$-, $datalist$-Element und das Country Select.
 Unter dem Country Select ist das Resultat des Projekt 5 zu verstehen.
 In der folgende Tabelle \ref{table:generalComparing} zeigt einen Vergleich der genannten Möglichkeiten.
 
@@ -202,7 +202,7 @@ Die ersten zwei der Auflistung verwalten einen Text ohne spezielle Anforderungen
 Um die Werte als Zahlen zu speichern, dient der Typ $number$, welche dem UI noch zwei Buttons ergänzt.
 Die letzten drei Typen sind Textfelder, welche bereits ein passendes Pattern für E-Mail, URL oder Telefonnummer hinterlegt haben.
 Zudem zeigen diese Felder bei dynamischen Tastaturen eine der Situation angepasstes Layout\footnotemark.
-\footnotetext{z.B. ist bei $email$ @ und . immer sichtbar, oder bei $tel$ sind die Zahlen besser dargestellt}
+\footnotetext{z.B.: @ und . ist bei $email$ immer sichtbar, oder bei $tel$ sind die Zahlen besser dargestellt}
 Typen in der Kategorie Date-Time sind $month$, $week$, $date$, $time$ und $datetime-local$.
 
 Bei einer ungefähren Eingabe einer Zahl auf einem Intervall bietet sich $range$ an.
@@ -213,10 +213,10 @@ Die gängigen Browser zeigen nach dem Aufklappen Farbpaletten, welche sich aber 
 Firefox beispielsweise greift auf die vom System gestellte Farbpalette zurück, wo Chromium-basierte Browser eine Eigene bieten.
 
 \subsubsection{{\color{dgray} CSS für Input-Felder}}
-(\cite{inputMdn}) Bei einem Input bestehen mehr Möglichkeiten dieses umzugestalten.
+(\cite{inputMdn}) Bei einem Input bestehen mehrere Möglichkeiten dieses umzugestalten.
 Es existieren eigene CSS-Pseudo-Klassen, wobei folgend nur ein Teil aufgezählt wird.
 
-\begin{itemize}
+\begin{itemize} % todo client side glossar
     \item \textbf{:enabled} bzw. \textbf{:disabled} - reagiert auf das $disabled$-Attribut
     \item \textbf{:read-write} bzw. \textbf{:read-only} - reagiert auf das $readonly$-Attribut
     \item \textbf{:valid} bzw. \textbf{:invalid} - reagiert auf die Client-Side Validität\footnotemark des Felds, sobald das Formular versendet wird
@@ -225,97 +225,112 @@ Es existieren eigene CSS-Pseudo-Klassen, wobei folgend nur ein Teil aufgezählt 
     \item \textbf{:optional} bzw. \textbf{:required} - reagiert auf das $required$-Attribut
     \item \textbf{:blank} - reagiert wenn ein Feld leer ist
 \end{itemize}
-\footnotetext{Einhaltung der Regeln für das Input wie ein gegebenes $pattern$}
+\footnotetext{Einhaltung der Regeln für das Input - z.B. ein gegebenes $pattern$}
 
-Weiter gibt es noch die das Pseudo-Element \textbf{::placeholder}, welches das Stylen des Platzhalter erlaubt.
+Weiter gibt es noch das Pseudo-Element \textbf{::placeholder}, welches das Stylen des Platzhalters erlaubt.
 In Feldern mit einem Cursor\footnotemark kann dieser mit dem CSS-Property \textbf{caret-color} umgefärbt werden.
-\footnotetext{hier gemeint: blinkender Strich in einem Eingabefeld}
+\footnotetext{blinkender Strich in einem Eingabefeld}
 Generell kann das normale Input-Feld relativ gut designed werden - im Vergleich zur $datalist$ und dem $select$.
 
 \clearpage
-\section{Browser-Inkonsistenzen}
-Die Komponenten Select \& Datalist können sich im UI und der Bedingung leicht variieren,
+\section{Browser-Inkonsistenzen} % todo vllt anpassen abschnitt
+Die Komponenten Select \& Datalist variieren im UI und in der Bedienung,
 besonders hinsichtlich der visuellen Darstellung und des Verhaltens von Navigationspfeilen oder anderen Steuerelementen.
 
 
 \subsection{UI Unterschiede}
-Das $select$ ist in der geschlossenen Form immer mit mindestens einem Pfeil nach unten auf der rechten Seite ausgestattet.
-Safari (OSX und iOS) verwendet sogar einen Doppelpfeil (nach oben und unten) als Icon.
+Das Select ist in der geschlossenen Form immer mit mindestens einem Pfeil nach unten auf der rechten Seite ausgestattet.
+Safari (OSX und iOS) verwendet als Icon einen Doppelpfeil (nach oben und unten).
 Firefox zeigt das Feld in grau, während alle anderen Browser einen weissen Hintergrund verwenden.
 Safari auf iOS stellt die Komponente ohne Rahmen dar und deswegen ist der Hintergrund in einem hellen Grau gehalten.
-Die geöffnete Liste ist bei Firefox als einziges ein wenig konsistenter, diese in einem mittel- bis hellgrauen Container kommt.
-Die anderen Browser sind einstellungsabhängig und zeigen den Container in einem dunklen grau oder weiss an.
-Je nach Anzahl der enthaltenen Elemente erscheint die Liste darunter (darüber) oder überdeckt das $select$ selbst sogar.
-Grundsätzlich lässt sich das Element in Safari am wenigsten stylen.
+Die geöffnete Liste ist bei Firefox als einziges relativ konsistent. 
+Sie erscheint in einem mittel- bis hellgrauen Container.
+Die anderen Browser sind einstellungsabhängig und zeigen den Container weiss oder dunklen grau an.
+Je nach Anzahl der enthaltenen Elemente erscheint die Liste darunter (darüber) oder überdeckt das Select. % todo anders folmulieren select zu generell
+Am Wenigsten lässt sich das Element in Safari stylen.
 
-Die $datalist$ ist inkonsistenter, da beispielsweise nicht in jedem Browser ein Icon angezeigt wird.
+Nicht in jedem Browser wird ein Icon angezeigt, weswegen die Datalist weniger konsistent ist.
 Safari (Mac) und Firefox stellen keinen visuellen Hinweis auf einen Listen-Container dar.
-Safari auf iOS zeigt hingegen in jedem Fall - bezogen auf den textuellen Typ - einen Pfeil nach unten an.
-Die anderen Browser liegen dazwischen und blenden das Icon (Dreieck nach unten) auf der rechten Seite beim Hovern oder beim Besitzen des Fokus ein.
-Das Öffnen der Liste in Firefox unterscheidet sich ebenfalls, da, wenn das Feld den Fokus noch nicht besitzt, zwei Mal geklickt werden muss.
+Safari auf iOS zeigt hingegen in jedem Fall - bezogen auf den textuellen Typ - einen nach unten zeigenden Pfeil an.
+Andere Browser blenden auf der rechten Seite beim Hovern oder beim Besitzen des Fokus das Icon (Dreieck nach unten zeigend) ein.
+Bei Firefox unterscheidet sich das Öffnen der Liste ebenfalls. 
+Wenn das Feld den Fokus noch nicht besitzt, muss es zwei Mal angeklickt werden.
 Die anderen Browser lassen die Liste bereits beim ersten Kick erscheinen.
 Die Liste selbst verhält sich je nach Browser und Inhalt verschieden, indem sie seitlich oder darunter (darüber) erscheint.
-Der Container übernimmt die Farbe des Systems nicht sowie das $select$.
-Das Feld selbst wird nie überdeckt. 
+Ob der Dark- bzw. Light-Mode als Container-Farbe übernommen wird, ist vom Browser und dem Anwendungskontext abhängig.
+Das Feld selbst wird nie von der Liste überdeckt. 
 
 \clearpage
 \subsection{Edge Browser}
 \import{../tables}{c.edge.tex}
+
 Auf Windows verhält sich Edge sehr ähnlich wie Chrome, da die Codebasis beider Browser Chromium ist.
-Im Design gibt es jedoch Unterschiede bei der Darstellung von den Listen oder Navigationspfeilen. 
+
 
 \clearpage
 \subsection{Chrome Browser}
 \import{../tables}{c.chrome.tex}
 
 Auf dem Mac verhält sich Chrome ähnlich wie auf Windows, jedoch können sich Designaspekte unterscheiden. 
-Zum Beispiel könnte der Navigationspfeil in einem anderen Stil dargestellt werden oder 
-die Animationen beim Öffnen von Dropdowns könnten glatter sein.
+
 
 \clearpage
 \subsection{Firefox Browser}
 \import{../tables}{c.firefox.tex}
 
-Firefox zeigt auf dem Mac konsistentes Verhalten wie auf Windows, jedoch mit typischen MacOS Designanpassungen. 
-Elemente wie Buttons und Listen haben abgerundete Ecken und die Interaktions-Feedbacks können sich leicht von der Windows-Version unterscheiden.
+Wie auch auf Windows zeigt Firefox auf dem Mac konsistentes Verhalten, jedoch mit typischen OSX Designanpassungen. 
+Die Interaktions-Feedbacks auf Mac können sich leicht von der Windows-Version unterscheiden.
+
 
 \clearpage
 \subsection{Safari Browser}
 \import{../tables}{c.safari.tex}
 
-Ähnlich wie in Chrome und Firefox auf Windows, aber Designelemente wie Schatten oder Ränder können subtiler sein. 
-Safari tendiert dazu, ein minimalistischeres Design zu verwenden, was sich in der Darstellung von Dropdowns und Comboboxen widerspiegelt.
+Safari tendiert dazu, ein minimalistisches Design zu verwenden, was sich in der Darstellung von Dropdowns und Comboboxen widerspiegelt.
+Dieser Browser verwendet Designelemente wie Schatten und Ränder in anderer Form als Chrome und Firefox.
+Das Select zeigt die grössten Unterschiede im UI.
+
 
 \clearpage
 \subsection{Safari Browser auf iOS}
 \import{../tables}{c.safari.ios.tex}
 
+% todo text hier
+
 
 \clearpage
 \subsection{Firefox \& DuckduckGo auf Android}
 
-Auf Mobile 
-
 \import{../tables}{c.firefox.android.tex}
 \import{../tables}{c.duckduck.android.tex}
+
+% todo text hier
 
 
 \clearpage
 \subsection{Fazit}
 
 % todo rewrite with focus on differences visible in tables
-Generell ändern sich die Verhaltensweisen der Standardkomponenten in verschiedenen Browsern in Bezug auf Design und Interaktionsmechanismen. 
-Hierbei spielen das Betriebssystemspezifische Styling und die individuellen Implementierungen der Browser eine Rolle. Die Grundfunktionen zeigen sich ähnlich, 
-wobei etwaige Unterschiede oft in der visuellen Darstellung und in Details der Interaktion (z.B. beim Öffnen der Dropdowns oder der Navigation innerhalb der Listen) liegen. 
-Wichtig ist somit die Konsistenzprüfung, um sicherzustellen, dass Webanwendungen über verschiedene Plattformen und Browser hinweg einheitlich funktionieren und eine optimale Benutzererfahrung bieten. 
-Das Verhalten kann je nach Browserversion und Betriebssystem variieren. Die Analyse der Tabellen unterstreicht, dass trotz grundlegender Übereinstimmungen in der Funktionsweise von Komponenten wie Datalist und Select 
+Generell ändern sich in Bezug auf Design und Interaktionsmechanismen die Verhaltensweisen der Standardkomponenten in den verschiedenen Browsern. 
+Hierbei spielen das betriebssystemspezifische Styling und die individuellen Implementierungen der Browser eine Rolle. 
+Die Grundfunktionen zeigen sich ähnlich, wobei etwaige Unterschiede oft in der visuellen Darstellung und in Details der Interaktion (z.B. beim Öffnen der Dropdowns oder der Navigation innerhalb der Listen) liegen. 
+Um eine optimale Benutzererfahrung bieten zu können, ist die Konsistenzprüfung unabdingbar.
+Es ist die Sicherstellung, dass Webanwendungen über verschiedene Plattformen und Browser hinweg einheitlich funktionieren. 
+Das Verhalten kann je nach Browserversion und Betriebssystem variieren. 
+Die Analyse der Tabellen unterstreicht, dass trotz grundlegender Übereinstimmungen in der Funktionsweise von Komponenten wie Datalist und Select, 
 die optische Darstellung und bestimmte Interaktionsdetails je nach Betriebssystem und Browser variieren. 
-Insbesondere sind solche Unterschiede in der Bedienung mit Tastaturkürzeln wie Command/Ctrl und der Visualisierung von Navigationspfeilen oder Scroll-Verhaltensweisen sichtbar. 
+Insbesondere sind solche Unterschiede in der Bedienung mit Tastaturkürzeln wie Cmd/Ctrl und der Visualisierung von Navigationspfeilen oder Scroll-Verhaltensweisen sichtbar. 
 Diese Erkenntnisse fordern eine sorgfältige Abstimmung und eventuelle Anpassungen im Designprozess, um eine einheitliche Benutzererfahrung sicherzustellen.
 
 
 \section{Anwendungsfälle}
 \begin{itemize}
-    \item Länderauswahl (nach Kontinenten filtern)
-    \item Jahrgang auswählen (nach Dekade filtern)
+    \item Gender / Geschecht
+    \item Länder (Herkunftsland / Destination)
+    \item Ortschaft (Desination / Wohnort)
+    \item Strassen / Adressen in einer Ortschaft
+    \item Jahrgang
+    \item Geburtstag: Tag \& Monat \& Jahr
+    \item Mittagssandwich für CS-Seminare über den Mittag an der FHNW
+    \item Filter von Shops (Grösse / Farbe / Material / Schnitt / Kategorie)
 \end{itemize}
