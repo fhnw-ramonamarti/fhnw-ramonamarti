@@ -16,13 +16,60 @@ Die Gestaltung der Dropdown-Komponente basiert auf dem Designsystem Kolibri, um 
 Kolibri bietet bereits ein umfassendes Set von Richtlinien und Komponenten, die es ermöglichen, Anwendungen einheitlich und benutzerfreundlich zu gestalten.
 
 
-\subsection{Mögliche Designoptionen eines Elements}
+\subsection{Mögliche Designoptionen eines Elements \& deren Wahl}
 
-{\color{red} \textbf{FEHLENDER PARAGRAPH KOMMT NOCH}}
+Elemente lassen sich durch diverse Eigenschaften stylen.
+Die Anpassung der Hintergrundfarbe fällt am schnellsten ins Auge.
+Diese ist hell zu gestalten, damit der Kontrast zur dunklen Default-Schriftfarbe erhalten bleibt.
+Der Rahmen bietet eine weitere Designmöglichkeit. 
+Seine Farbe, Dicke oder Struktur kann varriieren. 
+Eine andere Alternative ist nur eine Seite des Rahmens zu verwenden. % todo glossary Spiegelstrich
+Als Beispiel dafür gilt der sogenannte Spiegelstrich, welcher beispielsweise auf der linken Seite platzierbar ist.
+Die Färbung Rund um den Rahmen sollte für einen gute Erkennbarkeit in einer eher dunklen Schattierung Anwendung finden.
+Als weitere Style-Eigenschaften bietet sich Änderungen der Schrift an.
+Bei der Farbe ist der Kontrast zu beachtet, weswegen eine eher Dunkle zu wählen ist.
+Alternativ lässt sich die Dicke, Schriftart, Neigung, Grösse oder Dekoration ändern.
+All diese Style-Anpassungen lassen natürlich auf verschiedene Weise kombinieren.
 
-% border, background-color, font-color, underline, italic, font-weight, line left side
-% pro cons pro möglichkeit mit passenden farboptionen
-% kombination 2er status eines elements
+Bei den Farben existiert eine grosse Bandbreite.
+Da Kolibri bereits ein Designsystem besitzt, schränkt sich die Menge ein.
+Unter den vorhandenen Farbwerten, bieten sich die folgenden am besten an:
+
+\begin{itemize}
+    \item Kolibri-Light/Yellow/100 $\rightarrow$ helles Weiss-Gelb
+    \item Kolibri-Light/Yellow/300 (--kb-color-select) $\rightarrow$ helles Gelb
+    \item Kolibri-Light/Warning/--kb-warning-dark $\rightarrow$ dunkles Gelb
+    \item Kolibri-Light/Danger/--kb-danger-accent (--kolibri-color-accent) $\rightarrow$ mittleres Rosa
+    \item Kolibri-Light/Success/--kb-success-accent $\rightarrow$ mittleres Grün
+    \item Kolibri-Light/Success/--kb-success-light $\rightarrow$ helles Grün
+    \item Kolibri-Light/Primary/--kb-primary-accent $\rightarrow$ mittleres Violet
+    \item Kolibri-Light/Primary/--kb-primary-light $\rightarrow$ helles Violet
+    \item Kolibri-Light/Secondary/--kb-secondary-accent $\rightarrow$ mittleres Blau
+    \item Kolibri-Light/Secondary/--kb-secondary-light $\rightarrow$ helles Blau
+    \item Kolibri-Light/Monochrome/--kb-color-body $\rightarrow$ mittleres Grau
+    \item Kolibri-Light/Monochrome/--kb-color-line $\rightarrow$ helles Grau
+\end{itemize}
+
+Da die Elemente drei verschiedene Zustände gleichzeitig erhalten können, müssen die Styles kombinierbar sein.
+Nicht jede der erwähnten Eigenschaft und Farb eigent sich in gleichem Masse.
+Yellow-100 fällt schnell wieder weg, da je nach Display der Kontrast zu gering ist.
+Unter den restlichen hellen Schattierungen passt Yellow-300 am besten, da diese Farbe bereits als Selektionsfarbe im Code hinterlegt ist.
+Das vordefinierte $--kb-color-select$ eignet sich am ehesten als Hintergrundfarbe.
+Dadurch ist klar, dass die anderen beiden Zustände eine eher kräftige bzw. dunkle Färbung benötigen.
+Der Blick auf die Namen im Designsystem zeigt eine weitere Farbe zur Hervorhebung eines Elements.
+Die Benennung des mittleren Rosa mit Accent ($--kolibri-color-accent$) bietet einen guten Kontrast zur Selektion und ist ebenfalls im Code vordefiniert.
+Da die dritte Farbe nicht zu viel Unruhe in das Design bringen soll, schränkt sich die Farbauswahl weiter ein.
+Mit einem gut erkennbaren Kontrast zur Selektion bietet sich das dunkle Gelb aus $--kb-warning-dark$ an.
+
+Wie erwähnt ist die Eigenschaft Hintergrundfarbe durch die Wahl der Farbe bereits festgelegt. 
+Die Schrift sollte maximal in der Farbe geändert werden. 
+Weil die anderen Styling-Optionen sind schwer erkennbar oder zerstören das Bild.
+Der komplette Rahmen passt nicht in das Design und fällt somit ebenfalls weg.
+Da nicht beide Zustände auf die Schriftfarbe zugreifen können, bietet sich der oben genannte Spiegelstrich an.
+Das Rosa mit dem grösseren Kontrast erhält nur linken Rahmen.
+Das dunkle Gelb färbt - nebst dem linksseitigen Strich - die Schrift.
+Die Zuordnung der Designwahl zu den fehlenden Zuständen steht im Kapitel \textbf{Farbpalette und Kontrast}.
+
 
 \clearpage
 \subsection{Figma-Prototypen}
@@ -67,7 +114,7 @@ Um eine bessere Nutzerfreundlichkeit zu erhalten, gestaltet sich die Farbauswal 
     \label{img:designColors}
 \end{figure}
 
-\noindent
+\noindent % todo originalen farben ?
 Die originalen Farben erhalten im neuen Dropdown eine angepasst Verwendung:
 
 \begin{itemize}
