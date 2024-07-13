@@ -118,7 +118,8 @@ Das Layout wird im Renderbaum ergänzt und berechnet die Position und Grösse de
 
 Der DOM als auch der CSSOM werden parallel zum jeweiligen Parsen gerendert.
 Das Rendering ist jeweils nur ein Schritt hinter dem Parser und verarbeitet dessen Resultate direkt weiter.
-Dabei wird der Platz im Dokument dem Element und dem Inhalt zugewiesen und beide jeweils dort angezeigt. % todo rewrite
+Das Dokument reserviert den Platz für das Element und dessen Inhalt.
+Der Browser zeigt diese an den zugewiesenen Positionen an.
 Extern nachgeladene Ressourcen wie Bilder können etwas länger dauern, weswegen die Seiten manchmal ohne diese vorgeladen werden.
 
 Stösst der HTML-Parser auf ein \texttt{script}-Tag, stoppt dieser den Prozess des HTML-Parsen bis das Script fertig ausgeführt ist - ausser das Tag enthält das \texttt{async}-Attribut.

@@ -250,11 +250,12 @@ Generell kann das normale Input-Feld relativ gut designed werden - im Vergleich 
 
 
 \clearpage
-\section{Browser-Inkonsistenzen} % todo vllt anpassen abschnitt
+\section{Browser-Inkonsistenzen}
 \label{sec:browserInconsistency}
 
-Die Komponenten Select \& Datalist variieren im UI und in der Bedienung,
-besonders hinsichtlich der visuellen Darstellung und des Verhaltens von Navigationspfeilen oder anderen Steuerelementen.
+Die Komponenten Select \& Datalist variieren in der Ansicht als auch in der Interaktion. 
+Die Unterschiede sind system-, browser- und komonentenabhängig. 
+Nachfolgend sind die Inkonsistenzen genauer erläutert. 
 
 
 \subsection{UI Unterschiede}
@@ -267,7 +268,7 @@ Safari auf iOS stellt die Komponente ohne Rahmen dar und deswegen ist der Hinter
 Die geöffnete Liste ist bei Firefox als einziges relativ konsistent. 
 Sie erscheint in einem mittel- bis hellgrauen Container.
 Die anderen Browser sind einstellungsabhängig und zeigen den Container weiss oder dunklen grau an.
-Je nach Anzahl der enthaltenen Elemente erscheint die Liste darunter (darüber) oder überdeckt das Select. % todo anders folmulieren select zu generell
+Je nach Anzahl der enthaltenen Elemente erscheint die Liste darunter (darüber) oder überdeckt den Container des ausgewählten Wertes.
 Am Wenigsten lässt sich das Element in Safari stylen.
 
 Nicht in jedem Browser wird ein Icon angezeigt, weswegen die Datalist weniger konsistent ist.
