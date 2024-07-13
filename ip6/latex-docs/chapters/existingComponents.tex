@@ -1,20 +1,20 @@
 \chapter{Existierende Auswahlkomponenten}
 
-% todo rewrite paragraph
-Dieses Kapitel zeigt einen Überblick als auch Vergleiche der bestehenden Optionen eine Auswahl zu treffen. 
-Es werden die generellen Möglichkeiten einander gegenübergestellt, sowie die bisher bekanntesten Komponenten $select$ und $datalist$ genauer inspiziert.
-Darin wird auf die Interaktionen und die Darstellung Bezug genommen. 
 
-Zu den bereits existierenden Komponenten zum Start dieser Arbeit zählen Buttons bzw. Links, $select$-, $datalist$-Element und das Country Select.
+Hier werden die bereits vorhandenen Möglichkeiten zur Darstellung einer Optionsauswahl einander gegenübergestellt.
+Einer Auflistung der möglichen Funktionalitäten zeigt die Grenzen dieser Elemente auf.
+Dabei spielen die UI- als auch die Interaktions-Unterschiede diese Komponenten in verschiedenen Browsern eine tragende Rolle.
+
+Zu den bereits existierenden Komponenten zum Start dieser Arbeit zählen Buttons bzw. Links, \texttt{select}-, \texttt{datalist}-Element und das \texttt{Country Select}.
 Unter dem Country Select ist das Resultat des Projekt 5 zu verstehen.
-In der folgende Tabelle \ref{table:generalComparing} zeigt einen Vergleich der genannten Möglichkeiten.
+Die folgende Tabelle \ref{table:generalComparing} zeigt einen Vergleich der genannten Möglichkeiten.
 
 \import{../tables}{c.choice.general.tex}
 
 
 \section{HTML Datalist vs. Select}
 
-Die folgenden Unterkapitel zeigen die Möglichkeiten auf, welche die HTML-Elemente $input$, $option$, $datalist$ und $select$ bieten.
+Die folgenden Unterkapitel zeigen die Möglichkeiten, welche die HTML-Elemente \texttt{input}, \texttt{option}, \texttt{datalist} und \texttt{select} bieten.
 Zudem zeigen tabellarische Gegenüberstellungen die Unterschiede und Inkonsistenzen dieser in verschiedenen Browsern und Betriebssystemen auf.
 Hierbei liegt der Fokus mehr auf der Interaktion mit den Komponenten als auf der Darstellung.
 
@@ -29,12 +29,13 @@ Hierbei liegt der Fokus mehr auf der Interaktion mit den Komponenten als auf der
 
 Das $option$-Tag wird bei beiden Auswahlkomponenten - $datalist$ und $select$ - verwendet. 
 Die einzelnen Optionen wie in Code \ref{code:OptionExample} Zeile 1 besitzen ein $value$-Attribut und einen Inhalt - das Label.
-Der Wert kann als Inhalt verwendet werden, wenn anstatt das $value$- das $label$-Attribut genutzt wird.
+Alternativ kann das $label$-Attribut genutzt werden und der Value an die Stelle des Inhalts platziert werden.
 Diese Variante wird jedoch von Firefox nicht unterstützt.
 Werden $value$ und $label$ weggelassen, erhalten beide den Wert innerhalb des Tags.
 Das HTML-Element kann das Attribut $disabled$ oder $selected$ erhalten.
 Eine $selected$ Option wie in Code \ref{code:OptionExample} Zeile 2 wird initial ausgefüllt und funktioniert nur im Zusammenhang mit dem $select$-Container. 
-Ist ein Eintrag $disabled$ wie in Code \ref{code:OptionExample} Zeile 3 kann dieser nicht ausgewählt werden und unterscheidet sich im UI, wenn dieser überhaupt sichtbar ist.
+Bei einem $disabled$ Element - wie in Code \ref{code:OptionExample} Zeile 3 - erscheint das UI ausgegraut.
+Dieser Eintrag lässt keine Interaktion zu.
 
 (\cite{optionMdn}) Das Designen von $option$s beschränkt sich auf die Text- / Hintergrundfarbe, welche jedoch nur in Firefox funktionieren. 
 Die anderen Browser lassen kein Styling der Auswahl-Elemente zu bzw. zeigen diese nicht an.
@@ -56,27 +57,27 @@ Alle gängigen Browser unterstützen dieses Tag.
 </select>
 \end{lstlisting}
 
-Um den Wert zu speichern, benötigt das $select$-Tag ausser die $option$s kein weiteres Element – ersichtlich im Code \ref{code:SelectExample}.
+Um den Wert zu speichern, benötigt das $select$-Tag ausser $option$s keine weiteren Elemente – ersichtlich im Code \ref{code:SelectExample}.
 Die typischen Attribute für Eingaben-Felder wie $disabled$, $form$, $name$ und $required$ sind auch bei einem Select verwendbar.
 Durch das $disabled$ zeigt sich das Element in einer ausgegrauten Erscheinung und bietet dem Nutzer keine Interaktionsmöglichkeiten mehr.
 Dieses Attribut kann vom Container - z.B. $fieldset$ - geerbt werden.
 Die $form$-Eigenschaft definiert das dazugehörige Formular und $name$ den Key für das Key-Value Paar bzw. Name des Feldes im Formular. 
 Mit dem $required$ wird eine Eingabe erzwungen, um das Senden des Formulars freizuschalten.
-Für eine bessere Accessibility sollte eine $id$ vergeben werden, damit dem Select ein Label zugewiesen werden kann.
+Um dem Select für eine bessere Accessibility ein Label zuweisen zu können, ist eine $id$ zu vergeben, 
 Standardmässig ist für dieses Feld nur eine einzelne Auswahl möglich.
 Durch die Ergänzung des Attributs $multiple$ ist es möglich mehrere Werte zu markieren.
-Bei einem Multiselect können mehrere Listenelemente mit vorausgewählt werden. 
-Wenn jedoch bei einem Signle-Select mehrere Optionen das $selected$-Attribut enthalten, wird das letzte als Default eingesetzt und die anderen ignoriert.
+Bei einer Vorauswahl mehrerer Listenelemente durch $selected$ muss die Komponente ein Multiselect sein.
+Wenn jedoch bei einem Signle-Select mehrere Optionen das $selected$-Attribut enthalten, wird das Letzte als Default eingesetzt und die Vorherigen ignoriert.
 Das $autocomplete$ funktioniert wie bei anderen Inputs, indem Vorschläge vom User-Agent-Feature auftauchen.
-Mit dem Attribut $autofocus$ kann der Fokus nach dem Laden direkt auf das Feld gesetzt werden.
+Durch die $autofocus$-Eigenschaft sind Interaktionen mit dem Feld direkt nach dem Laden möglich.
 Die Definition des $size$-Attributs steuert die Anzahl sichtbarer Elemente, wobei der Default für Single-Selects bei eins und mehrfache Auswahl bei vier liegt.
-Ausser von dem $size$-Attribut erhält das Select von allen allen Browsern Unterstützung.
-Auf den meisten Mobile-Browsern wird die Grösse nicht supportet.
+Ausser von dem $size$-Attribut erhält das Select von allen anderen in allen Browsern Unterstützung.
+Die Grösse wird von den meisten Mobile-Browsern nicht supportet.
 
-Abgesehen von der Grösse ist die Umgestaltung des Elements kaum möglich.
+Abgesehen von der Grösse ist die Umgestaltung des Elements browserunabhängig kaum möglich.
 Es gibt jedoch aufwendige Wege, den Inhalt zu klonen und durch Wrapper neu zu stylen.
 In diesem Fall müssen aber die Logik und die Interaktionen für die Accessibility neu implementiert werden.
-Gewisse Stylings können getroffen werden, wobei aber nicht jeder Browser diese in der selben Weise übernehmen.
+Gewisse Stylings können getroffen werden, wobei aber nicht alle Browser diese in der selben Weise übernehmen.
 Durch die komplexe Struktur des Selects ist eine eigene Darstellung schwierig zu kontrollieren.
 
 (\cite{selectMdn}) Der Inhalt des Tags können $option$s oder $optgroup$s sein.
@@ -85,12 +86,13 @@ In der ARIA-Rolle wird die Komponente als Combobox (ohne $size$ \& $multiple$) o
 
 Die mehrfache Auswahl rein per Tastatur bietet in der Interaktion geringere Möglichkeiten als mit der Maus.
 Mit gedrückter Cmd (Mac) bzw. Ctrl (Windows) Taste können mit der Maus weitere Elemente mitausgewählt werden.
-Sollen in einem Bereich alle Elemente zwischen dem Ersten und dem Letzten ebenfalls markiert werden, kann stattdessen Shift gedrückt gehalten werden.
-Wenn beide Techniken zur Anwendung kommen, muss zuerst der Teil mit Shift gewählt werden, da sonst die zuvor markierte Auswahl aufgehoben wird.
-Um nur mit der Tastatur mehrere Werte zu markieren, muss zuerst zum ersten Element navigiert werden.
+Mit dem Drücken der Shift-Taste lassen sich alle Elemente zwischen der ersten und der letzten Option markieren.
+Damit sich die zuvor markierte Auswahl nicht aufhebt, ist darauf zu achten, beim Anwenden beider Techniken den Bereich mit Shift zuerst auszuwählen.
+Um nur mit der Tastatur mehrere Werte zu markieren, ist es unabdingbar, zuerst zum ersten Element zu navigieren.
 Mit Shift und den Pfeiltasten hoch und runter ist ein Bereich wählbar.
-Firefox unterstützt noch die einzelne Mehrfachauswahl über die Tastatur, indem mit Ctrl der Focus hoch und runter bewegt wird und mit der Leertaste selektiert werden kann.
-Auf dem Mac müssen die Tastenkombinationen jedoch zuerst in der Systemeinstellung ausgeschaltet oder umgestellt werden, da es Systembefehle sind.
+Firefox unterstützt noch die einzelne Mehrfachauswahl über die Tastatur, indem mit Ctrl der Fokus hoch und runter bewegt wird und mit der Leertaste selektiert werden kann.
+Auf dem Mac sind die Tastenkombinationen Systembefehle.
+Daher gibt es keine Alternative als sie zuvor auszuschalten bzw. umszustellen.
 
 
 \subsubsection{\color{dgray} Optgroup}
@@ -115,7 +117,7 @@ Die Optionen, welche in diesem Tag enthalten sind, erben das Attribut.
 Als Inhalt dienen $option$-Elemente und selbst besitzt es als Eltern-Tag ein $select$.
 Die $optgroup$ besitzt die ARIA-Rolle einer Gruppe und wird von allen Browsern unterstützt.
 
-
+% todo continue here
 \subsection{Datalist}
 
 \begin{lstlisting}[style = htmlcssjs, caption = Datalist Example, label = code:DatalistExample]

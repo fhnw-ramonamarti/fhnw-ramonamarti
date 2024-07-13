@@ -14,8 +14,8 @@ Um Kolibri schlank zu halten, kommen keine externen Abhängigkeiten zur Verwendu
 Mit einer VanillaJS Codebasis bietet das Tool eine breite Auswahl an, deckt aber noch nicht alle Interaktionen ab.
 
 In diesem Projekt dient der in der Vorarbeit erstellte Fork als Ausgangslage.
-Ein Merge des Branches $experimental$ dieses Forks und des $Kolibri-16$ der originalen Codebasis stellt die Aktualität sicher.
-Das $SimpleInput$ ist eines der Tools, welches sich bei der Implementation der neuen Auswahlkomponente als hilfreich erweisen kann.
+Ein Merge des Branches \emph{experimental} dieses Forks und des \emph{Kolibri-16} der originalen Codebasis stellt die Aktualität sicher.
+Das \texttt{SimpleInput} ist eines der Tools, welches sich bei der Implementation der neuen Auswahlkomponente als hilfreich erweisen kann.
 
 Der Zugriff auf das Designtool Figma ermöglicht das Verwenden des existierenden Designsystems und der bereits eingebundenen Elemente. 
 Der Aufbau der Elemente als Komponenten vereinfacht die Wiederverwendung. 
@@ -44,7 +44,8 @@ Die Master-Ansicht zeigt alle Values einer Liste an.
 
 Bei dem $normalen$ bzw. nicht fokussierten Status ist die Komponente nicht an- oder ausgewählt.
 Wenn eine Webseite diese Komponente enthält, ist dies die standardmässige Darstellung.
-In diesem Fall betreffen Interaktionen über die Tastatur nicht das Element. % todo besser schreiben, unklar
+Das neue Element zeigt keine Reaktion auf Interaktionen, welche in diesem Zustand geschehen. 
+Als einzige Ausnahme gilt Tab, welche den Fokus auf die Komponente legen kann. 
 In den meisten Erscheinungen ist nur die Detail-Ansicht sichtbar und der Master-Container ist ausgeblendet.
 Wählt der Nutzer die Komponente mit der Maus oder der Tastatur an, steht sie im $Fokus$ bzw. ist sie $fokussiert$.
 Bedienungen über das Keyboard beziehen sich hierbei auf den Baustein.
@@ -66,9 +67,10 @@ Nachfolgend werden noch die Details zum Thema Browser geklärt.
 
 \section{Browser \& HTML Renderer}
 
-Die wichtigsten Aspekte decken die Theorie über die populären Browser bis hin zum Ablauf des Renderings ab.
+
+Die wichtigsten Aspekte von der Theorie über die populären Browser bis hin zum Ablauf des Renderings sind hier aufgeführt.
 Dabei sind nur die bekanntesten Implementationen von Belang.
-% todo here
+
 Ein Webbrowser dient hauptsächlich als Zugang ins Internet und zur Anzeige von Webressourcen wie HTML, CSS und JavaScript.
 Er besteht aus einer Benutzeroberfläche, einer Browser- und einer Layout/Rendering-Engine.
 Um diese Inhalte verständlich auf dem UI darzustellen, verwendet die Browser-Engine einen sogenannten Renderer - mehr dazu später.
@@ -76,7 +78,7 @@ Die Benutzeroberfläche dient als Schnittstelle zwischen dem Benutzer und der Da
 Die Rendering-Engine interpretiert die gegebenen Inhalte, wobei der Renderer anhand des Inhaltstyps gewählt wird. 
 Einer der Engines ist der HTML-Renderer, eine Software, welche den strukturierten Text aus dem HTML-File formatiert und mit dem gegebenen Style anzeigt.
 Beim UI und der Bedienung zeigen sich die Uneinigkeiten zwischen den Browser-Herstellern, indem die Rendering-Engine den Code nicht gleich interpretiert.
-Im nächsten Unterkapitel ist der detaillierte Ablauf zur Anzeige eines HTML-Dokuments und die Rolle des Rendering zu lesen.
+Nachfolgend sind Informationen über den detaillierten Ablauf zur Anzeige eines HTML-Dokuments und die Rolle des Rendering dokumentiert.
 
 
 \subsection{Ablauf Parsing \& Rendering}
@@ -92,21 +94,21 @@ Der Response liefert schlussendlich die anzuzeigenden Daten, welche in diesem Fa
     \label{img:RenderingProcess}
 \end{figure}
 
-Die Rohbytes der HTML-Dateien aus Abbildung \ref{img:RenderingProcess} werden in Zeichen konvertiert, welche die Entwickler geschrieben haben.
-Ein Parser verarbeitet die einzelnen Charakter weiter zu sogenannten Tokens.
+Der Entwickler schreibt Zeichen in eine HTML-Datei (Abbildung \ref{img:RenderingProcess} links oben).
+Der Parser verarbeitet die einzelnen Charakter weiter zu sogenannten Tokens.
 Hierbei kommt ein Satz von Regeln zur Anwendung, welche bei HTML als Tags in den Diamant-Klammern $<>$ stehen.
 Durch die Definition der Struktur über die Tokens versteht der Browser den Inhalt der Dateien.
 Die fertigen Tokens werden in Nodes umgewandelt, welche jeweils eigene Eigenschaften besitzen können.
-Aus den entstandenen Nodes entsteht durch Verknüpfungen eine Baumstruktur - der DOM.
+Aus den entstandenen Nodes entsteht durch Verknüpfungen eine Baumstruktur - der DOM aus Abbildung \ref{img:RenderingProcess}.
 Das Document Object Model (DOM) beschreibt die Eltern-Kind- und Geschwister-Beziehung der Nodes.
 
-Wenn im HTML eine CSS-Datei verlinkt ist, muss dieses zuerst nachgefordert werden.
+Wenn im HTML eine CSS-Datei (Abbildung \ref{img:RenderingProcess} links unten) verlinkt ist, muss dieses zuerst nachgefordert werden.
 Nach Erhalt der Rohdaten der Style-Dateien parst der Browser diese zuerst in Charaktere und anschliessend in Tokens.
 Die Baumstruktur besteht auch hier aus den Tokens gebildeten Nodes. 
-Dieses Ergebnis nennt sich CSS Object Model - kurz CSSOM - und enthält die Design-Informationen der Elemente.
+Dieses Ergebnis nennt sich CSS Object Model (Abbildung \ref{img:RenderingProcess}) - kurz CSSOM - und enthält die Design-Informationen der Elemente.
 
-Der DOM und der CSSOM sind unabhängig und der Browser kombiniert diese zu einem Renderbaum.
-Der resultierenden Baum repräsentiert nur sichtbare Elemente, wohingegen der DOM alle Elemente enthält.
+Der DOM und der CSSOM sind unabhängig und der Browser kombiniert diese zu einem Renderbaum (Abbildung \ref{img:RenderingProcess} mittig).
+Der resultierende Baum repräsentiert nur sichtbare Elemente, wohingegen der DOM alle Elemente enthält.
 Das Layout wird im Renderbaum ergänzt und berechnet die Position und Grösse der Elemente.
 
 Der DOM als auch der CSSOM werden parallel zum jeweiligen Parsen gerendert.
@@ -117,11 +119,11 @@ Extern nachgeladene Ressourcen wie Bilder können etwas länger dauern, weswegen
 Stösst der HTML-Parser auf ein $script$-Tag, stoppt dieser den Prozess des HTML-Parsen bis das Script fertig ausgeführt ist - ausser das Tag enthält das $async$-Attribut.
 Dies dient der Sicherheit, weil JavaScript den DOM als auch CSSOM ändern kann und der Browser nicht weiss, was passieren wird.
 Deswegen spielt es eine Rolle, zu welchem Zeitpunkt das Script eingebunden ist - egal ob intern oder extern. 
-Der Browser führt während des Scripts den Prozess des CSSOM weiter fort.
+Während der Ausführung des Scripts führt der Browser den Prozess des CSSOM weiter fort.
 
 Zusammengefasst kann gesagt werden, dass das Parsen von HTML-Files ein Schritt vor dem Rendern ist und dasselbe gilt für CSS-Dateien. 
-Beim Script ist genau überlegt zu handeln, da der Zeitpunkt der Ausführung eine wichtige Rolle spielt.
-Folgendes Unterkapitel zeigt die verbreitetsten Browser der jeweilig aktuellsten Version mit dessen Rendering-Engines.
+Beim Script ist gut überlegt zu handeln, da der Zeitpunkt der Ausführung eine wichtige Rolle spielt.
+Die verbreitetsten Browser der jeweilig aktuellsten Version mit dessen Rendering-Engines sind nachfolgend aufgeführt.
 
 
 \subsection{Bekannte Implementationen}
@@ -134,7 +136,7 @@ Folgendes Unterkapitel zeigt die verbreitetsten Browser der jeweilig aktuellsten
 Der Renderer ist ein Fork von der KHTML-Engine und kommt von den Entwicklern Apple, Google, KDE, Nokia und weitere. 
 KHTML wird nicht mehr fortgeführt.
 
-(\cite{geckoRenderer}) Die restlichen Browser sind jeweils mit 7\% oder weniger Marktanteil vertreten.
+(\cite{geckoRenderer}) Die restlichen Browser sind jeweils mit 7\% oder weniger vertreten.
 (\cite{mozillaBrowser}) Dazu zählen mozilla-basierte Browser wie Firefox, Tor oder Pale Moon, welcher das HTML mit Gecko oder einem Fork dessen renderen.
 (\cite{geckoRenderer}) Mozilla Foundation ist zuständig für die Weiterentwicklung dieser Rendering-Engine.
 (\cite{otherRenderer}) Weiter existiert der Internet Explorer, welcher mit Trident auf Windows und mit Tasman auf Mac rendern.
@@ -144,4 +146,3 @@ Die Renderer als auch Forks werden nur noch Maintained, aber nicht mehr weiteren
 Diese Informationen führen zur Entscheidung, dass die Implementationen der Komponente hauptsächlich auf Chrome, Safari und Firefox getestet werden.
 Die Auswahl der drei Browser decken den grössten Teil der auf dem Markt verwendeten Browser und Rendering-Engines ab.
 Dadurch kann eine browserübergreifende Konsistenz garantiert werden.
-Das nachfolgende Kapitel zeigt die Probleme der unterschiedlichen HTML-Renderer auf.
