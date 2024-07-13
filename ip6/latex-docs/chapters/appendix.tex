@@ -19,6 +19,8 @@
 
 \chapter{User Test für Programmierer}
 
+\section*{Code}
+
 \lstinputlisting[style = htmlcssjs, caption = userTesting.js, label = code:userTestingJs]{../userTest/userTesting.js}
 \lstinputlisting[style = htmlcssjs, caption = userTesting.html, label = code:userTestingHtml]{../userTest/userTesting.html}
 \lstinputlisting[style = htmlcssjs, caption = starter.js, label = code:starterJs]{../userTest/starter.js}
@@ -80,4 +82,99 @@ const getLunchTypes = () => ["all", "vegetarian", "vegan", "flexetarian", "glute
 \end{lstlisting}
 
 
-\chapter{}
+\section*{Resultate}
+\noindent
+\textbf{Siehst du irgendwo Verbesserungspotenzial?}
+
+\noindent 
+- Detail: numberOfColumns ist etwas "verbose"
+\\
+- Doku: In der Code Doku von SelectComponent dürfte der Return Value besser beschrieben werden (welches Array Element ist was). 
+Das wird erst in den Anwendungsbeispielen klar. 
+
+Keyboard navigation. Using keyboard to narrow down possible categories/values (maybe fuzzy searching), 
+otherwise it takes me longer to find something than compared to a standard dropdown, even if the list there is bigger.
+
+ich finde es etwas unintuitiv beim SelectComponent neben den offensichtlich verständlichen selectAttriutes (labl, name, numberOfColumns) noch ein Callback mitzugeben.   
+ich hätte mir mehr beschreibung gewünscht wie ich die komponente verwenden muss. (ich musste eher dannach suchen.)
+
+Bessere Dokumentation war verwirrend (Code).
+
+Automatisches Schliessen der Komponente nach der Auswahl würde ich praktisch finden.
+
+Es würde helfen, wenn die Types im JSDOC spezifiziert wären und wenn die Library eingebunden wäre. 
+Dann wäre die Dokumentation leichter auffindbar.
+
+War mir am Anfang nicht klar dass was SelectComponent() zurückgibt und ob das Input-element sowie dass label-element selbst erstellt werden soll. 
+Danach war es intuitiv anzuwenden.
+
+ \\
+
+\noindent
+\textbf{Bemerkung}
+
+ich persönlich hatte zu beginn schwierigkeiten zu verstehen wie das framework funktioniert. 
+die beschreibung für die tasks (ab task2) sind zum teil etwas unklar 
+\\
+=> The value data is provided by the function `Service.getRegionsByCountry()`, 
+the categories are provided by the function `Service.getCountries()`  
+\\
+=> RegionsByCountry muss man noch das Country mitgeben. 
+Hätte in der beschreibung drinstehen können.
+
+Nitpicking: while I see why the component is imported from a URL for the user tests, it makes it hard to use on a spotty network.
+
+\graphicspath{ {./img/userTests/} }
+\begin{figure}[!p]
+    \centering
+    \begin{minipage}[b]{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{semester9.png}
+        \caption{User Test Programmierer Frage 1}
+        \label{img:userTestSemester}
+    \end{minipage}
+    \begin{minipage}[b]{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{richtung9.png}
+        \caption{User Test Programmierer Frage 2}
+        \label{img:userTestStudy}
+    \end{minipage}
+    \begin{minipage}[b]{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{dauer9.png}
+        \caption{User Test Programmierer Frage 3}
+        \label{img:userTestDuration}
+    \end{minipage}
+    \begin{minipage}[b]{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{a1_9.png}
+        \caption{User Test Programmierer Frage 4}
+        \label{img:userTestA1}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[!p]
+    \centering
+    \begin{minipage}[b]{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{a2_9.png}
+        \caption{User Test Programmierer Frage 5}
+        \label{img:userTestA2}
+    \end{minipage}
+    \begin{minipage}[b]{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{desc9.png}
+        \caption{User Test Programmierer Frage 6}
+        \label{img:userTestDesc}
+    \end{minipage}
+    \begin{minipage}[b]{0.6\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{anwenden9.png}
+        \caption{User Test Programmierer Frage 7}
+        \label{img:userTestUsage}
+    \end{minipage}
+\end{figure}
+
+\graphicspath{ {./img/} }
+
+% \chapter{API} % todo write api for usage component
