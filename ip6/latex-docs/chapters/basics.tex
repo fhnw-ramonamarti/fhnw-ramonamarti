@@ -39,32 +39,32 @@ Als Ausgangslage dient eine Eingabemöglichkeit, die eine Master-Detail-Ansicht\
 }
 Zudem sind keine speziellen Voreinstellungen getroffen.
 \\
-Je nach Darstellung der Komponente kann diese $offen$ oder $geschlossen$ sein.
+Je nach Darstellung der Komponente kann diese \emph{offen} oder \emph{geschlossen} sein.
 Wenn nur einer der beiden Zustände möglich ist, ist es meistens der Offene.
 Im geschlossenen Status zeigt das Erscheinungsbild nur die Detail-Ansicht an, welcher mindestens den selektierten Wert anzeigt.
 Eine offene Auswahlmöglichkeit stellt beide Elemente der Master-Detail-View dar.
 Die Master-Ansicht zeigt alle Values einer Liste an.
 
-Bei dem $normalen$ bzw. nicht fokussierten Status ist die Komponente nicht an- oder ausgewählt.
+Bei dem \emph{normalen} bzw. nicht fokussierten Status ist die Komponente nicht an- oder ausgewählt.
 Wenn eine Webseite diese Komponente enthält, ist dies die standardmässige Darstellung.
 Das neue Element zeigt keine Reaktion auf Interaktionen, welche in diesem Zustand geschehen. 
 Als einzige Ausnahme gilt Tab, welche den Fokus auf die Komponente legen kann. 
 In den meisten Erscheinungen ist nur die Detail-Ansicht sichtbar und der Master-Container ist ausgeblendet.
-Wählt der Nutzer die Komponente mit der Maus oder der Tastatur an, steht sie im $Fokus$ bzw. ist sie $fokussiert$.
+Wählt der Nutzer die Komponente mit der Maus oder der Tastatur an, steht sie im \emph{Fokus} bzw. ist sie \emph{fokussiert}.
 Bedienungen über das Keyboard beziehen sich hierbei auf den Baustein.
 In den meisten Fällen ändert sich die Darstellung des Eingabefeldes z.B. durch einen blauen Rahmen.
 
-Ist ein Wert in der Master-Ansicht ausgewählt und wird in der Detail-View angezeigt, ist dieser $selektiert$.
-Die $Selektion$ wird beim Versenden eines verlinkten Formulars als Value mitgeschickt.
-Sollte es eine $Selektion$ in einer Kategorie-Spalte geben, wird diese nicht mitgeschickt.
+Ist ein Wert in der Master-Ansicht ausgewählt und wird in der Detail-View angezeigt, ist dieser \emph{selektiert}.
+Die \emph{Selektion} wird beim Versenden eines verlinkten Formulars als Value mitgeschickt.
+Sollte es eine \emph{Selektion} in einer Kategorie-Spalte geben, wird diese nicht mitgeschickt.
 Stattdessen filtert die Kategorie-Selektion die Wert-Spalte.
 Um die Auswahl anzuzeigen, ist dieser in der Liste aller Werte hervorgehoben.
-In gewissen Situationen existiert noch der Zustand, dass in der Master-View ein Wert im $Highlight$ steht. 
-Bestätigt der Nutzer das $Highlight$ mit der Maus, wechselt der Status auf selektiert.
+In gewissen Situationen existiert noch der Zustand, dass in der Master-View ein Wert im \emph{Highlight} steht. 
+Bestätigt der Nutzer das \emph{Highlight} mit der Maus, wechselt der Status auf selektiert.
 Durch Hovern kann der Highlight-Wert geändert werden. 
-Geschieht die Navigation durch die Werte mit der Tastatur, erhält genau ein Wert die $Cursor Position$. 
-Durch das Betätigen gewisser vordefinierter Tasten ändert sich die $Cursor Position$.
-Bei einer Bestätigung mit der Tastatur ändert sich der Wert der $Cursor Position$ auf selektiert.
+Geschieht die Navigation durch die Werte mit der Tastatur, erhält genau ein Wert die \emph{Cursor Position}. 
+Durch das Betätigen gewisser vordefinierter Tasten ändert sich die \emph{Cursor Position}.
+Bei einer Bestätigung mit der Tastatur ändert sich der Wert der \emph{Cursor Position} auf selektiert.
 Die letzten zwei Zustandswerte haben keinen Einfluss auf das versendete Formular und sind nur im Master zu finden.
 Nachfolgend werden noch die Details zum Thema Browser geklärt.
 
@@ -101,7 +101,7 @@ Der Response liefert schlussendlich die anzuzeigenden Daten, welche in diesem Fa
 
 Der Entwickler schreibt Zeichen in eine HTML-Datei (Abbildung \ref{img:RenderingProcess} links oben).
 Der Parser verarbeitet die einzelnen Charakter weiter zu sogenannten Tokens.
-Hierbei kommt ein Satz von Regeln zur Anwendung, welche bei HTML als Tags in den Diamant-Klammern $<>$ stehen.
+Hierbei kommt ein Satz von Regeln zur Anwendung, welche bei HTML als Tags in den Diamant-Klammern \texttt{<>} stehen.
 Durch die Definition der Struktur über die Tokens versteht der Browser den Inhalt der Dateien.
 Die fertigen Tokens werden in Nodes umgewandelt, welche jeweils eigene Eigenschaften besitzen können.
 Aus den entstandenen Nodes entsteht durch Verknüpfungen eine Baumstruktur - der DOM aus Abbildung \ref{img:RenderingProcess}.
@@ -121,7 +121,7 @@ Das Rendering ist jeweils nur ein Schritt hinter dem Parser und verarbeitet dess
 Dabei wird der Platz im Dokument dem Element und dem Inhalt zugewiesen und beide jeweils dort angezeigt. % todo rewrite
 Extern nachgeladene Ressourcen wie Bilder können etwas länger dauern, weswegen die Seiten manchmal ohne diese vorgeladen werden.
 
-Stösst der HTML-Parser auf ein $script$-Tag, stoppt dieser den Prozess des HTML-Parsen bis das Script fertig ausgeführt ist - ausser das Tag enthält das $async$-Attribut.
+Stösst der HTML-Parser auf ein \texttt{script}-Tag, stoppt dieser den Prozess des HTML-Parsen bis das Script fertig ausgeführt ist - ausser das Tag enthält das \texttt{async}-Attribut.
 Dies dient der Sicherheit, weil JavaScript den DOM als auch CSSOM ändern kann und der Browser nicht weiss, was passieren wird.
 Deswegen spielt es eine Rolle, zu welchem Zeitpunkt das Script eingebunden ist - egal ob intern oder extern. 
 Während der Ausführung des Scripts führt der Browser den Prozess des CSSOM weiter fort.

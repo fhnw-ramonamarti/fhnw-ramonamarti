@@ -58,12 +58,12 @@ Da die Elemente drei verschiedene Zustände gleichzeitig erhalten können, müss
 Nicht jede der erwähnten Eigenschaft und Farb eigent sich in gleichem Masse.
 Yellow-100 fällt schnell wieder weg, da je nach Display der Kontrast zu gering ist.
 Unter den restlichen hellen Schattierungen passt Yellow-300 am besten, da diese Farbe bereits als Selektionsfarbe im Code hinterlegt ist.
-Das vordefinierte $--kb-color-select$ eignet sich am ehesten als Hintergrundfarbe.
+Das vordefinierte \texttt{--kb-color-select} eignet sich am ehesten als Hintergrundfarbe.
 Dadurch ist klar, dass die anderen beiden Zustände eine eher kräftige bzw. dunkle Färbung benötigen.
 Der Blick auf die Namen im Designsystem zeigt eine weitere Farbe zur Hervorhebung eines Elements.
-Die Benennung des mittleren Rosa mit Accent ($--kolibri-color-accent$) bietet einen guten Kontrast zur Selektion und ist ebenfalls im Code vordefiniert.
+Die Benennung des mittleren Rosa mit Accent (\texttt{--kolibri-color-accent}) bietet einen guten Kontrast zur Selektion und ist ebenfalls im Code vordefiniert.
 Da die dritte Farbe nicht zu viel Unruhe in das Design bringen soll, schränkt sich die Farbauswahl weiter ein.
-Mit einem gut erkennbaren Kontrast zur Selektion bietet sich das dunkle Gelb aus $--kb-warning-dark$ an.
+Mit einem gut erkennbaren Kontrast zur Selektion bietet sich das dunkle Gelb aus \texttt{--kb-warning-dark} an.
 
 Wie erwähnt ist die Eigenschaft Hintergrundfarbe durch die Wahl der Farbe bereits festgelegt. 
 Die Schrift sollte maximal in der Farbe geändert werden. 
@@ -72,7 +72,7 @@ Der komplette Rahmen passt nicht in das Design und fällt somit ebenfalls weg.
 Da nicht beide Zustände auf die Schriftfarbe zugreifen können, bietet sich der oben genannte Spiegelstrich an.
 Das Rosa mit dem grösseren Kontrast erhält nur linken Rahmen.
 Das dunkle Gelb färbt - nebst dem linksseitigen Strich - die Schrift.
-Die Zuordnung der Designwahl zu den fehlenden Zuständen steht im Kapitel \textbf{Farbpalette und Kontrast}.
+Die Zuordnung der Designwahl zu den fehlenden Zuständen steht im Kapitel \ref{sec:colorContrast}.
 
 
 \clearpage
@@ -274,9 +274,9 @@ In diesem Absatz spielen Selektion, Highlight und Cursor Position eine Rolle.
 Zur Auffrischung: 
 
 \begin{itemize}
-    \item \textbf{Selektion}: Ausgewählter Wert der Spalte
-    \item \textbf{Highlight}: Element unterhalb des Mauszeigers
-    \item \textbf{Cursor Position}: Position (Element) der Tastatur
+    \item \textbf{\emph{Selektion}}: Ausgewählter Wert der Spalte
+    \item \textbf{\emph{Highlight}}: Element unterhalb des Mauszeigers
+    \item \textbf{\emph{Cursor Position}}: Position (Element) der Tastatur
 \end{itemize}
 
 \noindent
@@ -362,9 +362,9 @@ const reset = () => {
 const nullOption = reset();
 \end{lstlisting}
 
-Hierbei muss nur die $nullOption$ selbst exportiert werden und das Reset bleibt $private$.
-Um die selbe Funktionalität wie die gewünschten Objekte zu bieten, erhält diese Konstante den Typ $Option$.
-Der Codeausschnitt \ref{code:nullOption} befindet sich in der Datei $optionsModel.js$.
+Hierbei muss nur die \emph{nullOption} selbst exportiert werden und das Reset bleibt \emph{private}.
+Um die selbe Funktionalität wie die gewünschten Objekte zu bieten, erhält diese Konstante den Typ \emph{Option}.
+Der Codeausschnitt \ref{code:nullOption} befindet sich in der Datei \emph{optionsModel.js}.
 Mehr zur File Aufteilung ist in den nächsten zwei Unterkapiteln zu lesen.
 
 \subsection{Projector Pattern}
@@ -384,7 +384,7 @@ Die View ist passiv und hat keine Kenntnis über die anderen Komponenten.
 Dieses Pattern zeigte sich als eines der Wichtigsten für die Erstellung der neuen Komponente.
 In den folgenden Grafiken sind Models als Zylinder, Controller als schiefes Rechteck und Projectors als Oval dargestellt.
 Die Raute mit Option ist ein Daten-Typ, der über das gesamte Projekt seine Anwendung findet.
-Das $starter.js$ beinhaltet alle Bestandteile, welche für eine Anwendung benötigt werden.
+Das \emph{starter.js} beinhaltet alle Bestandteile, welche für eine Anwendung benötigt werden.
 Das Puzzle wird im späteren Unterkapitel Decorator Pattern genauer beschrieben.
 Die erste Implementation, welche dieses Pattern verwendet, ist auf Abbildung \ref{img:DiagramSelectComponentOld}.
 
@@ -411,7 +411,7 @@ Zum einen findet sich das Projector Pattern in einer einzelnen Spalte in der Opt
 Pro Kolonne existiert eine Auswahl und eine Menge von Optionen.
 Diese beiden Bestandteile besitzen je ein eigenes Model und einen eigenen Controller.
 In diesem Fall generiert der Projektor eine gemeinsame View mit Bindings zu den beiden Controllern.
-Bei einer Anwendung übernimmt die $ColumnComponent$ die Verwaltung gewisser Bausteine (Mehr dazu später).
+Bei einer Anwendung übernimmt die \emph{ColumnComponent} die Verwaltung gewisser Bausteine (Mehr dazu später).
 
 \begin{figure}[!htb]
     \centering
@@ -421,8 +421,8 @@ Bei einer Anwendung übernimmt die $ColumnComponent$ die Verwaltung gewisser Bau
 \end{figure}
 
 Die Anwendungskomponente einer Column findet sich als Bestandteil des zweiten Projector Pattern wieder.
-Ein $SelectController$ verwaltet eine bis mehrere $ColumnComponent$s als auch ein Element für die Tastaturnavigation.
-Die sogenannte Cursor Position verwendet im Hintergrund ebenfalls einen $SelectedOptionController$. 
+Ein \emph{SelectController} verwaltet eine bis mehrere \emph{ColumnComponent}s als auch ein Element für die Tastaturnavigation.
+Die sogenannte Cursor Position verwendet im Hintergrund ebenfalls einen \emph{SelectedOptionController}. 
 Dieser ist der selbe wie in der Abbildung \ref{img:DiagramColumnComponent} und findet hier eine Wiederverwendung.
 Um die Bindings zu definieren, greifen die einzelnen Projektoren auf den selben Controller zu.
 Der Master-Detail-Aufbau der neuen Komponente findet sich in der Aufteilung der Projektoren wieder.
@@ -461,9 +461,9 @@ const SelectComponentByTableValues = (
 \end{lstlisting}
 
 Ein weiterer Einsatzort ist bereits in der Abbildung \ref{img:DiagramSelectComponent} aus dem Vorkapitel zu erahnen.
-Der rotbraune $SelectComponentByTableValue$ in Code \ref{code:componentDecorator} dekoriert die $SelectComponentByCallback$.
+Der rotbraune \emph{SelectComponentByTableValue} in Code \ref{code:componentDecorator} dekoriert die \emph{SelectComponentByCallback}.
 Damit bietet die neue Komponente zwei verschiedene Möglichkeiten der Anwendung.
-Das nächste Kapitel geht genauer auf den Master-View-Bereich des $SelectProjector$s - Abbildung \ref{img:DiagramSelectComponent} - ein.
+Das nächste Kapitel geht genauer auf den Master-View-Bereich des \emph{SelectProjector}s - Abbildung \ref{img:DiagramSelectComponent} - ein.
 
 
 \section{Dropdown-Container}
@@ -474,7 +474,7 @@ Eine Möglichkeit ist, den Container als HTML-Dialog zu gestalten.
 Die vorhandenen Funktionen sind jedoch nicht für diese Komponente geeignet.
 Für den gewünschten Zweck erfordert das Dialog-Element noch einiges an benutzerdefinierter Anpassung.
 
-Eine weitere Variante ist, ein normales $div$ als Options-Container zu verwenden.
+Eine weitere Variante ist, ein normales \emph{div} als Options-Container zu verwenden.
 Dies erfordert ebenfalls einen enormen Implementationsaufwand.
 Eine Andwendung dieses Ansatzes findet sich in der ersten Version der Komponente.
 Hierbei eröffnet sich das Problem von der Inkonsistenz zwischen UI und Controller.
@@ -492,10 +492,10 @@ Der Grundaufbau des Popover-Container ist im folgenden Code \ref{code:PopoverExa
 > </div>
 \end{lstlisting}
 
-Bei diesem Codeausschnitt ist wichtig, dass das Attribut $popover$ den Wert $auto$ erhält.
+Bei diesem Codeausschnitt ist wichtig, dass das Attribut \emph{popover} den Wert \emph{auto} erhält.
 Dies bewirkt, dass die Popover sich automatisch schliessen, wenn ein Klick ausserhalb des Container passiert.
-Das Öffnen und Schliessen des Dropdown-Elements kann über das $popovertarget$-Attribut mit der Popover-Id\footnotemark auf der Bedienkomponente gesteuert werden.
-\footnotetext{$id$-Attribut des Div-Containers mit dem Attribut $popover$}
+Das Öffnen und Schliessen des Dropdown-Elements kann über das \emph{popovertarget}-Attribut mit der Popover-Id\footnotemark auf der Bedienkomponente gesteuert werden.
+\footnotetext{\emph{id}-Attribut des Div-Containers mit dem Attribut \emph{popover}}
 Als Alternative dazu besteht die Möglichkeit, das Popover über JavaScript zu steuern.
 Hierbei besteht die Möglichkeit auf den Status und das Event des Togglens zuzugreifen.
 Diese Funktionalitäten erlauben den Controller konsistent zum UI zu halten.
@@ -505,8 +505,8 @@ Diese Funktionalitäten erlauben den Controller konsistent zum UI zu halten.
 \label{sec:performance}
 
 Um eine gute Performance zu bieten, ist es notwendig den Aufbau-Prozess einer Webseite zu kennen.
-Dieser Ablauf ist im Kapitel \textbf{Grundalgen} unter \textbf{Ablauf Parsing \& Rendering} genau beschrieben.
-Die folgende Abbildung \ref{img:RenderingProcessRecap} zeigt den Prozess im Überblick.
+Dieser Ablauf ist im Kapitel \ref{chap:background} unter \ref{sec:parsingRendering} genau beschrieben.
+Die folgende Abbildung \ref{img:RenderingProcessRecap} zeigt den Prozess nochmals im Überblick.
 
 \begin{figure}[!htb]
     \centering
@@ -551,8 +551,8 @@ Nach Abschluss wird der Container mit den neuen Elementen an die originale Stell
 (\cite{efficientDomManipulation}) Weiter ist darauf achten, dass CSS-Klassen an Stelle von Inline-Styles verwendet werden sollten.
 Das Cachen von mehrfach verwendeten Selektoren verbessert die Effizienz des DOMs.
 Die Selektoren sollten hierarchisch möglichst flach und nicht verschachtelt sein.
-Wenn es die Situation erlaubt, ist es besser, nicht mit $innerHTML$ zu arbeiten.
-In diesem Projekt ist es für die Anzeige der Label jedoch nötig $innerHTML$ zu nutzen.
+Wenn es die Situation erlaubt, ist es besser, nicht mit \emph{innerHTML} zu arbeiten.
+In diesem Projekt ist es für die Anzeige der Label jedoch nötig \emph{innerHTML} zu nutzen.
 Dies liegt daran, dass ein Label auch ein Bild enthalten kann.
 Generell verwendet die neue Auswahlkomponente keine Inline-Styles.
 Die einzigen Ausnahme betrifft das verborgene Eingabefeld. 
