@@ -64,7 +64,7 @@ Mit dem $required$ wird eine Eingabe erzwungen, um das Senden des Formulars frei
 Für eine bessere Accessibility sollte eine $id$ vergeben werden, damit dem Select ein Label zugewiesen werden kann.
 Standardmässig ist für dieses Feld nur eine einzelne Auswahl möglich.
 Durch die Ergänzung des Attributs $multiple$ ist es möglich mehrere Werte zu markieren.
-Bei einem Multiselect können mehrere Listenelemente mit vorausgewählt werden. % todo signle & multi selct in glossar
+Bei einem Multiselect können mehrere Listenelemente mit vorausgewählt werden. 
 Wenn jedoch bei einem Signle-Select mehrere Optionen das $selected$-Attribut enthalten, wird das letzte als Default eingesetzt und die anderen ignoriert.
 Das $autocomplete$ funktioniert wie bei anderen Inputs, indem Vorschläge vom User-Agent-Feature auftauchen.
 Mit dem Attribut $autofocus$ kann der Fokus nach dem Laden direkt auf das Feld gesetzt werden.
@@ -184,7 +184,7 @@ Die textlichen Felder\footnotemark besitzen die Attribute $maxlength$, $minlengt
 \footnotetext{in diesem Zusammenhang: $text$, $search$, $url$, $tel$, $email$, $password$}
 Diese Texttypen zusammen mit $number$ können durch $placeholder$ einen Patzhaltertext erhalten.
 Die Min- und Max-Länge schränken die Textlänge der Eingabe ein.
-Um eine Eingabe weiter zu begrenzen, kann ein Muster mit Regex im $pattern$-Attribut vorgegeben werden. % todo regex glossar
+Um eine Eingabe weiter zu begrenzen, kann ein Muster mit Regex im $pattern$-Attribut vorgegeben werden. 
 Dieses wird vor dem Senden des Formulars validiert und bei Fehlern mit invalide markiert.
 Gewisse Typen - wie z.B. $url$, $tel$ und $email$ - haben bereits eine Pattern hinterlegt.
 Mit $size$ lässt sich die Grösse bzw. Anzahl sichtbarer Zeichen angeben.
@@ -216,7 +216,7 @@ Firefox beispielsweise greift auf die vom System gestellte Farbpalette zurück, 
 (\cite{inputMdn}) Bei einem Input bestehen mehrere Möglichkeiten dieses umzugestalten.
 Es existieren eigene CSS-Pseudo-Klassen, wobei folgend nur ein Teil aufgezählt wird.
 
-\begin{itemize} % todo client side glossar
+\begin{itemize}
     \item \textbf{:enabled} bzw. \textbf{:disabled} - reagiert auf das $disabled$-Attribut
     \item \textbf{:read-write} bzw. \textbf{:read-only} - reagiert auf das $readonly$-Attribut
     \item \textbf{:valid} bzw. \textbf{:invalid} - reagiert auf die Client-Side Validität\footnotemark des Felds, sobald das Formular versendet wird
