@@ -1,4 +1,5 @@
 \chapter{Hintergrund}
+\label{chap:background}
 
 Um spätere Missverständnisse zu vermeiden, erklären diese Grundlagen das Basis-Verständnis einer Auswahlkomponente und grundlegendes zum Thema Browser.
 Im Zusammenhang mit der Auswahlkomponente muss klar sein, welche Zustände existieren.
@@ -7,6 +8,7 @@ Zudem klärt eines dieser Unterkapitel den Ablauf des Rendern einer HTML-Seite u
 
 
 \section{Ausgangslage}
+\label{sec:basics}
 
 Kolibri, ein von der FHNW betriebenes Toolkit, wird laufend weiterentwickelt.
 Die Open Source Werkzeuge können von Entwicklern ganz einfach importiert und verwendet werden.
@@ -27,6 +29,7 @@ Diese Definitionen gelten im gesamten Bericht.
 
 
 \section{Zustände in einer Auswahlkomponente}
+\label{sec:states}
 
 Dieser Abschnitt erklärt die Zustände, welche in einer Auswahlkomponente auftreten können.
 Als Ausgangslage dient eine Eingabemöglichkeit, die eine Master-Detail-Ansicht\footnotemark aufweist.
@@ -65,8 +68,9 @@ Bei einer Bestätigung mit der Tastatur ändert sich der Wert der $Cursor Positi
 Die letzten zwei Zustandswerte haben keinen Einfluss auf das versendete Formular und sind nur im Master zu finden.
 Nachfolgend werden noch die Details zum Thema Browser geklärt.
 
-\section{Browser \& HTML Renderer}
 
+\section{Browser \& HTML Renderer}
+\label{sec:browserRenderer}
 
 Die wichtigsten Aspekte von der Theorie über die populären Browser bis hin zum Ablauf des Renderings sind hier aufgeführt.
 Dabei sind nur die bekanntesten Implementationen von Belang.
@@ -82,6 +86,7 @@ Nachfolgend sind Informationen über den detaillierten Ablauf zur Anzeige eines 
 
 
 \subsection{Ablauf Parsing \& Rendering}
+\label{sec:parsingRendering}
 
 Der Aufruf einer Webseite beginnt mit dem HTTP-Request auf welchen eine HTTP-Response folgt.
 In diesem Bericht sind die gerade genannten Teile vor dem eigentlichen erhalten der Daten nicht weiter wichtig.
@@ -127,6 +132,7 @@ Die verbreitetsten Browser der jeweilig aktuellsten Version mit dessen Rendering
 
 
 \subsection{Bekannte Implementationen}
+\label{sec:implementationsRenderer}
 
 (\cite{blinkRenderer}) Am populärsten mit ungefähr 65\% Marktanteil sind Browser auf der Chromium-Basis, welche mit dem HTML-Renderer Blink arbeiten. 
 (\cite{chromiumBrowser}) Zu diesen Browser zählen Google Chrome, Brave, Microsoft Edge, Opera, Vivaldi, Samsung Internet und weitere.

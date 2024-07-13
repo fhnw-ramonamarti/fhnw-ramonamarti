@@ -1,22 +1,26 @@
 \chapter{Neue Auswahlkomponenten}
+\label{chap:newComponent}
 
 % todo paragraph
 {\color{red} \textbf{FEHLENDER PARAGRAPH KOMMT NOCH}}
 
 
 \section{Design}
+\label{sec:design}
 
 Das Design der neuen Auswahlkomponente ist stark vom Kolibri-Designsystem inspiriert, jedoch mit einigen Anpassungen, um die Lesbarkeit und Benutzerfreundlichkeit zu optimieren. 
 Der Fokus liegt darauf, eine konsistente und ansprechende Benutzererfahrung zu schaffen, die sich über alle modernen Browser hinweg hält.
 
 
 \subsection{Designansatz}
+\label{sec:designIdea}
 
 Die Gestaltung der Dropdown-Komponente basiert auf dem Designsystem Kolibri, um eine konsistente Benutzererfahrung zu gewährleisten. 
 Kolibri bietet bereits ein umfassendes Set von Richtlinien und Komponenten, die es ermöglichen, Anwendungen einheitlich und benutzerfreundlich zu gestalten.
 
 
 \subsection{Mögliche Designoptionen eines Elements \& deren Wahl}
+\label{sec:possibleDesignOptions}
 
 Elemente lassen sich durch diverse Eigenschaften stylen.
 Die Anpassung der Hintergrundfarbe fällt am schnellsten ins Auge.
@@ -73,6 +77,7 @@ Die Zuordnung der Designwahl zu den fehlenden Zuständen steht im Kapitel \textb
 
 \clearpage
 \subsection{Figma-Prototypen}
+\label{sec:figmaPrototype}
 
 Zur Visualisierung und interaktiven Testing des Designs kam Figma zum Einsatz. 
 Figma ist ein webbasiertes Tool zur Erstellung von UI/UX-Designs, das Echtzeit-Kollaboration ermöglicht. 
@@ -103,6 +108,7 @@ Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3
 
 
 \subsection{Farbpalette und Kontrast}
+\label{sec:colorContrast}
 
 Während das Kolibri-Designsystem eine Vielzahl von Farben bietet, wurden spezifische Anpassungen vorgenommen, um sicherzustellen, dass die Dropdown-Komponente gut lesbar ist. 
 Um eine bessere Nutzerfreundlichkeit zu erhalten, gestaltet sich die Farbauswal (Abbildung \ref{img:designColors}) so, dass sie hohen Kontrast bietet und somit die Barrierefreiheit der Anwendung verbessert.
@@ -134,6 +140,7 @@ Der Code \ref{code:cssImports} zeigt die importierten CSS-Dateien, die als Grund
 
 
 \subsection{Layout und Typografie}
+\label{sec:layoutTypo}
 
 Um die in Figma entworfenen Designs umzusetzen, erhält die Dropdown-Komponente eigenes CSS.
 Nachfolgend im Codeausschnitt \ref{code:styleDemoPage} ist der relevante CSS-Code, der zur Gestaltung der Dropdown-Komponente verwendet wird:
@@ -177,6 +184,7 @@ h3, h4 {
 
 
 \subsection{Interaktionsdesign}
+\label{sec:interactionDesign}
 
 Die Dropdown-Komponente ist so gestaltet, dass sie sowohl für Maus- als auch Tastaturbenutzer optimal funktioniert. 
 Das Design der Interaktionen bietet eine intuitive und leicht zugängliche Bedienung der Komponente.
@@ -192,6 +200,7 @@ Der CSS-Code \ref{code:styleExample} zeigt einen Style-Ausschnitt auf ein gehigh
 
 
 \subsection{Komponentengrösse und Layoutanpassungen}
+\label{sec:sizeLayoutChanges}
 
 Mit der Definition von Mindest- und Maximalbreite sowie flexiblen Layouts ist sichergestellt, 
 dass die Dropdown-Komponente auf verschiedenen Bildschirmgrössen funktioniert und sich gut darstellen lässt.
@@ -244,6 +253,7 @@ label {
 
 
 \subsection{Benutzerfeedback und Prototyping}
+\label{sec:userFeedbackPtototyping}
 
 Der Einsatz von interaktiven Figma-Prototypen ist hilfreich beim Evaluieren der initialen Benutzerfreundlichkeit und intuitiven Bedienung. 
 Mit der Integration der Rückmeldungen von Benutzerinteraktionen in das Design verbessert sich die Usability kontinuierlich.
@@ -256,6 +266,7 @@ Sie fügt sich nahtlos in das Kolibri-Designsystem ein und überzeugt gleichzeit
 
 
 \section{Interaktionen}
+\label{sec:interaction}
 
 Damit ein gemeinsames Verständis entsteht, gilt es für die Bedienung der Komponente Regeln festzulegen.
 Wie in den Grundlagen bereits beschrieben kann sich ein Wert aus dem Optionen-Container in verschiedenen Zuständen befinden.
@@ -300,6 +311,7 @@ Die Interaktionen können in weiteren Projektoren angepasst bzw. geändert werde
 
 
 \section{Prinzipien \& Regeln}
+\label{sec:principleRules}
 
 Um stabilen und verständlichen Code zu garantieren, hält sich dieses Projekt an diverse Prinzipien.
 Ein Ansatz ist alle Objekte so immutable als möglich zu halten.
@@ -318,6 +330,7 @@ Das Kapitel Patterns bietet eine weitere Möglichkeit den Code strukturiert zu h
 
 
 \section{Patterns}
+\label{sec:patterns}
 
 In diesem Projekt finden sich einige Code-Patterns wieder.
 Die Wichtigesten wie Null-Object, Projector und Decorator sind in den nachfolgenden Unterkapitel genauer erläutert.
@@ -327,6 +340,7 @@ Die Implementation erhält durch die verwendeten Patterns eine Struktur und läu
 
 
 \subsection{Null Object Pattern}
+\label{sec:nullPattern}
 
 Ein Pattern, welches im Verlauf der Arbeit eine wichtige Rolle eingenommen hat, ist das Null-Object Pattern.
 (\cite{nullObjectPattern}) Null hat den Nachteil, dass alle Funktionsaufrufe darauf zu Fehlern führen.
@@ -354,6 +368,7 @@ Der Codeausschnitt \ref{code:nullOption} befindet sich in der Datei $optionsMode
 Mehr zur File Aufteilung ist in den nächsten zwei Unterkapiteln zu lesen.
 
 \subsection{Projector Pattern}
+\label{sec:projectorPattern}
 
 (\cite{projectorPattern}) Das Projector Pattern basiert auf dem verbreiteten Model-View-Controll Pattern.
 Das Model verwaltet die Daten, welche dargestellt werden sollen.
@@ -419,6 +434,7 @@ Mehr zu dieser und der Column-Component steht im nächsten Kapitel.
 
 
 \subsection{Decorator Pattern}
+\label{sec:decoratorPattern}
 
 (\cite{decoratorPattern}) Ein Decorator bietet zusätzliches Verhalten ohne das Originale Objekt zu verändern.
 Zudem können verschiedene Funktionen kombiniert werden.
@@ -451,6 +467,7 @@ Das nächste Kapitel geht genauer auf den Master-View-Bereich des $SelectProject
 
 
 \section{Dropdown-Container}
+\label{sec:dropdownContainer}
 
 Um alle Optionen zu gegebener Zeit darzustellen, stehen verschiedene Varianten zur Auswahl.
 Eine Möglichkeit ist, den Container als HTML-Dialog zu gestalten.
@@ -485,6 +502,7 @@ Diese Funktionalitäten erlauben den Controller konsistent zum UI zu halten.
 
 
 \section{Performance}
+\label{sec:performance}
 
 Um eine gute Performance zu bieten, ist es notwendig den Aufbau-Prozess einer Webseite zu kennen.
 Dieser Ablauf ist im Kapitel \textbf{Grundalgen} unter \textbf{Ablauf Parsing \& Rendering} genau beschrieben.
@@ -551,7 +569,8 @@ inputElement.setAttribute(
 Die Regeln in Code \ref{code:InlineStyle} sorgen dafür, dass das Input-Feld transparent als auch resetet ist.
 Zudem befindet es sich im Hintergrund und besitzt dieselben Grösse wie der Container mit dem ausgewählten Wert.
 
-\subsubsection{\color{dgray} Performance Vergleich}
+\subsection{Performance Vergleich}
+\label{sec:performanceCompare}
 
 Durch die Anpassungen der Performance Optimierung, verbesserte sich die Ladezeit bei grossen Datenmenge enorm.
 Die Testseite enthält vier existierende und vier neue Auswahlkomponenten mit den selben Inhalten wie je eines der Existierenden.
@@ -583,8 +602,10 @@ Feedbacks zu den durchgeführten User-Tests mit Programmierern als auch Endnutze
 
 
 \section{Testing}
+\label{sec:testing}
 
-\subsection{Automated Tests}
+\subsection{Automatisierte Tests}
+\label{sec:automatedTests}
 
 % todo text for tests
 \begin{figure}[!htb]
@@ -595,18 +616,22 @@ Feedbacks zu den durchgeführten User-Tests mit Programmierern als auch Endnutze
 \end{figure}
 
 \subsection{User Tests} % todo
+\label{sec:userTests}
 
 % personas im anhang
 
 \subsubsection{Programmierer}
+\label{sec:userTestsProgrammer}
 
 % images und text von umfrage im anhang
 
 \subsubsection{Formular-Ausfüller}
+\label{sec:userTestsEnduser}
 
 
 
 \section{Diskussion}
+\label{sec:discusion}
 
 % herausforderungen
 % komplexeste probleme
@@ -615,3 +640,5 @@ Feedbacks zu den durchgeführten User-Tests mit Programmierern als auch Endnutze
 % entscheidungen, gründe => kein filter/ suche
 
 \section{Fazit}
+\label{sec:summeryNew}
+

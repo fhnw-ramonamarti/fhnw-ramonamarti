@@ -1,4 +1,5 @@
 \chapter{Existierende Auswahlkomponenten}
+\label{chap:existingComponents}
 
 
 Hier werden die bereits vorhandenen Möglichkeiten zur Darstellung einer Optionsauswahl einander gegenübergestellt.
@@ -13,6 +14,7 @@ Die folgende Tabelle \ref{table:generalComparing} zeigt einen Vergleich der gena
 
 
 \section{HTML Datalist vs. Select}
+\label{sec:datalistSelect}
 
 Die folgenden Unterkapitel zeigen die Möglichkeiten, welche die HTML-Elemente \texttt{input}, \texttt{option}, \texttt{datalist} und \texttt{select} bieten.
 Zudem zeigen tabellarische Gegenüberstellungen die Unterschiede und Inkonsistenzen dieser in verschiedenen Browsern und Betriebssystemen auf.
@@ -20,6 +22,7 @@ Hierbei liegt der Fokus mehr auf der Interaktion mit den Komponenten als auf der
 
 
 \subsection{Option}
+\label{sec:option}
 
 \begin{lstlisting}[style = htmlcssjs, caption = Option Example, label = code:OptionExample]
 <option value="ValueToSend">LabelToShow</option>
@@ -47,6 +50,7 @@ Alle gängigen Browser unterstützen dieses Tag.
 
 
 \subsection{Select}
+\label{sec:select}
 
 \begin{lstlisting}[style = htmlcssjs, caption = Select Example, label = code:SelectExample]
 <select name="animal">
@@ -96,6 +100,7 @@ Daher gibt es keine Alternative als sie zuvor auszuschalten bzw. umszustellen.
 
 
 \subsubsection{\color{dgray} Optgroup}
+\label{sec:optgroup}
 
 \begin{lstlisting}[style = htmlcssjs, caption = Optgroup Example, label = code:OptgroupExample]
 <select name="animal">
@@ -119,6 +124,7 @@ Die $optgroup$ besitzt die ARIA-Rolle einer Gruppe und wird von allen Browsern u
 
 % todo continue here
 \subsection{Datalist}
+\label{sec:datalist}
 
 \begin{lstlisting}[style = htmlcssjs, caption = Datalist Example, label = code:DatalistExample]
 <input type="text" name="animal" 
@@ -160,6 +166,7 @@ Zusammengefasst bieten für Listen mit den unterschliedlichsten Typen Chromium-b
 
 
 \subsubsection{\color{dgray} Input}
+\label{sec:input}
 
 Dieser Abschnitt behandelt nur den Teil, welcher im Bezug auf die $datalist$ von Belang ist.
 Das Input - in Code \ref{code:DatalistExample} auf Zeile 1 - wird durch das $list$-Attribut mit den Auswahloptionen verknüpft.
@@ -198,7 +205,10 @@ Die ARIA-Rolle ist vom Typ abhängig und kann als Textbox, Combobox, Spinbutton,
 In den hier erwähnten Möglichkeiten der Kompontente existiert eine grossflächige Browserunterstützung.
 Die einzigen Ausnahmen beziehen sich auf die Typen $week$ und $month$, welche im Firefox und Safari nicht funktionieren.
 
+
 \subsubsection{{\color{dgray} Input-Typen mit Datalist-Unterstützung}}
+\label{sec:inutTypesDatalist}
+
 (\cite{datalistMdn}) Angefangen mit den textuellen Typen existieren $text$, $search$, $number$, $email$, $url$ und $tel$.
 Diese Typen erscheinen als mehr oder weniger normales, einzeiliges Texteingabefeld.
 Die ersten zwei der Auflistung verwalten einen Text ohne spezielle Anforderungen. 
@@ -215,7 +225,10 @@ Für eine Farbauswahl kann der Typ $color$ zur Anwendung kommen.
 Die gängigen Browser zeigen nach dem Aufklappen Farbpaletten, welche sich aber in der Darstellung unterscheiden. 
 Firefox beispielsweise greift auf die vom System gestellte Farbpalette zurück, wo Chromium-basierte Browser eine Eigene bieten.
 
+
 \subsubsection{{\color{dgray} CSS für Input-Felder}}
+\label{sec:inputCss}
+
 (\cite{inputMdn}) Bei einem Input bestehen mehrere Möglichkeiten dieses umzugestalten.
 Es existieren eigene CSS-Pseudo-Klassen, wobei folgend nur ein Teil aufgezählt wird.
 
@@ -235,13 +248,18 @@ In Feldern mit einem Cursor\footnotemark kann dieser mit dem CSS-Property \textb
 \footnotetext{blinkender Strich in einem Eingabefeld}
 Generell kann das normale Input-Feld relativ gut designed werden - im Vergleich zur $datalist$ und dem $select$.
 
+
 \clearpage
 \section{Browser-Inkonsistenzen} % todo vllt anpassen abschnitt
+\label{sec:browserInconsistency}
+
 Die Komponenten Select \& Datalist variieren im UI und in der Bedienung,
 besonders hinsichtlich der visuellen Darstellung und des Verhaltens von Navigationspfeilen oder anderen Steuerelementen.
 
 
 \subsection{UI Unterschiede}
+\label{sec:uiDifferences}
+
 Das Select ist in der geschlossenen Form immer mit mindestens einem Pfeil nach unten auf der rechten Seite ausgestattet.
 Safari (OSX und iOS) verwendet als Icon einen Doppelpfeil (nach oben und unten).
 Firefox zeigt das Feld in grau, während alle anderen Browser einen weissen Hintergrund verwenden.
@@ -267,8 +285,11 @@ Ein Blick auf die mobilen Browser wie iOS-Safari, Android-Firefox und -DuckDuckG
 Im Vergleich zu den Desktop-Version zeigen Safari und Firefox das geöffnete Select für eine besser Bedienbarkeit komplett ander an.
 % todo 
 
+
 \clearpage
 \subsection{Edge Browser}
+\label{sec:edgeBrowser}
+
 \import{../tables}{c.edge.tex}
 
 Auf Windows verhält sich Edge sehr ähnlich wie Chrome, da die Codebasis beider Browser Chromium ist.
@@ -276,6 +297,8 @@ Auf Windows verhält sich Edge sehr ähnlich wie Chrome, da die Codebasis beider
 
 \clearpage
 \subsection{Chrome Browser}
+\label{sec:chromeBrowser}
+
 \import{../tables}{c.chrome.tex}
 
 Auf dem Mac verhält sich Chrome ähnlich wie auf Windows, jedoch können sich Designaspekte unterscheiden. 
@@ -283,6 +306,8 @@ Auf dem Mac verhält sich Chrome ähnlich wie auf Windows, jedoch können sich D
 
 \clearpage
 \subsection{Firefox Browser}
+\label{sec:firefoxBrowser}
+
 \import{../tables}{c.firefox.tex}
 
 Wie auch auf Windows zeigt Firefox auf dem Mac konsistentes Verhalten, jedoch mit typischen OSX Designanpassungen. 
@@ -291,6 +316,8 @@ Die Interaktions-Feedbacks auf Mac können sich leicht von der Windows-Version u
 
 \clearpage
 \subsection{Safari Browser}
+\label{sec:safariBrowser}
+
 \import{../tables}{c.safari.tex}
 
 Safari tendiert dazu, ein minimalistisches Design zu verwenden, was sich in der Darstellung von Dropdowns und Comboboxen widerspiegelt.
@@ -300,6 +327,7 @@ Das Select zeigt die grössten Unterschiede im UI.
 
 \clearpage
 \subsection{Browser auf Android \& iOS}
+\label{sec:mobileBrowser}
 
 \import{../tables}{c.firefox.android.tex}
 \import{../tables}{c.duckduck.android.tex}
@@ -317,21 +345,15 @@ In Bezug auf die Komponenten Select und Datalist öffnet sich die dynamische Ein
 Dies ist der Grund, wieso in den drei oben dargestellten Tabellen keine Tastatur-Interaktionen bei Selects möglich sind. 
 Die Underschiede bei der Datalist entstehen dadurch, dass nicht jeder mobile Browser die Liste bei Tastatur-Eingaben offen lässt bzw. öffnet.
 Dadurch erklären sich die unterscheidlichen Verhaltensweisen, welche in den Tabellen ersichtlich sind.
-% todo continue here
-Die Touch-Bedienungen weisen auf der Datalist kaum eine Übereinstimmung auf. 
-Scrollen als auch Klicken verhalten sich bei den ausgewählten Browsern Safari, Firefox und DuckDuckGo 
-Die begründet sich im unterscheidlichen Verhalten der Datalist.
-Gewisse Browser is
 
-Zudem lässt sich durch das Select die virtuelle Tastatur nicht öffnen.
-Dadurch sind normalerweise keine Interaktionen durch Tasten möglich.
-Einige Browser wie Safari oder Firefox untertützen die Datalist auf mobilen Geräten nicht.
-Deswegen ist keine Interaktion mit der List möglich. 
-Browser wie DuckDuckGo zeigen den Container mit den Optionen an und verhalten sich sehr ähnlich wie Firefox auf Desktop-Computer.
+Die Touch-Bedienungen auf der Datalist weisen kaum eine Übereinstimmung auf. 
+Das Scrollen als auch das Klicken verhalten sich bei den ausgewählten Mobile-Browsern Safari, Firefox und DuckDuckGo verschieden.
+Das Select zeigt in der Interaktion mit dem Finger konsistenter. 
 
 
 \clearpage
 \subsection{Fazit}
+\label{sec:summeryExisting}
 
 % todo rewrite with focus on differences visible in tables
 Generell ändern sich in Bezug auf Design und Interaktionsmechanismen die Verhaltensweisen der Standardkomponenten in den verschiedenen Browsern. 
@@ -347,13 +369,26 @@ Diese Erkenntnisse fordern eine sorgfältige Abstimmung und eventuelle Anpassung
 
 
 \section{Anwendungsfälle}
-\begin{itemize}
-    \item Gender / Geschecht
-    \item Länder (Herkunftsland / Destination)
-    \item Ortschaft (Desination / Wohnort)
-    \item Strassen / Adressen in einer Ortschaft
-    \item Jahrgang
-    \item Geburtstag: Tag \& Monat \& Jahr
-    \item Mittagssandwich für CS-Seminare über den Mittag an der FHNW
-    \item Filter von Shops (Grösse / Farbe / Material / Schnitt / Kategorie)
-\end{itemize}
+\label{sec:useCases}
+
+Die existierenden Auswahlkomponenten finden in vielen Webapplikationen Anwendung.
+Das bekanneste Beispiel eines Selects die Auswahl des Geschlechts in Formularen verschiedenster Kontexte.
+Diese Verwendung ist abgesehen vom Design unproblematisch.
+Ein anderer Anwendungsfall ist die Auswahl eines Jahres oder Geburtstags mit drei Selects.
+Das Ausfüllen dieser Situation gestaltet sich schon unangenehmer.
+Dies liegt daran, dass die Suche nach dem gewünschten Wert besonders beim Jahr eher lange dauern kann.
+Viele Nutzer hassen es ein Landes aus einer List von ca. 250 weltweit oder eine Ortschaft aus mehreren 100 bis 1'000 (je nach Anwendungsgebiet) auswählen zu müssen.
+Dieses Fallbeispiel findet sich in vielen Alltagssitutionen - z.B. Herkunftsland, Zielort / -land oder Wohnort - wieder.
+Um die Anwendung angenehmer zu gestalten, bietet sich auf den ersten Blick die Datalist mit der eingebauten Filterfunktion an.
+Das Problem ist jedoch, dass in den meisten Fällen eigene Eingaben unerwünscht sind.
+Alternativ bietet sich das Select als Auswahlkomponente.
+Damit zieht sich die Suche nach einem bestimmten Wert in die Länge - speziell wenn die Optionen nicht in alphabetischer Reihenfolge vorliegen.
+Selbst die Zuhilfenahme der Select-Suche\footnotemark ist nicht in jeder Situation hilfreich. 
+\footnotetext{Durch das Drücken der Anfangsbuchstaben des gesuchten Werte springt die Selektion zur passenden Option}
+Ein weiteres Anwendungsgebiet findet sich in gewissen Webshop bei den Filter- und Sortierfunktionen wieder.
+Die Komponente zeigt sich unter anderem bei der Auswahl einer Grösse, Farbe oder Kategorie.
+In diesem Beispiel können viele Optionen bzw. Werte ohne klare Reihenfolge in einer Liste auftauchen.
+Dies führt dazu, dass das Auffinden des gewünschten Werts eher schwer fällt.
+All die oben genannten und noch weitere Fälle zeigen verschiedene Probleme auf.
+Die neue Komponente ermöglicht es, die unangenehmen Situationen zu aufzulösen.
+Mehr Informationen dazu ist im nachfolgenden Kapitel zu lesen.
