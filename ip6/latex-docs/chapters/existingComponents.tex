@@ -261,6 +261,10 @@ Die Liste selbst verhält sich je nach Browser und Inhalt verschieden, indem sie
 Ob der Dark- bzw. Light-Mode als Container-Farbe übernommen wird, ist vom Browser und dem Anwendungskontext abhängig.
 Das Feld selbst wird nie von der Liste überdeckt. 
 
+Ein Blick auf die mobilen Browser wie iOS-Safari, Android-Firefox und -DuckDuckGo zeigen weitere UI-Unterschiede.
+Im Vergleich zu den Desktop-Version zeigen Safari und Firefox das geöffnete Select für eine besser Bedienbarkeit komplett ander an.
+% todo 
+
 \clearpage
 \subsection{Edge Browser}
 \import{../tables}{c.edge.tex}
@@ -293,19 +297,35 @@ Das Select zeigt die grössten Unterschiede im UI.
 
 
 \clearpage
-\subsection{Safari Browser auf iOS}
-\import{../tables}{c.safari.ios.tex}
-
-% todo text hier
-
-
-\clearpage
-\subsection{Firefox \& DuckduckGo auf Android}
+\subsection{Browser auf Android \& iOS}
 
 \import{../tables}{c.firefox.android.tex}
 \import{../tables}{c.duckduck.android.tex}
 
-% todo text hier
+Der Vergleich der Tabellen \ref{table:interactionFirefoxAndroid} und \ref{table:interactionDuckduckAndroid} zeigt, dass auf dem selben Android-Gerät Abweichungen existieren.
+Nicht alle Bedienungsmöglichkeiten führen zur selblen Reaktion.
+
+\clearpage
+\import{../tables}{c.safari.ios.tex}
+
+Wie in den Tabellen \ref{table:interactionFirefoxAndroid} bis \ref{table:interactionSafariIos} zu sehen ist, erlauben Mobilgeräten weniger Interaktionen als Desktop-Computer.
+Zum einen stellen die verschiedenen virtuellen Tastaturen eine geringere Auswahl an Tasten an.
+Auf der anderen Seite öffnet sich die virtuelle Tastatur nicht in jeder Situation. 
+In Bezug auf die Komponenten Select und Datalist öffnet sich die dynamische Eingabemöglichkeit nur durch das Input der Datalist.
+Dies ist der Grund, wieso in den drei oben dargestellten Tabellen keine Tastatur-Interaktionen bei Selects möglich sind. 
+Die Underschiede bei der Datalist entstehen dadurch, dass nicht jeder mobile Browser die Liste bei Tastatur-Eingaben offen lässt bzw. öffnet.
+Dadurch erklären sich die unterscheidlichen Verhaltensweisen, welche in den Tabellen ersichtlich sind.
+% todo continue here
+Die Touch-Bedienungen weisen auf der Datalist kaum eine Übereinstimmung auf. 
+Scrollen als auch Klicken verhalten sich bei den ausgewählten Browsern Safari, Firefox und DuckDuckGo 
+Die begründet sich im unterscheidlichen Verhalten der Datalist.
+Gewisse Browser is
+
+Zudem lässt sich durch das Select die virtuelle Tastatur nicht öffnen.
+Dadurch sind normalerweise keine Interaktionen durch Tasten möglich.
+Einige Browser wie Safari oder Firefox untertützen die Datalist auf mobilen Geräten nicht.
+Deswegen ist keine Interaktion mit der List möglich. 
+Browser wie DuckDuckGo zeigen den Container mit den Optionen an und verhalten sich sehr ähnlich wie Firefox auf Desktop-Computer.
 
 
 \clearpage

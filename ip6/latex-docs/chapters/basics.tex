@@ -1,8 +1,8 @@
 \chapter{Hintergrund}
 
 Um spätere Missverständnisse zu vermeiden, erklären diese Grundlagen das Basis-Verständnis einer Auswahlkomponente und grundlegendes zum Thema Browser.
-Im Zusammenhang mit der Auswahlkomponente muss klar sein, welche Status diese als auch Bestandteile dessen besitzen können.
-Um eine Basis für das Erstellen einer konsistenten Auswahlkomponente zu ermöglichen, zeigt der Browser-Abschnitt den Grund für die existierenden Unterschiede.
+Im Zusammenhang mit der Auswahlkomponente muss klar sein, welche Zustände existieren.
+Um eine Basis für das Erstellen einer konsistenten Auswahlkomponente zu ermöglichen, zeigt der Browser-Abschnitt den Grund für die vorhandenen Unterschiede.
 Zudem klärt eines dieser Unterkapitel den Ablauf des Rendern einer HTML-Seite und bietet ein besseres Verständnis für die Entwicklung der neuen Komponente.
 
 
@@ -21,14 +21,14 @@ Der Zugriff auf das Designtool Figma ermöglicht das Verwenden des existierenden
 Der Aufbau der Elemente als Komponenten vereinfacht die Wiederverwendung. 
 Der Satz von Icons kann bei Bedarf erweitert werden.
 
-Eine weiter wichtige Ausgangslage ist ein gemeinsames Verständnis von verwendeten Begriffen. 
+Eine weitere, wichtige Ausgangslage ist ein gemeinsames Verständnis von verwendeten Begriffen. 
 Um dies sicherzustellen, beschreibt das nächste Kapitel die Zustände einer Auswahlkomponente als auch derer Elemente.
 Diese Definitionen gelten im gesamten Bericht.
 
 
 \section{Zustände in einer Auswahlkomponente}
 
-Dieser Abschnitt klärt die Zustände, welche in einer Auswahlkomponente auftreten können.
+Dieser Abschnitt erklärt die Zustände, welche in einer Auswahlkomponente auftreten können.
 Als Ausgangslage dient eine Eingabemöglichkeit, die eine Master-Detail-Ansicht\footnotemark aufweist.
 \footnotetext{
     Master beschreibt den Bereich, welcher alle möglichen Auswahlwerte enthält.  
@@ -36,14 +36,14 @@ Als Ausgangslage dient eine Eingabemöglichkeit, die eine Master-Detail-Ansicht\
 }
 Zudem sind keine speziellen Voreinstellungen getroffen.
 \\
-Je nach Darstellung der Komponente kann diese $offen$ oder $geschlossen$ dargestellt werden.
+Je nach Darstellung der Komponente kann diese $offen$ oder $geschlossen$ sein.
 Wenn nur einer der beiden Zustände möglich ist, ist es meistens der Offene.
 Im geschlossenen Status zeigt das Erscheinungsbild nur die Detail-Ansicht an, welcher mindestens den selektierten Wert anzeigt.
-Eine offene Auswahlmöglichkeit zeigt beide Teile der Master-Detail-View dar.
-Der Master-Teil zeigt alle Values einer Liste an.
+Eine offene Auswahlmöglichkeit stellt beide Elemente der Master-Detail-View dar.
+Die Master-Ansicht zeigt alle Values einer Liste an.
 
 Bei dem $normalen$ bzw. nicht fokussierten Status ist die Komponente nicht an- oder ausgewählt.
-Dies ist die standardmässige Darstellung, wenn eine Webseite diese Komponente enthält.
+Wenn eine Webseite diese Komponente enthält, ist dies die standardmässige Darstellung.
 In diesem Fall betreffen Interaktionen über die Tastatur nicht das Element. % todo besser schreiben, unklar
 In den meisten Erscheinungen ist nur die Detail-Ansicht sichtbar und der Master-Container ist ausgeblendet.
 Wählt der Nutzer die Komponente mit der Maus oder der Tastatur an, steht sie im $Fokus$ bzw. ist sie $fokussiert$.
@@ -54,21 +54,21 @@ Ist ein Wert in der Master-Ansicht ausgewählt und wird in der Detail-View angez
 Die $Selektion$ wird beim Versenden eines verlinkten Formulars als Value mitgeschickt.
 Sollte es eine $Selektion$ in einer Kategorie-Spalte geben, wird diese nicht mitgeschickt.
 Stattdessen filtert die Kategorie-Selektion die Wert-Spalte.
-Häufig ist dieser in der Liste aller Werte hervorgehoben, um die Auswahl anzuzeigen.
+Um die Auswahl anzuzeigen, ist dieser in der Liste aller Werte hervorgehoben.
 In gewissen Situationen existiert noch der Zustand, dass in der Master-View ein Wert im $Highlight$ steht. 
 Bestätigt der Nutzer das $Highlight$ mit der Maus, wechselt der Status auf selektiert.
 Durch Hovern kann der Highlight-Wert geändert werden. 
 Geschieht die Navigation durch die Werte mit der Tastatur, erhält genau ein Wert die $Cursor Position$. 
-Durch das betätigen gewisser vordefinierter Tasten ändert sich die $Cursor Position$.
+Durch das Betätigen gewisser vordefinierter Tasten ändert sich die $Cursor Position$.
 Bei einer Bestätigung mit der Tastatur ändert sich der Wert der $Cursor Position$ auf selektiert.
 Die letzten zwei Zustandswerte haben keinen Einfluss auf das versendete Formular und sind nur im Master zu finden.
 Nachfolgend werden noch die Details zum Thema Browser geklärt.
 
 \section{Browser \& HTML Renderer}
 
-Dieses Kapitel beschreibt von der Theorie über die populären Browser bis hin zum Ablauf des Rendering die wichtigsten Aspekte.
-Dabei werden nur die bekanntesten Implementationen behandelt.
-
+Die wichtigsten Aspekte decken die Theorie über die populären Browser bis hin zum Ablauf des Renderings ab.
+Dabei sind nur die bekanntesten Implementationen von Belang.
+% todo here
 Ein Webbrowser dient hauptsächlich als Zugang ins Internet und zur Anzeige von Webressourcen wie HTML, CSS und JavaScript.
 Er besteht aus einer Benutzeroberfläche, einer Browser- und einer Layout/Rendering-Engine.
 Um diese Inhalte verständlich auf dem UI darzustellen, verwendet die Browser-Engine einen sogenannten Renderer - mehr dazu später.
