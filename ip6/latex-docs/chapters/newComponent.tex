@@ -354,7 +354,7 @@ Der Codeausschnitt \ref{code:nullOption} befindet sich in der Datei $optionsMode
 Mehr zur File Aufteilung ist in den nächsten zwei Unterkapiteln zu lesen.
 
 \subsection{Projector Pattern}
-% todo change ref to könig
+
 (\cite{projectorPattern}) Das Projector Pattern basiert auf dem verbreiteten Model-View-Controll Pattern.
 Das Model verwaltet die Daten, welche dargestellt werden sollen.
 Zudem enthält die Komponente des Patterns die Geschäftslogik und verarbeitet die Regeln und Anfragen für die Daten.
@@ -582,45 +582,28 @@ Dadurch verkürzt sich der Ladevorgang um vier bis fünf Sekunden.
 Feedbacks zu den durchgeführten User-Tests mit Programmierern als auch Endnutzern sind im nachfolgenden Kapitel aufgeführt.
 
 
-\section{User Tests}
+\section{Testing}
 
+\subsection{Automated Tests}
 
-\subsection{Programmierer}
+% todo text for tests
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=100mm]{automatedTests.png}
+    \caption{Automatisierte Tests}
+    \label{img:automatedTests}
+\end{figure}
 
+\subsection{User Tests} % todo
 
+% personas im anhang
 
-\subsection{Formular-Ausfüller}
+\subsubsection{Programmierer}
 
+% images und text von umfrage im anhang
 
+\subsubsection{Formular-Ausfüller}
 
-% Keyboard navigation. Using keyboard to narrow down possible categories/values (maybe fuzzy searching), otherwise it takes me longer to find something than compared to a standard dropdown, even if the list there is bigger.
-% Teams Nachricht an Lea ;)
-% ich finde es etwas unintuitiv beim SelectComponent neben den offensichtlich verständlichen selectAttriutes (labl, name, numberOfColumns) noch ein Callback mitzugeben.
-
-% ich hätti mir mehr beschreibung gewünscht wie ich die komponente verwenden muss. (ich musste eher dannach suchen.
-% Bessere Dokumentation war verwirrend (Code).
-% - Doku: In der Code Doku von SelectComponent dürfte der Return Value besser beschrieben werden (welches Array Element ist was). Das wird erst in den Anwendungsbeispielen klar.
-% - Detail: numberOfColumns ist etwas "verbose"
-% Es würde helfen, wenn die Types im JSDOC spezifiziert wären und wenn die Library eingebunden wäre. Dann wäre die Dokumentation leichter auffindbar.
-% War mir am Anfang nicht klar dass was SelectComponent() zurückgibt und ob das Input-element sowie dass label-element selbst erstellt werden soll. Danach war es intuitiv anzuwenden.
-
-% ---------
-
-% Nitpicking: while I see why the component is imported from a URL for the user tests, it makes it hard to use on a spotty network.
-% ich persönlich hatte zu beginn schwierigkeiten zu verstehen wie das "framework" funktioniert. die beschreibung für die tasks (ab task2) sind zum teil etwas unklar =>
-
-% The value data is provided by the function `Service.getRegionsByCountry()`,
-% the categories are provided by the function `Service.getCountries()`
-
-% RegionsByCountry muss man noch das Country mitgeben. Hätte in der beschreibung drinstehen können.
-
-% ----------
-
-%  Isch s selectAttributes `numberOfColumns` wörklich nötig? Ih be nämlich chli am umespiele gsii, met was passiert wenn mer `numberOfColumns` uuf en "falsche" Wert setzt oder eifach meh/weniger `serviceCallbacks` mit git. Vo mir uus gseh, chönt mer `numberOfColumns` vo  `serviceCallbacks.length` ableite...?
-%  Ehr hend nah recht es performance Problem wenn d liste lang isch...Dur s implementiere vo Task 2.2 brucht d websiite ca. 5 sekunde zum lade (rein Javascript execution). Das liht ned ahm Javascript, sondern am HTML rendering sowiit ih gseh ha. Ha suscht nah e Performance Trace gmacht wo mer in Chrome chan drii lade ahhghänkt.
-%  Isch betz speziell, dass `serviceCallbacks` array in vercherter reihefolg muen drii geh werde wies denne ahhzeigt wird...
-%  Wenn mer 2 Kollone het, aber rechts ke uuswahl, de chan mer au nüt uuswähle... Ja isch z erwarte aber isch au ih de Demo vorhande
-%  För mich isch ned immer klaar gsii, wenns nah meh optione unde oder obedraa het. Ih de Browser Dropdown liste gseht mer das sehr schnell dur pfiili obe und unde
 
 
 \section{Diskussion}
