@@ -94,7 +94,7 @@ Der Response liefert schlussendlich die anzuzeigenden Daten, welche in diesem Fa
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=120mm]{rendering-process.png}
+    \includegraphics[width=100mm]{rendering-process.png}
     \caption{Rendering Prozess}
     \label{img:RenderingProcess}
 \end{figure}
@@ -120,7 +120,7 @@ Der DOM als auch der CSSOM werden parallel zum jeweiligen Parsen gerendert.
 Das Rendering ist jeweils nur ein Schritt hinter dem Parser und verarbeitet dessen Resultate direkt weiter.
 Das Dokument reserviert den Platz für das Element und dessen Inhalt.
 Der Browser zeigt diese an den zugewiesenen Positionen an.
-Extern nachgeladene Ressourcen wie Bilder können etwas länger dauern, weswegen die Seiten manchmal ohne diese vorgeladen werden.
+Extern nachgeladene Ressourcen wie Bilder können etwas länger dauern, weswegen die Seiten diese manchmal nicht vorladen.
 
 Stösst der HTML-Parser auf ein \texttt{script}-Tag, stoppt dieser den Prozess des HTML-Parsen bis das Script fertig ausgeführt ist - ausser das Tag enthält das \texttt{async}-Attribut.
 Dies dient der Sicherheit, weil JavaScript den DOM als auch CSSOM ändern kann und der Browser nicht weiss, was passieren wird.
