@@ -15,8 +15,8 @@ Der Fokus liegt darauf, eine konsistente und ansprechende Benutzererfahrung zu s
 \subsection{Designansatz}
 \label{sec:designIdea}
 
-Die Gestaltung der Dropdown-Komponente basiert auf dem Designsystem Kolibri, um eine konsistente Benutzererfahrung zu gewährleisten. 
-Kolibri bietet bereits ein umfassendes Set von Richtlinien und Komponenten, die es ermöglichen, Anwendungen einheitlich und benutzerfreundlich zu gestalten.
+Um eine konsistente Benutzererfahrung zu gewährleisten, basiert die Gestaltung der Dropdown-Komponente auf dem Designsystem Kolibri.
+Dieses bietet bereits ein umfassendes Set von Richtlinien und Komponenten, die es ermöglichen, Anwendungen einheitlich und benutzerfreundlich zu gestalten.
 
 
 \subsection{Mögliche Designoptionen eines Elements \& deren Wahl}
@@ -28,12 +28,12 @@ Diese ist hell zu gestalten, damit der Kontrast zur dunklen Default-Schriftfarbe
 Der Rahmen bietet eine weitere Designmöglichkeit. 
 Seine Farbe, Dicke oder Struktur kann varriieren. 
 Eine andere Alternative ist nur eine Seite des Rahmens zu verwenden. 
-Als Beispiel dafür gilt der sogenannte Spiegelstrich, welcher beispielsweise auf der linken Seite platzierbar ist.
-Die Färbung Rund um den Rahmen sollte für einen gute Erkennbarkeit in einer eher dunklen Schattierung Anwendung finden.
+Als Beispiel dafür gilt der sogenannte Spiegelstrich, welcher auf der linken Seite platziert ist.
+Für einen gute Erkennbarkeit sollte die Färbung Rund um den Rahmen in einer eher dunklen Schattierung Anwendung finden.
 Als weitere Style-Eigenschaften bietet sich Änderungen der Schrift an.
-Bei der Farbe ist der Kontrast zu beachtet, weswegen eine eher Dunkle zu wählen ist.
+Bei der Farbe ist der Kontrast zu beachten, weswegen eine eher Dunkle zu wählen ist.
 Alternativ lässt sich die Dicke, Schriftart, Neigung, Grösse oder Dekoration ändern.
-All diese Style-Anpassungen lassen natürlich auf verschiedene Weise kombinieren.
+All diese Style-Anpassungen lassen sich auf verschiedene Weise kombinieren.
 
 Bei den Farben existiert eine grosse Bandbreite.
 Da Kolibri bereits ein Designsystem besitzt, schränkt sich die Menge ein.
@@ -46,8 +46,8 @@ Unter den vorhandenen Farbwerten, bieten sich die folgenden am besten an:
     \item Kolibri-Light/Danger/--kb-danger-accent (--kolibri-color-accent) $\rightarrow$ mittleres Rosa
     \item Kolibri-Light/Success/--kb-success-accent $\rightarrow$ mittleres Grün
     \item Kolibri-Light/Success/--kb-success-light $\rightarrow$ helles Grün
-    \item Kolibri-Light/Primary/--kb-primary-accent $\rightarrow$ mittleres Violet
-    \item Kolibri-Light/Primary/--kb-primary-light $\rightarrow$ helles Violet
+    \item Kolibri-Light/Primary/--kb-primary-accent $\rightarrow$ mittleres Violett
+    \item Kolibri-Light/Primary/--kb-primary-light $\rightarrow$ helles Violett
     \item Kolibri-Light/Secondary/--kb-secondary-accent $\rightarrow$ mittleres Blau
     \item Kolibri-Light/Secondary/--kb-secondary-light $\rightarrow$ helles Blau
     \item Kolibri-Light/Monochrome/--kb-color-body $\rightarrow$ mittleres Grau
@@ -55,22 +55,22 @@ Unter den vorhandenen Farbwerten, bieten sich die folgenden am besten an:
 \end{itemize}
 
 Da die Elemente drei verschiedene Zustände gleichzeitig erhalten können, müssen die Styles kombinierbar sein.
-Nicht jede der erwähnten Eigenschaft und Farb eigent sich in gleichem Masse.
-Yellow-100 fällt schnell wieder weg, da je nach Display der Kontrast zu gering ist.
-Unter den restlichen hellen Schattierungen passt Yellow-300 am besten, da diese Farbe bereits als Selektionsfarbe im Code hinterlegt ist.
-Das vordefinierte \texttt{--kb-color-select} eignet sich am ehesten als Hintergrundfarbe.
+Nicht jede der erwähnten Eigenschaften und Farben eigenen sich in gleichem Masse.
+\emph{Yellow-100} fällt schnell wieder weg, da je nach Display der Kontrast zu gering ist.
+Unter den restlichen hellen Schattierungen passt \emph{Yellow-300} am besten, da diese Farbe bereits als Selektionsfarbe im Code hinterlegt ist.
+Als Hintergrundfarbe eignet sich am ehesten das vordefinierte \texttt{--kb-color-select}. 
 Dadurch ist klar, dass die anderen beiden Zustände eine eher kräftige bzw. dunkle Färbung benötigen.
 Der Blick auf die Namen im Designsystem zeigt eine weitere Farbe zur Hervorhebung eines Elements.
 Die Benennung des mittleren Rosa mit Accent (\texttt{--kolibri-color-accent}) bietet einen guten Kontrast zur Selektion und ist ebenfalls im Code vordefiniert.
 Da die dritte Farbe nicht zu viel Unruhe in das Design bringen soll, schränkt sich die Farbauswahl weiter ein.
-Mit einem gut erkennbaren Kontrast zur Selektion bietet sich das dunkle Gelb aus \texttt{--kb-warning-dark} an.
+Mit einem gut erkennbaren Kontrast zur Selektion bietet sich das dunkle Gelb \texttt{--kb-warning-dark} an.
 
 Wie erwähnt ist die Eigenschaft Hintergrundfarbe durch die Wahl der Farbe bereits festgelegt. 
-Die Schrift sollte maximal in der Farbe geändert werden. 
-Weil die anderen Styling-Optionen sind schwer erkennbar oder zerstören das Bild.
+Die Änderung der Schrift sollte maximal die Farbe betreffen. 
+Die anderen Font-Stylings sind schwer erkennbar oder zerstören das Bild.
 Der komplette Rahmen passt nicht in das Design und fällt somit ebenfalls weg.
 Da nicht beide Zustände auf die Schriftfarbe zugreifen können, bietet sich der oben genannte Spiegelstrich an.
-Das Rosa mit dem grösseren Kontrast erhält nur linken Rahmen.
+Das Rosa mit dem grösseren Kontrast erhält nur den linken Rahmen.
 Das dunkle Gelb färbt - nebst dem linksseitigen Strich - die Schrift.
 Die Zuordnung der Designwahl zu den fehlenden Zuständen steht im Kapitel \ref{sec:colorContrast}.
 
@@ -81,6 +81,7 @@ Die Zuordnung der Designwahl zu den fehlenden Zuständen steht im Kapitel \ref{s
 
 Zur Visualisierung und interaktiven Testing des Designs kam Figma zum Einsatz. 
 Figma ist ein webbasiertes Tool zur Erstellung von UI/UX-Designs, das Echtzeit-Kollaboration ermöglicht. 
+% todo satz unten passt nicht
 Durch die Nutzung von Figma konnten schnell Prototypen erstellt und diese mit Stakeholdern und Nutzern geteilt werden, um Feedback zu sammeln und Iterationen vorzunehmen.
 
 Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3} zeigen die in Figma erstellten Prototypen der Dropdown-Komponente:
@@ -264,7 +265,7 @@ Gezielte CSS-Anpassungen und ein durchdachtes Interaktionsdesign finden in der R
 Das Ziel ist, eine ansprechende und benutzerfreundliche Komponente zu schaffen. 
 Sie fügt sich nahtlos in das Kolibri-Designsystem ein und überzeugt gleichzeitig durch optimierte Les- und Bedienbarkeit.
 
-
+% todo continue here
 \section{Interaktionen}
 \label{sec:interaction}
 
