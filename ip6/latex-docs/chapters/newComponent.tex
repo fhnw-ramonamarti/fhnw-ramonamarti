@@ -699,18 +699,28 @@ Feedbacks zu den durchgeführten User-Tests mit Programmierern als auch Endnutze
 \section{Testing}
 \label{sec:testing}
 
+Um die Korrektheit der einzelnen Funktionen und Komponenten zu garantieren, existieren verschiedene Arten von Tests.
+Die automatisierten Code-Tests stellen sicher, dass das Aufrufen der gebotenen Funktionalität die gewünschen Änderungen ausführt.
+Komponenten, welche für die Erstellung des UI zusändig sind, prüfen die Existenz von Elementen als auch das Tiggern der Events.
+Die User Tests mit unterschiedlichen Personen gewährleisten eine gute Nutzerzufriedenheit als auch die intuitive Anwendung durch Programmierer.
+Die Auswahl der Nutzer fällt auf eine grosse Vielfalt, damit die Resultate unterschiedliche Sichtweisen einbeziehen. 
+
 
 \subsection{Automatisierte Tests}
 \label{sec:automatedTests}
 
+Tests für Komponente der \texttt{SelectComponent} beweisen die Stabilität des Codes.
+Auf der Abbildung \ref{img:automatedTests} ist zu sehen, dass eine breite Palette an Kontrollen stattfindet und sauber druchläuft. 
 
-% todo text for tests
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=100mm]{automatedTests.png}
     \caption{Automatisierte Tests}
     \label{img:automatedTests}
 \end{figure}
+
+Die ersten zwei Testbibliotheken kümmern sich um die Korrektheit von den Dateien \texttt{optionsModel.js} und \texttt{optionsController.js}. 
+Diese beiden 
 
 
 \subsection{User Tests} % todo
