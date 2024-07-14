@@ -111,7 +111,7 @@ Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3
 \subsection{Farbpalette und Kontrast}
 \label{sec:colorContrast}
 
-Während das Kolibri-Designsystem eine Vielzahl von Farben bietet, wurden spezifische Anpassungen vorgenommen, um sicherzustellen, dass die Dropdown-Komponente gut lesbar ist. 
+Während das Kolibri-Designsystem eine Vielzahl von Farben bietet, gab es noch spezifische Anpassungen, um sicherzustellen, dass die Dropdown-Komponente gut lesbar ist.
 Um eine bessere Nutzerfreundlichkeit zu erhalten, gestaltet sich die Farbauswal (Abbildung \ref{img:designColors}) so, dass sie hohen Kontrast bietet und somit die Barrierefreiheit der Anwendung verbessert.
 
 \begin{figure}[!htb]
@@ -121,8 +121,8 @@ Um eine bessere Nutzerfreundlichkeit zu erhalten, gestaltet sich die Farbauswal 
     \label{img:designColors}
 \end{figure}
 
-\noindent % todo originalen farben ?
-Die originalen Farben erhalten im neuen Dropdown eine angepasst Verwendung:
+\noindent % todo originalen farben - besser?
+Die Kolibri-Base Farben erhalten im neuen Dropdown eine angepasst Verwendung:
 
 \begin{itemize}
     \item \textbf{Original} $\rightarrow$ \textbf{Neu}
@@ -144,115 +144,209 @@ Der Code \ref{code:cssImports} zeigt die importierten CSS-Dateien, die als Grund
 \label{sec:layoutTypo}
 
 Um die in Figma entworfenen Designs umzusetzen, erhält die Dropdown-Komponente eigenes CSS.
-Nachfolgend im Codeausschnitt \ref{code:styleDemoPage} ist der relevante CSS-Code, der zur Gestaltung der Dropdown-Komponente verwendet wird:
+Nachfolgend im Codeausschnitt \ref{code:styleDemoPage} ist der relevante CSS-Code, der zur Gestaltung des Popover-Style und Options-Style:
 % todo code passt nicht zu text => code ist in selectprojector / columnoptionsprojetor jeweils unten
 % todo reduzieren auf wesentliche stellen & beschreiben
 
+% todo code kürzen ev..options-component[popover] inhalt weg kürzen?
+
 \begin{lstlisting}[style = htmlcssjs, caption = style.css der Demo-Page, label = code:styleDemoPage]
-body {
-    perspective: 100vw;
+@keyframes open {
+    0% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1);
+}
 }
 
-.card {
-    max-width:  40em;
-    margin:     1em auto 2em auto;
-    padding:    2em 4em;
-    box-shadow: var(--kolibri-box-shadow);
-    min-width:  620px;
+@keyframes close {
+    0% {
+        transform: scaleY(1);
+}
+    100% {
+        transform: scaleY(0);
+}
 }
 
-h1 {
-    text-align:  center;
-    font-family: var(--font-sans-serif), sans-serif;
-    margin-top:  0;
-}
-
-h3, h4 {
-    margin-top: 3rem;
-}
-
-.holder {
-    min-width: 160px;
-    width: fit-content;
-    margin: 1rem 0;
-}
-
-.holder > div {
+.options-component[popover] {
+    position: absolute;
+    z-index: 20;
+    max-height: 240px;
+    border-radius: 0 0 4px 4px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background: #fff;
+    overflow: hidden;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    padding: 0;
     margin: 0;
-    width: 100%;
+    box-shadow: 0px 5px 15px #0002;
+    animation: open 300ms ease-in-out;
+    transform-origin: top center;
+}
+
+.options-component[popover]:popover-open {
+    display: flex;
+    height: fit-content;
 }
 \end{lstlisting}
 
+Diese CSS-Regeln definieren die Animationen für das Öffnen und Schließen des Popovers und das grundlegende Styling des Popover-Containers.
+Die @keyframes regeln die Transformation, während .options-component[popover] das Layout und das Erscheinungsbild des Popovers steuert.
 
 \subsection{Interaktionsdesign}
 \label{sec:interactionDesign}
 
 Die Dropdown-Komponente ist so gestaltet, dass sie sowohl für Maus- als auch Tastaturbenutzer optimal funktioniert. 
 Das Design der Interaktionen bietet eine intuitive und leicht zugängliche Bedienung der Komponente.
-Um die Benutzerführung zu erleichtern, erhalten die hervorgehobenen (highlighted) bzw. ausgewählten (selected) Optionen eine Kennzeichnung durch spezifische CSS-Klassen.
-Der CSS-Code \ref{code:styleExample} zeigt einen Style-Ausschnitt auf ein gehighlightetes Element.
+Um die Benutzerführung zu erleichtern, erhalten die hervorgehobenen bzw. ausgewählten (selected) Optionen eine Kennzeichnung durch spezifische CSS-Klassen.
+Der CSS-Code \ref{code:styleExample} zeigt einen Style-Ausschnitt auf ein ausgewähltes Element.
 
 % todo insert correct code in highlight
-\begin{lstlisting}[style = htmlcssjs, caption = Style Beispiel für Zustand Highlight, label = code:styleExample]
-.highlighted {
-    background-color: #e0e0e0; 
-}
-\end{lstlisting}
+\begin{lstlisting}[style = htmlcssjs, caption = (cursor-position) und ausgewählten (selected) Optionen]
+.cursor-position {
+    color: var(--kb-hsla-warning-dark);
 
-
-\subsection{Komponentengrösse und Layoutanpassungen}
-\label{sec:sizeLayoutChanges}
-
-Mit der Definition von Mindest- und Maximalbreite sowie flexiblen Layouts ist sichergestellt, 
-dass die Dropdown-Komponente auf verschiedenen Bildschirmgrössen funktioniert und sich gut darstellen lässt.
-
-% todo code wieder für demo und nicht komponte => ändern & beschreiben
-\begin{lstlisting}[style = htmlcssjs, caption = Flexible Layouts für Demo-Page, label = code:layoutDemoPage]
-#componentCity .select-input-component {
-    min-width:  400px;
-}
-
-#componentImg .select-input-component,
-#componentCountry .select-input-component {
-    min-width:  320px;
-}
-
-#componentImg .options-column {
-    width: auto;
-}
-
-#componentImg img {
-    width:  2rem;
-    max-height: 1.3rem;
-    object-fit: contain;
-}
-
-form {
-    display: flex;
-    gap: 2rem;
-
-    > button {
-        border-radius: 5px;
-        color: white;
-        background-color: var(--kolibri-color-output);
-        font-weight: bold;
-        outline: none;
-        border: none;
-        padding: .5rem;
-
-        &:focus {
-            filter: brightness(150%);
-        }
+    &:not(.disabled)::before {
+        content: '';
+        position: absolute;
+        left: 7px;
+        transform: translateX(-50%);
+        width: 2.5px;
+        background: var(--kb-hsla-warning-dark);
+        border-radius: 1px;
+        top: 0.5em;
+        bottom: 0.4em;
     }
 }
 
-label {
-    display: flex;
-    align-items: center;
+.selected {
+    background: var(--kolibri-color-select);
+    border-radius: 4px;
 }
 \end{lstlisting}
 
+.cursor-position: Definiert die Hervorhebung der Option, die gerade durch den Cursor fokussiert ist.Diese wird durch eine dunkle Farbe und eine Markierung links angezeigt.
+.selected: Stellt die ausgewählte Option durch einen speziellen Hintergrund und abgerundete Ecken dar.
 
+
+In columnOptionsProjector.js gibt es Event-Handler, die das Setzen und Entfernen der Highlighting-Klassen steuern:
+
+\begin{lstlisting}[style = htmlcssjs, caption = steuren von Highlighting-Klassen]
+const cursorPositionItem = (root) => (newOption, oldOption) => {
+    const oldItem = getHtmlElementByOption(oldOption, root);
+    if (oldItem) {
+        oldItem.classList.remove("cursor-position");
+    }
+    const newItem = getHtmlElementByOption(newOption, root);
+    if (newItem) {
+        newItem.classList.add("cursor-position");
+}
+};
+
+const selectOptionItem = (root) => (newOption, oldOption) => {
+    const oldItem = getHtmlElementByOption(oldOption, root);
+    if (oldItem) {
+        oldItem.classList.remove("selected");
+    }
+    const newItem = getHtmlElementByOption(newOption, root);
+    if (newItem) {
+        newItem.classList.add("selected");
+    }
+};
+\end{lstlisting}
+
+cursorPositionItem: Verändert die Hervorhebung der aktuellen Cursor-Position, indem die Klasse .cursor-position auf das neue Element angewendet und vom alten Element entfernt wird.
+selectOptionItem: Ähnlich wie cursorPositionItem, aber für ausgewählte Optionen, indem die Klasse .selected gesetzt bzw. entfernt wird.
+
+In selectProjector.js wird das Highlighting hauptsächlich durch die Verknüpfung der Optionen und ihrer Events mit den entsprechenden CSS-Klassen gesteuert.
+
+\begin{lstlisting}[style = htmlcssjs, caption = Event-Handling für die Auswahl einer Option]
+const projectSelectedValueOptionView = (selectController, popoverElement) => {
+    const rootElement = document.createElement("div");
+    rootElement.id    = selectController.getId() + "-selected-option";
+    rootElement.classList.add("selected-option-component");
+    rootElement.setAttribute("data-id", selectController.getId());
+
+    const selectedOptionContainer = document.createElement("div");
+
+    selectedOptionContainer.classList.add("selected-value");
+    selectedOptionContainer.innerHTML = selectController.getSelectedValueOption().getLabel();
+    selectedOptionContainer.onclick = togglePopover;
+    rootElement.append(selectedOptionContainer);
+
+    return [rootElement, selectedOptionContainer];
+};
+\end{lstlisting}
+
+projectSelectedValueOptionView: Diese Funktion erstellt die Ansicht für die ausgewählte Option und verknüpft die Klick-Events mit dem Umschalten des Popovers.
+
+Durch diese Kombination von CSS und JavaScript wird das Highlighting und die Auswahl von Optionen in der Dropdown-Komponente effektiv und visuell ansprechend umgesetzt.
+
+
+\subsection{Optionen und Scrollbar-Styling}
+\label{sec:sizeLayoutChanges}
+
+Diese CSS-Regeln gestalten die Optionen innerhalb einer Spalte und das Scroll-Verhalten der Optionsliste. .options-column definiert das Layout und die Scroll-Eigenschaften,
+während .option-item das Erscheinungsbild und die Interaktivität der einzelnen Optionen festlegt.
+
+\begin{lstlisting}[style = htmlcssjs, caption = Optionen und Scrollbar-Styling]
+.options-column {
+    position: relative;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 240px;
+    min-height: 100%;
+    padding: 5px;
+    flex-grow: 2;
+    flex-shrink: 1;
+}
+
+.option-item {
+    position: relative;
+    padding: 10px 20px;
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+\end{lstlisting}
+
+Die definierten CSS-Stile werden im JavaScript genutzt, um dynamisch Klassen und Stile auf die Elemente anzuwenden, wenn sie erstellt oder aktualisiert werden.
+Hier sind einige Beispiele, wie die CSS-Klassen in selectProjector.js und columnOptionsProjector.js verwendet werden:
+
+\begin{lstlisting}[style = htmlcssjs, caption = CSS-Stile im JavaScript]
+// selectProjector.js
+const projectOptionsView = (selectController) => {
+    const optionsContainer = document.createElement("div");
+    optionsContainer.id = selectController.getId() + "-options";
+    optionsContainer.classList.add(optionsClassName);
+    optionsContainer.setAttribute("popover", "auto");
+    // ... Weitere Logik zur Steuerung des Popovers
+};
+
+// columnOptionsProjector.js
+const projectOption = (selectedOptionController, option, optionType, cursorPositionController) => {
+    const item = document.createElement("div");
+    item.setAttribute("data-id", elementId(option));
+    item.setAttribute("data-value", option.getValue());
+    item.setAttribute("data-label", elementDataLabel(option));
+    item.classList.add(optionClassName);
+    item.classList.add(optionType + "-" + optionClassName);
+    item.innerHTML = option.getLabel();
+    // ... Weitere Logik zur Handhabung von Optionen
+};
+\end{lstlisting}
+
+Diese JavaScript-Funktionen erstellen HTML-Elemente und fügen die zuvor definierten CSS-Klassen hinzu, um das Styling und die Funktionalität sicherzustellen.
+In `selectProjector.js` wird der Popover-Container erstellt und gestylt, während in `columnOptionsProjector.js` die einzelnen Options-Elemente gestaltet werden.
+
+Diese Kombination aus CSS und JavaScript stellt sicher, dass die Dropdown- und Popover-Komponenten korrekt angezeigt und interaktiv sind.
 \subsection{Benutzerfeedback und Prototyping}
 \label{sec:userFeedbackPtototyping}
 
