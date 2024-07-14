@@ -8,15 +8,14 @@
 \section{Design}
 \label{sec:design}
 
-Das Design der neuen Auswahlkomponente ist stark vom Kolibri-Designsystem inspiriert, jedoch mit einigen Anpassungen, um die Lesbarkeit und Benutzerfreundlichkeit zu optimieren. 
 Der Fokus liegt darauf, eine konsistente und ansprechende Benutzererfahrung zu schaffen, die sich über alle modernen Browser hinweg hält.
 
 
 \subsection{Designansatz}
 \label{sec:designIdea}
 
-Um eine konsistente Benutzererfahrung zu gewährleisten, basiert die Gestaltung der Dropdown-Komponente auf dem Designsystem Kolibri.
-Dieses bietet bereits ein umfassendes Set von Richtlinien und Komponenten, die es ermöglichen, Anwendungen einheitlich und benutzerfreundlich zu gestalten.
+Das Design der neuen Auswahlkomponente ist stark vom Kolibri-Designsystem inspiriert, jedoch mit einigen Anpassungen, um die Lesbarkeit und Benutzerfreundlichkeit zu optimieren. 
+Das Designsystem bietet bereits ein umfassendes Set von Richtlinien und Komponenten, die es ermöglichen, Anwendungen einheitlich und benutzerfreundlich zu gestalten.
 
 
 \subsection{Mögliche Designoptionen eines Elements \& deren Wahl}
@@ -29,11 +28,11 @@ Der Rahmen bietet eine weitere Designmöglichkeit.
 Seine Farbe, Dicke oder Struktur kann varriieren. 
 Eine andere Alternative ist nur eine Seite des Rahmens zu verwenden. 
 Als Beispiel dafür gilt der sogenannte Spiegelstrich, welcher auf der linken Seite platziert ist.
-Für einen gute Erkennbarkeit sollte die Färbung Rund um den Rahmen in einer eher dunklen Schattierung Anwendung finden.
+Für eine gute Erkennbarkeit sollte die Färbung Rund um den Rahmen in einer eher dunklen Schattierung Anwendung finden.
 Als weitere Style-Eigenschaften bietet sich Änderungen der Schrift an.
 Bei der Farbe ist der Kontrast zu beachten, weswegen eine eher Dunkle zu wählen ist.
 Alternativ lässt sich die Dicke, Schriftart, Neigung, Grösse oder Dekoration ändern.
-All diese Style-Anpassungen lassen sich auf verschiedene Weise kombinieren.
+All diese Style-Anpassungen lassen sich auf unterschiedliche Art und Weise kombinieren.
 
 Bei den Farben existiert eine grosse Bandbreite.
 Da Kolibri bereits ein Designsystem besitzt, schränkt sich die Menge ein.
@@ -70,7 +69,7 @@ Die Änderung der Schrift sollte maximal die Farbe betreffen.
 Die anderen Font-Stylings sind schwer erkennbar oder zerstören das Bild.
 Der komplette Rahmen passt nicht in das Design und fällt somit ebenfalls weg.
 Da nicht beide Zustände auf die Schriftfarbe zugreifen können, bietet sich der oben genannte Spiegelstrich an.
-Das Rosa mit dem grösseren Kontrast erhält nur den linken Rahmen.
+Das Rosa mit einem guten Kontrast zum Gelb findet sich im linksseitigen Rahmen wieder.
 Das dunkle Gelb färbt - nebst dem linksseitigen Strich - die Schrift.
 Die Zuordnung der Designwahl zu den fehlenden Zuständen steht im Kapitel \textbf{\nameref{sec:colorContrast}}.
 
@@ -79,7 +78,7 @@ Die Zuordnung der Designwahl zu den fehlenden Zuständen steht im Kapitel \textb
 \subsection{Figma-Prototypen}
 \label{sec:figmaPrototype}
 
-Zur Visualisierung und interaktiven Testing des Designs kam Figma zum Einsatz. 
+Zur Visualisierung und interaktiven Testing des Designs kommt Figma zum Einsatz. 
 Figma ist ein webbasiertes Tool zur Erstellung von UI/UX-Designs, das Echtzeit-Kollaboration ermöglicht. 
 Um Feedback von Staskholdern und Nutzern zu sammeln und Iterationen vorzunehmen, ist es unabdingbar, im Vorfeld mit Figma schnell Prototypen zu erstellen und mit den Probanden zu teilen.
 
@@ -110,9 +109,9 @@ Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3
 \subsection{Farbpalette und Kontrast}
 \label{sec:colorContrast}
 
-% todo
-Während das Kolibri-Designsystem eine Vielzahl von Farben bietet, enthält spezifische Anpassungen, um sicherzustellen, dass die Dropdown-Komponente gut lesbar ist.
-Um eine bessere Nutzerfreundlichkeit zu erhalten, gestaltet sich die Farbauswal (Abbildung \ref{img:designColors}), so dass sie hohen Kontrast bietet und somit die Barrierefreiheit der Anwendung verbessert.
+Während das Kolibri-Designsystem eine Vielzahl von Farben bietet, enthält der Figma-Prototyp spezifische Anpassungen, um sicherzustellen, dass die Dropdown-Komponente gut lesbar ist.
+Um eine bessere Nutzerfreundlichkeit zu erhalten, gestaltet sich die Farbauswahl (Abbildung \ref{img:designColors}) so, 
+dass sie hohen Kontrast bietet und somit die Barrierefreiheit der Anwendung verbessert.
 
 \begin{figure}[!htb]
     \centering
@@ -122,7 +121,7 @@ Um eine bessere Nutzerfreundlichkeit zu erhalten, gestaltet sich die Farbauswal 
 \end{figure}
 
 \noindent
-Die Kolibri-Base Farben erhalten im neuen Dropdown eine angepasst Verwendung:
+Die Kolibri-Base Farben erhalten im neuen Dropdown eine angepasste Verwendung:
 
 \begin{itemize}
     \item \textbf{Original} $\rightarrow$ \textbf{Neu}
@@ -144,11 +143,9 @@ Der Code \ref{code:cssImports} zeigt die importierten CSS-Dateien, die als Grund
 \label{sec:layoutTypo}
 
 Um die in Figma entworfenen Designs umzusetzen, erhält die Dropdown-Komponente eigenes CSS.
-Nachfolgend im Codeausschnitt \ref{code:popoverStyle} ist der relevante CSS-Code, der zur Gestaltung des Popover-Style und Options-Style verwendet wird:
+Nachfolgend (Codeausschnitt \ref{code:popoverStyle}) ist der relevante CSS-Code, der zur Gestaltung des Popover-Style und Options-Style verwendet wird:
 
-% todo reduzieren auf wesentliche stellen \& beschreiben
-% todo code kürzen ev..options-component[popover] inhalt weg kürzen?
-% todo caption / label / format
+% todo reduzieren auf wesentliche stellen \& beschreiben => .options-component[popover] inhalt weg kürzen?
 \begin{lstlisting}[style = htmlcssjs, caption = CSS für das Popver-Element, label = code:popoverStyle]
 @keyframes open {
     0% {
@@ -202,8 +199,7 @@ Um die Benutzerführung zu erleichtern, erhalten die hervorgehobenen (highlighte
 Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein aktuelles\footnotemark und selektiertes Element.
 \footnotetext{Element, welches sich unter der Cursor Position befindet}
 
-% todo label / format
-\begin{lstlisting}[style = htmlcssjs, caption = Aktuelle (cursor-position) und ausgewählte (selected) Option, label = code:styledElement]
+\begin{lstlisting}[style = htmlcssjs, caption = Aktuelle (\texttt{cursor-position}) und ausgewählte (\texttt{selected}) Option, label = code:styledElement]
 .cursor-position {
     color: var(--kb-hsla-warning-dark);
 
@@ -228,9 +224,9 @@ Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein aktue
 \texttt{.cursor-position}: Definiert die Hervorhebung der Option, die gerade durch den Cursor fokussiert ist.Diese wird durch eine dunkle Farbe und eine Markierung links angezeigt.
 \texttt{.selected}: Stellt die ausgewählte Option durch einen speziellen Hintergrund und abgerundete Ecken dar.
 
-In \texttt{columnOptionsProjector.js} gibt es Event-Handler, die das Setzen und Entfernen der Highlighting-Klassen steuern:
+Im \texttt{columnOptionsProjector.js} gibt es Event-Handler, die das Setzen und Entfernen der Highlighting-Klassen steuern:
 
-\begin{lstlisting}[style = htmlcssjs, caption = steuren von Highlighting-Klassen]
+\begin{lstlisting}[style = htmlcssjs, caption = Steurung der Highlighting-Klassen, label = code:highlightChange]
 const selectOptionItem = (root) => (newOption, oldOption) => {
     const oldItem = getHtmlElementByOption(oldOption, root);
     if (oldItem) {
@@ -242,15 +238,18 @@ const selectOptionItem = (root) => (newOption, oldOption) => {
         newItem.classList.add("selected");
     }
 }; 
-// same function for the cursor-position class
+const cursorPositionItem = (root) => (newOption, oldOption) => {
+    // same structure as selectOptionItem for the cursor-position class
+}; 
 \end{lstlisting}
 
-\texttt{cursorPositionItem}: Verändert die Hervorhebung der aktuellen Cursor Position, indem die Klasse \texttt{.cursor-position} auf das neue Element angewendet und vom alten Element entfernt wird.
-\texttt{selectOptionItem}: Ähnlich wie \texttt{cursorPositionItem}, aber für ausgewählte Optionen, indem die Klasse \texttt{.selected} gesetzt bzw. entfernt wird.
+\texttt{selectOptionItem}: Verschiebt die Klasse \texttt{.selected} und somit die Hervorhebung auf das neue Element.
+\texttt{cursorPositionItem}: Entfernt bzw. setzt die Klasse \texttt{.cursor-position} - ähnlich wie beim \texttt{selectOptionItem}. 
 
-In \texttt{selectProjector.js} wird das Highlighting hauptsächlich durch die Verknüpfung der Optionen und ihrer Events mit den entsprechenden CSS-Klassen gesteuert.
+Im Codeausschnitt \ref{code:eventSelection} aus der Datei \texttt{selectProjector.js} lässt sich das Highlighting 
+durch die Verknüpfung der Optionen und ihrer Events mit den entsprechenden CSS-Klassen steuern.
 
-\begin{lstlisting}[style = htmlcssjs, caption = Event-Handling für die Auswahl einer Option]
+\begin{lstlisting}[style = htmlcssjs, caption = Event-Handling für die Auswahl einer Option, label = code:eventSelection]
 const projectSelectedValueOptionView = (selectController, popoverElement) => {
     const rootElement = document.createElement("div");
     rootElement.id = selectController.getId() + "-selected-option";
@@ -267,18 +266,18 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
 }; 
 \end{lstlisting}
 
-\texttt{projectSelectedValueOptionView}: Diese Funktion erstellt die Ansicht für die ausgewählte Option und verknüpft die Klick-Events mit dem Umschalten des Popovers.
-
-Durch diese Kombination von CSS und JavaScript wird das Highlighting und die Auswahl von Optionen in der Dropdown-Komponente effektiv und visuell ansprechend umgesetzt.
+\texttt{projectSelectedValueOptionView}: Erstellt die Ansicht für die ausgewählte Option und verknüpft die Klick-Events mit dem Umschalten des Popovers.
+Diese Kombination von CSS und JavaScript bietet dem Highlighting und der Auswahl von Optionen in der Dropdown-Komponente eine effektiv und visuell ansprechende Umsetzung.
 
 
 \subsection{Optionen und Scrollbar-Styling}
 \label{sec:sizeLayoutChanges}
 
 Diese CSS-Regeln gestalten die Optionen innerhalb einer Spalte und das Scroll-Verhalten der Optionsliste. 
-\texttt{.options-column} definiert das Layout und die Scroll-Eigenschaften, während \texttt{.option-item} das Erscheinungsbild und die Interaktivität der einzelnen Optionen festlegt.
+\texttt{.options-column} aus Code \ref{code:optionStyling} definiert das Layout und die Scroll-Eigenschaften, 
+während \texttt{.option-item} das Erscheinungsbild und die Interaktivität der einzelnen Optionen festlegt.
 
-\begin{lstlisting}[style = htmlcssjs, caption = Optionen und Scrollbar-Styling]
+\begin{lstlisting}[style = htmlcssjs, caption = Optionen und Scrollbar-Styling, label = code:optionStyling]
 .options-column {
     position: relative;
     width: 100%;
@@ -302,10 +301,10 @@ Diese CSS-Regeln gestalten die Optionen innerhalb einer Spalte und das Scroll-Ve
 } 
 \end{lstlisting}
 
-Die definierten CSS-Stile werden im JavaScript genutzt, um dynamisch Klassen und Stile auf die Elemente anzuwenden, wenn sie erstellt oder aktualisiert werden.
-Hier sind einige Beispiele, wie die CSS-Klassen in selectProjector.js und columnOptionsProjector.js verwendet werden:
+Die Nutzung von den CSS-Styles im JavaScript stellt sicher, dass die dynamischen Klassen und Stile bei den Elementen bei Erstellung oder Aktualisierung ihre Anwendung finden.
+Die nachfoldenden Beispiel (Code \ref{code:cssSyleInJs}) aus den Dateien \texttt{selectProjector.js} und \texttt{columnOptionsProjector.js} verwenden die erwänhten CSS-Klassen:
 
-\begin{lstlisting}[style = htmlcssjs, caption = CSS-Stile im JavaScript]
+\begin{lstlisting}[style = htmlcssjs, caption = CSS-Styles im JavaScript, label = code:cssSyleInJs]
 // selectProjector.js
 const projectOptionsView = (selectController) => {
     const optionsContainer = document.createElement("div");
@@ -329,7 +328,7 @@ const projectOption = (selectedOptionController, option, optionType, cursorPosit
 \end{lstlisting}
 
 Diese JavaScript-Funktionen erstellen HTML-Elemente und fügen die zuvor definierten CSS-Klassen hinzu, um das Styling und die Funktionalität sicherzustellen.
-In \texttt{selectProjector.js} wird der Popover-Container erstellt und gestylt, während in \texttt{columnOptionsProjector.js} die einzelnen Options-Elemente gestaltet werden.
+Das \texttt{selectProjector.js} erstellt und gestylt den Popover-Container, während das \texttt{columnOptionsProjector.js} die einzelnen Options-Elemente gestaltet.
 Diese Kombination aus CSS und JavaScript stellt sicher, dass die Dropdown- und Popover-Komponenten korrekt angezeigt und interaktiv sind.
 
 
@@ -338,7 +337,7 @@ Diese Kombination aus CSS und JavaScript stellt sicher, dass die Dropdown- und P
 
 Der Einsatz von interaktiven Figma-Prototypen ist hilfreich beim Evaluieren der initialen Benutzerfreundlichkeit und intuitiven Bedienung. 
 Mit der Integration der Rückmeldungen von Benutzerinteraktionen in das Design verbessert sich die Usability kontinuierlich.
-Beispiele für die Prototypen und verschiedene Zustände der Dropdown-Komponente ist im oberen Hälfte des Bildes \ref{img:figmaPrototype1} ersichtlich.
+Beispiele für die Prototypen und die verschiedenen Zustände der Dropdown-Komponente sind in der oberen Hälfte des Bildes \ref{img:figmaPrototype1} ersichtlich.
 
 Die Gestaltung der Auswahlkomponente umfasst sowohl visuelle als auch funktionale Aspekte. 
 Gezielte CSS-Anpassungen und ein durchdachtes Interaktionsdesign finden in der Realisierung ihren Platz. 
@@ -432,7 +431,7 @@ Um eine Selektion zurücksetzen zu können, muss diese Komponente eine Null-Opti
 Die Verwendung des Null-Objects findet sich an mehreren Stellen des Codes wieder.
 Die Definition der angewendeten Null-Option zeigt der nachfolgende Code.
 
-\begin{lstlisting}[style = htmlcssjs, caption = Null-Option, label = code:nullOption]
+\begin{lstlisting}[style = htmlcssjs, caption = Null-Option Definition, label = code:nullOption]
 /** @private @returns { OptionType } */
 const reset = () => {
     return Option(null, null);
@@ -471,7 +470,7 @@ Die erste Implementation, welche dieses Pattern verwendet, ist auf Abbildung \re
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{diagram-select-component-old.png}
-    \caption{Diagramm Select Component - 1. Version}
+    \caption{Diagramm Select Component - erste Version}
     \label{img:DiagramSelectComponentOld}
 \end{figure}
 
@@ -483,7 +482,7 @@ Die Implementation der dargestellten Diagramme resultiert aus einem Refactoring 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{diagram-column-component-with-desc.png}
-    \caption{Diagramm Column Component}
+    \caption{Diagramm \texttt{ColumnComponent}}
     \label{img:DiagramColumnComponent}
 \end{figure}
 
@@ -496,7 +495,7 @@ Bei einer Anwendung übernimmt die \texttt{ColumnComponent} die Verwaltung gewis
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{diagram-select-component-with-desc.png}
-    \caption{Diagramm Select Component}
+    \caption{Diagramm \texttt{SelectComponent}}
     \label{img:DiagramSelectComponent}
 \end{figure}
 
@@ -526,7 +525,7 @@ Die Decorator sind in den Abbildungen \ref{img:DiagramColumnComponent} und \ref{
 Diese Bestandteile kombinieren die Funktionalität des Controllers mit der Erstellung der View.
 Dadurch lässt sich die neue Komponente einfacher anwenden.
 
-\begin{lstlisting}[style = htmlcssjs, caption = SelectComponentByTableValue dekoriert SelectComponentByCallback, label = code:componentDecorator]
+\begin{lstlisting}[style = htmlcssjs, caption = \texttt{SelectComponentByTableValue} dekoriert \texttt{SelectComponentByCallback}, label = code:componentDecorator]
 const SelectComponentByTableValues = (
     selectAttributes,
     optionsTable,
@@ -601,7 +600,7 @@ Ein Shadow-DOM ist ein Teilbaum, welcher nicht im Renderbaum angehängt ist.
 Um dies zu bewerkstelligen, ist es sinnvoll, die Änderungen nach dem Abhängen des Elternknotens zu vollziehen. 
 Nach den Änderungen kann der Teilbaum wieder an den gewünschten Ort platziert werden.
 
-\begin{lstlisting}[style = htmlcssjs, caption = Performance Optimierung (columnOptionsComponent.js), label = code:PerformanceOptimization]
+\begin{lstlisting}[style = htmlcssjs, caption = Performance Optimierung (aus \texttt{columnOptionsComponent.js}), label = code:PerformanceOptimization]
 const addAllOptions = (options) => {
     const placeHolder = createHolder();
     columnView.replaceWith(placeHolder);
@@ -638,7 +637,7 @@ Generell verwendet die neue Auswahlkomponente keine Inline-Styles.
 Die einzige Ausnahme betrifft das verborgene Eingabefeld. 
 Durch den Code \ref{code:InlineStyle} sind die Properties vor dem Überschreiben geschützt.
 
-\begin{lstlisting}[style = htmlcssjs, caption = Inline-Style für Inputfeld, label = code:InlineStyle]
+\begin{lstlisting}[style = htmlcssjs, caption = Inline-Style für Input-Feld, label = code:InlineStyle]
 inputElement.setAttribute(
     "style", "all: unset !important; z-index: -1 !important; " +
     "position: absolute !important; inset: 5px !important; " +
