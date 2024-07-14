@@ -10,14 +10,14 @@
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{capt-of}
-\usepackage[table]{xcolor}
 \usepackage{pifont}
 \usepackage{import}
+\usepackage[table]{xcolor}
+\usepackage[referable]{threeparttablex}
 \usepackage{makecell}
 \usepackage{multirow}
-\usepackage[referable]{threeparttablex}
-\usepackage{pdfpages}
 \usepackage{fancyhdr}
+\usepackage{pdfpages}
 \usepackage{pdflscape}
 
 % label has to be after caption in code
@@ -26,17 +26,18 @@
 \usepackage{color}
 \usepackage[hidelinks]{hyperref} 
 
+% define colors - start
 \definecolor{dgray}{rgb}{0.3, 0.3, 0.4}
 \definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
 \definecolor{editorOcher}{rgb}{1, 0.5, 0}
 \definecolor{editorGreen}{rgb}{0, 0.5, 0}
 \definecolor{brown}{rgb}{0.69,0.31,0.31}
+% define colors - end
 
-\graphicspath{ {./img/} }
-\addbibresource{chapters/references.bib}
-
+% define symbols - start
 \newcommand{\cmark}{\ding{51}} % ✓
 \newcommand{\xmark}{\ding{55}} % ✗
+% define symbols - end
 
 % define table styles - start
 \newcommand{\tablesettings}[1]{\caption{#1} \bigskip \centering}
@@ -326,15 +327,22 @@
 \setlength{\headheight}{16pt}
 % page header and footer - end
 
+% define source folders - start
+\graphicspath{ {./img/} }
+\addbibresource{chapters/references.bib}
+% define source folders - end
+
 % title page - start
 \title{ Generalisierte Auswahlkomponente für das \\
 Web UI Toolkit "Kolibri"\\ {\large Bachlor Thesis}}
 \author{Ramona Marti \& Lea Burki}
 \date{August 2024}
 % title page - end
+
 \makeatother
 
 \begin{document}
+\begin{sloppypar}
 
 \pagestyle{empty}
 \maketitle
@@ -377,4 +385,5 @@ Web UI Toolkit "Kolibri"\\ {\large Bachlor Thesis}}
 \appendix
 \include{chapters/appendix}
 
+\end{sloppypar}
 \end{document}
