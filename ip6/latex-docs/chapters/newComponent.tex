@@ -146,7 +146,7 @@ Um die in Figma entworfenen Designs umzusetzen, erhält die Dropdown-Komponente 
 Nachfolgend (Codeausschnitt \ref{code:popoverStyle}) ist der relevante CSS-Code, der zur Gestaltung des Popover-Style und Options-Style verwendet wird:
 
 % todo reduzieren auf wesentliche stellen \& beschreiben => .options-component[popover] inhalt weg kürzen?
-\begin{lstlisting}[style = htmlcssjs, caption = CSS für das Popver-Element, label = code:popoverStyle]
+\begin{lstlisting}[style = htmlcssjs, caption = CSS für das Popover-Element, label = code:popoverStyle]
 @keyframes open {
     0% {
         transform: scaleY(0);
@@ -196,7 +196,7 @@ Die \texttt{@keyframes} regeln die Transformation, während \texttt{.options-com
 Die Dropdown-Komponente ist so gestaltet, dass sie sowohl für Maus- als auch Tastaturbenutzer optimal funktioniert. 
 Das Design der Interaktionen bietet eine intuitive und leicht zugängliche Bedienung der Komponente.
 Um die Benutzerführung zu erleichtern, erhalten die hervorgehobenen (highlighted) bzw. ausgewählten (selected) Optionen eine Kennzeichnung durch spezifische CSS-Klassen.
-Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein aktuelles\footnotemark und selektiertes Element.
+Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein aktuelles\footnotemark \ und selektiertes Element.
 \footnotetext{Element, welches sich unter der Cursor Position befindet}
 
 \begin{lstlisting}[style = htmlcssjs, caption = Aktuelle (\texttt{cursor-position}) und ausgewählte (\texttt{selected}) Option, label = code:styledElement]
@@ -573,7 +573,7 @@ Der Grundaufbau des Popover-Container ist im folgenden Code \ref{code:PopoverExa
 
 Bei diesem Codeausschnitt ist wichtig, dass das Attribut \texttt{popover} den Wert \texttt{auto} erhält.
 Dies bewirkt, dass die Popover sich automatisch schliessen, wenn ein Klick ausserhalb des Container passiert.
-Das Öffnen und Schliessen des Dropdown-Elements kann über das \texttt{popovertarget}-Attribut mit der Popover-Id\footnotemark auf der Bedienkomponente gesteuert werden.
+Das Öffnen und Schliessen des Dropdown-Elements kann über das \texttt{popovertarget}-Attribut mit der Popover-Id\footnotemark \ auf der Bedienkomponente gesteuert werden.
 \footnotetext{\texttt{id}-Attribut des Div-Containers mit dem Attribut \texttt{popover}}
 Als Alternative dazu besteht die Möglichkeit, das Popover über JavaScript zu steuern.
 Hierbei besteht die Möglichkeit auf den Status und das Event des Togglens zuzugreifen.
