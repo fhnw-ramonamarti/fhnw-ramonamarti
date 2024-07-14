@@ -81,8 +81,7 @@ Die Zuordnung der Designwahl zu den fehlenden Zuständen steht im Kapitel \ref{s
 
 Zur Visualisierung und interaktiven Testing des Designs kam Figma zum Einsatz. 
 Figma ist ein webbasiertes Tool zur Erstellung von UI/UX-Designs, das Echtzeit-Kollaboration ermöglicht. 
-% todo satz unten passt nicht - ha de König und Affolter gmeint aber so sötts passe gloub
-Durch die Nutzung von Figma konnten schnell Prototypen erstellt und diese mit Nutzern geteilt werden, um Feedback zu sammeln und Iterationen vorzunehmen.
+Um Feedback von Staskholdern und Nutzern zu sammeln und Iterationen vorzunehmen, ist es unabdingbar, im Vorfeld mit Figma schnell Prototypen zu erstellen und mit den Probanden zu teilen.
 
 Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3} zeigen die in Figma erstellten Prototypen der Dropdown-Komponente:
 
@@ -111,8 +110,9 @@ Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3
 \subsection{Farbpalette und Kontrast}
 \label{sec:colorContrast}
 
-Während das Kolibri-Designsystem eine Vielzahl von Farben bietet, wurden spezifische Anpassungen vorgenommen, um sicherzustellen, dass die Dropdown-Komponente gut lesbar ist. 
-Um eine bessere Nutzerfreundlichkeit zu erhalten, gestaltet sich die Farbauswal (Abbildung \ref{img:designColors}) so, dass sie hohen Kontrast bietet und somit die Barrierefreiheit der Anwendung verbessert.
+% todo
+Während das Kolibri-Designsystem eine Vielzahl von Farben bietet, enthält spezifische Anpassungen, um sicherzustellen, dass die Dropdown-Komponente gut lesbar ist.
+Um eine bessere Nutzerfreundlichkeit zu erhalten, gestaltet sich die Farbauswal (Abbildung \ref{img:designColors}), so dass sie hohen Kontrast bietet und somit die Barrierefreiheit der Anwendung verbessert.
 
 \begin{figure}[!htb]
     \centering
@@ -121,8 +121,8 @@ Um eine bessere Nutzerfreundlichkeit zu erhalten, gestaltet sich die Farbauswal 
     \label{img:designColors}
 \end{figure}
 
-\noindent % todo originalen farben ?
-Die originalen Farben erhalten im neuen Dropdown eine angepasst Verwendung:
+\noindent
+Die Kolibri-Base Farben erhalten im neuen Dropdown eine angepasst Verwendung:
 
 \begin{itemize}
     \item \textbf{Original} $\rightarrow$ \textbf{Neu}
@@ -144,44 +144,53 @@ Der Code \ref{code:cssImports} zeigt die importierten CSS-Dateien, die als Grund
 \label{sec:layoutTypo}
 
 Um die in Figma entworfenen Designs umzusetzen, erhält die Dropdown-Komponente eigenes CSS.
-Nachfolgend im Codeausschnitt \ref{code:styleDemoPage} ist der relevante CSS-Code, der zur Gestaltung der Dropdown-Komponente verwendet wird:
-% todo code passt nicht zu text => code ist in selectprojector / columnoptionsprojetor jeweils unten
-% todo reduzieren auf wesentliche stellen & beschreiben
+Nachfolgend im Codeausschnitt \ref{code:popoverStyle} ist der relevante CSS-Code, der zur Gestaltung des Popover-Style und Options-Style verwendet wird:
 
-\begin{lstlisting}[style = htmlcssjs, caption = style.css der Demo-Page, label = code:styleDemoPage]
-body {
-    perspective: 100vw;
+% todo reduzieren auf wesentliche stellen \& beschreiben
+% todo code kürzen ev..options-component[popover] inhalt weg kürzen?
+% todo caption / label / format
+\begin{lstlisting}[style = htmlcssjs, caption = CSS für das Popver-Element, label = code:popoverStyle]
+@keyframes open {
+    0% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1);
+    }
 }
-
-.card {
-    max-width:  40em;
-    margin:     1em auto 2em auto;
-    padding:    2em 4em;
-    box-shadow: var(--kolibri-box-shadow);
-    min-width:  620px;
+@keyframes close {
+    0% {
+        transform: scaleY(1);
+    }
+    100% {
+        transform: scaleY(0);
+    }
 }
-
-h1 {
-    text-align:  center;
-    font-family: var(--font-sans-serif), sans-serif;
-    margin-top:  0;
-}
-
-h3, h4 {
-    margin-top: 3rem;
-}
-
-.holder {
-    min-width: 160px;
-    width: fit-content;
-    margin: 1rem 0;
-}
-
-.holder > div {
+.options-component[popover] {
+    position: absolute;
+    z-index: 20;
+    max-height: 240px;
+    border-radius: 0 0 4px 4px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background: #fff;
+    overflow: hidden;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    padding: 0;
     margin: 0;
-    width: 100%;
+    box-shadow: 0px 5px 15px #0002;
+    animation: open 300ms ease-in-out;
+    transform-origin: top center;
 }
+.options-component[popover]:popover-open {
+    display: flex;
+    height: fit-content;
+} 
 \end{lstlisting}
+
+Diese CSS-Regeln definieren die Animationen für das Öffnen und Schliessen des Popovers und das grundlegende Styling des Popover-Containers.
+Die \texttt{@keyframes} regeln die Transformation, während \texttt{.options-component[popover]} das Layout und das Erscheinungsbild des Popovers steuert.
 
 
 \subsection{Interaktionsdesign}
@@ -190,67 +199,138 @@ h3, h4 {
 Die Dropdown-Komponente ist so gestaltet, dass sie sowohl für Maus- als auch Tastaturbenutzer optimal funktioniert. 
 Das Design der Interaktionen bietet eine intuitive und leicht zugängliche Bedienung der Komponente.
 Um die Benutzerführung zu erleichtern, erhalten die hervorgehobenen (highlighted) bzw. ausgewählten (selected) Optionen eine Kennzeichnung durch spezifische CSS-Klassen.
-Der CSS-Code \ref{code:styleExample} zeigt einen Style-Ausschnitt auf ein gehighlightetes Element.
+Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein aktuelles\footnotemark und selektiertes Element.
+\footnotetext{Element, welches sich unter der Cursor Position befindet}
 
-% todo insert correct code in highlight
-\begin{lstlisting}[style = htmlcssjs, caption = Style Beispiel für Zustand Highlight, label = code:styleExample]
-.highlighted {
-    background-color: #e0e0e0; 
-}
-\end{lstlisting}
+% todo label / format
+\begin{lstlisting}[style = htmlcssjs, caption = Aktuelle (cursor-position) und ausgewählte (selected) Option, label = code:styledElement]
+.cursor-position {
+    color: var(--kb-hsla-warning-dark);
 
-
-\subsection{Komponentengrösse und Layoutanpassungen}
-\label{sec:sizeLayoutChanges}
-
-Mit der Definition von Mindest- und Maximalbreite sowie flexiblen Layouts ist sichergestellt, 
-dass die Dropdown-Komponente auf verschiedenen Bildschirmgrössen funktioniert und sich gut darstellen lässt.
-
-% todo code wieder für demo und nicht komponte => ändern & beschreiben
-\begin{lstlisting}[style = htmlcssjs, caption = Flexible Layouts für Demo-Page, label = code:layoutDemoPage]
-#componentCity .select-input-component {
-    min-width:  400px;
-}
-
-#componentImg .select-input-component,
-#componentCountry .select-input-component {
-    min-width:  320px;
-}
-
-#componentImg .options-column {
-    width: auto;
-}
-
-#componentImg img {
-    width:  2rem;
-    max-height: 1.3rem;
-    object-fit: contain;
-}
-
-form {
-    display: flex;
-    gap: 2rem;
-
-    > button {
-        border-radius: 5px;
-        color: white;
-        background-color: var(--kolibri-color-output);
-        font-weight: bold;
-        outline: none;
-        border: none;
-        padding: .5rem;
-
-        &:focus {
-            filter: brightness(150%);
-        }
+    &:not(.disabled)::before {
+        content: '';
+        position: absolute;
+        left: 7px;
+        transform: translateX(-50%);
+        width: 2.5px;
+        background: var(--kb-hsla-warning-dark);
+        border-radius: 1px;
+        top: 0.5em;
+        bottom: 0.4em;
     }
 }
-
-label {
-    display: flex;
-    align-items: center;
+.selected {
+    background: var(--kolibri-color-select);
+    border-radius: 4px;
 }
 \end{lstlisting}
+
+\texttt{.cursor-position}: Definiert die Hervorhebung der Option, die gerade durch den Cursor fokussiert ist.Diese wird durch eine dunkle Farbe und eine Markierung links angezeigt.
+\texttt{.selected}: Stellt die ausgewählte Option durch einen speziellen Hintergrund und abgerundete Ecken dar.
+
+In \texttt{columnOptionsProjector.js} gibt es Event-Handler, die das Setzen und Entfernen der Highlighting-Klassen steuern:
+
+\begin{lstlisting}[style = htmlcssjs, caption = steuren von Highlighting-Klassen]
+const selectOptionItem = (root) => (newOption, oldOption) => {
+    const oldItem = getHtmlElementByOption(oldOption, root);
+    if (oldItem) {
+        oldItem.classList.remove("selected");
+    }
+
+    const newItem = getHtmlElementByOption(newOption, root);
+    if (newItem) {
+        newItem.classList.add("selected");
+    }
+}; 
+// same function for the cursor-position class
+\end{lstlisting}
+
+\texttt{cursorPositionItem}: Verändert die Hervorhebung der aktuellen Cursor Position, indem die Klasse \texttt{.cursor-position} auf das neue Element angewendet und vom alten Element entfernt wird.
+\texttt{selectOptionItem}: Ähnlich wie \texttt{cursorPositionItem}, aber für ausgewählte Optionen, indem die Klasse \texttt{.selected} gesetzt bzw. entfernt wird.
+
+In \texttt{selectProjector.js} wird das Highlighting hauptsächlich durch die Verknüpfung der Optionen und ihrer Events mit den entsprechenden CSS-Klassen gesteuert.
+
+\begin{lstlisting}[style = htmlcssjs, caption = Event-Handling für die Auswahl einer Option]
+const projectSelectedValueOptionView = (selectController, popoverElement) => {
+    const rootElement = document.createElement("div");
+    rootElement.id = selectController.getId() + "-selected-option";
+    rootElement.classList.add("selected-option-component");
+    rootElement.setAttribute("data-id", selectController.getId());
+    
+    const selectedOptionContainer = document.createElement("div");
+    selectedOptionContainer.classList.add("selected-value");
+    selectedOptionContainer.innerHTML = selectController.getSelectedValueOption().getLabel();
+    selectedOptionContainer.onclick = togglePopover;
+    
+    rootElement.append(selectedOptionContainer);
+    return [rootElement, selectedOptionContainer];
+}; 
+\end{lstlisting}
+
+\texttt{projectSelectedValueOptionView}: Diese Funktion erstellt die Ansicht für die ausgewählte Option und verknüpft die Klick-Events mit dem Umschalten des Popovers.
+
+Durch diese Kombination von CSS und JavaScript wird das Highlighting und die Auswahl von Optionen in der Dropdown-Komponente effektiv und visuell ansprechend umgesetzt.
+
+
+\subsection{Optionen und Scrollbar-Styling}
+\label{sec:sizeLayoutChanges}
+
+Diese CSS-Regeln gestalten die Optionen innerhalb einer Spalte und das Scroll-Verhalten der Optionsliste. 
+\texttt{.options-column} definiert das Layout und die Scroll-Eigenschaften, während \texttt{.option-item} das Erscheinungsbild und die Interaktivität der einzelnen Optionen festlegt.
+
+\begin{lstlisting}[style = htmlcssjs, caption = Optionen und Scrollbar-Styling]
+.options-column {
+    position: relative;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 240px;
+    min-height: 100%;
+    padding: 5px;
+    flex-grow: 2;
+    flex-shrink: 1;
+}
+.option-item {
+    position: relative;
+    padding: 10px 20px;
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} 
+\end{lstlisting}
+
+Die definierten CSS-Stile werden im JavaScript genutzt, um dynamisch Klassen und Stile auf die Elemente anzuwenden, wenn sie erstellt oder aktualisiert werden.
+Hier sind einige Beispiele, wie die CSS-Klassen in selectProjector.js und columnOptionsProjector.js verwendet werden:
+
+\begin{lstlisting}[style = htmlcssjs, caption = CSS-Stile im JavaScript]
+// selectProjector.js
+const projectOptionsView = (selectController) => {
+    const optionsContainer = document.createElement("div");
+    optionsContainer.id = selectController.getId() + "-options";
+    optionsContainer.classList.add(optionsClassName);
+    optionsContainer.setAttribute("popover", "auto");
+    // Weitere Logik zur Steuerung des Popovers
+};
+
+// columnOptionsProjector.js
+const projectOption = (selectedOptionController, option, optionType, cursorPositionController) => {
+    const item = document.createElement("div");
+    item.setAttribute("data-id", elementId(option));
+    item.setAttribute("data-value", option.getValue());
+    item.setAttribute("data-label", elementDataLabel(option));
+    item.classList.add(optionClassName);
+    item.classList.add(optionType + "-" + optionClassName);
+    item.innerHTML = option.getLabel();
+    // Weitere Logik zur Handhabung von Optionen
+}; 
+\end{lstlisting}
+
+Diese JavaScript-Funktionen erstellen HTML-Elemente und fügen die zuvor definierten CSS-Klassen hinzu, um das Styling und die Funktionalität sicherzustellen.
+In \texttt{selectProjector.js} wird der Popover-Container erstellt und gestylt, während in \texttt{columnOptionsProjector.js} die einzelnen Options-Elemente gestaltet werden.
+Diese Kombination aus CSS und JavaScript stellt sicher, dass die Dropdown- und Popover-Komponenten korrekt angezeigt und interaktiv sind.
 
 
 \subsection{Benutzerfeedback und Prototyping}
@@ -265,7 +345,7 @@ Gezielte CSS-Anpassungen und ein durchdachtes Interaktionsdesign finden in der R
 Das Ziel ist, eine ansprechende und benutzerfreundliche Komponente zu schaffen. 
 Sie fügt sich nahtlos in das Kolibri-Designsystem ein und überzeugt gleichzeitig durch optimierte Les- und Bedienbarkeit.
 
-% todo continue here
+
 \section{Interaktionen}
 \label{sec:interaction}
 
@@ -298,8 +378,7 @@ Die Tastatur-Steuerung mit den Pfeiltasten hingegen hält sich an diese Bedienun
 \end{itemize}
 
 \noindent
-Anhand dieser Regeln entstanden folgende Aktionen als Basis für den ersten Projektor der neuen Komponente. 
-
+Als Basis für den ersten Projektor der neuen Komponente ergeben sich aus den oben genannten Regeln folgende Interaktionen (Tabelle \ref{table:interactionNewComponent}).
 
 \clearpage
 \import{../tables}{d.newComponent.tex}
@@ -315,8 +394,8 @@ Die Interaktionen können in weiteren Projektoren angepasst bzw. geändert werde
 \label{sec:principleRules}
 
 Um stabilen und verständlichen Code zu garantieren, hält sich dieses Projekt an diverse Prinzipien.
-Ein Ansatz ist alle Objekte so immutable als möglich zu halten.
-Dadurch können unerwartete Änderungen vermieden werden.
+Ein Ansatz ist, alle Objekte so immutable als möglich zu halten.
+Dadurch lassen sich unerwartete Änderungen verhindern.
 Weiter gilt es, die Bestandteile im KISS-Stil umzusetzen.
 Dazu zählt, dass die einzelnen Objekte und Funktionen möglichst privat zu gestalten sind.
 Die Bausteine sind kurz und übersichtlich aufzubauen.
@@ -324,7 +403,7 @@ Zu diesem Zweck soll Separation of Concern eingesetzt werden, so dass jede Funkt
 Damit der Code einfach und lesbar bleibt bzw. wird, gilt es, Entscheidungen zu treffen.
 Zu diesen Entschlüssen zählt das bewusste Weglassen von Funktionalität und somit auch Komplexität.
 
-Beim implementieren ist darauf zu achten, den Code sauber zu formatieren.
+Beim Implementieren ist darauf zu achten, den Code sauber zu formatieren.
 Zudem ist es sinnvoll, die Änderungen regelmässig mit dem Code-Analyse-Tool von Intellij auf ihre Qualität zu prüfen. 
 Diese Prinzipien und Regeln unterstützen eine ordentliche Entwicklungsumgebung für eine stabile Komponente.
 Das Kapitel Patterns bietet eine weitere Möglichkeit den Code strukturiert zu halten.
@@ -345,7 +424,7 @@ Die Implementation erhält durch die verwendeten Patterns eine Struktur und läu
 
 Ein Pattern, welches im Verlauf der Arbeit eine wichtige Rolle eingenommen hat, ist das Null-Object Pattern.
 (\cite{nullObjectPattern}) Null hat den Nachteil, dass alle Funktionsaufrufe darauf zu Fehlern führen.
-Das Null-Object besteht aus vordefinierten Default-Werten und besitzt Do-Nothing-Implementationen für alle Funktionen.
+Das Null-Object besteht aus vordefinierten Default-Werten und besitzt für alle Funktionen eine \emph{Do-Nothing}-Implementation.
 Durch die Verwendung dieses speziellen Objekts entfällt eine ansonsten notwendige Nullwertprüfung.
 Zudem ist jedes erstellte Null-Object wertegleich.
 
@@ -363,19 +442,19 @@ const reset = () => {
 const nullOption = reset();
 \end{lstlisting}
 
-Hierbei muss nur die \emph{nullOption} selbst exportiert werden und das Reset bleibt \emph{private}.
-Um die selbe Funktionalität wie die gewünschten Objekte zu bieten, erhält diese Konstante den Typ \emph{Option}.
-Der Codeausschnitt \ref{code:nullOption} befindet sich in der Datei \emph{optionsModel.js}.
+Mit dem Export der \texttt{nullOption} als einziges bleibt das \texttt{reset()} privat.
+Um die selbe Funktionalität wie die gewünschten Objekte zu bieten, erhält diese Konstante den Typ \texttt{Option}.
+Der Codeausschnitt \ref{code:nullOption} befindet sich in der Datei \texttt{optionsModel.js}.
 Mehr zur File Aufteilung ist in den nächsten zwei Unterkapiteln zu lesen.
 
 \subsection{Projector Pattern}
 \label{sec:projectorPattern}
 
 (\cite{projectorPattern}) Das Projector Pattern basiert auf dem verbreiteten Model-View-Controll Pattern.
-Das Model verwaltet die Daten, welche dargestellt werden sollen.
+Das Model verwaltet die dargestellten Daten.
 Zudem enthält die Komponente des Patterns die Geschäftslogik und verarbeitet die Regeln und Anfragen für die Daten.
 Ein Controller generiert privat gehaltene Modelle.
-Dabei werden nur die notwendigen Funktionen zur Verfügung gestellt.
+Dabei stellt dieser nur die notwendigen Funktionen zur Verfügung.
 Diese Funktionen können Getter, Setter und Listener der observierten Modelle und Werte sein.
 Der Projektor bindet Daten-Modelle über den Controller an die View.
 Auf der anderen Seite wird die View an die Models gebunden, dies erneut durch die Verwendung des Controllers.
@@ -385,7 +464,7 @@ Die View ist passiv und hat keine Kenntnis über die anderen Komponenten.
 Dieses Pattern zeigte sich als eines der Wichtigsten für die Erstellung der neuen Komponente.
 In den folgenden Grafiken sind Models als Zylinder, Controller als schiefes Rechteck und Projectors als Oval dargestellt.
 Die Raute mit Option ist ein Daten-Typ, der über das gesamte Projekt seine Anwendung findet.
-Das \emph{starter.js} beinhaltet alle Bestandteile, welche für eine Anwendung benötigt werden.
+Das \texttt{starter.js} beinhaltet alle Bestandteile, welche für eine Anwendung notwendig sind.
 Das Puzzle wird im späteren Unterkapitel Decorator Pattern genauer beschrieben.
 Die erste Implementation, welche dieses Pattern verwendet, ist auf Abbildung \ref{img:DiagramSelectComponentOld}.
 
@@ -411,8 +490,8 @@ Die Implementation der dargestellten Diagramme resultiert aus einem Refactoring 
 Zum einen findet sich das Projector Pattern in einer einzelnen Spalte in der Options-Liste wieder.
 Pro Kolonne existiert eine Auswahl und eine Menge von Optionen.
 Diese beiden Bestandteile besitzen je ein eigenes Model und einen eigenen Controller.
-In diesem Fall generiert der Projektor eine gemeinsame View mit Bindings zu den beiden Controllern.
-Bei einer Anwendung übernimmt die \emph{ColumnComponent} die Verwaltung gewisser Bausteine (Mehr dazu später).
+Der Projektor generiert eine gemeinsame View und bindet diese an die beiden Controller.
+Bei einer Anwendung übernimmt die \texttt{ColumnComponent} die Verwaltung gewisser Bausteine (Mehr dazu später).
 
 \begin{figure}[!htb]
     \centering
@@ -422,23 +501,23 @@ Bei einer Anwendung übernimmt die \emph{ColumnComponent} die Verwaltung gewisse
 \end{figure}
 
 Die Anwendungskomponente einer Column findet sich als Bestandteil des zweiten Projector Pattern wieder.
-Ein \emph{SelectController} verwaltet eine bis mehrere \emph{ColumnComponent}s als auch ein Element für die Tastaturnavigation.
-Die sogenannte Cursor Position verwendet im Hintergrund ebenfalls einen \emph{SelectedOptionController}. 
-Dieser ist der selbe wie in der Abbildung \ref{img:DiagramColumnComponent} und findet hier eine Wiederverwendung.
+Ein \texttt{SelectController} verwaltet eine bis mehrere \texttt{ColumnComponent}s als auch ein Element für die Tastaturnavigation.
+Die sogenannte Cursor Position verwendet im Hintergrund ebenfalls einen \texttt{SelectedOptionController}. 
+Dieser ist derselbe wie in der Abbildung \ref{img:DiagramColumnComponent} und findet hier eine Wiederverwendung.
 Um die Bindings zu definieren, greifen die einzelnen Projektoren auf den selben Controller zu.
 Der Master-Detail-Aufbau der neuen Komponente findet sich in der Aufteilung der Projektoren wieder.
 Der Detail-Baustein kümmert sich um die aktuelle Auswahl und das Eingabefeld.
 Die Master-Komponente verwaltet alle Spalten mit den Kategorie- und Werte-Optionen, sowie dessen Bindings.
-In einer weiteren Funktion werden die beiden Projektoren zusammengeführt und in eine gemeinsame View eingebettet.
-Auch diese Projector Pattern Anwendung schliesst mit einer Component - der SelectComponent - ab.
-Mehr zu dieser und der Column-Component steht im nächsten Kapitel.
+Eine weiteren Funktion ist die Einbettung der beiden Projektoren in eine gemeinsame View.
+Auch diese Projector Pattern Anwendung schliesst mit einer Component - der \texttt{SelectComponent} - ab.
+Mehr zu dieser und der \texttt{ColumnComponent} steht im nächsten Kapitel.
 
 
 \subsection{Decorator Pattern}
 \label{sec:decoratorPattern}
 
 (\cite{decoratorPattern}) Ein Decorator bietet zusätzliches Verhalten ohne das Originale Objekt zu verändern.
-Zudem können verschiedene Funktionen kombiniert werden.
+Dabei lassem sich verschiedene Funktionen kombinieren.
 Dieses Pattern ermöglicht die Erstellung eines modularen und anpassbaren Codes.
 In diesem Projekt unterstützt es die Gestaltung und Erweiterung der Auswahlkomponente.
 
@@ -462,9 +541,9 @@ const SelectComponentByTableValues = (
 \end{lstlisting}
 
 Ein weiterer Einsatzort ist bereits in der Abbildung \ref{img:DiagramSelectComponent} aus dem Vorkapitel zu erahnen.
-Der rotbraune \emph{SelectComponentByTableValue} in Code \ref{code:componentDecorator} dekoriert die \emph{SelectComponentByCallback}.
+Der rotbraune \texttt{SelectComponentByTableValue} in Code \ref{code:componentDecorator} dekoriert die \texttt{SelectComponentByCallback}.
 Damit bietet die neue Komponente zwei verschiedene Möglichkeiten der Anwendung.
-Das nächste Kapitel geht genauer auf den Master-View-Bereich des \emph{SelectProjector}s - Abbildung \ref{img:DiagramSelectComponent} - ein.
+Das nächste Kapitel geht genauer auf den Master-View-Bereich des \texttt{SelectProjector}s - Abbildung \ref{img:DiagramSelectComponent} - ein.
 
 
 \section{Dropdown-Container}
@@ -475,7 +554,7 @@ Eine Möglichkeit ist, den Container als HTML-Dialog zu gestalten.
 Die vorhandenen Funktionen sind jedoch nicht für diese Komponente geeignet.
 Für den gewünschten Zweck erfordert das Dialog-Element noch einiges an benutzerdefinierter Anpassung.
 
-Eine weitere Variante ist, ein normales \emph{div} als Options-Container zu verwenden.
+Eine weitere Variante ist, ein normales \texttt{div} als Options-Container zu verwenden.
 Dies erfordert ebenfalls einen enormen Implementationsaufwand.
 Eine Andwendung dieses Ansatzes findet sich in der ersten Version der Komponente.
 Hierbei eröffnet sich das Problem von der Inkonsistenz zwischen UI und Controller.
@@ -493,10 +572,10 @@ Der Grundaufbau des Popover-Container ist im folgenden Code \ref{code:PopoverExa
 > </div>
 \end{lstlisting}
 
-Bei diesem Codeausschnitt ist wichtig, dass das Attribut \emph{popover} den Wert \emph{auto} erhält.
+Bei diesem Codeausschnitt ist wichtig, dass das Attribut \texttt{popover} den Wert \texttt{auto} erhält.
 Dies bewirkt, dass die Popover sich automatisch schliessen, wenn ein Klick ausserhalb des Container passiert.
-Das Öffnen und Schliessen des Dropdown-Elements kann über das \emph{popovertarget}-Attribut mit der Popover-Id\footnotemark auf der Bedienkomponente gesteuert werden.
-\footnotetext{\emph{id}-Attribut des Div-Containers mit dem Attribut \emph{popover}}
+Das Öffnen und Schliessen des Dropdown-Elements kann über das \texttt{popovertarget}-Attribut mit der Popover-Id\footnotemark auf der Bedienkomponente gesteuert werden.
+\footnotetext{\texttt{id}-Attribut des Div-Containers mit dem Attribut \texttt{popover}}
 Als Alternative dazu besteht die Möglichkeit, das Popover über JavaScript zu steuern.
 Hierbei besteht die Möglichkeit auf den Status und das Event des Togglens zuzugreifen.
 Diese Funktionalitäten erlauben den Controller konsistent zum UI zu halten.
@@ -545,18 +624,18 @@ const addAllOptions = (options) => {
 \end{lstlisting}
 
 Code \ref{code:PerformanceOptimization} ist eine Stelle, die diese Technik verwendet.
-Hier wird ein Platzhalter mit einem Lade-Indikator an die Ursprungsstelle gesetzt, damit der Nutzer ein Feedback erhält.
+Das Anzeigen eines Platzhalters mit einem Lade-Indikator an der Ursprungsstelle bewirkt, dass der Nutzer ein Feedback erhält.
 Sobald der SpaltenContainer abgekoppelt ist, lädt die Funktion die Optionen in den Shadow-DOM.
-Nach Abschluss wird der Container mit den neuen Elementen an die originale Stelle zurückersetzt.
+Der Lade-Indikator der originalen Stelle im Renderbaum ersetzt sich nach Abschluss durch den Container mit den neuen Elementen. 
 
-(\cite{efficientDomManipulation}) Weiter ist darauf achten, dass CSS-Klassen an Stelle von Inline-Styles verwendet werden sollten.
+(\cite{efficientDomManipulation}) Weiter ist darauf achten, dass CSS-Klassen an Stelle von Inline-Styles ihre Verwendung finden.
 Das Cachen von mehrfach verwendeten Selektoren verbessert die Effizienz des DOMs.
 Die Selektoren sollten hierarchisch möglichst flach und nicht verschachtelt sein.
-Wenn es die Situation erlaubt, ist es besser, nicht mit \emph{innerHTML} zu arbeiten.
-In diesem Projekt ist es für die Anzeige der Label jedoch nötig \emph{innerHTML} zu nutzen.
+Wenn es die Situation erlaubt, ist es besser, nicht mit \texttt{innerHTML} zu arbeiten.
+In diesem Projekt ist es für die Anzeige der Label jedoch nötig \texttt{innerHTML} zu nutzen.
 Dies liegt daran, dass ein Label auch ein Bild enthalten kann.
 Generell verwendet die neue Auswahlkomponente keine Inline-Styles.
-Die einzigen Ausnahme betrifft das verborgene Eingabefeld. 
+Die einzige Ausnahme betrifft das verborgene Eingabefeld. 
 Durch den Code \ref{code:InlineStyle} sind die Properties vor dem Überschreiben geschützt.
 
 \begin{lstlisting}[style = htmlcssjs, caption = Inline-Style für Inputfeld, label = code:InlineStyle]
@@ -585,7 +664,7 @@ Die folgenden zwei Bilder \ref{img:PerformanceTestBefore} und \ref{img:Performan
     \label{img:PerformanceTestBefore}
 \end{figure}
 
-Auf der Grafik \ref{img:PerformanceTestBefore} ist zu sehen, dass der Seitenaufbau der früheren Version sehr lange dauerte.
+Auf der Grafik \ref{img:PerformanceTestBefore} ist zu sehen, dass der Seitenaufbau der früheren Version sehr lange dauerte. % todo vergangenheit ok ?
 Dies bestätigen mehrere Feedbacks der Nutzer, später mehr dazu.
 
 \begin{figure}[!htb]
@@ -595,7 +674,7 @@ Dies bestätigen mehrere Feedbacks der Nutzer, später mehr dazu.
     \label{img:PerformanceTestAfter}
 \end{figure}
 
-Der Vergleich zwischen Abbildung \ref{img:PerformanceTestBefore} und \ref{img:PerformanceTestAfter} zeigt, dass die Seite um einen Faktor 13 besser ist.
+Der Vergleich zwischen Abbildung \ref{img:PerformanceTestBefore} und \ref{img:PerformanceTestAfter} zeigt, dass die Seite um Faktor 13 besser ist.
 Die oberen Grafik zeigt die Messung der Implementation, welche sehr viele Aktionen auf dem Renderbaum ausführt.
 Ein Refactoring führt zur Verschiebung dieser Arbeiten auf den Shadow-DOM.
 Dadurch verkürzt sich der Ladevorgang um vier bis fünf Sekunden.
@@ -626,7 +705,10 @@ Auf der Abbildung \ref{img:automatedTests} ist zu sehen, dass eine breite Palett
 \end{figure}
 
 Die ersten zwei Testbibliotheken kümmern sich um die Korrektheit von den Dateien \texttt{optionsModel.js} und \texttt{optionsController.js}. 
-Diese beiden 
+Das erste File besteht aus den Typen \texttt{ValueOption} und \texttt{CategoryOption} und den Komponenten \texttt{OptionsModel} und \texttt{SelectedOptionModel}.
+Der 
+\texttt{OptionsController}
+\texttt{SelectedOptionController}
 
 
 \subsection{User Tests} % todo
@@ -645,7 +727,7 @@ Diese beiden
 
 
 \section{Diskussion}
-\label{sec:discusion}
+\label{sec:discussion}
 
 % herausforderungen
 % komplexeste probleme
