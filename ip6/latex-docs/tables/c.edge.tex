@@ -3,57 +3,59 @@
     \label{table:interactionEdge}
     \footnotesize
     \begin{threeparttable}
-        \begin{tabular}{ l || l | l | l }
-            \trrr{\bf{Kriterium}} & \bf{Datalist} & \bf{Select}   & \trrr{\bf{Multiselect}} \\
-            \cline{2-3}           & geschlossen   & geschlossen   &  \\
-            \cline{2-3}           & offen \ccgray & offen \ccgray &  \\
-            \hline \hline
-            \trr{$\uparrow$ / $\downarrow$} & Liste öffnen             & Wert ändern         & \trr{Wert ändern} \\
-            \cline{2-3}                     & Highlight ändern \ccgray & Wert ändern \ccgray &  \\
-            \hline
-            \trr{$\leftarrow$ / $\rightarrow$} & Cursor bewegen\tnote{1}         & Wert ändern & \trr{-} \\
-            \cline{2-3}                        & Cursor bewegen\tnote{1} \ccgray & - \ccgray   &  \\
-            \hline
-            \trrr{Buchstaben} & Schreiben, Liste gefiltert öffnen\tnote{2} & \tbbr{Wert auf \\ Suchergebnis\tnote{3} \ ändern}         & \trrr{\tbbr{Auswahl aufheben, \\ Wert auf \\ Suchergebnis\tnote{3} \ ändern}} \\
-            \cline{2-3}       & Schreiben, Liste filtern\tnote{2} \ccgray  & \tbbr{Wert auf \\ Suchergebnis\tnote{3} \ ändern} \ccgray & \\
-            \hline
-            \trr{Leerschlag} & Schreiben, Liste gefiltert öffnen\tnote{2} & Liste öffnen & \trr{-} \\
-            \cline{2-3}      & Schreiben, Liste filtern\tnote{2} \ccgray  & - \ccgray    & \\
-            \hline
-            \trr{Backspace} & \tbbr{Symbol löschen, Liste gefiltert\tnote{2} \\ öffnen (wenn Feld nicht leer)} & -         & \trr{-} \\
-            \cline{2-3}     & Symbol löschen, Liste filtern\tnote{2} \ccgray                                   & - \ccgray & \\
-            \hline
-            \trr{Esc}   & -                        & -                        & \trr{-} \\
-            \cline{2-3} & Liste schliessen \ccgray & Liste schliessen \ccgray & \\
-            \hline \hline
-            \trrr{Enter} & \tbbr{Formular senden / \\ ohne Form nichts}                     & Liste öffnen                                    & \trr{-} \\
-            \cline{2-3}  & \tbbr{Highlight wählen / \\ ohne Highlight Form senden } \ccgray & \tbbr{Wert wählen, \\ Liste schliessen} \ccgray &  \\
-            \hline
-            \trr{Tab}   & Input-Feld verlassen         & Input-Feld verlassen     & \trr{-} \\
-            \cline{2-3} & Input-Feld verlassen \ccgray & Liste schliessen \ccgray & \\
-            \hline
-            \trrr{\tbbr{PageUp /\\ PageDown}} & Fenster scrollen                                                          & Jeden 3. Wert wählen                                                 & \trrr{\tbbr{Wert an nächster \\ \emph{size - 1} wählen \\ \scriptsize{(size = Attribut)}}} \\
-            \cline{2-3}                       & \tbbr{Wert an View-Start / -Ende \\ dann Seitenweise highlighten} \ccgray & \tbbr{Wert an View-Start / -Ende \\ dann Seitenweise wählen} \ccgray & \\
-            \hline
-            \trrr{Home / End} & \tbbr{Wert von Listen-Anfang / \\ -Ende highlighten}         & Erster / letzter Wert wählen         & \trr{\tbbr{Erster / letzter \\ Wert wählen}} \\
-            \cline{2-3}       & \tbbr{Wert von Listen-Anfang / \\ -Ende highlighten} \ccgray & Erster / letzter Wert wählen \ccgray & \\
-            \hline \hline
-            \trrrr{Scroll} & Browser-Default\tnote{4}                                                                                                    & Browser-Default\tnote{4}                                                                               & \trrrr{\tbbr{\emph{Innen}: Werte \\ bewegen ohne \\ Highlight / Wert \\ zu ändern}} \\
-            \cline{2-3}    & \tbbr{\emph{Aussen}: Liste bleibt \\ \texttt{fixed} offen \\ \emph{Innen}: Werte bewegen \\ ohne Highlight zu ändern} \ccgray & \tbbr{\emph{Aussen}: Liste schliessen \\ \emph{Innen}: Werte bewegen \\ ohne Highlight ändern} \ccgray & \\
-            \hline
-            \trr{Hover} & -                        & UI-Anpassung             & \trr{-} \\
-            \cline{2-3} & Highlight ändern \ccgray & Highlight ändern \ccgray & \\
-            \hline
-            \trr{Click} & Liste öffnen        & Liste öffnen                                    & \trr{\tbbr{Auswahl aufheben, \\ Wert wählen}} \\
-            \cline{2-3} & Wert wählen \ccgray & \tbbr{Wert wählen, \\ Liste schliessen} \ccgray & \\
-            \hline \hline
-            \trr{\tbbr{Ctrl \& Z\\ (Undo)}} & Undo im Input         & -         & \trr{-} \\
-            \cline{2-3}                     & Undo im Input \ccgray & - \ccgray & \\
-            \hline
-            \trr{\tbbr{Ctrl \& Y\\ (Redo)}} & Redo im Input         & -         & \trr{-} \\
-            \cline{2-3}                     & Redo im Input \ccgray & - \ccgray & \\
-            \hline
-        \end{tabular}
+        \resizebox{\textwidth}{!}{
+            \begin{tabular}{ l || l | l | l }
+                \trrr{\bf{Kriterium}} & \bf{Datalist} & \bf{Select}   & \trrr{\bf{Multiselect}} \\
+                \cline{2-3}           & geschlossen   & geschlossen   &  \\
+                \cline{2-3}           & offen \ccgray & offen \ccgray &  \\
+                \hline \hline
+                \trr{$\uparrow$ / $\downarrow$} & Liste öffnen             & Wert ändern         & \trr{Wert ändern} \\
+                \cline{2-3}                     & Highlight ändern \ccgray & Wert ändern \ccgray &  \\
+                \hline
+                \trr{$\leftarrow$ / $\rightarrow$} & Cursor bewegen\tnote{1}         & Wert ändern & \trr{-} \\
+                \cline{2-3}                        & Cursor bewegen\tnote{1} \ccgray & - \ccgray   &  \\
+                \hline
+                \trrr{Buchstaben} & Schreiben, Liste gefiltert öffnen\tnote{2} & \tbbr{Wert auf \\ Suchergebnis\tnote{3} \ ändern}         & \trrr{\tbbr{Auswahl aufheben, \\ Wert auf \\ Suchergebnis\tnote{3} \ ändern}} \\
+                \cline{2-3}       & Schreiben, Liste filtern\tnote{2} \ccgray  & \tbbr{Wert auf \\ Suchergebnis\tnote{3} \ ändern} \ccgray & \\
+                \hline
+                \trr{Leerschlag} & Schreiben, Liste gefiltert öffnen\tnote{2} & Liste öffnen & \trr{-} \\
+                \cline{2-3}      & Schreiben, Liste filtern\tnote{2} \ccgray  & - \ccgray    & \\
+                \hline
+                \trr{Backspace} & \tbbr{Symbol löschen, Liste gefiltert\tnote{2} \\ öffnen (wenn Feld nicht leer)} & -         & \trr{-} \\
+                \cline{2-3}     & Symbol löschen, Liste filtern\tnote{2} \ccgray                                   & - \ccgray & \\
+                \hline
+                \trr{Esc}   & -                        & -                        & \trr{-} \\
+                \cline{2-3} & Liste schliessen \ccgray & Liste schliessen \ccgray & \\
+                \hline \hline
+                \trrr{Enter} & \tbbr{Formular senden / \\ ohne Form nichts}                     & Liste öffnen                                    & \trr{-} \\
+                \cline{2-3}  & \tbbr{Highlight wählen / \\ ohne Highlight Form senden } \ccgray & \tbbr{Wert wählen, \\ Liste schliessen} \ccgray &  \\
+                \hline
+                \trr{Tab}   & Input-Feld verlassen         & Input-Feld verlassen     & \trr{-} \\
+                \cline{2-3} & Input-Feld verlassen \ccgray & Liste schliessen \ccgray & \\
+                \hline
+                \trrr{\tbbr{PageUp /\\ PageDown}} & Fenster scrollen                                                          & Jeden 3. Wert wählen                                                 & \trrr{\tbbr{Wert an nächster \\ \emph{size - 1} wählen \\ \scriptsize{(size = Attribut)}}} \\
+                \cline{2-3}                       & \tbbr{Wert an View-Start / -Ende \\ dann Seitenweise highlighten} \ccgray & \tbbr{Wert an View-Start / -Ende \\ dann Seitenweise wählen} \ccgray & \\
+                \hline
+                \trrr{Home / End} & \tbbr{Wert von Listen-Anfang / \\ -Ende highlighten}         & Erster / letzter Wert wählen         & \trr{\tbbr{Erster / letzter \\ Wert wählen}} \\
+                \cline{2-3}       & \tbbr{Wert von Listen-Anfang / \\ -Ende highlighten} \ccgray & Erster / letzter Wert wählen \ccgray & \\
+                \hline \hline
+                \trrrr{Scroll} & Browser-Default\tnote{4}                                                                                                    & Browser-Default\tnote{4}                                                                               & \trrrr{\tbbr{\emph{Innen}: Werte \\ bewegen ohne \\ Highlight / Wert \\ zu ändern}} \\
+                \cline{2-3}    & \tbbr{\emph{Aussen}: Liste bleibt \\ \texttt{fixed} offen \\ \emph{Innen}: Werte bewegen \\ ohne Highlight zu ändern} \ccgray & \tbbr{\emph{Aussen}: Liste schliessen \\ \emph{Innen}: Werte bewegen \\ ohne Highlight ändern} \ccgray & \\
+                \hline
+                \trr{Hover} & -                        & UI-Anpassung             & \trr{-} \\
+                \cline{2-3} & Highlight ändern \ccgray & Highlight ändern \ccgray & \\
+                \hline
+                \trr{Click} & Liste öffnen        & Liste öffnen                                    & \trr{\tbbr{Auswahl aufheben, \\ Wert wählen}} \\
+                \cline{2-3} & Wert wählen \ccgray & \tbbr{Wert wählen, \\ Liste schliessen} \ccgray & \\
+                \hline \hline
+                \trr{\tbbr{Ctrl \& Z\\ (Undo)}} & Undo im Input         & -         & \trr{-} \\
+                \cline{2-3}                     & Undo im Input \ccgray & - \ccgray & \\
+                \hline
+                \trr{\tbbr{Ctrl \& Y\\ (Redo)}} & Redo im Input         & -         & \trr{-} \\
+                \cline{2-3}                     & Redo im Input \ccgray & - \ccgray & \\
+                \hline
+            \end{tabular}
+        }
         \begin{tablenotes}
             \scriptsize
             \item[1] Blinkender Strich in einem Eingabefeld

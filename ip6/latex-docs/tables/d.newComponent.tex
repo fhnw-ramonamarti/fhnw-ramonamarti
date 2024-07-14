@@ -4,38 +4,40 @@
     \rowcolors{2}{white}{gray!20}
     \footnotesize
     \begin{threeparttable}
-        \begin{tabular}{ l || l | l }
-            \bf{Kriterium}    & \bf{geschlossen} & \bf{offen} \\
-            \hline \hline
-            $\uparrow$ / $\downarrow$     & Wert ändern       & Wert / Kategorie ändern \\
-            \hline
-            $\leftarrow$ / $\rightarrow$  & -                 & Spalte ändern (Cursor Position) \\
-            \hline
-            Buchstaben  & Wert auf Suchergebnis\tnote{1} \ ändern & \tbbr{Wert / Kategorie auf \\ Suchergebnis\tnote{1} \ ändern} \\
-            \hline
-            Leerschlag  & Liste öffnen    & Wert ändern       \\
-            \hline
-            Backspace   & Auswahl löschen & Auswahl löschen   \\
-            \hline
-            Esc         & -               & Liste schliessen  \\
-            \hline \hline
-            Enter       & -               & Wert ändern       \\
-            \hline
-            Tab         & Input-Feld verlassen            & \tbbr{Liste schliessen \& \\ Feld verlassen } \\
-            \hline
-            PageUp / PageDown  & Browser-Default\tnote{2} & \tbbr{Jeder 10te Wert wählen} \\
-            \hline
-            Home / End & Erster / letzter Wert wählen     & Erster / letzter Wert wählen  \\
-            \hline \hline
-            Scroll     & Browser-Default\tnote{2}         & \tbbr{\emph{Aussen}: Liste bleibt offen \\
-                                                                  \emph{Innen}: Werte bewegen \\ mit Highlight-Änderung} \\
-            \hline
-            Hover      & -                & Wert highlighten \\
-            \hline
-            Click      & Liste öffnen     & \tbbr{\emph{in Liste}: Wert wählen \\
-                                                  \emph{in Wertfeld}: Liste schliessen} \\
-            \hline
-        \end{tabular}
+        \resizebox{\textwidth}{!}{
+            \begin{tabular}{ l || l | l }
+                \bf{Kriterium}    & \bf{geschlossen} & \bf{offen} \\
+                \hline \hline
+                $\uparrow$ / $\downarrow$     & Wert ändern       & Wert / Kategorie ändern \\
+                \hline
+                $\leftarrow$ / $\rightarrow$  & -                 & Spalte ändern (Cursor Position) \\
+                \hline
+                Buchstaben  & Wert auf Suchergebnis\tnote{1} \ ändern & \tbbr{Wert / Kategorie auf \\ Suchergebnis\tnote{1} \ ändern} \\
+                \hline
+                Leerschlag  & Liste öffnen    & Wert ändern       \\
+                \hline
+                Backspace   & Auswahl löschen & Auswahl löschen   \\
+                \hline
+                Esc         & -               & Liste schliessen  \\
+                \hline \hline
+                Enter       & -               & Wert ändern       \\
+                \hline
+                Tab         & Input-Feld verlassen            & \tbbr{Liste schliessen \& \\ Feld verlassen } \\
+                \hline
+                PageUp / PageDown  & Browser-Default\tnote{2} & \tbbr{Jeder 10te Wert wählen} \\
+                \hline
+                Home / End & Erster / letzter Wert wählen     & Erster / letzter Wert wählen  \\
+                \hline \hline
+                Scroll     & Browser-Default\tnote{2}         & \tbbr{\emph{Aussen}: Liste bleibt offen \\
+                                                                    \emph{Innen}: Werte bewegen \\ mit Highlight-Änderung} \\
+                \hline
+                Hover      & -                & Wert highlighten \\
+                \hline
+                Click      & Liste öffnen     & \tbbr{\emph{in Liste}: Wert wählen \\
+                                                    \emph{in Wertfeld}: Liste schliessen} \\
+                \hline
+            \end{tabular}
+        }
         \begin{tablenotes}
             \scriptsize
             \item[1] Suche: Erster mit dem eingaben Symbol passender Wert aus der Liste, wenn Eingabe nicht passend $\Rightarrow$ nächster nachfolgender Wert; 
