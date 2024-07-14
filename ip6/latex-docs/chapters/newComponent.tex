@@ -81,7 +81,8 @@ Die Zuordnung der Designwahl zu den fehlenden Zuständen steht im Kapitel \ref{s
 
 Zur Visualisierung und interaktiven Testing des Designs kam Figma zum Einsatz. 
 Figma ist ein webbasiertes Tool zur Erstellung von UI/UX-Designs, das Echtzeit-Kollaboration ermöglicht. 
-Um Feedback von Staskholdern und Nutzern zu sammeln und Iterationen vorzunehmen, ist es unabdingbar, im Vorfeld mit Figma schnell Prototypen zu erstellen und mit den Probanden zu teilen.
+% todo satz unten passt nicht - ha de König und Affolter gmeint aber so sötts passe gloub
+Durch die Nutzung von Figma konnten schnell Prototypen erstellt und diese mit Nutzern geteilt werden, um Feedback zu sammeln und Iterationen vorzunehmen.
 
 Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3} zeigen die in Figma erstellten Prototypen der Dropdown-Komponente:
 
@@ -264,7 +265,7 @@ Gezielte CSS-Anpassungen und ein durchdachtes Interaktionsdesign finden in der R
 Das Ziel ist, eine ansprechende und benutzerfreundliche Komponente zu schaffen. 
 Sie fügt sich nahtlos in das Kolibri-Designsystem ein und überzeugt gleichzeitig durch optimierte Les- und Bedienbarkeit.
 
-
+% todo continue here
 \section{Interaktionen}
 \label{sec:interaction}
 
@@ -297,7 +298,8 @@ Die Tastatur-Steuerung mit den Pfeiltasten hingegen hält sich an diese Bedienun
 \end{itemize}
 
 \noindent
-Als Basis für den ersten Projektor der neuen Komponente ergeben sich aus den oben genannten Regeln folgende Interaktionen (Tabelle \ref{table:interactionNewComponent}).
+Anhand dieser Regeln entstanden folgende Aktionen als Basis für den ersten Projektor der neuen Komponente. 
+
 
 \clearpage
 \import{../tables}{d.newComponent.tex}
@@ -313,8 +315,8 @@ Die Interaktionen können in weiteren Projektoren angepasst bzw. geändert werde
 \label{sec:principleRules}
 
 Um stabilen und verständlichen Code zu garantieren, hält sich dieses Projekt an diverse Prinzipien.
-Ein Ansatz ist, alle Objekte so immutable als möglich zu halten.
-Dadurch lassen sich unerwartete Änderungen verhindern.
+Ein Ansatz ist alle Objekte so immutable als möglich zu halten.
+Dadurch können unerwartete Änderungen vermieden werden.
 Weiter gilt es, die Bestandteile im KISS-Stil umzusetzen.
 Dazu zählt, dass die einzelnen Objekte und Funktionen möglichst privat zu gestalten sind.
 Die Bausteine sind kurz und übersichtlich aufzubauen.
@@ -322,7 +324,7 @@ Zu diesem Zweck soll Separation of Concern eingesetzt werden, so dass jede Funkt
 Damit der Code einfach und lesbar bleibt bzw. wird, gilt es, Entscheidungen zu treffen.
 Zu diesen Entschlüssen zählt das bewusste Weglassen von Funktionalität und somit auch Komplexität.
 
-Beim Implementieren ist darauf zu achten, den Code sauber zu formatieren.
+Beim implementieren ist darauf zu achten, den Code sauber zu formatieren.
 Zudem ist es sinnvoll, die Änderungen regelmässig mit dem Code-Analyse-Tool von Intellij auf ihre Qualität zu prüfen. 
 Diese Prinzipien und Regeln unterstützen eine ordentliche Entwicklungsumgebung für eine stabile Komponente.
 Das Kapitel Patterns bietet eine weitere Möglichkeit den Code strukturiert zu halten.
@@ -343,7 +345,7 @@ Die Implementation erhält durch die verwendeten Patterns eine Struktur und läu
 
 Ein Pattern, welches im Verlauf der Arbeit eine wichtige Rolle eingenommen hat, ist das Null-Object Pattern.
 (\cite{nullObjectPattern}) Null hat den Nachteil, dass alle Funktionsaufrufe darauf zu Fehlern führen.
-Das Null-Object besteht aus vordefinierten Default-Werten und besitzt für alle Funktionen eine \emph{Do-Nothing}-Implementation.
+Das Null-Object besteht aus vordefinierten Default-Werten und besitzt Do-Nothing-Implementationen für alle Funktionen.
 Durch die Verwendung dieses speziellen Objekts entfällt eine ansonsten notwendige Nullwertprüfung.
 Zudem ist jedes erstellte Null-Object wertegleich.
 
@@ -361,19 +363,19 @@ const reset = () => {
 const nullOption = reset();
 \end{lstlisting}
 
-Mit dem Export der \texttt{nullOption} als einziges bleibt das \texttt{reset()} privat.
-Um die selbe Funktionalität wie die gewünschten Objekte zu bieten, erhält diese Konstante den Typ \texttt{Option}.
-Der Codeausschnitt \ref{code:nullOption} befindet sich in der Datei \texttt{optionsModel.js}.
+Hierbei muss nur die \emph{nullOption} selbst exportiert werden und das Reset bleibt \emph{private}.
+Um die selbe Funktionalität wie die gewünschten Objekte zu bieten, erhält diese Konstante den Typ \emph{Option}.
+Der Codeausschnitt \ref{code:nullOption} befindet sich in der Datei \emph{optionsModel.js}.
 Mehr zur File Aufteilung ist in den nächsten zwei Unterkapiteln zu lesen.
 
 \subsection{Projector Pattern}
 \label{sec:projectorPattern}
 
 (\cite{projectorPattern}) Das Projector Pattern basiert auf dem verbreiteten Model-View-Controll Pattern.
-Das Model verwaltet die dargestellten Daten.
+Das Model verwaltet die Daten, welche dargestellt werden sollen.
 Zudem enthält die Komponente des Patterns die Geschäftslogik und verarbeitet die Regeln und Anfragen für die Daten.
 Ein Controller generiert privat gehaltene Modelle.
-Dabei stellt dieser nur die notwendigen Funktionen zur Verfügung.
+Dabei werden nur die notwendigen Funktionen zur Verfügung gestellt.
 Diese Funktionen können Getter, Setter und Listener der observierten Modelle und Werte sein.
 Der Projektor bindet Daten-Modelle über den Controller an die View.
 Auf der anderen Seite wird die View an die Models gebunden, dies erneut durch die Verwendung des Controllers.
@@ -383,7 +385,7 @@ Die View ist passiv und hat keine Kenntnis über die anderen Komponenten.
 Dieses Pattern zeigte sich als eines der Wichtigsten für die Erstellung der neuen Komponente.
 In den folgenden Grafiken sind Models als Zylinder, Controller als schiefes Rechteck und Projectors als Oval dargestellt.
 Die Raute mit Option ist ein Daten-Typ, der über das gesamte Projekt seine Anwendung findet.
-Das \texttt{starter.js} beinhaltet alle Bestandteile, welche für eine Anwendung notwendig sind.
+Das \emph{starter.js} beinhaltet alle Bestandteile, welche für eine Anwendung benötigt werden.
 Das Puzzle wird im späteren Unterkapitel Decorator Pattern genauer beschrieben.
 Die erste Implementation, welche dieses Pattern verwendet, ist auf Abbildung \ref{img:DiagramSelectComponentOld}.
 
@@ -409,8 +411,8 @@ Die Implementation der dargestellten Diagramme resultiert aus einem Refactoring 
 Zum einen findet sich das Projector Pattern in einer einzelnen Spalte in der Options-Liste wieder.
 Pro Kolonne existiert eine Auswahl und eine Menge von Optionen.
 Diese beiden Bestandteile besitzen je ein eigenes Model und einen eigenen Controller.
-Der Projektor generiert eine gemeinsame View und bindet diese an die beiden Controller.
-Bei einer Anwendung übernimmt die \texttt{ColumnComponent} die Verwaltung gewisser Bausteine (Mehr dazu später).
+In diesem Fall generiert der Projektor eine gemeinsame View mit Bindings zu den beiden Controllern.
+Bei einer Anwendung übernimmt die \emph{ColumnComponent} die Verwaltung gewisser Bausteine (Mehr dazu später).
 
 \begin{figure}[!htb]
     \centering
@@ -420,23 +422,23 @@ Bei einer Anwendung übernimmt die \texttt{ColumnComponent} die Verwaltung gewis
 \end{figure}
 
 Die Anwendungskomponente einer Column findet sich als Bestandteil des zweiten Projector Pattern wieder.
-Ein \texttt{SelectController} verwaltet eine bis mehrere \texttt{ColumnComponent}s als auch ein Element für die Tastaturnavigation.
-Die sogenannte Cursor Position verwendet im Hintergrund ebenfalls einen \texttt{SelectedOptionController}. 
-Dieser ist derselbe wie in der Abbildung \ref{img:DiagramColumnComponent} und findet hier eine Wiederverwendung.
+Ein \emph{SelectController} verwaltet eine bis mehrere \emph{ColumnComponent}s als auch ein Element für die Tastaturnavigation.
+Die sogenannte Cursor Position verwendet im Hintergrund ebenfalls einen \emph{SelectedOptionController}. 
+Dieser ist der selbe wie in der Abbildung \ref{img:DiagramColumnComponent} und findet hier eine Wiederverwendung.
 Um die Bindings zu definieren, greifen die einzelnen Projektoren auf den selben Controller zu.
 Der Master-Detail-Aufbau der neuen Komponente findet sich in der Aufteilung der Projektoren wieder.
 Der Detail-Baustein kümmert sich um die aktuelle Auswahl und das Eingabefeld.
 Die Master-Komponente verwaltet alle Spalten mit den Kategorie- und Werte-Optionen, sowie dessen Bindings.
-Eine weiteren Funktion ist die Einbettung der beiden Projektoren in eine gemeinsame View.
-Auch diese Projector Pattern Anwendung schliesst mit einer Component - der \texttt{SelectComponent} - ab.
-Mehr zu dieser und der \texttt{ColumnComponent} steht im nächsten Kapitel.
+In einer weiteren Funktion werden die beiden Projektoren zusammengeführt und in eine gemeinsame View eingebettet.
+Auch diese Projector Pattern Anwendung schliesst mit einer Component - der SelectComponent - ab.
+Mehr zu dieser und der Column-Component steht im nächsten Kapitel.
 
 
 \subsection{Decorator Pattern}
 \label{sec:decoratorPattern}
 
 (\cite{decoratorPattern}) Ein Decorator bietet zusätzliches Verhalten ohne das Originale Objekt zu verändern.
-Dabei lassem sich verschiedene Funktionen kombinieren.
+Zudem können verschiedene Funktionen kombiniert werden.
 Dieses Pattern ermöglicht die Erstellung eines modularen und anpassbaren Codes.
 In diesem Projekt unterstützt es die Gestaltung und Erweiterung der Auswahlkomponente.
 
@@ -460,9 +462,9 @@ const SelectComponentByTableValues = (
 \end{lstlisting}
 
 Ein weiterer Einsatzort ist bereits in der Abbildung \ref{img:DiagramSelectComponent} aus dem Vorkapitel zu erahnen.
-Der rotbraune \texttt{SelectComponentByTableValue} in Code \ref{code:componentDecorator} dekoriert die \texttt{SelectComponentByCallback}.
+Der rotbraune \emph{SelectComponentByTableValue} in Code \ref{code:componentDecorator} dekoriert die \emph{SelectComponentByCallback}.
 Damit bietet die neue Komponente zwei verschiedene Möglichkeiten der Anwendung.
-Das nächste Kapitel geht genauer auf den Master-View-Bereich des \texttt{SelectProjector}s - Abbildung \ref{img:DiagramSelectComponent} - ein.
+Das nächste Kapitel geht genauer auf den Master-View-Bereich des \emph{SelectProjector}s - Abbildung \ref{img:DiagramSelectComponent} - ein.
 
 
 \section{Dropdown-Container}
@@ -473,7 +475,7 @@ Eine Möglichkeit ist, den Container als HTML-Dialog zu gestalten.
 Die vorhandenen Funktionen sind jedoch nicht für diese Komponente geeignet.
 Für den gewünschten Zweck erfordert das Dialog-Element noch einiges an benutzerdefinierter Anpassung.
 
-Eine weitere Variante ist, ein normales \texttt{div} als Options-Container zu verwenden.
+Eine weitere Variante ist, ein normales \emph{div} als Options-Container zu verwenden.
 Dies erfordert ebenfalls einen enormen Implementationsaufwand.
 Eine Andwendung dieses Ansatzes findet sich in der ersten Version der Komponente.
 Hierbei eröffnet sich das Problem von der Inkonsistenz zwischen UI und Controller.
@@ -491,10 +493,10 @@ Der Grundaufbau des Popover-Container ist im folgenden Code \ref{code:PopoverExa
 > </div>
 \end{lstlisting}
 
-Bei diesem Codeausschnitt ist wichtig, dass das Attribut \texttt{popover} den Wert \texttt{auto} erhält.
+Bei diesem Codeausschnitt ist wichtig, dass das Attribut \emph{popover} den Wert \emph{auto} erhält.
 Dies bewirkt, dass die Popover sich automatisch schliessen, wenn ein Klick ausserhalb des Container passiert.
-Das Öffnen und Schliessen des Dropdown-Elements kann über das \texttt{popovertarget}-Attribut mit der Popover-Id\footnotemark auf der Bedienkomponente gesteuert werden.
-\footnotetext{\texttt{id}-Attribut des Div-Containers mit dem Attribut \texttt{popover}}
+Das Öffnen und Schliessen des Dropdown-Elements kann über das \emph{popovertarget}-Attribut mit der Popover-Id\footnotemark auf der Bedienkomponente gesteuert werden.
+\footnotetext{\emph{id}-Attribut des Div-Containers mit dem Attribut \emph{popover}}
 Als Alternative dazu besteht die Möglichkeit, das Popover über JavaScript zu steuern.
 Hierbei besteht die Möglichkeit auf den Status und das Event des Togglens zuzugreifen.
 Diese Funktionalitäten erlauben den Controller konsistent zum UI zu halten.
@@ -543,18 +545,18 @@ const addAllOptions = (options) => {
 \end{lstlisting}
 
 Code \ref{code:PerformanceOptimization} ist eine Stelle, die diese Technik verwendet.
-Das Anzeigen eines Platzhalters mit einem Lade-Indikator an der Ursprungsstelle bewirkt, dass der Nutzer ein Feedback erhält.
+Hier wird ein Platzhalter mit einem Lade-Indikator an die Ursprungsstelle gesetzt, damit der Nutzer ein Feedback erhält.
 Sobald der SpaltenContainer abgekoppelt ist, lädt die Funktion die Optionen in den Shadow-DOM.
-Der Lade-Indikator der originalen Stelle im Renderbaum ersetzt sich nach Abschluss durch den Container mit den neuen Elementen. 
+Nach Abschluss wird der Container mit den neuen Elementen an die originale Stelle zurückersetzt.
 
-(\cite{efficientDomManipulation}) Weiter ist darauf achten, dass CSS-Klassen an Stelle von Inline-Styles ihre Verwendung finden.
+(\cite{efficientDomManipulation}) Weiter ist darauf achten, dass CSS-Klassen an Stelle von Inline-Styles verwendet werden sollten.
 Das Cachen von mehrfach verwendeten Selektoren verbessert die Effizienz des DOMs.
 Die Selektoren sollten hierarchisch möglichst flach und nicht verschachtelt sein.
-Wenn es die Situation erlaubt, ist es besser, nicht mit \texttt{innerHTML} zu arbeiten.
-In diesem Projekt ist es für die Anzeige der Label jedoch nötig \texttt{innerHTML} zu nutzen.
+Wenn es die Situation erlaubt, ist es besser, nicht mit \emph{innerHTML} zu arbeiten.
+In diesem Projekt ist es für die Anzeige der Label jedoch nötig \emph{innerHTML} zu nutzen.
 Dies liegt daran, dass ein Label auch ein Bild enthalten kann.
 Generell verwendet die neue Auswahlkomponente keine Inline-Styles.
-Die einzige Ausnahme betrifft das verborgene Eingabefeld. 
+Die einzigen Ausnahme betrifft das verborgene Eingabefeld. 
 Durch den Code \ref{code:InlineStyle} sind die Properties vor dem Überschreiben geschützt.
 
 \begin{lstlisting}[style = htmlcssjs, caption = Inline-Style für Inputfeld, label = code:InlineStyle]
@@ -583,7 +585,7 @@ Die folgenden zwei Bilder \ref{img:PerformanceTestBefore} und \ref{img:Performan
     \label{img:PerformanceTestBefore}
 \end{figure}
 
-Auf der Grafik \ref{img:PerformanceTestBefore} ist zu sehen, dass der Seitenaufbau der früheren Version sehr lange dauerte. % todo vergangenheit ok ?
+Auf der Grafik \ref{img:PerformanceTestBefore} ist zu sehen, dass der Seitenaufbau der früheren Version sehr lange dauerte.
 Dies bestätigen mehrere Feedbacks der Nutzer, später mehr dazu.
 
 \begin{figure}[!htb]
@@ -593,7 +595,7 @@ Dies bestätigen mehrere Feedbacks der Nutzer, später mehr dazu.
     \label{img:PerformanceTestAfter}
 \end{figure}
 
-Der Vergleich zwischen Abbildung \ref{img:PerformanceTestBefore} und \ref{img:PerformanceTestAfter} zeigt, dass die Seite um Faktor 13 besser ist.
+Der Vergleich zwischen Abbildung \ref{img:PerformanceTestBefore} und \ref{img:PerformanceTestAfter} zeigt, dass die Seite um einen Faktor 13 besser ist.
 Die oberen Grafik zeigt die Messung der Implementation, welche sehr viele Aktionen auf dem Renderbaum ausführt.
 Ein Refactoring führt zur Verschiebung dieser Arbeiten auf den Shadow-DOM.
 Dadurch verkürzt sich der Ladevorgang um vier bis fünf Sekunden.
