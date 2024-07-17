@@ -85,8 +85,8 @@ Beim UI und der Bedienung zeigen sich die Uneinigkeiten zwischen den Browser-Her
 Nachfolgend sind Informationen über den detaillierten Ablauf zur Anzeige eines HTML-Dokuments und die Rolle des Rendering dokumentiert.
 
 
-\subsection{Ablauf Parsing \& Rendering}
-\label{sec:parsingRendering}
+\subsection{Rendering-Prozess}
+\label{sec:structureRendering}
 
 Der Aufruf einer Webseite beginnt mit dem HTTP-Request auf welchen eine HTTP-Response folgt.
 In diesem Bericht sind die gerade genannten Teile vor dem eigentlichen erhalten der Daten nicht weiter wichtig.
@@ -94,7 +94,7 @@ Der Response liefert schlussendlich die anzuzeigenden Daten, welche in diesem Fa
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=100mm]{rendering-process.png}
+    \includegraphics[width=80mm]{rendering-process.png}
     \caption{Rendering Prozess}
     \label{img:RenderingProcess}
 \end{figure}

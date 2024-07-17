@@ -584,7 +584,7 @@ Diese Funktionalitäten erlauben den Controller konsistent zum UI zu halten.
 \label{sec:performance}
 
 Um eine gute Performance zu bieten, ist es notwendig den Aufbau-Prozess einer Webseite zu kennen.
-Dieser Ablauf ist im Kapitel \textbf{\nameref{chap:background}} unter \textbf{\nameref{sec:parsingRendering}} genau beschrieben.
+Dieser Ablauf ist im Kapitel \textbf{\nameref{chap:background}} unter \textbf{\nameref{sec:structureRendering}} genau beschrieben.
 Die folgende Abbildung \ref{img:RenderingProcessRecap} zeigt den Prozess nochmals im Überblick.
 
 \begin{figure}[!htb]
@@ -703,11 +703,10 @@ Auf der Abbildung \ref{img:automatedTests} ist zu sehen, dass eine breite Palett
     \label{img:automatedTests}
 \end{figure}
 
-Die ersten zwei Testbibliotheken kümmern sich um die Korrektheit von den Dateien \texttt{optionsModel.js} und \texttt{optionsController.js}. 
+Die ersten zwei Testbibliotheken kümmern sich um die Korrektheit von den in den Dateien \texttt{optionsModel.js} und \texttt{optionsController.js} enthalten Funktionalitäten. 
 Das erste File besteht aus den Typen \texttt{ValueOption} und \texttt{CategoryOption} und den Komponenten \texttt{OptionsModel} und \texttt{SelectedOptionModel}.
-Der 
-\texttt{OptionsController}
-\texttt{SelectedOptionController}
+Der \texttt{OptionsController} und der \texttt{SelectedOptionController} befinden sich in der zweiten genannten JS-Datei.
+Die sechs zuvor genannten Funktionalitäten befinden sich nach der Separation of Concern je in einer eingenen Test-Einheit.
 
 
 \subsection{User Tests} % todo
@@ -728,11 +727,6 @@ Der
 \section{Diskussion}
 \label{sec:discussion}
 
-% herausforderungen
-% komplexeste probleme
-% erfolge
-% unerwartete wendungen
-% entscheidungen, gründe => kein filter/ suche
 
 \section{Fazit}
 \label{sec:summeryNew}

@@ -32,9 +32,9 @@ Hierbei liegt der Fokus mehr auf der Interaktion mit den Komponenten als auf der
 
 Das \texttt{option}-Tag wird bei beiden Auswahlkomponenten - \texttt{datalist} und \texttt{select} - verwendet. 
 Die einzelnen Optionen wie in Code \ref{code:OptionExample} Zeile 1 besitzen ein \texttt{value}-Attribut und einen Inhalt - das Label.
-Alternativ kann das \texttt{label}-Attribut genutzt werden und der Value an die Stelle des Inhalts platziert werden.
+Alternativ ist das \texttt{label}-Attribut zu nutzen und dafür das Value an die Stelle des Inhalts zu platzieren.
 Diese Variante wird jedoch von Firefox nicht unterstützt.
-Werden \texttt{value} und \texttt{label} weggelassen, erhalten beide den Wert innerhalb des Tags.
+Das Weglassen von \texttt{value} und \texttt{label} führt dazu, dass beide den Wert innerhalb des Tags erhalten.
 Das HTML-Element kann das Attribut \texttt{disabled} oder \texttt{selected} erhalten.
 Eine \texttt{selected} Option wie in Code \ref{code:OptionExample} Zeile 2 wird initial ausgefüllt und funktioniert nur im Zusammenhang mit dem \texttt{select}-Container. 
 Bei einem \texttt{disabled} Element - wie in Code \ref{code:OptionExample} Zeile 3 - erscheint das UI ausgegraut.
@@ -137,7 +137,7 @@ Die \texttt{optgroup} besitzt die ARIA-Rolle einer Gruppe und wird von allen Bro
 \end{lstlisting}
 
 Wie in Code \ref{code:DatalistExample} ersichtlich besteht die Datalist aus zwei Teilen - einem Input-Feld und einem Daten-Container. 
-Im folgenden Unterkapitel \textbf{\nameref{sec:input}} wird detaillierter auf das Eingabefeld und dessen Typen eingegangen.
+Das folgende Unterkapitel \textbf{\nameref{sec:input}} beschreibt das Eingabefeld und dessen Typen im Detail.
 Die Datenliste besitzt keine speziellen eigenen Attribute.
 Von den globalen Attributen sollte jedoch zumindest eine \texttt{id} vergeben werden.
 Die Id dient zur Verknüpfung der Liste mit dem Input-Feld. 
@@ -180,7 +180,7 @@ Ist das Eingabefeld ausserhalb eines Formulars platziert, lässt sich das Attrib
 Im abgesendeten Formular dient die Eigenschaft \texttt{name} zur Identifizierung des Wertes im \texttt{value}-Attribut.
 Der Typ des Eingabefeldes - angegeben durch das \texttt{type} - definiert, welche UI-Erscheinung das Input im Browser erhält und welche Werte zulässig sind.
 Als Standard-Typ ist \texttt{text} definiert, wodurch dieses Attribut optional ist.
-Mehr zu den für diese Arbeit wichtigen Typen ist im Unterkapitel \textbf{\nameref{sec:inutTypesDatalist}} zu lesen.
+Mehr zu den für diese Arbeit wichtigen Typen ist im Unterkapitel \textbf{\nameref{sec:inputTypesDatalist}} zu lesen.
 Die \texttt{id} als globale Eigenschaft dient bei den Eingabefeldern zusätzlich noch zur Verknüpfung mit einem Label-Element und somit einer bessern Accessibility.
 
 Weiter existieren noch die zwei Attribute \texttt{readonly} und \texttt{required}, welche bei allen Typen ausser \texttt{range} und \texttt{color} definiert sind.
@@ -207,7 +207,7 @@ Die einzigen Ausnahmen beziehen sich auf die Typen \texttt{week} und \texttt{mon
 
 
 \subsubsection{{\color{dgray} Input-Typen mit Datalist-Unterstützung}}
-\label{sec:inutTypesDatalist}
+\label{sec:inputTypesDatalist}
 
 (\cite{datalistMdn}) Bei den textuellen Typen existieren \texttt{text}, \texttt{search}, \texttt{number}, \texttt{email}, \texttt{url} und \texttt{tel}.
 Diese Typen erscheinen als mehr oder weniger normales, einzeiliges Texteingabefeld.
