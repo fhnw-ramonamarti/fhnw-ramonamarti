@@ -2,8 +2,8 @@
     \tablesettings{Vergleich Interaktion Datalist \& Select in DuckDuckGo (Android, mobile)}
     \label{table:interactionDuckduckAndroid}
     \footnotesize
-    \begin{threeparttable}
-        \resizebox{\textwidth}{!}{
+    \begin{adjustbox}{max width=0.9\textwidth}
+        \begin{threeparttable}
             \begin{tabular}{ l || l | l | l }
                 \trrr{\bf{Kriterium}} & \bf{Datalist} & \bf{Select}   & \bf{Multiselect} \\
                 \cline{2-4}           & geschlossen   & geschlossen   & geschlossen \\
@@ -28,11 +28,11 @@
                 \cline{2-4} & \tbbr{\emph{Innen}: Wert wählen, \\ Liste schliessen \\ \emph{Aussen}: Liste schliessen} \ccgray & \tbbr{\emph{Innen}: Wert wählen, \\ Liste schliessen} \ccgray & \tbbr{\emph{Innen}: Wert \\ wählen / abwählen} \ccgray \\
                 \hline 
             \end{tabular}
-        }
-        \begin{tablenotes}
-            \scriptsize
-            \item[1] Filter: Leerschlag als normales Symbol gezählt; Liste verändern je nach Anzahl passender Werte; nicht scrollbar
-            \item[2] Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
-        \end{tablenotes}
-    \end{threeparttable}
+            \begin{tablenotes}
+                \scriptsize
+                \item[1] Filter: Leerschlag als normales Symbol gezählt; Liste verändern je nach Anzahl passender Werte; nicht scrollbar
+                \item[2] Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
+            \end{tablenotes}
+        \end{threeparttable}
+    \end{adjustbox}
 \end{table}

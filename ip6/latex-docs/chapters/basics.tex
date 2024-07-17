@@ -1,10 +1,10 @@
 \chapter{Hintergrund}
 \label{chap:background}
 
-Um spätere Missverständnisse zu vermeiden, erklären diese Grundlagen das Basis-Verständnis einer Auswahlkomponente und grundlegendes zum Thema Browser.
-Im Zusammenhang mit der Auswahlkomponente muss klar sein, welche Zustände existieren.
-Um eine Basis für das Erstellen einer konsistenten Auswahlkomponente zu ermöglichen, zeigt der Browser-Abschnitt den Grund für die vorhandenen Unterschiede.
-Zudem klärt eines dieser Unterkapitel den Ablauf des Rendern einer HTML-Seite und bietet ein besseres Verständnis für die Entwicklung der neuen Komponente.
+Die Grundlagen stellen ein gemeinsames Verständnis zur Auswahlkomponente her.
+Dazu zählen die Zustände, welche in diesem Zusammenhang auftreten können.
+Zudem behandelt es eine Basis zu den Themen Browser und Rendering. 
+Dieses Verständis ermöglicht es, eine neue, konsistente Komponente zu entwickeln.
 
 
 \section{Ausgangslage}
@@ -122,7 +122,7 @@ Das Dokument reserviert den Platz für das Element und dessen Inhalt.
 Der Browser zeigt diese an den zugewiesenen Positionen an.
 Extern nachgeladene Ressourcen wie Bilder können etwas länger dauern, weswegen die Seiten diese manchmal nicht vorladen.
 
-Stösst der HTML-Parser auf ein \texttt{script}-Tag, stoppt dieser den Prozess des HTML-Parsen bis das Script fertig ausgeführt ist - ausser das Tag enthält das \texttt{async}-Attribut.
+Stösst der HTML-Parser auf ein \texttt{script}-Tag, stoppt dieser den Prozess des HTML-Parsen bis das Script fertig ausgeführt ist - ausser das Element enthält das \texttt{async}-Attribut.
 Dies dient der Sicherheit, weil JavaScript den DOM als auch CSSOM ändern kann und der Browser nicht weiss, was passieren wird.
 Deswegen spielt es eine Rolle, zu welchem Zeitpunkt das Script eingebunden ist - egal ob intern oder extern. 
 Während der Ausführung des Scripts führt der Browser den Prozess des CSSOM weiter fort.

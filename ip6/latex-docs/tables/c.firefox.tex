@@ -2,8 +2,8 @@
     \tablesettings{Vergleich Interaktion Datalist \& Select in Firefox (Mac / Windows)}
     \label{table:interactionFirefox}
     \footnotesize
-    \begin{threeparttable}
-        \resizebox{\textwidth}{!}{
+    \begin{adjustbox}{max width=\textwidth}
+        \begin{threeparttable}
             \begin{tabular}{ l || l | l | l }
                 \trrr{\bf{Kriterium}} & \bf{Datalist} & \bf{Select}   & \trrr{\bf{Multiselect}} \\
                 \cline{2-3}           & geschlossen   & geschlossen   &  \\
@@ -55,15 +55,15 @@
                 \cline{2-3}                     & Redo im Input \ccgray & - \ccgray & \\
                 \hline
             \end{tabular}
-        }
-        \begin{tablenotes}
-            \scriptsize
-            \item[1] Blinkender Strich in einem Eingabefeld
-            \item[2] Filter: Leerschlag als normales Symbol gezählt; 
-                            Liste verändern je nach Anzahl passender Werte
-            \item[3] Suche: Erster zu der Eingabe passender Wert aus der Liste, wenn Eingabe nicht passend $\Rightarrow$ letzter noch übereinstimmender Wert; 
-                            Liste unverändert; nach Pause / Debounce-Ablauf $\Rightarrow$ neue Suche
-            \item[4] Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
-        \end{tablenotes}
-    \end{threeparttable}
+            \begin{tablenotes}
+                \scriptsize
+                \item[1] Blinkender Strich in einem Eingabefeld
+                \item[2] Filter: Leerschlag als normales Symbol gezählt; 
+                                Liste verändern je nach Anzahl passender Werte
+                \item[3] Suche: Erster zu der Eingabe passender Wert aus der Liste, wenn Eingabe nicht passend $\Rightarrow$ letzter noch übereinstimmender Wert; 
+                                Liste unverändert; nach Pause / Debounce-Ablauf $\Rightarrow$ neue Suche
+                \item[4] Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
+            \end{tablenotes}
+        \end{threeparttable}
+    \end{adjustbox}
 \end{table}

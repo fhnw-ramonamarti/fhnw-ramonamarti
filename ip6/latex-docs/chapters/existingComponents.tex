@@ -24,17 +24,18 @@ Hierbei liegt der Fokus mehr auf der Interaktion mit den Komponenten als auf der
 \subsection{Option}
 \label{sec:option}
 
-\begin{lstlisting}[style = htmlcssjs, caption = Option Example, label = code:OptionExample]
-<option value="ValueToSend">LabelToShow</option>
-<option value="DefaultValue" selected>DefaultLabel</option>
-<option value="Value" disabled>DisabledLabel</option>
-\end{lstlisting}
-
-Das \texttt{option}-Tag wird bei beiden Auswahlkomponenten - \texttt{datalist} und \texttt{select} - verwendet. 
+Das \texttt{option}-Element wird bei beiden Auswahlkomponenten - \texttt{datalist} und \texttt{select} - verwendet. 
 Die einzelnen Optionen wie in Code \ref{code:OptionExample} Zeile 1 besitzen ein \texttt{value}-Attribut und einen Inhalt - das Label.
 Alternativ ist das \texttt{label}-Attribut zu nutzen und dafür das Value an die Stelle des Inhalts zu platzieren.
-Diese Variante wird jedoch von Firefox nicht unterstützt.
-Das Weglassen von \texttt{value} und \texttt{label} führt dazu, dass beide den Wert innerhalb des Tags erhalten.
+Firefox unterstützt diese Variante jedoch nicht.
+Das Weglassen des \texttt{value}- und \texttt{label}-Attributes führt dazu, dass beide den Wert innerhalb des öffnenden und schliessenden Tags erhalten.
+
+\begin{lstlisting}[style = htmlcssjs, caption = Option Example, label = code:OptionExample]
+<option value="dog"         > Dog   </option>
+<option label="Cat" selected> cat   </option>
+<option             disabled> Mouse </option>
+\end{lstlisting}    
+
 Das HTML-Element kann das Attribut \texttt{disabled} oder \texttt{selected} erhalten.
 Eine \texttt{selected} Option wie in Code \ref{code:OptionExample} Zeile 2 wird initial ausgefüllt und funktioniert nur im Zusammenhang mit dem \texttt{select}-Container. 
 Bei einem \texttt{disabled} Element - wie in Code \ref{code:OptionExample} Zeile 3 - erscheint das UI ausgegraut.
@@ -43,26 +44,26 @@ Dieser Eintrag lässt keine Interaktion zu.
 (\cite{optionMdn}) Das Designen von \texttt{option}s beschränkt sich auf die Text- / Hintergrundfarbe, welche jedoch nur in Firefox funktionieren. 
 Die anderen Browser lassen kein Styling der Auswahl-Elemente zu bzw. zeigen diese nicht an.
 Es ist nur ein skalarer Text als Inhalt erlaubt. 
-Das bedeutet, es können keine weiteren Tags verschachtelt werden.
+Das bedeutet, es können keine weiteren Elemente verschachtelt werden.
 Als Eltern-Elemente sind \texttt{select}, \texttt{optgroup} und \texttt{datalist} erlaubt.
-Alle gängigen Browser unterstützen dieses Tag.
-
+Alle gängigen Browser unterstützen dieses Element.
 
 
 \subsection{Select}
 \label{sec:select}
 
-\begin{lstlisting}[style = htmlcssjs, caption = Select Example, label = code:SelectExample]
+Das \texttt{select}-Element speichert Werte durch die einzelnen \texttt{option}-Kinder.
+Eine möglich Anwendung ist in Code \ref{code:SelectExample} ersichtlich.
+
+\begin{lstlisting}[style = htmlcssjs, caption = Disabled Select Example, label = code:SelectExample]
 <select name="animal">
-    <option value="" disabled>Animal</option>
-    <option value="dog">Dog</option>
-    <option value="cat">Cat</option>
-    <option value="mouse">Mouse</option>
+    <option value="dog"  > Dog   </option>
+    <option value="cat"  > Cat   </option>
+    <option value="mouse"> Mouse </option>
 </select>
 \end{lstlisting}
 
-Um den Wert zu speichern, benötigt das \texttt{select}-Tag ausser \texttt{option}s keine weiteren Elemente – ersichtlich im Code \ref{code:SelectExample}.
-Die typischen Attribute für Eingabefelder wie \texttt{disabled}, \texttt{form}, \texttt{name} und \texttt{required} sind auch bei einem Select verwendbar.
+Die typischen Attribute für Eingabefelder wie \texttt{disabled}, \texttt{form}, \texttt{name} und \texttt{required} sind bei einem Select ebenfalls verwendbar.
 Durch das \texttt{disabled} zeigt sich das Element in einer ausgegrauten Erscheinung und bietet dem Nutzer keine Interaktionsmöglichkeiten mehr.
 Dieses Attribut kann vom Container - z.B. \texttt{fieldset} - geerbt werden.
 Die \texttt{form}-Eigenschaft definiert das dazugehörige Formular und \texttt{name} den Key für das Key-Value Paar bzw. Name des Feldes im Formular. 
@@ -76,7 +77,7 @@ Das \texttt{autocomplete} funktioniert wie bei anderen Inputs, indem Vorschläge
 Durch die \texttt{autofocus}-Eigenschaft sind Interaktionen mit dem Feld direkt nach dem Laden möglich.
 Die Definition des \texttt{size}-Attributs steuert die Anzahl sichtbarer Elemente, wobei der Default für Single-Selects bei eins und mehrfache Auswahl bei vier liegt.
 Ausser von dem \texttt{size}-Attribut erhält das Select von allen anderen in allen Browsern Unterstützung.
-Die Grösse wird von den meisten Mobile-Browsern nicht supportet.
+Die meisten Mobile-Browser supporten die Grösse nicht.
 
 Abgesehen von der Grösse ist die Umgestaltung des Elements browserunabhängig kaum möglich.
 Es gibt jedoch aufwendige Wege, den Inhalt zu klonen und durch Wrapper neu zu stylen.
@@ -84,7 +85,7 @@ In diesem Fall müssen aber die Logik und die Interaktionen für die Accessibili
 Gewisse Stylings können getroffen werden, wobei aber nicht alle Browser diese in der selben Weise übernehmen.
 Durch die komplexe Struktur des Selects ist eine eigene Darstellung schwierig zu kontrollieren.
 
-(\cite{selectMdn}) Der Inhalt des Tags können \texttt{option}s oder \texttt{optgroup}s sein.
+(\cite{selectMdn}) Der Inhalt des Elements können \texttt{option}s oder \texttt{optgroup}s sein.
 Mehr zur \texttt{optgroup} kommt im nachfolgenden Unterkapitel.
 In der ARIA-Rolle wird die Komponente als Combobox (ohne \texttt{size} \& \texttt{multiple}) oder Listbox gehandhabt.
 
@@ -102,29 +103,37 @@ Daher gibt es keine Alternative als sie zuvor auszuschalten bzw. umszustellen.
 \subsubsection{\color{dgray} Optgroup}
 \label{sec:optgroup}
 
+Die \texttt{optgroup} dient als Zusatz-Element um in \texttt{select}s Optionen zu Gruppieren und mit einem Zwischentitel zu versehen.
+Der Titel lässt sich durch das \texttt{label}-Attribut - wie in Code \ref{code:OptgroupExample} - setzen, ist aber nicht selektierbar. 
+
 \begin{lstlisting}[style = htmlcssjs, caption = Optgroup Example, label = code:OptgroupExample]
 <select name="animal">
     <optgroup label="Big animal">
         <option value="dog">Dog</option>
         <option value="cat">Cat</option>
     </optgroup>
-    <optgroup label="Small animal">
+    <optgroup label="Small animal" disabled>
         <option value="mouse">Mouse</option>
         <option value="hamster">Hamster</option>
     </optgroup>
 </select>
 \end{lstlisting}
 
-Die \texttt{optgroup} dient als Zusatz-Element um in \texttt{select}s Optionen zu Gruppieren und mit einem Zwischentitel zu versehen.
-Der Titel lässt sich durch das \texttt{label}-Attribut setzen, ist aber nicht selektierbar. 
 Um ein ganzer Block von Auswahlmöglichkeiten auszugrauen, bietet sich das \texttt{disabled} an.
-Die Optionen, welche in diesem Tag enthalten sind, erben das Attribut.
-Als Inhalt dienen \texttt{option}-Elemente und selbst besitzt es als Eltern-Tag ein \texttt{select}.
+In Code \ref{code:OptgroupExample} ist dies auf Zeile 6 zu sehen.
+Die Optionen, welche in diesem Element enthalten sind, erben das Attribut.
+Als Inhalt dienen \texttt{option}-Elemente und selbst besitzt es als Eltern-Element ein \texttt{select}.
 Die \texttt{optgroup} besitzt die ARIA-Rolle einer Gruppe und wird von allen Browsern unterstützt.
 
 
 \subsection{Datalist}
 \label{sec:datalist}
+
+Wie in Code \ref{code:DatalistExample} ersichtlich besteht die Datalist aus zwei Teilen - einem Input-Feld und einem Daten-Container. 
+Die Datenliste besitzt keine speziellen eigenen Attribute.
+Von den globalen Attributen sollte jedoch zumindest eine \texttt{id} vergeben werden.
+Die Id dient zur Verknüpfung der Liste mit dem Input-Feld. 
+Das folgende Unterkapitel \textbf{\nameref{sec:input}} beschreibt das Eingabefeld und dessen Typen im Detail.
 
 \begin{lstlisting}[style = htmlcssjs, caption = Datalist Example, label = code:DatalistExample]
 <input type="text" name="animal" 
@@ -136,18 +145,12 @@ Die \texttt{optgroup} besitzt die ARIA-Rolle einer Gruppe und wird von allen Bro
 </datalist>
 \end{lstlisting}
 
-Wie in Code \ref{code:DatalistExample} ersichtlich besteht die Datalist aus zwei Teilen - einem Input-Feld und einem Daten-Container. 
-Das folgende Unterkapitel \textbf{\nameref{sec:input}} beschreibt das Eingabefeld und dessen Typen im Detail.
-Die Datenliste besitzt keine speziellen eigenen Attribute.
-Von den globalen Attributen sollte jedoch zumindest eine \texttt{id} vergeben werden.
-Die Id dient zur Verknüpfung der Liste mit dem Input-Feld. 
-
 (\cite{datalistMdn}) Das Stylen der \texttt{datalist} ist sehr begrenzt bzw. nicht möglich. 
 Der Daten-Container reagiert nicht auf den Zoom des Browsers.
-Gewisse Screenreader ignorieren die Vorschlagsliste und lesen diese somit nicht vor.
+Gewisse Screenreader ignorieren die Vorschlagsliste und lesen diese dadurch auch nicht vor.
 In der ARIA-Rolle wird das Element als Listbox interpretiert.
 
-Die \texttt{option}s einer \texttt{datalist} besitzen normalerweise nur ein \texttt{value}-Attribut und kein Label oder nur Inhalt.
+Die \texttt{option}s einer \texttt{datalist} besitzen normalerweise nur ein \texttt{value}-Attribut und kein Label.
 Bei einer zusätzlichen Label-Definition kann das je nach Browser zu abweichenden Darstellungen kommen. 
 Während Firefox nur das Label in der Liste anzeigt, werden in den anderen Browsern Label und Value gemeinsam visualisiert. 
 Die Browser, welche Label und Value anzeigen, heben den Wert ein wenig hervor.
@@ -169,7 +172,7 @@ Zusammengefasst bieten für Listen mit den unterschliedlichsten Typen Chromium-b
 \label{sec:input}
 
 Dieser Abschnitt behandelt nur den Teil, welcher im Bezug auf die \texttt{datalist} von Belang ist.
-Das Input - in Code \ref{code:DatalistExample} auf Zeile 1 - wird durch das \texttt{list}-Attribut mit den Auswahloptionen verknüpft.
+Das \texttt{list}-Attribut verknüpft das Input - in Code \ref{code:DatalistExample} auf Zeile 1 und 2 - mit den Auswahloptionen der Liste.
 Bei der Verwendung zusammen mit der \texttt{datalist} ist dieses Attribut Pflicht.
 Dadurch erscheinen die Auswahloptionen während der Bedienung des Input-Feldes. 
 
@@ -200,7 +203,7 @@ Gewisse Typen - wie z.B. \texttt{url}, \texttt{tel} und \texttt{email} - haben b
 Mit \texttt{size} lässt sich die Grösse bzw. Anzahl sichtbarer Zeichen angeben.
 Weitere Informationen zum Styling eines Input-Feldes stehen im Unterkapitel \textbf{\nameref{sec:inputCss}}.
 
-Das Input enthält keinen Inhalt und ist ein selbst-schliessendes Tag.
+Das Input enthält keinen Inhalt und schreibt sich als selbst-schliessendes Tag.
 Die ARIA-Rolle ist vom Typ abhängig und kann als Textbox, Combobox, Spinbutton, Slider, Searchbox, Telbox oder keiner speziellen Rolle zugeordent sein.
 In den hier erwähnten Möglichkeiten der Kompontente existiert eine grossflächige Browserunterstützung.
 Die einzigen Ausnahmen beziehen sich auf die Typen \texttt{week} und \texttt{month}, welche im Firefox und Safari nicht funktionieren.
@@ -303,6 +306,8 @@ Im Anschluss an die Gegenüberstellungen der diversen Browser weist das Kapitel 
 \subsection{Edge Browser}
 \label{sec:edgeBrowser}
 
+Die folgende Tabelle \ref{table:interactionEdge} zeigt den Vergleich der typischen Integrationen zwischen Datalist, Single- und Multiselect in Edge auf Windows.
+
 \import{../tables}{c.edge.tex}
 
 Auf Windows verhält sich Edge sehr ähnlich wie Chrome, da die Codebasis beider Browser Chromium ist.
@@ -311,6 +316,9 @@ Auf Windows verhält sich Edge sehr ähnlich wie Chrome, da die Codebasis beider
 \clearpage
 \subsection{Chrome Browser}
 \label{sec:chromeBrowser}
+
+Die Gegenüberstellung \ref{table:interactionChrome} beschreibt die bekannten Bedienungsmöglichkeiten der drei existierenden Auswahlkomponenten in Chrome.
+Dabei spielt das System (Windows oder Mac) nur bei der Aktion auf der Tastenkombination und nicht bei der Reaktion eine Rolle.
 
 \import{../tables}{c.chrome.tex}
 
@@ -321,6 +329,8 @@ Auf dem Mac verhält sich Chrome ähnlich wie auf Windows, jedoch können sich D
 \subsection{Firefox Browser}
 \label{sec:firefoxBrowser}
 
+Die nachfolgende Aufstellung \ref{table:interactionFirefox} zeigt die Reaktionen auf geweisse Benutzerinteraktion in Firefox.
+
 \import{../tables}{c.firefox.tex}
 
 Wie auch auf Windows zeigt Firefox auf dem Mac konsistentes Verhalten, jedoch mit typischen OSX Designanpassungen. 
@@ -330,6 +340,8 @@ Die Interaktions-Feedbacks auf Mac können sich leicht von der Windows-Version u
 \clearpage
 \subsection{Safari Browser}
 \label{sec:safariBrowser}
+
+Die Tabelle \ref{table:interactionSafari} stellt die Interaktion der Datalist die der beiden Selects in Safari auf Mac einander gegenüber.
 
 \import{../tables}{c.safari.tex}
 
@@ -342,11 +354,11 @@ Das Select zeigt die grössten Unterschiede im UI.
 \subsection{Browser auf Android \& iOS}
 \label{sec:mobileBrowser}
 
-\import{../tables}{c.firefox.android.tex}
-\import{../tables}{c.duckduck.android.tex}
-
 Der Vergleich der Tabellen \ref{table:interactionFirefoxAndroid} und \ref{table:interactionDuckduckAndroid} zeigt, dass auf dem selben Android-Gerät Abweichungen existieren.
 Nicht alle Bedienungsmöglichkeiten führen zur selblen Reaktion.
+
+\import{../tables}{c.firefox.android.tex}
+\import{../tables}{c.duckduck.android.tex}
 
 \clearpage
 \import{../tables}{c.safari.ios.tex}

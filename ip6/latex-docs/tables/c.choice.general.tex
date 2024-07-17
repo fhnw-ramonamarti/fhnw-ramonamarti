@@ -3,12 +3,11 @@
     \label{table:generalComparing}
     \rowcolors{2}{white}{gray!20}
     \footnotesize
-    % \scalebox{0.8}{
-    \begin{threeparttable}
-        \resizebox{\textwidth}{!}{
+    \begin{adjustbox}{max width=\textwidth}
+        \begin{threeparttable}
             \begin{tabular}{ l || c | c | c | c }
                 Kriterium & Buttons & Select & List & Country Input \\
-                \hline % column for new goal input
+                \hline
                 \hline
                 \tbbr{Optimale \\ Anzahl Elemente} & 1 – 3 & 7 ± 2 & 70 ± 20 & ca. 250 \\
                 \hline
@@ -32,12 +31,11 @@
                 \hline
                 Anwendung & \tbbr{Navigationslink, \\ Formularbuttons} & \tbbr{Formularfeld \\ mit begrenzter \\ Auswahl} & \tbbr{Filterbare Liste, \\ Suchergebnis} & \tbbr{Länderauswahl \\ im Formular} \\
             \end{tabular}
-        }
-        \begin{tablenotes}
-            \scriptsize
-            \item[1] Filter: Liste verändern je nach Anzahl passender Werte
-            \item[2] Suche: Liste unverändert; Erster zu der Eingabe passender Wert aus der Liste     
-        \end{tablenotes}
-    \end{threeparttable}
-    % }
+            \begin{tablenotes}
+                \scriptsize
+                \item[1] Filter: Liste verändern je nach Anzahl passender Werte
+                \item[2] Suche: Liste unverändert; Erster zu der Eingabe passender Wert aus der Liste     
+            \end{tablenotes}
+        \end{threeparttable}
+    \end{adjustbox}
 \end{table}

@@ -273,8 +273,8 @@ Diese Kombination von CSS und JavaScript bietet dem Highlighting und der Auswahl
 \subsection{Optionen und Scrollbar-Styling}
 \label{sec:sizeLayoutChanges}
 
-Diese CSS-Regeln gestalten die Optionen innerhalb einer Spalte und das Scroll-Verhalten der Optionsliste. 
-\texttt{.options-column} aus Code \ref{code:optionStyling} definiert das Layout und die Scroll-Eigenschaften, 
+Diese CSS-Regeln gestalten die Optionen einer einzelnen Spalte sowie das Scroll-Verhalten des Containers. 
+\texttt{.options-column} aus Code \ref{code:optionStyling} definiert das Layout und weitere Optionsliste-abhängige Eigenschaften, 
 während \texttt{.option-item} das Erscheinungsbild und die Interaktivität der einzelnen Optionen festlegt.
 
 \begin{lstlisting}[style = htmlcssjs, caption = Optionen und Scrollbar-Styling, label = code:optionStyling]
@@ -327,7 +327,7 @@ const projectOption = (selectedOptionController, option, optionType, cursorPosit
 }; 
 \end{lstlisting}
 
-Diese JavaScript-Funktionen erstellen HTML-Elemente und fügen die zuvor definierten CSS-Klassen hinzu, um das Styling und die Funktionalität sicherzustellen. 
+Dieser JavaScript Code erstellt die HTML-Elemente und ergänzt die CSS-Klassen, um das Styling und die Funktionalität sicherzustellen. 
 Das \texttt{selectProjector.js} erstellt und gestylt den Popover-Container, während das \texttt{columnOptionsProjector.js} die einzelnen Options-Elemente gestaltet.
 Diese Kombination aus CSS und JavaScript stellt sicher, dass die Dropdown- und Popover-Komponenten korrekt angezeigt und interaktiv sind.
 
@@ -539,8 +539,8 @@ const SelectComponentByTableValues = (
 };
 \end{lstlisting}
 
-Ein weiterer Einsatzort ist bereits in der Abbildung \ref{img:diagramSelectComponent} aus dem Vorkapitel zu erahnen. 
-Der rotbraune \texttt{SelectComponentByTableValue} in Code \ref{code:componentDecorator} dekoriert die \texttt{SelectComponentByCallback}.
+Ein weiterer Einsatzort ist in der Abbildung \ref{img:diagramSelectComponent} aus dem Vorkapitel zu sehen. 
+Der \texttt{SelectComponentByTableValue} in Code \ref{code:componentDecorator} dekoriert die \texttt{SelectComponentByCallback}.
 Damit bietet die neue Komponente zwei verschiedene Möglichkeiten der Anwendung.
 Das nächste Kapitel geht genauer auf den Master-View-Bereich des \texttt{SelectProjector}s - Abbildung \ref{img:diagramSelectComponent} - ein. 
 
@@ -703,8 +703,9 @@ Auf der Abbildung \ref{img:automatedTests} ist zu sehen, dass eine breite Palett
     \label{img:automatedTests}
 \end{figure}
 
-Die ersten zwei Testbibliotheken kümmern sich um die Korrektheit von den in den Dateien \texttt{optionsModel.js} und \texttt{optionsController.js} enthalten Funktionalitäten. 
-Das erste File besteht aus den Typen \texttt{ValueOption} und \texttt{CategoryOption} und den Komponenten \texttt{OptionsModel} und \texttt{SelectedOptionModel}.
+Die ersten zwei Test-Suits kümmern sich um die Korrektheit der Models und der Controller. 
+Das erste File besteht aus den Typen \texttt{ValueOption} und \texttt{CategoryOption}. 
+Dazu gesellen sich die Komponenten \texttt{OptionsModel} und \texttt{SelectedOptionModel}.
 Der \texttt{OptionsController} und der \texttt{SelectedOptionController} befinden sich in der zweiten genannten JS-Datei.
 Die sechs zuvor genannten Funktionalitäten befinden sich nach der Separation of Concern je in einer eingenen Test-Einheit.
 
@@ -722,10 +723,6 @@ Die sechs zuvor genannten Funktionalitäten befinden sich nach der Separation of
 \subsubsection{Formular-Ausfüller}
 \label{sec:userTestsEnduser}
 
-
-
-\section{Diskussion}
-\label{sec:discussion}
 
 
 \section{Fazit}

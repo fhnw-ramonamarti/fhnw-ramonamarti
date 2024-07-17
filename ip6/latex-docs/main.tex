@@ -1,30 +1,40 @@
 \documentclass[twoside]{report}
 
+% rule: label after caption declaration
+
 \makeatletter
 
-\usepackage[utf8x]{inputenc}
-\usepackage[english, ngerman]{babel}
-\usepackage[T1]{fontenc} % for coping umlaute in pdf
-\usepackage{csquotes}
-\usepackage[backend=biber,style=apa,sorting=ynt]{biblatex}
-\usepackage{graphicx}
-\usepackage{geometry}
-\usepackage{capt-of}
-\usepackage{pifont}
-\usepackage{import}
-\usepackage[table]{xcolor}
-\usepackage[referable]{threeparttablex}
-\usepackage{makecell}
-\usepackage{multirow}
-\usepackage{fancyhdr}
-\usepackage{pdfpages}
-\usepackage{pdflscape}
+% default packages
+\usepackage[utf8x]{inputenc} % latex encoding
+\usepackage[english, ngerman]{babel} % language support
+\usepackage[T1]{fontenc} % coping umlaute in pdf
 
-% label has to be after caption in code
-\usepackage{listings}
-\usepackage{caption}
-\usepackage{color}
-\usepackage[hidelinks]{hyperref} 
+% layout & design
+\usepackage{geometry} % page layout
+\usepackage{fancyhdr} % custom header footer on pages
+\usepackage{color} % colors font / background
+
+% references
+\usepackage{csquotes} % citing
+\usepackage[backend=biber,style=apa,sorting=ynt]{biblatex} % bibliography / sources
+\usepackage{pdflscape} % landscape pages
+\usepackage[hidelinks]{hyperref} % named references
+
+% external files
+\usepackage{import} % import latex in included files
+\usepackage{graphicx} % images / graphics
+\usepackage{pdfpages} % include pdf files
+
+% tables
+\usepackage{adjustbox} % scale down table
+\usepackage[table]{xcolor} % color table parts
+\usepackage[referable]{threeparttablex} % table with header & footer
+\usepackage{multirow} % multi line cells in table cell
+
+% special elements
+\usepackage{pifont} % special symbols
+\usepackage{listings} % listings (also code snippets)
+\usepackage{caption} % title in images 
 
 % define colors - start
 \definecolor{dgray}{rgb}{0.3, 0.3, 0.4}
@@ -59,8 +69,6 @@
 \renewcommand\lstlistingname{Code} % name of caption
 \renewcommand{\lstlistlistingname}{Codeverzeichnis} % name of listing
 % define list of codes - end
-
-\newgeometry{inner=5cm, outer=2.5cm, top=3cm, bottom=3cm}
 
 % define code styles - start
 \lstdefinelanguage{js}{
@@ -293,6 +301,8 @@
 }
 % define code styles - end
 
+\newgeometry{inner=5cm, outer=2.5cm, top=3cm, bottom=3cm}
+
 % page header and footer - start
 % \rightmark = sub heading, \leftmark = chapter
 \fancypagestyle{kolibri}{
@@ -342,7 +352,7 @@ Web UI Toolkit "Kolibri"\\ {\large Bachlor Thesis}}
 \makeatother
 
 \begin{document}
-\begin{sloppypar}
+% \begin{sloppypar}
 
 \pagestyle{empty}
 \maketitle
@@ -364,10 +374,10 @@ Web UI Toolkit "Kolibri"\\ {\large Bachlor Thesis}}
 
 \include{chapters/intro}
 \include{chapters/basics}
+
 % main chaapters here
 \include{chapters/existingComponents}
 \include{chapters/newComponent}
-
 \include{chapters/end}
 
 % listings
@@ -376,14 +386,12 @@ Web UI Toolkit "Kolibri"\\ {\large Bachlor Thesis}}
 \setcounter{biburllcpenalty}{9000}
 \printbibliography[title={Quelleverzeichnis}]
 
-
 \listoffigures
 \lstlistoflistings
 \listoftables
 
-% appendix
 \appendix
 \include{chapters/appendix}
 
-\end{sloppypar}
+% \end{sloppypar}
 \end{document}

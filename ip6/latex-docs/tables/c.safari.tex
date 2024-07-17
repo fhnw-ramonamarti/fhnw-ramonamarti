@@ -2,8 +2,8 @@
     \tablesettings{Vergleich Interaktion Datalist \& Select in Safari (Mac)}
     \label{table:interactionSafari}
     \footnotesize
-    \begin{threeparttable}
-        \resizebox{\textwidth}{!}{
+    \begin{adjustbox}{max width=\textwidth}
+        \begin{threeparttable}
             \begin{tabular}{ l || l | l | l }
                 \trrr{\bf{Kriterium}} & \bf{Datalist} & \bf{Select}   & \trrr{\bf{Multiselect}} \\
                 \cline{2-3}           & geschlossen   & geschlossen   &  \\
@@ -55,14 +55,14 @@
                 \cline{2-3}                              & Browser-Default\tnote{4} \ccgray & Browser-Default\tnote{4} \ccgray & \\
                 \hline 
             \end{tabular}
-        }
-        \begin{tablenotes}
-            \scriptsize
-            \item[1] Blinkender Strich in einem Eingabefeld
-            \item[2] Filter: Leerschlag als normales Symbol gezählt; Liste verändern je nach Anzahl passender Werte
-            \item[3] Suche: Erster zu der Eingabe passender Wert aus der Liste, wenn Eingabe nicht passend $\Rightarrow$ sortiert nachfolgender Wert; 
-                            Liste unverändert; nach Pause / Debounce-Ablauf $\Rightarrow$ neue Suche
-            \item[4] Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
-        \end{tablenotes}
-    \end{threeparttable}
+            \begin{tablenotes}
+                \scriptsize
+                \item[1] Blinkender Strich in einem Eingabefeld
+                \item[2] Filter: Leerschlag als normales Symbol gezählt; Liste verändern je nach Anzahl passender Werte
+                \item[3] Suche: Erster zu der Eingabe passender Wert aus der Liste, wenn Eingabe nicht passend $\Rightarrow$ sortiert nachfolgender Wert; 
+                                Liste unverändert; nach Pause / Debounce-Ablauf $\Rightarrow$ neue Suche
+                \item[4] Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
+            \end{tablenotes}
+        \end{threeparttable}
+    \end{adjustbox}
 \end{table}
