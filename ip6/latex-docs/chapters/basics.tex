@@ -69,7 +69,7 @@ Die letzten zwei Zustandswerte haben keinen Einfluss auf das versendete Formular
 Nachfolgend werden noch die Details zum Thema Browser geklärt.
 
 
-\section{Browser \& HTML Renderer}
+\section{Browser \& HTML Renderer} % todo shorten, only relevant, check references performance
 \label{sec:browserRenderer}
 
 Die wichtigsten Aspekte von der Theorie über die populären Browser bis hin zum Ablauf des Renderings sind hier aufgeführt.
@@ -85,7 +85,7 @@ Beim UI und der Bedienung zeigen sich die Uneinigkeiten zwischen den Browser-Her
 Nachfolgend sind Informationen über den detaillierten Ablauf zur Anzeige eines HTML-Dokuments und die Rolle des Rendering dokumentiert.
 
 
-\subsection{Rendering-Prozess}
+\subsection{Rendering-Prozess}  % todo shorten
 \label{sec:structureRendering}
 
 Der Aufruf einer Webseite beginnt mit dem HTTP-Request auf welchen eine HTTP-Response folgt.
@@ -99,7 +99,7 @@ Der Response liefert schlussendlich die anzuzeigenden Daten, welche in diesem Fa
     \label{img:RenderingProcess}
 \end{figure}
 
-Der Entwickler schreibt Zeichen in eine HTML-Datei (Abbildung \ref{img:RenderingProcess} links oben).
+Der Entwickler schreibt Zeichen in eine HTML-Datei.
 Der Parser verarbeitet die einzelnen Charakter weiter zu sogenannten Tokens.
 Hierbei kommt ein Satz von Regeln zur Anwendung, welche bei HTML als Tags in den Diamant-Klammern \texttt{<>} stehen.
 Durch die Definition der Struktur über die Tokens versteht der Browser den Inhalt der Dateien.
@@ -107,10 +107,10 @@ Die fertigen Tokens werden in Nodes umgewandelt, welche jeweils eigene Eigenscha
 Aus den entstandenen Nodes entsteht durch Verknüpfungen eine Baumstruktur - der DOM aus Abbildung \ref{img:RenderingProcess}.
 Das Document Object Model (DOM) beschreibt die Eltern-Kind- und Geschwister-Beziehung der Nodes.
 
-Wenn im HTML eine CSS-Datei (Abbildung \ref{img:RenderingProcess} links unten) verlinkt ist, muss dieses zuerst nachgefordert werden.
+Wenn im HTML eine CSS-Datei verlinkt ist, muss dieses zuerst nachgefordert werden.
 Nach Erhalt der Rohdaten der Style-Dateien parst der Browser diese zuerst in Charaktere und anschliessend in Tokens.
 Die Baumstruktur besteht auch hier aus den Tokens gebildeten Nodes. 
-Dieses Ergebnis nennt sich CSS Object Model (Abbildung \ref{img:RenderingProcess}) - kurz CSSOM - und enthält die Design-Informationen der Elemente.
+Dieses Ergebnis nennt sich CSS Object Model - kurz CSSOM - aus Abbildung \ref{img:RenderingProcess} und enthält die Design-Informationen der Elemente.
 
 Der DOM und der CSSOM sind unabhängig und der Browser kombiniert diese zu einem Renderbaum (Abbildung \ref{img:RenderingProcess} mittig).
 Der resultierende Baum repräsentiert nur sichtbare Elemente, wohingegen der DOM alle Elemente enthält.
@@ -132,7 +132,7 @@ Beim Script ist gut überlegt zu handeln, da der Zeitpunkt der Ausführung eine 
 Die verbreitetsten Browser der jeweilig aktuellsten Version mit dessen Rendering-Engines sind nachfolgend aufgeführt.
 
 
-\subsection{Bekannte Implementationen}
+\subsection{Bekannte Implementationen} % todo shorten, important first
 \label{sec:implementationsRenderer}
 
 (\cite{blinkRenderer}) Am populärsten mit ungefähr 65\% Marktanteil sind Browser auf der Chromium-Basis, welche mit dem HTML-Renderer Blink arbeiten. 
