@@ -586,9 +586,9 @@ Diese Funktionalitäten erlauben den Controller konsistent zum UI zu halten.
 \section{Performance}
 \label{sec:performance}
 
-Um eine gute Performance zu bieten, ist es notwendig den Aufbau-Prozess einer Webseite zu kennen.
+Um eine gute Performance zu bieten, ist es notwendig den Rendering Prozess einer Webseite zu kennen.
 Dieser Ablauf ist im Kapitel \textbf{\nameref{chap:background}} unter \textbf{\nameref{sec:structureRendering}} genau beschrieben.
-Die folgende Abbildung \ref{img:RenderingProcessRecap} zeigt den Prozess nochmals im Überblick.
+Die folgende Abbildung \ref{img:RenderingProcessRecap} zeigt die Kernelemente des Prozesses nochmals im Überblick.
 
 \begin{figure}[!htb]
     \centering
@@ -597,24 +597,22 @@ Die folgende Abbildung \ref{img:RenderingProcessRecap} zeigt den Prozess nochmal
     \label{img:RenderingProcessRecap}
 \end{figure}
 
-Hierbei ist ein wichtiger Punkt, dass der Browser den Renderbaum (in der Abbildung \ref{img:RenderingProcessRecap} rot) maximal 60 Mal pro Sekunde neu zeichnen kann.
-Daher müssen viele kleine Änderungen ausserhalb des Renderbaums - am besten in einem sogenannten Shadow-DOM - geschehen.
-Ein Shadow-DOM ist ein Teilbaum, welcher nicht im Renderbaum angehängt ist.
+Zur Auffrischung die wichtigesten Punkte nochmals: 
+Der Browser kann die Webseite maximal 60 Mal pro Sekunde neu zeichnen.
+Änderungen am DOM (Abbildung \ref{img:RenderingProcessRecap}) lösen das Rendern aus. 
+
+Deswegen müssen viele kleine Änderungen ausserhalb des Browser-DOMs\footnotemark \ - am besten in einem sogenannten Shadow-DOM - geschehen.
+\footnotetext{Im Renderbaum verwendeter und im Browser angezeigter DOM}
+Ein Shadow-DOM ist ein Teilbaum, welcher nicht am Browser-DOM angehängt ist.
 Um dies zu bewerkstelligen, ist es sinnvoll, die Änderungen nach dem Abhängen des Elternknotens zu vollziehen. 
-Nach den Änderungen kann der Teilbaum wieder an den gewünschten Ort platziert werden.
+Nach den Änderungen ist der Teilbaum wieder an den gewünschten Ort zu platzieren.
 
 \begin{lstlisting}[style = htmlcssjs, caption = Performance Optimierung (aus \texttt{columnOptionsComponent.js}), label = code:PerformanceOptimization]
 const addAllOptions = (options) => {
     const placeHolder = createHolder();
     columnView.replaceWith(placeHolder);
     if (options.length > 50) {
-        setTimeout(() => {
-            options.forEach((option) => {
-                optionsController.addOption(option);
-            });
-            updateScrollbar(columnView);
-            placeHolder.replaceWith(columnView);
-        }, 80);
+        // same work as else but async
     } else {
         options.forEach((option) => {
             optionsController.addOption(option);

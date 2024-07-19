@@ -69,7 +69,7 @@ Die letzten zwei Zustandswerte haben keinen Einfluss auf das versendete Formular
 Nachfolgend sind noch die Details zum Thema Browser erklärt.
 
 
-\section{Browser \& HTML Renderer} % todo shorten, only relevant, check references performance
+\section{Browser \& HTML Renderer}
 \label{sec:browserRenderer}
 
 Die wichtigsten Aspekte von der Theorie über die populären Browser bis hin zum Ablauf des Renderings sind hier aufgeführt.
@@ -85,7 +85,7 @@ Beim UI und der Bedienung zeigen sich die Uneinigkeiten zwischen den Browser-Her
 Nachfolgend sind Informationen über den detaillierten Ablauf zur Anzeige eines HTML-Dokuments und die Rolle des Rendering dokumentiert.
 
 
-\subsection{Rendering-Prozess}  % todo shorten
+\subsection{Rendering Prozess}
 \label{sec:structureRendering}
 
 Der Aufruf einer Webseite beginnt mit dem HTTP-Request auf welchen eine HTTP-Response folgt.
@@ -99,43 +99,36 @@ Der Response liefert schlussendlich die anzuzeigenden Daten, welche in diesem Fa
     \label{img:RenderingProcess}
 \end{figure}
 
-Der Entwickler schreibt Zeichen in eine HTML-Datei.
-Der Parser verarbeitet die einzelnen Charakter weiter zu sogenannten Tokens.
-Hierbei kommt ein Satz von Regeln zur Anwendung, welche bei HTML als Tags in den Diamant-Klammern \texttt{<>} stehen.
-Durch die Definition der Struktur über die Tokens versteht der Browser den Inhalt der Dateien.
-% todo werden
-Die fertigen Tokens werden in Nodes umgewandelt, welche jeweils eigene Eigenschaften besitzen können.
-Aus den entstandenen Nodes entsteht durch Verknüpfungen eine Baumstruktur - der DOM aus Abbildung \ref{img:RenderingProcess}.
-Das Document Object Model (DOM) beschreibt die Eltern-Kind- und Geschwister-Beziehung der Nodes.
+Der Browser verarbeitet die erhaltenen Daten im HTML-Format weiter.
+Mehreren Schritte wandeln die einzelnen HTML-Elementen in sogenannte Nodes um. 
+Aus den entstandenen Nodes entsteht durch Verknüpfungen eine Baumstruktur - der DOM.
+Das Document Object Model (DOM) (Abbildung \ref{img:RenderingProcess} links oben) beschreibt die Eltern-Kind- und Geschwister-Beziehung der Nodes.
+Der Prozess bis zum CSS Object Model (CSSOM) gestaltet sich relativ ähnlich, ist aber nicht weiter wichtig.
 
-% todo werden
-Wenn im HTML eine CSS-Datei verlinkt ist, muss dieses zuerst nachgefordert werden.
-Nach Erhalt der Rohdaten der Style-Dateien parst der Browser diese zuerst in Charaktere und anschliessend in Tokens.
-Die Baumstruktur besteht auch hier aus den Tokens gebildeten Nodes. 
-Dieses Ergebnis nennt sich CSS Object Model - kurz CSSOM - aus Abbildung \ref{img:RenderingProcess} und enthält die Design-Informationen der Elemente.
-
-Der DOM und der CSSOM sind unabhängig und der Browser kombiniert diese zu einem Renderbaum (Abbildung \ref{img:RenderingProcess} mittig).
+Der DOM und der CSSOM sind unabhängig von einander. 
+Der Browser kombiniert die beiden Bäume zu einem gemeinsamen Renderbaum (Abbildung \ref{img:RenderingProcess} rechts).
 Der resultierende Baum repräsentiert nur sichtbare Elemente, wohingegen der DOM alle Elemente enthält.
-Das Layout wird im Renderbaum ergänzt und berechnet die Position und Grösse der Elemente.
-% todo wird
+Der Renderbaum ist browserabhängig.
 
-% todo werden
-Der DOM als auch der CSSOM werden parallel zum jeweiligen Parsen gerendert.
-Das Rendering ist jeweils nur ein Schritt hinter dem Parser und verarbeitet dessen Resultate direkt weiter.
-Das Dokument reserviert den Platz für das Element und dessen Inhalt.
-Der Browser zeigt diese an den zugewiesenen Positionen an.
-Extern nachgeladene Ressourcen wie Bilder können etwas länger dauern, weswegen die Seiten diese manchmal nicht vorladen.
+Dieses Wissen ist wichtig für das spätere Kapitel \nameref{sec:performance}. 
+Der Grund ist, dass der Browser maximal 60 Mal pro Sekunde rendern kann.
+Jeder Änderung am Browser-DOM\footnotemark \ startet der komplette Rendering Prozess von vorne.
+\footnotetext{Im Renderbaum verwendeter und im Browser angezeigter DOM}
+Zu viele Änderungen am DOM führen dazu, dass der Nutzer länger warten muss, bis die Webseite geladen ist.
 
-Stösst der HTML-Parser auf ein \texttt{script}-Tag, stoppt dieser den Prozess des HTML-Parsen bis das Script fertig ausgeführt ist - ausser das Element enthält das \texttt{async}-Attribut.
-% todo wird
-Dies dient der Sicherheit, weil JavaScript den DOM als auch CSSOM ändern kann und der Browser nicht weiss, was passieren wird. 
-Deswegen spielt es eine Rolle, zu welchem Zeitpunkt das Script eingebunden ist - egal ob intern oder extern. 
-Während der Ausführung des Scripts führt der Browser den Prozess des CSSOM weiter fort.
+Gründe für ein erneutes Rendern\footnotemark :
+\footnotetext{\cite{browserRendering3}}
 
-% todo werden
-Zusammengefasst kann gesagt werden, dass das Parsen von HTML-Files ein Schritt vor dem Rendern ist und dasselbe gilt für CSS-Dateien. 
-Beim Script ist gut überlegt zu handeln, da der Zeitpunkt der Ausführung eine wichtige Rolle spielt.
-Die verbreitetsten Browser der jeweilig aktuellsten Version mit dessen Rendering-Engines sind nachfolgend aufgeführt.
+\begin{itemize}
+    \item Manipulation der Elemente des DOM
+    \item Änderungen von Inhalt (auch von Formularfeldern)
+    \item Änderungen in den CSS-Eigenschaften
+    \item Hinzufügen oder Entfernen von Stylesheets
+    \item Ändern des Attributs \texttt{class}
+    \item Grössenänderung des Browserfensters
+    \item Scrollen
+    \item Pseudo-Klassenaktivierung
+\end{itemize}
 
 
 \subsection{Bekannte Implementationen}
