@@ -421,8 +421,9 @@ Die Implementation erhält durch die verwendeten Patterns eine Struktur und läu
 \subsection{Null Object Pattern}
 \label{sec:nullPattern}
 
-Ein Pattern, welches im Verlauf der Arbeit eine wichtige Rolle eingenommen hat, ist das Null-Object Pattern.
-(\cite{nullObjectPattern}) Null hat den Nachteil, dass alle Funktionsaufrufe darauf zu Fehlern führen.
+Ein Pattern, welches im Verlauf der Arbeit eine wichtige Rolle eingenommen hat, ist das Null-Object Pattern\footnotemark.
+\footnotetext{\cite{nullObjectPattern}}
+Null hat den Nachteil, dass alle Funktionsaufrufe darauf zu Fehlern führen.
 Das Null-Object besteht aus vordefinierten Default-Werten und besitzt für alle Funktionen eine \emph{Do-Nothing}-Implementation.
 Durch die Verwendung dieses speziellen Objekts entfällt eine ansonsten notwendige Nullwertprüfung.
 Zudem ist jedes erstellte Null-Object wertegleich.
@@ -449,7 +450,8 @@ Mehr zur File Aufteilung ist in den nächsten zwei Unterkapiteln zu lesen.
 \subsection{Projector Pattern}
 \label{sec:projectorPattern}
 
-(\cite{projectorPattern}) Das Projector Pattern basiert auf dem verbreiteten Model-View-Controll Pattern.
+Das Projector Pattern\footnotemark \ basiert auf dem verbreiteten Model-View-Controll Pattern.
+\footnotetext{\cite{projectorPattern}}
 Das Model verwaltet die dargestellten Daten.
 Zudem enthält die Komponente des Patterns die Geschäftslogik und verarbeitet die Regeln und Anfragen für die Daten.
 Ein Controller generiert privat gehaltene Modelle.
@@ -515,7 +517,8 @@ Mehr zu dieser und der \texttt{ColumnComponent} steht im nächsten Kapitel.
 \subsection{Decorator Pattern}
 \label{sec:decoratorPattern}
 
-(\cite{decoratorPattern}) Ein Decorator bietet zusätzliches Verhalten ohne das Originale Objekt zu verändern.
+Ein Decorator\footnotemark \ bietet zusätzliches Verhalten ohne das Originale Objekt zu verändern.
+\footnotetext{\cite{decoratorPattern}}
 Dabei lassem sich verschiedene Funktionen kombinieren.
 Dieses Pattern ermöglicht die Erstellung eines modularen und anpassbaren Codes.
 In diesem Projekt unterstützt es die Gestaltung und Erweiterung der Auswahlkomponente.
@@ -627,7 +630,8 @@ Das Anzeigen eines Platzhalters mit einem Lade-Indikator an der Ursprungsstelle 
 Sobald der SpaltenContainer abgekoppelt ist, lädt die Funktion die Optionen in den Shadow-DOM.
 Der Lade-Indikator der originalen Stelle im Renderbaum ersetzt sich nach Abschluss durch den Container mit den neuen Elementen. 
 
-(\cite{efficientDomManipulation}) Weiter ist darauf achten, dass CSS-Klassen an Stelle von Inline-Styles ihre Verwendung finden.
+Weiter ist darauf achten, dass CSS-Klassen\footnotemark \ an Stelle von Inline-Styles ihre Verwendung finden.
+\footnotetext{\cite{efficientDomManipulation}}
 Das Cachen von mehrfach verwendeten Selektoren verbessert die Effizienz des DOMs.
 Die Selektoren sollten hierarchisch möglichst flach und nicht verschachtelt sein.
 Wenn es die Situation erlaubt, ist es besser, nicht mit \texttt{innerHTML} zu arbeiten.

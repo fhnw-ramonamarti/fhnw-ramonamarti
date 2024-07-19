@@ -3,7 +3,7 @@
 
 Die Grundlagen stellen ein gemeinsames Verständnis zur Auswahlkomponente her.
 Dazu zählen die Zustände, welche in diesem Zusammenhang auftreten können.
-Zudem behandelt es eine Basis zu den Themen Browser und Rendering. 
+Ausserdem behandelt es eine Basis zu den Themen Browser und Rendering. 
 Dieses Verständis ermöglicht es, eine neue, konsistente Komponente zu entwickeln.
 
 
@@ -135,21 +135,22 @@ Die verbreitetsten Browser der jeweilig aktuellsten Version mit dessen Rendering
 \subsection{Bekannte Implementationen} % todo shorten, important first
 \label{sec:implementationsRenderer}
 
-(\cite{blinkRenderer}) Am populärsten mit ungefähr 65\% Marktanteil sind Browser auf der Chromium-Basis, welche mit dem HTML-Renderer Blink arbeiten. 
-(\cite{chromiumBrowser}) Zu diesen Browser zählen Google Chrome, Brave, Microsoft Edge, Opera, Vivaldi, Samsung Internet und weitere.
-(\cite{blinkRenderer}) Blink ist eine Abspaltung der Rendering-Engine WebKit und wird von der Open Source Community Chromium, Google, Intel und Samsung entwickelt.
+Die neue Komponente soll in möglichst allen Browsern eine konsistente Erscheinung als auch Interaktion bieten.
+Durch die Erklärung aus Kapitel \nameref{sec:structureRendering} ist klar, dass die Renderer die Unterschiede im UI bewirken.
+Die Bedienungsabweichungen stammen grösstenteils vom zu Grunde liegenden Betriebssystem.
+Diese Erkenntnisse führen dazu, dass die neue Komponente auf Mac und Windows in den Browsern der jeweils geläufigsten Rendering-Implementationen zu testen ist.
+Zu den ausgewählten Webbrowser zählen Google Chrome, Firefox (Mac und Windows), Safari (nur Mac) und Edge (nur Windows).
+Die Begründung dazu folgt im nächsten Abschnitt.
 
-(\cite{webkitRenderer}) WebKit selbst findet sich weiterhin im OSX Webbrowser Safari wieder, welcher mit etwa 15\% Anteil vertreten ist.
-Der Renderer ist ein Fork von der KHTML-Engine und kommt von den Entwicklern Apple, Google, KDE, Nokia und weitere. 
-KHTML wird nicht mehr fortgeführt.
-
-(\cite{geckoRenderer}) Die restlichen Browser sind jeweils mit 7\% oder weniger vertreten.
-(\cite{mozillaBrowser}) Dazu zählen mozilla-basierte Browser wie Firefox, Tor oder Pale Moon, welcher das HTML mit Gecko oder einem Fork dessen renderen.
-(\cite{geckoRenderer}) Mozilla Foundation ist zuständig für die Weiterentwicklung dieser Rendering-Engine.
-(\cite{otherRenderer}) Weiter existiert der Internet Explorer, welcher mit Trident auf Windows und mit Tasman auf Mac rendern.
-Dieser Browser erhält keinen Support mehr und der Marktanteil sinkt immer weiter.
-Die Renderer als auch Forks werden nur noch Maintained, aber nicht mehr weiterentwickelt.
-
-Diese Informationen führen zur Entscheidung, dass die Implementationen der Komponente hauptsächlich auf Chrome, Safari und Firefox getestet werden.
-Die Auswahl der drei Browser decken den grössten Teil der auf dem Markt verwendeten Browser und Rendering-Engines ab.
-Dadurch kann eine browserübergreifende Konsistenz garantiert werden.
+Die populärsten Browser mit 65\% Marktabdeckung basieren auf der Chromium-Basis und verwenden alle den HTML-Renderer Blink\footnotemark.
+\footnotetext{\cite{blinkRenderer}}
+Die Entwickler dieser Rendering-Engine sind die Open Source Community Chromium, Google, Intel und Samsung.
+Zu den Verwendern\footnotemark \ von Blink zählen unter anderem Google Chrome, Brave, Microsoft Edge, Opera und Vivaldi.
+\footnotetext{\cite{chromiumBrowser}}
+WebKit\footnotemark \ – als der Vorgänger des geläufigsten Renderer – findet sich im OSX Webbrowser Safari wieder.
+\footnotetext{\cite{webkitRenderer}}
+Diese von Apple, Google, KDE und Nokia entwickelte Rendering-Engine deckt 15\% ab.
+Als bekannester Vertreter des Restes zählt Firefox\footnotemark \ sowie weitere mozilla-basierte Browser, welche die Webseiten mit Gecko renderen.
+\footnotetext{\cite{mozillaBrowser}}
+Es existieren noch weitaus mehr Renderer, welche aber eine sehr geringe Verbreitung aufweisen.
+Deswegen sind diese nicht weiter von Belang.
