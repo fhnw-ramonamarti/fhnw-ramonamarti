@@ -19,7 +19,7 @@ In diesem Projekt dient der in der Vorarbeit erstellte Fork als Ausgangslage.
 Ein Merge - des Branches \emph{experimental} dieses Forks und des \emph{Kolibri-16} der originalen Codebasis - stellt die Aktualität sicher.
 Das \texttt{SimpleInput} ist eines der Tools, welches sich bei der Implementation der neuen Auswahlkomponente als hilfreich erweisen kann.
 
-Der Zugriff auf das Designtool Figma ermöglicht das Verwenden des existierenden Designsystems und der bereits eingebundenen Elemente. 
+Der Zugriff auf das Tool Figma ermöglicht das Verwenden des existierenden Designsystems und der bereits eingebundenen Elemente. 
 Der Aufbau der Elemente als Komponenten vereinfacht die Wiederverwendung. 
 Das Ergänzen des Icon-Sets ist bei Bedarf erlaubt.
 
@@ -61,7 +61,7 @@ Stattdessen filtert die Kategorie-Selektion die Wert-Spalte.
 Durch das Hervorheben zeigt sich in der Liste aller Werte eine getätigte Auswahl an.
 In gewissen Situationen existiert noch der Zustand, dass in der Master-View ein Wert im \emph{Highlight} steht. 
 Bestätigt der Nutzer das \emph{Highlight} mit der Maus, wechselt der Status auf selektiert.
-Das Hovern kann der Highlight-Wert ändern. 
+Das Hovern kann den Highlight-Wert ändern. 
 Geschieht die Navigation durch die Werte mit der Tastatur, erhält genau ein Wert die \emph{Cursor Position}. 
 Durch das Betätigen gewisser vordefinierter Tasten ändert sich die \emph{Cursor Position}.
 Bei einer Bestätigung mit der Tastatur ändert sich der Wert der \emph{Cursor Position} auf selektiert.
@@ -75,21 +75,21 @@ Nachfolgend sind noch die Details zum Thema Browser erklärt.
 Die wichtigsten Aspekte von der Theorie über die populären Browser bis hin zum Ablauf des Renderings sind hier aufgeführt.
 Dabei sind nur die bekanntesten Implementationen von Belang.
 
-Ein Webbrowser dient hauptsächlich als Zugang ins Internet und zur Anzeige von Webressourcen wie HTML, CSS und JavaScript.
+Ein Webbrowser dient als Zugang ins Internet und zur Anzeige von Webressourcen wie HTML, CSS und JavaScript.
 Er besteht aus einer Benutzeroberfläche, einer Browser- und einer Rendering-Engine.
 Für eine verständliche Darstellung der Inhalte auf dem UI verwendet die Browser-Engine einen sogenannten Renderer - mehr dazu später.
 Die Benutzeroberfläche dient als Schnittstelle zwischen dem Benutzer und der Datenschicht. 
-Die Rendering-Engine interpretiert die gegebenen Inhalte, die Renderer anhand des Inhaltstyps wählt. 
+Die Rendering-Engine interpretiert die Inhalte anhand des vorgegebenen Inhaltstyps. 
 Einer der Engines ist der HTML-Renderer.
 Beim UI und der Bedienung zeigen sich die Uneinigkeiten zwischen den Browser-Herstellern, indem die Rendering-Engine den Code nicht gleich interpretiert.
-Nachfolgend sind Informationen über den detaillierten Ablauf zur Anzeige eines HTML-Dokuments und die Rolle des Rendering dokumentiert.
+Anschliessend sind Informationen über den detaillierten Ablauf zur Anzeige eines HTML-Dokuments und die Rolle des Rendering dokumentiert.
 
 
 \subsection{Rendering Prozess}
 \label{sec:structureRendering}
 
 Der Aufruf einer Webseite beginnt mit dem HTTP-Request auf welchen eine HTTP-Response folgt.
-In diesem Bericht sind die gerade genannten Teile vor dem eigentlichen erhalten der Daten nicht weiter wichtig.
+In diesem Bericht sind die gerade genannten Schritte vor dem eigentlichen erhalten der Daten nicht weiter wichtig.
 Der Response liefert schlussendlich die anzuzeigenden Daten, welche in diesem Fall die tragende Rolle spielen.
 
 \begin{figure}[!htb]
@@ -100,8 +100,8 @@ Der Response liefert schlussendlich die anzuzeigenden Daten, welche in diesem Fa
 \end{figure}
 
 Der Browser verarbeitet die erhaltenen Daten im HTML-Format weiter.
-Mehreren Schritte wandeln die einzelnen HTML-Elementen in sogenannte Nodes um. 
-Aus den entstandenen Nodes entsteht durch Verknüpfungen eine Baumstruktur - der DOM.
+Mehrere Schritte wandeln die einzelnen HTML-Elementen in sogenannte Nodes um. 
+Aus den resultierenden Nodes entsteht durch Verknüpfungen eine Baumstruktur - der DOM.
 Das Document Object Model (DOM) (Abbildung \ref{img:RenderingProcess} links oben) beschreibt die Eltern-Kind- und Geschwister-Beziehung der Nodes.
 Der Prozess bis zum CSS Object Model (CSSOM) gestaltet sich relativ ähnlich, ist aber nicht weiter wichtig.
 
@@ -112,7 +112,7 @@ Der Renderbaum ist browserabhängig.
 
 Dieses Wissen ist wichtig für das spätere Kapitel \nameref{sec:performance}. 
 Der Grund ist, dass der Browser maximal 60 Mal pro Sekunde rendern kann.
-Jeder Änderung am Browser-DOM\footnotemark \ startet der komplette Rendering Prozess von vorne.
+Jede Änderung am Browser-DOM\footnotemark \ startet den kompletten Rendering Prozess von vorne.
 \footnotetext{Im Renderbaum verwendeter und im Browser angezeigter DOM}
 Zu viele Änderungen am DOM führen dazu, dass der Nutzer länger warten muss, bis die Webseite geladen ist.
 
@@ -121,7 +121,7 @@ Gründe für ein erneutes Rendern\footnotemark :
 
 \begin{itemize}
     \item Manipulation der Elemente des DOM
-    \item Änderungen von Inhalt (auch von Formularfeldern)
+    \item Änderungen vom Inhalt (auch von Formularfeldern)
     \item Änderungen in den CSS-Eigenschaften
     \item Hinzufügen oder Entfernen von Stylesheets
     \item Ändern des Attributs \texttt{class}
@@ -146,7 +146,7 @@ Die populärsten Browser mit 65\% Marktabdeckung basieren auf der Chromium-Basis
 Die Entwickler dieser Rendering-Engine sind die Open Source Community Chromium, Google, Intel und Samsung.
 Zu den Verwendern\footnotemark \ von Blink zählen unter anderem Google Chrome, Brave, Microsoft Edge, Opera und Vivaldi.
 \footnotetext{\cite{chromiumBrowser}}
-WebKit\footnotemark \ – als der Vorgänger des geläufigsten Renderer – findet sich im OSX Webbrowser Safari wieder.
+WebKit\footnotemark \ – der Vorgänger des geläufigsten Renderer – findet sich im OSX Webbrowser Safari wieder.
 \footnotetext{\cite{webkitRenderer}}
 Diese von Apple, Google, KDE und Nokia entwickelte Rendering-Engine deckt 15\% ab.
 Als bekannester Vertreter des Restes zählt Firefox\footnotemark \ sowie weitere mozilla-basierte Browser, welche die Webseiten mit Gecko renderen.
