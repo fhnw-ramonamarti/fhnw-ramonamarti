@@ -78,9 +78,10 @@ Die Zuordnung der Designwahl zu den fehlenden Zuständen steht im Kapitel \textb
 \subsection{Figma-Prototypen}
 \label{sec:figmaPrototype}
 
-Zur Visualisierung und interaktiven Testing des Designs kommt Figma zum Einsatz. 
+Zur Visualisierung und zum interaktiven Testing des Designs kommt Figma zum Einsatz. 
 Figma ist ein webbasiertes Tool zur Erstellung von UI/UX-Designs, das Echtzeit-Kollaboration ermöglicht. 
-Um Feedback von Staskholdern und Nutzern zu sammeln und Iterationen vorzunehmen, ist es unabdingbar, im Vorfeld mit Figma schnell Prototypen zu erstellen und mit den Probanden zu teilen.
+Das Sammeln des Feedbacks von Staskholdern und Nutzern unterstützt eine effiziente Entwicklung.
+Dafür ist es unabdingbar, im Vorfeld mit Figma schnell Prototypen zu erstellen und mit den Probanden zu teilen.
 
 Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3} zeigen die in Figma erstellten Prototypen der Dropdown-Komponente:
 
@@ -109,9 +110,10 @@ Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3
 \subsection{Farbpalette und Kontrast}
 \label{sec:colorContrast}
 
-Während das Kolibri-Designsystem eine Vielzahl von Farben bietet, enthält der Figma-Prototyp spezifische Anpassungen, um sicherzustellen, dass die Dropdown-Komponente gut lesbar ist.
-Um eine bessere Nutzerfreundlichkeit zu erhalten, gestaltet sich die Farbauswahl (Abbildung \ref{img:designColors}) so, 
-dass sie hohen Kontrast bietet und somit die Barrierefreiheit der Anwendung verbessert.
+Kolibri-Designsystem bietet eine Vielzahl von Farben.
+Der Figma-Prototyp enthält spezifische Anpassungen, so dass die Dropdown-Komponente gut lesbar ist.
+Für den Erhalt einer besseren Nutzerfreundlichkeit gestaltet sich die Farbauswahl aus Abbildung \ref{img:designColors}.
+Diese bietet hohen Kontrast und verbessert somit die Barrierefreiheit der Anwendung.
 
 \begin{figure}[!htb]
     \centering
@@ -142,8 +144,8 @@ Der Code \ref{code:cssImports} zeigt die importierten CSS-Dateien, die als Grund
 \subsection{Layout und Typografie}
 \label{sec:layoutTypo}
 
-Um die in Figma entworfenen Designs umzusetzen, erhält die Dropdown-Komponente eigenes CSS.
-Nachfolgend (Codeausschnitt \ref{code:popoverStyle}) ist der relevante CSS-Code, der zur Gestaltung des Popover-Style und Options-Style verwendet wird:
+Die Umsetzung der Dropdown-Komponente des in Figma entworfenen Designs erhält eigenes CSS.
+Nachfolgender Codeausschnitt \ref{code:popoverStyle} zeigt den relevanten CSS-Code, bei der Gestaltung des Popover- und Option-Styles zur Verwendung kommt:
 
 % todo reduzieren auf wesentliche stellen \& beschreiben => .options-component[popover] inhalt weg kürzen?
 \begin{lstlisting}[style = htmlcssjs, caption = CSS für das Popover-Element, label = code:popoverStyle]
@@ -195,7 +197,8 @@ Die \texttt{@keyframes} regeln die Transformation, während \texttt{.options-com
 
 Die Dropdown-Komponente ist so gestaltet, dass sie sowohl für Maus- als auch Tastaturbenutzer optimal funktioniert. 
 Das Design der Interaktionen bietet eine intuitive und leicht zugängliche Bedienung der Komponente.
-Um die Benutzerführung zu erleichtern, erhalten die hervorgehobenen (highlighted) bzw. ausgewählten (selected) Optionen eine Kennzeichnung durch spezifische CSS-Klassen.
+Spezifische CSS-Klassen erleichtern die Benutzerführung.
+Sie definieren die Styles der hervorgehobenen (highlighted) bzw. ausgewählten (selected) Optionen.
 Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein aktuelles\footnotemark \ und selektiertes Element.
 \footnotetext{Element, welches sich unter der Cursor Position befindet}
 
@@ -221,7 +224,9 @@ Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein aktue
 }
 \end{lstlisting}
 
-\texttt{.cursor-position}: Definiert die Hervorhebung der Option, die gerade durch den Cursor fokussiert ist.Diese wird durch eine dunkle Farbe und eine Markierung links angezeigt.
+\texttt{.cursor-position}: Definiert die Hervorhebung der Option, die gerade durch den Cursor\footnotemark \ fokussiert ist.
+\footnotetext{Tastatur-Position-Anker (nicht Maus-Cursor)} % todo check over doc usage cursor
+Eine dunkle Farbe und eine linksseitige Markierung betonen das Element.
 \texttt{.selected}: Stellt die ausgewählte Option durch einen speziellen Hintergrund und abgerundete Ecken dar.
 
 Im \texttt{columnOptionsProjector.js} gibt es Event-Handler, die das Setzen und Entfernen der Highlighting-Klassen steuern:
@@ -382,23 +387,24 @@ Als Basis für den ersten Projektor der neuen Komponente ergeben sich aus den ob
 \clearpage
 \import{../tables}{d.newComponent.tex}
 
+% todo update with interaction in table
 Das Undo und das Redo auf der Komponente erhält im ersten Projektor keine spezielle Definition.
 Gewisse Verhaltensweisen finden sich im geschlossenen als auch offenen Zustand der Komponente wieder.
 Anders als bei den existierenden Komponenten, ist bei der Neuen die Leertaste neu belegt. 
-Ist die Liste bereits offen, wird der sich aktuell unter der Cursor Position befindliche Wert selektiert.
-Die Interaktionen können in weiteren Projektoren angepasst bzw. geändert werden.
+Ist die Liste bereits offen, selektiert diese Interaktion den sich aktuell unter der Cursor Position befindliche Wert.
+Andere Projektoren können eigene Interaktionen definieren.
 
 
 \section{Prinzipien \& Regeln}
 \label{sec:principleRules}
 
-Um stabilen und verständlichen Code zu garantieren, hält sich dieses Projekt an diverse Prinzipien.
+Diverse Prinzipien garantieren einen stabilen und verständlichen Code.
 Ein Ansatz ist, alle Objekte so immutable als möglich zu halten.
 Dadurch lassen sich unerwartete Änderungen verhindern.
 Weiter gilt es, die Bestandteile im KISS-Stil umzusetzen.
 Dazu zählt, dass die einzelnen Objekte und Funktionen möglichst privat zu gestalten sind.
 Die Bausteine sind kurz und übersichtlich aufzubauen.
-Zu diesem Zweck soll Separation of Concern eingesetzt werden, so dass jede Funktion nur eine Aufgabe zu erfüllen hat.
+Zu diesem Zweck soll Separation of Concern zum Einsatz kommen, so dass jede Funktion nur eine Aufgabe zu erfüllen hat.
 Damit der Code einfach und lesbar bleibt bzw. wird, gilt es, Entscheidungen zu treffen.
 Zu diesen Entschlüssen zählt das bewusste Weglassen von Funktionalität und somit auch Komplexität.
 
@@ -428,7 +434,7 @@ Das Null-Object besteht aus vordefinierten Default-Werten und besitzt für alle 
 Durch die Verwendung dieses speziellen Objekts entfällt eine ansonsten notwendige Nullwertprüfung.
 Zudem ist jedes erstellte Null-Object wertegleich.
 
-Um eine Selektion zurücksetzen zu können, muss diese Komponente eine Null-Option enthalten.
+Eine Null-Option ist notwendig, um eine Selektion zurücksetzen zu können. 
 Die Verwendung des Null-Objects findet sich an mehreren Stellen des Codes wieder.
 Die Definition der angewendeten Null-Option zeigt der nachfolgende Code.
 
@@ -442,8 +448,7 @@ const reset = () => {
 const nullOption = reset();
 \end{lstlisting}
 
-Mit dem Export der \texttt{nullOption} als einziges bleibt das \texttt{reset()} privat.
-Um die selbe Funktionalität wie die gewünschten Objekte zu bieten, erhält diese Konstante den Typ \texttt{Option}.
+Mit dem Erhalt des Typs \texttt{Option} bietet die Konstante die selbe Funktionalität wie die gewünschten Objekte. 
 Der Codeausschnitt \ref{code:nullOption} befindet sich in der Datei \texttt{optionsModel.js}.
 Mehr zur File Aufteilung ist in den nächsten zwei Unterkapiteln zu lesen.
 
@@ -458,7 +463,7 @@ Ein Controller generiert privat gehaltene Modelle.
 Dabei stellt dieser nur die notwendigen Funktionen zur Verfügung.
 Diese Funktionen können Getter, Setter und Listener der observierten Modelle und Werte sein.
 Der Projektor bindet Daten-Modelle über den Controller an die View.
-Auf der anderen Seite wird die View an die Models gebunden, dies erneut durch die Verwendung des Controllers.
+Auf der anderen Seite bindet sich die View an die Models.
 Aus den Bindings und den Daten generiert ein Projetor die passende View.
 Die View ist passiv und hat keine Kenntnis über die anderen Komponenten.
 
@@ -466,7 +471,7 @@ Dieses Pattern zeigte sich als eines der Wichtigsten für die Erstellung der neu
 In den folgenden Grafiken sind Models als Zylinder, Controller als schiefes Rechteck und Projectors als Oval dargestellt.
 Die Raute mit Option ist ein Daten-Typ, der über das gesamte Projekt seine Anwendung findet.
 Das \texttt{starter.js} beinhaltet alle Bestandteile, welche für eine Anwendung notwendig sind.
-Das Puzzle wird im späteren Unterkapitel Decorator Pattern genauer beschrieben.
+Eine genauere Beschreibung des Puzzles folgt im Unterkapitel \textbf{\nameref{sec:decoratorPattern}}.
 Die erste Implementation, welche dieses Pattern verwendet, ist auf Abbildung \ref{img:diagramSelectComponentOld}.
 
 \begin{figure}[!htb]
@@ -505,7 +510,7 @@ Die Anwendungskomponente einer Column findet sich als Bestandteil des zweiten Pr
 Ein \texttt{SelectController} verwaltet eine bis mehrere \texttt{ColumnComponent}s als auch ein Element für die Tastaturnavigation.
 Die sogenannte Cursor Position verwendet im Hintergrund ebenfalls einen \texttt{SelectedOptionController}. 
 Dieser ist derselbe wie in der Abbildung \ref{img:diagramColumnComponent} und findet hier eine Wiederverwendung.
-Um die Bindings zu definieren, greifen die einzelnen Projektoren auf den selben Controller zu.
+Für die Definition der Bindings greifen die einzelnen Projektoren auf den selben Controller zu.
 Der Master-Detail-Aufbau der neuen Komponente findet sich in der Aufteilung der Projektoren wieder.
 Der Detail-Baustein kümmert sich um die aktuelle Auswahl und das Eingabefeld.
 Die Master-Komponente verwaltet alle Spalten mit den Kategorie- und Werte-Optionen, sowie dessen Bindings.
@@ -551,7 +556,7 @@ Das nächste Kapitel geht genauer auf den Master-View-Bereich des \texttt{Select
 \section{Dropdown-Container}
 \label{sec:dropdownContainer}
 
-Um alle Optionen zu gegebener Zeit darzustellen, stehen verschiedene Varianten zur Auswahl.
+Für die Darstellung aller Optionen zu gegebener Zeit stehen verschiedene Varianten zur Auswahl.
 Eine Möglichkeit ist, den Container als HTML-Dialog zu gestalten.
 Die vorhandenen Funktionen sind jedoch nicht für diese Komponente geeignet.
 Für den gewünschten Zweck erfordert das Dialog-Element noch einiges an benutzerdefinierter Anpassung.
@@ -562,7 +567,8 @@ Eine Andwendung dieses Ansatzes findet sich in der ersten Version der Komponente
 Hierbei eröffnet sich das Problem von der Inkonsistenz zwischen UI und Controller.
 Zudem ist es möglich, dass unerwünscht mehrere Dropdown-Container gleichzeitig offen sind.
 
-Als dritte Möglichkeit bietet sich die Popover-API an, welche seit 2024 von allen gängigen Browser unterstützt wird.
+Als dritte Möglichkeit bietet sich die Popover-API an. 
+Seit 2024 unterstützen alle gängigen Browser diese Schnittstelle.
 Durch das Refactoring der Variante mit dem normalen Div-Container resultiert eine Version mit der Anwendung dieser API.
 Der Zusatzaufwand reduziert sich im Gegensatz zu den beiden oben erwähnten Container-Implementationen.
 Der Grundaufbau des Popover-Container ist im folgenden Code \ref{code:PopoverExample} dargestellt.
@@ -576,8 +582,8 @@ Der Grundaufbau des Popover-Container ist im folgenden Code \ref{code:PopoverExa
 
 Bei diesem Codeausschnitt ist wichtig, dass das Attribut \texttt{popover} den Wert \texttt{auto} erhält.
 Dies bewirkt, dass die Popover sich automatisch schliessen, wenn ein Klick ausserhalb des Container passiert.
-Das Öffnen und Schliessen des Dropdown-Elements kann über das \texttt{popovertarget}-Attribut mit der Popover-Id\footnotemark \ auf der Bedienkomponente gesteuert werden.
-\footnotetext{\texttt{id}-Attribut des Div-Containers mit dem Attribut \texttt{popover}}
+Das Öffnen und Schliessen des Dropdown-Elements lässt sich über das \texttt{popovertarget}-Attribut auf der Bedienkomponente steuern.
+Dieses Target enthält die \texttt{id} des Div-Containers mit dem Attribut \texttt{popover}. 
 Als Alternative dazu besteht die Möglichkeit, das Popover über JavaScript zu steuern.
 Hierbei besteht die Möglichkeit auf den Status und das Event des Togglens zuzugreifen.
 Diese Funktionalitäten erlauben den Controller konsistent zum UI zu halten.
@@ -586,7 +592,7 @@ Diese Funktionalitäten erlauben den Controller konsistent zum UI zu halten.
 \section{Performance}
 \label{sec:performance}
 
-Um eine gute Performance zu bieten, ist es notwendig den Rendering Prozess einer Webseite zu kennen.
+Mit der Kenntnis des Rendering Prozesses einer Webseite lässt sich eine gute Performance umsetzen. 
 Dieser Ablauf ist im Kapitel \textbf{\nameref{chap:background}} unter \textbf{\nameref{sec:structureRendering}} genau beschrieben.
 Die folgende Abbildung \ref{img:RenderingProcessRecap} zeigt die Kernelemente des Prozesses nochmals im Überblick.
 
@@ -604,8 +610,8 @@ Der Browser kann die Webseite maximal 60 Mal pro Sekunde neu zeichnen.
 Deswegen müssen viele kleine Änderungen ausserhalb des Browser-DOMs\footnotemark \ - am besten in einem sogenannten Shadow-DOM - geschehen.
 \footnotetext{Im Renderbaum verwendeter und im Browser angezeigter DOM}
 Ein Shadow-DOM ist ein Teilbaum, welcher nicht am Browser-DOM angehängt ist.
-Um dies zu bewerkstelligen, ist es sinnvoll, die Änderungen nach dem Abhängen des Elternknotens zu vollziehen. 
-Nach den Änderungen ist der Teilbaum wieder an den gewünschten Ort zu platzieren.
+Für einen reibungslosen Ablauf ist es sinnvoll, die Änderungen nach dem Abhängen des Elternknotens zu vollziehen. 
+Nach den Änderungen ist der Teilbaum wieder an den gewünschten Ort einzuhängen.
 
 \begin{lstlisting}[style = htmlcssjs, caption = Performance Optimierung (aus \texttt{columnOptionsComponent.js}), label = code:PerformanceOptimization]
 const addAllOptions = (options) => {
@@ -685,7 +691,7 @@ Feedbacks zu den durchgeführten User-Tests mit Programmierern als auch Endnutze
 \section{Testing}
 \label{sec:testing}
 
-Um die Korrektheit der einzelnen Funktionen und Komponenten zu garantieren, existieren verschiedene Arten von Tests.
+Verschiedene Arten von Tests garanieren die Korrektheit der einzelnen Funktionen und Komponenten.
 Die automatisierten Code-Tests stellen sicher, dass das Aufrufen der gebotenen Funktionalität die gewünschen Änderungen ausführt.
 Komponenten, welche für die Erstellung des UI zusändig sind, prüfen die Existenz von Elementen als auch das Tiggern der Events.
 Die User Tests mit unterschiedlichen Personen gewährleisten eine gute Nutzerzufriedenheit als auch die intuitive Anwendung durch Programmierer.
