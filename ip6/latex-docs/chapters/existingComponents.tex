@@ -1,9 +1,8 @@
 \chapter{Existierende Auswahlkomponenten}
 \label{chap:existingComponents}
 
-
-Eine Gegenüberstellung die bereits vorhandenen Möglichkeiten zur Darstellung einer Optionsauswahl ist hier aufgeführt.
-Einer Auflistung der möglichen Funktionalitäten zeigt die Grenzen dieser Elemente auf.
+Hier ist eine Gegenüberstellung der bereits vorhandenen Möglichkeiten zur Darstellung einer Optionsauswahl aufgeführt.
+Eine Auflistung der möglichen Funktionalitäten zeigt die Grenzen dieser Elemente auf.
 Dabei spielen die UI- als auch die Interaktions-Unterschiede dieser Komponenten in verschiedenen Browsern eine tragende Rolle.
 
 Als Basis dieser Arbeit dient das Country Select.
@@ -79,7 +78,7 @@ Wenn jedoch bei einem Signle-Select mehrere Optionen das \texttt{selected}-Attri
 Das \texttt{autocomplete} funktioniert wie bei anderen Inputs, indem Vorschläge vom User-Agent-Feature auftauchen.
 Durch die \texttt{autofocus}-Eigenschaft sind Interaktionen mit dem Feld direkt nach dem Laden möglich.
 Die Definition des \texttt{size}-Attributs steuert die Anzahl sichtbarer Elemente, wobei der Default für Single-Selects bei eins und mehrfache Auswahl bei vier liegt.
-Die in Kapitel \nameref{sec:implementationsRenderer} definierten Browser unterstützen alle Attribute des Selects - ausser der \texttt{size}.
+Die in Kapitel \ref{sec:implementationsRenderer} definierten Browser unterstützen alle Attribute des Selects - ausser der \texttt{size}.
 Die meisten Mobile-Browser supporten die Grösse nicht.
 
 Abgesehen von der Grösse ist die Umgestaltung des Elements browserunabhängig kaum möglich.
@@ -123,18 +122,18 @@ Der Titel lässt sich durch das \texttt{label}-Attribut - wie in Code \ref{code:
 </select>
 \end{lstlisting}
 
-Das \texttt{disabled} ermöglicht das Ausgrauen es ganzen Blocks von Auswahloptionen.
+Das \texttt{disabled} ermöglicht das Ausgrauen eines ganzen Blocks von Auswahloptionen.
 In Code \ref{code:OptgroupExample} ist dies auf Zeile 6 zu sehen.
 Die Optionen, welche in diesem Element enthalten sind, erben das Attribut.
 Als Inhalt dienen \texttt{option}-Elemente und selbst besitzt es als Eltern-Element ein \texttt{select}.
 Die \texttt{optgroup} besitzt die ARIA-Rolle einer Gruppe.
-Allen Browser unterstützen dieses Element.
+Alle Browser unterstützen dieses Element.
 
 
 \subsection{Datalist}
 \label{sec:datalist}
 
-Wie in Code \ref{code:DatalistExample} ersichtlich besteht die Datalist aus zwei Teilen - einem Input-Feld und einem Daten-Container. 
+Wie in Code \ref{code:DatalistExample} ersichtlich besteht die Datalist aus zwei Elementen - einem Input-Feld und einem Daten-Container. 
 Die Datenliste besitzt keine speziellen eigenen Attribute.
 Das Element benötigt von den globalen Attributen zumindest eine \texttt{id}.
 Die Id dient zur Verknüpfung der Liste mit dem Input-Feld. 
@@ -211,7 +210,7 @@ Gewisse Typen - wie z.B. \texttt{url}, \texttt{tel} und \texttt{email} - haben b
 Mit \texttt{size} lässt sich die Grösse bzw. Anzahl sichtbarer Zeichen angeben.
 Weitere Informationen zum Styling eines Input-Feldes stehen im Unterkapitel \textbf{\nameref{sec:inputCss}}.
 
-Das Input enthält keinen Inhalt und schreibt sich als selbst-schliessendes Tag.
+Das Input besteht aus einem selbst-schliessenden Tag.
 Die ARIA-Rolle ist vom Typ abhängig und kann als Textbox, Combobox, Spinbutton, Slider, Searchbox, Telbox oder keiner speziellen Rolle zugeordent sein.
 In den hier erwähnten Möglichkeiten der Kompontente existiert eine grossflächige Browserunterstützung.
 Die einzigen Ausnahmen beziehen sich auf die Typen \texttt{week} und \texttt{month}, welche im Firefox und Safari nicht funktionieren.
@@ -222,7 +221,7 @@ Die einzigen Ausnahmen beziehen sich auf die Typen \texttt{week} und \texttt{mon
 
 Bei den textuellen Typen\footnotemark \ existieren \texttt{text}, \texttt{search}, \texttt{number}, \texttt{email}, \texttt{url} und \texttt{tel}.
 \footnotetext{\cite{datalistMdn}}
-Diese Typen erscheinen als mehr oder weniger normales, einzeiliges Texteingabefeld.
+Diese Typen erscheinen mehr oder weniger als normales, einzeiliges Texteingabefeld.
 Die ersten zwei der Auflistung verwalten einen Text ohne spezielle Anforderungen. 
 Der Typ \texttt{number} dient zum Speichern der Werte als Zahlen und zeigt dies durch die Ergänzung zweier Buttons im UI-Feld.
 Die letzten drei Typen sind Textfelder, welche bereits ein passendes Pattern für E-Mail, URL oder Telefonnummer hinterlegt haben.
@@ -244,7 +243,7 @@ Firefox beispielsweise greift auf die vom System gestellte Farbpalette zurück, 
 Bei einem Input\footnotemark \ bestehen mehrere Möglichkeiten dieses umzugestalten.
 \footnotetext{\cite{inputMdn}}
 
-Es existieren eigene CSS-Pseudo-Klassen, wobei die folgende Aufzählung nur ein Ausschnitt aufzeigt.
+Es existieren eigene CSS-Pseudo-Klassen, wobei die folgende Aufzählung nur einen Ausschnitt aufzeigt.
 
 \begin{itemize}
     \item \texttt{:enabled} bzw. \texttt{:disabled} - reagiert auf das \texttt{disabled}-Attribut
