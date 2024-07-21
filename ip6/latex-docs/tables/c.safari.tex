@@ -33,13 +33,13 @@
                 \trr{Tab}   & Input-Feld verlassen         & Input-Feld verlassen & \trr{-} \\
                 \cline{2-3} & Input-Feld verlassen \ccgray & - \ccgray            & \\
                 \hline
-                \trrr{\tbbr{PageUp / \\ PageDown \\ (fn \& $\uparrow$ / $\downarrow$)}} & Fenster scrollen         & Fenster scrollen                               & \trrr{\tbbr{Wert an nächster \\ $size - 1$ wählen \\ \scriptsize{(size = Attribut)}}} \\
+                \trrr{\tbbr{PageUp / \\ PageDown \\ (fn \& $\uparrow$ / $\downarrow$)}} & Fenster scrollen         & Fenster scrollen                               & \trrr{\tbbr{Wert an vorheriger / \\ nächster \emph{size\tnote{4}\  - 1} \\ Stelle wählen}} \\
                 \cline{2-3}                                                             & Fenster scrollen \ccgray & \tbbr{Erster / letzter \\ Wert wählen} \ccgray & \\
                 \hline
                 \trr{\tbbr{Home / End \\ (fn \& $\leftarrow$ / $\rightarrow$)}} & Fenster scrollen         & Fenster scrollen                               & \trr{\tbbr{Erster / letzter \\ Wert wählen}} \\
                 \cline{2-3}                                                     & Fenster scrollen \ccgray & \tbbr{Erster / letzter \\ Wert wählen} \ccgray & \\
                 \hline \hline
-                \trrrr{Scroll} & Browser-Default\tnote{4}                                                                                  & Browser-Default\tnote{4}                                                            & \trrrr{\tbbr{\emph{Innen}: Werte \\ bewegen ohne \\ Highlight / Wert \\ zu ändern}} \\
+                \trrrr{Scroll} & Browser-Default\tnote{5}                                                                                  & Browser-Default\tnote{5}                                                            & \trrrr{\tbbr{\emph{Innen}: Werte \\ bewegen ohne \\ Highlight / Wert \\ zu ändern}} \\
                 \cline{2-3}    & \tbbr{\emph{Aussen}: Liste schliessen \\ \emph{Innen}: Werte bewegen \\ ohne Highlight zu ändern} \ccgray & \tbbr{\emph{Aussen}: - \\ \emph{Innen}: Werte bewegen, \\ Highlight ändern} \ccgray & \\
                 \hline
                 \trr{Hover} & -         & -                        & \trr{-} \\
@@ -48,11 +48,11 @@
                 \trr{Click} & Liste öffnen        & Liste öffnen                                    & \trr{\tbbr{Auswahl aufheben, \\ Wert wählen}} \\
                 \cline{2-3} & Wert wählen \ccgray & \tbbr{Wert wählen, \\ Liste schliessen} \ccgray & \\
                 \hline \hline
-                \trr{\tbbr{Cmd \& Z\\ (Undo)}} & Browser-Default\tnote{4}         & Browser-Default\tnote{4}         & \trr{Browser-Default\tnote{4}} \\
-                \cline{2-3}                    & Browser-Default\tnote{4} \ccgray & Browser-Default\tnote{4} \ccgray & \\
+                \trr{\tbbr{Cmd \& Z\\ (Undo)}} & Browser-Default\tnote{5}         & Browser-Default\tnote{5}         & \trr{Browser-Default\tnote{5}} \\
+                \cline{2-3}                    & Browser-Default\tnote{5} \ccgray & Browser-Default\tnote{5} \ccgray & \\
                 \hline
-                \trr{\tbbr{Cmd \& Shift \\ \& Z (Redo)}} & Browser-Default\tnote{4}         & Browser-Default\tnote{4}         & \trr{Browser-Default\tnote{4}} \\
-                \cline{2-3}                              & Browser-Default\tnote{4} \ccgray & Browser-Default\tnote{4} \ccgray & \\
+                \trr{\tbbr{Cmd \& Shift \& \\ Z (Redo)}} & Browser-Default\tnote{5}         & Browser-Default\tnote{5}         & \trr{Browser-Default\tnote{5}} \\
+                \cline{2-3}                              & Browser-Default\tnote{5} \ccgray & Browser-Default\tnote{5} \ccgray & \\
                 \hline 
             \end{tabular}
             \begin{tablenotes}
@@ -61,7 +61,8 @@
                 \item[2] Filter: Leerschlag als normales Symbol gezählt; Liste verändern je nach Anzahl passender Werte
                 \item[3] Suche: Erster zu der Eingabe passender Wert aus der Liste, wenn Eingabe nicht passend $\Rightarrow$ sortiert nachfolgender Wert; 
                                 Liste unverändert; nach Pause / Debounce-Ablauf $\Rightarrow$ neue Suche
-                \item[4] Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
+                \item[4] Wert von dem size-Attribut
+                \item[5] Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
             \end{tablenotes}
         \end{threeparttable}
     \end{adjustbox}

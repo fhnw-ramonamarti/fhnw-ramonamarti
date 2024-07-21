@@ -9,33 +9,34 @@
                 \cline{2-4}           & geschlossen   & geschlossen   & geschlossen \\
                 \cline{2-4}           & offen \ccgray & offen \ccgray & offen \ccgray \\
                 \hline \hline
-                \trrr{Buchstaben} & Schreiben             & nicht möglich         & nicht möglich         \\
-                \cline{2-4}       & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray \\
+                \trrr{Buchstaben} & Schreiben                      & nicht möglich\tnote{2}         & nicht möglich\tnote{2}         \\
+                \cline{2-4}       & nicht möglich\tnote{2} \ccgray & nicht möglich\tnote{2} \ccgray & nicht möglich\tnote{2} \ccgray \\
                 \hline
-                \trr{Leerschlag} & Schreiben             & nicht möglich         & nicht möglich         \\
-                \cline{2-4}      & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray \\
+                \trr{Leerschlag} & Schreiben                      & nicht möglich\tnote{2}         & nicht möglich\tnote{2}         \\
+                \cline{2-4}      & nicht möglich\tnote{2} \ccgray & nicht möglich\tnote{2} \ccgray & nicht möglich\tnote{2} \ccgray \\
                 \hline
-                \trr{Backspace} & Symbol löschen        & nicht möglich         & nicht möglich         \\
-                \cline{2-4}     & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray \\
+                \trr{Backspace} & Symbol löschen                 & nicht möglich\tnote{2}         & nicht möglich\tnote{2}         \\
+                \cline{2-4}     & nicht möglich\tnote{2} \ccgray & nicht möglich\tnote{2} \ccgray & nicht möglich\tnote{2} \ccgray \\
                 \hline \hline
-                \trrr{Enter} & \tbbr{Formular senden / \\ ohne Form nichts} & nicht möglich         & nicht möglich         \\
-                \cline{2-4}  & nicht möglich \ccgray                        & nicht möglich \ccgray & nicht möglich \ccgray \\
+                \trrr{Enter} & \tbbr{Formular senden / \\ ohne Form nichts} & nicht möglich\tnote{2}         & nicht möglich\tnote{2}         \\
+                \cline{2-4}  & nicht möglich\tnote{2} \ccgray               & nicht möglich\tnote{2} \ccgray & nicht möglich\tnote{2} \ccgray \\
                 \hline \hline
-                \trrrr{Scroll} & Browser-Default\tnote{1}                                                                       & Browser-Default\tnote{1}                                                        & Browser-Default\tnote{1} \\
-                \cline{2-4}    & \tbbr{\emph{Aussen}: Liste schliessen \\ \emph{Innen}: Werte bewegen \\ ohne Änderung} \ccgray & \tbbr{\emph{Aussen}: - \\ \emph{Innen}: Werte bewegen \\ ohne Änderung} \ccgray & \tbbr{\emph{Aussen}: Browser-Default\tnote{1} \\ \emph{Innen}: Werte bewegen \\ ohne Änderung} \ccgray \\
+                \trrrr{Scroll} & Browser-Default\tnote{2}                                                                       & Browser-Default\tnote{2}                                                        & Browser-Default\tnote{2} \\
+                \cline{2-4}    & \tbbr{\emph{Aussen}: Liste schliessen \\ \emph{Innen}: Werte bewegen \\ ohne Änderung} \ccgray & \tbbr{\emph{Aussen}: - \\ \emph{Innen}: Werte bewegen \\ ohne Änderung} \ccgray & \tbbr{\emph{Aussen}: Browser-Default\tnote{2} \\ \emph{Innen}: Werte bewegen \\ ohne Änderung} \ccgray \\
                 \hline
-                \trr{Click} & \tbbr{\emph{Pfeil}: Liste \\ gefiltert öffnen\tnote{2}} & Liste öffnen                                    & Liste öffnen \\
+                \trr{Click} & \tbbr{\emph{Pfeil}: Liste \\ gefiltert öffnen\tnote{3}} & Liste öffnen                                    & Liste öffnen \\
                 \cline{2-4} & \tbbr{Wert wählen, \\ Liste schliessen} \ccgray         & \tbbr{Wert wählen, \\ Liste schliessen} \ccgray & \tbbr{\emph{Aussen}: Liste schliessen \\ \emph{Innen}: Wert wählen / \\ abwählen} \ccgray \\
                 \hline \hline
-                \trr{\tbbr{Schütteln\\ (Undo / Redo)}} & iOS-Default\tnote{3}         & -         & - \\
-                \cline{2-4}                            & iOS-Default\tnote{3} \ccgray & - \ccgray & - \\
+                \trr{\tbbr{Schütteln\\ (Undo / Redo)}} & iOS-Default\tnote{4}         & -         & - \\
+                \cline{2-4}                            & iOS-Default\tnote{4} \ccgray & - \ccgray & - \\
                 \hline 
             \end{tabular}
             \begin{tablenotes}
                 \scriptsize
-                \item[1] Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
-                \item[2] Filter: Leerschlag als normales Symbol gezählt; Liste verändern je nach Anzahl passender Werte
-                \item[3] Rückgängig bzw. Wiederholen, wenn zuvor im Feld etwas getippt wurde; bei nur Wert wählen $\Rightarrow$ keine Aktion
+                \item[1] Virtuelle Tastatur ist nicht sichtbar, somit kann Interaktion nicht stattfinden
+                \item[2] Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
+                \item[3] Filter: Leerschlag als normales Symbol gezählt; Liste verändern je nach Anzahl passender Werte
+                \item[4] Rückgängig bzw. Wiederholen, wenn zuvor im Feld etwas getippt wurde; nur Wert wählen $\Rightarrow$ keine Aktion
             \end{tablenotes}
         \end{threeparttable}
     \end{adjustbox}
