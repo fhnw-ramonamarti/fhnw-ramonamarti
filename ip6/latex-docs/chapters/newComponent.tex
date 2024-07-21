@@ -36,7 +36,7 @@ All diese Style-Anpassungen lassen sich auf unterschiedliche Art und Weise kombi
 
 Bei den Farben existiert eine grosse Bandbreite.
 Da Kolibri bereits ein Designsystem besitzt, schränkt sich die Menge ein.
-Unter den vorhandenen Farbwerten, bieten sich die folgenden am besten an:
+Unter den vorhandenen Farbwerten, bieten sich die Folgenden am besten an:
 
 \begin{itemize}
     \item Kolibri-Light/Yellow/100 $\rightarrow$ helles Weiss-Gelb
@@ -80,7 +80,7 @@ Die Zuordnung der Designwahl zu den fehlenden Zuständen steht im Kapitel \textb
 
 Zur Visualisierung und zum interaktiven Testing des Designs kommt Figma zum Einsatz. 
 Figma ist ein webbasiertes Tool zur Erstellung von UI/UX-Designs, das Echtzeit-Kollaboration ermöglicht. 
-Das Sammeln des Feedbacks von Staskholdern und Nutzern unterstützt eine effiziente Entwicklung.
+Das Sammeln der Feedbacks von Staskholdern und Nutzern unterstützt eine effiziente Entwicklung.
 Dafür ist es unabdingbar, im Vorfeld mit Figma schnell Prototypen zu erstellen und mit den Probanden zu teilen.
 
 Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3} zeigen die in Figma erstellten Prototypen der Dropdown-Komponente:
@@ -110,7 +110,7 @@ Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3
 \subsection{Farbpalette und Kontrast}
 \label{sec:colorContrast}
 
-Kolibri-Designsystem bietet eine Vielzahl von Farben.
+Das Kolibri-Designsystem bietet eine Vielzahl von Farben.
 Der Figma-Prototyp enthält spezifische Anpassungen, so dass die Dropdown-Komponente gut lesbar ist.
 Für den Erhalt einer besseren Nutzerfreundlichkeit gestaltet sich die Farbauswahl aus Abbildung \ref{img:designColors}.
 Diese bietet hohen Kontrast und verbessert somit die Barrierefreiheit der Anwendung.
@@ -145,7 +145,7 @@ Der Code \ref{code:cssImports} zeigt die importierten CSS-Dateien, die als Grund
 \label{sec:layoutTypo}
 
 Die Umsetzung der Dropdown-Komponente des in Figma entworfenen Designs erhält eigenes CSS.
-Nachfolgender Codeausschnitt \ref{code:popoverStyle} zeigt den relevanten CSS-Code, bei der Gestaltung des Popover- und Option-Styles zur Verwendung kommt:
+Nachfolgender Codeausschnitt \ref{code:popoverStyle} zeigt den relevanten CSS-Code, der bei der Gestaltung des Popover- und Option-Styles zur Verwendung kommt:
 
 % todo reduzieren auf wesentliche stellen \& beschreiben => .options-component[popover] inhalt weg kürzen?
 \begin{lstlisting}[style = htmlcssjs, caption = CSS für das Popover-Element, label = code:popoverStyle]
@@ -272,14 +272,14 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
 \end{lstlisting}
 
 \texttt{projectSelectedValueOptionView}: Erstellt die Ansicht für die ausgewählte Option und verknüpft die Klick-Events mit dem Umschalten des Popovers.
-Diese Kombination von CSS und JavaScript bietet dem Highlighting und der Auswahl von Optionen in der Dropdown-Komponente eine effektiv und visuell ansprechende Umsetzung.
+Diese Kombination von CSS und JavaScript bietet dem Highlighting und der Auswahl von Optionen in der Dropdown-Komponente eine effektive und visuell ansprechende Umsetzung.
 
 
 \subsection{Optionen und Scrollbar-Styling}
 \label{sec:sizeLayoutChanges}
 
 Diese CSS-Regeln gestalten die Optionen einer einzelnen Spalte sowie das Scroll-Verhalten des Containers. 
-\texttt{.options-column} aus Code \ref{code:optionStyling} definiert das Layout und weitere Optionsliste-abhängige Eigenschaften, 
+\texttt{.options-column} aus Code \ref{code:optionStyling} definiert das Layout und weitere Optionslisten-abhängige Eigenschaften, 
 während \texttt{.option-item} das Erscheinungsbild und die Interaktivität der einzelnen Optionen festlegt.
 
 \begin{lstlisting}[style = htmlcssjs, caption = Optionen und Scrollbar-Styling, label = code:optionStyling]
@@ -307,7 +307,7 @@ während \texttt{.option-item} das Erscheinungsbild und die Interaktivität der 
 \end{lstlisting}
 
 Die Nutzung von den CSS-Styles im JavaScript stellt sicher, dass die dynamischen Klassen und Stile bei den Elementen bei Erstellung oder Aktualisierung ihre Anwendung finden.
-Die nachfoldenden Beispiel (Code \ref{code:cssSyleInJs}) aus den Dateien \texttt{selectProjector.js} und \texttt{columnOptionsProjector.js} verwenden die erwänhten CSS-Klassen:
+Das nachfoldende Beispiel (Code \ref{code:cssSyleInJs}) aus den Dateien \texttt{selectProjector.js} und \texttt{columnOptionsProjector.js} verwenden die erwänhten CSS-Klassen:
 
 \begin{lstlisting}[style = htmlcssjs, caption = CSS-Styles im JavaScript, label = code:cssSyleInJs]
 // selectProjector.js
@@ -333,7 +333,7 @@ const projectOption = (selectedOptionController, option, optionType, cursorPosit
 \end{lstlisting}
 
 Dieser JavaScript Code erstellt die HTML-Elemente und ergänzt die CSS-Klassen, um das Styling und die Funktionalität sicherzustellen. 
-Das \texttt{selectProjector.js} erstellt und gestylt den Popover-Container, während das \texttt{columnOptionsProjector.js} die einzelnen Options-Elemente gestaltet.
+Das \texttt{selectProjector.js} erstellt und stylt den Popover-Container, während das \texttt{columnOptionsProjector.js} die einzelnen Options-Elemente gestaltet.
 Diese Kombination aus CSS und JavaScript stellt sicher, dass die Dropdown- und Popover-Komponenten korrekt angezeigt und interaktiv sind.
 
 
@@ -377,7 +377,7 @@ Die Tastatur-Steuerung mit den Pfeiltasten hingegen hält sich an diese Bedienun
 
 \begin{itemize}
     \item Änderung der Cursor Position
-    \item \textbf{selbe Spalte}: direkte Selektionsänderung ohne weitere Bestätigung
+    \item \textbf{In der selben Spalte}: direkte Selektionsänderung ohne weitere Bestätigung
     \item \textbf{Spaltenänderung}: keine Selektionsänderung
 \end{itemize}
 
@@ -514,7 +514,7 @@ Für die Definition der Bindings greifen die einzelnen Projektoren auf den selbe
 Der Master-Detail-Aufbau der neuen Komponente findet sich in der Aufteilung der Projektoren wieder.
 Der Detail-Baustein kümmert sich um die aktuelle Auswahl und das Eingabefeld.
 Die Master-Komponente verwaltet alle Spalten mit den Kategorie- und Werte-Optionen, sowie dessen Bindings.
-Eine weiteren Funktion ist die Einbettung der beiden Projektoren in eine gemeinsame View.
+Eine weitere Funktion ist die Einbettung der beiden Projektoren in eine gemeinsame View.
 Auch diese Projector Pattern Anwendung schliesst mit einer Component - der \texttt{SelectComponent} - ab.
 Mehr zu dieser und der \texttt{ColumnComponent} steht im nächsten Kapitel.
 
@@ -556,7 +556,7 @@ Das nächste Kapitel geht genauer auf den Master-View-Bereich des \texttt{Select
 \section{Dropdown-Container}
 \label{sec:dropdownContainer}
 
-Für die Darstellung aller Optionen zu gegebener Zeit stehen verschiedene Varianten zur Auswahl.
+Für die Darstellung aller Optionen (zu gegebener Zeit) stehen verschiedene Varianten zur Auswahl.
 Eine Möglichkeit ist, den Container als HTML-Dialog zu gestalten.
 Die vorhandenen Funktionen sind jedoch nicht für diese Komponente geeignet.
 Für den gewünschten Zweck erfordert das Dialog-Element noch einiges an benutzerdefinierter Anpassung.
@@ -569,9 +569,9 @@ Zudem ist es möglich, dass unerwünscht mehrere Dropdown-Container gleichzeitig
 
 Als dritte Möglichkeit bietet sich die Popover-API an. 
 Seit 2024 unterstützen alle gängigen Browser diese Schnittstelle.
-Durch das Refactoring der Variante mit dem normalen Div-Container resultiert eine Version mit der Anwendung dieser API.
-Der Zusatzaufwand reduziert sich im Gegensatz zu den beiden oben erwähnten Container-Implementationen.
-Der Grundaufbau des Popover-Container ist im folgenden Code \ref{code:PopoverExample} dargestellt.
+Durch das Refactoring der Variante mit dem normalen Div-Container resultiert eine Version mit der Anwendung dieser API. 
+Im Gegensatz zu den beiden oben erwähnten Container-Implementationen reduziert sich durch diese Schnittstelle der Zusatzaufwand. 
+Der Grundaufbau des Popover-Container ist im folgenden Code \ref{code:PopoverExample} dargestellt. 
 
 \begin{lstlisting}[style = htmlcssjs, caption = Popover-Container Beispiel, label = code:PopoverExample]
 <div popover="auto"
@@ -632,7 +632,7 @@ const addAllOptions = (options) => {
 Code \ref{code:PerformanceOptimization} ist eine Stelle, die diese Technik verwendet.
 Das Anzeigen eines Platzhalters mit einem Lade-Indikator an der Ursprungsstelle bewirkt, dass der Nutzer ein Feedback erhält.
 Sobald der SpaltenContainer abgekoppelt ist, lädt die Funktion die Optionen in den Shadow-DOM.
-Der Lade-Indikator der originalen Stelle im Renderbaum ersetzt sich nach Abschluss durch den Container mit den neuen Elementen. 
+Nach Abschluss ersetzt sich der Lade-Indikator der originalen Stelle im Renderbaum durch den Container mit den neuen Elementen.  
 
 Weiter ist darauf achten, dass CSS-Klassen\footnotemark \ an Stelle von Inline-Styles ihre Verwendung finden.
 \footnotetext{\cite{efficientDomManipulation}}
@@ -691,9 +691,9 @@ Feedbacks zu den durchgeführten User-Tests mit Programmierern als auch Endnutze
 \section{Testing}
 \label{sec:testing}
 
-Verschiedene Arten von Tests garanieren die Korrektheit der einzelnen Funktionen und Komponenten.
+Verschiedene Arten von Tests garantieren die Korrektheit der einzelnen Funktionen und Komponenten.
 Die automatisierten Code-Tests stellen sicher, dass das Aufrufen der gebotenen Funktionalität die gewünschen Änderungen ausführt.
-Komponenten, welche für die Erstellung des UI zusändig sind, prüfen die Existenz von Elementen als auch das Tiggern der Events.
+Komponenten, welche für die Erstellung des UI zusändig sind, prüfen die Existenz von Elementen als auch das Triggern der Events.
 Die User Tests mit unterschiedlichen Personen gewährleisten eine gute Nutzerzufriedenheit als auch die intuitive Anwendung durch Programmierer.
 Die Auswahl der Nutzer fällt auf eine grosse Vielfalt, damit die Resultate unterschiedliche Sichtweisen einbeziehen. 
 
@@ -714,7 +714,7 @@ Auf der Abbildung \ref{img:automatedTests} ist zu sehen, dass eine breite Palett
 Die ersten zwei Test-Suits kümmern sich um die Korrektheit der Models und der Controller. 
 Das erste File besteht aus den Typen \texttt{ValueOption} und \texttt{CategoryOption}. 
 Dazu gesellen sich die Komponenten \texttt{OptionsModel} und \texttt{SelectedOptionModel}.
-Der \texttt{OptionsController} und der \texttt{SelectedOptionController} befinden sich in der zweiten genannten JS-Datei.
+Der \texttt{OptionsController} und der \texttt{SelectedOptionController} befinden sich in der zweitgenannten JS-Datei.
 Die sechs zuvor genannten Funktionalitäten befinden sich nach der Separation of Concern je in einer eingenen Test-Einheit.
 
 
