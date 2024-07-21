@@ -166,25 +166,25 @@ Nachfolgender Codeausschnitt \ref{code:popoverStyle} zeigt den relevanten CSS-Co
     }
 }
 .options-component[popover] {
-    position: absolute;
-    z-index: 20;
-    max-height: 240px;
-    border-radius: 0 0 4px 4px;
-    border: 1px solid #ccc;
-    border-top: none;
-    background: #fff;
-    overflow: hidden;
-    align-items: stretch;
-    flex-wrap: nowrap;
-    padding: 0;
-    margin: 0;
-    box-shadow: 0px 5px 15px #0002;
-    animation: open 300ms ease-in-out;
+    position:         absolute;
+    z-index:          20;
+    max-height:       240px;
+    border-radius:    0 0 4px 4px;
+    border: 1px       solid #ccc;
+    border-top:       none;
+    background:       #fff;
+    overflow:         hidden;
+    align-items:      stretch;
+    flex-wrap:        nowrap;
+    padding:          0;
+    margin:           0;
+    box-shadow:       0px 5px 15px #0002;
+    animation:        open 300ms ease-in-out;
     transform-origin: top center;
 }
 .options-component[popover]:popover-open {
     display: flex;
-    height: fit-content;
+    height:  fit-content;
 } 
 \end{lstlisting}
 
@@ -207,19 +207,19 @@ Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein aktue
     color: var(--kb-hsla-warning-dark);
 
     &:not(.disabled)::before {
-        content: '';
-        position: absolute;
-        left: 7px;
-        transform: translateX(-50%);
-        width: 2.5px;
-        background: var(--kb-hsla-warning-dark);
+        content:       '';
+        position:      absolute;
+        left:          7px;
+        transform:     translateX(-50%);
+        width:         2.5px;
+        background:    var(--kb-hsla-warning-dark);
         border-radius: 1px;
-        top: 0.5em;
-        bottom: 0.4em;
+        top:           0.5em;
+        bottom:        0.4em;
     }
 }
 .selected {
-    background: var(--kolibri-color-select);
+    background:    var(--kolibri-color-select);
     border-radius: 4px;
 }
 \end{lstlisting}
@@ -231,7 +231,7 @@ Eine dunkle Farbe und eine linksseitige Markierung betonen das Element.
 
 Im \texttt{columnOptionsProjector.js} gibt es Event-Handler, die das Setzen und Entfernen der Highlighting-Klassen steuern:
 
-\begin{lstlisting}[style = htmlcssjs, caption = Steurung der Highlighting-Klassen, label = code:highlightChange]
+\begin{lstlisting}[style = htmlcssjs, caption = Steuerung der Highlighting-Klassen, label = code:highlightChange]
 const selectOptionItem = (root) => (newOption, oldOption) => {
     const oldItem = getHtmlElementByOption(oldOption, root);
     if (oldItem) {
@@ -257,14 +257,14 @@ durch die Verknüpfung der Optionen und ihrer Events mit den entsprechenden CSS-
 \begin{lstlisting}[style = htmlcssjs, caption = Event-Handling für die Auswahl einer Option, label = code:eventSelection]
 const projectSelectedValueOptionView = (selectController, popoverElement) => {
     const rootElement = document.createElement("div");
-    rootElement.id = selectController.getId() + "-selected-option";
+    rootElement.id    = selectController.getId() + "-selected-option";
     rootElement.classList.add("selected-option-component");
     rootElement.setAttribute("data-id", selectController.getId());
     
-    const selectedOptionContainer = document.createElement("div");
-    selectedOptionContainer.classList.add("selected-value");
+    const selectedOptionContainer     = document.createElement("div");
     selectedOptionContainer.innerHTML = selectController.getSelectedValueOption().getLabel();
-    selectedOptionContainer.onclick = togglePopover;
+    selectedOptionContainer.onclick   = togglePopover;
+    selectedOptionContainer.classList.add("selected-value");
     
     rootElement.append(selectedOptionContainer);
     return [rootElement, selectedOptionContainer];
@@ -279,62 +279,62 @@ Diese Kombination von CSS und JavaScript bietet dem Highlighting und der Auswahl
 \label{sec:sizeLayoutChanges}
 
 Diese CSS-Regeln gestalten die Optionen einer einzelnen Spalte sowie das Scroll-Verhalten des Containers. 
-\texttt{.options-column} aus Code \ref{code:optionStyling} definiert das Layout und weitere Optionslisten-abhängige Eigenschaften, 
-während \texttt{.option-item} das Erscheinungsbild und die Interaktivität der einzelnen Optionen festlegt.
+Das \texttt{.options-column} aus Code \ref{code:optionStyling} definiert das Layout sowie weitere Listen-abhängige Eigenschaften, 
+während das \texttt{.option-item} das Erscheinungsbild und die Interaktivität der einzelnen Optionen festlegt.
 
 \begin{lstlisting}[style = htmlcssjs, caption = Optionen und Scrollbar-Styling, label = code:optionStyling]
 .options-column {
-    position: relative;
-    width: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    max-height: 240px;
-    min-height: 100%;
-    padding: 5px;
-    flex-grow: 2;
+    position:    relative;
+    width:       100%;
+    overflow-y:  scroll;
+    overflow-x:  hidden;
+    max-height:  240px;
+    min-height:  100%;
+    padding:     5px;
+    flex-grow:   2;
     flex-shrink: 1;
 }
 .option-item {
-    position: relative;
-    padding: 10px 20px;
-    display: block;
-    cursor: pointer;
-    width: 100%;
-    line-height: 1.2;
-    overflow: hidden;
+    position:      relative;
+    padding:       10px 20px;
+    display:       block;
+    cursor:        pointer;
+    width:         100%;
+    line-height:   1.2;
+    overflow:      hidden;
     text-overflow: ellipsis;
 } 
 \end{lstlisting}
 
 Die Nutzung von den CSS-Styles im JavaScript stellt sicher, dass die dynamischen Klassen und Stile bei den Elementen bei Erstellung oder Aktualisierung ihre Anwendung finden.
-Das nachfoldende Beispiel (Code \ref{code:cssSyleInJs}) aus den Dateien \texttt{selectProjector.js} und \texttt{columnOptionsProjector.js} verwenden die erwänhten CSS-Klassen:
+Das Beispiel \ref{code:cssSyleInJs} aus den Dateien \texttt{selectProjector.js} und \texttt{columnOptionsProjector.js} verwenden die erwänhten CSS-Klassen:
 
 \begin{lstlisting}[style = htmlcssjs, caption = CSS-Styles im JavaScript, label = code:cssSyleInJs]
 // selectProjector.js
 const projectOptionsView = (selectController) => {
     const optionsContainer = document.createElement("div");
-    optionsContainer.id = selectController.getId() + "-options";
+    optionsContainer.id    = selectController.getId() + "-options";
     optionsContainer.classList.add(optionsClassName);
     optionsContainer.setAttribute("popover", "auto");
-    // Weitere Logik zur Steuerung des Popovers
+    // more popover logic
 };
 
 // columnOptionsProjector.js
 const projectOption = (selectedOptionController, option, optionType, cursorPositionController) => {
-    const item = document.createElement("div");
-    item.setAttribute("data-id", elementId(option));
+    const item     = document.createElement("div");
+    item.innerHTML = option.getLabel();
+    item.setAttribute("data-id"   , elementId(option));
     item.setAttribute("data-value", option.getValue());
     item.setAttribute("data-label", elementDataLabel(option));
     item.classList.add(optionClassName);
     item.classList.add(optionType + "-" + optionClassName);
-    item.innerHTML = option.getLabel();
-    // Weitere Logik zur Handhabung von Optionen
+    // more option logic
 }; 
 \end{lstlisting}
 
 Dieser JavaScript Code erstellt die HTML-Elemente und ergänzt die CSS-Klassen, um das Styling und die Funktionalität sicherzustellen. 
 Das \texttt{selectProjector.js} erstellt und stylt den Popover-Container, während das \texttt{columnOptionsProjector.js} die einzelnen Options-Elemente gestaltet.
-Diese Kombination aus CSS und JavaScript stellt sicher, dass die Dropdown- und Popover-Komponenten korrekt angezeigt und interaktiv sind.
+Diese Kombination aus CSS und JS stellt sicher, dass die Dropdown- und Popover-Komponenten korrekt angezeigt und interaktiv sind.
 
 
 \subsection{Prototyping und Benutzerfeedback}
@@ -575,9 +575,9 @@ Der Grundaufbau des Popover-Container ist im folgenden Code \ref{code:PopoverExa
 
 \begin{lstlisting}[style = htmlcssjs, caption = Popover-Container Beispiel, label = code:PopoverExample]
 <div popover="auto"
-    id="select-component-0-options" 
-    class="options-component" 
-> </div>
+     id="select-component-0-options" 
+     class="options-component" 
+> <!-- content --> </div>
 \end{lstlisting}
 
 Bei diesem Codeausschnitt ist wichtig, dass das Attribut \texttt{popover} den Wert \texttt{auto} erhält.
@@ -634,22 +634,26 @@ Das Anzeigen eines Platzhalters mit einem Lade-Indikator an der Ursprungsstelle 
 Sobald der SpaltenContainer abgekoppelt ist, lädt die Funktion die Optionen in den Shadow-DOM.
 Nach Abschluss ersetzt sich der Lade-Indikator der originalen Stelle im Renderbaum durch den Container mit den neuen Elementen.  
 
-Weiter ist darauf achten, dass CSS-Klassen\footnotemark \ an Stelle von Inline-Styles ihre Verwendung finden.
+Weiter ist darauf achten, dass CSS-Klassen\footnotemark \ an Stelle von Inline-Styles\footnotemark \ ihre Verwendung finden.
 \footnotetext{\cite{efficientDomManipulation}}
-Das Cachen von mehrfach verwendeten Selektoren verbessert die Effizienz des DOMs.
+\footnotetext{Offizieller Begriff: Element attached style $\Rightarrow$ Styles direkt im HTML-Element mit Attribut \texttt{style} definiert}
 Die Selektoren sollten hierarchisch möglichst flach und nicht verschachtelt sein.
 Wenn es die Situation erlaubt, ist es besser, nicht mit \texttt{innerHTML} zu arbeiten.
 In diesem Projekt ist es für die Anzeige der Label jedoch nötig \texttt{innerHTML} zu nutzen.
 Dies liegt daran, dass ein Label auch ein Bild enthalten kann.
 Generell verwendet die neue Auswahlkomponente keine Inline-Styles.
 Die einzige Ausnahme betrifft das verborgene Eingabefeld. 
-Durch den Code \ref{code:InlineStyle} sind die Properties vor dem Überschreiben geschützt.
+Durch den Code \ref{code:InlineStyle} sind die Properties vor dem einfachen Überschreiben\footnotemark \ geschützt.
+\footnotetext{\texttt{!important} besser nicht verwenden}
 
 \begin{lstlisting}[style = htmlcssjs, caption = Inline-Style für Input-Feld, label = code:InlineStyle]
 inputElement.setAttribute(
-    "style", "all: unset !important; z-index: -1 !important; " +
-    "position: absolute !important; inset: 5px !important; " +
-    "color: transparent !important; pointer-events: none !important;"
+    "style", "all:            unset       !important; " +
+             "z-index:        -1          !important; " +
+             "position:       absolute    !important; " +
+             "inset:          5px         !important; " +
+             "color:          transparent !important; " +
+             "pointer-events: none        !important; "
 );
 \end{lstlisting}
 
@@ -659,7 +663,7 @@ Zudem befindet es sich im Hintergrund und besitzt dieselben Grösse wie der Cont
 \subsection{Performance Vergleich}
 \label{sec:performanceCompare}
 
-Durch die Anpassungen der Performance Optimierung, verbesserte sich die Ladezeit bei grossen Datenmenge enorm.
+Durch die Anpassungen der Performance Optimierung, verschnellert sich die Ladezeit bei grossen Datenmenge enorm.
 Die Testseite enthält vier existierende und vier neue Auswahlkomponenten mit den selben Inhalten wie je eines der Existierenden.
 Je eine der Selects enthält eine grosse Datenmenge von über 4'000 Werten.
 Die folgenden zwei Bilder \ref{img:PerformanceTestBefore} und \ref{img:PerformanceTestAfter} zeigen die Messung während des Seitenaufbaus.
@@ -671,7 +675,7 @@ Die folgenden zwei Bilder \ref{img:PerformanceTestBefore} und \ref{img:Performan
     \label{img:PerformanceTestBefore}
 \end{figure}
 
-Auf der Grafik \ref{img:PerformanceTestBefore} ist zu sehen, dass der Seitenaufbau der früheren Version sehr lange dauerte. % todo vergangenheit ok ?
+Auf der Grafik \ref{img:PerformanceTestBefore} ist zu sehen, dass der Seitenaufbau der früheren Version sehr lange dauerte. 
 Dies bestätigen mehrere Feedbacks der Nutzer, später mehr dazu.
 
 \begin{figure}[!htb]
@@ -681,7 +685,7 @@ Dies bestätigen mehrere Feedbacks der Nutzer, später mehr dazu.
     \label{img:PerformanceTestAfter}
 \end{figure}
 
-Der Vergleich zwischen Abbildung \ref{img:PerformanceTestBefore} und \ref{img:PerformanceTestAfter} zeigt, dass die Seite um Faktor 13 besser ist.
+Der Vergleich zwischen Abbildung \ref{img:PerformanceTestBefore} und \ref{img:PerformanceTestAfter} zeigt, dass die Seite um Faktor 13 schneller ist.
 Die oberen Grafik zeigt die Messung der Implementation, welche sehr viele Aktionen auf dem Renderbaum ausführt.
 Ein Refactoring führt zur Verschiebung dieser Arbeiten auf den Shadow-DOM.
 Dadurch verkürzt sich der Ladevorgang um vier bis fünf Sekunden.
