@@ -6,7 +6,7 @@ Eine Auflistung der möglichen Funktionalitäten zeigt die Grenzen dieser Elemen
 Dabei spielen die UI- als auch die Interaktions-Unterschiede dieser Komponenten in verschiedenen Browsern eine tragende Rolle.
 
 Als Basis dieser Arbeit dient das Country Select.
-Weiter existieren bereits die Komponenten Buttons bzw. Links, \texttt{select}- und \texttt{datalist}-Element.
+Weiter existieren bereits die Komponenten Buttons bzw. Links, \codestyle{select}- und \codestyle{datalist}-Element.
 Unter dem Country Select ist das Resultat des Projekt 5 zu verstehen.
 Die folgende Tabelle \ref{table:generalComparing} zeigt einen Vergleich der genannten Möglichkeiten.
 
@@ -16,7 +16,7 @@ Die folgende Tabelle \ref{table:generalComparing} zeigt einen Vergleich der gena
 \section{HTML Datalist vs. Select}
 \label{sec:datalistSelect}
 
-Die folgenden Unterkapitel zeigen die Möglichkeiten, welche die HTML-Elemente \texttt{input}, \texttt{option}, \texttt{datalist} und \texttt{select} bieten.
+Die folgenden Unterkapitel zeigen die Möglichkeiten, welche die HTML-Elemente \codestyle{input}, \codestyle{option}, \codestyle{datalist} und \codestyle{select} bieten.
 Zudem zeigen tabellarische Gegenüberstellungen die Unterschiede und Inkonsistenzen dieser in verschiedenen Browsern und Betriebssystemen auf.
 Hierbei liegt der Fokus mehr auf der Interaktion mit den Komponenten als auf der Darstellung.
 
@@ -24,11 +24,11 @@ Hierbei liegt der Fokus mehr auf der Interaktion mit den Komponenten als auf der
 \subsection{Option}
 \label{sec:option}
 
-Die beiden Auswahlkomponenten - \texttt{datalist} und \texttt{select} - verwenden \texttt{option}-Elemente. 
-Die einzelnen Optionen wie in Code \ref{code:OptionExample} Zeile 1 besitzen ein \texttt{value}-Attribut und einen Inhalt - das Label.
-Alternativ ist das \texttt{label}-Attribut zu nutzen und dafür das Value an die Stelle des Inhalts zu platzieren.
+Die beiden Auswahlkomponenten - \codestyle{datalist} und \codestyle{select} - verwenden \codestyle{option}-Elemente. 
+Die einzelnen Optionen wie in Code \ref{code:OptionExample} Zeile 1 besitzen ein \codestyle{value}-Attribut und einen Inhalt - das Label.
+Alternativ ist das \codestyle{label}-Attribut zu nutzen und dafür das Value an die Stelle des Inhalts zu platzieren.
 Firefox unterstützt diese Variante jedoch nicht.
-Das Weglassen des \texttt{value}- und \texttt{label}-Attributes führt dazu, dass beide den Wert innerhalb des öffnenden und schliessenden Tags erhalten.
+Das Weglassen des \codestyle{value}- und \codestyle{label}-Attributes führt dazu, dass beide den Wert innerhalb des öffnenden und schliessenden Tags erhalten.
 
 \begin{lstlisting}[style = htmlcssjs, caption = Option Example, label = code:OptionExample]
 <option value="dog"         > Dog   </option>
@@ -36,25 +36,25 @@ Das Weglassen des \texttt{value}- und \texttt{label}-Attributes führt dazu, das
 <option             disabled> Mouse </option>
 \end{lstlisting}    
 
-Das HTML-Element kann das Attribut \texttt{disabled} oder \texttt{selected} erhalten.
-Code \ref{code:OptionExample} Zeile 2 definiert durch eine \texttt{selected} Option den initial ausgefüllten Wert.
-Dies Attribut funktioniert nur im Zusammenhang mit dem \texttt{select}-Container. 
-Bei einem \texttt{disabled} Element - wie in Code \ref{code:OptionExample} Zeile 3 - erscheint das UI ausgegraut.
+Das HTML-Element kann das Attribut \codestyle{disabled} oder \codestyle{selected} erhalten.
+Code \ref{code:OptionExample} Zeile 2 definiert durch eine \codestyle{selected} Option den initial ausgefüllten Wert.
+Dies Attribut funktioniert nur im Zusammenhang mit dem \codestyle{select}-Container. 
+Bei einem \codestyle{disabled} Element - wie in Code \ref{code:OptionExample} Zeile 3 - erscheint das UI ausgegraut.
 Dieser Eintrag lässt keine Interaktion zu.
 
-Das Designen von \texttt{option}s\footnotemark \ beschränkt sich auf die Text- / Hintergrundfarbe, welche jedoch nur in Firefox funktionieren. 
+Das Designen von \codestyle{option}s\footnotemark \ beschränkt sich auf die Text- / Hintergrundfarbe, welche jedoch nur in Firefox funktionieren. 
 \footnotetext{\cite{optionMdn}}
 Die anderen Browser lassen kein Styling der Auswahl-Elemente zu bzw. zeigen diese nicht an.
 Es ist nur ein skalarer Text als Inhalt erlaubt. 
 Das bedeutet, keine weiteren Verschachtelung von Elementen sind möglich.
-Als Eltern-Elemente sind \texttt{select}, \texttt{optgroup} und \texttt{datalist} erlaubt.
-Alle gängigen Browser unterstützen das \texttt{option}-Element.
+Als Eltern-Elemente sind \codestyle{select}, \codestyle{optgroup} und \codestyle{datalist} erlaubt.
+Alle gängigen Browser unterstützen das \codestyle{option}-Element.
 
 
 \subsection{Select}
 \label{sec:select}
 
-Das \texttt{select}-Element speichert Werte durch die einzelnen \texttt{option}-Kinder.
+Das \codestyle{select}-Element speichert Werte durch die einzelnen \codestyle{option}-Kinder.
 Eine möglich Anwendung ist in Code \ref{code:SelectExample} ersichtlich.
 
 \begin{lstlisting}[style = htmlcssjs, caption = Disabled Select Example, label = code:SelectExample]
@@ -65,20 +65,20 @@ Eine möglich Anwendung ist in Code \ref{code:SelectExample} ersichtlich.
 </select>
 \end{lstlisting}
 
-Die typischen Attribute für Eingabefelder wie \texttt{disabled}, \texttt{form}, \texttt{name} und \texttt{required} sind bei einem Select ebenfalls verwendbar.
-Durch das \texttt{disabled} zeigt sich das Element in einer ausgegrauten Erscheinung und bietet dem Nutzer keine Interaktionsmöglichkeiten mehr.
-Der Container - z.B. \texttt{fieldset} - vererbt dieses Attribut weiter an seine Kinder. 
-Die \texttt{form}-Eigenschaft definiert das dazugehörige Formular und \texttt{name} den Key für das Key-Value Paar bzw. Name des Feldes im Formular. 
-Das \texttt{required} erzwingt eine Eingabe, um das Senden des Formulars freizuschalten.
-Für eine bessere Accessibility benötigt das Select eine \texttt{id}, um das Label zuweisen zu können. 
+Die typischen Attribute für Eingabefelder wie \codestyle{disabled}, \codestyle{form}, \codestyle{name} und \codestyle{required} sind bei einem Select ebenfalls verwendbar.
+Durch das \codestyle{disabled} zeigt sich das Element in einer ausgegrauten Erscheinung und bietet dem Nutzer keine Interaktionsmöglichkeiten mehr.
+Der Container - z.B. \codestyle{fieldset} - vererbt dieses Attribut weiter an seine Kinder. 
+Die \codestyle{form}-Eigenschaft definiert das dazugehörige Formular und \codestyle{name} den Key für das Key-Value Paar bzw. Name des Feldes im Formular. 
+Das \codestyle{required} erzwingt eine Eingabe, um das Senden des Formulars freizuschalten.
+Für eine bessere Accessibility benötigt das Select eine \codestyle{id}, um das Label zuweisen zu können. 
 Standardmässig ist für dieses Feld nur eine einzelne Auswahl möglich.
-Durch die Ergänzung des Attributs \texttt{multiple} ist es möglich mehrere Werte zu markieren.
-Bei einer Vorauswahl mehrerer Listenelemente durch \texttt{selected} muss die Komponente ein Multiselect sein.
-Wenn jedoch bei einem Signle-Select mehrere Optionen das \texttt{selected}-Attribut enthalten, gilt das zuletzt Definierte als Default.
-Das \texttt{autocomplete} funktioniert wie bei anderen Inputs, indem Vorschläge vom User-Agent-Feature auftauchen.
-Durch die \texttt{autofocus}-Eigenschaft sind Interaktionen mit dem Feld direkt nach dem Laden möglich.
-Die Definition des \texttt{size}-Attributs steuert die Anzahl sichtbarer Elemente, wobei der Default für Single-Selects bei eins und mehrfache Auswahl bei vier liegt.
-Die in Kapitel \ref{sec:implementationsRenderer} definierten Browser unterstützen alle Attribute des Selects - ausser der \texttt{size}.
+Durch die Ergänzung des Attributs \codestyle{multiple} ist es möglich mehrere Werte zu markieren.
+Bei einer Vorauswahl mehrerer Listenelemente durch \codestyle{selected} muss die Komponente ein Multiselect sein.
+Wenn jedoch bei einem Signle-Select mehrere Optionen das \codestyle{selected}-Attribut enthalten, gilt das zuletzt Definierte als Default.
+Das \codestyle{autocomplete} funktioniert wie bei anderen Inputs, indem Vorschläge vom User-Agent-Feature auftauchen.
+Durch die \codestyle{autofocus}-Eigenschaft sind Interaktionen mit dem Feld direkt nach dem Laden möglich.
+Die Definition des \codestyle{size}-Attributs steuert die Anzahl sichtbarer Elemente, wobei der Default für Single-Selects bei eins und mehrfache Auswahl bei vier liegt.
+Die in Kapitel \ref{sec:implementationsRenderer} definierten Browser unterstützen alle Attribute des Selects - ausser der \codestyle{size}.
 Die meisten Mobile-Browser supporten die Grösse nicht.
 
 Abgesehen von der Grösse ist die Umgestaltung des Elements browserunabhängig kaum möglich.
@@ -87,10 +87,10 @@ In diesem Fall ist es notwendig, die Logik und die Interaktionen für die Access
 Gewisse Stylings lassen sich anwenden, wobei aber nicht alle Browser diese in der selben Weise übernehmen.
 Durch die komplexe Struktur des Selects ist eine eigene Darstellung schwierig zu kontrollieren.
 
-Der Inhalt\footnotemark \ des Elements können \texttt{option}s oder \texttt{optgroup}s sein.
+Der Inhalt\footnotemark \ des Elements können \codestyle{option}s oder \codestyle{optgroup}s sein.
 \footnotetext{\cite{selectMdn}}
-Mehr zur \texttt{optgroup} kommt im nachfolgenden Unterkapitel.
-Die ARIA-Rolle gibt der Komponente die Funktion einer Combobox (ohne \texttt{size} \& \texttt{multiple}) oder Listbox.
+Mehr zur \codestyle{optgroup} kommt im nachfolgenden Unterkapitel.
+Die ARIA-Rolle gibt der Komponente die Funktion einer Combobox (ohne \codestyle{size} \& \codestyle{multiple}) oder Listbox.
 
 Die mehrfache Auswahl rein per Tastatur bietet in der Interaktion geringere Möglichkeiten als mit der Maus.
 Die Maus kann mit gedrückter Cmd (Mac) bzw. Ctrl (Windows) Taste weitere Elemente dazu selektieren.
@@ -106,8 +106,8 @@ Daher gibt es keine Alternative als sie zuvor auszuschalten bzw. umszustellen.
 \subsubsection{\color{dgray} Optgroup}
 \label{sec:optgroup}
 
-Die \texttt{optgroup} dient als Zusatz-Element um in \texttt{select}s Optionen zu Gruppieren und mit einem Zwischentitel zu versehen.
-Der Titel lässt sich durch das \texttt{label}-Attribut - wie in Code \ref{code:OptgroupExample} - setzen, ist aber nicht selektierbar. 
+Die \codestyle{optgroup} dient als Zusatz-Element um in \codestyle{select}s Optionen zu Gruppieren und mit einem Zwischentitel zu versehen.
+Der Titel lässt sich durch das \codestyle{label}-Attribut - wie in Code \ref{code:OptgroupExample} - setzen, ist aber nicht selektierbar. 
 
 \begin{lstlisting}[style = htmlcssjs, caption = Optgroup Example, label = code:OptgroupExample]
 <select name="animal">
@@ -122,11 +122,11 @@ Der Titel lässt sich durch das \texttt{label}-Attribut - wie in Code \ref{code:
 </select>
 \end{lstlisting}
 
-Das \texttt{disabled} ermöglicht das Ausgrauen eines ganzen Blocks von Auswahloptionen.
+Das \codestyle{disabled} ermöglicht das Ausgrauen eines ganzen Blocks von Auswahloptionen.
 In Code \ref{code:OptgroupExample} ist dies auf Zeile 6 zu sehen.
 Die Optionen, welche in diesem Element enthalten sind, erben das Attribut.
-Als Inhalt dienen \texttt{option}-Elemente und selbst besitzt es als Eltern-Element ein \texttt{select}.
-Die \texttt{optgroup} besitzt die ARIA-Rolle einer Gruppe.
+Als Inhalt dienen \codestyle{option}-Elemente und selbst besitzt es als Eltern-Element ein \codestyle{select}.
+Die \codestyle{optgroup} besitzt die ARIA-Rolle einer Gruppe.
 Alle Browser unterstützen dieses Element.
 
 
@@ -135,7 +135,7 @@ Alle Browser unterstützen dieses Element.
 
 Wie in Code \ref{code:DatalistExample} ersichtlich besteht die Datalist aus zwei Elementen - einem Input-Feld und einem Daten-Container. 
 Die Datenliste besitzt keine speziellen eigenen Attribute.
-Das Element benötigt von den globalen Attributen zumindest eine \texttt{id}.
+Das Element benötigt von den globalen Attributen zumindest eine \codestyle{id}.
 Die Id dient zur Verknüpfung der Liste mit dem Input-Feld. 
 Das folgende Unterkapitel \textbf{\nameref{sec:input}} beschreibt das Eingabefeld und dessen Typen im Detail.
 
@@ -149,20 +149,20 @@ Das folgende Unterkapitel \textbf{\nameref{sec:input}} beschreibt das Eingabefel
 </datalist>
 \end{lstlisting}
 
-Das Stylen der \texttt{datalist}\footnotemark \ ist sehr begrenzt bzw. nicht möglich. 
+Das Stylen der \codestyle{datalist}\footnotemark \ ist sehr begrenzt bzw. nicht möglich. 
 \footnotetext{\cite{datalistMdn}}
 Der Daten-Container reagiert nicht auf den Zoom des Browsers.
 Gewisse Screenreader ignorieren die Vorschlagsliste und lesen diese dadurch auch nicht vor.
 Das Element erhält die ARIA-Rolle einer Listbox.
 
-Die \texttt{option}s einer \texttt{datalist} besitzen normalerweise nur ein \texttt{value}-Attribut und kein Label.
+Die \codestyle{option}s einer \codestyle{datalist} besitzen normalerweise nur ein \codestyle{value}-Attribut und kein Label.
 Bei einer zusätzlichen Label-Definition kann das je nach Browser zu abweichenden Darstellungen kommen. 
 Während Firefox nur das Label in der Liste anzeigt, visualisieren die anderen Browser das Label und das Value gemeinsam.
 Die Browser, welche Label und Value anzeigen, heben den Wert ein wenig hervor.
 --
 Die Darstellung kann zu Missverständnissen führen, da das Eingabefeld bei einer Auswahl nur das Value anzeigt. 
-Die \texttt{option}s-Werte können sich dem Typ des Inputs anpassen. 
-Generell unterstützen alle Browser die \texttt{datalist}, aber Firefox nur begrenzt.
+Die \codestyle{option}s-Werte können sich dem Typ des Inputs anpassen. 
+Generell unterstützen alle Browser die \codestyle{datalist}, aber Firefox nur begrenzt.
 
 Nicht alle Browser unterstützen die Datenliste für jeden Eingabe-Typ\footnotemark.
 \footnotetext{\cite{datalistMdn}}
@@ -170,7 +170,7 @@ Der textuelle Typ funktioniert in allen Browsern und die Liste öffnet sich nach
 Vordefinierte Datum- und Zeit-Typen funktionieren nur in den Chromium-basierten Browsern. 
 Firefox und Safari zeigen den normalen Eingabe-Container, als ob die Liste nicht verknüpft ist.
 Bei der Verwendung einer Liste mit einer Range zeigen alle Browser die Optionen durch Markierungen auf dem Slider an.
-Die Kombination einer \texttt{datalist} mit einer Farbpalette zeigt eine breite, aber unterschiedliche Unterstützung. 
+Die Kombination einer \codestyle{datalist} mit einer Farbpalette zeigt eine breite, aber unterschiedliche Unterstützung. 
 Unter den gängigen Browsern ist Firefox auf OSX der Einzige, welcher die Liste nicht darstellt.
 Zusammengefasst bieten für Listen mit den unterschliedlichsten Typen Chromium-basierte Browser die beste Unterstützung.
 
@@ -178,61 +178,61 @@ Zusammengefasst bieten für Listen mit den unterschliedlichsten Typen Chromium-b
 \subsubsection{\color{dgray} Input}
 \label{sec:input}
 
-Dieser Abschnitt behandelt nur den Teil, welcher im Bezug auf die \texttt{datalist} von Belang ist.
-Das \texttt{list}-Attribut verknüpft das Input - in Code \ref{code:DatalistExample} auf Zeile 1 und 2 - mit den Auswahloptionen der Liste.
-Bei der Verwendung zusammen mit der \texttt{datalist} ist dieses Attribut Pflicht.
+Dieser Abschnitt behandelt nur den Teil, welcher im Bezug auf die \codestyle{datalist} von Belang ist.
+Das \codestyle{list}-Attribut verknüpft das Input - in Code \ref{code:DatalistExample} auf Zeile 1 und 2 - mit den Auswahloptionen der Liste.
+Bei der Verwendung zusammen mit der \codestyle{datalist} ist dieses Attribut Pflicht.
 Dadurch erscheinen die Auswahloptionen während der Bedienung des Input-Feldes. 
 
 Dieser Paragraph behandelt die in diesem Kontext für alle Typen geltenden Attribute.
-Das \texttt{autocomplete}-Attribut dient zur Anzeige der Hinweise für das Autofill-Feature der Browser.
-Das \texttt{disabled} schaltet die Interaktionsmöglichkeiten aus und deaktiviert somit die Komponente.
-Ist das Eingabefeld ausserhalb eines Formulars platziert, kann das Attribut \texttt{form} eine Verknüpfung zu einem auf der Seite existierenden Formular herstellen.
-Im abgesendeten Formular dient die Eigenschaft \texttt{name} zur Identifizierung des Wertes im \texttt{value}-Attribut.
-Der Typ des Eingabefeldes - angegeben durch das \texttt{type} - definiert welche UI-Erscheinung das Input im Browser erhält und welche Werte zulässig sind.
-Als Standard-Typ ist \texttt{text} definiert, wodurch dieses Attribut optional ist.
+Das \codestyle{autocomplete}-Attribut dient zur Anzeige der Hinweise für das Autofill-Feature der Browser.
+Das \codestyle{disabled} schaltet die Interaktionsmöglichkeiten aus und deaktiviert somit die Komponente.
+Ist das Eingabefeld ausserhalb eines Formulars platziert, kann das Attribut \codestyle{form} eine Verknüpfung zu einem auf der Seite existierenden Formular herstellen.
+Im abgesendeten Formular dient die Eigenschaft \codestyle{name} zur Identifizierung des Wertes im \codestyle{value}-Attribut.
+Der Typ des Eingabefeldes - angegeben durch das \codestyle{type} - definiert welche UI-Erscheinung das Input im Browser erhält und welche Werte zulässig sind.
+Als Standard-Typ ist \codestyle{text} definiert, wodurch dieses Attribut optional ist.
 Mehr zu den für diese Arbeit wichtigen Typen ist im Unterkapitel \textbf{\nameref{sec:inputTypesDatalist}} zu lesen.
-Die \texttt{id} als globale Eigenschaft dient bei den Eingabefeldern zusätzlich noch zur Verknüpfung mit einem Label-Element und somit einer bessern Accessibility.
+Die \codestyle{id} als globale Eigenschaft dient bei den Eingabefeldern zusätzlich noch zur Verknüpfung mit einem Label-Element und somit einer bessern Accessibility.
 
-Weiter existieren noch die zwei Attribute \texttt{readonly} und \texttt{required}, welche bei allen Typen ausser \texttt{range} und \texttt{color} definiert sind.
+Weiter existieren noch die zwei Attribute \codestyle{readonly} und \codestyle{required}, welche bei allen Typen ausser \codestyle{range} und \codestyle{color} definiert sind.
 Durch die Ergänzung der ersten Eigenschaft ist der Wert nicht mehr änderbar, aber es bleibt im Verlauf der fokussierbaren Komponenten enthalten.
-Das \texttt{required} erzwingt eine Eingabe.
-Die Eigenschaften \texttt{min}, \texttt{max} und \texttt{step} unterstützen die Konfiguration der numerischen Typen\footnotemark.
-\footnotetext{\texttt{date}, \texttt{month}, \texttt{week}, \texttt{time}, \texttt{datetime-local}, \texttt{number}, \texttt{range}}
+Das \codestyle{required} erzwingt eine Eingabe.
+Die Eigenschaften \codestyle{min}, \codestyle{max} und \codestyle{step} unterstützen die Konfiguration der numerischen Typen\footnotemark.
+\footnotetext{\codestyle{date}, \codestyle{month}, \codestyle{week}, \codestyle{time}, \codestyle{datetime-local}, \codestyle{number}, \codestyle{range}}
 Die ersten beiden begrenzen die Werte auf einen Bereich oder ein Intervall.
-Mit \texttt{step} lässt sich die Grösse eines Schrittes einstellen.
-Die textlichen Felder\footnotemark \ besitzen die Attribute \texttt{maxlength}, \texttt{minlength}, \texttt{pattern} und \texttt{size}.
-\footnotetext{in diesem Zusammenhang: \texttt{text}, \texttt{search}, \texttt{url}, \texttt{tel}, \texttt{email}, \texttt{password}}
-Diese Texttypen zusammen mit \texttt{number} können durch \texttt{placeholder} einen Patzhaltertext erhalten.
+Mit \codestyle{step} lässt sich die Grösse eines Schrittes einstellen.
+Die textlichen Felder\footnotemark \ besitzen die Attribute \codestyle{maxlength}, \codestyle{minlength}, \codestyle{pattern} und \codestyle{size}.
+\footnotetext{in diesem Zusammenhang: \codestyle{text}, \codestyle{search}, \codestyle{url}, \codestyle{tel}, \codestyle{email}, \codestyle{password}}
+Diese Texttypen zusammen mit \codestyle{number} können durch \codestyle{placeholder} einen Patzhaltertext erhalten.
 Die Min- und Max-Länge schränken die Textlänge der Eingabe ein.
-Die Vorgabe eines Regex-Musters im \texttt{pattern}-Attribut kann die Eingabe weiter eingrenzen.
+Die Vorgabe eines Regex-Musters im \codestyle{pattern}-Attribut kann die Eingabe weiter eingrenzen.
 Das Formular validiert die Felder vor dem Senden anhand des Patterns und markiert fehlerhafte Einhaben als invalide.
-Gewisse Typen - wie z.B. \texttt{url}, \texttt{tel} und \texttt{email} - haben bereits eine Pattern hinterlegt.
-Mit \texttt{size} lässt sich die Grösse bzw. Anzahl sichtbarer Zeichen angeben.
+Gewisse Typen - wie z.B. \codestyle{url}, \codestyle{tel} und \codestyle{email} - haben bereits eine Pattern hinterlegt.
+Mit \codestyle{size} lässt sich die Grösse bzw. Anzahl sichtbarer Zeichen angeben.
 Weitere Informationen zum Styling eines Input-Feldes stehen im Unterkapitel \textbf{\nameref{sec:inputCss}}.
 
 Das Input besteht aus einem selbst-schliessenden Tag.
 Die ARIA-Rolle ist vom Typ abhängig und kann als Textbox, Combobox, Spinbutton, Slider, Searchbox, Telbox oder keiner speziellen Rolle zugeordent sein.
 In den hier erwähnten Möglichkeiten der Kompontente existiert eine grossflächige Browserunterstützung.
-Die einzigen Ausnahmen beziehen sich auf die Typen \texttt{week} und \texttt{month}, welche im Firefox und Safari nicht funktionieren.
+Die einzigen Ausnahmen beziehen sich auf die Typen \codestyle{week} und \codestyle{month}, welche im Firefox und Safari nicht funktionieren.
 
 
 \subsubsection{{\color{dgray} Input-Typen mit Datalist-Unterstützung}}
 \label{sec:inputTypesDatalist}
 
-Bei den textuellen Typen\footnotemark \ existieren \texttt{text}, \texttt{search}, \texttt{number}, \texttt{email}, \texttt{url} und \texttt{tel}.
+Bei den textuellen Typen\footnotemark \ existieren \codestyle{text}, \codestyle{search}, \codestyle{number}, \codestyle{email}, \codestyle{url} und \codestyle{tel}.
 \footnotetext{\cite{datalistMdn}}
 Diese Typen erscheinen mehr oder weniger als normales, einzeiliges Texteingabefeld.
 Die ersten zwei der Auflistung verwalten einen Text ohne spezielle Anforderungen. 
-Der Typ \texttt{number} dient zum Speichern der Werte als Zahlen und zeigt dies durch die Ergänzung zweier Buttons im UI-Feld.
+Der Typ \codestyle{number} dient zum Speichern der Werte als Zahlen und zeigt dies durch die Ergänzung zweier Buttons im UI-Feld.
 Die letzten drei Typen sind Textfelder, welche bereits ein passendes Pattern für E-Mail, URL oder Telefonnummer hinterlegt haben.
 Zudem zeigen diese Felder bei dynamischen Tastaturen eine der Situation angepasstes Layout\footnotemark.
-\footnotetext{z.B.: @ und . ist bei \texttt{email} immer sichtbar, oder bei \texttt{tel} sind die Zahlen besser dargestellt}
-Typen in der Kategorie Date-Time sind \texttt{month}, \texttt{week}, \texttt{date}, \texttt{time} und \texttt{datetime-local}.
+\footnotetext{z.B.: @ und . ist bei \codestyle{email} immer sichtbar, oder bei \codestyle{tel} sind die Zahlen besser dargestellt}
+Typen in der Kategorie Date-Time sind \codestyle{month}, \codestyle{week}, \codestyle{date}, \codestyle{time} und \codestyle{datetime-local}.
 
-Bei einer ungefähren Eingabe einer Zahl auf einem Intervall bietet sich \texttt{range} an.
+Bei einer ungefähren Eingabe einer Zahl auf einem Intervall bietet sich \codestyle{range} an.
 Im UI zeigt sich diese Komponente als Slider, wobei sich der Standard Wert in der Mitte findet.
-Zur Festlegung der Limiten dienen \texttt{min} und \texttt{max}.
-Für eine Farbauswahl kann der Typ \texttt{color} zur Anwendung kommen. 
+Zur Festlegung der Limiten dienen \codestyle{min} und \codestyle{max}.
+Für eine Farbauswahl kann der Typ \codestyle{color} zur Anwendung kommen. 
 Die gängigen Browser zeigen nach dem Aufklappen Farbpaletten, welche sich aber in der Darstellung unterscheiden. 
 Firefox beispielsweise greift auf die vom System gestellte Farbpalette zurück, wo Chromium-basierte Browser eine Eigene bieten.
 
@@ -246,20 +246,20 @@ Bei einem Input\footnotemark \ bestehen mehrere Möglichkeiten dieses umzugestal
 Es existieren eigene CSS-Pseudo-Klassen, wobei die folgende Aufzählung nur einen Ausschnitt aufzeigt.
 
 \begin{itemize}
-    \item \texttt{:enabled} bzw. \texttt{:disabled} - reagiert auf das \texttt{disabled}-Attribut
-    \item \texttt{:read-write} bzw. \texttt{:read-only} - reagiert auf das \texttt{readonly}-Attribut
-    \item \texttt{:valid} bzw. \texttt{:invalid} - reagiert beim Abschicken des Formulars auf die Client-Side Validität\footnotemark \ des Felds
-    \item \texttt{:user-invalid} - reagiert beim Verlassen des Inputs auf die Client-Side Validität des Felds
-    \item \texttt{:in-range} bzw. \texttt{:out-of-range} - reagiert auf das \texttt{min}- und \texttt{max}-Attribut
-    \item \texttt{:optional} bzw. \texttt{:required} - reagiert auf das \texttt{required}-Attribut
-    \item \texttt{:blank} - reagiert wenn ein Feld leer ist
+    \item \codestyle{:enabled} bzw. \codestyle{:disabled} - reagiert auf das \codestyle{disabled}-Attribut
+    \item \codestyle{:read-write} bzw. \codestyle{:read-only} - reagiert auf das \codestyle{readonly}-Attribut
+    \item \codestyle{:valid} bzw. \codestyle{:invalid} - reagiert beim Abschicken des Formulars auf die Client-Side Validität\footnotemark \ des Felds
+    \item \codestyle{:user-invalid} - reagiert beim Verlassen des Inputs auf die Client-Side Validität des Felds
+    \item \codestyle{:in-range} bzw. \codestyle{:out-of-range} - reagiert auf das \codestyle{min}- und \codestyle{max}-Attribut
+    \item \codestyle{:optional} bzw. \codestyle{:required} - reagiert auf das \codestyle{required}-Attribut
+    \item \codestyle{:blank} - reagiert wenn ein Feld leer ist
 \end{itemize}
-\footnotetext{Einhaltung der Regeln für das Input - z.B. ein gegebenes \texttt{pattern}}
+\footnotetext{Einhaltung der Regeln für das Input - z.B. ein gegebenes \codestyle{pattern}}
 
-Weiter gibt es noch das Pseudo-Element \texttt{::placeholder}, welches das Stylen des Platzhalters erlaubt.
-Das CSS-Property \texttt{caret-color} färbt den Cursor\footnotemark \ in Inputs um.
+Weiter gibt es noch das Pseudo-Element \codestyle{::placeholder}, welches das Stylen des Platzhalters erlaubt.
+Das CSS-Property \codestyle{caret-color} färbt den Cursor\footnotemark \ in Inputs um.
 \footnotetext{blinkender Strich in einem Eingabefeld}
-Im Gegensatz zur \texttt{datalist} und dem \texttt{select} lässt sich das normale Eingabefeld relativ gut designen. 
+Im Gegensatz zur \codestyle{datalist} und dem \codestyle{select} lässt sich das normale Eingabefeld relativ gut designen. 
 
 
 \clearpage

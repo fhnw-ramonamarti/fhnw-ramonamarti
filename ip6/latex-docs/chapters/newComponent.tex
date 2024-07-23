@@ -57,12 +57,12 @@ Da die Elemente drei verschiedene Zustände gleichzeitig erhalten können, müss
 Nicht jede der erwähnten Eigenschaften und Farben eigenen sich in gleichem Masse.
 \emph{Yellow-100} fällt schnell wieder weg, da je nach Display der Kontrast zu gering ist.
 Unter den restlichen hellen Schattierungen passt \emph{Yellow-300} am besten, da diese Farbe bereits als Selektionsfarbe im Code hinterlegt ist.
-Als Hintergrundfarbe eignet sich am ehesten das vordefinierte \texttt{--kb-color-select}. 
+Als Hintergrundfarbe eignet sich am ehesten das vordefinierte \codestyle{--kb-color-select}. 
 Dadurch ist klar, dass die anderen beiden Zustände eine eher kräftige bzw. dunkle Färbung benötigen.
 Der Blick auf die Namen im Designsystem zeigt eine weitere Farbe zur Hervorhebung eines Elements.
-Die Benennung des mittleren Rosa mit Accent (\texttt{--kolibri-color-accent}) bietet einen guten Kontrast zur Selektion und ist ebenfalls im Code vordefiniert.
+Die Benennung des mittleren Rosa mit Accent (\codestyle{--kolibri-color-accent}) bietet einen guten Kontrast zur Selektion und ist ebenfalls im Code vordefiniert.
 Da die dritte Farbe nicht zu viel Unruhe in das Design bringen soll, schränkt sich die Farbauswahl weiter ein.
-Mit einem gut erkennbaren Kontrast zur Selektion bietet sich das dunkle Gelb \texttt{--kb-warning-dark} an.
+Mit einem gut erkennbaren Kontrast zur Selektion bietet sich das dunkle Gelb \codestyle{--kb-warning-dark} an.
 
 Wie erwähnt ist die Eigenschaft Hintergrundfarbe durch die Wahl der Farbe bereits festgelegt. 
 Die Änderung der Schrift sollte maximal die Farbe betreffen. 
@@ -189,7 +189,7 @@ Nachfolgender Codeausschnitt \ref{code:popoverStyle} zeigt den relevanten CSS-Co
 \end{lstlisting}
 
 Diese CSS-Regeln definieren die Animationen für das Öffnen und Schliessen des Popovers und das grundlegende Styling des Popover-Containers.
-Die \texttt{@keyframes} regeln die Transformation, während \texttt{.options-component[popover]} das Layout und das Erscheinungsbild des Popovers steuert.
+Die \codestyle{@keyframes} regeln die Transformation, während \codestyle{.options-component[popover]} das Layout und das Erscheinungsbild des Popovers steuert.
 
 
 \subsection{Interaktionsdesign}
@@ -202,7 +202,7 @@ Sie definieren die Styles der hervorgehobenen (highlighted) bzw. ausgewählten (
 Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein aktuelles\footnotemark \ und selektiertes Element.
 \footnotetext{Element, welches sich unter der Cursor Position befindet}
 
-\begin{lstlisting}[style = htmlcssjs, caption = Aktuelle (\texttt{cursor-position}) und ausgewählte (\texttt{selected}) Option, label = code:styledElement]
+\begin{lstlisting}[style = htmlcssjs, caption = Aktuelle (\codestyle{cursor-position}) und ausgewählte (\codestyle{selected}) Option, label = code:styledElement]
 .cursor-position {
     color: var(--kb-hsla-warning-dark);
 
@@ -224,12 +224,12 @@ Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein aktue
 }
 \end{lstlisting}
 
-\texttt{.cursor-position}: Definiert die Hervorhebung der Option, die gerade durch den Cursor\footnotemark \ fokussiert ist.
+\codestyle{.cursor-position}: Definiert die Hervorhebung der Option, die gerade durch den Cursor\footnotemark \ fokussiert ist.
 \footnotetext{Tastatur-Position-Anker (nicht Maus-Cursor)} % todo check over doc usage cursor
 Eine dunkle Farbe und eine linksseitige Markierung betonen das Element.
-\texttt{.selected}: Stellt die ausgewählte Option durch einen speziellen Hintergrund und abgerundete Ecken dar.
+\codestyle{.selected}: Stellt die ausgewählte Option durch einen speziellen Hintergrund und abgerundete Ecken dar.
 
-Im \texttt{columnOptionsProjector.js} gibt es Event-Handler, die das Setzen und Entfernen der Highlighting-Klassen steuern:
+Im \codestyle{columnOptionsProjector.js} gibt es Event-Handler, die das Setzen und Entfernen der Highlighting-Klassen steuern:
 
 \begin{lstlisting}[style = htmlcssjs, caption = Steuerung der Highlighting-Klassen, label = code:highlightChange]
 const selectOptionItem = (root) => (newOption, oldOption) => {
@@ -248,10 +248,10 @@ const cursorPositionItem = (root) => (newOption, oldOption) => {
 }; 
 \end{lstlisting}
 
-\texttt{selectOptionItem}: Verschiebt die Klasse \texttt{.selected} und somit die Hervorhebung auf das neue Element.
-\texttt{cursorPositionItem}: Entfernt bzw. setzt die Klasse \texttt{.cursor-position} - ähnlich wie beim \texttt{selectOptionItem}. 
+\codestyle{selectOptionItem}: Verschiebt die Klasse \codestyle{.selected} und somit die Hervorhebung auf das neue Element.
+\codestyle{cursorPositionItem}: Entfernt bzw. setzt die Klasse \codestyle{.cursor-position} - ähnlich wie beim \codestyle{selectOptionItem}. 
 
-Im Codeausschnitt \ref{code:eventSelection} aus der Datei \texttt{selectProjector.js} lässt sich das Highlighting 
+Im Codeausschnitt \ref{code:eventSelection} aus der Datei \codestyle{selectProjector.js} lässt sich das Highlighting 
 durch die Verknüpfung der Optionen und ihrer Events mit den entsprechenden CSS-Klassen steuern.
 
 \begin{lstlisting}[style = htmlcssjs, caption = Event-Handling für die Auswahl einer Option, label = code:eventSelection]
@@ -271,7 +271,7 @@ const projectSelectedValueOptionView = (selectController, popoverElement) => {
 }; 
 \end{lstlisting}
 
-\texttt{projectSelectedValueOptionView}: Erstellt die Ansicht für die ausgewählte Option und verknüpft die Klick-Events mit dem Umschalten des Popovers.
+\codestyle{projectSelectedValueOptionView}: Erstellt die Ansicht für die ausgewählte Option und verknüpft die Klick-Events mit dem Umschalten des Popovers.
 Diese Kombination von CSS und JavaScript bietet dem Highlighting und der Auswahl von Optionen in der Dropdown-Komponente eine effektive und visuell ansprechende Umsetzung.
 
 
@@ -279,8 +279,8 @@ Diese Kombination von CSS und JavaScript bietet dem Highlighting und der Auswahl
 \label{sec:sizeLayoutChanges}
 
 Diese CSS-Regeln gestalten die Optionen einer einzelnen Spalte sowie das Scroll-Verhalten des Containers. 
-Das \texttt{.options-column} aus Code \ref{code:optionStyling} definiert das Layout sowie weitere Listen-abhängige Eigenschaften, 
-während das \texttt{.option-item} das Erscheinungsbild und die Interaktivität der einzelnen Optionen festlegt.
+Das \codestyle{.options-column} aus Code \ref{code:optionStyling} definiert das Layout sowie weitere Listen-abhängige Eigenschaften, 
+während das \codestyle{.option-item} das Erscheinungsbild und die Interaktivität der einzelnen Optionen festlegt.
 
 \begin{lstlisting}[style = htmlcssjs, caption = Optionen und Scrollbar-Styling, label = code:optionStyling]
 .options-column {
@@ -307,7 +307,7 @@ während das \texttt{.option-item} das Erscheinungsbild und die Interaktivität 
 \end{lstlisting}
 
 Die Nutzung von den CSS-Styles im JavaScript stellt sicher, dass die dynamischen Klassen und Stile bei den Elementen bei Erstellung oder Aktualisierung ihre Anwendung finden.
-Das Beispiel \ref{code:cssSyleInJs} aus den Dateien \texttt{selectProjector.js} und \texttt{columnOptionsProjector.js} verwenden die erwänhten CSS-Klassen:
+Das Beispiel \ref{code:cssSyleInJs} aus den Dateien \codestyle{selectProjector.js} und \codestyle{columnOptionsProjector.js} verwenden die erwänhten CSS-Klassen:
 
 \begin{lstlisting}[style = htmlcssjs, caption = CSS-Styles im JavaScript, label = code:cssSyleInJs]
 // selectProjector.js
@@ -333,7 +333,7 @@ const projectOption = (selectedOptionController, option, optionType, cursorPosit
 \end{lstlisting}
 
 Dieser JavaScript Code erstellt die HTML-Elemente und ergänzt die CSS-Klassen, um das Styling und die Funktionalität sicherzustellen. 
-Das \texttt{selectProjector.js} erstellt und stylt den Popover-Container, während das \texttt{columnOptionsProjector.js} die einzelnen Options-Elemente gestaltet.
+Das \codestyle{selectProjector.js} erstellt und stylt den Popover-Container, während das \codestyle{columnOptionsProjector.js} die einzelnen Options-Elemente gestaltet.
 Diese Kombination aus CSS und JS stellt sicher, dass die Dropdown- und Popover-Komponenten korrekt angezeigt und interaktiv sind.
 
 
@@ -448,8 +448,8 @@ const reset = () => {
 const nullOption = reset();
 \end{lstlisting}
 
-Mit dem Erhalt des Typs \texttt{Option} bietet die Konstante die selbe Funktionalität wie die gewünschten Objekte. 
-Der Codeausschnitt \ref{code:nullOption} befindet sich in der Datei \texttt{optionsModel.js}.
+Mit dem Erhalt des Typs \codestyle{Option} bietet die Konstante die selbe Funktionalität wie die gewünschten Objekte. 
+Der Codeausschnitt \ref{code:nullOption} befindet sich in der Datei \codestyle{optionsModel.js}.
 Mehr zur File Aufteilung ist in den nächsten zwei Unterkapiteln zu lesen.
 
 \subsection{Projector Pattern}
@@ -470,7 +470,7 @@ Die View ist passiv und hat keine Kenntnis über die anderen Komponenten.
 Dieses Pattern zeigte sich als eines der Wichtigsten für die Erstellung der neuen Komponente.
 In den folgenden Grafiken sind Models als Zylinder, Controller als schiefes Rechteck und Projectors als Oval dargestellt.
 Die Raute mit Option ist ein Daten-Typ, der über das gesamte Projekt seine Anwendung findet.
-Das \texttt{starter.js} beinhaltet alle Bestandteile, welche für eine Anwendung notwendig sind.
+Das \codestyle{starter.js} beinhaltet alle Bestandteile, welche für eine Anwendung notwendig sind.
 Eine genauere Beschreibung des Puzzles folgt im Unterkapitel \textbf{\nameref{sec:decoratorPattern}}.
 Die erste Implementation, welche dieses Pattern verwendet, ist auf Abbildung \ref{img:diagramSelectComponentOld}.
 
@@ -489,7 +489,7 @@ Die Implementation der dargestellten Diagramme resultiert aus einem Refactoring 
 \begin{figure}[!htb] % todo look at position
     \centering
     \includegraphics[width=120mm]{diagram-column-component-with-desc.png}
-    \caption{Diagramm \texttt{ColumnComponent}}
+    \caption{Diagramm \codestyle{ColumnComponent}}
     \label{img:diagramColumnComponent}
 \end{figure}
 
@@ -497,26 +497,26 @@ Zum einen findet sich das Projector Pattern in einer einzelnen Spalte in der Opt
 Pro Kolonne existiert eine Auswahl und eine Menge von Optionen.
 Diese beiden Bestandteile besitzen je ein eigenes Model und einen eigenen Controller.
 Der Projektor generiert eine gemeinsame View und bindet diese an die beiden Controller.
-Bei einer Anwendung übernimmt die \texttt{ColumnComponent} die Verwaltung gewisser Bausteine (Mehr dazu später).
+Bei einer Anwendung übernimmt die \codestyle{ColumnComponent} die Verwaltung gewisser Bausteine (Mehr dazu später).
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{diagram-select-component-with-desc.png}
-    \caption{Diagramm \texttt{SelectComponent}}
+    \caption{Diagramm \codestyle{SelectComponent}}
     \label{img:diagramSelectComponent}
 \end{figure}
 
 Die Anwendungskomponente einer Column findet sich als Bestandteil des zweiten Projector Pattern wieder.
-Ein \texttt{SelectController} verwaltet eine bis mehrere \texttt{ColumnComponent}s als auch ein Element für die Tastaturnavigation.
-Die sogenannte Cursor Position verwendet im Hintergrund ebenfalls einen \texttt{SelectedOptionController}. 
+Ein \codestyle{SelectController} verwaltet eine bis mehrere \codestyle{ColumnComponent}s als auch ein Element für die Tastaturnavigation.
+Die sogenannte Cursor Position verwendet im Hintergrund ebenfalls einen \codestyle{SelectedOptionController}. 
 Dieser ist derselbe wie in der Abbildung \ref{img:diagramColumnComponent} und findet hier eine Wiederverwendung.
 Für die Definition der Bindings greifen die einzelnen Projektoren auf den selben Controller zu.
 Der Master-Detail-Aufbau der neuen Komponente findet sich in der Aufteilung der Projektoren wieder.
 Der Detail-Baustein kümmert sich um die aktuelle Auswahl und das Eingabefeld.
 Die Master-Komponente verwaltet alle Spalten mit den Kategorie- und Werte-Optionen, sowie dessen Bindings.
 Eine weitere Funktion ist die Einbettung der beiden Projektoren in eine gemeinsame View.
-Auch diese Projector Pattern Anwendung schliesst mit einer Component - der \texttt{SelectComponent} - ab.
-Mehr zu dieser und der \texttt{ColumnComponent} steht im nächsten Kapitel.
+Auch diese Projector Pattern Anwendung schliesst mit einer Component - der \codestyle{SelectComponent} - ab.
+Mehr zu dieser und der \codestyle{ColumnComponent} steht im nächsten Kapitel.
 
 
 \subsection{Decorator Pattern}
@@ -533,7 +533,7 @@ Die Decorator sind in den Abbildungen \ref{img:diagramColumnComponent} und \ref{
 Diese Bestandteile kombinieren die Funktionalität des Controllers mit der Erstellung der View.
 Dadurch lässt sich die neue Komponente einfacher anwenden.
 
-\begin{lstlisting}[style = htmlcssjs, caption = \texttt{SelectComponentByTableValue} dekoriert \texttt{SelectComponentByCallback}, label = code:componentDecorator]
+\begin{lstlisting}[style = htmlcssjs, caption = \codestyle{SelectComponentByTableValue} dekoriert \codestyle{SelectComponentByCallback}, label = code:componentDecorator]
 const SelectComponentByTableValues = (
     selectAttributes,
     optionsTable,
@@ -548,9 +548,9 @@ const SelectComponentByTableValues = (
 \end{lstlisting}
 
 Ein weiterer Einsatzort ist in der Abbildung \ref{img:diagramSelectComponent} aus dem Vorkapitel zu sehen. 
-Der \texttt{SelectComponentByTableValue} in Code \ref{code:componentDecorator} dekoriert die \texttt{SelectComponentByCallback}.
+Der \codestyle{SelectComponentByTableValue} in Code \ref{code:componentDecorator} dekoriert die \codestyle{SelectComponentByCallback}.
 Damit bietet die neue Komponente zwei verschiedene Möglichkeiten der Anwendung.
-Das nächste Kapitel geht genauer auf den Master-View-Bereich des \texttt{SelectProjector}s - Abbildung \ref{img:diagramSelectComponent} - ein. 
+Das nächste Kapitel geht genauer auf den Master-View-Bereich des \codestyle{SelectProjector}s - Abbildung \ref{img:diagramSelectComponent} - ein. 
 
 
 \section{Dropdown-Container}
@@ -561,7 +561,7 @@ Eine Möglichkeit ist, den Container als HTML-Dialog zu gestalten.
 Die vorhandenen Funktionen sind jedoch nicht für diese Komponente geeignet.
 Für den gewünschten Zweck erfordert das Dialog-Element noch einiges an benutzerdefinierter Anpassung.
 
-Eine weitere Variante ist, ein normales \texttt{div} als Options-Container zu verwenden.
+Eine weitere Variante ist, ein normales \codestyle{div} als Options-Container zu verwenden.
 Dies erfordert ebenfalls einen enormen Implementationsaufwand.
 Eine Andwendung dieses Ansatzes findet sich in der ersten Version der Komponente.
 Hierbei eröffnet sich das Problem von der Inkonsistenz zwischen UI und Controller.
@@ -580,10 +580,10 @@ Der Grundaufbau des Popover-Container ist im folgenden Code \ref{code:PopoverExa
 > <!-- content --> </div>
 \end{lstlisting}
 
-Bei diesem Codeausschnitt ist wichtig, dass das Attribut \texttt{popover} den Wert \texttt{auto} erhält.
+Bei diesem Codeausschnitt ist wichtig, dass das Attribut \codestyle{popover} den Wert \codestyle{auto} erhält.
 Dies bewirkt, dass die Popover sich automatisch schliessen, wenn ein Klick ausserhalb des Container passiert.
-Das Öffnen und Schliessen des Dropdown-Elements lässt sich über das \texttt{popovertarget}-Attribut auf der Bedienkomponente steuern.
-Dieses Target enthält die \texttt{id} des Div-Containers mit dem Attribut \texttt{popover}. 
+Das Öffnen und Schliessen des Dropdown-Elements lässt sich über das \codestyle{popovertarget}-Attribut auf der Bedienkomponente steuern.
+Dieses Target enthält die \codestyle{id} des Div-Containers mit dem Attribut \codestyle{popover}. 
 Als Alternative dazu besteht die Möglichkeit, das Popover über JavaScript zu steuern.
 Hierbei besteht die Möglichkeit auf den Status und das Event des Togglens zuzugreifen.
 Diese Funktionalitäten erlauben den Controller konsistent zum UI zu halten.
@@ -598,7 +598,7 @@ Die folgende Abbildung \ref{img:RenderingProcessRecap} zeigt die Kernelemente de
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=120mm]{rendering-process.png}
+    \includegraphics[width=80mm]{rendering-process.png}
     \caption{Rendering Prozess}
     \label{img:RenderingProcessRecap}
 \end{figure}
@@ -613,7 +613,7 @@ Ein Shadow-DOM ist ein Teilbaum, welcher nicht am Browser-DOM angehängt ist.
 Für einen reibungslosen Ablauf ist es sinnvoll, die Änderungen nach dem Abhängen des Elternknotens zu vollziehen. 
 Nach den Änderungen ist der Teilbaum wieder an den gewünschten Ort einzuhängen.
 
-\begin{lstlisting}[style = htmlcssjs, caption = Performance Optimierung (aus \texttt{columnOptionsComponent.js}), label = code:PerformanceOptimization]
+\begin{lstlisting}[style = htmlcssjs, caption = Performance Optimierung (aus \codestyle{columnOptionsComponent.js}), label = code:PerformanceOptimization]
 const addAllOptions = (options) => {
     const placeHolder = createHolder();
     columnView.replaceWith(placeHolder);
@@ -636,15 +636,15 @@ Nach Abschluss ersetzt sich der Lade-Indikator der originalen Stelle im Renderba
 
 Weiter ist darauf achten, dass CSS-Klassen\footnotemark \ an Stelle von Inline-Styles\footnotemark \ ihre Verwendung finden.
 \footnotetext{\cite{efficientDomManipulation}}
-\footnotetext{Offizieller Begriff: Element attached style $\Rightarrow$ Styles direkt im HTML-Element mit Attribut \texttt{style} definiert}
+\footnotetext{Offizieller Begriff: Element attached style $\Rightarrow$ Styles direkt im HTML-Element mit Attribut \codestyle{style} definiert}
 Die Selektoren sollten hierarchisch möglichst flach und nicht verschachtelt sein.
-Wenn es die Situation erlaubt, ist es besser, nicht mit \texttt{innerHTML} zu arbeiten.
-In diesem Projekt ist es für die Anzeige der Label jedoch nötig \texttt{innerHTML} zu nutzen.
+Wenn es die Situation erlaubt, ist es besser, nicht mit \codestyle{innerHTML} zu arbeiten.
+In diesem Projekt ist es für die Anzeige der Label jedoch nötig \codestyle{innerHTML} zu nutzen.
 Dies liegt daran, dass ein Label auch ein Bild enthalten kann.
 Generell verwendet die neue Auswahlkomponente keine Inline-Styles.
 Die einzige Ausnahme betrifft das verborgene Eingabefeld. 
 Durch den Code \ref{code:InlineStyle} sind die Properties vor dem einfachen Überschreiben\footnotemark \ geschützt.
-\footnotetext{\texttt{!important} besser nicht verwenden}
+\footnotetext{\codestyle{!important} besser nicht verwenden}
 
 \begin{lstlisting}[style = htmlcssjs, caption = Inline-Style für Input-Feld, label = code:InlineStyle]
 inputElement.setAttribute(
@@ -670,25 +670,25 @@ Die folgenden zwei Bilder \ref{img:PerformanceTestBefore} und \ref{img:Performan
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=100mm]{performance-before-user-tests.png}
+    \includegraphics[width=120mm]{performance-before-user-tests-zoom.png}
     \caption{Performance Test vor Anpassungen}
     \label{img:PerformanceTestBefore}
 \end{figure}
 
-Auf der Grafik \ref{img:PerformanceTestBefore} ist zu sehen, dass der Seitenaufbau der früheren Version sehr lange dauerte. 
-Dies bestätigen mehrere Feedbacks der Nutzer, später mehr dazu.
+Auf der Grafik \ref{img:PerformanceTestBefore} ist zu sehen, dass der Seitenaufbau der früheren Version mit über 5 Sekunden (rechts unten in blau) sehr lange dauerte. 
+Die Implementation führte sehr viele Aktionen auf dem Renderbaum aus.
+Die lange Wahrtezeit bestätigten mehrere Feedbacks der Nutzer, später mehr dazu.
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=100mm]{performance-after-user-tests.png}
+    \includegraphics[width=120mm]{performance-after-user-tests-zoom.png}
     \caption{Performance Test nach Anpassungen}
     \label{img:PerformanceTestAfter}
 \end{figure}
 
-Der Vergleich zwischen Abbildung \ref{img:PerformanceTestBefore} und \ref{img:PerformanceTestAfter} zeigt, dass die Seite um Faktor 13 schneller ist.
-Die oberen Grafik zeigt die Messung der Implementation, welche sehr viele Aktionen auf dem Renderbaum ausführt.
-Ein Refactoring führt zur Verschiebung dieser Arbeiten auf den Shadow-DOM.
-Dadurch verkürzt sich der Ladevorgang um vier bis fünf Sekunden.
+Ein Refactoring der früheren Implementation führt zur Auslagerung der aufwendigen Arbeiten auf den Shadow-DOM.
+Dadurch verkürzt sich der Ladevorgang um vier bis fünf Sekunden auf knapp 0.4 Sekunden (rechts unten in blau).
+Der direkte Vergleich zwischen Abbildung \ref{img:PerformanceTestBefore} und \ref{img:PerformanceTestAfter} zeigt, dass die Seite um Faktor 13 schneller geladen ist.
 Feedbacks zu den durchgeführten User-Tests mit Programmierern als auch Endnutzern sind im nachfolgenden Kapitel aufgeführt.
 
 
@@ -696,7 +696,7 @@ Feedbacks zu den durchgeführten User-Tests mit Programmierern als auch Endnutze
 \label{sec:testing}
 
 Verschiedene Arten von Tests garantieren die Korrektheit der einzelnen Funktionen und Komponenten.
-Die automatisierten Code-Tests stellen sicher, dass das Aufrufen der gebotenen Funktionalität die gewünschen Änderungen ausführt.
+Die automatisierten Code-Tests stellen sicher, dass das Aufrufen der gebotenen Funktionalität die gewünschten Änderungen ausführt.
 Komponenten, welche für die Erstellung des UI zusändig sind, prüfen die Existenz von Elementen als auch das Triggern der Events.
 Die User Tests mit unterschiedlichen Personen gewährleisten eine gute Nutzerzufriedenheit als auch die intuitive Anwendung durch Programmierer.
 Die Auswahl der Nutzer fällt auf eine grosse Vielfalt, damit die Resultate unterschiedliche Sichtweisen einbeziehen. 
@@ -705,8 +705,10 @@ Die Auswahl der Nutzer fällt auf eine grosse Vielfalt, damit die Resultate unte
 \subsection{Automatisierte Tests}
 \label{sec:automatedTests}
 
-Tests für Komponente der \texttt{SelectComponent} beweisen die Stabilität des Codes.
-Auf der Abbildung \ref{img:automatedTests} ist zu sehen, dass eine breite Palette an Kontrollen stattfindet und sauber druchläuft. 
+Tests für Komponente der \codestyle{SelectComponent} beweisen die Stabilität des Codes.
+Generell befinden sich die einzelnen Komponenten nach Separation of Concern je in einer eingenen Test-Einheit.
+Dies garantiert das schnelle Auffinden von Bugs und unerwünschtem Verhalten direkt in einer Komponente.
+Auf der Abbildung \ref{img:automatedTests} ist zu sehen, dass eine breite Palette an Kontrollen stattfindet und sauber durchläuft. 
 
 \begin{figure}[!htb]
     \centering
@@ -715,11 +717,22 @@ Auf der Abbildung \ref{img:automatedTests} ist zu sehen, dass eine breite Palett
     \label{img:automatedTests}
 \end{figure}
 
-Die ersten zwei Test-Suits kümmern sich um die Korrektheit der Models und der Controller. 
-Das erste File besteht aus den Typen \texttt{ValueOption} und \texttt{CategoryOption}. 
-Dazu gesellen sich die Komponenten \texttt{OptionsModel} und \texttt{SelectedOptionModel}.
-Der \texttt{OptionsController} und der \texttt{SelectedOptionController} befinden sich in der zweitgenannten JS-Datei.
-Die sechs zuvor genannten Funktionalitäten befinden sich nach der Separation of Concern je in einer eingenen Test-Einheit.
+Die oberen vier Zeilen auf Abbildung \ref{img:automatedTests} zeigen Tests zu den Bausteinen aus Abbildung \ref{img:diagramColumnComponent}. 
+Diese decken den Level der Options bis zur Column ab.
+Die ersten zwei Test-Suites kümmern sich genauer um die Korrektheit der Models und Controller. 
+Dabei besteht das erste File aus den Tests der Typen \codestyle{ValueOption} und \codestyle{CategoryOption}. 
+Dazu gesellen sich Prüfungen der Komponenten \codestyle{OptionsModel} und \codestyle{SelectedOptionModel}.
+Der \codestyle{OptionsController} und der \codestyle{SelectedOptionController} finden sich in der Test-Datei wieder.
+Der \codestyle{projectColumnOptionsView}-Test deckt die Kontrolle des Bindings und die Existenz der View-Elemente ab.
+Die Korrektheit des Zusammenspiels zwischen Projektor und Controller findet sich im \codestyle{ColumnOptionsComponent}-Testing wieder.
+
+Die restlichen Test-Bibliotheken decken die Korrektheit der auf Abbildung \ref{img:diagramSelectComponent} sichtbaren Bausteine ab. 
+Diese drei Dateien prüfen das Zusammenspiel der Columns als auch der allgemeinen Komponenten-Funktionalitäten. 
+In einzelnen Units prüft die \codestyle{SelectController}-Test-Suite verschiedene Varianten der Anwendung.
+In dem \codestyle{projectSelectViews}-Test befindet sich - wie bereits bei der Column - die Prüfungen der Korrektheit der Bindings und View-Elemente. 
+Die letzte Datei kümmert sich um die Kontrolle verschieden angewendeter \codestyle{SelectComponentByCallbacks} und \codestyle{SelectComponentByTableValues}. 
+Die breite Abdeckung der Einzelteile garantiert die korrekte Funktion der neuen Komponente.
+Die Tests im nachfolgenden Kapitel sind für eine gute Anwendbarkeit im Code als auch angenehme Benutzung der Auswahlkomponente im Browser notwendig. 
 
 
 \subsection{User Tests} % todo
