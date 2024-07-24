@@ -1,6 +1,8 @@
 \chapter{Neue Auswahlkomponenten}
 \label{chap:newComponent}
 
+
+design, interaction, regeln, patterns, dropdownContainer, performance, tests
 % todo paragraph
 {\color{red} \textbf{FEHLENDER PARAGRAPH KOMMT NOCH}}
 
@@ -721,16 +723,16 @@ Die oberen vier Zeilen auf Abbildung \ref{img:automatedTests} zeigen Tests zu de
 Diese decken den Level der Options bis zur Column ab.
 Die ersten zwei Test-Suites kümmern sich genauer um die Korrektheit der Models und Controller. 
 Dabei besteht das erste File aus den Tests der Typen \codestyle{ValueOption} und \codestyle{CategoryOption}. 
-Dazu gesellen sich Prüfungen der Komponenten \codestyle{OptionsModel} und \codestyle{SelectedOptionModel}.
-Der \codestyle{OptionsController} und der \codestyle{SelectedOptionController} finden sich in der Test-Datei wieder.
-Der \codestyle{projectColumnOptionsView}-Test deckt die Kontrolle des Bindings und die Existenz der View-Elemente ab.
-Die Korrektheit des Zusammenspiels zwischen Projektor und Controller findet sich im \codestyle{ColumnOptionsComponent}-Testing wieder.
+Dazu gesellen sich Prüfungen der Komponenten \codestyle{OptionsModel} und \codestyle{SelectedOption\-Model}.
+Der \codestyle{OptionsController} und der \codestyle{SelectedOption\-Controller} finden sich in der Test-Datei wieder.
+Der \codestyle{project\-ColumnOptions\-View}-Test deckt die Kontrolle des Bindings und die Existenz der View-Elemente ab.
+Die Korrektheit des Zusammenspiels zwischen Projektor und Controller findet sich im \codestyle{Column\-Options\-Component}-Testing wieder.
 
 Die restlichen Test-Bibliotheken decken die Korrektheit der auf Abbildung \ref{img:diagramSelectComponent} sichtbaren Bausteine ab. 
 Diese drei Dateien prüfen das Zusammenspiel der Columns als auch der allgemeinen Komponenten-Funktionalitäten. 
 In einzelnen Units prüft die \codestyle{SelectController}-Test-Suite verschiedene Varianten der Anwendung.
 In dem \codestyle{projectSelectViews}-Test befindet sich - wie bereits bei der Column - die Prüfungen der Korrektheit der Bindings und View-Elemente. 
-Die letzte Datei kümmert sich um die Kontrolle verschieden angewendeter \codestyle{SelectComponentByCallbacks} und \codestyle{SelectComponentByTableValues}. 
+Die letzte Datei kümmert sich um die Kontrolle verschieden angewendeter \codestyle{SelectComponent\-ByCallbacks} und \codestyle{SelectComponent\-By\-TableValues}. 
 Die breite Abdeckung der Einzelteile garantiert die korrekte Funktion der neuen Komponente.
 Die Tests im nachfolgenden Kapitel sind für eine gute Anwendbarkeit im Code als auch angenehme Benutzung der Auswahlkomponente im Browser notwendig. 
 
