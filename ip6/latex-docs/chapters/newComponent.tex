@@ -1,10 +1,16 @@
 \chapter{Neue Auswahlkomponenten}
 \label{chap:newComponent}
 
-
-design, interaction, regeln, patterns, dropdownContainer, performance, tests
-% todo paragraph
-{\color{red} \textbf{FEHLENDER PARAGRAPH KOMMT NOCH}}
+Dieses Kapitel beschreibt die Bausteine der neuen Komponente in verschiedenen Ebenen.
+Als erstes zeigt das Design die visuelle Darstellungsmöglichkeiten über die getroffene Auswahl bis hin zu den Prototypen.
+Dazu gesellen sich das Interaktionsdesign als auch die Umsetzung des Desgins. % todo change interaktionsdesign with new title
+Darauffolgend findet sich die Definition der Interaktion mit der Maus als auch der Tastatur.
+Die für einen stabilen Code wichtigen Regeln und Prinzipien sind ebenfalls festgelegt.
+Die Anwendung diverser Patterns führt zu einer klaren Struktur und hoher Wiederverwendbarkeit.
+Als spezielles Element in der View zählt der Dropdown Container, welcher sich unterschiedlich implementieren lässt.
+Für ein angenehmes Nutzerfeeling spielt eine gute Performance eine tragende Rolle.
+Dies zeigen auch die ausgeführten User Tests mit Endanwendern als auch Programmierern.
+Automatisierte Tests für jede Komponente beweisen eine gute Codequalität.
 
 
 \section{Design}
@@ -194,7 +200,7 @@ Diese CSS-Regeln definieren die Animationen für das Öffnen und Schliessen des 
 Die \codestyle{@keyframes} regeln die Transformation, während \codestyle{.options-component[popover]} das Layout und das Erscheinungsbild des Popovers steuert.
 
 
-\subsection{Interaktionsdesign}
+\subsection{Interaktionsdesign} % todo think about title
 \label{sec:interactionDesign}
 
 Die Dropdown-Komponente ist so gestaltet, dass sie sowohl für Maus- als auch Tastaturbenutzer optimal funktioniert. 
