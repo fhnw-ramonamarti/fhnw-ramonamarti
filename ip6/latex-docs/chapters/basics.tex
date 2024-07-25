@@ -110,7 +110,7 @@ Der Browser kombiniert die beiden Bäume zu einem gemeinsamen Renderbaum (Abbild
 Der resultierende Baum repräsentiert nur sichtbare Elemente, wohingegen der DOM alle Elemente enthält.
 Der Renderbaum ist browserabhängig.
 
-Dieses Wissen ist wichtig für das spätere Kapitel \nameref{sec:performance}. 
+Dieses Wissen ist wichtig für das spätere Kapitel \textbf{\nameref{sec:performance}}. 
 Der Grund ist, dass der Browser maximal 60 Mal pro Sekunde rendern kann.
 Jede Änderung am Browser-DOM\footnotemark \ startet den kompletten Rendering Prozess von vorne.
 \footnotetext{Im Renderbaum verwendeter und im Browser angezeigter DOM}
@@ -135,7 +135,7 @@ Gründe für ein erneutes Rendern\footnotemark :
 \label{sec:implementationsRenderer}
 
 Die neue Komponente soll in möglichst allen Browsern eine konsistente Erscheinung als auch Interaktion bieten.
-Durch die Erklärung aus Kapitel \nameref{sec:structureRendering} ist klar, dass die Renderer die Unterschiede im UI bewirken.
+Durch die Erklärung aus Kapitel \textbf{\nameref{sec:structureRendering}} ist klar, dass die Renderer die Unterschiede im UI bewirken.
 Die Bedienungsabweichungen stammen grösstenteils vom zu Grunde liegenden Betriebssystem.
 Diese Erkenntnisse führen dazu, dass die neue Komponente auf Mac und Windows in den Browsern der jeweils geläufigsten Rendering-Implementationen zu testen ist.
 Zu den ausgewählten Webbrowser zählen Google Chrome, Firefox (Mac und Windows), Safari (nur Mac) und Edge (nur Windows).
