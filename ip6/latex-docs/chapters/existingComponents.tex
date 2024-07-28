@@ -30,7 +30,7 @@ Alternativ ist das \codestyle{label}-Attribut zu nutzen und dafür das Value an 
 Firefox unterstützt diese Variante jedoch nicht.
 Das Weglassen des \codestyle{value}- und \codestyle{label}-Attributes führt dazu, dass beide den Wert innerhalb des öffnenden und schliessenden Tags erhalten.
 
-\begin{lstlisting}[style = htmlcssjs, caption = Option Example, label = code:OptionExample]
+\begin{lstlisting}[style = htmlcssjs, caption = Option Beispiel, label = code:OptionExample]
 <option value="dog"         > Dog   </option>
 <option label="Cat" selected> cat   </option>
 <option             disabled> Mouse </option>
@@ -57,7 +57,7 @@ Alle gängigen Browser unterstützen das \codestyle{option}-Element.
 Das \codestyle{select}-Element speichert Werte durch die einzelnen \codestyle{option}-Kinder.
 Eine möglich Anwendung ist in Code \ref{code:SelectExample} ersichtlich.
 
-\begin{lstlisting}[style = htmlcssjs, caption = Disabled Select Example, label = code:SelectExample]
+\begin{lstlisting}[style = htmlcssjs, caption = Disabled Select Beispiel, label = code:SelectExample]
 <select name="animal" disabled>
     <option value="dog"  > Dog   </option>
     <option value="cat"  > Cat   </option>
@@ -97,7 +97,7 @@ Die Maus kann mit gedrückter Cmd (Mac) bzw. Ctrl (Windows) Taste weitere Elemen
 Mit dem Drücken der Shift-Taste lassen sich alle Elemente zwischen der ersten und der letzten Option markieren.
 Damit sich die zuvor markierte Auswahl nicht aufhebt, ist darauf zu achten, beim Anwenden beider Techniken den Bereich mit Shift zuerst auszuwählen.
 Für das Markieren mehrerer Werte mittels Tastatur ist es unabdingbar, zuerst zum ersten Element zu navigieren.
-Mit Shift und den Pfeiltasten hoch und runter ist ein Bereich wählbar.
+Mit Shift und den Pfeiltasten $\uparrow$ und $\downarrow$ ist ein Bereich wählbar.
 Firefox unterstützt noch die einzelne Mehrfachauswahl über die Tastatur.
 Auf dem Mac sind die Tastenkombinationen Systembefehle.
 Daher gibt es keine Alternative als sie zuvor auszuschalten bzw. umszustellen.
@@ -109,7 +109,7 @@ Daher gibt es keine Alternative als sie zuvor auszuschalten bzw. umszustellen.
 Die \codestyle{optgroup} dient als Zusatz-Element um in \codestyle{select}s Optionen zu Gruppieren und mit einem Zwischentitel zu versehen.
 Der Titel lässt sich durch das \codestyle{label}-Attribut - wie in Code \ref{code:OptgroupExample} - setzen, ist aber nicht selektierbar. 
 
-\begin{lstlisting}[style = htmlcssjs, caption = Optgroup Example, label = code:OptgroupExample]
+\begin{lstlisting}[style = htmlcssjs, caption = Optgroup Beispiel, label = code:OptgroupExample]
 <select name="animal">
     <optgroup label="Big animal">
         <option value="dog"> Dog </option>
@@ -139,7 +139,7 @@ Das Element benötigt von den globalen Attributen zumindest eine \codestyle{id}.
 Die Id dient zur Verknüpfung der Liste mit dem Input-Feld. 
 Das folgende Unterkapitel \textbf{\nameref{sec:input}} beschreibt das Eingabefeld und dessen Typen im Detail.
 
-\begin{lstlisting}[style = htmlcssjs, caption = Datalist Example, label = code:DatalistExample]
+\begin{lstlisting}[style = htmlcssjs, caption = Datalist Beispiel, label = code:DatalistExample]
 <input type="text" name="animal" 
        list="data" placeholder="Animal" />
 <datalist id="data">
@@ -275,7 +275,7 @@ Nachfolgend sind die Inkonsistenzen genauer erläutert.
 \label{sec:uiDifferences}
 
 Das Select ist in der geschlossenen Form auf der rechten Seite immer mit mindestens einem Pfeil nach unten ausgestattet.
-Safari (OSX und iOS) verwendet als Icon einen Doppelpfeil (nach oben und unten).
+Safari (OSX und iOS) verwendet als Icon einen Doppelpfeil (nach oben und unten zeigend).
 Firefox zeigt das Feld in grau, während alle anderen Browser einen weissen Hintergrund verwenden.
 Safari auf iOS stellt die Komponente ohne Rahmen dar und deswegen ist der Hintergrund in einem hellen Grau gehalten.
 Die geöffnete Liste ist bei Firefox als einziges relativ konsistent. 
@@ -316,7 +316,7 @@ Im Anschluss an die Gegenüberstellungen der diversen Browser weist das Kapitel 
 \subsection{Edge Browser}
 \label{sec:edgeBrowser}
 
-Die folgende Tabelle \ref{table:interactionEdge} zeigt den Vergleich der typischen Integrationen zwischen Datalist, Single- und Multiselect in Edge auf Windows.
+Die folgende Tabelle \ref{table:interactionEdge} zeigt den Vergleich der typischen Interaktionen zwischen Datalist, Single- und Multiselect in Edge auf Windows.
 
 \import{../tables}{c.edge.tex}
 
@@ -406,9 +406,91 @@ Diese Erkenntnisse fordern eine sorgfältige Abstimmung und eventuelle Anpassung
 \section{Länderauswahl Komponente}
 \label{sec:countryChoice}
 
-% todo
-\citemark \ 
+Alternativ zu den bekannten HTML-Elementen \codestyle{datalist} und \codestyle{select} existiert eine weitere, spezielle Auswahlkomponente - die Länderauswahl\citemark.
 \footnotetext{[\cite{ip5}]}
+Diese vereinfacht die Selektion eines Landes in einer vorgegebenen Liste. 
+Das Desgin, die Funktionen und die Anwendung unterscheiden sich aber zu den oben genannten HTML-Elementen.
+
+\subsection{Design}
+\label{sec:countryChoiceDesign}
+
+Die Länderauswahl erscheint moderner als die alten HTML-Elemente.
+Die Komponente ist in geschlossenem als auch geöffnetem Zustand durch einen immer sichtbaren Container mit dem gewählten Land (Abbildung \ref{img:countryInputComponentClose}) visualisiert.
+Ist die Länderauswahl geöffnet, erscheint ein Listencontainer mit allen Ländern (Abbildung \ref{img:countryInputComponentOpen}).
+Der Aufbau zeigt sich in einem Spaltendesign - Kontinente links und Länder rechts.
+
+\begin{figure}[!htb]
+    \centering
+    \begin{minipage}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{countryInput-close.png}
+        \caption{Geschlossene Länderauswahl}
+        \label{img:countryInputComponentClose}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{countryInput-open.png}
+        \caption{Offene Länderauswahl}
+        \label{img:countryInputComponentOpen}
+    \end{minipage}
+\end{figure}
+
+Das Design lässt sich einfacher und vielfältiger als bei den Standard HTML-Elementen anpassen.
+Die einzelnen Subkomponenten besitzen Klassen, welche ein einfaches Umstyling ermöglicht.
+Funktionell zeigen sich Übereinstimmungen als auch Unterschiede.
+
+
+\subsection{Funktionen \& Interaktionen}
+\label{sec:countryChoiceFunction}
+
+Ein grosser Unterschied findet sich in der Funktion des Kontinents.
+Durch die Selektion eines Kontinents reduzieren sich die zur Auswahl stehenden Länder.
+Ist kein spezifischer Kontinent ausgewählt, fällt die Selektion auf \emph{All}.
+Die Komponente besitzt kein integriertes Formular-Feld.
+Deswegen benötigt die Länderauswahl in einem Formular zusätzlichen Aufwand.
+
+Die Länderauswahl bietet viele Interaktionen, welche sich bei den HTML-Elementen wiederfinden.
+Die folgende Tabelle \ref{table:interactionCountryInput} zeigt die Interaktionen, welche auf der Länderauswahl implementiert sind.
+
+\import{../tables}{c.countryInput.tex}
+
+
+\subsection{Anwendung}
+\label{sec:countryChoiceUse}
+
+Die Komponente ist jedoch nur auf den spezifischen Anwendungsfall - der Wahl eines Landes - getestet.
+Der folgende Code \ref{code:countryInputExample} zeigt einen möglichen Anwendungsfall.
+
+\begin{lstlisting}[style = htmlcssjs, caption = Länderauswahl Beispiel, label = code:countryInputExample]
+const createControllers = () => {
+    return [createDetailController(), createMasterController()];
+};
+
+// create view using both controller
+const start = (classname) => {
+    return 
+};
+
+const formHolder = document.querySelector("#form-holder");
+if (null != formHolder) {
+    const formStructureDetail = {
+        value: "",
+        placeholder: "Choose a country",
+        label: "Country",
+        name: "country",
+    };
+    const formStructureMaster = {
+        elementList: countryList,
+        sectionElement: { continent: "All" },
+        focusObject: {},
+    };
+    const detailController = ChoiceDetailController(formStructureDetail);
+    const masterController = ChoiceMasterController("continent", "country")(formStructureMaster);
+    const view = projectChoiceInput(detailController, masterController, classname);
+    formHolder.append(...view);
+}
+\end{lstlisting}
 
 
 \section{Anwendungsfälle}
