@@ -76,20 +76,20 @@ Dabei ist es hilfreich, verschiedene Interaktions-Projektoren\footnotemark \ zu 
 
 Neue UI-Projektoren lassen sich nicht ausnahmslos mit den bestehenden Tastatur-Inter\-aktionen kombinieren. 
 Zudem ist nicht in jeder Situation erwünscht, dass die Cursor Position die Selektion beeinflusst.
-Weitere Projektoren können neue eventuell UI-Projektor spezifisch Interaktionen bieten.
+Weitere Projektoren können neue, eventuell UI-Projektor spezifische Interaktionen bieten.
 
 Ein Interaktions-Projektor kann das Auswahlkomponente bezogene Undo und Redo enthalten.
-Diese Funktion biete an, eine geänderte Auswahl rückgängig zu machen oder zu wiederholen.
+Diese Funktion bietet an, eine geänderte Auswahl rückgängig zu machen oder zu wiederholen.
 
 
 \subsection{Spezifische Auswahlkomponenten und Erweiterungen}
 \label{sec:specificComponents}
 
-Zukünftig besteht die Möglichkeit Auswahlkomponenten für speziell Anwendungsfälle zu erstellen.
+Zukünftig besteht die Möglichkeit Auswahlkomponenten für spezielle Anwendungsfälle zu erstellen.
 Ein altbekanntes Beispiel ist die Auswahl eines Datums mit Tag, Monat und Jahr.
 Dabei kann weitere Logik zur Kontrolle der möglichen Werte zum Einsatz kommen.
 
-Das Erweitern der Multiselect-Funktionalität führt die Anpassung mehrere Subkomponenten mit sich.
+Das Erweitern der Multiselect-Funktionalität führt die Anpassung mehrerer Subkomponenten mit sich.
 Es betrifft die Implementation von der \codestyle{SelectComponent} bis hin zu der \codestyle{columnOptionsComponent}.
 Eine mögliche neue Single-Select Komponente bietet die Funktionalität mehrere Kategorien auswählen zu können.
 Hierbei ist zu unterscheiden, ob die ausgewählten Kategorien als AND- oder OR-Verknüpfung zu verstehen sind.
@@ -98,10 +98,10 @@ Hierbei ist zu unterscheiden, ob die ausgewählten Kategorien als AND- oder OR-V
 \subsection{Performance verbessern und mögliche Datenmenge erhöhen}
 \label{sec:betterPerformance}
 
-Die \codestyle{SelectComponent} garantiert eine sinnvolle\footnotemark \ Ladezeit bis 5'000 Werte.
-\footnotetext{Ladezeit < 400ms bis die Webseite fertig geladen ist}
-Diese Performance lässt sich noch weiter optimieren.
-Zudem führen diese Verbesserungen dazu, dass sich die grössere Menge an Option anwenden lässt.
+Die \codestyle{SelectComponent} garantiert bis 5'000 Werte eine annehmbare\footnotemark \ Ladezeit.
+\footnotetext{Ladezeit < 500ms bis die Webseite fertig geladen ist}
+Diese Performance lässt sich weiter optimieren.
+Zudem führen diese Verbesserungen dazu, dass sich eine noch höhere Anzahl Optionen anwenden lässt.
 Eine Kombination der Auswahlkomponente mit der Lazy Table des Kolibri ermöglicht eine optimierte Performance.
 Denn die Lazy Table kann eine Datenmenge von über 100'000 Werte verwalten.
 
@@ -111,7 +111,7 @@ Denn die Lazy Table kann eine Datenmenge von über 100'000 Werte verwalten.
 
 Die entstandene Auswahlkomponente ist nur für nicht beeinträchtigte Menschen optimiert.
 Zukünftig ist die Komponente noch für Screen-Reader und somit für Blinde zu ergänzen.
-Die getroffenen Styles benötigen ein Testing mit Sehbeeintrachtigten, um die Accessability garantieren zu können.
+Die getroffenen Styles benötigen ein Testing mit Sehbeeinträchtigten, um die Accessability garantieren zu können.
 Dazu zählt zum Beispiel die bekannte Rot-Grün-Schwäche.
 
 

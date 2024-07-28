@@ -373,11 +373,11 @@ Zur Auffrischung:
 \end{itemize}
 
 \noindent
-Bei der Festlegung der Maus-Interaktion fiel die Entscheidung auf folgendes:
+Bei der Festlegung der Maus-Interaktion fällt die Entscheidung auf folgendes:
 
 \begin{itemize}
     \item \textbf{mouseover}: visuelles Highlighting des Elements ohne Selektionsänderung
-    \item \textbf{click}: Änderung der Cursor Position \& direkte Selektionsänderung
+    \item \textbf{click}: Änderung der Cursor Position \& Selektionsänderung
 \end{itemize}
 
 \noindent
@@ -385,8 +385,7 @@ Die Tastatur-Steuerung mit den Pfeiltasten hingegen hält sich an diese Bedienun
 
 \begin{itemize}
     \item Änderung der Cursor Position
-    \item \textbf{In der selben Spalte}: direkte Selektionsänderung ohne weitere Bestätigung
-    \item \textbf{Spaltenänderung}: keine Selektionsänderung
+    \item keine Selektionsänderung
 \end{itemize}
 
 \noindent
@@ -435,8 +434,8 @@ Die Implementation erhält durch die verwendeten Patterns eine Struktur und läu
 \subsection{Null Object Pattern}
 \label{sec:nullPattern}
 
-Ein Pattern, welches im Verlauf der Arbeit eine wichtige Rolle eingenommen hat, ist das Null-Object Pattern\footnotemark.
-\footnotetext{\cite{nullObjectPattern}}
+Ein Pattern, welches im Verlauf der Arbeit eine wichtige Rolle eingenommen hat, ist das Null-Object Pattern\citemark.
+\footnotetext{[\cite{nullObjectPattern}]}
 Null hat den Nachteil, dass alle Funktionsaufrufe darauf zu Fehlern führen.
 Das Null-Object besteht aus vordefinierten Default-Werten und besitzt für alle Funktionen eine \emph{Do-Nothing}-Implementation.
 Durch die Verwendung dieses speziellen Objekts entfällt eine ansonsten notwendige Nullwertprüfung.
@@ -463,8 +462,8 @@ Mehr zur File Aufteilung ist in den nächsten zwei Unterkapiteln zu lesen.
 \subsection{Projector Pattern}
 \label{sec:projectorPattern}
 
-Das Projector Pattern\footnotemark \ basiert auf dem verbreiteten Model-View-Controll Pattern.
-\footnotetext{\cite{projectorPattern}}
+Das Projector Pattern\citemark \ basiert auf dem verbreiteten Model-View-Controll Pattern.
+\footnotetext{[\cite{projectorPattern}]}
 Das Model verwaltet die dargestellten Daten.
 Zudem enthält die Komponente des Patterns die Geschäftslogik und verarbeitet die Regeln und Anfragen für die Daten.
 Ein Controller generiert privat gehaltene Modelle.
@@ -530,8 +529,8 @@ Mehr zu dieser und der \codestyle{ColumnComponent} steht im nächsten Kapitel.
 \subsection{Decorator Pattern}
 \label{sec:decoratorPattern}
 
-Ein Decorator\footnotemark \ bietet zusätzliches Verhalten ohne das Originale Objekt zu verändern.
-\footnotetext{\cite{decoratorPattern}}
+Ein Decorator\citemark \ bietet zusätzliches Verhalten ohne das Originale Objekt zu verändern.
+\footnotetext{[\cite{decoratorPattern}]}
 Dabei lassem sich verschiedene Funktionen kombinieren.
 Dieses Pattern ermöglicht die Erstellung eines modularen und anpassbaren Codes.
 In diesem Projekt unterstützt es die Gestaltung und Erweiterung der Auswahlkomponente.
@@ -642,8 +641,8 @@ Das Anzeigen eines Platzhalters mit einem Lade-Indikator an der Ursprungsstelle 
 Sobald der SpaltenContainer abgekoppelt ist, lädt die Funktion die Optionen in den Shadow-DOM.
 Nach Abschluss ersetzt sich der Lade-Indikator der originalen Stelle im Renderbaum durch den Container mit den neuen Elementen. 
 
-Weiter ist darauf achten, dass CSS-Klassen\footnotemark \ an Stelle von Inline-Styles\footnotemark \ ihre Verwendung finden.
-\footnotetext{\cite{efficientDomManipulation}}
+Weiter ist darauf achten, dass CSS-Klassen\citemark \ an Stelle von Inline-Styles\footnotemark \ ihre Verwendung finden.
+\footnotetext{[\cite{efficientDomManipulation}]}
 \footnotetext{Offizieller Begriff: Element attached style $\Rightarrow$ Styles direkt im HTML-Element mit Attribut \codestyle{style} definiert}
 Die Selektoren sollten hierarchisch möglichst flach und nicht verschachtelt sein.
 Wenn es die Situation erlaubt, ist es besser, nicht mit \codestyle{innerHTML} zu arbeiten.

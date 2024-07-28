@@ -8,11 +8,11 @@
             \begin{tabular}{ l || l | l }
                 \bf{Kriterium}    & \bf{geschlossen} & \bf{offen} \\
                 \hline \hline
-                $\uparrow$ / $\downarrow$     & Wert ändern       & Wert / Kategorie ändern \\
+                $\uparrow$ / $\downarrow$     & Wert ändern       & Cursor Position ändern \\
                 \hline
                 $\leftarrow$ / $\rightarrow$  & -                 & Spalte ändern (Cursor Position) \\
                 \hline
-                Buchstaben  & Wert auf Suchergebnis\tnote{1} \ ändern & \tbbr{Wert / Kategorie auf \\ Suchergebnis\tnote{1} \ ändern} \\
+                Buchstaben  & Wert auf Suchergebnis\tnote{1} \ ändern & \tbbr{Cursor Position auf \\ Suchergebnis\tnote{1} \ ändern} \\
                 \hline
                 Leerschlag  & Liste öffnen    & Wert ändern       \\
                 \hline
@@ -24,14 +24,14 @@
                 \hline
                 Tab         & Input-Feld verlassen            & \tbbr{Liste schliessen \& \\ Feld verlassen } \\
                 \hline
-                PageUp / PageDown  & Browser-Default\tnote{2} & \tbbr{Jeder 10te Wert wählen} \\
+                PageUp / PageDown  & Browser-Default\tnote{2} & \tbbr{Cursor Position auf \\ jeden 10ten Wert setzen} \\
                 \hline
-                Home / End & Erster / letzter Wert wählen     & Erster / letzter Wert wählen  \\
+                Home / End & Erster / letzter Wert wählen     & \tbbr{Cursor Position auf \\ Ersten / letzten Wert setzen}  \\
                 \hline \hline
                 Scroll     & Browser-Default\tnote{2}         & \tbbr{\emph{Aussen}: Liste bleibt offen \\
-                                                                    \emph{Innen}: Werte bewegen \\ mit Highlight-Änderung} \\
+                                                                    \emph{Innen}: Werte bewegen \& \\ Highlight ändern} \\
                 \hline
-                Hover      & -                & Wert highlighten \\
+                Hover      & -                & Highlight ändern \\
                 \hline
                 Click      & Liste öffnen     & \tbbr{\emph{in Liste}: Wert wählen \\
                                                     \emph{in Wertfeld}: Liste schliessen} \\
@@ -39,7 +39,7 @@
             \end{tabular}
             \begin{tablenotes}
                 \scriptsize
-                \item[1] Suche: Erster mit dem eingaben Symbol passender Wert aus der Liste, wenn Eingabe nicht passend $\Rightarrow$ nächster nachfolgender Wert; 
+                \item[1] Suche: Erster mit dem eingegebenen Symbol passender Wert aus der Liste, wenn Eingabe nicht passend $\Rightarrow$ nächster nachfolgender Wert; 
                                 Liste unverändert; nach jedem Symbol $\Rightarrow$ neue Suche
                 \item[2] Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
             \end{tablenotes}

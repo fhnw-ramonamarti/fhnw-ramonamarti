@@ -42,8 +42,8 @@ Dies Attribut funktioniert nur im Zusammenhang mit dem \codestyle{select}-Contai
 Bei einem \codestyle{disabled} Element - wie in Code \ref{code:OptionExample} Zeile 3 - erscheint das UI ausgegraut.
 Dieser Eintrag lässt keine Interaktion zu.
 
-Das Designen von \codestyle{option}s\footnotemark \ beschränkt sich auf die Text- / Hintergrundfarbe, welche jedoch nur in Firefox funktionieren. 
-\footnotetext{\cite{optionMdn}}
+Das Designen von \codestyle{option}s\citemark \ beschränkt sich auf die Text- / Hintergrundfarbe, welche jedoch nur in Firefox funktionieren. 
+\footnotetext{[\cite{optionMdn}]}
 Die anderen Browser lassen kein Styling der Auswahl-Elemente zu bzw. zeigen diese nicht an.
 Es ist nur ein skalarer Text als Inhalt erlaubt. 
 Das bedeutet, keine weiteren Verschachtelung von Elementen sind möglich.
@@ -87,8 +87,8 @@ In diesem Fall ist es notwendig, die Logik und die Interaktionen für die Access
 Gewisse Stylings lassen sich anwenden, wobei aber nicht alle Browser diese in der selben Weise übernehmen.
 Durch die komplexe Struktur des Selects ist eine eigene Darstellung schwierig zu kontrollieren.
 
-Der Inhalt\footnotemark \ des Elements können \codestyle{option}s oder \codestyle{optgroup}s sein.
-\footnotetext{\cite{selectMdn}}
+Der Inhalt\citemark \ des Elements können \codestyle{option}s oder \codestyle{optgroup}s sein.
+\footnotetext{[\cite{selectMdn}]}
 Mehr zur \codestyle{optgroup} kommt im nachfolgenden Unterkapitel.
 Die ARIA-Rolle gibt der Komponente die Funktion einer Combobox (ohne \codestyle{size} \& \codestyle{multiple}) oder Listbox.
 
@@ -149,8 +149,8 @@ Das folgende Unterkapitel \textbf{\nameref{sec:input}} beschreibt das Eingabefel
 </datalist>
 \end{lstlisting}
 
-Das Stylen der \codestyle{datalist}\footnotemark \ ist sehr begrenzt bzw. nicht möglich. 
-\footnotetext{\cite{datalistMdn}}
+Das Stylen der \codestyle{datalist}\citemark \ ist sehr begrenzt bzw. nicht möglich. 
+\footnotetext{[\cite{datalistMdn}]}
 Der Daten-Container reagiert nicht auf den Zoom des Browsers.
 Gewisse Screenreader ignorieren die Vorschlagsliste und lesen diese dadurch auch nicht vor.
 Das Element erhält die ARIA-Rolle einer Listbox.
@@ -164,8 +164,8 @@ Die Darstellung kann zu Missverständnissen führen, da das Eingabefeld bei eine
 Die \codestyle{option}s-Werte können sich dem Typ des Inputs anpassen. 
 Generell unterstützen alle Browser die \codestyle{datalist}, aber Firefox nur begrenzt.
 
-Nicht alle Browser unterstützen die Datenliste für jeden Eingabe-Typ\footnotemark.
-\footnotetext{\cite{datalistMdn}}
+Nicht alle Browser unterstützen die Datenliste für jeden Eingabe-Typ\citemark.
+\footnotetext{[\cite{datalistMdn}]}
 Der textuelle Typ funktioniert in allen Browsern und die Liste öffnet sich nach einem Klick bzw. Doppelklick auf das Feld.
 Vordefinierte Datum- und Zeit-Typen funktionieren nur in den Chromium-basierten Browsern. 
 Firefox und Safari zeigen den normalen Eingabe-Container, als ob die Liste nicht verknüpft ist.
@@ -219,8 +219,8 @@ Die einzigen Ausnahmen beziehen sich auf die Typen \codestyle{week} und \codesty
 \subsubsection{{\color{dgray} Input-Typen mit Datalist-Unterstützung}}
 \label{sec:inputTypesDatalist}
 
-Bei den textuellen Typen\footnotemark \ existieren \codestyle{text}, \codestyle{search}, \codestyle{number}, \codestyle{email}, \codestyle{url} und \codestyle{tel}.
-\footnotetext{\cite{datalistMdn}}
+Bei den textuellen Typen\citemark \ existieren \codestyle{text}, \codestyle{search}, \codestyle{number}, \codestyle{email}, \codestyle{url} und \codestyle{tel}.
+\footnotetext{[\cite{datalistMdn}]}
 Diese Typen erscheinen mehr oder weniger als normales, einzeiliges Texteingabefeld.
 Die ersten zwei der Auflistung verwalten einen Text ohne spezielle Anforderungen. 
 Der Typ \codestyle{number} dient zum Speichern der Werte als Zahlen und zeigt dies durch die Ergänzung zweier Buttons im UI-Feld.
@@ -240,8 +240,8 @@ Firefox beispielsweise greift auf die vom System gestellte Farbpalette zurück, 
 \subsubsection{{\color{dgray} CSS für Input-Felder}}
 \label{sec:inputCss}
 
-Bei einem Input\footnotemark \ bestehen mehrere Möglichkeiten dieses umzugestalten.
-\footnotetext{\cite{inputMdn}}
+Bei einem Input\citemark \ bestehen mehrere Möglichkeiten dieses umzugestalten.
+\footnotetext{[\cite{inputMdn}]}
 
 Es existieren eigene CSS-Pseudo-Klassen, wobei die folgende Aufzählung nur einen Ausschnitt aufzeigt.
 
@@ -407,7 +407,8 @@ Diese Erkenntnisse fordern eine sorgfältige Abstimmung und eventuelle Anpassung
 \label{sec:countryChoice}
 
 % todo
-\textbf{\color{red} TODO}
+\citemark \ 
+\footnotetext{[\cite{ip5}]}
 
 
 \section{Anwendungsfälle}
