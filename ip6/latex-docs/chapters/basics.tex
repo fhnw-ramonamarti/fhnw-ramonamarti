@@ -16,7 +16,7 @@ Damit das Kolibri-Toolkit schlank bleibt, kommen keine externen Abhängigkeiten 
 Mit einer VanillaJS Codebasis bietet das Tool eine breite Auswahl an, deckt aber noch nicht alle Interaktionen ab.
 
 In diesem Projekt dient der in der Vorarbeit erstellte Fork als Ausgangslage.
-Ein Merge - des Branches \emph{experimental} dieses Forks und des \emph{Kolibri-16} der originalen Codebasis - stellt die Aktualität sicher.
+Ein Merge – des Branches \emph{experimental} dieses Forks und des \emph{Kolibri-16} der originalen Codebasis – stellt die Aktualität sicher.
 Das \codestyle{SimpleInput} ist eines der Tools, welches sich bei der Implementation der neuen Auswahlkomponente als hilfreich erweisen kann.
 
 Der Zugriff auf das Tool Figma ermöglicht das Verwenden des existierenden Designsystems und der bereits eingebundenen Elemente. 
@@ -32,11 +32,10 @@ Diese Definitionen gelten im gesamten Bericht.
 \label{sec:states}
 
 Dieser Abschnitt erklärt die Zustände, welche in einer Auswahlkomponente auftreten können.
-Als Ausgangslage dient eine Eingabemöglichkeit, die eine Master-Detail-Ansicht\footnotemark \ aufweist.
-\footnotetext{
+Als Ausgangslage dient eine Eingabemöglichkeit, die eine Master-Detail-Ansicht\footnote{
     Master beschreibt den Bereich, welcher alle möglichen Auswahlwerte enthält. 
     Detail beschreibt den Bereich, welcher den aktuell ausgewählten (selektierten) Wert enthält.
-}
+} aufweist.
 Zudem sind keine speziellen Voreinstellungen getroffen.
 
 Je nach Darstellung der Komponente kann diese \emph{offen} oder \emph{geschlossen} sein.
@@ -112,12 +111,14 @@ Der Renderbaum ist browserabhängig.
 
 Dieses Wissen ist wichtig für das spätere Kapitel \textbf{\nameref{sec:performance}}. 
 Der Grund ist, dass der Browser maximal 60 Mal pro Sekunde rendern kann.
-Jede Änderung am Browser-DOM\footnotemark \ startet den kompletten Rendering Prozess von vorne.
-\footnotetext{Im Renderbaum verwendeter und im Browser angezeigter DOM}
+Jede Änderung am Browser-DOM\footnote{
+    Im Renderbaum verwendeter und im Browser angezeigter DOM
+} startet den kompletten Rendering Prozess von vorne.
 Zu viele Änderungen am DOM führen dazu, dass der Nutzer länger warten muss, bis die Webseite geladen ist.
 
-Gründe für ein erneutes Rendern\citemark :
-\footnotetext{[\cite{browserRendering3}]}
+Gründe für ein erneutes Rendern\citemarktext{
+    [\cite{browserRendering3}]
+}:
 
 \begin{itemize}
     \item Manipulation der Elemente des DOM
@@ -141,15 +142,19 @@ Diese Erkenntnisse führen dazu, dass die neue Komponente auf Mac und Windows in
 Zu den ausgewählten Webbrowser zählen Google Chrome, Firefox (Mac und Windows), Safari (nur Mac) und Edge (nur Windows).
 Die Erläuterung dazu folgt im nächsten Abschnitt.
 
-Die populärsten Browser mit 65\% Marktabdeckung basieren auf der Chromium-Basis und verwenden alle den HTML-Renderer Blink\citemark.
-\footnotetext{[\cite{blinkRenderer}]}
+Die populärsten Browser mit 65\% Marktabdeckung basieren auf der Chromium-Basis und verwenden alle den HTML-Renderer Blink\citemarktext{
+    [\cite{blinkRenderer}]
+}.
 Die Entwickler dieser Rendering-Engine sind die Open Source Community Chromium, Google, Intel und Samsung.
-Zu den Verwendern\citemark \ von Blink zählen unter anderem Google Chrome, Brave, Microsoft Edge, Opera und Vivaldi.
-\footnotetext{[\cite{chromiumBrowser}]}
-WebKit\citemark \ – der Vorgänger des geläufigsten Renderer – findet sich im OSX Webbrowser Safari wieder.
-\footnotetext{[\cite{webkitRenderer}]}
+Zu den Verwendern\citemarktext{
+    [\cite{chromiumBrowser}]
+} von Blink zählen unter anderem Google Chrome, Brave, Microsoft Edge, Opera und Vivaldi.
+WebKit\citemarktext{
+    [\cite{webkitRenderer}]
+} – der Vorgänger des geläufigsten Renderer – findet sich im OSX Webbrowser Safari wieder.
 Diese von Apple, Google, KDE und Nokia entwickelte Rendering-Engine deckt 15\% ab.
-Als bekannester Vertreter des Restes zählt Firefox\citemark \ sowie weitere mozilla-basierte Browser, welche die Webseiten mit Gecko renderen.
-\footnotetext{[\cite{mozillaBrowser}]}
+Als bekannester Vertreter des Restes zählt Firefox\citemarktext{
+    [\cite{mozillaBrowser}]
+} sowie weitere mozilla-basierte Browser, welche die Webseiten mit Gecko renderen.
 Es existieren noch weitaus mehr Renderer, welche aber eine sehr geringe Verbreitung aufweisen.
 Deswegen sind diese nicht weiter von Belang.

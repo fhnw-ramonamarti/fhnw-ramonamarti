@@ -36,14 +36,15 @@ Diese lassen sich in einem weiteren Schritt beheben.
 
 Eine Umfrage bei den Endanwendern weist auf bisher unbekannte Wünsche hin. 
 Durch eine grosse Diversität beim Hintergrundwissen der Befragten entstehen neue Designansätze.
-Aus den Feedbacks lassen sich neue Projektoren - ob UI oder Interaktion - designen und umsetzen.
+Aus den Feedbacks lassen sich neue Projektoren – ob UI oder Interaktion - designen und umsetzen.
 
 
 \subsection{Weitere UI-Projektoren}
 \label{sec:moreUi}
 
-Die während des Design-Prozesses entstandenen Prototypen bieten sich als Grundlage für neue UI-Projektoren\footnotemark \ an.
-\footnotetext{Projektoren, die nur die View generieren (ohne Tastatur-Interaktion)}
+Die während des Design-Prozesses entstandenen Prototypen bieten sich als Grundlage für neue UI-Projektoren\footnote{
+    Projektoren, die nur die View generieren (ohne Tastatur-Interaktion)
+} an.
 Aus diesen Designskizzen lassen sich in Figma ausgearbeitete Prototypen erstellen.
 Diese finden sich in der späteren Implementation zu einzelnen Projektoren wieder.
 
@@ -54,8 +55,9 @@ Das Desgin kann jedoch wie beim Darkmode die komplette Komponente betreffen.
 Statt einer Spalten-Darstellung visualisiert sich eine Idee als Zeilen-Darstellung (Abbildung \ref{img:futureUi}). 
 Die Kategorien zeigen initial nur die ausgewählte Option in einer Zeile an.
 Die \codestyle{ValueOption} stellt die Werte in einer normalen Spalte dar.
-Beim Eintreten\footnotemark \ in eine Kategorie ändert sich die Darstellung der aktiven Zeile in ein Rad (Mitte Abbildung \ref{img:futureUi}).
-\footnotetext{Wechsel der Cursor Position in die Kategorie oder ein Klick auf die Kategorie}
+Beim Eintreten\footnote{
+    Wechsel der Cursor Position in die Kategorie oder ein Klick auf die Kategorie
+} in eine Kategorie ändert sich die Darstellung der aktiven Zeile in ein Rad (Mitte Abbildung \ref{img:futureUi}).
 Sobald das Highlight bzw. die Cursor Position die Kategorie-Zeile verlässt, minimiert sich die Visualisierung zurück auf den selektierten Wert.
 Nach dem Erstellen eines Figma-Prototypen findet sich in dieser Idee ein neuer UI-Projektor wieder.
 
@@ -67,8 +69,9 @@ Nach dem Erstellen eines Figma-Prototypen findet sich in dieser Idee ein neuer U
 \end{figure}
 
 Die entstandenen als auch zukünftige UI-Projektoren lassen sich mit unterschiedlichen Interaktionen verbinden.
-Dabei ist es hilfreich, verschiedene Interaktions-Projektoren\footnotemark \ zu bieten.
-\footnotetext{Projektoren, die nur die Tastatur-Interaktion definieren}
+Dabei ist es hilfreich, verschiedene Interaktions-Projektoren\footnote{
+    Projektoren, die nur die Tastatur-Interaktion definieren
+} zu bieten.
 
 
 \subsection{Weitere Interaktions-Projektoren}
@@ -98,8 +101,9 @@ Hierbei ist zu unterscheiden, ob die ausgewählten Kategorien als AND- oder OR-V
 \subsection{Performance verbessern und mögliche Datenmenge erhöhen}
 \label{sec:betterPerformance}
 
-Die \codestyle{SelectComponent} garantiert bis 5'000 Werte eine annehmbare\footnotemark \ Ladezeit.
-\footnotetext{Ladezeit < 500ms bis die Webseite fertig geladen ist}
+Die \codestyle{SelectComponent} garantiert bis 5'000 Werte eine annehmbare\footnote{
+    Ladezeit < 500ms bis die Webseite fertig geladen ist
+} Ladezeit.
 Diese Performance lässt sich weiter optimieren.
 Zudem führen diese Verbesserungen dazu, dass sich eine noch höhere Anzahl Optionen anwenden lässt.
 Eine Kombination der Auswahlkomponente mit der Lazy Table des Kolibri ermöglicht eine optimierte Performance.
