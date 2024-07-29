@@ -8,33 +8,40 @@
             \begin{tabular}{ l || l | l }
                 \bf{Kriterium}    & \bf{geschlossen} & \bf{offen} \\
                 \hline \hline
-                $\uparrow$ / $\downarrow$     & Wert ändern       & Cursor Position ändern \\
+                $\uparrow$ / $\downarrow$    & Selektion ändern     & Cursor Position ändern                \\
                 \hline
-                $\leftarrow$ / $\rightarrow$  & -                 & Spalte ändern (Cursor Position) \\
+                $\leftarrow$ / $\rightarrow$ & -                    & Cursor Position ändern                \\
                 \hline
-                Buchstaben  & Wert auf Suchergebnis\tnote{1} \ ändern & \tbbr{Cursor Position auf \\ Suchergebnis\tnote{1} \ ändern} \\
+                Buchstaben  & \tbbr{Selektion auf \\ 
+                                    Suchergebnis\tnote{1} \ ändern} & \tbbr{Cursor Position auf \\ 
+                                                                            Suchergebnis\tnote{1} \ ändern} \\
                 \hline
-                Leerschlag  & Liste öffnen    & Wert ändern       \\
+                Leerschlag  & Liste öffnen                     & Selektion ändern  \\
                 \hline
-                Backspace   & Auswahl löschen & Auswahl löschen   \\
+                Backspace   & Selektion löschen                & Selektion löschen \\
                 \hline
-                Esc         & -               & Liste schliessen  \\
+                Esc         & -                                & Liste schliessen  \\
                 \hline \hline
-                Enter       & -               & Wert ändern       \\
+                Enter       & -                                & Selektion ändern  \\
                 \hline
-                Tab         & Input-Feld verlassen            & \tbbr{Liste schliessen \& \\ Feld verlassen } \\
+                Tab         & Input-Feld verlassen             & \tbbr{Liste schliessen \& \\ 
+                                                                       Input-Feld verlassen}                  \\
                 \hline
-                PageUp / PageDown  & Browser-Default\tnote{2} & \tbbr{Cursor Position auf \\ jeden 10ten Wert setzen} \\
+                PageUp / PageDown & Browser-Default\tnote{2}   & \tbbr{Cursor Position auf \\ 
+                                                                       jeden 10. Wert ändern}                 \\
                 \hline
-                Home / End & Erster / letzter Wert wählen     & \tbbr{Cursor Position auf \\ Ersten / letzten Wert setzen}  \\
+                Home / End & \tbbr{Selektion auf ersten/ \\ 
+                                   letzten Wert ändern}        & \tbbr{Cursor Position auf ersten/ \\ 
+                                                                       letzten Wert ändern}                   \\
                 \hline \hline
-                Scroll     & Browser-Default\tnote{2}         & \tbbr{\emph{Aussen}: Liste bleibt offen \\
-                                                                    \emph{Innen}: Werte bewegen \& \\ Highlight ändern} \\
+                Scroll     & Browser-Default\tnote{2}          & \tbbr{\emph{Aussen}: Liste bleibt offen \\
+                                                                       \emph{Innen}: Liste scrollen \& \\ 
+                                                                                     Highlight ändern}        \\
                 \hline
-                Hover      & -                & Highlight ändern \\
+                Hover      & -                                 & Highlight ändern                             \\
                 \hline
-                Click      & Liste öffnen     & \tbbr{\emph{in Liste}: Wert wählen \\
-                                                      \emph{in Wertefeld}: Liste schliessen} \\
+                Click      & Liste öffnen                      & \tbbr{\emph{in Liste}: Selektion ändern \\
+                                                                       \emph{in Wertefeld}: Liste schliessen} \\
                 \hline
             \end{tabular}
             \begin{tablenotes}
@@ -43,7 +50,7 @@
                 \item
                 \item[1] Suche: Erster mit dem eingegebenen Symbol passender Wert aus der Liste, wenn Eingabe nicht passend $\Rightarrow$ nächster nachfolgender Wert; 
                                 Liste unverändert; nach jedem Symbol $\Rightarrow$ neue Suche
-                \item[2] Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
+                \item[2] Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. OS vorgegeben
             \end{tablenotes}
         \end{threeparttable}
     \end{adjustbox}

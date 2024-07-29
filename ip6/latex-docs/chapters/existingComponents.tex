@@ -44,7 +44,7 @@ Dieser Eintrag lässt keine Interaktion zu.
 
 Das Designen von \codestyle{option}s\citemarktext{
     [\cite{optionMdn}]
-} beschränkt sich auf die Text- / Hintergrundfarbe, welche jedoch nur in Firefox funktionieren. 
+} beschränkt sich auf die Text-/ Hintergrundfarbe, welche jedoch nur in Firefox funktionieren. 
 Die anderen Browser lassen kein Styling der Auswahl-Elemente zu bzw. zeigen diese nicht an.
 Es ist nur ein skalarer Text als Inhalt erlaubt. 
 Das bedeutet, keine weiteren Verschachtelung von Elementen sind möglich.
@@ -328,10 +328,9 @@ Im Anschluss an die Gegenüberstellungen der diversen Browser weist das Kapitel 
 \label{sec:edgeBrowser}
 
 Die folgende Tabelle \ref{table:interactionEdge} zeigt den Vergleich der typischen Interaktionen zwischen Datalist, Single- und Multiselect in Edge auf Windows.
+Auf Windows verhält sich Edge sehr ähnlich wie Chrome, da die Codebasis beider Browser Chromium ist.
 
 \import{../tables}{c.edge.tex}
-
-Auf Windows verhält sich Edge sehr ähnlich wie Chrome, da die Codebasis beider Browser Chromium ist.
 
 
 \clearpage
@@ -339,11 +338,10 @@ Auf Windows verhält sich Edge sehr ähnlich wie Chrome, da die Codebasis beider
 \label{sec:chromeBrowser}
 
 Die Gegenüberstellung \ref{table:interactionChrome} beschreibt die bekannten Bedienungsmöglichkeiten der drei existierenden Auswahlkomponenten in Chrome.
-Dabei spielt das System (Windows oder Mac) nur bei der Aktion auf der Tastenkombination und nicht bei der Reaktion eine Rolle.
+Dabei spielt das System (Windows oder Mac) nur bei der Tastenkombination und nicht bei der Reaktion eine Rolle.
+Auf dem Mac verhält sich Chrome ähnlich wie auf Windows, Designaspekte können sich unterscheiden. 
 
 \import{../tables}{c.chrome.tex}
-
-Auf dem Mac verhält sich Chrome ähnlich wie auf Windows, Designaspekte können sich unterscheiden. 
 
 
 \clearpage
@@ -351,11 +349,10 @@ Auf dem Mac verhält sich Chrome ähnlich wie auf Windows, Designaspekte können
 \label{sec:firefoxBrowser}
 
 Die nachfolgende Aufstellung \ref{table:interactionFirefox} zeigt die Reaktionen auf geweisse Benutzerinteraktion in Firefox.
-
-\import{../tables}{c.firefox.tex}
-
 Wie auch auf Windows zeigt Firefox auf dem Mac konsistentes Verhalten, jedoch mit typischen OSX Designanpassungen. 
 Die Interaktions-Feedbacks auf Mac können sich leicht von der Windows-Version unterscheiden.
+
+\import{../tables}{c.firefox.tex}
 
 
 \clearpage
@@ -365,10 +362,6 @@ Die Interaktions-Feedbacks auf Mac können sich leicht von der Windows-Version u
 Die Tabelle \ref{table:interactionSafari} stellt die Interaktion der Datalist die der beiden Selects in Safari auf Mac einander gegenüber.
 
 \import{../tables}{c.safari.tex}
-
-Safari tendiert dazu, ein minimalistisches Design zu verwenden, was sich in der Darstellung von Dropdowns und Comboboxen widerspiegelt.
-Dieser Browser verwendet Designelemente wie Schatten und Ränder in anderer Form als Chrome und Firefox.
-Das Select zeigt die grössten Unterschiede im UI.
 
 
 \clearpage
@@ -400,17 +393,17 @@ Das Select zeigt sich in der Interaktion mit dem Finger konsistenter.
 \subsection{Undo / Redo}
 \label{sec:undoRedo}
 
-Die Tastatur-Interaktion Undo\footnote{
+Die Tastatur-Interaktionen Undo\footnote{
     Ctrl \& Z auf Windows; Cmd \& Z auf Mac
 } und Redo\footnote{
     Ctrl \& Y auf Windows; Cmd \& Shift \& Z auf Mac
 } verhalten sich in allen Desktop-Browsern gleich.
-Beim Select – Single aus auch Multi – passiert nichts.
-Im Input-Feld mit der Datalist regieren die Aktionen auf den geschreibenen Text.
+Beim Select – Single als auch Multi – passiert nichts.
+Im Input-Feld mit der Datalist regieren die Aktionen auf den geschriebenen Text.
 Die einzige Ausnahme ist Safari, welcher das Undo / Redo auf Browserebene ausführt.
 Das bedeutet, die Interaktion betrifft nicht nur das fokussierte Eingabefeld, sondern alle Änderungen im Browser wie das Schliessen von Tabs.
 
-Auf den Mobilgeräten kann nur das iOS-System mit der Schüttel-Bewegung das Undo / Redo triggern.
+Von den Mobilgeräten unterstützt nur das iOS-System via Schüttel-Bewegung das Undo bzw. Redo.
 Der iOS-Safari Browser zeigt dieselbe Reaktion wie Safari auf Desktop.
 
 

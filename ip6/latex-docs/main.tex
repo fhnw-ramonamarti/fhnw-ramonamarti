@@ -11,6 +11,7 @@
 
 % layout & design
 \usepackage{geometry} % page layout
+\usepackage{setspace} % line spacing
 \usepackage{fancyhdr} % custom header footer on pages
 \usepackage{color} % colors font / background
 
@@ -29,7 +30,7 @@
 \usepackage{adjustbox} % scale down table
 \usepackage[table]{xcolor} % color table parts
 \usepackage[referable]{threeparttablex} % table with header & footer
-\usepackage{multirow} % multi line cells in table cell
+\usepackage{multirow} % multi row cells in column
 
 % special elements
 \usepackage{pifont} % special symbols
@@ -37,6 +38,7 @@
 \usepackage{caption} % title in images 
 
 % define colors - start
+\definecolor{lgray}{rgb}{0.9, 0.9, 0.9}
 \definecolor{dgray}{rgb}{0.3, 0.3, 0.4}
 \definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
 \definecolor{editorOcher}{rgb}{1, 0.5, 0}
@@ -53,15 +55,25 @@
 % define symbols - end
 
 % define table styles - start
-\newcommand{\tablesettings}[1]{\caption{#1} \bigskip \centering}
+\newcommand{\tablesettings}[1]{\caption{#1} \smallskip \centering}
 \newcommand{\trr}[1]{\multirow{2}{*}{#1}} % double row
 \newcommand{\trrr}[1]{\multirow{3}{*}{#1}} % tripple row
 \newcommand{\trrrr}[1]{\multirow{4}{*}{#1}} % quarter row
-\newcommand{\ccgray}{\cellcolor{gray!20}} % gray cell
+\newcommand{\trrrrr}[1]{\multirow{5}{*}{#1}} % quinter row
+\newcommand{\ccgray}{\cellcolor{lightgray!60}} % gray cell
 
-\newcommand{\tbbr}[2][l]{ % in table line break
-  \begin{tabular}[#1]{@{}l@{}}\hspace{-1mm}#2\end{tabular}
+\newcommand{\tbbr}[1]{ % in table line break
+  \begin{tabular}[l]{@{}l@{}}#1\end{tabular}
 }
+\newcommand{\trbbr}[3]{ % in multirow line break
+  \multirow{#1}{*}{
+    \parbox{#2}{\raggedright #3}
+  }
+}
+\newcommand{\colwidth}{5cm} % default column width
+
+\setlength{\tabcolsep}{4pt} % spacing table cell side
+\renewcommand{\arraystretch}{1.1} % spacing table cell height
 % define table styles - end
 
 % define list of codes - start
@@ -302,6 +314,7 @@
 % define code styles - end
 
 \newgeometry{inner=5cm, outer=2.5cm, top=3cm, bottom=3cm}
+\setstretch{1.1}
 
 % page header and footer - start
 % \rightmark = sub heading, \leftmark = chapter
@@ -352,7 +365,6 @@ Web UI Toolkit "Kolibri"\\ {\large Bachelor Thesis}}
 \makeatother
 
 \begin{document}
-% \begin{sloppypar}
 
 \pagestyle{empty}
 \maketitle
@@ -393,5 +405,4 @@ Web UI Toolkit "Kolibri"\\ {\large Bachelor Thesis}}
 \appendix
 \include{chapters/appendix}
 
-% \end{sloppypar}
 \end{document}
