@@ -1,39 +1,58 @@
 \chapter{Glossar}
 \label{chap:glossary}
 
+\newcommand{\glossarywithTitle}{0.32\textwidth}
+\newcommand{\glossarywith}{0.66\textwidth}
 \begin{table}[!ht]
-    \tablesettings{Glossar}
-    \label{table:Glossary}
+    \smallskip 
+    \centering
     \rowcolors{2}{white}{gray!20}
     \footnotesize
     \begin{adjustbox}{max width=\textwidth}
         \begin{threeparttable}
-            \begin{tabular}{ l | l }
+            \begin{tabular}{ p{\glossarywithTitle} | p{\glossarywith} }
                 \bf{Begriff} & \bf{Beschreibung} \\
                 \hline \hline
-                \bf{Client-Side} &  \\
+                \bf{Client-Side} & Direkt im Browser. 
+                    Aktionen sehen den Server nie und bleiben im Browser.
+                    Der Code ist direkt auf der HTML-Seite eingebunden.
+                    In Zusammenhang mit Formularen erfährt der Server nichts von der Client-Side Validierung. \\
                 \hline
-                \bf{Do-Nothing-Implementation} &  \\
+                \bf{Do-Nothing-Implementation} & 
+                    Implementation, welche als Stellvertreter z.B. beim Null-Object Pattern dient. 
+                    Eine Funktion mit einer solchen Implementation führt nicht aus und hat keine Seiteeffekte. \\
                 \hline
-                \bf{Hovern} &  \\
+                \bf{Hovern} & Mit der Maus über ein Element fahren. \\
                 \hline
-                \bf{Immutable} &  \\
+                \bf{Immutable} & Unveränderbar. Objekte sind nicht überschreibbar. \\
                 \hline
-                \bf{Multiselect} &  \\
+                \bf{Multiselect} & 
+                    Auswahlkomponente (HTML \codestyle{select} Element), bei welchem mehrere Wert selektierbar sind. 
+                    Bei der Selektion einer zweiten Option hebt sich die vorherige Auswahl nicht auf.
+                    Auf Desktop-Browsern muss jedoch die passende Taste bei der Auswahl gedrückt sein, 
+                        damit sich die Selektion erweitert. \\
                 \hline
-                \bf{Regex} &  \\
+                \bf{Regex} & Regular Expression. 
+                    Beschreibt eine Zeichenkette.
+                    Synntaktische Regeln helfen bei der Verarbeitung von Texten. \\
                 \hline
-                \bf{Separation of Concern} &  \\
+                \bf{Separation of Concern} & 
+                    Prinzip in der Probrammierung zur Aufteilen eines Programmes.
+                    Jede Komponente besitzt nur eine Aufgabe. 
+                    Dadurch entsteht ein modularer Aufbau. \\
                 \hline
-                \bf{Single-Select} &  \\
+                \bf{Single-Select} & 
+                    Auswahlkomponente (HTML \codestyle{select} Element), bei welchem nur ein Wert selektierbar ist. 
+                    Bei der Selektion einer zweiten Option hebt sich die vorherige Auswahl auf. \\
                 \hline
-                \bf{Spiegelstrich} &  \\
+                \bf{Spiegelstrich} & 
+                    Ein Strich, welche auf der linken Seite eines Elements bzw. einer Option.
+                    Der Strich ist vertikal und dient zum Hervorheben des Elements. \\
                 \hline
-                \bf{Triggern} &  \\
+                \bf{Triggern} & Auslösen eines Events. \\
                 \hline
-                \bf{UI/UX-Design} &  \\
+                \bf{UI/UX-Design} & Design der Benutzeroberfläche und der Benutzererfahrung. \\
                 \hline
-                \bf{} &  \\
             \end{tabular}
         \end{threeparttable}
     \end{adjustbox}
