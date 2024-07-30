@@ -1,67 +1,83 @@
-\renewcommand{\colwidth}{0.2\textwidth} 
+\renewcommand{\colwidth}{0.24\textwidth} 
 \begin{table}[!htb]
     \tablesettings{Vergleich Interaktion Datalist \& Select in Safari (Mac)}
     \label{table:interactionSafari}
     \footnotesize
-    \begin{adjustbox}{max width=\textwidth}
+    \begin{adjustbox}{max width=0.95\textwidth}
         \begin{threeparttable}
             \begin{tabular}{ l || l | l | l }
-                \trrr{\bf{Kriterium}} & \bf{Datalist} & \bf{Select}   & \trrr{\bf{Multiselect}} \\
-                \cline{2-3}           & geschlossen   & geschlossen   &  \\
-                \cline{2-3}           & offen \ccgray & offen \ccgray &  \\
+                                                  & \bf{Datalist} & \bf{Select}   & \bf{Multiselect} \\
+                \cline{2-4}                       & geschlossen   & geschlossen   &  -               \\
+                \cline{2-4} \trrr{\bf{Kriterium}} & offen \ccgray & offen \ccgray &  offen \ccgray   \\
                 \hline \hline
-                \trr{$\uparrow$ / $\downarrow$} & -                        & Liste öffnen             & \trr{Selektion ändern} \\
-                \cline{2-3}                     & Highlight ändern \ccgray & Highlight ändern \ccgray &  \\
+                                                & -                        & Liste öffnen             & \ccgray \\
+                \cline{2-3}
+                \trr{$\uparrow$ / $\downarrow$} & Highlight ändern \ccgray & Highlight ändern \ccgray & \trr{Selektion ändern} \ccgray \\
                 \hline
-                \trr{$\leftarrow$ / $\rightarrow$} & Cursor\tnote{1} \ bewegen         & -         & \trr{-} \\
-                \cline{2-3}                        & Cursor\tnote{1} \ bewegen \ccgray & - \ccgray &  \\
+                                                   & Cursor\tnote{1} \ bewegen         & -         & \ccgray \\
+                \cline{2-3}
+                \trr{$\leftarrow$ / $\rightarrow$} & Cursor\tnote{1} \ bewegen \ccgray & - \ccgray & \trr{-} \ccgray \\
                 \hline 
-                \trrr{Buchstaben} & Schreiben \& Liste öffnen                   & \tbbr{Selektion auf Such-\\ 
-                                                                                        ergebnis\tnote{3} \ ändern}         & \trbbr{3}{\colwidth}{Selektion aufheben \& Selektion auf Suchergebnis\tnote{3} \ ändern} \\
-                \cline{2-3}       & Schreiben \& Liste filtern\tnote{2} \ccgray & \tbbr{Highlight auf Such-\\ 
-                                                                                        ergebnis\tnote{3} \ ändern} \ccgray & \\
+                                  & Schreiben \& Liste öffnen                   & \tbbr{Selektion auf Such-\\ 
+                                                                                        ergebnis\tnote{3} \ ändern}         & \ccgray \\
+                \cline{2-3}
+                \trrr{Buchstaben} & Schreiben \& Liste filtern\tnote{2} \ccgray & \tbbr{Highlight auf Such-\\ 
+                                                                                        ergebnis\tnote{3} \ ändern} \ccgray & \trbbr{3}{\colwidth}{Selektion aufheben \& Selektion auf Suchergebnis\tnote{3} \ ändern} \ccgray \\
                 \hline
-                \trr{Leerschlag} & Schreiben \& Liste öffnen                   & Liste öffnen             & \trr{-} \\
-                \cline{2-3}      & Schreiben \& Liste filtern\tnote{2} \ccgray & Selektion ändern \ccgray & \\
+                                 & Schreiben \& Liste öffnen                   & Liste öffnen             & \ccgray \\
+                \cline{2-3}
+                \trr{Leerschlag} & Schreiben \& Liste filtern\tnote{2} \ccgray & Selektion ändern \ccgray & \trr{-} \ccgray \\
                 \hline
-                \trr{Backspace} & Löschen \& Liste öffnen                   & -                                 & \trr{-} \\
-                \cline{2-3}     & Löschen \& Liste filtern\tnote{2} \ccgray & \tbbr{Highlight auf \\ 
-                                                                                    ersten Wert ändern} \ccgray & \\
+                                & Löschen \& Liste öffnen                   & -                                 & \ccgray \\
+                \cline{2-3}
+                \trr{Backspace} & Löschen \& Liste filtern\tnote{2} \ccgray & \tbbr{Highlight auf \\ 
+                                                                                    ersten Wert ändern} \ccgray & \trr{-} \ccgray \\
                 \hline
-                \trr{Esc}   & -         & -                        & \trr{-} \\
-                \cline{2-3} & - \ccgray & Liste schliessen \ccgray & \\
+                            & -         & -                        & \ccgray \\
+                \cline{2-3}
+                \trr{Esc}   & - \ccgray & Liste schliessen \ccgray & \trr{-} \ccgray \\
                 \hline \hline
-                \trrr{Enter} & \tbbr{\emph{in Formular}: senden \\ 
-                                     \emph{sonst}: -}          & -                               & \trr{-} \\
-                \cline{2-3}  & \tbbr{Highlight wählen \& \\ 
+                             & \tbbr{\emph{in Formular}: senden \\ 
+                                     \emph{sonst}: -}          & -                               & \ccgray \\
+                \cline{2-3}
+                \trrr{Enter} & \tbbr{Highlight wählen \& \\ 
                                      Liste schliessen} \ccgray & \tbbr{Selektion ändern \& \\ 
-                                                                       Liste schliessen} \ccgray &  \\
+                                                                       Liste schliessen} \ccgray & \trr{-} \ccgray \\
                 \hline
-                \trr{Tab}   & Input-Feld verlassen         & Input-Feld verlassen & \trr{-} \\
-                \cline{2-3} & Input-Feld verlassen \ccgray & - \ccgray            & \\
+                            & Input-Feld verlassen         & Input-Feld verlassen & \ccgray \\
+                \cline{2-3}
+                \trr{Tab}   & Input-Feld verlassen \ccgray & - \ccgray            & \trr{-} \ccgray \\
                 \hline
-                \trrr{\tbbr{PageUp / \\ PageDown \\ 
-                            (fn \& $\uparrow$ / $\downarrow$)}} & Fenster scrollen         & Fenster scrollen                   & \trbbr{3}{\colwidth}{Selektion auf vorherige/ nächste \emph{size}\tnote{4} \ Stelle ändern} \\
-                \cline{2-3}                                     & Fenster scrollen \ccgray & \tbbr{Selektion auf ersten/ \\ 
-                                                                                                   letzten Wert ändern} \ccgray & \\
+                                                               & Fenster scrollen         & Fenster scrollen                   & \ccgray \\
+                \cline{2-3}
+                \trr{\tbbr{PageUp/-Down \\ 
+                           (fn \& $\uparrow$ / $\downarrow$)}} & Fenster scrollen \ccgray & \tbbr{Selektion auf ersten/ \\ 
+                                                                                                  letzten Wert ändern} \ccgray & \trbbr{2}{\colwidth}{\renewcommand{\arraystretch}{0.9} \scriptsize 
+                                                                                                                                                      Selektion auf vorherige/ nächste \emph{size}\tnote{4} \ Stelle ändern
+                                                                                                                                                      \renewcommand{\arraystretch}{1.1}} \ccgray \\
                 \hline
+                                                                  & Fenster scrollen         & Fenster scrollen                   & \ccgray \\
+                \cline{2-3}
                 \trr{\tbbr{Home / End \\ 
-                           (fn \& $\leftarrow$ / $\rightarrow$)}} & Fenster scrollen         & Fenster scrollen                   & \trbbr{3}{\colwidth}{Selektion auf ersten/ letzten Wert ändern} \\
-                \cline{2-3}                                       & Fenster scrollen \ccgray & \tbbr{Selektion auf ersten/ \\ 
-                                                                                                     letzten Wert ändern} \ccgray & \\
+                           (fn \& $\leftarrow$ / $\rightarrow$)}} & Fenster scrollen \ccgray & \tbbr{Selektion auf ersten/ \\ 
+                                                                                                     letzten Wert ändern} \ccgray & \trbbr{2}{\colwidth}{Selektion auf ersten/ letzten Wert ändern} \ccgray \\
                 \hline \hline
-                \trrrr{Scroll} & Fenster scrollen                            & Fenster scrollen                             & \trbbr{3}{\colwidth}{\emph{Innen}: Liste scrollen} \\
-                \cline{2-3}    & \tbbr{\emph{Aussen}: Liste schliessen \\ 
-                                       \emph{Innen}: Liste scrollen} \ccgray & \tbbr{\emph{Aussen}: - \\ 
-                                                                                     \emph{Innen}: Liste scrollen \& \\ 
-                                                                                                   Highlight ändern} \ccgray & \\
+                             & Fenster scrollen                            & Fenster scrollen                             & \ccgray \\
+                \cline{2-3}
+                \trr{Scroll} & \tbbr{\emph{Aussen}: Liste schliessen \\ 
+                                     \emph{Innen}: Liste scrollen} \ccgray & \tbbr{\emph{Aussen}: - \\ 
+                                                                                   \emph{Innen}: Liste scrollen \& \\ 
+                                                                                                 Highlight ändern} \ccgray & \trbbr{2}{\colwidth}{\emph{Aussen}: Fenster scrollen \\ 
+                                                                                                                                                  \emph{Innen}: Liste scrollen} \ccgray \\
                 \hline
-                \trr{Hover} & -         & -                        & \trr{-} \\
-                \cline{2-3} & - \ccgray & Highlight ändern \ccgray & \\
+                            & -         & -                        & \ccgray \\
+                \cline{2-3}
+                \trr{Hover} & - \ccgray & Highlight ändern \ccgray & \trr{-} \ccgray \\
                 \hline
-                \trr{Click} & Liste öffnen             & Liste öffnen                    & \trbbr{3}{\colwidth}{Selektion aufheben \& Selektion ändern} \\
-                \cline{2-3} & Selektion ändern \ccgray & \tbbr{Selektion ändern \& \\ 
-                                                               Liste schliessen} \ccgray & \\
+                            & Liste öffnen             & Liste öffnen                    & \ccgray \\
+                \cline{2-3}
+                \trr{Click} & Selektion ändern \ccgray & \tbbr{Selektion ändern \& \\ 
+                                                               Liste schliessen} \ccgray & \trbbr{2}{\colwidth}{Selektion aufheben \& Selektion ändern} \ccgray \\
                 \hline
             \end{tabular}
             \begin{tablenotes}

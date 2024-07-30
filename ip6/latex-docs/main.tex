@@ -56,18 +56,21 @@
 
 % define table styles - start
 \newcommand{\tablesettings}[1]{\caption{#1} \smallskip \centering}
-\newcommand{\trr}[1]{\multirow{2}{*}{#1}} % double row
-\newcommand{\trrr}[1]{\multirow{3}{*}{#1}} % tripple row
-\newcommand{\trrrr}[1]{\multirow{4}{*}{#1}} % quarter row
-\newcommand{\trrrrr}[1]{\multirow{5}{*}{#1}} % quinter row
+\newcommand{\trr}[1]{\multirow{-2}{*}{#1}} % double row
+\newcommand{\trrr}[1]{\multirow{-3}{*}{#1}} % tripple row
+\newcommand{\trrrr}[1]{\multirow{-4}{*}{#1}} % quarter row
+\newcommand{\trrrrr}[1]{\multirow{-5}{*}{#1}} % quinter row
 \newcommand{\ccgray}{\cellcolor{lightgray!60}} % gray cell
 
 \newcommand{\tbbr}[1]{ % in table line break
   \begin{tabular}[l]{@{}l@{}}#1\end{tabular}
 }
-\newcommand{\trbbr}[3]{ % in multirow line break
-  \multirow{#1}{*}{
+\newcommand{\trbbr}[3]{ % in multirow line break automatically
+  \multirow{-#1}{*}{
+    \hspace{-8pt} % remove too much space
+    \renewcommand{\arraystretch}{0.8}
     \parbox{#2}{\raggedright #3}
+    \renewcommand{\arraystretch}{1.1}
   }
 }
 \newcommand{\colwidth}{5cm} % default column width

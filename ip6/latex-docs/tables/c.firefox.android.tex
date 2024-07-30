@@ -5,34 +5,44 @@
     \begin{adjustbox}{max width=0.9\textwidth}
         \begin{threeparttable}
             \begin{tabular}{ l || l | l | l }
-                \trrr{\bf{Kriterium}} & \bf{Datalist} & \bf{Select}   & \bf{Multiselect} \\
-                \cline{2-4}           & geschlossen   & geschlossen   & geschlossen      \\
-                \cline{2-4}           & offen \ccgray & offen \ccgray & offen \ccgray    \\
+                                                  & \bf{Datalist} & \bf{Select}   & \bf{Multiselect} \\
+                \cline{2-4}                       & geschlossen   & geschlossen   & geschlossen      \\
+                \cline{2-4} \trrr{\bf{Kriterium}} & offen \ccgray & offen \ccgray & offen \ccgray    \\
                 \hline \hline
-                \trrr{Buchstaben} & Schreiben             & nicht möglich         & nicht möglich              \\
-                \cline{2-4}       & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray      \\
+                                 & Schreiben             & nicht möglich         & nicht möglich              \\
+                \cline{2-4}
+                \trr{Buchstaben} & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray      \\
                 \hline
-                \trr{Leerschlag}  & Schreiben             & nicht möglich         & nicht möglich              \\
-                \cline{2-4}       & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray      \\
+                                 & Schreiben             & nicht möglich         & nicht möglich              \\
+                \cline{2-4}
+                \trr{Leerschlag} & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray      \\
                 \hline
-                \trr{Backspace}   & Löschen               & nicht möglich         & nicht möglich              \\
-                \cline{2-4}       & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray      \\
+                                 & Löschen               & nicht möglich         & nicht möglich              \\
+                \cline{2-4}
+                \trr{Backspace}  & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray      \\
                 \hline \hline
-                \trrr{Enter}      & \tbbr{\emph{in Formular}: senden \\ 
-                                          \emph{ohne}: -} & nicht möglich         & nicht möglich              \\
-                \cline{2-4}       & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray      \\
+                                 & \tbbr{\emph{in Formular}: senden \\ 
+                                         \emph{ohne}: -} & nicht möglich         & nicht möglich              \\
+                \cline{2-4}
+                \trrr{Enter}     & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray      \\
                 \hline \hline
-                \trr{Scroll} & Fenster scrollen & Fenster scrollen                            & Liste scrollen \\
-                \cline{2-4}  & - \ccgray        & \tbbr{\emph{Innen}: Liste scrollen} \ccgray & \tbbr{\emph{Innen}: Liste scrollen} \ccgray \\
+                             & Fenster scrollen & Fenster scrollen                            & Liste scrollen \\
+                \cline{2-4}
+                \trr{Scroll} & - \ccgray        & \tbbr{\emph{Aussen}: - \\ 
+                                                        \emph{Innen}: Liste scrollen} \ccgray & \tbbr{\emph{Aussen}: - \\ 
+                                                                                                      \emph{Innen}: Liste scrollen} \ccgray \\
                 \hline
-                \trr{Click}  & -         & Liste öffnen                                  & Liste öffnen        \\
-                \cline{2-4}  & - \ccgray & \tbbr{\emph{Innen}: Selektion ändern \& \\ 
-                                                               Liste schliessen} \ccgray & \tbbr{\emph{Innen}: Selektion ändern} \ccgray    \\
+                             & -         & Liste öffnen                                  & Liste öffnen        \\
+                \cline{2-4}
+                \trr{Click}  & - \ccgray & \tbbr{\emph{Aussen}: - \\ 
+                                                 \emph{Innen}: Selektion ändern \& \\ 
+                                                               Liste schliessen} \ccgray & \tbbr{\emph{Aussen}: - \\ 
+                                                                                                 \emph{Innen}: Selektion ändern} \ccgray    \\
                 \hline 
             \end{tabular}
             \begin{tablenotes}
                 \scriptsize
-                \item[*] nicht möglich: Virtuelle Tastatur ist nicht sichtbar, somit kann Interaktion nicht stattfinden
+                \item[*] nicht möglich: Virtuelle Tastatur ist nicht sichtbar, somit kann keine Interaktion stattfinden
             \end{tablenotes}
         \end{threeparttable}
     \end{adjustbox}

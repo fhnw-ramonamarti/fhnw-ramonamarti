@@ -5,40 +5,50 @@
     \begin{adjustbox}{max width=0.9\textwidth}
         \begin{threeparttable}
             \begin{tabular}{ l || l | l | l }
-                \trrr{\bf{Kriterium}} & \bf{Datalist} & \bf{Select}   & \bf{Multiselect} \\
-                \cline{2-4}           & geschlossen   & geschlossen   & geschlossen      \\
-                \cline{2-4}           & offen \ccgray & offen \ccgray & offen \ccgray    \\
+                                                  & \bf{Datalist} & \bf{Select}   & \bf{Multiselect} \\
+                \cline{2-4}                       & geschlossen   & geschlossen   & geschlossen      \\
+                \cline{2-4} \trrr{\bf{Kriterium}} & offen \ccgray & offen \ccgray & offen \ccgray    \\
                 \hline \hline
-                \trrr{Buchstaben} & Schreiben \& Liste öffnen                    & nicht möglich         & nicht möglich             \\
-                \cline{2-4}       & Schreiben \& Liste filtern\tnote{1} \ccgray  & nicht möglich \ccgray & nicht möglich \ccgray     \\
+                                 & Schreiben \& Liste öffnen                    & nicht möglich         & nicht möglich             \\
+                \cline{2-4}
+                \trr{Buchstaben} & Schreiben \& Liste filtern\tnote{1} \ccgray  & nicht möglich \ccgray & nicht möglich \ccgray     \\
                 \hline
-                \trr{Leerschlag}  & Schreiben \& Liste öffnen                    & nicht möglich         & nicht möglich             \\
-                \cline{2-4}       & Schreiben \& Liste filtern\tnote{1} \ccgray  & nicht möglich \ccgray & nicht möglich \ccgray     \\
+                                 & Schreiben \& Liste öffnen                    & nicht möglich         & nicht möglich             \\
+                \cline{2-4}
+                \trr{Leerschlag} & Schreiben \& Liste filtern\tnote{1} \ccgray  & nicht möglich \ccgray & nicht möglich \ccgray     \\
                 \hline
-                \trr{Backspace}   & \tbbr{Löschen \& Liste öffnen \\ 
-                                          (wenn Feld nicht leer)}                & nicht möglich         & nicht möglich             \\
-                \cline{2-4}       & Löschen \& Liste filtern\tnote{1} \ccgray    & nicht möglich \ccgray & nicht möglich \ccgray     \\
+                                 & \tbbr{Löschen \& Liste öffnen \\ 
+                                         (wenn Feld nicht leer)}                & nicht möglich         & nicht möglich             \\
+                \cline{2-4}
+                \trrr{Backspace} & Löschen \& Liste filtern\tnote{1} \ccgray    & nicht möglich \ccgray & nicht möglich \ccgray     \\
                 \hline \hline
-                \trrr{Enter}      & \tbbr{\emph{in Formular}: senden \\ 
-                                          \emph{ohne}: Input-Feld verlassen}         & nicht möglich         & nicht möglich         \\
-                \cline{2-4}       & \tbbr{\emph{in Formular}: senden \\ 
-                                          \emph{ohne}: Input-Feld verlassen} \ccgray & nicht möglich \ccgray & nicht möglich \ccgray \\
+                                 & \tbbr{\emph{in Formular}: senden \\ 
+                                         \emph{ohne}: Input-Feld verlassen}         & nicht möglich         & nicht möglich         \\
+                \cline{2-4}
+                \trrr{Enter}     & \tbbr{\emph{in Formular}: senden \\ 
+                                         \emph{ohne}: Input-Feld verlassen} \ccgray & nicht möglich \ccgray & nicht möglich \ccgray \\
                 \hline \hline
-                \trr{Scroll} & Fenster scrollen                            & Fenster scrollen                            & Fenster scrollen \\
-                \cline{2-4}  & \tbbr{\emph{Aussen}: Liste bleibt offen \\ 
-                                     \emph{Innen}: Liste scrollen} \ccgray & \tbbr{\emph{Innen}: Liste scrollen} \ccgray & \tbbr{\emph{Innen}: Liste scrollen} \ccgray       \\
+                             & Fenster scrollen                            & Fenster scrollen                            & Fenster scrollen \\
+                \cline{2-4}
+                \trr{Scroll} & \tbbr{\emph{Aussen}: Liste bleibt offen \\ 
+                                     \emph{Innen}: Liste scrollen} \ccgray & \tbbr{\emph{Aussen}: - \\ 
+                                                                                   \emph{Innen}: Liste scrollen} \ccgray & \tbbr{\emph{Aussen}: - \\ 
+                                                                                                                                 \emph{Innen}: Liste scrollen} \ccgray       \\
                 \hline
-                \trr{Click} & \tbbr{\emph{in Feld}: - \\ 
-                                    \emph{Pfeil}: Liste öffnen}              & Liste öffnen                                  & Liste öffnen \\
-                \cline{2-4} & \tbbr{\emph{Innen}: Selektion ändern \& \\ 
-                                                  Liste schliessen \\ 
-                                    \emph{Aussen}: Liste schliessen} \ccgray & \tbbr{\emph{Innen}: Selektion ändern \& \\ 
-                                                                                                   Liste schliessen} \ccgray & \tbbr{\emph{Innen}: Selektion ändern} \ccgray \\
+                            & \tbbr{\emph{in Feld}: - \\ 
+                                    \emph{Pfeil}: Liste öffnen}             & Liste öffnen                                  & Liste öffnen \\
+                \cline{2-4}
+                \trrr{Click} & \tbbr{\emph{Aussen}: Liste schliessen \\ 
+                                     \emph{Innen}: Selektion ändern \& \\ 
+                                                   Liste schliessen} \ccgray & \tbbr{\emph{Aussen}: - \\ 
+                                                                                     \emph{Innen}: Selektion ändern \& \\ 
+                                                                                                   Liste schliessen} \ccgray & \tbbr{\emph{Aussen}: - \\ 
+                                                                                                                                     \emph{Innen}: Selektion ändern} \ccgray \\
                 \hline 
             \end{tabular}
             \begin{tablenotes}
                 \scriptsize
-                \item[*] nicht möglich: Virtuelle Tastatur ist nicht sichtbar, somit kann Interaktion nicht stattfinden
+                \item[*] nicht möglich: Virtuelle Tastatur ist nicht sichtbar, somit kann keine Interaktion stattfinden
             \end{tablenotes}
         \end{threeparttable}
     \end{adjustbox}
