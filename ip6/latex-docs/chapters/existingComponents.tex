@@ -25,21 +25,21 @@ Hierbei liegt der Fokus mehr auf der Interaktion mit den Komponenten als auf der
 \label{sec:option}
 
 Die beiden Auswahlkomponenten – \codestyle{datalist} und \codestyle{select} – verwenden \codestyle{option}-Elemente. 
-Die einzelnen Optionen wie in Code \ref{code:OptionExample} Zeile 1 besitzen ein \codestyle{value}-Attribut und einen Inhalt – das Label.
+Die einzelnen Optionen wie in Code \ref{code:optionExample} Zeile 1 besitzen ein \codestyle{value}-Attribut und einen Inhalt – das Label.
 Alternativ ist das \codestyle{label}-Attribut zu nutzen und dafür das Value an die Stelle des Inhalts zu platzieren.
 Firefox unterstützt diese Variante jedoch nicht.
 Das Weglassen des \codestyle{value}- und \codestyle{label}-Attributes führt dazu, dass beide den Wert innerhalb des öffnenden und schliessenden Tags erhalten.
 
-\begin{lstlisting}[style = htmlcssjs, caption = Option Beispiel, label = code:OptionExample]
+\begin{lstlisting}[style = htmlcssjs, caption = Option Beispiel, label = code:optionExample]
 <option value="dog"         > Dog   </option>
 <option label="Cat" selected> cat   </option>
 <option             disabled> Mouse </option>
 \end{lstlisting}    
 
 Das HTML-Element kann das Attribut \codestyle{disabled} oder \codestyle{selected} erhalten.
-Code \ref{code:OptionExample} Zeile 2 definiert durch eine \codestyle{selected} Option den initial ausgefüllten Wert.
+Code \ref{code:optionExample} Zeile 2 definiert durch eine \codestyle{selected} Option den initial ausgefüllten Wert.
 Dies Attribut funktioniert nur im Zusammenhang mit dem \codestyle{select}-Container. 
-Bei einem \codestyle{disabled} Element – wie in Code \ref{code:OptionExample} Zeile 3 – erscheint das UI ausgegraut.
+Bei einem \codestyle{disabled} Element – wie in Code \ref{code:optionExample} Zeile 3 – erscheint das UI ausgegraut.
 Dieser Eintrag lässt keine Interaktion zu.
 
 Das Designen von \codestyle{option}s\citemarktext{
@@ -56,9 +56,9 @@ Alle gängigen Browser unterstützen das \codestyle{option}-Element.
 \label{sec:select}
 
 Das \codestyle{select}-Element speichert Werte durch die einzelnen \codestyle{option}-Kinder.
-Eine möglich Anwendung ist in Code \ref{code:SelectExample} ersichtlich.
+Eine möglich Anwendung ist in Code \ref{code:selectExample} ersichtlich.
 
-\begin{lstlisting}[style = htmlcssjs, caption = Disabled Select Beispiel, label = code:SelectExample]
+\begin{lstlisting}[style = htmlcssjs, caption = Disabled Select Beispiel, label = code:selectExample]
 <select name="animal" disabled>
     <option value="dog"  > Dog   </option>
     <option value="cat"  > Cat   </option>
@@ -109,9 +109,9 @@ Daher gibt es keine Alternative als sie zuvor auszuschalten bzw. umszustellen.
 \label{sec:optgroup}
 
 Die \codestyle{optgroup} dient als Zusatz-Element um in \codestyle{select}s Optionen zu Gruppieren und mit einem Zwischentitel zu versehen.
-Der Titel lässt sich durch das \codestyle{label}-Attribut – wie in Code \ref{code:OptgroupExample} – setzen, ist aber nicht selektierbar. 
+Der Titel lässt sich durch das \codestyle{label}-Attribut – wie in Code \ref{code:optgroupExample} – setzen, ist aber nicht selektierbar. 
 
-\begin{lstlisting}[style = htmlcssjs, caption = Optgroup Beispiel, label = code:OptgroupExample]
+\begin{lstlisting}[style = htmlcssjs, caption = Optgroup Beispiel, label = code:optgroupExample]
 <select name="animal">
     <optgroup label="Big animal">
         <option value="dog"> Dog </option>
@@ -125,7 +125,7 @@ Der Titel lässt sich durch das \codestyle{label}-Attribut – wie in Code \ref{
 \end{lstlisting}
 
 Das \codestyle{disabled} ermöglicht das Ausgrauen eines ganzen Blocks von Auswahloptionen.
-In Code \ref{code:OptgroupExample} ist dies auf Zeile 6 zu sehen.
+In Code \ref{code:optgroupExample} ist dies auf Zeile 6 zu sehen.
 Die Optionen, welche in diesem Element enthalten sind, erben das Attribut.
 Als Inhalt dienen \codestyle{option}-Elemente und selbst besitzt es als Eltern-Element ein \codestyle{select}.
 Die \codestyle{optgroup} besitzt die ARIA-Rolle einer Gruppe.
@@ -135,13 +135,13 @@ Alle Browser unterstützen dieses Element.
 \subsection{Datalist}
 \label{sec:datalist}
 
-Wie in Code \ref{code:DatalistExample} ersichtlich besteht die Datalist aus zwei Elementen – einem Input-Feld und einem Daten-Container. 
+Wie in Code \ref{code:datalistExample} ersichtlich besteht die Datalist aus zwei Elementen – einem Input-Feld und einem Daten-Container. 
 Die Datenliste besitzt keine speziellen eigenen Attribute.
 Das Element benötigt von den globalen Attributen zumindest eine \codestyle{id}.
 Die Id dient zur Verknüpfung der Liste mit dem Input-Feld. 
 Das folgende Unterkapitel \textbf{\nameref{sec:input}} beschreibt das Eingabefeld und dessen Typen im Detail.
 
-\begin{lstlisting}[style = htmlcssjs, caption = Datalist Beispiel, label = code:DatalistExample]
+\begin{lstlisting}[style = htmlcssjs, caption = Datalist Beispiel, label = code:datalistExample]
 <input type="text" name="animal" 
        list="data" placeholder="Animal" />
 <datalist id="data">

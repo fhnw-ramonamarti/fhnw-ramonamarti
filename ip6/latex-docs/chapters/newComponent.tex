@@ -583,9 +583,9 @@ Als dritte Möglichkeit bietet sich die Popover-API an.
 Seit 2024 unterstützen alle gängigen Browser diese Schnittstelle.
 Durch das Refactoring der Variante mit dem normalen Div-Container resultiert eine Version mit der Anwendung dieser API. 
 Im Gegensatz zu den beiden oben erwähnten Container-Implementationen reduziert sich durch diese Schnittstelle der Zusatzaufwand. 
-Der Grundaufbau des Popover-Container ist im folgenden Code \ref{code:PopoverExample} dargestellt. 
+Der Grundaufbau des Popover-Container ist im folgenden Code \ref{code:popoverExample} dargestellt. 
 
-\begin{lstlisting}[style = htmlcssjs, caption = Popover-Container Beispiel, label = code:PopoverExample]
+\begin{lstlisting}[style = htmlcssjs, caption = Popover-Container Beispiel, label = code:popoverExample]
 <div popover="auto"
      id="select-component-0-options" 
      class="options-component" 
@@ -606,18 +606,18 @@ Diese Funktionalitäten erlauben den Controller konsistent zum UI zu halten.
 
 Mit der Kenntnis des Rendering Prozesses einer Webseite lässt sich eine gute Performance umsetzen. 
 Dieser Ablauf ist im Kapitel \textbf{\nameref{chap:background}} unter \textbf{\nameref{sec:structureRendering}} genau beschrieben.
-Die folgende Abbildung \ref{img:RenderingProcessRecap} zeigt die Kernelemente des Prozesses nochmals im Überblick.
+Die folgende Abbildung \ref{img:renderingProcessRecap} zeigt die Kernelemente des Prozesses nochmals im Überblick.
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=80mm]{rendering-process.png}
     \caption{Rendering Prozess}
-    \label{img:RenderingProcessRecap}
+    \label{img:renderingProcessRecap}
 \end{figure}
 
 Zur Auffrischung die wichtigesten Punkte nochmals: 
 Der Browser kann die Webseite maximal 60 Mal pro Sekunde neu zeichnen.
-Änderungen am DOM (Abbildung \ref{img:RenderingProcessRecap}) lösen das Rendern aus. 
+Änderungen am DOM (Abbildung \ref{img:renderingProcessRecap}) lösen das Rendern aus. 
 
 Deswegen müssen viele kleine Änderungen ausserhalb des Browser-DOMs\footnote{
     Im Renderbaum verwendeter und im Browser angezeigter DOM
@@ -626,7 +626,7 @@ Ein Shadow-DOM ist ein Teilbaum, welcher nicht am Browser-DOM angehängt ist.
 Für einen reibungslosen Ablauf ist es sinnvoll, die Änderungen nach dem Abhängen des Elternknotens zu vollziehen. 
 Nach den Änderungen ist der Teilbaum wieder an den gewünschten Ort einzuhängen.
 
-\begin{lstlisting}[style = htmlcssjs, caption = Performance Optimierung (aus \codestyle{columnOptionsComponent.js}), label = code:PerformanceOptimization]
+\begin{lstlisting}[style = htmlcssjs, caption = Performance Optimierung (aus \codestyle{columnOptionsComponent.js}), label = code:performanceOptimization]
 const addAllOptions = (options) => {
     const placeHolder = createHolder();
     columnView.replaceWith(placeHolder);
@@ -642,7 +642,7 @@ const addAllOptions = (options) => {
 };
 \end{lstlisting}
 
-Code \ref{code:PerformanceOptimization} ist eine Stelle, die diese Technik verwendet.
+Code \ref{code:performanceOptimization} ist eine Stelle, die diese Technik verwendet.
 Das Anzeigen eines Platzhalters mit einem Lade-Indikator an der Ursprungsstelle bewirkt, dass der Nutzer ein Feedback erhält.
 Sobald der SpaltenContainer abgekoppelt ist, lädt die Funktion die Optionen in den Shadow-DOM.
 Nach Abschluss ersetzt sich der Lade-Indikator der originalen Stelle im Renderbaum durch den Container mit den neuen Elementen. 
@@ -658,11 +658,11 @@ In diesem Projekt ist es für die Anzeige der Label jedoch nötig \codestyle{inn
 Dies liegt daran, dass ein Label auch ein Bild enthalten kann.
 Generell verwendet die neue Auswahlkomponente keine Inline-Styles.
 Die einzige Ausnahme betrifft das verborgene Eingabefeld. 
-Durch den Code \ref{code:InlineStyle} sind die Properties vor dem einfachen Überschreiben\footnote{
+Durch den Code \ref{code:inlineStyle} sind die Properties vor dem einfachen Überschreiben\footnote{
     \codestyle{!important} besser nicht verwenden
 } geschützt.
 
-\begin{lstlisting}[style = htmlcssjs, caption = Inline-Style für Input-Feld, label = code:InlineStyle]
+\begin{lstlisting}[style = htmlcssjs, caption = Inline-Style für Input-Feld, label = code:inlineStyle]
 inputElement.setAttribute(
     "style", "all:            unset       !important; " +
              "z-index:        -1          !important; " +
@@ -682,16 +682,16 @@ Zudem befindet es sich im Hintergrund und besitzt dieselben Grösse wie der Cont
 Durch die Anpassungen der Performance Optimierung, verschnellert sich die Ladezeit bei grossen Datenmenge enorm.
 Die Testseite enthält vier existierende und vier neue Auswahlkomponenten mit den selben Inhalten wie je eines der Existierenden.
 Je eine der Selects enthält eine grosse Datenmenge von über 4'000 Werten.
-Die folgenden zwei Bilder \ref{img:PerformanceTestBefore} und \ref{img:PerformanceTestAfter} zeigen die Messung während des Seitenaufbaus.
+Die folgenden zwei Bilder \ref{img:performanceTestBefore} und \ref{img:performanceTestAfter} zeigen die Messung während des Seitenaufbaus.
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{performance-before-user-tests-zoom.png}
     \caption{Performance Test vor Anpassungen}
-    \label{img:PerformanceTestBefore}
+    \label{img:performanceTestBefore}
 \end{figure}
 
-Auf der Grafik \ref{img:PerformanceTestBefore} ist zu sehen, dass der Seitenaufbau der früheren Version mit über 5 Sekunden (rechts unten in blau) sehr lange dauerte. 
+Auf der Grafik \ref{img:performanceTestBefore} ist zu sehen, dass der Seitenaufbau der früheren Version mit über 5 Sekunden (rechts unten in blau) sehr lange dauerte. 
 Die Implementation führte sehr viele Aktionen auf dem Renderbaum aus.
 Die lange Wahrtezeit bestätigten mehrere Feedbacks der Nutzer, später mehr dazu.
 
@@ -699,12 +699,12 @@ Die lange Wahrtezeit bestätigten mehrere Feedbacks der Nutzer, später mehr daz
     \centering
     \includegraphics[width=120mm]{performance-after-user-tests-zoom.png}
     \caption{Performance Test nach Anpassungen}
-    \label{img:PerformanceTestAfter}
+    \label{img:performanceTestAfter}
 \end{figure}
 
 Ein Refactoring der früheren Implementation führt zur Auslagerung der aufwendigen Arbeiten auf den Shadow-DOM.
 Dadurch verkürzt sich der Ladevorgang um vier bis fünf Sekunden auf knapp 0.4 Sekunden (rechts unten in blau).
-Der direkte Vergleich zwischen Abbildung \ref{img:PerformanceTestBefore} und \ref{img:PerformanceTestAfter} zeigt, dass die Seite um Faktor 13 schneller geladen ist.
+Der direkte Vergleich zwischen Abbildung \ref{img:performanceTestBefore} und \ref{img:performanceTestAfter} zeigt, dass die Seite um Faktor 13 schneller geladen ist.
 Feedbacks zu den durchgeführten User-Tests mit Programmierern als auch Endnutzern sind im nachfolgenden Kapitel aufgeführt.
 
 

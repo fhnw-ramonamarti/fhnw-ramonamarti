@@ -95,17 +95,17 @@ Der Response liefert schlussendlich die anzuzeigenden Daten, welche in diesem Fa
     \centering
     \includegraphics[width=80mm]{rendering-process.png}
     \caption{Rendering Prozess}
-    \label{img:RenderingProcess}
+    \label{img:renderingProcess}
 \end{figure}
 
 Der Browser verarbeitet die erhaltenen Daten im HTML-Format weiter.
 Mehrere Schritte wandeln die einzelnen HTML-Elementen in sogenannte Nodes um. 
 Aus den resultierenden Nodes entsteht durch Verknüpfungen eine Baumstruktur - der DOM.
-Das Document Object Model (DOM) (Abbildung \ref{img:RenderingProcess} links oben) beschreibt die Eltern-Kind- und Geschwister-Beziehung der Nodes.
+Das Document Object Model (DOM) (Abbildung \ref{img:renderingProcess} links oben) beschreibt die Eltern-Kind- und Geschwister-Beziehung der Nodes.
 Der Prozess bis zum CSS Object Model (CSSOM) gestaltet sich relativ ähnlich, ist aber nicht weiter wichtig.
 
 Der DOM und der CSSOM sind unabhängig von einander. 
-Der Browser kombiniert die beiden Bäume zu einem gemeinsamen Renderbaum (Abbildung \ref{img:RenderingProcess} rechts).
+Der Browser kombiniert die beiden Bäume zu einem gemeinsamen Renderbaum (Abbildung \ref{img:renderingProcess} rechts).
 Der resultierende Baum repräsentiert nur sichtbare Elemente, wohingegen der DOM alle Elemente enthält.
 Der Renderbaum ist browserabhängig.
 
