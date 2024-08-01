@@ -1,3 +1,4 @@
+import "https://fhnw-ramonamarti.github.io/Kolibri/src/kolibri/projector/simpleForm/simpleOptionsModelTest.js";
 import "https://fhnw-ramonamarti.github.io/Kolibri/src/kolibri/projector/selectComponent/optionsModelTest.js";
 import "https://fhnw-ramonamarti.github.io/Kolibri/src/kolibri/projector/selectComponent/optionsControllerTest.js";
 import "https://fhnw-ramonamarti.github.io/Kolibri/src/kolibri/projector/selectComponent/columnOptionsProjectorTest.js";
