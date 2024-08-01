@@ -2,39 +2,49 @@
     \tablesettings{Vergleich Interaktion Datalist \& Select in Safari (iOS, mobile)}
     \label{table:interactionSafariIos}
     \footnotesize
-    \begin{threeparttable}
-        \begin{tabular}{ l || l | l | l }
-            \trrr{\bf{Kriterium}} & \bf{Datalist} & \bf{Select}   & \bf{Multiselect} \\
-            \cline{2-4}           & geschlossen   & geschlossen   & geschlossen \\
-            \cline{2-4}           & offen \ccgray & offen \ccgray & offen \ccgray \\
-            \hline \hline
-            \trrr{Buchstaben} & Schreiben             & nicht möglich         & nicht möglich         \\
-            \cline{2-4}       & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray \\
-            \hline
-            \trr{Leerschlag} & Schreiben             & nicht möglich         & nicht möglich         \\
-            \cline{2-4}      & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray \\
-            \hline
-            \trr{Backspace} & Symbol löschen        & nicht möglich         & nicht möglich         \\
-            \cline{2-4}     & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray \\
-            \hline \hline
-            \trrr{Enter} & \tbbr{Formular senden / \\ ohne Form nichts} & nicht möglich         & nicht möglich         \\
-            \cline{2-4}  & nicht möglich \ccgray                        & nicht möglich \ccgray & nicht möglich \ccgray \\
-            \hline \hline
-            \trrrr{Scroll} & Browser-Default\tnote{1}                                                                       & Browser-Default\tnote{1}                                                        & Browser-Default\tnote{1} \\
-            \cline{2-4}    & \tbbr{\emph{Aussen}: Liste schliessen \\ \emph{Innen}: Werte bewegen \\ ohne Änderung} \ccgray & \tbbr{\emph{Aussen}: - \\ \emph{Innen}: Werte bewegen \\ ohne Änderung} \ccgray & \tbbr{\emph{Aussen}: Browser-Default\tnote{1} \\ \emph{Innen}: Werte bewegen \\ ohne Änderung} \ccgray \\
-            \hline
-            \trr{Click} & \tbbr{\emph{Pfeil}: Liste \\ gefiltert öffnen\tnote{2}} & Liste öffnen                                    & Liste öffnen \\
-            \cline{2-4} & \tbbr{Wert wählen, \\ Liste schliessen} \ccgray         & \tbbr{Wert wählen, \\ Liste schliessen} \ccgray & \tbbr{\emph{Aussen}: Liste schliessen \\ \emph{Innen}: Wert wählen / \\ abwählen} \ccgray \\
-            \hline \hline
-            \trr{\tbbr{Schütteln\\ (Undo / Redo)}} & iOS-Default\tnote{3}         & -         & - \\
-            \cline{2-4}                            & iOS-Default\tnote{3} \ccgray & - \ccgray & - \\
-            \hline 
-        \end{tabular}
-        \begin{tablenotes}
-            \scriptsize
-            \item[1] Gleiche Aktion wie wenn die Komponente nicht fokussiert ist; Aktion vom Browser bzw. Betriebssystem vorgegeben
-            \item[2] Filter: Leerschlag als normales Symbol gezählt; Liste verändern je nach Anzahl passender Werte
-            \item[3] Rückgängig bzw. Wiederholen, wenn zuvor im Feld etwas getippt wurde; bei nur Wert wählen $\Rightarrow$ keine Aktion
-        \end{tablenotes}
-    \end{threeparttable}
+    \begin{adjustbox}{max width=0.95\textwidth}
+        \begin{threeparttable}
+            \begin{tabular}{ l || l | l | l }
+                                                  & \bf{Datalist} & \bf{Select}   & \bf{Multiselect} \\
+                \cline{2-4}                       & geschlossen   & geschlossen   & geschlossen      \\
+                \cline{2-4} \trrr{\bf{Kriterium}} & offen \ccgray & offen \ccgray & offen \ccgray    \\
+                \hline \hline
+                                 & Schreiben             & nicht möglich         & nicht möglich               \\
+                \cline{2-4}
+                \trr{Buchstaben} & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray       \\
+                \hline
+                                 & Schreiben             & nicht möglich         & nicht möglich               \\
+                \cline{2-4}
+                \trr{Leerschlag} & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray       \\
+                \hline
+                                 & Löschen               & nicht möglich         & nicht möglich               \\
+                \cline{2-4}
+                \trr{Backspace}  & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray       \\
+                \hline \hline
+                                 & \tbbr{\emph{in Formular}: senden \\ 
+                                         \emph{ohne}: -} & nicht möglich         & nicht möglich               \\
+                \cline{2-4}
+                \trrr{Enter}     & nicht möglich \ccgray & nicht möglich \ccgray & nicht möglich \ccgray       \\
+                \hline \hline
+                             & Fenster scrollen                            & Fenster scrollen                            & Fenster scrollen     \\
+                \cline{2-4}
+                \trr{Scroll} & \tbbr{\emph{Aussen}: Liste schliessen \\ 
+                                     \emph{Innen}: Liste scrollen} \ccgray & \tbbr{\emph{Aussen}: - \\ 
+                                                                                   \emph{Innen}: Liste scrollen} \ccgray & \tbbr{\emph{Aussen}: Fenster scrollen \\ 
+                                                                                                                                 \emph{Innen}: Liste scrollen} \ccgray \\
+                \hline
+                            & \emph{Pfeil}: Liste öffnen      & Liste öffnen                    & Liste öffnen \\
+                \cline{2-4}
+                \trr{Click} & \tbbr{Selektion ändern \& \\ 
+                                    Liste schliessen} \ccgray & \tbbr{Selektion ändern \& \\ 
+                                                                      Liste schliessen} \ccgray & \tbbr{\emph{Aussen}: Liste schliessen \\ 
+                                                                                                        \emph{Innen}: Selektion ändern} \ccgray \\
+                \hline 
+            \end{tabular}
+            \begin{tablenotes}
+                \scriptsize
+                \item[*] nicht möglich: Virtuelle Tastatur ist nicht sichtbar, somit kann keine Interaktion stattfinden
+            \end{tablenotes}
+        \end{threeparttable}
+    \end{adjustbox}
 \end{table}

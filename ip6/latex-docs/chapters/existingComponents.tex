@@ -1,12 +1,12 @@
 \chapter{Existierende Auswahlkomponenten}
 \label{chap:existingComponents}
 
+Hier ist eine Gegenüberstellung der bereits vorhandenen Möglichkeiten zur Darstellung einer Optionsauswahl aufgeführt.
+Eine Auflistung der möglichen Funktionalitäten zeigt die Grenzen dieser Elemente auf.
+Dabei spielen die UI- als auch die Interaktions-Unterschiede dieser Komponenten in verschiedenen Browsern eine tragende Rolle.
 
-Hier werden die bereits vorhandenen Möglichkeiten zur Darstellung einer Optionsauswahl einander gegenübergestellt.
-Einer Auflistung der möglichen Funktionalitäten zeigt die Grenzen dieser Elemente auf.
-Dabei spielen die UI- als auch die Interaktions-Unterschiede diese Komponenten in verschiedenen Browsern eine tragende Rolle.
-
-Zu den bereits existierenden Komponenten zum Start dieser Arbeit zählen Buttons bzw. Links, \texttt{select}-, \texttt{datalist}-Element und das \texttt{Country Select}.
+Als Basis dieser Arbeit dient das Country Select.
+Weiter existieren bereits die Komponenten Buttons bzw. Links, \codestyle{select}- und \codestyle{datalist}-Element.
 Unter dem Country Select ist das Resultat des Projekt 5 zu verstehen.
 Die folgende Tabelle \ref{table:generalComparing} zeigt einen Vergleich der genannten Möglichkeiten.
 
@@ -16,7 +16,7 @@ Die folgende Tabelle \ref{table:generalComparing} zeigt einen Vergleich der gena
 \section{HTML Datalist vs. Select}
 \label{sec:datalistSelect}
 
-Die folgenden Unterkapitel zeigen die Möglichkeiten, welche die HTML-Elemente \texttt{input}, \texttt{option}, \texttt{datalist} und \texttt{select} bieten.
+Die folgenden Unterkapitel zeigen die Möglichkeiten, welche die HTML-Elemente \codestyle{input}, \codestyle{option}, \codestyle{datalist} und \codestyle{select} bieten.
 Zudem zeigen tabellarische Gegenüberstellungen die Unterschiede und Inkonsistenzen dieser in verschiedenen Browsern und Betriebssystemen auf.
 Hierbei liegt der Fokus mehr auf der Interaktion mit den Komponenten als auf der Darstellung.
 
@@ -24,77 +24,83 @@ Hierbei liegt der Fokus mehr auf der Interaktion mit den Komponenten als auf der
 \subsection{Option}
 \label{sec:option}
 
-\begin{lstlisting}[style = htmlcssjs, caption = Option Example, label = code:OptionExample]
-<option value="ValueToSend">LabelToShow</option>
-<option value="DefaultValue" selected>DefaultLabel</option>
-<option value="Value" disabled>DisabledLabel</option>
-\end{lstlisting}
+Die beiden Auswahlkomponenten – \codestyle{datalist} und \codestyle{select} – verwenden \codestyle{option}-Elemente. 
+Die einzelnen Optionen wie in Code \ref{code:OptionExample} Zeile 1 besitzen ein \codestyle{value}-Attribut und einen Inhalt – das Label.
+Alternativ ist das \codestyle{label}-Attribut zu nutzen und dafür das Value an die Stelle des Inhalts zu platzieren.
+Firefox unterstützt diese Variante jedoch nicht.
+Das Weglassen des \codestyle{value}- und \codestyle{label}-Attributes führt dazu, dass beide den Wert innerhalb des öffnenden und schliessenden Tags erhalten.
 
-Das \texttt{option}-Tag wird bei beiden Auswahlkomponenten - \texttt{datalist} und \texttt{select} - verwendet. 
-Die einzelnen Optionen wie in Code \ref{code:OptionExample} Zeile 1 besitzen ein \texttt{value}-Attribut und einen Inhalt - das Label.
-Alternativ kann das \texttt{label}-Attribut genutzt werden und der Value an die Stelle des Inhalts platziert werden.
-Diese Variante wird jedoch von Firefox nicht unterstützt.
-Werden \texttt{value} und \texttt{label} weggelassen, erhalten beide den Wert innerhalb des Tags.
-Das HTML-Element kann das Attribut \texttt{disabled} oder \texttt{selected} erhalten.
-Eine \texttt{selected} Option wie in Code \ref{code:OptionExample} Zeile 2 wird initial ausgefüllt und funktioniert nur im Zusammenhang mit dem \texttt{select}-Container. 
-Bei einem \texttt{disabled} Element - wie in Code \ref{code:OptionExample} Zeile 3 - erscheint das UI ausgegraut.
+\begin{lstlisting}[style = htmlcssjs, caption = Option Beispiel, label = code:OptionExample]
+<option value="dog"         > Dog   </option>
+<option label="Cat" selected> cat   </option>
+<option             disabled> Mouse </option>
+\end{lstlisting}    
+
+Das HTML-Element kann das Attribut \codestyle{disabled} oder \codestyle{selected} erhalten.
+Code \ref{code:OptionExample} Zeile 2 definiert durch eine \codestyle{selected} Option den initial ausgefüllten Wert.
+Dies Attribut funktioniert nur im Zusammenhang mit dem \codestyle{select}-Container. 
+Bei einem \codestyle{disabled} Element – wie in Code \ref{code:OptionExample} Zeile 3 – erscheint das UI ausgegraut.
 Dieser Eintrag lässt keine Interaktion zu.
 
-(\cite{optionMdn}) Das Designen von \texttt{option}s beschränkt sich auf die Text- / Hintergrundfarbe, welche jedoch nur in Firefox funktionieren. 
+Das Designen von \codestyle{option}s\citemarktext{
+    [\cite{optionMdn}]
+} beschränkt sich auf die Text-/ Hintergrundfarbe, welche jedoch nur in Firefox funktionieren. 
 Die anderen Browser lassen kein Styling der Auswahl-Elemente zu bzw. zeigen diese nicht an.
 Es ist nur ein skalarer Text als Inhalt erlaubt. 
-Das bedeutet, es können keine weiteren Tags verschachtelt werden.
-Als Eltern-Elemente sind \texttt{select}, \texttt{optgroup} und \texttt{datalist} erlaubt.
-Alle gängigen Browser unterstützen dieses Tag.
-
+Das bedeutet, keine weiteren Verschachtelung von Elementen sind möglich.
+Als Eltern-Elemente sind \codestyle{select}, \codestyle{optgroup} und \codestyle{datalist} erlaubt.
+Alle gängigen Browser unterstützen das \codestyle{option}-Element.
 
 
 \subsection{Select}
 \label{sec:select}
 
-\begin{lstlisting}[style = htmlcssjs, caption = Select Example, label = code:SelectExample]
-<select name="animal">
-    <option value="" disabled>Animal</option>
-    <option value="dog">Dog</option>
-    <option value="cat">Cat</option>
-    <option value="mouse">Mouse</option>
+Das \codestyle{select}-Element speichert Werte durch die einzelnen \codestyle{option}-Kinder.
+Eine möglich Anwendung ist in Code \ref{code:SelectExample} ersichtlich.
+
+\begin{lstlisting}[style = htmlcssjs, caption = Disabled Select Beispiel, label = code:SelectExample]
+<select name="animal" disabled>
+    <option value="dog"  > Dog   </option>
+    <option value="cat"  > Cat   </option>
+    <option value="mouse"> Mouse </option>
 </select>
 \end{lstlisting}
 
-Um den Wert zu speichern, benötigt das \texttt{select}-Tag ausser \texttt{option}s keine weiteren Elemente – ersichtlich im Code \ref{code:SelectExample}.
-Die typischen Attribute für Eingabefelder wie \texttt{disabled}, \texttt{form}, \texttt{name} und \texttt{required} sind auch bei einem Select verwendbar.
-Durch das \texttt{disabled} zeigt sich das Element in einer ausgegrauten Erscheinung und bietet dem Nutzer keine Interaktionsmöglichkeiten mehr.
-Dieses Attribut kann vom Container - z.B. \texttt{fieldset} - geerbt werden.
-Die \texttt{form}-Eigenschaft definiert das dazugehörige Formular und \texttt{name} den Key für das Key-Value Paar bzw. Name des Feldes im Formular. 
-Mit dem \texttt{required} wird eine Eingabe erzwungen, um das Senden des Formulars freizuschalten.
-Um dem Select für eine bessere Accessibility ein Label zuweisen zu können, ist eine \texttt{id} zu vergeben, 
+Die typischen Attribute für Eingabefelder wie \codestyle{disabled}, \codestyle{form}, \codestyle{name} und \codestyle{required} sind bei einem Select ebenfalls verwendbar.
+Durch das \codestyle{disabled} zeigt sich das Element in einer ausgegrauten Erscheinung und bietet dem Nutzer keine Interaktionsmöglichkeiten mehr.
+Der Container – z.B. \codestyle{fieldset} – vererbt dieses Attribut weiter an seine Kinder. 
+Die \codestyle{form}-Eigenschaft definiert das dazugehörige Formular und \codestyle{name} den Key für das Key-Value Paar bzw. Name des Feldes im Formular. 
+Das \codestyle{required} erzwingt eine Eingabe, um das Senden des Formulars freizuschalten.
+Für eine bessere Accessibility benötigt das Select eine \codestyle{id}, um das Label zuweisen zu können. 
 Standardmässig ist für dieses Feld nur eine einzelne Auswahl möglich.
-Durch die Ergänzung des Attributs \texttt{multiple} ist es möglich mehrere Werte zu markieren.
-Bei einer Vorauswahl mehrerer Listenelemente durch \texttt{selected} muss die Komponente ein Multiselect sein.
-Wenn jedoch bei einem Signle-Select mehrere Optionen das \texttt{selected}-Attribut enthalten, wird das Letzte als Default eingesetzt und die Vorherigen ignoriert.
-Das \texttt{autocomplete} funktioniert wie bei anderen Inputs, indem Vorschläge vom User-Agent-Feature auftauchen.
-Durch die \texttt{autofocus}-Eigenschaft sind Interaktionen mit dem Feld direkt nach dem Laden möglich.
-Die Definition des \texttt{size}-Attributs steuert die Anzahl sichtbarer Elemente, wobei der Default für Single-Selects bei eins und mehrfache Auswahl bei vier liegt.
-Ausser von dem \texttt{size}-Attribut erhält das Select von allen anderen in allen Browsern Unterstützung.
-Die Grösse wird von den meisten Mobile-Browsern nicht supportet.
+Durch die Ergänzung des Attributs \codestyle{multiple} ist es möglich mehrere Werte zu markieren.
+Bei einer Vorauswahl mehrerer Listenelemente durch \codestyle{selected} muss die Komponente ein Multiselect sein.
+Wenn jedoch bei einem Signle-Select mehrere Optionen das \codestyle{selected}-Attribut enthalten, gilt das zuletzt Definierte als Default.
+Das \codestyle{autocomplete} funktioniert wie bei anderen Inputs, indem Vorschläge vom User-Agent-Feature auftauchen.
+Durch die \codestyle{autofocus}-Eigenschaft sind Interaktionen mit dem Feld direkt nach dem Laden möglich.
+Die Definition des \codestyle{size}-Attributs steuert die Anzahl sichtbarer Elemente, wobei der Default für Single-Selects bei eins und mehrfache Auswahl bei vier liegt.
+Die in Kapitel \textbf{\nameref{sec:implementationsRenderer}} definierten Browser unterstützen alle Attribute des Selects – ausser der \codestyle{size}.
+Die meisten Mobile-Browser supporten die Grösse nicht.
 
 Abgesehen von der Grösse ist die Umgestaltung des Elements browserunabhängig kaum möglich.
 Es gibt jedoch aufwendige Wege, den Inhalt zu klonen und durch Wrapper neu zu stylen.
-In diesem Fall müssen aber die Logik und die Interaktionen für die Accessibility neu implementiert werden.
-Gewisse Stylings können getroffen werden, wobei aber nicht alle Browser diese in der selben Weise übernehmen.
+In diesem Fall ist es notwendig, die Logik und die Interaktionen für die Accessibility neu zu implementieren.
+Gewisse Stylings lassen sich anwenden, wobei aber nicht alle Browser diese in der selben Weise übernehmen.
 Durch die komplexe Struktur des Selects ist eine eigene Darstellung schwierig zu kontrollieren.
 
-(\cite{selectMdn}) Der Inhalt des Tags können \texttt{option}s oder \texttt{optgroup}s sein.
-Mehr zur \texttt{optgroup} kommt im nachfolgenden Unterkapitel.
-In der ARIA-Rolle wird die Komponente als Combobox (ohne \texttt{size} \& \texttt{multiple}) oder Listbox gehandhabt.
+Der Inhalt\citemarktext{
+    [\cite{selectMdn}]
+} des Elements können \codestyle{option}s oder \codestyle{optgroup}s sein.
+Mehr zur \codestyle{optgroup} kommt im nachfolgenden Unterkapitel.
+Die ARIA-Rolle gibt der Komponente die Funktion einer Combobox (ohne \codestyle{size} \& \codestyle{multiple}) oder Listbox.
 
 Die mehrfache Auswahl rein per Tastatur bietet in der Interaktion geringere Möglichkeiten als mit der Maus.
-Mit gedrückter Cmd (Mac) bzw. Ctrl (Windows) Taste können mit der Maus weitere Elemente mitausgewählt werden.
+Die Maus kann mit gedrückter Cmd (Mac) bzw. Ctrl (Windows) Taste weitere Elemente dazu selektieren.
 Mit dem Drücken der Shift-Taste lassen sich alle Elemente zwischen der ersten und der letzten Option markieren.
 Damit sich die zuvor markierte Auswahl nicht aufhebt, ist darauf zu achten, beim Anwenden beider Techniken den Bereich mit Shift zuerst auszuwählen.
-Um nur mit der Tastatur mehrere Werte zu markieren, ist es unabdingbar, zuerst zum ersten Element zu navigieren.
-Mit Shift und den Pfeiltasten hoch und runter ist ein Bereich wählbar.
-Firefox unterstützt noch die einzelne Mehrfachauswahl über die Tastatur, indem mit Ctrl der Fokus hoch und runter bewegt wird und mit der Leertaste selektiert werden kann.
+Für das Markieren mehrerer Werte mittels Tastatur ist es unabdingbar, zuerst zum ersten Element zu navigieren.
+Mit Shift und den Pfeiltasten $\uparrow$ und $\downarrow$ ist ein Bereich wählbar.
+Firefox unterstützt noch die einzelne Mehrfachauswahl über die Tastatur.
 Auf dem Mac sind die Tastenkombinationen Systembefehle.
 Daher gibt es keine Alternative als sie zuvor auszuschalten bzw. umszustellen.
 
@@ -102,126 +108,139 @@ Daher gibt es keine Alternative als sie zuvor auszuschalten bzw. umszustellen.
 \subsubsection{\color{dgray} Optgroup}
 \label{sec:optgroup}
 
-\begin{lstlisting}[style = htmlcssjs, caption = Optgroup Example, label = code:OptgroupExample]
+Die \codestyle{optgroup} dient als Zusatz-Element um in \codestyle{select}s Optionen zu Gruppieren und mit einem Zwischentitel zu versehen.
+Der Titel lässt sich durch das \codestyle{label}-Attribut – wie in Code \ref{code:OptgroupExample} – setzen, ist aber nicht selektierbar. 
+
+\begin{lstlisting}[style = htmlcssjs, caption = Optgroup Beispiel, label = code:OptgroupExample]
 <select name="animal">
     <optgroup label="Big animal">
-        <option value="dog">Dog</option>
-        <option value="cat">Cat</option>
+        <option value="dog"> Dog </option>
+        <option value="cat"> Cat </option>
     </optgroup>
-    <optgroup label="Small animal">
-        <option value="mouse">Mouse</option>
-        <option value="hamster">Hamster</option>
+    <optgroup label="Small animal" disabled>
+        <option value="mouse"  > Mouse   </option>
+        <option value="hamster"> Hamster </option>
     </optgroup>
 </select>
 \end{lstlisting}
 
-Die \texttt{optgroup} dient als Zusatz-Element um in \texttt{select}s Optionen zu Gruppieren und mit einem Zwischentitel zu versehen.
-Der Titel lässt sich durch das \texttt{label}-Attribut setzen, ist aber nicht selektierbar. 
-Um ein ganzer Block von Auswahlmöglichkeiten auszugrauen, bietet sich das \texttt{disabled} an.
-Die Optionen, welche in diesem Tag enthalten sind, erben das Attribut.
-Als Inhalt dienen \texttt{option}-Elemente und selbst besitzt es als Eltern-Tag ein \texttt{select}.
-Die \texttt{optgroup} besitzt die ARIA-Rolle einer Gruppe und wird von allen Browsern unterstützt.
+Das \codestyle{disabled} ermöglicht das Ausgrauen eines ganzen Blocks von Auswahloptionen.
+In Code \ref{code:OptgroupExample} ist dies auf Zeile 6 zu sehen.
+Die Optionen, welche in diesem Element enthalten sind, erben das Attribut.
+Als Inhalt dienen \codestyle{option}-Elemente und selbst besitzt es als Eltern-Element ein \codestyle{select}.
+Die \codestyle{optgroup} besitzt die ARIA-Rolle einer Gruppe.
+Alle Browser unterstützen dieses Element.
 
 
 \subsection{Datalist}
 \label{sec:datalist}
 
-\begin{lstlisting}[style = htmlcssjs, caption = Datalist Example, label = code:DatalistExample]
+Wie in Code \ref{code:DatalistExample} ersichtlich besteht die Datalist aus zwei Elementen – einem Input-Feld und einem Daten-Container. 
+Die Datenliste besitzt keine speziellen eigenen Attribute.
+Das Element benötigt von den globalen Attributen zumindest eine \codestyle{id}.
+Die Id dient zur Verknüpfung der Liste mit dem Input-Feld. 
+Das folgende Unterkapitel \textbf{\nameref{sec:input}} beschreibt das Eingabefeld und dessen Typen im Detail.
+
+\begin{lstlisting}[style = htmlcssjs, caption = Datalist Beispiel, label = code:DatalistExample]
 <input type="text" name="animal" 
        list="data" placeholder="Animal" />
 <datalist id="data">
-    <option value="Dog"></option>
-    <option value="Cat"></option>
-    <option value="Mouse"></option>
+    <option> Dog   </option>
+    <option> Cat   </option>
+    <option> Mouse </option>
 </datalist>
 \end{lstlisting}
 
-Wie in Code \ref{code:DatalistExample} ersichtlich besteht die Datalist aus zwei Teilen - einem Input-Feld und einem Daten-Container. 
-Im folgenden Unterkapitel \ref{sec:input} wird detaillierter auf das Eingabefeld und dessen Typen eingegangen.
-Die Datenliste besitzt keine speziellen eigenen Attribute.
-Von den globalen Attributen sollte jedoch zumindest eine \texttt{id} vergeben werden.
-Die Id dient zur Verknüpfung der Liste mit dem Input-Feld. 
-
-(\cite{datalistMdn}) Das Stylen der \texttt{datalist} ist sehr begrenzt bzw. nicht möglich. 
+Das Stylen der \codestyle{datalist}\citemarktext{
+    [\cite{datalistMdn}]
+} ist sehr begrenzt bzw. nicht möglich. 
 Der Daten-Container reagiert nicht auf den Zoom des Browsers.
-Gewisse Screenreader ignorieren die Vorschlagsliste und lesen diese somit nicht vor.
-In der ARIA-Rolle wird das Element als Listbox interpretiert.
+Gewisse Screenreader ignorieren die Vorschlagsliste und lesen diese dadurch auch nicht vor.
+Das Element erhält die ARIA-Rolle einer Listbox.
 
-Die \texttt{option}s einer \texttt{datalist} besitzen normalerweise nur ein \texttt{value}-Attribut und kein Label oder nur Inhalt.
+Die \codestyle{option}s einer \codestyle{datalist} besitzen normalerweise nur ein \codestyle{value}-Attribut und kein Label.
 Bei einer zusätzlichen Label-Definition kann das je nach Browser zu abweichenden Darstellungen kommen. 
-Während Firefox nur das Label in der Liste anzeigt, werden in den anderen Browsern Label und Value gemeinsam visualisiert. 
+Während Firefox nur das Label in der Liste anzeigt, visualisieren die anderen Browser das Label und das Value gemeinsam.
 Die Browser, welche Label und Value anzeigen, heben den Wert ein wenig hervor.
-Die Darstellung kann zu Missverständnissen führen, da bei der Auswahl nur das Value in das Eingabefeld eingefügt wird. 
-Die \texttt{option}s-Werte können sich dem Typ des Inputs anpassen. 
-Generell unterstützen alle Browser die \texttt{datalist}, aber Firefox nur begrenzt.
+--
+Die Darstellung kann zu Missverständnissen führen, da das Eingabefeld bei einer Auswahl nur das Value anzeigt. 
+Die \codestyle{option}s-Werte können sich dem Typ des Inputs anpassen. 
+Generell unterstützen alle Browser die \codestyle{datalist}, aber Firefox nur begrenzt.
 
-(\cite{datalistMdn}) Nicht alle Browser unterstützen die Datenliste für jeden Eingabe-Typ.
+Nicht alle Browser unterstützen die Datenliste für jeden Eingabe-Typ\citemarktext{
+    [\cite{datalistMdn}]
+}.
 Der textuelle Typ funktioniert in allen Browsern und die Liste öffnet sich nach einem Klick bzw. Doppelklick auf das Feld.
 Vordefinierte Datum- und Zeit-Typen funktionieren nur in den Chromium-basierten Browsern. 
 Firefox und Safari zeigen den normalen Eingabe-Container, als ob die Liste nicht verknüpft ist.
-Wenn eine Liste mit einer Range verwendet wird, zeigen alle Browser auf dem Slider die Optionen durch Markierungen an.
-Die Kombination einer \texttt{datalist} mit einer Farbpalette zeigt eine breite, aber unterschiedliche Unterstützung. 
-Unter den gängigen Browsern ist Firefox auf OSX der Einzige, welche die Liste nicht darstellt.
+Bei der Verwendung einer Liste mit einer Range zeigen alle Browser die Optionen durch Markierungen auf dem Slider an.
+Die Kombination einer \codestyle{datalist} mit einer Farbpalette zeigt eine breite, aber unterschiedliche Unterstützung. 
+Unter den gängigen Browsern ist Firefox auf OSX der Einzige, welcher die Liste nicht darstellt.
 Zusammengefasst bieten für Listen mit den unterschliedlichsten Typen Chromium-basierte Browser die beste Unterstützung.
 
 
 \subsubsection{\color{dgray} Input}
 \label{sec:input}
 
-Dieser Abschnitt behandelt nur den Teil, welcher im Bezug auf die \texttt{datalist} von Belang ist.
-Das Input - in Code \ref{code:DatalistExample} auf Zeile 1 - wird durch das \texttt{list}-Attribut mit den Auswahloptionen verknüpft.
-Bei der Verwendung zusammen mit der \texttt{datalist} ist dieses Attribut Pflicht.
+Dieser Abschnitt behandelt nur den Teil, welcher im Bezug auf die \codestyle{datalist} von Belang ist.
+Das \codestyle{list}-Attribut verknüpft das Input – in Code \ref{code:DatalistExample} auf Zeile 1 und 2 – mit den Auswahloptionen der Liste.
+Bei der Verwendung zusammen mit der \codestyle{datalist} ist dieses Attribut Pflicht.
 Dadurch erscheinen die Auswahloptionen während der Bedienung des Input-Feldes. 
 
-Die in diesem Kontext für alle Typen geltenden Attribute werden in diesem Paragraphen genauer behandelt.
-Das \texttt{autocomplete}-Attribut dient zur Anzeige der Hinweise für das Autofill-Feature der Browser.
-Das \texttt{disabled} schaltet die Interaktionsmöglichkeiten aus und deaktiviert somit die Komponente.
-Ist das Eingabefeld ausserhalb eines Formulars platziert, lässt sich das Attribut \texttt{form} eine Verknüpfung zu einem auf der Seite existierenden Formular hergestellen. 
-Im abgesendeten Formular dient die Eigenschaft \texttt{name} zur Identifizierung des Wertes im \texttt{value}-Attribut.
-Der Typ des Eingabefeldes - angegeben durch das \texttt{type} - definiert, welche UI-Erscheinung das Input im Browser erhält und welche Werte zulässig sind.
-Als Standard-Typ ist \texttt{text} definiert, wodurch dieses Attribut optional ist.
-Mehr zu den für diese Arbeit wichtigen Typen ist im Unterkapitel \ref{sec:inutTypesDatalist} zu lesen.
-Die \texttt{id} als globale Eigenschaft dient bei den Eingabefeldern zusätzlich noch zur Verknüpfung mit einem Label-Element und somit einer bessern Accessibility.
+Dieser Paragraph behandelt die in diesem Kontext für alle Typen geltenden Attribute.
+Das \codestyle{autocomplete}-Attribut dient zur Anzeige der Hinweise für das Autofill-Feature der Browser.
+Das \codestyle{disabled} schaltet die Interaktionsmöglichkeiten aus und deaktiviert somit die Komponente.
+Ist das Eingabefeld ausserhalb eines Formulars platziert, kann das Attribut \codestyle{form} eine Verknüpfung zu einem auf der Seite existierenden Formular herstellen.
+Im abgesendeten Formular dient die Eigenschaft \codestyle{name} zur Identifizierung des Wertes im \codestyle{value}-Attribut.
+Der Typ des Eingabefeldes – angegeben durch das \codestyle{type} – definiert welche UI-Erscheinung das Input im Browser erhält und welche Werte zulässig sind.
+Als Standard-Typ ist \codestyle{text} definiert, wodurch dieses Attribut optional ist.
+Mehr zu den für diese Arbeit wichtigen Typen ist im Unterkapitel \textbf{\nameref{sec:inputTypesDatalist}} zu lesen.
+Die \codestyle{id} als globale Eigenschaft dient bei den Eingabefeldern zusätzlich noch zur Verknüpfung mit einem Label-Element und somit einer bessern Accessibility.
 
-Weiter existieren noch die zwei Attribute \texttt{readonly} und \texttt{required}, welche bei allen Typen ausser \texttt{range} und \texttt{color} definiert sind.
+Weiter existieren noch die zwei Attribute \codestyle{readonly} und \codestyle{required}, welche bei allen Typen ausser \codestyle{range} und \codestyle{color} definiert sind.
 Durch die Ergänzung der ersten Eigenschaft ist der Wert nicht mehr änderbar, aber es bleibt im Verlauf der fokussierbaren Komponenten enthalten.
-Das \texttt{required} erzwingt eine Eingabe.
-Die Eigenschaften \texttt{min}, \texttt{max} und \texttt{step} unterstützen die Konfiguration der numerischen Typen\footnotemark.
-\footnotetext{\texttt{date}, \texttt{month}, \texttt{week}, \texttt{time}, \texttt{datetime-local}, \texttt{number}, \texttt{range}}
+Das \codestyle{required} erzwingt eine Eingabe.
+Die Eigenschaften \codestyle{min}, \codestyle{max} und \codestyle{step} unterstützen die Konfiguration der numerischen Typen\footnote{
+    \codestyle{date}, \codestyle{month}, \codestyle{week}, \codestyle{time}, \codestyle{datetime-local}, \codestyle{number}, \codestyle{range}
+}.
 Die ersten beiden begrenzen die Werte auf einen Bereich oder ein Intervall.
-Mit \texttt{step} lässt sich noch die Grösse eines Schrittes einstellen.
-Die textlichen Felder\footnotemark besitzen die Attribute \texttt{maxlength}, \texttt{minlength}, \texttt{pattern} und \texttt{size}.
-\footnotetext{in diesem Zusammenhang: \texttt{text}, \texttt{search}, \texttt{url}, \texttt{tel}, \texttt{email}, \texttt{password}}
-Diese Texttypen zusammen mit \texttt{number} können durch \texttt{placeholder} einen Patzhaltertext erhalten.
+Mit \codestyle{step} lässt sich die Grösse eines Schrittes einstellen.
+Die textlichen Felder\footnote{
+    in diesem Zusammenhang: \codestyle{text}, \codestyle{search}, \codestyle{url}, \codestyle{tel}, \codestyle{email}, \codestyle{password}
+} besitzen die Attribute \codestyle{maxlength}, \codestyle{minlength}, \codestyle{pattern} und \codestyle{size}.
+Diese Texttypen zusammen mit \codestyle{number} können durch \codestyle{placeholder} einen Patzhaltertext erhalten.
 Die Min- und Max-Länge schränken die Textlänge der Eingabe ein.
-Die Vorgabe eines Regex-Musters im \texttt{pattern}-Attribut kann die Eingabe weiter eingrenzen.
+Die Vorgabe eines Regex-Musters im \codestyle{pattern}-Attribut kann die Eingabe weiter eingrenzen.
 Das Formular validiert die Felder vor dem Senden anhand des Patterns und markiert fehlerhafte Einhaben als invalide.
-Gewisse Typen - wie z.B. \texttt{url}, \texttt{tel} und \texttt{email} - haben bereits eine Pattern hinterlegt.
-Mit \texttt{size} lässt sich die Grösse bzw. Anzahl sichtbarer Zeichen angeben.
-Weitere Informationen zum Styling eines Input-Feldes stehen im Unterkapitel \ref{sec:inputCss}.
+Gewisse Typen – wie z.B. \codestyle{url}, \codestyle{tel} und \codestyle{email} – haben bereits eine Pattern hinterlegt.
+Mit \codestyle{size} lässt sich die Grösse bzw. Anzahl sichtbarer Zeichen angeben.
+Weitere Informationen zum Styling eines Input-Feldes stehen im Unterkapitel \textbf{\nameref{sec:inputCss}}.
 
-Das Input enthält keinen Inhalt und ist ein selbst-schliessendes Tag.
+Das Input besteht aus einem selbst-schliessenden Tag.
 Die ARIA-Rolle ist vom Typ abhängig und kann als Textbox, Combobox, Spinbutton, Slider, Searchbox, Telbox oder keiner speziellen Rolle zugeordent sein.
 In den hier erwähnten Möglichkeiten der Kompontente existiert eine grossflächige Browserunterstützung.
-Die einzigen Ausnahmen beziehen sich auf die Typen \texttt{week} und \texttt{month}, welche im Firefox und Safari nicht funktionieren.
+Die einzigen Ausnahmen beziehen sich auf die Typen \codestyle{week} und \codestyle{month}, welche im Firefox und Safari nicht funktionieren.
 
 
 \subsubsection{{\color{dgray} Input-Typen mit Datalist-Unterstützung}}
-\label{sec:inutTypesDatalist}
+\label{sec:inputTypesDatalist}
 
-(\cite{datalistMdn}) Bei den textuellen Typen existieren \texttt{text}, \texttt{search}, \texttt{number}, \texttt{email}, \texttt{url} und \texttt{tel}.
-Diese Typen erscheinen als mehr oder weniger normales, einzeiliges Texteingabefeld.
+Bei den textuellen Typen\citemarktext{
+    [\cite{datalistMdn}]
+} existieren \codestyle{text}, \codestyle{search}, \codestyle{number}, \codestyle{email}, \codestyle{url} und \codestyle{tel}.
+Diese Typen erscheinen mehr oder weniger als normales, einzeiliges Texteingabefeld.
 Die ersten zwei der Auflistung verwalten einen Text ohne spezielle Anforderungen. 
-Um die Werte als Zahlen zu speichern, dient der Typ \texttt{number}, welche dem UI noch zwei Buttons ergänzt.
+Der Typ \codestyle{number} dient zum Speichern der Werte als Zahlen und zeigt dies durch die Ergänzung zweier Buttons im UI-Feld.
 Die letzten drei Typen sind Textfelder, welche bereits ein passendes Pattern für E-Mail, URL oder Telefonnummer hinterlegt haben.
-Zudem zeigen diese Felder bei dynamischen Tastaturen eine der Situation angepasstes Layout\footnotemark.
-\footnotetext{z.B.: @ und . ist bei \texttt{email} immer sichtbar, oder bei \texttt{tel} sind die Zahlen besser dargestellt}
-Typen in der Kategorie Date-Time sind \texttt{month}, \texttt{week}, \texttt{date}, \texttt{time} und \texttt{datetime-local}.
+Zudem zeigen diese Felder bei dynamischen Tastaturen eine der Situation angepasstes Layout\footnote{
+    z.B.: @ und . ist bei \codestyle{email} immer sichtbar, oder bei \codestyle{tel} sind die Zahlen besser dargestellt
+}.
+Typen in der Kategorie Date-Time sind \codestyle{month}, \codestyle{week}, \codestyle{date}, \codestyle{time} und \codestyle{datetime-local}.
 
-Bei einer ungefähren Eingabe einer Zahl auf einem Intervall bietet sich \texttt{range} an.
+Bei einer ungefähren Eingabe einer Zahl auf einem Intervall bietet sich \codestyle{range} an.
 Im UI zeigt sich diese Komponente als Slider, wobei sich der Standard Wert in der Mitte findet.
-Zur Festlegung der Limiten dienen \texttt{min} und \texttt{max}.
-Für eine Farbauswahl kann der Typ \texttt{color} zur Anwendung kommen. 
+Zur Festlegung der Limiten dienen \codestyle{min} und \codestyle{max}.
+Für eine Farbauswahl kann der Typ \codestyle{color} zur Anwendung kommen. 
 Die gängigen Browser zeigen nach dem Aufklappen Farbpaletten, welche sich aber in der Darstellung unterscheiden. 
 Firefox beispielsweise greift auf die vom System gestellte Farbpalette zurück, wo Chromium-basierte Browser eine Eigene bieten.
 
@@ -229,24 +248,29 @@ Firefox beispielsweise greift auf die vom System gestellte Farbpalette zurück, 
 \subsubsection{{\color{dgray} CSS für Input-Felder}}
 \label{sec:inputCss}
 
-(\cite{inputMdn}) Bei einem Input bestehen mehrere Möglichkeiten dieses umzugestalten.
-Es existieren eigene CSS-Pseudo-Klassen, wobei folgend nur ein Teil aufgezählt wird.
+Bei einem Input\citemarktext{
+    [\cite{inputMdn}]
+} bestehen mehrere Möglichkeiten dieses umzugestalten.
+
+Es existieren eigene CSS-Pseudo-Klassen, wobei die folgende Aufzählung nur einen Ausschnitt aufzeigt.
 
 \begin{itemize}
-    \item \texttt{:enabled} bzw. \texttt{:disabled} - reagiert auf das \texttt{disabled}-Attribut
-    \item \texttt{:read-write} bzw. \texttt{:read-only} - reagiert auf das \texttt{readonly}-Attribut
-    \item \texttt{:valid} bzw. \texttt{:invalid} - reagiert auf die Client-Side Validität\footnotemark des Felds, sobald das Formular versendet wird
-    \item \texttt{:user-invalid} - reagiert auf die Client-Side Validität des Felds, sobald das Feld verlassen wird
-    \item \texttt{:in-range} bzw. \texttt{:out-of-range} - reagiert auf das \texttt{min}- und \texttt{max}-Attribut
-    \item \texttt{:optional} bzw. \texttt{:required} - reagiert auf das \texttt{required}-Attribut
-    \item \texttt{:blank} - reagiert wenn ein Feld leer ist
+    \item \codestyle{:enabled} bzw. \codestyle{:disabled} – reagiert auf das \codestyle{disabled}-Attribut
+    \item \codestyle{:read-write} bzw. \codestyle{:read-only} – reagiert auf das \codestyle{readonly}-Attribut
+    \item \codestyle{:valid} bzw. \codestyle{:invalid} – reagiert beim Abschicken des Formulars auf die Client-Side Validität\footnote{
+            Einhaltung der Regeln für das Input – z.B. ein gegebenes \codestyle{pattern}
+        } des Felds
+    \item \codestyle{:user-invalid} – reagiert beim Verlassen des Inputs auf die Client-Side Validität des Felds
+    \item \codestyle{:in-range} bzw. \codestyle{:out-of-range} – reagiert auf das \codestyle{min}- und \codestyle{max}-Attribut
+    \item \codestyle{:optional} bzw. \codestyle{:required} – reagiert auf das \codestyle{required}-Attribut
+    \item \codestyle{:blank} – reagiert wenn ein Feld leer ist
 \end{itemize}
-\footnotetext{Einhaltung der Regeln für das Input - z.B. ein gegebenes \texttt{pattern}}
 
-Weiter gibt es noch das Pseudo-Element \texttt{::placeholder}, welches das Stylen des Platzhalters erlaubt.
-Das CSS-Property \texttt{caret-color} färbt den Cursor\footnotemark in Inputs um.
-\footnotetext{blinkender Strich in einem Eingabefeld}
-Im Gegensatz zur \texttt{datalist} und dem \texttt{select} lässt sich das normale Eingabefeld relativ gut designen. 
+Weiter gibt es noch das Pseudo-Element \codestyle{::placeholder}, welches das Stylen des Platzhalters erlaubt.
+Das CSS-Property \codestyle{caret-color} färbt den Cursor\footnote{
+    blinkender Strich in einem Eingabefeld
+} in Inputs um.
+Im Gegensatz zur \codestyle{datalist} und dem \codestyle{select} lässt sich das normale Eingabefeld relativ gut designen. 
 
 
 \clearpage
@@ -262,7 +286,7 @@ Nachfolgend sind die Inkonsistenzen genauer erläutert.
 \label{sec:uiDifferences}
 
 Das Select ist in der geschlossenen Form auf der rechten Seite immer mit mindestens einem Pfeil nach unten ausgestattet.
-Safari (OSX und iOS) verwendet als Icon einen Doppelpfeil (nach oben und unten).
+Safari (OSX und iOS) verwendet als Icon einen Doppelpfeil (nach oben und unten zeigend).
 Firefox zeigt das Feld in grau, während alle anderen Browser einen weissen Hintergrund verwenden.
 Safari auf iOS stellt die Komponente ohne Rahmen dar und deswegen ist der Hintergrund in einem hellen Grau gehalten.
 Die geöffnete Liste ist bei Firefox als einziges relativ konsistent. 
@@ -273,85 +297,91 @@ Am Wenigsten lässt sich das Element in Safari stylen.
 
 Da nicht jeder Browser ein Icon anzeigt, ist die Datalist weniger konsistent.
 Safari (Mac) und Firefox stellen keinen visuellen Hinweis auf einen Listen-Container dar.
-Safari auf iOS zeigt hingegen in jedem Fall - bezogen auf den textuellen Typ - einen nach unten zeigenden Pfeil an.
+Safari auf iOS zeigt hingegen in jedem Fall – bezogen auf den textuellen Typ – einen nach unten zeigenden Pfeil an.
 Andere Browser blenden auf der rechten Seite beim Hovern oder beim Besitzen des Fokus das Icon (Dreieck nach unten zeigend) ein.
 Bei Firefox unterscheidet sich das Öffnen der Liste ebenfalls. 
 Wenn das Feld den Fokus noch nicht besitzt, benötigt es zwei Klicks.
 Die anderen Browser lassen die Liste bereits beim ersten Kick erscheinen.
 Die Liste selbst verhält sich je nach Browser und Inhalt verschieden, indem sie seitlich oder darunter (darüber) erscheint.
-Ob der Dark- bzw. Light-Mode als Container-Farbe übernommen wird, ist vom Browser und dem Anwendungskontext abhängig.
-Die Liste überdeckt der Eingabefeld nie. 
+Die Übernamhe des Dark- bzw. Light-Modes als Container-Farbe hängt vom Browser und dem Anwendungskontext ab.
+Die Liste überdeckt das Eingabefeld nie. 
 
 Ein Blick auf die mobilen Browser wie iOS-Safari, Android-Firefox und -DuckDuckGo zeigen weitere UI-Unterschiede.
-Im Vergleich zu den Desktop-Version zeigen sich die geöffneten Selects auf Android für eine besser Bedienbarkeit in einem anderen Design.
+Im Vergleich zu den Desktop-Version zeigen sich die geöffneten Selects auf Android für eine bessere Bedienbarkeit in einem anderen Design.
 Die Liste öffnet sich als Dialog-Popup und füllt je nach Anzahl der Werte fast den kompletten Display aus.
 Das selektierte Element besitzt einen ausgefüllten Radio-Button auf der rechten Seite. 
-Auf iOS-Browser erhält die ausgewählte Option ein Check-Icon (\cmark) auf der linken.
+Auf iOS-Browser erhält die ausgewählte Option auf der linken Seite ein Check-Icon (\cmark).
 Der Listen-Container erscheint ähnlich zum OSX-Browser als Dropdown-Liste.
 Nach einer Auswahl schliessen die mobilen Selects automatisch.
 
 Die Datalist zeigt ihren Inhalt nur bei der Interaktion mit Pfeil auf der rechten Seite.
-Abgesehen von der Grösse der einzelnen Einträge für die Bedienbarkeit unterscheiden die sich kaum von den Desktop-Versionen.
+Abgesehen von der Grösse der einzelnen Einträge für die Bedienbarkeit unterscheiden diese sich kaum von den Desktop-Versionen.
 Die Selektionen erscheinen gegenüber der anderen Optionen in keinem speziellen Design.
 
-Die nachfolgenden Abschnitte \ref{sec:edgeBrowser} bis \ref{sec:mobileBrowser} beschreiben die möglichen Interaktionen.
+Die nachfolgenden Abschnitte \textbf{\ref{sec:edgeBrowser}} bis \textbf{\ref{sec:mobileBrowser}} beschreiben die möglichen Interaktionen.
 Die Tabellen stellen das Datalist, Single- als auch Multiselect einander gegenüber.
-Im Anschluss an die Gegenüberstellungen der diversen Browser weist das Kapitel \ref{sec:summeryExisting} detaillierter auf die Inkonsistenzen hin. 
+Im Anschluss an die Gegenüberstellungen der diversen Browser weist das Kapitel \textbf{\nameref{sec:summeryExisting}} detaillierter auf die Inkonsistenzen hin. 
 
 
 \clearpage
 \subsection{Edge Browser}
 \label{sec:edgeBrowser}
 
-\import{../tables}{c.edge.tex}
-
+Die folgende Tabelle \ref{table:interactionEdge} zeigt den Vergleich der typischen Interaktionen zwischen Datalist, Single- und Multiselect in Edge auf Windows.
 Auf Windows verhält sich Edge sehr ähnlich wie Chrome, da die Codebasis beider Browser Chromium ist.
+
+\import{../tables}{c.edge.tex}
 
 
 \clearpage
 \subsection{Chrome Browser}
 \label{sec:chromeBrowser}
 
-\import{../tables}{c.chrome.tex}
+Die Gegenüberstellung \ref{table:interactionChrome} beschreibt die bekannten Bedienungsmöglichkeiten der drei existierenden Auswahlkomponenten in Chrome.
+Dabei spielt das System (Windows oder Mac) nur bei der Tastenkombination und nicht bei der Reaktion eine Rolle.
+Auf dem Mac verhält sich Chrome ähnlich wie auf Windows, Designaspekte können sich unterscheiden. 
 
-Auf dem Mac verhält sich Chrome ähnlich wie auf Windows, jedoch können sich Designaspekte unterscheiden. 
+\import{../tables}{c.chrome.tex}
 
 
 \clearpage
 \subsection{Firefox Browser}
 \label{sec:firefoxBrowser}
 
-\import{../tables}{c.firefox.tex}
-
+Die nachfolgende Aufstellung \ref{table:interactionFirefox} zeigt die Reaktionen auf gewisse Benutzerinteraktionen in Firefox.
 Wie auch auf Windows zeigt Firefox auf dem Mac konsistentes Verhalten, jedoch mit typischen OSX Designanpassungen. 
 Die Interaktions-Feedbacks auf Mac können sich leicht von der Windows-Version unterscheiden.
+
+\import{../tables}{c.firefox.tex}
 
 
 \clearpage
 \subsection{Safari Browser}
 \label{sec:safariBrowser}
 
-\import{../tables}{c.safari.tex}
+Die Interaktionen auf Safari sind in der Tabelle \ref{table:interactionSafari} einander gegenübergestellt.
+Der Mac Standard-Browser zeigt zu den bisher gesehenen Vergleichen die grösste Abweichung.
 
-Safari tendiert dazu, ein minimalistisches Design zu verwenden, was sich in der Darstellung von Dropdowns und Comboboxen widerspiegelt.
-Dieser Browser verwendet Designelemente wie Schatten und Ränder in anderer Form als Chrome und Firefox.
-Das Select zeigt die grössten Unterschiede im UI.
+\import{../tables}{c.safari.tex}
 
 
 \clearpage
 \subsection{Browser auf Android \& iOS}
 \label{sec:mobileBrowser}
 
-\import{../tables}{c.firefox.android.tex}
-\import{../tables}{c.duckduck.android.tex}
-
 Der Vergleich der Tabellen \ref{table:interactionFirefoxAndroid} und \ref{table:interactionDuckduckAndroid} zeigt, dass auf dem selben Android-Gerät Abweichungen existieren.
 Nicht alle Bedienungsmöglichkeiten führen zur selblen Reaktion.
 
+\import{../tables}{c.firefox.android.tex}
+\import{../tables}{c.duckduck.android.tex}
+
 \clearpage
+Im Gegensatz zu den oben gezeigten Andriod-Browser zeigen die meisten iOS-Browser die \codestyle{datalist} und die \codestyle{select}s auf der selben Basis an.
+Der iOS-Safari als Stellvertreter zeigt den Vergleich in Tabelle \ref{table:interactionSafariIos} auf. 
+
 \import{../tables}{c.safari.ios.tex}
 
-Wie in den Tabellen \ref{table:interactionFirefoxAndroid} bis \ref{table:interactionSafariIos} zu sehen ist, erlauben Mobilgeräten weniger Interaktionen als Desktop-Computer.
+Wie in den Tabellen \ref{table:interactionFirefoxAndroid} bis \ref{table:interactionSafariIos} zu sehen ist, erlauben Mobilgeräte weniger Interaktionen als Desktop-Computer.
 Zum einen stellen die verschiedenen virtuellen Tastaturen eine geringere Auswahl an Interaktionen an.
 Auf der anderen Seite öffnet sich die virtuelle Tastatur nicht in jeder Situation. 
 In Bezug auf die Komponenten Select und Datalist öffnet sich die dynamische Eingabemöglichkeit nur durch das Input der Datalist.
@@ -364,15 +394,33 @@ Das Scrollen als auch das Klicken verhalten sich bei den ausgewählten Mobile-Br
 Das Select zeigt sich in der Interaktion mit dem Finger konsistenter. 
 
 
+\subsection{Undo / Redo}
+\label{sec:undoRedo}
+
+Die Tastatur-Interaktionen Undo\footnote{
+    Ctrl \& Z auf Windows; Cmd \& Z auf Mac
+} und Redo\footnote{
+    Ctrl \& Y auf Windows; Cmd \& Shift \& Z auf Mac
+} verhalten sich in allen Desktop-Browsern gleich.
+Beim Select – Single als auch Multi – passiert nichts.
+Im Input-Feld mit der Datalist regieren die Aktionen auf den geschriebenen Text.
+Die einzige Ausnahme ist Safari, welcher das Undo / Redo auf Browserebene ausführt.
+Das bedeutet, die Interaktion betrifft nicht nur das fokussierte Eingabefeld, sondern alle Änderungen im Browser wie das Schliessen von Tabs.
+
+Von den Mobilgeräten unterstützt nur das iOS-System via Schüttel-Bewegung das Undo bzw. Redo.
+Der iOS-Safari Browser zeigt dieselbe Reaktion wie Safari auf Desktop.
+
+
 \clearpage
 \subsection{Fazit}
 \label{sec:summeryExisting}
 
+% todo add sentence of libs and frameworks not further looked at
 % todo rewrite with focus on differences visible in tables
 Generell ändern sich in Bezug auf Design und Interaktionsmechanismen die Verhaltensweisen der Standardkomponenten in den verschiedenen Browsern. 
 Hierbei spielen das betriebssystemspezifische Styling und die individuellen Implementierungen der Browser eine Rolle. 
 Die Grundfunktionen zeigen sich ähnlich, wobei etwaige Unterschiede oft in der visuellen Darstellung und in Details der Interaktion (z.B. beim Öffnen der Dropdowns oder der Navigation innerhalb der Listen) liegen. 
-Um eine optimale Benutzererfahrung bieten zu können, ist die Konsistenzprüfung unabdingbar.
+Für eine optimale Benutzererfahrung ist die Konsistenzprüfung unabdingbar.
 Es ist die Sicherstellung, dass Webanwendungen über verschiedene Plattformen und Browser hinweg einheitlich funktionieren. 
 Das Verhalten kann je nach Browserversion und Betriebssystem variieren. 
 Die Analyse der Tabellen unterstreicht, dass trotz grundlegender Übereinstimmungen in der Funktionsweise von Komponenten wie Datalist und Select, 
@@ -381,23 +429,127 @@ Insbesondere sind solche Unterschiede in der Bedienung mit Tastaturkürzeln wie 
 Diese Erkenntnisse fordern eine sorgfältige Abstimmung und eventuelle Anpassungen im Designprozess, um eine einheitliche Benutzererfahrung sicherzustellen.
 
 
+\section{Länderauswahl Komponente}
+\label{sec:countryChoice}
+
+Alternativ zu den bekannten HTML-Elementen \codestyle{datalist} und \codestyle{select} existiert eine weitere, spezielle Auswahlkomponente – die Länderauswahl\citemarktext{
+    [\cite{ip5}]
+}.
+Diese vereinfacht die Selektion eines Landes in einer vorgegebenen Liste. 
+Die Komponente ist jedoch nur auf den spezifischen Anwendungsfall – der Wahl eines Landes – getestet.
+Das Desgin, die Funktionen und die Anwendung unterscheiden sich aber zu den oben genannten HTML-Elementen.
+
+\subsection{Design}
+\label{sec:countryChoiceDesign}
+
+Die Länderauswahl erscheint moderner als die alten HTML-Elemente.
+Die Komponente ist in geschlossenem als auch geöffnetem Zustand durch einen immer sichtbaren Container mit dem gewählten Land (Abbildung \ref{img:countryInputComponentClose}) visualisiert.
+Ist die Länderauswahl geöffnet, erscheint ein Listencontainer mit allen Ländern (Abbildung \ref{img:countryInputComponentOpen}).
+Der Aufbau zeigt sich in einem Spaltendesign – Kontinente links und Länder rechts.
+
+\begin{figure}[!htb]
+    \centering
+    \begin{minipage}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{countryInput-close.png}
+        \caption{Geschlossene Länderauswahl}
+        \label{img:countryInputComponentClose}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{countryInput-open.png}
+        \caption{Offene Länderauswahl}
+        \label{img:countryInputComponentOpen}
+    \end{minipage}
+\end{figure}
+
+Das Design lässt sich einfacher und vielfältiger als bei den Standard HTML-Elementen anpassen.
+Die einzelnen Subkomponenten besitzen Klassen, welche ein einfaches Umstyling ermöglicht.
+Funktionell zeigen sich Übereinstimmungen als auch Unterschiede.
+
+
+\subsection{Funktionen \& Interaktionen}
+\label{sec:countryChoiceFunction}
+
+Ein grosser Unterschied findet sich in der Funktion des Kontinents.
+Durch die Selektion eines Kontinents reduzieren sich die zur Auswahl stehenden Länder.
+Ist kein spezifischer Kontinent ausgewählt, fällt die Selektion auf \emph{All}.
+Die Komponente besitzt kein integriertes Formular-Feld und benötigt deswegen in dieser Anwendung zusätzlichen Aufwand.
+
+Die Länderauswahl bietet viele Interaktionen, welche sich bei den HTML-Elementen wiederfinden.
+Die folgende Tabelle \ref{table:interactionCountryInput} zeigt die Interaktionen, welche auf der Komponente implementiert sind.
+
+\import{../tables}{c.countryInput.tex}
+
+In der Bedienung existieren keine Browser-Inkonsistenzen.
+Die Interaktionen lehnen mehr an denen des Selects als denen der Datalist an.
+Zudem betreffen die Änderungen in der Länder-Spalte nur das Highlight\footnote{
+    Die Länderauswahl unterscheidet nicht zwischen Highlight und Cursor Position.
+} und nicht die Selektion.
+Die Selektion benötigt eine Bestätigung mit Enter oder Space.
+
+\subsection{Anwendung}
+\label{sec:countryChoiceUse}
+
+Diese Komponente benötigt in der Anwendung kein HTML.
+Die Einbindung findet via JavaScript statt.
+Der folgende Code \ref{code:countryInputExample} zeigt einen möglichen Anwendungsfall.
+
+\begin{lstlisting}[style = htmlcssjs, caption = Länderauswahl Beispiel, label = code:countryInputExample]
+const container = document.querySelector("#inputContainer");
+if (null != container) {
+    const countryList = [
+        {
+            country  : "Austria",
+            continent: "Europe",
+        },
+        /* more country objects */
+    ];
+    const structureDetail = {
+        value      : "",
+        placeholder: "Choose a country",
+        label      : "Country",
+        name       : "country",
+    };
+    const structureMaster = {
+        elementList   : countryList,
+        sectionElement: { continent: "All" },
+        focusObject   : {},
+    };
+    const detailController = ChoiceDetailController(structureDetail);
+    const masterController = ChoiceMasterController("continent", "country")(structureMaster);
+    const view = projectChoiceInput(detailController, masterController, "countryInput");
+    container.append(...view);
+}
+\end{lstlisting}
+
+Wie im Code \ref{code:countryInputExample} ersichtlich sind mehrere Zeilen für die Erstellung der Komponente notwendig.
+Zudem befindet sich die Länderauswahl noch im experimentellen Status.
+Wie das Unterkapitel Future Features aus dem Bericht\citemarktext{
+    [\cite{ip5}]
+} der Vorarbeit (IP5) beschreibt, gibt es noch Verbesserungpotezial in der Implementation.
+Da diese Komponente noch nicht lange existiert, ist sie noch in keinem realen Anwendungsfall im Einsatz.
+
+
 \section{Anwendungsfälle}
 \label{sec:useCases}
 
-Die existierenden Auswahlkomponenten finden in vielen Webapplikationen Anwendung.
-Das bekanneste Beispiel eines Selects ist die Auswahl des Geschlechts.
+Die Standard HTML-Elemente finden in vielen Webapplikationen ihre Anwendung.
+Das bekannteste Beispiel eines Selects ist die Auswahl des Geschlechts.
 Diese Verwendung ist abgesehen vom Design unproblematisch.
 Ein anderer Anwendungsfall ist die Auswahl eines Jahres oder Geburtstags mit drei Selects.
 Das Ausfüllen dieser Situation gestaltet sich schon unangenehmer.
 Dies liegt daran, dass die Suche nach dem gewünschten Wert besonders beim Jahr eher lange dauern kann.
 Besonders mühsam gestaltet sich für Nutzer die Suche nach dem Herkunfts- bzw. Zielland aus einer Liste von ca. 250 weltweit.
 Aber auch den Wohn- oder Destinationsort aus mehreren 100 bis 1'000 (je nach Anwendungsgebiet) auswählen zu müssen, ist sehr zeitaufwendig.
-Um die Anwendung angenehmer zu gestalten, bietet sich auf den ersten Blick die Datalist mit der eingebauten Filterfunktion an.
+Die Datalist mit der eingebauten Filterfunktion bietet auf den ersten Blick eine angenehmere Anwendung.
 Das Problem ist jedoch, dass in den meisten Fällen eigene Eingaben unerwünscht sind.
-Als ebenfalls schlechte alternativ bietet sich das Select als Auswahlkomponente an.
-Damit zieht sich die Suche nach einem bestimmten Wert in die Länge - speziell wenn die Optionen nicht in alphabetischer Reihenfolge vorliegen.
-Selbst die Zuhilfenahme der Select-Suche\footnotemark ist nicht in jeder Situation hilfreich. 
-\footnotetext{Durch das Drücken der Anfangsbuchstaben des gesuchten Werte springt die Selektion zur passenden Option}
+Als ebenfalls schlechte Alternative bietet sich das Select als Auswahlkomponente an.
+Damit zieht sich die Suche nach einem bestimmten Wert in die Länge – speziell wenn die Optionen nicht in alphabetischer Reihenfolge vorliegen.
+Selbst die Zuhilfenahme der Select-Suche\footnote{
+    Durch das Drücken der Anfangsbuchstaben des gesuchten Werte springt die Selektion zur passenden Option
+} ist nicht in jeder Situation hilfreich. 
 Ein weiteres Anwendungsgebiet findet sich in gewissen Webshop bei den Filter- und Sortierfunktionen wieder.
 Die Komponente zeigt sich unter anderem bei der Auswahl einer Grösse, Farbe oder Kategorie.
 In diesem Beispiel können viele Optionen bzw. Werte ohne klare Reihenfolge in einer Liste auftauchen.

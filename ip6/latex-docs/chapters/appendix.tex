@@ -4,7 +4,15 @@
 \includepdf[pages=-]{../appendix/24FS_IMVS17_Generalisierte_Auswahlkomponente_Kolibri.pdf}
 
 
-\chapter{Existierende Komponenten - Bilder}
+\chapter{Neue Komponente – Bilder}
+\label{chap:newImgs}
+
+\graphicspath{ {./img/newComponent/} }
+\import{../appendix}{newComponentImgs.tex}
+\graphicspath{ {./img/} }
+
+
+\chapter{Existierende Komponenten – Bilder}
 \label{chap:existingImgs}
 
 \section*{Select}
@@ -24,10 +32,10 @@
 
 \section*{Code}
 
-\lstinputlisting[style = htmlcssjs, caption = userTesting.js, label = code:userTestingJs]{../userTest/userTesting.js}
-\lstinputlisting[style = htmlcssjs, caption = userTesting.html, label = code:userTestingHtml]{../userTest/userTesting.html}
-\lstinputlisting[style = htmlcssjs, caption = starter.js, label = code:starterJs]{../userTest/starter.js}
-\begin{lstlisting}[style = htmlcssjs, caption = dataServiceJs, label = code:dataService.js]
+\lstinputlisting[style = htmlcssjs, caption = \codestyle{userTesting.js}, label = code:userTestingJs]{../userTest/userTesting.js}
+\lstinputlisting[style = htmlcssjs, caption = \codestyle{userTesting.html}, label = code:userTestingHtml]{../userTest/userTesting.html}
+\lstinputlisting[style = htmlcssjs, caption = \codestyle{starter.js}, label = code:starterJs]{../userTest/starter.js}
+\begin{lstlisting}[style = htmlcssjs, caption = \codestyle{dataService.js}, label = code:dataServiceJs]
 export {
     getAllContinents,
     getCountries,
@@ -98,8 +106,8 @@ Das wird erst in den Anwendungsbeispielen klar.
 Keyboard navigation. Using keyboard to narrow down possible categories/values (maybe fuzzy searching), 
 otherwise it takes me longer to find something than compared to a standard dropdown, even if the list there is bigger.
 
-ich finde es etwas unintuitiv beim SelectComponent neben den offensichtlich verständlichen selectAttriutes (labl, name, numberOfColumns) noch ein Callback mitzugeben.   
-ich hätte mir mehr beschreibung gewünscht wie ich die komponente verwenden muss. (ich musste eher dannach suchen.)
+ich finde es etwas unintuitiv beim SelectComponent neben den offensichtlich verständlichen selectAttributes (label, name, numberOfColumns) noch ein Callback mitzugeben.
+ich hätte mir mehr beschreibung gewünscht wie ich die komponente verwenden muss. (ich musste eher danach suchen.)
 
 Bessere Dokumentation war verwirrend (Code).
 

@@ -1,64 +1,89 @@
 \documentclass[twoside]{report}
 
+% rule: label after caption declaration
+
 \makeatletter
 
-\usepackage[utf8x]{inputenc}
-\usepackage[english, ngerman]{babel}
-\usepackage[T1]{fontenc} % for coping umlaute in pdf
-\usepackage{csquotes}
-\usepackage[backend=biber,style=apa,sorting=ynt]{biblatex}
-\usepackage{graphicx}
-\usepackage{geometry}
-\usepackage{capt-of}
-\usepackage[table]{xcolor}
-\usepackage{pifont}
-\usepackage{import}
-\usepackage{makecell}
-\usepackage{multirow}
-\usepackage[referable]{threeparttablex}
-\usepackage{pdfpages}
-\usepackage{fancyhdr}
-\usepackage{pdflscape}
+% default packages
+\usepackage[utf8x]{inputenc} % latex encoding
+\usepackage[english, ngerman]{babel} % language support
+\usepackage[T1]{fontenc} % coping umlaute in pdf
 
-% label has to be after caption in code
-\usepackage{listings}
-\usepackage{caption}
-\usepackage{color}
+% layout & design
+\usepackage{geometry} % page layout
+\usepackage{setspace} % line spacing
+\usepackage{fancyhdr} % custom header footer on pages
+\usepackage{color} % colors font / background
 
+% references
+\usepackage{csquotes} % citing
+\usepackage[backend=biber,style=apa,sorting=ynt]{biblatex} % bibliography / sources
+\usepackage{pdflscape} % landscape pages
+\usepackage[hidelinks]{hyperref} % named references
+
+% external files
+\usepackage{import} % import latex in included files
+\usepackage{graphicx} % images / graphics
+\usepackage{pdfpages} % include pdf files
+
+% tables
+\usepackage{adjustbox} % scale down table
+\usepackage[table]{xcolor} % color table parts
+\usepackage[referable]{threeparttablex} % table with header & footer
+\usepackage{multirow} % multi row cells in column
+
+% special elements
+\usepackage{pifont} % special symbols
+\usepackage{listings} % listings (also code snippets)
+\usepackage{caption} % title in images 
+
+% define colors - start
+\definecolor{lgray}{rgb}{0.9, 0.9, 0.9}
 \definecolor{dgray}{rgb}{0.3, 0.3, 0.4}
 \definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
 \definecolor{editorOcher}{rgb}{1, 0.5, 0}
 \definecolor{editorGreen}{rgb}{0, 0.5, 0}
 \definecolor{brown}{rgb}{0.69,0.31,0.31}
+% define colors - end
 
-\graphicspath{ {./img/} }
-\addbibresource{chapters/references.bib}
-
+% define symbols - start
 \newcommand{\cmark}{\ding{51}} % ✓
 \newcommand{\xmark}{\ding{55}} % ✗
 
+\newcommand{\citemark}{\textsuperscript{[}\footnotemark\textsuperscript{]}} % [footnotemark]
+\newcommand{\citemarktext}[1]{\textsuperscript{[}\footnote{#1}\textsuperscript{]}} % [footnote]
+% define symbols - end
+
 % define table styles - start
-\newcommand{\tablesettings}[1]{\caption{#1} \bigskip \centering}
-\newcommand{\trr}[1]{\multirow{2}{*}{#1}}
-\newcommand{\trrr}[1]{\multirow{3}{*}{#1}}
-\newcommand{\trrrr}[1]{\multirow{4}{*}{#1}}
-\newcommand\ccgray{\cellcolor{gray!20}}
+\newcommand{\tablesettings}[1]{\caption{#1} \smallskip \centering}
+\newcommand{\trr}[1]{\multirow{-2}{*}{#1}} % double row
+\newcommand{\trrr}[1]{\multirow{-3}{*}{#1}} % tripple row
+\newcommand{\trrrr}[1]{\multirow{-4}{*}{#1}} % quarter row
+\newcommand{\trrrrr}[1]{\multirow{-5}{*}{#1}} % quinter row
+\newcommand{\ccgray}{\cellcolor{lightgray!60}} % gray cell
 
-\newcommand\Tstrut{\rule{0pt}{2.9ex}} % top
-\newcommand\Bstrut{\rule[-1.2ex]{0pt}{0pt}} % bottom
-\newcommand\TBstrut{\Tstrut\Bstrut} % top & bottom
-
-\newcommand{\tbbr}[2][l]{ % in table line break
-  \begin{tabular}[#1]{@{}l@{}}\hspace{-1mm}#2\end{tabular}
+\newcommand{\tbbr}[1]{ % in table line break
+  \begin{tabular}[l]{@{}l@{}}#1\end{tabular}
 }
+\newcommand{\trbbr}[3]{ % in multirow line break automatically
+  \multirow{-#1}{*}{
+    \hspace{-8pt} % remove too much space
+    \renewcommand{\arraystretch}{0.8}
+    \parbox{#2}{\raggedright #3}
+    \renewcommand{\arraystretch}{1.1}
+  }
+}
+\newcommand{\colwidth}{5cm} % default column width
+
+\setlength{\tabcolsep}{4pt} % spacing table cell side
+\renewcommand{\arraystretch}{1.1} % spacing table cell height
 % define table styles - end
 
 % define list of codes - start
-\renewcommand\lstlistingname{Code} % name of caption
+\renewcommand{\lstlistingname}{Code} % name of caption
 \renewcommand{\lstlistlistingname}{Codeverzeichnis} % name of listing
+\newcommand{\codestyle}[1]{\texttt{\small #1}} % small code formatted text
 % define list of codes - end
-
-\newgeometry{inner=5cm, outer=2.5cm, top=3cm, bottom=3cm}
 
 % define code styles - start
 \lstdefinelanguage{js}{
@@ -291,6 +316,9 @@
 }
 % define code styles - end
 
+\newgeometry{inner=5cm, outer=2.5cm, top=3cm, bottom=3cm}
+\setstretch{1.1}
+
 % page header and footer - start
 % \rightmark = sub heading, \leftmark = chapter
 \fancypagestyle{kolibri}{
@@ -325,12 +353,18 @@
 \setlength{\headheight}{16pt}
 % page header and footer - end
 
+% define source folders - start
+\graphicspath{ {./img/} }
+\addbibresource{chapters/references.bib}
+% define source folders - end
+
 % title page - start
 \title{ Generalisierte Auswahlkomponente für das \\
-Web UI Toolkit "Kolibri"\\ {\large Bachlor Thesis}}
+Web UI Toolkit "Kolibri"\\ {\large Bachelor Thesis}}
 \author{Ramona Marti \& Lea Burki}
 \date{August 2024}
 % title page - end
+
 \makeatother
 
 \begin{document}
@@ -355,10 +389,10 @@ Web UI Toolkit "Kolibri"\\ {\large Bachlor Thesis}}
 
 \include{chapters/intro}
 \include{chapters/basics}
+
 % main chaapters here
 \include{chapters/existingComponents}
 \include{chapters/newComponent}
-
 \include{chapters/end}
 
 % listings
@@ -367,12 +401,10 @@ Web UI Toolkit "Kolibri"\\ {\large Bachlor Thesis}}
 \setcounter{biburllcpenalty}{9000}
 \printbibliography[title={Quelleverzeichnis}]
 
-
 \listoffigures
 \lstlistoflistings
 \listoftables
 
-% appendix
 \appendix
 \include{chapters/appendix}
 

@@ -1,30 +1,63 @@
 \chapter{Glossar}
 \label{chap:glossary}
 
+\newcommand{\glossarywithTitle}{0.32\textwidth}
+\newcommand{\glossarywith}{0.66\textwidth}
 \begin{table}[!ht]
-    \tablesettings{Glossar}
-    \label{table:Glossary}
+    \smallskip 
+    \centering
     \rowcolors{2}{white}{gray!20}
     \footnotesize
-    \begin{threeparttable}
-        \begin{tabular}{ l | l }
-            \bf{Begriff}    & \bf{Beschreibung} \\
-            \hline \hline
-            \bf{Client-Side} &  \\
-            \hline
-            \bf{Do-Nothing-Implementation} &  \\
-            \hline
-            \bf{Hovern} &  \\
-            \hline
-            \bf{Multiselect} &  \\
-            \hline
-            \bf{Regex} &  \\
-            \hline
-            \bf{Signle-Select} &  \\
-            \hline
-            \bf{Spiegelstrich} &  \\
-            \hline
-            \bf{} &  \\
-        \end{tabular}
-    \end{threeparttable}
+    \begin{adjustbox}{max width=\textwidth}
+        \begin{threeparttable}
+            \begin{tabular}{ p{\glossarywithTitle} | p{\glossarywith} }
+                \bf{Begriff} & \bf{Beschreibung} \\
+                \hline \hline
+                \bf{Client-Side} & Direkt im Browser. 
+                    Aktionen sehen den Server nie und bleiben im Browser.
+                    Der Code ist direkt auf der HTML-Seite eingebunden.
+                    In Zusammenhang mit Formularen erfährt der Server nichts von der Client-Side Validierung. \\
+                \hline
+                \bf{Do-Nothing-Implementation} & 
+                    Implementation, welche als Stellvertreter z.B. beim Null-Object Pattern dient. 
+                    Eine Funktion mit einer solchen Implementation führt nichts aus und hat keine Seiteneffekte. \\
+                \hline
+                \bf{Hovern} & Mit der Maus über ein Element fahren. \\
+                \hline
+                \bf{Immutable} & Unveränderbar. Objekte sind nicht überschreibbar. \\
+                \hline
+                \bf{Kategorie} & Gruppierung der Optionen. 
+                    Das Selektieren einer Kategorie in einer \codestyle{SelectComponent} reduziert die Anzahl der Optionen.
+                    Die Komponente zeigt nur noch Optionen an, welche der Kategorie / Gruppe zugewiesen sind. \\
+                \hline
+                \bf{Multiselect} & 
+                    Auswahlkomponente (HTML \codestyle{select} Element), bei welchem mehrere Werte selektierbar sind. 
+                    Bei der Selektion einer zweiten Option hebt sich die vorherige Auswahl nicht auf.
+                    Auf Desktop-Browsern muss jedoch die passende Taste bei der Auswahl gedrückt sein, 
+                        damit sich die Selektion erweitert. \\
+                \hline
+                \bf{Regex} & Regular Expression. 
+                    Beschreibt eine Zeichenkette.
+                    Syntaktische Regeln helfen bei der Verarbeitung von Texten. \\
+                \hline
+                \bf{Separation of Concern} & 
+                    Ein Prinzip, welches in der Programmierung beim Aufteilen eines Programmes zur Anwendung kommt.
+                    Jede Komponente besitzt nur eine Aufgabe. 
+                    Dadurch entsteht ein modularer Aufbau. \\
+                \hline
+                \bf{Single-Select} & 
+                    Auswahlkomponente (HTML \codestyle{select} Element), bei welchem nur ein Wert selektierbar ist. 
+                    Bei der Selektion einer zweiten Option hebt sich die vorherige Auswahl auf. \\
+                \hline
+                \bf{Spiegelstrich} & 
+                    Ein Strich, welcher sich auf der linken Seite eines Elements bzw. einer Option befindet.
+                    Der Strich ist vertikal und dient zum Hervorheben des Elements. \\
+                \hline
+                \bf{Triggern} & Auslösen eines Events. \\
+                \hline
+                \bf{UI/UX-Design} & Design der Benutzeroberfläche und der Benutzererfahrung. \\
+                \hline
+            \end{tabular}
+        \end{threeparttable}
+    \end{adjustbox}
 \end{table}
