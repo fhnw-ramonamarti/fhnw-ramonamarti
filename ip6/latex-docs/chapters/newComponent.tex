@@ -3,7 +3,7 @@
 
 Dieses Kapitel beschreibt die Bausteine der neuen Komponente in verschiedenen Ebenen. 
 Als erstes zeigt das Design die visuelle Darstellungsmöglichkeiten über die getroffene Auswahl bis hin zu den Prototypen. 
-Dazu gesellen sich das Interaktionsdesign als auch die Umsetzung des Desgins. % todo change interaktionsdesign with new title
+Dazu gesellen sich die Implementation der Zustände als auch die Umsetzung des Desgins. 
 Darauffolgend findet sich die Definition der Interaktion mit der Maus als auch der Tastatur. 
 Die für einen stabilen Code wichtigen Regeln und Prinzipien sind ebenfalls festgelegt. 
 Die Anwendung diverser Patterns führt zu einer klaren Struktur und hoher Wiederverwendbarkeit. 
@@ -200,8 +200,8 @@ Diese CSS-Regeln definieren die Animationen für das Öffnen und Schliessen des 
 Die \codestyle{@keyframes} regeln die Transformation, während \codestyle{.options-component[popover]} das Layout und das Erscheinungsbild des Popovers steuert. 
 
 
-\subsection{Interaktionsdesign} % todo think about title
-\label{sec:interactionDesign}
+\subsection{Implementation der Zustände}
+\label{sec:implementStates}
 
 Die Dropdown-Komponente ist so gestaltet, dass sie sowohl für Maus- als auch Tastaturbenutzer optimal funktioniert. 
 Das Design der Interaktionen bietet eine intuitive und leicht zugängliche Bedienung der Komponente. 
@@ -219,12 +219,13 @@ Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein aktue
         content:       '';
         position:      absolute;
         left:          7px;
-        transform:     translateX(-50%);
-        width:         2.5px;
-        background:    var(--kb-hsla-warning-dark);
-        border-radius: 1px;
         top:           0.5em;
         bottom:        0.4em;
+        transform:     translateX(-50%);
+
+        background:    var(--kb-hsla-warning-dark);
+        border-radius: 1px;
+        width:         2px;
     }
 }
 .selected {
@@ -392,7 +393,6 @@ Die Tastatur-Steuerung mit den Pfeiltasten hingegen hält sich an diese Bedienun
 \noindent
 Als Basis für den ersten Projektor der neuen Komponente ergeben sich aus den oben genannten Regeln folgende Interaktionen (Tabelle \ref{table:interactionNewComponent}). 
 
-\clearpage
 \import{../tables}{d.newComponent.tex}
 
 Das Undo und das Redo auf der Komponente erhält im ersten Projektor keine spezielle Definition. 
@@ -784,7 +784,7 @@ Die spezifischen Designoptionen wie Farbpalette und Layout sind sorgfältig ausg
 
 Der Einsatz von Figma-Prototypen ist entscheidend, um eine realitätsnahe Vorschau und Benutzerfeedback zu erhalten. 
 Dadurch verbessert sich die Benutzerfreundlichkeit kontinuierlich. 
-Die Kombination von durchdachten CSS-Anpassungen und einem klaren Interaktionsdesign stellt sicher, dass die Komponente sowohl für Maus- als auch für Tastaturbenutzer zugänglich und intuitiv ist. 
+Die Kombination von durchdachten CSS-Anpassungen und einem klaren Interaktionen stellt sicher, dass die Komponente sowohl für Maus- als auch für Tastaturbenutzer zugänglich und intuitiv ist. 
 
 Die Integration von Prinzipien wie KISS und Separation of Concern sowie die Anwendung von Patterns wie Null Object und Projector tragen zur Schaffung eines stabilen und wartbaren Codes bei. 
 Der Dropdown-Container ermöglicht eine konsistente und benutzerfreundliche Darstellung der Optionen. 
