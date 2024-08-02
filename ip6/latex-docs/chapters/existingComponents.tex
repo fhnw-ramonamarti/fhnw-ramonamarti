@@ -1,16 +1,24 @@
 \chapter{Existierende Auswahlkomponenten}
 \label{chap:existingComponents}
 
-Hier ist eine Gegenüberstellung der bereits vorhandenen Möglichkeiten zur Darstellung einer Optionsauswahl aufgeführt. 
+Hier sind die Gegenüberstellungen der bereits vorhandenen Möglichkeiten zur Darstellung einer Optionsauswahl ausgeführt. 
 Eine Auflistung der möglichen Funktionalitäten zeigt die Grenzen dieser Elemente auf. 
 Dabei spielen die UI- als auch die Interaktions-Unterschiede dieser Komponenten in verschiedenen Browsern eine tragende Rolle. 
 
 Als Basis dieser Arbeit dient das Country Select. 
-Weiter existieren bereits die Komponenten Buttons bzw. Links, \codestyle{select}- und \codestyle{datalist}-Element. 
+Weiter existieren bereits die Elemente Buttons bzw. Links, \codestyle{select} und \codestyle{datalist}. 
 Unter dem Country Select ist das Resultat des Projekt 5 zu verstehen. 
 Die folgende Tabelle \ref{table:generalComparing} zeigt einen Vergleich der genannten Möglichkeiten. 
 
 \import{../tables}{c.choice.general.tex}
+
+Nebst den in der Tabelle aufgeführten Möglichkeiten existieren diverse Libraries und Frameworks.
+Viele dieser Lösungen für Auswahlkomponenten besitzen Abhängigkeiten zu weiteren Bibliothek-Komponenten.
+Durch das Einbinden der Frameworks bläst sich der eigene Code extrem auf.
+Diese Auswahlkomponenten bieten eine Menge an Funktionen an, welche jedoch die Anwendung sehr komplex machen.
+Die Einarbeitung dauert lange.
+Da das Ziel dieses Projekts eine schlanke und einfach verwendbare Kompontente ist, sind die existierenden Frameworks keine Lösung.
+Dieser Bericht legt keinen weiteren Fokus auf extern Bibliotheken.
 
 
 \section{HTML Datalist vs. Select}
@@ -286,25 +294,103 @@ Nachfolgend sind die Inkonsistenzen genauer erläutert.
 \label{sec:uiDifferences}
 
 Das Select ist in der geschlossenen Form auf der rechten Seite immer mit mindestens einem Pfeil nach unten ausgestattet. 
-Safari (OSX und iOS) verwendet als Icon einen Doppelpfeil (nach oben und unten zeigend). 
-Firefox zeigt das Feld in grau, während alle anderen Browser einen weissen Hintergrund verwenden. 
+Safari (OSX und iOS) verwendet als Icon einen Doppelpfeil (nach oben und unten zeigend) wie in Abbildung \ref{img:closedSelectSafari}. 
+Firefox zeigt das Feld in grau (Abbildung \ref{img:closedSelectFirefox}), während Chrome und Edge einen weissen Hintergrund wie in Abbildung \ref{img:closedSelectChrome} verwenden. 
 Safari auf iOS stellt die Komponente ohne Rahmen dar und deswegen ist der Hintergrund in einem hellen Grau gehalten. 
+
+\begin{figure}[!htb]
+    \centering
+    \begin{minipage}[b]{0.35\textwidth}
+        \centering
+        \begin{minipage}[t]{\textwidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{select/closed.osx.safari.png}
+            \caption{\centering Geschlossenes Select OSX Safari}
+            \label{img:closedSelectSafari}
+        \end{minipage}
+        \vspace{0.6cm}\newline
+        \begin{minipage}[b]{\textwidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{select/closed.osx.firefox.png}
+            \caption{\centering Geschlossenes Select OSX Firefox}
+            \label{img:closedSelectFirefox}
+        \end{minipage}
+        \vspace{0.6cm}\newline
+        \begin{minipage}[b]{\textwidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{select/closed.win.chrome.png}
+            \caption{\centering Geschlossenes Select Windows Chrome}
+            \label{img:closedSelectChrome}
+        \end{minipage}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{select/opened.win.chrome.png}
+        \caption{\centering Offenes Select Windows Chrome}
+        \label{img:openedSelectWin}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.2\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{select/opened.osx.chrome.png}
+        \caption{\centering Offenes Select OSX Chrome}
+        \label{img:openedSelectOsx}
+    \end{minipage}
+\end{figure}
+
 Die geöffnete Liste ist bei Firefox als einziges relativ konsistent. 
 Sie erscheint in einem mittel- bis hellgrauen Container. 
-Die anderen Browser sind einstellungsabhängig und zeigen den Container weiss oder dunkelgrau an. 
+Die anderen Browser sind einstellungsabhängig und zeigen den Container weiss oder dunkelgrau (Abbildungen \ref{img:openedSelectWin} und \ref{img:openedSelectOsx}) an. 
 Je nach Anzahl der enthaltenen Elemente erscheint die Liste darunter (darüber) oder überdeckt den Container des ausgewählten Wertes. 
 Am Wenigsten lässt sich das Element in Safari stylen. 
 
 Da nicht jeder Browser ein Icon anzeigt, ist die Datalist weniger konsistent. 
-Safari (Mac) und Firefox stellen keinen visuellen Hinweis auf einen Listen-Container dar. 
+Safari (Mac) und Firefox stellen keinen visuellen Hinweis (Abbildungen \ref{img:closedDatalistSafari} und \ref{img:closedDatalistFirefox}) auf einen Listen-Container dar. 
 Safari auf iOS zeigt hingegen in jedem Fall – bezogen auf den textuellen Typ – einen nach unten zeigenden Pfeil an. 
 Andere Browser blenden auf der rechten Seite beim Hovern oder beim Besitzen des Fokus das Icon (Dreieck nach unten zeigend) ein. 
+
+\begin{figure}[!htb]
+    \centering
+    \begin{minipage}[b]{0.25\textwidth}
+        \centering
+        \begin{minipage}[t]{\textwidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{datalist/closed.osx.safari.png}
+            \caption{\centering Geschlossene Datalist OSX Safari}
+            \label{img:closedDatalistSafari}
+        \end{minipage}
+        \vspace{0.6cm}\newline
+        \begin{minipage}[b]{\textwidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{datalist/closed.osx.firefox.png}
+            \caption{\centering Geschlossene Datalist OSX Firefox}
+            \label{img:closedDatalistFirefox}
+        \end{minipage}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.37\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{datalist/opened.win.chrome.png}
+        \caption{\centering Offene Datalist Windows Chrome}
+        \label{img:openedDatalistWin}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.28\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{datalist/opened.osx.chrome.png}
+        \caption{\centering Offene Datalist OSX Chrome}
+        \label{img:openedDatalistOsx}
+    \end{minipage}
+\end{figure}
+
 Bei Firefox unterscheidet sich das Öffnen der Liste ebenfalls. 
 Wenn das Feld den Fokus noch nicht besitzt, benötigt es zwei Klicks. 
 Die anderen Browser lassen die Liste bereits beim ersten Kick erscheinen. 
 Die Liste selbst verhält sich je nach Browser und Inhalt verschieden, indem sie seitlich oder darunter (darüber) erscheint. 
 Die Übernamhe des Dark- bzw. Light-Modes als Container-Farbe hängt vom Browser und dem Anwendungskontext ab. 
 Die Liste überdeckt das Eingabefeld nie. 
+Die Abbildungen \ref{img:openedDatalistWin} und \ref{img:openedDatalistOsx} zeigen Beispiele der geöffneten Datalist. 
 
 Ein Blick auf die mobilen Browser wie iOS-Safari, Android-Firefox und -DuckDuckGo zeigen weitere UI-Unterschiede. 
 Im Vergleich zu den Desktop-Version zeigen sich die geöffneten Selects auf Android für eine bessere Bedienbarkeit in einem anderen Design. 
@@ -318,6 +404,7 @@ Die Datalist zeigt ihren Inhalt nur bei der Interaktion mit Pfeil auf der rechte
 Abgesehen von der Grösse der einzelnen Einträge für die Bedienbarkeit unterscheiden diese sich kaum von den Desktop-Versionen. 
 Die Selektionen erscheinen gegenüber der anderen Optionen in keinem speziellen Design. 
 
+Weitere Inkonsistenzen sind in den Bildern im Anhang \textbf{\ref{chap:existingImgs}} zu sehen. 
 Die nachfolgenden Abschnitte \textbf{\ref{sec:edgeBrowser}} bis \textbf{\ref{sec:mobileBrowser}} beschreiben die möglichen Interaktionen. 
 Die Tabellen stellen das Datalist, Single- als auch Multiselect einander gegenüber. 
 Im Anschluss an die Gegenüberstellungen der diversen Browser weist das Kapitel \textbf{\nameref{sec:summeryExisting}} detaillierter auf die Inkonsistenzen hin. 
