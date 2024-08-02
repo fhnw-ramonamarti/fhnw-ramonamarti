@@ -12,13 +12,13 @@ Die folgende Tabelle \ref{table:generalComparing} zeigt einen Vergleich der gena
 
 \import{../tables}{c.choice.general.tex}
 
-Nebst den in der Tabelle aufgeführten Möglichkeiten existieren diverse Libraries und Frameworks.
-Viele dieser Lösungen für Auswahlkomponenten besitzen Abhängigkeiten zu weiteren Bibliothek-Komponenten.
-Durch das Einbinden der Frameworks bläst sich der eigene Code extrem auf.
-Diese Auswahlkomponenten bieten eine Menge an Funktionen an, welche jedoch die Anwendung sehr komplex machen.
-Die Einarbeitung dauert lange.
-Da das Ziel dieses Projekts eine schlanke und einfach verwendbare Kompontente ist, sind die existierenden Frameworks keine Lösung.
-Dieser Bericht legt keinen weiteren Fokus auf extern Bibliotheken.
+Nebst den in der Tabelle aufgeführten Möglichkeiten existieren diverse Libraries und Frameworks. 
+Viele dieser Lösungen für Auswahlkomponenten besitzen Abhängigkeiten zu weiteren Bibliothek-Komponenten. 
+Durch das Einbinden der Frameworks bläst sich der eigene Code extrem auf. 
+Diese Auswahlkomponenten bieten eine Menge an Funktionen an, welche jedoch die Anwendung sehr komplex machen. 
+Die Einarbeitung dauert lange. 
+Da das Ziel dieses Projekts eine schlanke und einfach verwendbare Kompontente ist, sind die existierenden Frameworks keine Lösung. 
+Dieser Bericht legt keinen weiteren Fokus auf extern Bibliotheken. 
 
 
 \section{HTML Datalist vs. Select}
@@ -42,7 +42,7 @@ Das Weglassen des \codestyle{value}- und \codestyle{label}-Attributes führt daz
 <option value="dog"         > Dog   </option>
 <option label="Cat" selected> cat   </option>
 <option             disabled> Mouse </option>
-\end{lstlisting}    
+\end{lstlisting} 
 
 Das HTML-Element kann das Attribut \codestyle{disabled} oder \codestyle{selected} erhalten. 
 Code \ref{code:optionExample} Zeile 2 definiert durch eine \codestyle{selected} Option den initial ausgefüllten Wert. 
@@ -502,29 +502,42 @@ Der iOS-Safari Browser zeigt dieselbe Reaktion wie Safari auf Desktop.
 \subsection{Fazit}
 \label{sec:summeryExisting}
 
-% todo add sentence of libs and frameworks not further looked at 
-% todo rewrite with focus on differences visible in tables
-Generell ändern sich in Bezug auf Design und Interaktionsmechanismen die Verhaltensweisen der Standardkomponenten in den verschiedenen Browsern. 
+Die Gegenüberstellungen der existierenden HTML-Elemente zeigt einige Gemeinsamkeiten, aber auch viele Inkonsistenzen. 
+Da die Unterschiede ein Grund für die Entwicklung einer neuen Auswahlkomponente ist, fasst dieser Abschnitt diese nochmals zusammen. 
+Im UI existieren über die vier Browser Edge, Firefox, Chrome und Safari als auch den Systemen Mac und Windows teilweise grosse Inkonsistenzen. 
+Das System-Theme\footnote{
+    Dark- bzw. Light-Mode; auf Systemebene oder Browserebene einstellbar
+} spielt für die Darstellung ebenfalls eine grosse Rolle. 
 Hierbei spielen das betriebssystemspezifische Styling und die individuellen Implementierungen der Browser eine Rolle. 
-Die Grundfunktionen zeigen sich ähnlich, wobei etwaige Unterschiede oft in der visuellen Darstellung und in Details der Interaktion (z.B. beim Öffnen der Dropdowns oder der Navigation innerhalb der Listen) liegen. 
-Für eine optimale Benutzererfahrung ist die Konsistenzprüfung unabdingbar. 
-Es ist die Sicherstellung, dass Webanwendungen über verschiedene Plattformen und Browser hinweg einheitlich funktionieren. 
-Das Verhalten kann je nach Browserversion und Betriebssystem variieren. 
-Die Analyse der Tabellen unterstreicht, dass trotz grundlegender Übereinstimmungen in der Funktionsweise von Komponenten wie Datalist und Select, die optische Darstellung und bestimmte Interaktionsdetails je nach Betriebssystem und Browser variieren. 
-Insbesondere sind solche Unterschiede in der Bedienung mit Tastaturkürzeln wie Cmd/Ctrl und der Visualisierung von Navigationspfeilen oder Scroll-Verhaltensweisen sichtbar. 
-Diese Erkenntnisse fordern eine sorgfältige Abstimmung und eventuelle Anpassungen im Designprozess, um eine einheitliche Benutzererfahrung sicherzustellen. 
+Die Konzentration dieses Abschnitts liegt aber auf der Interaktion, weil das UI bereits im Kapitel \ref{sec:uiDifferences} genauer beschrieben ist. 
 
-% todo neu oben alles weg, codestyles add
-Dieses Kapitel bietet eine umfassende Analyse der verfügbaren HTML-Elemente zur Darstellung von Optionsauswahlen, einschließlich select, datalist und option. 
-Es beleuchtet die verschiedenen Möglichkeiten und Einschränkungen dieser Elemente, insbesondere in Bezug auf die Benutzeroberfläche und die Interaktionsmöglichkeiten, die je nach Browser variieren können. 
+Zwischen Edge und Chrome bestehen keine gravierenden Inkonsistenzen. 
+Dies liegt daran, dass die beiden Browser mit der selben Rendering Engine\footnote{
+    Mehr dazu steht im Kapitel \nameref{sec:browserRenderer}
+} arbeiten. 
+Zwischen Mac und Windows bestehen nur die systemspezifischen Unterschiede wie die zu drückenden Tasten (z.B. Home vs. fn \& $\leftarrow$). 
+
+Firefox unterscheidet sich von Chrome in mehreren Interaktionen. 
+Während die offene Datalist auf Firefox mit den seitlichen Pfeiltasten zwei verschiedene Reaktionen zeigt, reagiert sie im Chrome-Browser immer auf dieselbe Weise. 
+Das Multiselect zeigt in den beiden Browsern bei $\leftarrow$ und $\rightarrow$ ebenfalls inkonsistentes Verhalten. 
+Die Enter-Taste löst auf Firefox im geschlossen Single-Select nichst aus, während Chrome die Liste öffnet. 
+Dafür reagiert Firefox im Multiselect auf Tab (Input verlassen), wo Chrome kein Verhalten zeigt. 
+Die Interaktionen PageUp/-Down zeigen bei Datalist als auch dem Select unterschiedlich. 
+Der eine Browser verwendet die View-Höhe als Mass zum überspringen der Elemente und der andere das \codestyle{size}-Attribut. 
+Im geschlossen Zustand des Single-Select überspringt die Selektion ebenfalls eine unterschiedliche Anzahl Elemente. 
+Bei der Interaktion mit der Maus weist das Scrollen auf beiden geöffneten Elementen Inkonsistenzen im Verhalten auf. 
+
+Safari zeigt gegenüber den oben angesprochenen Browsern die grössten Abweichung. 
+Einige Aktionen ändern anstelle der Selektion nur das Highlight. 
+Am ähnlichsten ist der Apple-Browser zu den Chromium-basierten Browsern wie Chrome. 
+PageUp/-Down zeigt bei den Einzelauswahl-Elementen ein komplett anderes Verhalten. 
+Beim Single-Select ist die Reaktion dieselbe wie beim Drücken von Home/ End. 
+Die einzige Interaktion, welche nicht von den anderen Browsern abweicht, ist das Klicken auf ein Element. 
+
 Die inkonsistente Darstellung und Funktionalität dieser Komponenten über verschiedene Plattformen hinweg erschwert eine einheitliche Benutzererfahrung. 
-
-Diese Analyse zeigt, dass trotz grundsätzlicher Gemeinsamkeiten in der Funktionalität, Unterschiede in der visuellen Darstellung und in den Interaktionsmöglichkeiten bestehen. 
-Insbesondere sticht die variierende Unterstützung von datalist in unterschiedlichen Browsern heraus. 
-
-Das Kapitel schliesst mit der Feststellung, dass die Standard-HTML-Elemente in vielen Webanwendungen weit verbreitet sind, jedoch oft nicht die beste Benutzererfahrung bieten, insbesondere bei der Auswahl aus einer großen Anzahl von Optionen. 
+Für eine optimale User-Experience ist die Konsistenzprüfung unabdingbar. 
 Diese Erkenntnisse legen den Grundstein für die Entwicklung einer neuen, optimierten Auswahlkomponente, die die bestehenden Probleme adressieren soll. 
-
+Die bereits erstellte Länderkomponente löst die Inkonsistenzen und folgt detailliert im nächsten Kapitel. 
 
 
 \section{Länderauswahl Komponente}
