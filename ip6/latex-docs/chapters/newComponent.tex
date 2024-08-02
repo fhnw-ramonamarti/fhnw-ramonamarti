@@ -96,21 +96,21 @@ Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=100mm]{figma-prototype-1.png}
-    \caption{Figma Prototyp – Dropdown Komponente 1}
+    \caption{\centering Figma Prototyp – Dropdown Komponente 1}
     \label{img:figmaPrototype1}
 \end{figure}
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=100mm]{figma-prototype-2.png}
-    \caption{Figma Prototyp – Dropdown Komponente 2}
+    \caption{\centering Figma Prototyp – Dropdown Komponente 2}
     \label{img:figmaPrototype2}
 \end{figure}
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=100mm]{figma-prototype-3.png}
-    \caption{Figma Prototyp – Dropdown Komponente 3}
+    \caption{\centering Figma Prototyp – Dropdown Komponente 3}
     \label{img:figmaPrototype3}
 \end{figure}
 
@@ -126,7 +126,7 @@ Diese bietet hohen Kontrast und verbessert somit die Barrierefreiheit der Anwend
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=70mm]{design-colors.png}
-    \caption{Kolibri Design System – Farbpalette}
+    \caption{\centering Kolibri Design System – Farbpalette}
     \label{img:designColors}
 \end{figure}
 
@@ -262,8 +262,7 @@ const cursorPositionItem = (root) => (newOption, oldOption) => {
 \codestyle{selectOptionItem}: Verschiebt die Klasse \codestyle{.selected} und somit die Hervorhebung auf das neue Element. 
 \codestyle{cursorPositionItem}: Entfernt bzw. setzt die Klasse \codestyle{.cursor-position} – ähnlich wie beim \codestyle{selectOptionItem}. 
 
-Im Codeausschnitt \ref{code:eventSelection} aus der Datei \codestyle{selectProjector.js} lässt sich das Highlighting 
-durch die Verknüpfung der Optionen und ihrer Events mit den entsprechenden CSS-Klassen steuern. 
+Im Codeausschnitt \ref{code:eventSelection} aus der Datei \codestyle{selectProjector.js} lässt sich das Highlighting durch die Verknüpfung der Optionen und ihrer Events mit den entsprechenden CSS-Klassen steuern. 
 
 \begin{lstlisting}[style = htmlcssjs, caption = Event-Handling für die Auswahl einer Option, label = code:eventSelection]
 const projectSelectedValueOptionView = (selectController, popoverElement) => {
@@ -290,8 +289,7 @@ Diese Kombination von CSS und JavaScript bietet dem Highlighting und der Auswahl
 \label{sec:sizeLayoutChanges}
 
 Diese CSS-Regeln gestalten die Optionen einer einzelnen Spalte sowie das Scroll-Verhalten des Containers. 
-Das \codestyle{.options-column} aus Code \ref{code:optionStyling} definiert das Layout sowie weitere Listen-abhängige Eigenschaften, 
-während das \codestyle{.option-item} das Erscheinungsbild und die Interaktivität der einzelnen Optionen festlegt. 
+Das \codestyle{.options-column} aus Code \ref{code:optionStyling} definiert das Layout sowie weitere Listen-abhängige Eigenschaften, während das \codestyle{.option-item} das Erscheinungsbild und die Interaktivität der einzelnen Optionen festlegt. 
 
 \begin{lstlisting}[style = htmlcssjs, caption = Optionen und Scrollbar-Styling, label = code:optionStyling]
 .options-column {
@@ -488,7 +486,7 @@ Die erste Implementation, welche dieses Pattern verwendet, ist auf Abbildung \re
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{diagram-select-component-old.png}
-    \caption{Diagramm Select Component – erste Version}
+    \caption{\centering Diagramm Select Component – erste Version}
     \label{img:diagramSelectComponentOld}
 \end{figure}
 
@@ -500,7 +498,7 @@ Die Implementation der dargestellten Diagramme resultiert aus einem Refactoring 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{diagram-column-component-with-desc.png}
-    \caption{Diagramm \codestyle{ColumnComponent}}
+    \caption{\centering Diagramm \codestyle{ColumnComponent}}
     \label{img:diagramColumnComponent}
 \end{figure}
 
@@ -513,7 +511,7 @@ Bei einer Anwendung übernimmt die \codestyle{ColumnComponent} die Verwaltung ge
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{diagram-select-component-with-desc.png}
-    \caption{Diagramm \codestyle{SelectComponent}}
+    \caption{\centering Diagramm \codestyle{SelectComponent}}
     \label{img:diagramSelectComponent}
 \end{figure}
 
@@ -611,7 +609,7 @@ Die folgende Abbildung \ref{img:renderingProcessRecap} zeigt die Kernelemente de
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=80mm]{rendering-process.png}
-    \caption{Rendering Prozess}
+    \caption{\centering Rendering Prozess}
     \label{img:renderingProcessRecap}
 \end{figure}
 
@@ -687,7 +685,7 @@ Die folgenden zwei Bilder \ref{img:performanceTestBefore} und \ref{img:performan
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{performance-before-user-tests-zoom.png}
-    \caption{Performance Test vor Anpassungen}
+    \caption{\centering Performance Test vor Anpassungen}
     \label{img:performanceTestBefore}
 \end{figure}
 
@@ -698,7 +696,7 @@ Die lange Wahrtezeit bestätigten mehrere Feedbacks der Nutzer, später mehr daz
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{performance-after-user-tests-zoom.png}
-    \caption{Performance Test nach Anpassungen}
+    \caption{\centering Performance Test nach Anpassungen}
     \label{img:performanceTestAfter}
 \end{figure}
 
@@ -729,7 +727,7 @@ Auf der Abbildung \ref{img:automatedTests} ist zu sehen, dass eine breite Palett
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=100mm]{automatedTests.png}
-    \caption{Automatisierte Tests}
+    \caption{\centering Automatisierte Tests}
     \label{img:automatedTests}
 \end{figure}
 
