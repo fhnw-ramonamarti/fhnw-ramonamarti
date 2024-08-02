@@ -5,85 +5,85 @@
 \section{Problemstellung}
 \label{sec:problem}
 
-Im Web existieren diverse Möglichkeiten zur Erstellung eines Auswahl-Inputs mit vorgegebenen Werten.
-Die HTML-Elemente bieten über die verschiedenen Browser keine konsistente Darstellung und Interaktion an.
+Im Web existieren diverse Möglichkeiten zur Erstellung eines Auswahl-Inputs mit vorgegebenen Werten. 
+Die HTML-Elemente bieten über die verschiedenen Browser keine konsistente Darstellung und Interaktion an. 
 Dazu sind sie nicht schön anzusehen und nur geringfügig anpassbar. 
-Die Werte sind begrenzt auf Text und Unicode-Symbole.
-Die Komponente ist nicht effizient bedienbar – besonders bei einer grossen Menge an Werten.
+Die Werte sind begrenzt auf Text und Unicode-Symbole. 
+Die Komponente ist nicht effizient bedienbar – besonders bei einer grossen Menge an Werten. 
 
-Als Alternative zu den Basis-Elementen existieren unzählige Bibliotheken, welche solche Eingabemöglichkeiten unterstützen.
-Diese besitzen externe Abhängigkeiten, welche das eigene Projekt unnötig aufblasen.
-Zudem benötigen viele dieser Libraries eine längere Einarbeitungszeit, um die Funktionalitäten verstehen und anwenden zu können.
+Als Alternative zu den Basis-Elementen existieren unzählige Bibliotheken, welche solche Eingabemöglichkeiten unterstützen. 
+Diese besitzen externe Abhängigkeiten, welche das eigene Projekt unnötig aufblasen. 
+Zudem benötigen viele dieser Libraries eine längere Einarbeitungszeit, um die Funktionalitäten verstehen und anwenden zu können. 
 
-Das Vorgängerprojekt deckt die Probleme ab, ist aber nur auf die Auswahl eines Landes zugeschnitten.
-Eine Anwendung dieser Komponente mit anderen Inhalten kann zu unerwünschtem Verhalten führen.
-Die oben genannten Probleme dienen als Basis für das folgende Kapitel.
+Das Vorgängerprojekt deckt die Probleme ab, ist aber nur auf die Auswahl eines Landes zugeschnitten. 
+Eine Anwendung dieser Komponente mit anderen Inhalten kann zu unerwünschtem Verhalten führen. 
+Die oben genannten Probleme dienen als Basis für das folgende Kapitel. 
 
 
 \section{Ziel}
 \label{sec:goal}
 
-Die neue Komponente zielt ab, die Auswahl eines Wertes von einer begrenzten, vorgegebenen Menge zu ermöglichen.
-Dazu findet die Generalisierung und der Ausbau der vorangegangenen Länderauswahl statt.
-Die Eingabe soll weiterhin effizient bleiben und sich konsistent über alle Browser zeigen.
-Dabei liegt der Fokus auf Browser von Desktop-Computern bzw. Laptops.
-Die Komponente soll stilbar sein und sich einfach anpassen lassen.
-Als Werte sind nebst Texten auch Bilder wünschenswert.
-Die Qualität ist auf dem Kolibri-Standard zu halten und durch Tests zu beweisen.
-Usertests mit Programmierern als auch Endanwendern beweisen die gute Usability.
-Automatisierte Komponententests stellen die Korrektheit der Implementation sicher.
-Bei der Implementation sollen die Design Patterns des Kolibri ihre Anwendung finden.
-Dabei soll das Design und die Interaktion mit dem Toolkit synchronisiert sein.
-Hierbei ist zu beachten, die Ziele nicht ausserhalb des Projekts zu definieren.
+Die neue Komponente zielt ab, die Auswahl eines Wertes von einer begrenzten, vorgegebenen Menge zu ermöglichen. 
+Dazu findet die Generalisierung und der Ausbau der vorangegangenen Länderauswahl statt. 
+Die Eingabe soll weiterhin effizient bleiben und sich konsistent über alle Browser zeigen. 
+Dabei liegt der Fokus auf Browser von Desktop-Computern bzw. Laptops. 
+Die Komponente soll stilbar sein und sich einfach anpassen lassen. 
+Als Werte sind nebst Texten auch Bilder wünschenswert. 
+Die Qualität ist auf dem Kolibri-Standard zu halten und durch Tests zu beweisen. 
+Usertests mit Programmierern als auch Endanwendern beweisen die gute Usability. 
+Automatisierte Komponententests stellen die Korrektheit der Implementation sicher. 
+Bei der Umsetzung sollen die Design Patterns des Kolibri ihre Anwendung finden. 
+Dabei soll das Design und die Interaktion mit dem Toolkit synchronisiert sein. 
+Hierbei ist zu beachten, die Ziele nicht ausserhalb des Projekts zu definieren. 
 
 
 \section{Out of Scope}
 \label{sec:outOfScope}
 
-Dieses Projekt bezieht sich auf die Entwicklung einer Auswahlkomponente für Nutzer ohne Seheinschränkungen.
-Daher spielt die Accessibility nur eine begrenzte Rolle.
-Screen-Reader sind nicht zu beachten, da dies zu umfangreich für diese Arbeit ist.
-Die effiziente Anzeige von übergrossen Datenmengen mit mehr als 10'000 Werten ist nicht verlangt.
-Die Eingabe eines eigenen Wertes in die neue Auswahlkomponente ist ebenfalls ausserhalb der Anforderungen.
-Für die generalisierte Komponente reicht es, wenn die Auswahl eines einzelnen Wertes möglich ist.
-Die Auswahl mehrerer Werte im selben Eingabe-Element ist nicht gefordert.
+Dieses Projekt bezieht sich auf die Entwicklung einer Auswahlkomponente für Nutzer ohne Seheinschränkungen. 
+Daher spielt die Accessibility nur eine begrenzte Rolle. 
+Screen-Reader sind nicht zu beachten, da dies zu umfangreich für diese Arbeit ist. 
+Die effiziente Anzeige von übergrossen Datenmengen mit mehr als 10'000 Werten ist nicht verlangt. 
+Die Eingabe eines eigenen Wertes in die neue Auswahlkomponente ist ebenfalls ausserhalb der Anforderungen. 
+Für die generalisierte Komponente reicht es, wenn die Auswahl eines einzelnen Wertes möglich ist. 
+Die Auswahl mehrerer Werte im selben Eingabe-Element ist nicht gefordert. 
 Die Komponente ist nicht speziell auf Mobile-Geräte auszurichten. 
 Eine Undo- als auch eine Redo-Funktion der ausgewählten Werte ist ausserhalb des geforderten Rahmens. 
 
-Ein Bestandteil dieser Arbeit ist das Erweitern des \codestyle{SimpleInput}s um ein Select und eine Datalist.
-Damit der Fokus des Projekts auf der generalisierten Auswahlkomponente bleibt, sind keine Änderungen ausserhalb der oben genannten Ziele gefordert.
-Anpassungen der Kern-Codebasis gehören nicht in den Rahmen dieses Projekts.
-Die Eingrenzung der Anforderungen stellt sicher, dass die Ressourcen auf die Ziele fokussiert bleiben.
+Ein Bestandteil dieser Arbeit ist das Erweitern des \codestyle{SimpleInput}s um ein Select und eine Datalist. 
+Damit der Fokus des Projekts auf der generalisierten Auswahlkomponente bleibt, sind keine Änderungen ausserhalb der oben genannten Ziele gefordert. 
+Anpassungen der Kern-Codebasis gehören nicht in den Rahmen dieses Projekts. 
+Die Eingrenzung der Anforderungen stellt sicher, dass die Ressourcen auf die Ziele fokussiert bleiben. 
 
 
 \section{Leitfaden}
 \label{sec:tocTexted}
 
-Dieser Bericht gliedert sich in die Teile \textbf{Hintergrund}, \textbf{existierende} und \textbf{neue Komponenten} sowie \textbf{Diskussion}.
-Jedes Kapitel baut auf dem vorherigen auf und führt den Leser Schritt für Schritt durch die Entwicklung und Optimierung der neuen Auswahlkomponente.
+Dieser Bericht gliedert sich in die Teile \textbf{Hintergrund}, \textbf{existierende} und \textbf{neue Komponenten} sowie \textbf{Diskussion}. 
+Jedes Kapitel baut auf dem vorherigen auf und führt den Leser Schritt für Schritt durch die Entwicklung und Optimierung der neuen Auswahlkomponente. 
 
-Im Kapitel \textbf{Hintergrund} (\textbf{\ref{chap:background}}) ist die \textbf{Ausgangslage} (\textbf{\ref{sec:basics}}) des Kolibri-Toolkits und des Projekts erläutert.
+Im Kapitel \textbf{Hintergrund} (\textbf{\ref{chap:background}}) ist die \textbf{Ausgangslage} (\textbf{\ref{sec:basics}}) des Kolibri-Toolkits und des Projekts erläutert. 
 Es folgt eine Erklärung der verschiedenen \textbf{Zustände} (\textbf{\ref{sec:states}}), die eine Auswahlkomponente besitzen kann. 
-Eine Beschreibung \textbf{der Browser und deren Rendering-Engines} (\textbf{\ref{sec:browserRenderer}}) ist ebenfalls enthalten.
-Der \textbf{Rendering-Prozess} einer HTML-Seite sowie die wichtigsten \textbf{Browser-Implementationen} sind ebenfalls auf dem Plan.
+Eine Beschreibung \textbf{der Browser und deren Rendering-Engines} (\textbf{\ref{sec:browserRenderer}}) ist ebenfalls enthalten. 
+Der \textbf{Rendering-Prozess} einer HTML-Seite sowie die wichtigsten \textbf{Browser-Implementationen} sind ebenfalls auf dem Plan. 
 
 Das Kapitel \textbf{existierende Komponenten} (\textbf{\ref{chap:existingComponents}}) vergleicht die \textbf{HTML-Elemente Datalist und Select} (\textbf{\ref{sec:datalistSelect}}) und beschreibt die Nutzung und Unterschiede der verschiedenen Elemente. 
-Dabei hebt es die \textbf{Browser-Inkonsistenzen} (\textbf{\ref{sec:browserInconsistency}}) hervor, die zu \textbf{unterschiedlichen UI-Erfahrungen} führen können.
-Die \textbf{Länderauswahl Komponente} (\textbf{\ref{sec:countryChoice}}) aus Projekt 5 ist nur auf die Auswahl eines Landes zugeschnitten.
-Mögliche \textbf{Anwendungsfälle} der existierenden Komponenten zeigen die dabei entstehenden Probleme auf.
+Dabei hebt es die \textbf{Browser-Inkonsistenzen} (\textbf{\ref{sec:browserInconsistency}}) hervor, die zu \textbf{unterschiedlichen UI-Erfahrungen} führen können. 
+Die \textbf{Länderauswahl Komponente} (\textbf{\ref{sec:countryChoice}}) aus Projekt 5 ist nur auf die Auswahl eines Landes zugeschnitten. 
+Mögliche \textbf{Anwendungsfälle} der existierenden Komponenten zeigen die dabei entstehenden Probleme auf. 
 
-Eine detaillierte Beschreibung der \textbf{neuen Komponente} findet sich im gleichnamigen Kapitel \textbf{\ref{chap:newComponent}}.
-Das \textbf{Design} (\textbf{\ref{sec:design}}) basiert auf dem Kolibri-Designsystem und erhält Unterstützung durch \textbf{Figma-Prototypen} zur Visualisierung und zum Testen.
+Eine detaillierte Beschreibung der \textbf{neuen Komponente} findet sich im gleichnamigen Kapitel \textbf{\ref{chap:newComponent}}. 
+Das \textbf{Design} (\textbf{\ref{sec:design}}) basiert auf dem Kolibri-Designsystem und erhält Unterstützung durch \textbf{Figma-Prototypen} zur Visualisierung und zum Testen. 
 Das \textbf{Interaktionsdesign} optimiert die Benutzerführung für Maus- und Tastaturbenutzer. % todo erename interaktionsdesign
-\textbf{Prototyping und Benutzerfeedback} tragen in einem iterativen Prozess kontinuierlich zur Verbesserung bei.
+\textbf{Prototyping und Benutzerfeedback} tragen in einem iterativen Prozess kontinuierlich zur Verbesserung bei. 
 
-Im Abschnitt \textbf{Interaktionen} (\textbf{\ref{sec:interaction}}) sind Regeln für die Maus- und Tastaturinteraktion festgelegt.
-Die Einhaltung diverser \textbf{Prinzipien und Regeln} (\textbf{\ref{sec:principleRules}}) sorgt für stabilen und verständlichen Code.
-Der Einsatz von \textbf{Patterns} (\textbf{\ref{sec:patterns}}) wie \textbf{Null-Object}, \textbf{Projector} und \textbf{Decorator} strukturiert die Implementation und erhöht die Wartbarkeit des Codes.
+Im Abschnitt \textbf{Interaktionen} (\textbf{\ref{sec:interaction}}) sind Regeln für die Maus- und Tastaturinteraktion festgelegt. 
+Die Einhaltung diverser \textbf{Prinzipien und Regeln} (\textbf{\ref{sec:principleRules}}) sorgt für stabilen und verständlichen Code. 
+Der Einsatz von \textbf{Patterns} (\textbf{\ref{sec:patterns}}) wie \textbf{Null-Object}, \textbf{Projector} und \textbf{Decorator} strukturiert die Implementation und erhöht die Wartbarkeit des Codes. 
 
-Das Kapitel \textbf{Performance} (\textbf{\ref{sec:performance}}) beschreibt Optimierungen zur Verbesserung der Ladezeit sowie Leistungspotenzial der neuen Auswahlkomponente.
-Das \textbf{Testing}-Kapitel (\textbf{\ref{sec:testing}}) dokumentiert die Durchführung sowie die Auswertung von \textbf{automatisierter Tests} und \textbf{Usability-Tests}.
-Schliesslich fasst das \textbf{Fazit} (\textbf{\ref{sec:summeryNew}}) die wichtigsten Erkenntnisse zusammen.
+Das Kapitel \textbf{Performance} (\textbf{\ref{sec:performance}}) beschreibt Optimierungen zur Verbesserung der Ladezeit sowie Leistungspotenzial der neuen Auswahlkomponente. 
+Das \textbf{Testing}-Kapitel (\textbf{\ref{sec:testing}}) dokumentiert die Durchführung sowie die Auswertung von \textbf{automatisierter Tests} und \textbf{Usability-Tests}. 
+Schliesslich fasst das \textbf{Fazit} (\textbf{\ref{sec:summeryNew}}) die wichtigsten Erkenntnisse zusammen. 
 
-Der letzte Teil – die \textbf{Diskussion} (\textbf{\ref{chap:discussion}}) – bietet einen Überblick über die Bedeutung der Erkenntnisse für die Entwicklung.
-Zudem beschreiben die \textbf{Future Features} (\textbf{\ref{sec:future}}) Ideen für eine Weiterentwicklung als auch Verbesserungsvorschläge.
+Der letzte Teil – die \textbf{Diskussion} (\textbf{\ref{chap:discussion}}) – bietet einen Überblick über die Bedeutung der Erkenntnisse für die Entwicklung. 
+Zudem beschreiben die \textbf{Future Features} (\textbf{\ref{sec:future}}) Ideen für eine Weiterentwicklung als auch Verbesserungsvorschläge. 
