@@ -360,6 +360,91 @@ Das Ziel ist, eine ansprechende und benutzerfreundliche Komponente zu schaffen.
 Sie fügt sich nahtlos in das Kolibri-Designsystem ein und überzeugt gleichzeitig durch optimierte Les- und Bedienbarkeit. 
 
 
+\subsection{Implementationsresultat}
+\label{sec:designImplementation}
+
+Die diversen oben beschrieben Design-Schritte resultieren in den Abbildungen \ref{img:closedNewComponent} bis \ref{img:openedThreeColCatNewComponent}. 
+Weitere Bilder befinden sich im Anhang \textbf{\ref{chap:newImgs}}. 
+
+\begin{figure}[!htb]
+    \centering
+    \begin{minipage}[b]{0.3\textwidth}
+        \centering
+        \begin{minipage}[t]{\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{newComponent/closed.png}
+            \caption{\centering Geschlossene \codestyle{SelectComponent}}
+            \label{img:closedNewComponent}
+        \end{minipage}
+        \vspace{0.6cm}\newline
+        \begin{minipage}[b]{\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{newComponent/closed.img.png}
+            \caption{\centering Ausgefüllte \codestyle{SelectComponent}}
+            \label{img:closedImgNewComponent}
+        \end{minipage}
+        \newline
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.35\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{newComponent/opened.selected.cursored.highlighted.png}
+        \caption{\centering Offene \codestyle{SelectComponent} – 3 Zuständen}
+        \label{img:openedHighlightedCursoredSelectedNewComponent}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.25\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{newComponent/opened.2col.categoried.png}
+        \caption{\centering Offene \codestyle{SelectComponent} – 2 Spalten}
+        \label{img:openedTwoColCatNewComponent}
+    \end{minipage}
+\end{figure}
+
+Im geschlossen Zustand (Abbildungen \ref{img:closedNewComponent}) zeigt der Pfeil auf der rechten Seite nach unten. 
+Das Icon ändert beim Öffnen der neuen Komponente die Richtung und zeigt nach oben (Abbildungen \ref{img:openedHighlightedCursoredSelectedNewComponent}). 
+Die selektierte Option kann wie in der Grafik \ref{img:closedImgNewComponent} ein Bild enthalten. 
+Der Fokus auf der \codestyle{SelectComponent} ist durch einen gelben Rahmen um die Detail-Ansicht visualisiert. 
+Dies ist in Abbildungen \ref{img:closedImgNewComponent} im oberen Bereich ersichtlich. 
+Ist das Feld required, erhält der Rahmen einen rosanen Rahmen. 
+Dabei ist der Fokus aber nicht überdeckt. 
+Die disablete \codestyle{SelectComponent} zeigt sich wie die anderen Eingabefelder ebenfalls ausgegraut. 
+
+Die offene Komponente stellt den Options-Container in jedem Fall unterhalb dar. 
+Die Abbildung \ref{img:openedHighlightedCursoredSelectedNewComponent} enthält die drei aktuell möglichen Zustände der einzelnen Optionen – nebst normal. 
+Der Wert \emph{Macedonia} visualisiert die Selektion, welche sich ebenfalls im oberhalb befindlichen Detail-Container wiederfindet. 
+\emph{Moldova} zeigt die Optionen mit der Cursor Position und somit die Stelle, an welcher sich die Tastatur befindet. 
+Das Highlight enthält den Wert \emph{Montenegro}. 
+Die Cursor Position und das Highlight können auf der gemeinsamen Option liegen. 
+Dabei sind beide Zustände sichtbar. 
+
+Die Abbildungen \ref{img:openedTwoColCatNewComponent} bis \ref{img:openedThreeColCatNewComponent} zeigen, dass die \codestyle{SelectComponent} mehrere Spalten besitzen kann. 
+
+\begin{figure}[!htb]
+    \begin{minipage}[b]{0.43\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{newComponent/opened.img.png}
+        \caption{\centering Offene \codestyle{SelectComponent} mit Bilder}
+        \label{img:openedTwoColImgNewComponent}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.47\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{newComponent/opened.3col.categoried.png}
+        \caption{\centering Offene \codestyle{SelectComponent} – 3 Spalten}
+        \label{img:openedThreeColCatNewComponent}
+    \end{minipage}
+\end{figure}
+
+In diesen Beispielen befindet sich die Value-Option\footnote{
+    Formular-Wert, wenn einer selektiert ist
+} jeweils in der rechten Spalte. 
+Die anderen Spalten dienen zur Filterung der Werte. 
+Die Grafik \ref{img:openedTwoColImgNewComponent} mit der Selektion \emph{2000's} begrenzt die Jahreszahlen von ursprünglich 70 auf noch 10 Werte. 
+Wenn mehrere Kategorien existieren, bewirkt eine Selektion ganz links eine Reduktion aller Optionen die auf der rechten Seite liegen. 
+In der Abbildung \ref{img:openedThreeColCatNewComponent} bewirkt die Wahl von \emph{North America} die Reduktion der Länder und der Städte. 
+
+
 \section{Interaktionen} % todo controll bullets with table and paragraph after
 \label{sec:interaction}
 
@@ -760,7 +845,7 @@ Die Tests im nachfolgenden Kapitel sind für eine gute Anwendbarkeit im Code als
 \subsection{User Tests} % todo
 \label{sec:userTests}
 
-% personas im anhang
+% personas im anhang reference to them
 
 
 \subsubsection{Programmierer}
