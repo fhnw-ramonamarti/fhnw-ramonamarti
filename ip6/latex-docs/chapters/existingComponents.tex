@@ -1,7 +1,7 @@
 \chapter{Existierende Auswahlkomponenten}
 \label{chap:existingComponents}
 
-Hier sind die Gegenüberstellungen der bereits vorhandenen Möglichkeiten zur Darstellung einer Optionsauswahl ausgeführt. 
+Hier sind die Gegenüberstellungen der bereits vorhandenen Möglichkeiten zur Darstellung einer Optionsauswahl aufgelistet. 
 Eine Auflistung der möglichen Funktionalitäten zeigt die Grenzen dieser Elemente auf. 
 Dabei spielen die UI- als auch die Interaktions-Unterschiede dieser Komponenten in verschiedenen Browsern eine tragende Rolle. 
 
@@ -18,7 +18,7 @@ Durch das Einbinden der Frameworks bläst sich der eigene Code extrem auf.
 Diese Auswahlkomponenten bieten eine Menge an Funktionen an, welche jedoch die Anwendung sehr komplex machen. 
 Die Einarbeitung dauert lange. 
 Da das Ziel dieses Projekts eine schlanke und einfach verwendbare Komponente ist, sind die existierenden Frameworks keine Lösung. 
-Dieser Bericht legt keinen weiteren Fokus auf extern Bibliotheken. 
+Dieser Bericht legt keinen weiteren Fokus auf externe Bibliotheken. 
 
 
 \section{HTML Datalist vs. Select}
@@ -294,9 +294,10 @@ Nachfolgend sind die Inkonsistenzen genauer erläutert.
 \label{sec:uiDifferences}
 
 Das Select ist in der geschlossenen Form auf der rechten Seite immer mit mindestens einem Pfeil nach unten ausgestattet. 
-Safari (OSX und iOS) verwendet als Icon einen Doppelpfeil (nach oben und unten zeigend) wie in Abbildung \ref{img:closedSelectSafari}. 
-Firefox zeigt das Feld in grau (Abbildung \ref{img:closedSelectFirefox}), während Chrome und Edge einen weissen Hintergrund wie in Abbildung \ref{img:closedSelectChrome} verwenden. 
+Safari (OSX und iOS) verwendet als Icon einen Doppelpfeil (Abbildung \ref{img:closedSelectSafari}). 
+Firefox zeigt das Feld in grau (Abbildung \ref{img:closedSelectFirefox}), während Chrome und Edge einen weissen Hintergrund (Abbildung \ref{img:closedSelectChrome}) verwenden. 
 Safari auf iOS stellt die Komponente ohne Rahmen dar und deswegen ist der Hintergrund in einem hellen Grau gehalten. 
+Da der Fokus dieser Arbeit auf der Desktop-Anwendung liegt, finden sich die Bilder der Mobile-Browser im Anhang \textbf{\ref{chap:existingImgs}}. 
 
 \begin{figure}[!htb]
     \centering
@@ -393,7 +394,7 @@ Die Liste überdeckt das Eingabefeld nie.
 Die Abbildungen \ref{img:openedDatalistWin} und \ref{img:openedDatalistOsx} zeigen Beispiele der geöffneten Datalist. 
 
 Ein Blick auf die mobilen Browser wie iOS-Safari, Android-Firefox und -DuckDuckGo zeigen weitere UI-Unterschiede. 
-Im Vergleich zu den Desktop-Version zeigen sich die geöffneten Selects auf Android für eine bessere Bedienbarkeit in einem anderen Design. 
+Für eine bessere Bedienbarkeit zeigen sich die geöffneten Selects auf Android – gegenüber der Desktop-Versionen – in einem anderen Design. 
 Die Liste öffnet sich als Dialog-Popup und füllt je nach Anzahl der Werte fast den kompletten Display aus. 
 Das selektierte Element besitzt einen ausgefüllten Radio-Button auf der rechten Seite. 
 Auf iOS-Browser erhält die ausgewählte Option auf der linken Seite ein Check-Icon (\cmark). 
@@ -502,14 +503,14 @@ Der iOS-Safari Browser zeigt dieselbe Reaktion wie Safari auf Desktop.
 \subsection{Fazit}
 \label{sec:summeryExisting}
 
-Die Gegenüberstellungen der existierenden HTML-Elemente zeigt einige Gemeinsamkeiten, aber auch viele Inkonsistenzen. 
-Da die Unterschiede ein Grund für die Entwicklung einer neuen Auswahlkomponente ist, fasst dieser Abschnitt diese nochmals zusammen. 
+Die Gegenüberstellungen der existierenden HTML-Elemente zeigen einige Gemeinsamkeiten, aber auch viele Inkonsistenzen. 
+Da die Unterschiede ein Grund für die Entwicklung einer neuen Auswahlkomponente sind, fasst dieser Abschnitt diese nochmals zusammen. 
 Im UI existieren über die vier Browser Edge, Firefox, Chrome und Safari als auch den Systemen Mac und Windows teilweise grosse Inkonsistenzen. 
 Das System-Theme\footnote{
     Dark- bzw. Light-Mode; auf Systemebene oder Browserebene einstellbar
 } spielt für die Darstellung ebenfalls eine grosse Rolle. 
 Hierbei spielen das betriebssystemspezifische Styling und die individuellen Implementierungen der Browser eine Rolle. 
-Die Konzentration dieses Abschnitts liegt aber auf der Interaktion, weil das UI bereits im Kapitel \ref{sec:uiDifferences} genauer beschrieben ist. 
+Der Fokus dieses Abschnitts liegt aber auf der Interaktion, da das UI bereits im Kapitel \ref{sec:uiDifferences} genauer beschrieben ist. 
 
 Zwischen Edge und Chrome bestehen keine gravierenden Inkonsistenzen. 
 Dies liegt daran, dass die beiden Browser mit der selben Rendering Engine\footnote{
@@ -518,26 +519,27 @@ Dies liegt daran, dass die beiden Browser mit der selben Rendering Engine\footno
 Zwischen Mac und Windows bestehen nur die systemspezifischen Unterschiede wie die zu drückenden Tasten (z.B. Home vs. fn \& $\leftarrow$). 
 
 Firefox unterscheidet sich von Chrome in mehreren Interaktionen. 
-Während die offene Datalist auf Firefox mit den seitlichen Pfeiltasten zwei verschiedene Reaktionen zeigt, reagiert sie im Chrome-Browser immer auf dieselbe Weise. 
+Während die offene Datalist auf Firefox mit den seitlichen Pfeiltasten zwei unterschiedliche Reaktionen zeigt, reagiert sie im Chrome-Browser immer auf dieselbe Weise. 
 Das Multiselect zeigt in den beiden Browsern bei $\leftarrow$ und $\rightarrow$ ebenfalls inkonsistentes Verhalten. 
 Die Enter-Taste löst auf Firefox im geschlossen Single-Select nichst aus, während Chrome die Liste öffnet. 
 Dafür reagiert Firefox im Multiselect auf Tab (Input verlassen), wo Chrome kein Verhalten zeigt. 
-Die Interaktionen PageUp/-Down zeigen bei Datalist als auch dem Select unterschiedlich. 
-Der eine Browser verwendet die View-Höhe als Mass zum überspringen der Elemente und der andere das \codestyle{size}-Attribut. 
-Im geschlossen Zustand des Single-Select überspringt die Selektion ebenfalls eine unterschiedliche Anzahl Elemente. 
+Die Interaktionen PageUp/-Down zeigen sich bei Datalist als auch dem Select unterschiedlich. 
+Der eine Browser verwendet die View-Höhe als Mass zum Überspringen der Elemente und der andere das \codestyle{size}-Attribut. 
+Im geschlossenen Zustand des Single-Select überspringt die Selektion ebenfalls eine unterschiedliche Anzahl Elemente. 
 Bei der Interaktion mit der Maus weist das Scrollen auf beiden geöffneten Elementen Inkonsistenzen im Verhalten auf. 
 
-Safari zeigt gegenüber den oben angesprochenen Browsern die grössten Abweichung. 
+Safari zeigt gegenüber den oben angesprochenen Browsern die grösste Abweichung. 
 Einige Aktionen ändern anstelle der Selektion nur das Highlight. 
-Am ähnlichsten ist der Apple-Browser zu den Chromium-basierten Browsern wie Chrome. 
+Zu den Chromium-basierten Browsern - wie Chrome - ist der Apple-Browser am ähnlichsten. 
 PageUp/-Down zeigt bei den Einzelauswahl-Elementen ein komplett anderes Verhalten. 
 Beim Single-Select ist die Reaktion dieselbe wie beim Drücken von Home/ End. 
 Die einzige Interaktion, welche nicht von den anderen Browsern abweicht, ist das Klicken auf ein Element. 
 
-Die inkonsistente Darstellung und Funktionalität dieser Komponenten über verschiedene Plattformen hinweg erschwert eine einheitliche Benutzererfahrung. 
+Die inkonsistente Darstellung und Funktionalität dieser Komponenten erschwert eine einheitliche Benutzererfahrung über verschiedene Plattformen hinweg. 
 Für eine optimale User-Experience ist die Konsistenzprüfung unabdingbar. 
 Diese Erkenntnisse legen den Grundstein für die Entwicklung einer neuen, optimierten Auswahlkomponente, die die bestehenden Probleme adressieren soll. 
-Die bereits erstellte Länderkomponente löst die Inkonsistenzen und folgt detailliert im nächsten Kapitel. 
+Die bereits erstellte Länderkomponente löst die Inkonsistenzen. 
+Details dazu folgen im nächsten Kapitel. 
 
 
 \section{Länderauswahl Komponente}
