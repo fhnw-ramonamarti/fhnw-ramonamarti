@@ -684,6 +684,30 @@ Als Alternative dazu besteht die Möglichkeit, das Popover über JavaScript zu s
 Hierbei besteht die Möglichkeit auf den Status und das Event des Togglens zuzugreifen. 
 Diese Funktionalitäten erlauben den Controller konsistent zum UI zu halten. 
 
+Obwohl nur die Unterstützung der aktuellen Browser verlangt ist, soll die Komponente ältere Browser-Versionen nicht komplett ignorieren. 
+Erst seit April 2024 unterstützen alle Browser die Popover-API. 
+Ein Test auf einem veralteten Firefox zeigt, dass die Komponente wegen der Popover-Funktionalität einen Fehler in die Console wirft.
+Dadurch visualisiert der Browser die Komponente nicht. 
+Der folgende Code \ref{code:popoverWorkaround} fängt die Fehlermeldung ab. 
+
+\begin{lstlisting}[style = htmlcssjs, caption = Workaround für ältere Browser, label = code:popoverWorkaround]
+try {
+    /* code block with 
+        `popoverContainer.showPopover();`
+    or  `popoverContainer.hidePopover();`
+    */
+} catch (e) {
+    /* inform user about unsupported popover 
+       the first time an alert popup appears */
+}
+\end{lstlisting}
+
+Ein Alert-Popup informiert den Nutzer über Einschränkungen. 
+Einige zusärtliche CSS-Definitionen garanieren eine halbwegs ansehnliche Darstellung. 
+Alle Browser, welche das nested CSS\footnote{
+    Verschachtelter CSS-Code mit Verwendung der \&-Funktionalität
+} nicht unterstützen, können die neue Komponente nicht sauber anzeigen. 
+
 
 \section{Performance}
 \label{sec:performance}
