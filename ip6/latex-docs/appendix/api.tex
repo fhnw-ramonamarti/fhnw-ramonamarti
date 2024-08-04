@@ -266,30 +266,28 @@ Creates a column view of a given list of options.
 \textbf{Example}
 
 % ---------
-
-\begin{lstlisting}[style = htmlcssjs, label = api:columnOptionsComponentExample]
-const cursorPositionController = SelectedOptionController();
-const component                = ColumnOptionsComponent(cursorPositionController);
-
-const columnCatView = component.getColumnView();
-document.getElementById("componentContainer").append(columnCatView);
-
+\begin{figure}[!htb]
+    \begin{minipage}[b]{0.75\textwidth}
+        \begin{lstlisting}[style = htmlcssjs, label = api:columnOptionsComponentExample]
+const component = ColumnOptionsComponent(SelectedOptionController());
+document.getElementById("componentContainer")
+        .append(component.getColumnView());
 const selectedOption = CategoryOption("selected");
-const options        = [
-    selectedOption,
-    CategoryOption("cat 1"),
-    CategoryOption("cat 2"),
-    CategoryOption("cat 3"),
-];
+const options = [ selectedOption,
+                  CategoryOption("cat 1"),
+                  CategoryOption("cat 2"),
+                  CategoryOption("cat 3") ];
 component.addOptions(options);
 component.setSelectedOption(selectedOption);
-
-document.querySelector("head style").textContent += pageCss;
-\end{lstlisting}
-
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=60mm]{columnOptionsExample.png}
-    \caption*{\centering Beispiel \codestyle{ColumnOptionsComponent}}
-    \label{api:columnOptionsComponentImg}
+document.querySelector("head style")
+        .textContent += pageCss;
+        \end{lstlisting}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.2\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{columnOptionsExample.png}
+        \caption*{\centering Beispiel \codestyle{Column\-Options\-Component}}
+        \label{api:columnOptionsComponentImg}
+    \end{minipage}
 \end{figure}
