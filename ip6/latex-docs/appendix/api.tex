@@ -89,6 +89,33 @@ Creates an input component with the functionality: selecting an option in a give
 \noindent
 \textbf{Example}
 
+\begin{lstlisting}[style = htmlcssjs, label = api:selectComponentCbExample]
+const getYearsByDecade = (...decades) => {
+    const decadeStarts = decades.map(decade => decade.slice(0, 3));
+    const data         = [...Array(70).keys()].map((e) => e + 1940 + "");
+    return data.filter((e) => decadeStarts.length === 0 || decadeStarts.includes(e.slice(0, 3)));
+};
+const getDecades = () => [...Array(7).keys()].map((e) => e * 10 + 1940 + "'s");
+
+const selectAttribute = { name : "year", label: "Year" };
+const columnServiceCb = [ getDecades, getYearsByDecade ];
+
+const selectComponent = SelectComponentByCallbacks(
+    selectAttribute,
+    columnServiceCb
+);
+
+const componentYear   = document.getElementById("componentContainer");
+componentYear.append(selectComponent.getComponentView());
+\end{lstlisting}
+    
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=80mm]{newComponent/opened.2col.png}
+    \caption*{\centering Beispiel \codestyle{SelectComponentByCallbacks}}
+    \label{api:selectComponentCbImg}
+\end{figure}
+
 
 % ---------
 \clearpage
@@ -139,12 +166,48 @@ Creates an input component with the functionality: selecting an option in a give
 \noindent
 \textbf{Example}
 
+\begin{lstlisting}[style = htmlcssjs, label = api:selectComponentTvExample]
+const selectAttribute = { name : "year", label: "Year" };
+const tableOptions    = [ 
+    [ "1940's", 1940 ], 
+    [ "1940's", 1941 ], 
+    [ "1940's", 1942 ], 
+    [ "1940's", 1943 ], 
+    [ "1940's", 1944 ], 
+    /* ... */
+    [ "1950's", 1958 ], 
+    [ "1950's", 1959 ], 
+    [ "1960's", 1960 ], 
+    [ "1960's", 1961 ], 
+    /* ... */
+    [ "2000's", 2007 ], 
+    [ "2000's", 2008 ], 
+    [ "2000's", 2009 ], 
+];
+
+const selectComponent = SelectComponentByTableValues(
+    selectAttribute,
+    tableOptions
+);
+
+const componentYear   = document.getElementById("componentContainer");
+componentYear.append(selectComponent.getComponentView());
+\end{lstlisting}
+    
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=80mm]{newComponent/opened.2col.png}
+    \caption*{\centering Beispiel \codestyle{SelectComponentByTableValues}}
+    \label{api:selectComponentTvImg}
+\end{figure}
+
+
 % ---------
 \clearpage
 \subsection*{ColumnOptionsComponent}
 
 \vspace*{6pt}
-Creates a column view of a given list. 
+Creates a column view of a given list of options. 
 
 \vspace*{18pt}
 \noindent
@@ -204,3 +267,29 @@ Creates a column view of a given list.
 
 % ---------
 
+\begin{lstlisting}[style = htmlcssjs, label = api:columnOptionsComponentExample]
+const cursorPositionController = SelectedOptionController();
+const component                = ColumnOptionsComponent(cursorPositionController);
+
+const columnCatView = component.getColumnView();
+document.getElementById("componentContainer").append(columnCatView);
+
+const selectedOption = CategoryOption("selected");
+const options        = [
+    selectedOption,
+    CategoryOption("cat 1"),
+    CategoryOption("cat 2"),
+    CategoryOption("cat 3"),
+];
+component.addOptions(options);
+component.setSelectedOption(selectedOption);
+
+document.querySelector("head style").textContent += pageCss;
+\end{lstlisting}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=60mm]{columnOptionsExample.png}
+    \caption*{\centering Beispiel \codestyle{ColumnOptionsComponent}}
+    \label{api:columnOptionsComponentImg}
+\end{figure}
