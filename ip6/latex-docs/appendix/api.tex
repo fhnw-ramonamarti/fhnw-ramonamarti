@@ -27,12 +27,12 @@ The \codestyle{SelectAttributes} object contains the following properties:
         \toprule[1.2pt]
         \textbf{Property}             & \textbf{Type} & \textbf{Description} \\
         \midrule
-        label                         & String        &  \\
-        name                          & String        &  \\
-        isRequired                    & Boolean       &  \\
-        isDisabled                    & Boolean       &  \\
-        sortOptionsAlphabetically     & Boolean       &  \\
-        isCursorPositionWithSelection & Boolean       &  \\
+        label                         & String        & Content of the Label for the input. \\
+        name                          & String        & Name of the input that is sent with the form. \\
+        isRequired                    & Boolean       & Defines if the selection of an option is required to send the form. \\
+        isDisabled                    & Boolean       & Defines if the value can be changedand if the interaction work. \\
+        isCursorPositionWithSelection & Boolean       & Defines if the cursor position is linked with the selection. 
+                                                        If true: the keyboard interaction directly changes the selection. \\
         \bottomrule[1.2pt]
     \end{tabular}
 \end{table}
@@ -265,29 +265,30 @@ Creates a column view of a given list of options.
 \noindent
 \textbf{Example}
 
-% ---------
-\begin{figure}[!htb]
-    \begin{minipage}[b]{0.75\textwidth}
-        \begin{lstlisting}[style = htmlcssjs, label = api:columnOptionsComponentExample]
-const component = ColumnOptionsComponent(SelectedOptionController());
-document.getElementById("componentContainer")
-        .append(component.getColumnView());
+\begin{lstlisting}[style = htmlcssjs, label = api:columnOptionsComponentExample]
+const cursorPos = SelectedOptionController();
+const component = ColumnOptionsComponent(cursorPos);
+document.getElementById("componentContainer").append(component.getColumnView());
+
 const selectedOption = CategoryOption("selected");
-const options = [ selectedOption,
-                  CategoryOption("cat 1"),
-                  CategoryOption("cat 2"),
-                  CategoryOption("cat 3") ];
+const options = [ 
+    selectedOption,
+    CategoryOption("cat 1"),
+    CategoryOption("cat 2"),
+    CategoryOption("cat 3") 
+];
+
 component.addOptions(options);
 component.setSelectedOption(selectedOption);
-document.querySelector("head style")
-        .textContent += pageCss;
-        \end{lstlisting}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[b]{0.2\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{columnOptionsExample.png}
-        \caption*{\centering Beispiel \codestyle{Column\-Options\-Component}}
-        \label{api:columnOptionsComponentImg}
-    \end{minipage}
+
+document.querySelector("head style").textContent += pageCss;
+\end{lstlisting}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=50mm]{columnOptionsExample.png}
+    \caption*{\centering Beispiel \codestyle{Column\-Options\-Component}}
+    \label{api:columnOptionsComponentImg}
 \end{figure}
+
+% ---------

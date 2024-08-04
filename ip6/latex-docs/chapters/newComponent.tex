@@ -942,7 +942,58 @@ Die Tests im nachfolgenden Kapitel sind für eine gute Anwendbarkeit im Code als
 \subsubsection{Programmierer}
 \label{sec:userTestsProgrammer}
 
-% images und text von umfrage im anhang
+Im Rahmen der Evaluierung der neuen Dropdown-Komponente sind Programmierer dazu eingeladen, spezifische Aufgaben zu erfüllen. 
+Diese Aufgaben umfassen die Implementierung der Dropdown-Komponente in eine bestehende Webanwendung. 
+Für den Erhalt eines möglichst realistisches Feedbacks sind die Teilnehmer gebeten, nach der Implementierung eine Google-Umfrage auszufüllen. 
+
+\begin{figure}[!htb]
+    \centering
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{userTests/semester9.png}
+        \caption{\centering Verteilung Semester}
+        \label{img:userTestsSemester}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{userTests/richtung9.png}
+        \caption{\centering Verteilung Studienrichtung}
+        \label{img:userTestsStudy}
+    \end{minipage}
+\end{figure}
+
+Insgesammt haben 9 Studenten an dem User-Test teilgenommen und die Aufgaben versucht zu lösen. 
+Die Grafiken \ref{img:userTestsSemester} und \ref{img:userTestsStudy} zeigen, dass die Hintergründe der Probanden breit gefächert ist. 
+Zwei der Testpersonen konnten die Aufgabe nicht korrekt lösen. 
+
+Die Aufgaben beinhalten verschiedene Szenarien. 
+Die Entwickler sollen die neue Komponente unter anderem für das Mittagessen, eine Heimatregion oder ein Geburtsjahr einsetzen. 
+Der bereitgestellte Code (Anhang \ref{chap:userTestProgrammers}) dient als Basis für die Implementierung. 
+Dabei fällt der Fokus darauf, dass die Programmierer die Anbindung an die vorhandene Infrastruktur korrekt umsetzen. 
+
+Nach der systematischen Erfassung der Umfrage-Rückmeldungen erfolgt das Analysieren dieser. 
+Programmierer bewerten die Komponente als benutzerfreundlich und ästhetisch ansprechend. 
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=100mm]{userTests/desc9.png}
+    \caption{\centering Meinung der Testpersonen}
+    \label{img:userTestsDescription}
+\end{figure}
+
+Die Umfrageergebnisse zeigen eine überwiegend positive Bewertung der Komponente (Abbildung \ref{img:userTestsDescription}). 
+Sie sind in den Abbildungen \ref{img:userTestSemester} bis \ref{img:userTestUsage} im Anhang \ref{chap:userTestProgrammers} illustriert. 
+Einige Teilnehmer äussern jedoch Kritikpunkte hinsichtlich der Dokumentation. 
+Insbesondere die Beschreibung der Rückgabewerte und die Integration von Callbacks wiesen vor der Anpassung Schwierigkeiten auf. 
+Weitere Verbesserungsvorschläge umfassen eine bessere Spezifizierung der Typen in der JSDoc und die Möglichkeit, die Komponente nach der Auswahl automatisch zu schliessen. 
+Es ist festzuhalten, dass Personen ohne umfassende JavaScript-Kenntnisse Schwierigkeiten haben, die Komponente intuitiv zu verwenden. 
+Die Testperson, welche keine JavaScript-Kenntnisse vorweisen kann, konnte die Aufgaben nicht korrekt lösen. 
+Die Verwendung von Callbacks als Service-Funktionen ist für einigen Testnutzer eine Stolperfalle. 
+
+Die Ergebnisse der Tests liefern wertvolle Erkenntnisse, welche zur Verbesserung der Dokumentation beitragen. 
+Die Überarbeitung der Dokumentation als auch der Rückgabe der Komponente behebt die eine grosse Kritik an der Komponente. 
+Die Erstellung des zweiten Konstruktors mit einer Tabelle von Werten ermöglicht das Umgehen des Stolpersteins der Callbacks. 
 
 
 \subsubsection{Formular-Ausfüller}
