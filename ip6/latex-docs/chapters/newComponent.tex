@@ -234,12 +234,12 @@ Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein aktue
 }
 \end{lstlisting}
 
-\codestyle{.cursor-position}: Definiert die Hervorhebung der Option, die gerade durch den Cursor\footnote{
+\codestyle{cursor-position}: Definiert die Hervorhebung der Option, die gerade durch den Cursor\footnote{
     Tastatur-Position-Anker (nicht Maus-Cursor)
 } fokussiert ist. 
-
 Eine dunkle Farbe und eine linksseitige Markierung betonen das Element. 
-\codestyle{.selected}: Stellt die ausgewählte Option durch einen speziellen Hintergrund und abgerundete Ecken dar. 
+
+\codestyle{selected}: Stellt die ausgewählte Option durch einen speziellen Hintergrund und abgerundete Ecken dar. 
 
 Im \codestyle{columnOptionsProjector.js} gibt es Event-Handler, die das Setzen und Entfernen der Highlighting-Klassen steuern:
 
@@ -261,6 +261,7 @@ const cursorPositionItem = (root) => (newOption, oldOption) => {
 \end{lstlisting}
 
 \codestyle{selectOptionItem}: Verschiebt die Klasse \codestyle{.selected} und somit die Hervorhebung auf das neue Element. 
+
 \codestyle{cursorPositionItem}: Entfernt bzw. setzt die Klasse \codestyle{.cursor-position} – ähnlich wie beim \codestyle{selectOptionItem}. 
 
 Im Codeausschnitt \ref{code:eventSelection} aus der Datei \codestyle{selectProjector.js} lässt sich das Highlighting durch die Verknüpfung der Optionen und ihrer Events mit den entsprechenden CSS-Klassen steuern. 
