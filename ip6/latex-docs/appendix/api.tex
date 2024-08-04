@@ -8,10 +8,10 @@
         \toprule[1.2pt]
         \textbf{Type}    & \textbf{Description} \\
         \midrule    
-        SimpleOptionType & \{ label: String?, value: String \}    \\
-        OptionDataType   & \{ String | SimpleOptionType \}        \\
-        OptionsTable     & Array$<$Array$<$OptionDataType$>>$       \\
-        CallbackType     & (...String) => Array$<$OptionDataType$>$ \\
+        SimpleOption & \{ label: String?, value: String \}    \\
+        OptionData   & \{ String | SimpleOption \}        \\
+        OptionsTable & Array$<$Array$<$OptionData$>>$       \\
+        Callback     & (...String) => Array$<$OptionData$>$ \\
         \bottomrule[1.2pt]
     \end{tabular}
 \end{table}
@@ -50,7 +50,7 @@ Creates an input component with the functionality: selecting an option in a give
 
 \vspace*{18pt}
 \noindent
-\textbf{Returns}: \codestyle{SelectComponentType}
+\textbf{Returns}: \codestyle{SelectComponent}
 
 \begin{table}[!htb] 
     \label{api:selectComponentByCallbacksReturn}
@@ -60,9 +60,9 @@ Creates an input component with the functionality: selecting an option in a give
         \toprule[1.2pt]
         \textbf{Function}     & \textbf{Type}        & \textbf{Description} \\
         \midrule
-        getSelectController() & SelectControllerType &  \\
-        getComponentView()    & HTMLDivElement       &  \\
-        getLabelElement()     & HTMLLabelElemen      &  \\
+        getSelectController() & SelectController & Provides the whole functionality of the select component. \\
+        getComponentView()    & HTMLDivElement   & Provides the whole view with the select element and the label. \\
+        getLabelElement()     & HTMLLabelElemen  & Provides the label element from the whole view. \\
         \bottomrule[1.2pt]
     \end{tabular}
 \end{table}
@@ -77,10 +77,14 @@ Creates an input component with the functionality: selecting an option in a give
     \setlength\extrarowheight{4pt}
     \begin{tabular}{ p{3.5cm} p{3.5cm} p{6cm} }
         \toprule[1.2pt]
-        \textbf{Name}    & \textbf{Type}       & \textbf{Description} \\
+        \textbf{Name}    & \textbf{Type}    & \textbf{Description} \\
         \midrule
-        selectAttributes & SelectAttributes    &  \\
-        serviceCallbacks & Array<CallbackType> &  \\
+        selectAttributes & SelectAttributes & Defines properties to customize the select component. \\
+        serviceCallbacks & Array<Callback>  & Lists the Callback functions that provide the data for the options. 
+                                              The number of callbacks in the array define the number of colums in the component. 
+                                              The most right or biggest indexed callback in the array contains the value providing function. 
+                                              The order is defined as in the view: from most general categry to specific value. 
+                                              As parameter the callbacks take the string of the parent category of the current column. \\
         \bottomrule[1.2pt]
     \end{tabular}
 \end{table}
@@ -95,11 +99,10 @@ const getYearsByDecade = (...decades) => {
     const data         = [...Array(70).keys()].map((e) => e + 1940 + "");
     return data.filter((e) => decadeStarts.length === 0 || decadeStarts.includes(e.slice(0, 3)));
 };
-const getDecades = () => [...Array(7).keys()].map((e) => e * 10 + 1940 + "'s");
+const decades = [...Array(7).keys()].map((e) => e * 10 + 1940 + "'s");
 
 const selectAttribute = { name : "year", label: "Year" };
-const columnServiceCb = [ getDecades, getYearsByDecade ];
-
+const columnServiceCb = [ () => decades, getYearsByDecade ];
 const selectComponent = SelectComponentByCallbacks(
     selectAttribute,
     columnServiceCb
@@ -126,7 +129,7 @@ Creates an input component with the functionality: selecting an option in a give
 
 \vspace*{18pt}
 \noindent
-\textbf{Returns}: \codestyle{SelectComponentType}
+\textbf{Returns}: \codestyle{SelectComponent}
 
 \begin{table}[!htb] 
     \label{api:selectComponentByTableValuesReturn}
@@ -134,11 +137,11 @@ Creates an input component with the functionality: selecting an option in a give
     \setlength\extrarowheight{4pt}
     \begin{tabular}{ p{3.5cm} p{3.5cm} p{6cm} }
         \toprule[1.2pt]
-        \textbf{Function}     & \textbf{Type}        & \textbf{Description} \\
+        \textbf{Function}     & \textbf{Type}    & \textbf{Description} \\
         \midrule
-        getSelectController() & SelectControllerType &  \\
-        getComponentView()    & HTMLDivElement       &  \\
-        getLabelElement()     & HTMLLabelElemen      &  \\
+        getSelectController() & SelectController & Provides the whole functionality of the select component. \\
+        getComponentView()    & HTMLDivElement   & Provides the whole view with the select element and the label. \\
+        getLabelElement()     & HTMLLabelElemen  & Provides the label element from the whole view. \\
         \bottomrule[1.2pt]
     \end{tabular}
 \end{table}
@@ -155,9 +158,16 @@ Creates an input component with the functionality: selecting an option in a give
         \toprule[1.2pt]
         \textbf{Name}                 & \textbf{Type}    & \textbf{Description} \\
         \midrule
-        selectAttributes              & SelectAttributes &  \\
-        optionsTable                  & OptionsTable     &  \\
-        sortColumnOptionsAlphabetical & Boolean          &  \\
+        selectAttributes              & SelectAttributes & Defines properties to customize the select component. \\
+        optionsTable                  & OptionsTable     & Lists the options with all the categories denormalized. 
+                                                           Each Entry in the outer array contains one OptionData per column. 
+                                                           If a value has multiple categories in the same column, it needs multiple entries. 
+                                                           If a value has no categry in a column `null` can be placed in that place. 
+                                                           Every entry shuold have the same length and defines the options from most general category to value. 
+                                                           The shortest entry array defines the number of columns. 
+                                                           The category columns will use the distinct OptionData as options. \\
+        sortColumnOptionsAlphabetical & Boolean          & Defines if the options of each column are sorted alphabetically. 
+                                                           The sorting will be applied to every column or none of them. \\
         \bottomrule[1.2pt]
     \end{tabular}
 \end{table}
@@ -167,13 +177,11 @@ Creates an input component with the functionality: selecting an option in a give
 \textbf{Example}
 
 \begin{lstlisting}[style = htmlcssjs, label = api:selectComponentTvExample]
-const selectAttribute = { name : "year", label: "Year" };
 const tableOptions    = [ 
     [ "1940's", 1940 ], 
     [ "1940's", 1941 ], 
     [ "1940's", 1942 ], 
     [ "1940's", 1943 ], 
-    [ "1940's", 1944 ], 
     /* ... */
     [ "1950's", 1958 ], 
     [ "1950's", 1959 ], 
@@ -184,7 +192,7 @@ const tableOptions    = [
     [ "2000's", 2008 ], 
     [ "2000's", 2009 ], 
 ];
-
+const selectAttribute = { name : "year", label: "Year" };
 const selectComponent = SelectComponentByTableValues(
     selectAttribute,
     tableOptions
@@ -211,7 +219,7 @@ Creates a column view of a given list of options.
 
 \vspace*{18pt}
 \noindent
-\textbf{Returns}: \codestyle{ColumnOptionsComponentType}
+\textbf{Returns}: \codestyle{ColumnOptionsComponent}
 
 \begin{table}[!htb] 
     \label{api:columnOptionsComponentReturn}
@@ -219,26 +227,35 @@ Creates a column view of a given list of options.
     \setlength\extrarowheight{4pt}
     \begin{tabular}{ p{5cm} p{3cm} p{5cm} }
         \toprule[1.2pt]
-        \textbf{Function}                   & \textbf{Type}     & \textbf{Description} \\
+        \textbf{Function}                   & \textbf{Type}  & \textbf{Description} \\
         \midrule
-        getOptions()                        & Array<OptionType> &  \\
-        addOptions(Array<OptionType>)       & void              &  \\
-        delOptions(Array<OptionType>)       & void              &  \\
-        clearOptions()                      & void              &  \\
-        getSelectedOption()                 & OptionType        &  \\
-        setSelectedOption(OptionType)       & void              &  \\
-        clearSelectedOption()               & void              &  \\
+        getOptions()                        & Array<Option>  & Lists all options contained in the column. 
+                                                               The order is the one from adding the options. \\
+        addOptions(Array<Option>)           & void           & Adds all passed options to the end of the column. 
+                                                               If an option is alreayd contained it is ignored while adding. 
+                                                               Options count as same if the label and the value are same. \\
+        delOptions(Array<Option>)           & void           & Removes all passed options from the column. 
+                                                               If an option is not contained the code just continues. 
+                                                               Options count as same if the label and the value are same. \\
+        clearOptions()                      & void           & Removes all options from the column. \\
+        getSelectedOption()                 & Option         & Read the selected option. \\
+        setSelectedOption(Option)           & void           & Changes the selected option to the passed option. 
+                                                               Only one option can be selected in the column component. \\
+        clearSelectedOption()               & void           & Resets the selection to nothing selected. \\
         \tbbr{
             onOptionSelected( \\
-                \ \ \ ConsumerType<OptionType>
-            )}                              & void              &  \\
-        isSelectedOptionDisabled()          & Boolean           &  \\
-        setSelectedOptionDisabled(bool)     & void              &  \\
+                \ \ \ Consumer<Option>
+            )}                              & void           & Adds listeners to the change of the option selection observable. \\
+        isSelectedOptionDisabled()          & Boolean        & Checks if the selected option is disabled to be changed. \\
+        setSelectedOptionDisabled(bool)     & void           & Changes the possibility to change the selection. 
+                                                               Sets the disabled to the passed value. 
+                                                               If true the selection cannot be changed. \\
         \tbbr{
             onSelectedOptionDisabledChanged( \\
-                \ \ \ ConsumerType<OptionType>
-            )}                              & void              &  \\
-        getColumnView()                     & HTMLDivElement    &  \\
+                \ \ \ Consumer<Option>
+            )}                              & void           & Adds listeners to the change of the disable observable. \\
+        getColumnView()                     & HTMLDivElement & Provides the whole column component. 
+                                                               It is not linked to an input field. \\
         \bottomrule[1.2pt]
     \end{tabular}
 \end{table}
@@ -253,10 +270,12 @@ Creates a column view of a given list of options.
     \setlength\extrarowheight{4pt}
     \begin{tabular}{ p{3.2cm} p{4.2cm} p{5.6cm} }
         \toprule[1.2pt]
-        \textbf{Name}            & \textbf{Type}                & \textbf{Description} \\
+        \textbf{Name}            & \textbf{Type}            & \textbf{Description} \\
         \midrule
-        cursorPositionController & SelectedOptionControllerType &  \\
-        columnNumber             & Number                       &  \\
+        cursorPositionController & SelectedOptionController & Controller for the current cursor position. 
+                                                              The cursor position is used as indicator at which option the keyboard is currently at. \\
+        columnNumber             & Number?                  & Optional position of index of the column. 
+                                                              It is used to identify the column in a select component. \\
         \bottomrule[1.2pt]
     \end{tabular}
 \end{table}
@@ -291,4 +310,114 @@ document.querySelector("head style").textContent += pageCss;
     \label{api:columnOptionsComponentImg}
 \end{figure}
 
+
 % ---------
+\clearpage
+\section*{Controller}
+
+\vspace*{6pt}
+\subsection*{SelectController}
+
+\vspace*{6pt}
+Provides the functionality to manage a select input component. 
+
+\vspace*{18pt}
+\noindent
+\textbf{Returns}: \codestyle{SelectComponent}
+
+\begin{table}[!htb] 
+    \label{api:selectControllerReturn}
+    \footnotesize
+    \setlength\extrarowheight{4pt}
+    \begin{tabular}{ p{5cm} p{3cm} p{5cm} }
+        \toprule[1.2pt]
+        \textbf{Function}                    & \textbf{Type}          & \textbf{Description} \\
+        \midrule
+        getId()                              & String                 &  \\
+        getNumberOfColumns()                 & Number                 &  \\
+        getInputController()                 & SimpleInputController  &  \\
+        isCursorPositionWithSelection()      & Boolean                &  \\
+        isRequired()                         & Boolean                &  \\
+        setRequired(Boolean)                 & void                   &  \\
+        \tbbr{
+            onRequiredChanged( \\
+                \ \ \ Consumer<Option>
+            )}                               & void                   &  \\
+        isDisabled()                         & Boolean                &  \\
+        setDisabled(Boolean)                 & void                   &  \\
+        \tbbr{
+            onDisabledChanged( \\
+                \ \ \ Consumer<Option>
+            )}                               & void                   &  \\
+        isOptionsVisible()                   & Boolean                &  \\
+        setOptionsVisibility(Boolean)        & void                   &  \\
+        \tbbr{
+            onOptionsVisibilityChange( \\
+                \ \ \ Consumer<Option>
+            )}                               & void                   &  \\
+        isSelectedOptionVisible()            & Boolean                &  \\
+        setSelectedOptionVisibility(Boolean) & void                   &  \\
+        \tbbr{
+            onSelectedOptionVisibilityChange( \\
+                \ \ \ Consumer<Option>
+            )}                               & void                   &  \\
+        getCursorPosition()                  & Option                 &  \\
+        setCursorPosition(Option)            & void                   &  \\
+        clearCursorPosition()                & void                   &  \\
+        \tbbr{
+            onCursorPositionChanged( \\
+                \ \ \ Consumer<Option>
+            )}                               & void                   &  \\
+        \bottomrule[0.5pt]
+    \end{tabular}
+\end{table}
+
+\clearpage
+\begin{table}[!htb] 
+    \label{api:selectControllerReturn2}
+    \scriptsize
+    \setlength\extrarowheight{4pt}
+    \begin{tabular}{ p{5cm} p{2.3cm} p{5.7cm} }
+        \toprule[0.5pt]
+        \textbf{Function}                    & \textbf{Type}          & \textbf{Description} \\
+        \midrule    
+        getSelectedValueOption()             & Option                 &  \\
+        setSelectedValueOption(Option)       & void                   &  \\
+        clearSelectedValueOption()           & void                   &  \\
+        getSelectedOptionOfColumns(Number)   & Option                 &  \\
+        \tbbr{
+            clearColumnOptions( \\
+                \ \ \ max: Number, min: Number 
+            )}                               & void                   &  \\
+        clearSelectedOptions(Number)         & void                   &  \\
+        getColumnOptionsComponent(Number)    & \raggedright Column\-
+                                               Options\-Component     &  \\
+        \bottomrule[1.2pt]
+    \end{tabular}
+\end{table}
+
+\vspace*{6pt}
+\noindent
+\textbf{Parameters}
+
+\begin{table}[!htb] 
+    \label{api:selectControllerParameter}
+    \footnotesize
+    \setlength\extrarowheight{4pt}
+    \begin{tabular}{ p{3.2cm} p{3cm} p{6.8cm} }
+        \toprule[1.2pt]
+        \textbf{Name}    & \textbf{Type}       & \textbf{Description} \\
+        \midrule
+        selectAttributes & SelectAttributes & Defines properties to customize the select component. \\
+        numberOfColumns  & Number           & Defines the number of columns in the options container. \\
+        \bottomrule[1.2pt]
+    \end{tabular}
+\end{table}
+
+\vspace*{6pt}
+\noindent
+\textbf{Example}
+
+\begin{lstlisting}[style = htmlcssjs, label = api:selectControllerExample]
+
+\end{lstlisting}
