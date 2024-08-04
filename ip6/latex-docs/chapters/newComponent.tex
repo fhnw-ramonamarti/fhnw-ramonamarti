@@ -869,29 +869,31 @@ Als Beispiel dient die \codestyle{SelectComponent} mit drei Spalten aus Abbildun
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=100mm]{newComponent/opened.3col.png}
-    \caption{\centering Manuelle Test-Komponente}
+    \caption{\centering Manuelle Tests – Komponente}
     \label{img:manualTestComponent}
 \end{figure}
 
 Diese Komponente unterzieht sich einer Prüfung auf Mac als auch Windows. 
-In den Einstellungen sind in einem ersten Durchgang der Light-Mode und in einem zweiten das Dark-Theme gespeichert. 
-Die genaue Kombination zwischen Browser und Betriebssystemen ist wie folgt: 
+In den Einstellungen sind in einem ersten Durchgang der Light-Mode und in einem Zweiten das Dark-Theme gespeichert. 
+Die genaue Kombination zwischen Browsern und Betriebssystemen ist wie folgt: 
 
 \begin{itemize}
     \item \textbf{Mac} bzw. \textbf{OSX}: Chrome (127), Firefox (128), Safari (17.5)
     \item \textbf{Windows}: Chrome (127), Firefox (128), Edge (127)
 \end{itemize}
 
-Die SelectComponent aus Abbildung \ref{img:manualTestComponent} zeigt sich in den aufgezählten Kombination grundlegend konsistent. 
+Die SelectComponent aus Abbildung \ref{img:manualTestComponent} zeigt sich in den aufgezählten Kombinationen grundlegend konsistent. 
 Es existiert nur eine kleine Abweichung. 
 Die Scrollbars auf Windows besitzen auf der rechten Seite einen grösseren Abstand als auf Mac. 
 Dabei spielt der Browser keine Rolle. 
 Bei den Interaktionen verhält sich die Komponente ebenfalls konsistent über alle Browser. 
 Die einzige Abweichung findet sich in der systemabhängigen Interaktion, um eine Aktion auszuführen. 
-Auf Windows-PCs mit Nummer-Pad funktionieren beide PageUp-, PageDown-, Home- und End-Keys auf der Tastatur. 
+Auf Windows-PCs mit Nummer-Pad funktionieren die PageUp-, PageDown-, Home- und End-Keys\footnote{
+    % todo beschreiben zwei tasten
+} auf der Tastatur. 
 Auf OSX verlangen die oben genannten Tasten und Delete eine Tastenkombination mit der fn-Taste. 
 
-Zusätzlich zu den vereinbarten Systemen und Browser finden noch folgende weitere Prüfungen statt: 
+Zusätzlich zu den im Vorfeld vereinbarten Systemen und Browser finden noch folgende weitere Prüfungen statt: 
 
 \begin{itemize}
     \item \textbf{Linux (24 LTS)}: Firefox (125), Chromium (127)
@@ -900,20 +902,21 @@ Zusätzlich zu den vereinbarten Systemen und Browser finden noch folgende weiter
 \end{itemize}
 
 Diese Tests beweisen, dass die Komponente über die geforderten Umgebungen hinaus funktioniert. 
+% todo linux
 
 Die mobilen Geräte öffnen keine virtuelle Tastatur. 
-Deswegen sind nur Touch-Interaktion möglich. 
+Deswegen sind nur Touch-Interaktionen möglich. 
 Zu diesen Bedienungsmöglichkeiten gehören das Scrollen und das Klicken. 
 Auf iOS und auf Android stellen die Browser das UI meist konsistent – wie auf dem Desktop Safari – dar. 
-Das Highlight und die Cursor Position haben keinen weiteren nutzen. 
+Das Highlight und die Cursor Position haben keinen weiteren Nutzen. 
 Die beiden Zustände bewegen sich mit der Selektion mit. 
 Das Highlight verschwindet, wenn das Touch ausserhalb einer Option erfolgt. 
 Die einzige Inkonsistenz auf iOS zeigt sich beim Klick ausserhalb der SelectComponent. 
-Diese Interaktion schliesst den Container nicht – anders als der Desktop Safari. 
-Ebenfalls bleibt der Container offen, wenn der Klick auf der X einen bereits selektierten Wert löscht. 
-Auf dem Pixel Chrome reagiert dafür der Klick auf die Detail-Ansicht abweichend. 
+Anders als Safari auf Desktop schliesst diese Interaktion den Container nicht. 
+Wnn der Klick auf der X einen bereits selektierten Wert löscht, bleibt der Container ebenfalls offen. 
+Auf dem Pixel Chrome reagiert der Klick auf die Detail-Ansicht abweichend. 
 Ist das Popover bereits geöffnet, schliesst die Interaktion dieses und öffnet es gleich wieder. 
-Trifft die Touch-Geste das X bei einer bereits getroffenen Selektion, passtiert dieser Fehler nicht.  
+Trifft die Touch-Geste das X bei einer bereits getroffenen Selektion, passiert dieser Fehler nicht.  
 
 Folgende veraltete Browser finden sich in oberflächlichen Tests wieder: 
 
@@ -924,7 +927,7 @@ Folgende veraltete Browser finden sich in oberflächlichen Tests wieder:
 
 % todo old browser
 
-Die breite Abdeckung der manuellen Tests garantiert und beweist bei den abgezielten Browsern eine konsistente Darstellung und einheitliche Interaktionen. 
+Die breite Abdeckung der manuellen Tests garantiert und beweist bei den anfangs genannten Browsern eine konsistente Darstellung und einheitliche Interaktionen. 
 Zudem sind Nutzer mit leicht veralteten Browsern nur leicht beeinträchtigt. 
 Eine gewisse Bedienbarkeit ist möglich. 
 
