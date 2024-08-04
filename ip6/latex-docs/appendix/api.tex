@@ -1,0 +1,206 @@
+\section*{Component specific Types}
+
+\begin{table}[!htb] 
+    \label{api:selectComponentTypes}
+    \footnotesize
+    \setlength\extrarowheight{4pt}
+    \begin{tabular}{ p{5cm} p{8cm}}
+        \toprule[1.2pt]
+        \textbf{Type}    & \textbf{Description} \\
+        \midrule    
+        SimpleOptionType & \{ label: String?, value: String \}    \\
+        OptionDataType   & \{ String | SimpleOptionType \}        \\
+        OptionsTable     & Array$<$Array$<$OptionDataType$>>$       \\
+        CallbackType     & (...String) => Array$<$OptionDataType$>$ \\
+        \bottomrule[1.2pt]
+    \end{tabular}
+\end{table}
+
+\vspace*{12pt}
+The \codestyle{SelectAttributes} object contains the following properties: 
+
+\begin{table}[!htb] 
+    \label{api:selectComponentSelectAttributes}
+    \footnotesize
+    \setlength\extrarowheight{4pt}
+    \begin{tabular}{ p{4cm} p{3cm} p{6cm} }
+        \toprule[1.2pt]
+        \textbf{Property}             & \textbf{Type} & \textbf{Description} \\
+        \midrule
+        label                         & String        &  \\
+        name                          & String        &  \\
+        isRequired                    & Boolean       &  \\
+        isDisabled                    & Boolean       &  \\
+        sortOptionsAlphabetically     & Boolean       &  \\
+        isCursorPositionWithSelection & Boolean       &  \\
+        \bottomrule[1.2pt]
+    \end{tabular}
+\end{table}
+
+
+% ---------
+\clearpage
+\section*{Components}
+
+\vspace*{6pt}
+\subsection*{SelectComponentByCallbacks}
+
+\vspace*{6pt}
+Creates an input component with the functionality: selecting an option in a given list. 
+
+\vspace*{18pt}
+\noindent
+\textbf{Returns}: \codestyle{SelectComponentType}
+
+\begin{table}[!htb] 
+    \label{api:selectComponentByCallbacksReturn}
+    \footnotesize
+    \setlength\extrarowheight{4pt}
+    \begin{tabular}{ p{3.5cm} p{3.5cm} p{6cm} }
+        \toprule[1.2pt]
+        \textbf{Function}     & \textbf{Type}        & \textbf{Description} \\
+        \midrule
+        getSelectController() & SelectControllerType &  \\
+        getComponentView()    & HTMLDivElement       &  \\
+        getLabelElement()     & HTMLLabelElemen      &  \\
+        \bottomrule[1.2pt]
+    \end{tabular}
+\end{table}
+
+\vspace*{6pt}
+\noindent
+\textbf{Parameters}
+
+\begin{table}[!htb] 
+    \label{api:selectComponentByCallbacksParameter}
+    \footnotesize
+    \setlength\extrarowheight{4pt}
+    \begin{tabular}{ p{3.5cm} p{3.5cm} p{6cm} }
+        \toprule[1.2pt]
+        \textbf{Name}    & \textbf{Type}       & \textbf{Description} \\
+        \midrule
+        selectAttributes & SelectAttributes    &  \\
+        serviceCallbacks & Array<CallbackType> &  \\
+        \bottomrule[1.2pt]
+    \end{tabular}
+\end{table}
+
+\vspace*{6pt}
+\noindent
+\textbf{Example}
+
+
+% ---------
+\clearpage
+\subsection*{SelectComponentByTableValues}
+
+\vspace*{6pt}
+Creates an input component with the functionality: selecting an option in a given list. 
+
+\vspace*{18pt}
+\noindent
+\textbf{Returns}: \codestyle{SelectComponentType}
+
+\begin{table}[!htb] 
+    \label{api:selectComponentByTableValuesReturn}
+    \footnotesize
+    \setlength\extrarowheight{4pt}
+    \begin{tabular}{ p{3.5cm} p{3.5cm} p{6cm} }
+        \toprule[1.2pt]
+        \textbf{Function}     & \textbf{Type}        & \textbf{Description} \\
+        \midrule
+        getSelectController() & SelectControllerType &  \\
+        getComponentView()    & HTMLDivElement       &  \\
+        getLabelElement()     & HTMLLabelElemen      &  \\
+        \bottomrule[1.2pt]
+    \end{tabular}
+\end{table}
+
+\vspace*{6pt}
+\noindent
+\textbf{Parameters}
+
+\begin{table}[!htb] 
+    \label{api:selectComponentByTableValuesParameter}
+    \footnotesize
+    \setlength\extrarowheight{4pt}
+    \begin{tabular}{ p{4.5cm} p{3cm} p{5.5cm} }
+        \toprule[1.2pt]
+        \textbf{Name}                 & \textbf{Type}    & \textbf{Description} \\
+        \midrule
+        selectAttributes              & SelectAttributes &  \\
+        optionsTable                  & OptionsTable     &  \\
+        sortColumnOptionsAlphabetical & Boolean          &  \\
+        \bottomrule[1.2pt]
+    \end{tabular}
+\end{table}
+
+\vspace*{6pt}
+\noindent
+\textbf{Example}
+
+% ---------
+\clearpage
+\subsection*{ColumnOptionsComponent}
+
+\vspace*{6pt}
+Creates a column view of a given list. 
+
+\vspace*{18pt}
+\noindent
+\textbf{Returns}: \codestyle{ColumnOptionsComponentType}
+
+\begin{table}[!htb] 
+    \label{api:columnOptionsComponentReturn}
+    \footnotesize
+    \setlength\extrarowheight{4pt}
+    \begin{tabular}{ p{5cm} p{3cm} p{5cm} }
+        \toprule[1.2pt]
+        \textbf{Function}                   & \textbf{Type}     & \textbf{Description} \\
+        \midrule
+        getOptions()                        & Array<OptionType> &  \\
+        addOptions(Array<OptionType>)       & void              &  \\
+        delOptions(Array<OptionType>)       & void              &  \\
+        clearOptions()                      & void              &  \\
+        getSelectedOption()                 & OptionType        &  \\
+        setSelectedOption(OptionType)       & void              &  \\
+        clearSelectedOption()               & void              &  \\
+        \tbbr{
+            onOptionSelected( \\
+                \ \ \ ConsumerType<OptionType>
+            )}                              & void              &  \\
+        isSelectedOptionDisabled()          & Boolean           &  \\
+        setSelectedOptionDisabled(bool)     & void              &  \\
+        \tbbr{
+            onSelectedOptionDisabledChanged( \\
+                \ \ \ ConsumerType<OptionType>
+            )}                              & void              &  \\
+        getColumnView()                     & HTMLDivElement    &  \\
+        \bottomrule[1.2pt]
+    \end{tabular}
+\end{table}
+
+\vspace*{6pt}
+\noindent
+\textbf{Parameters}
+
+\begin{table}[!htb] 
+    \label{api:columnOptionsComponentParameter}
+    \footnotesize
+    \setlength\extrarowheight{4pt}
+    \begin{tabular}{ p{3.2cm} p{4.2cm} p{5.6cm} }
+        \toprule[1.2pt]
+        \textbf{Name}            & \textbf{Type}                & \textbf{Description} \\
+        \midrule
+        cursorPositionController & SelectedOptionControllerType &  \\
+        columnNumber             & Number                       &  \\
+        \bottomrule[1.2pt]
+    \end{tabular}
+\end{table}
+
+\vspace*{6pt}
+\noindent
+\textbf{Example}
+
+% ---------
+
