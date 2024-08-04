@@ -814,17 +814,90 @@ Die lange Wahrtezeit bestätigten mehrere Feedbacks der Nutzer, später mehr daz
 Ein Refactoring der früheren Implementation führt zur Auslagerung der aufwendigen Arbeiten auf den Shadow-DOM. 
 Dadurch verkürzt sich der Ladevorgang um vier bis fünf Sekunden auf knapp 0.4 Sekunden (rechts unten in blau). 
 Der direkte Vergleich zwischen Abbildung \ref{img:performanceTestBefore} und \ref{img:performanceTestAfter} zeigt, dass die Seite um Faktor 13 schneller geladen ist. 
-Feedbacks zu den durchgeführten User-Tests mit Programmierern als auch Endnutzern sind im nachfolgenden Kapitel aufgeführt. 
+Feedbacks zu den durchgeführten User-Tests mit Programmierern als auch Endnutzern sowie manuelle Tests sind im nachfolgenden Kapitel aufgeführt. 
 
 
 \section{Testing}
 \label{sec:testing}
 
 Verschiedene Arten von Tests garantieren die Korrektheit der einzelnen Funktionen und Komponenten. 
+In manuellen Tests findet die Kontrolle der Konsistenz im UI und der Interaktion statt. 
 Die automatisierten Code-Tests stellen sicher, dass das Aufrufen der gebotenen Funktionalität die gewünschten Änderungen ausführt. 
 Komponenten, welche für die Erstellung des UI zusändig sind, prüfen die Existenz von Elementen als auch das Triggern der Events. 
 Die User Tests mit unterschiedlichen Personen gewährleisten eine gute Nutzerzufriedenheit als auch die intuitive Anwendung durch Programmierer. 
 Die Auswahl der Nutzer fällt auf eine grosse Vielfalt, damit die Resultate unterschiedliche Sichtweisen einbeziehen. 
+
+
+\subsection{Manuelle Tests}
+\label{sec:manuelTests}
+
+Manuell durchgeführte Tests – in den vier aktuellen Browser Edge, Chrome, Firefox und Safari – beweisen die Konsistenz der neuen Komponente. 
+Als Beispiel dient die \codestyle{SelectComponent} mit drei Spalten aus Abbildung \ref{img:manualTestComponent}. 
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=80mm]{newComponent/opened.3col.png}
+    \caption{\centering Manuelle Tests – Komponente}
+    \label{img:manualTestComponent}
+\end{figure}
+
+Diese Komponente unterzieht sich einer Prüfung auf Mac als auch Windows. 
+In den Einstellungen sind in einem ersten Durchgang der Light-Mode und in einem Zweiten das Dark-Theme gespeichert. 
+Die genaue Kombination zwischen Browsern und Betriebssystemen ist wie folgt: 
+
+\begin{itemize}
+    \item \textbf{Mac} bzw. \textbf{OSX}: Chrome (127), Firefox (128), Safari (17.5)
+    \item \textbf{Windows (10/11)}: Chrome (127), Firefox (128), Edge (127)
+\end{itemize}
+
+Die SelectComponent aus Abbildung \ref{img:manualTestComponent} zeigt sich in den aufgezählten Kombinationen grundlegend konsistent. 
+Es existiert nur eine kleine Abweichung. 
+Die Scrollbars auf Windows besitzen auf der rechten Seite einen grösseren Abstand als auf Mac. 
+Dabei spielt der Browser keine Rolle. 
+Bei den Interaktionen verhält sich die Komponente ebenfalls konsistent über alle Browser. 
+Die einzige Abweichung findet sich in der systemabhängigen Interaktion, um eine Aktion auszuführen. 
+Auf Windows-PCs mit Nummer-Pad funktionieren die PageUp-, PageDown-, Home- und End-Keys\footnote{
+    Gewisse Tastaturen besitzen die genannten Tasten doppelt – einmal im Num-Pad und einmal in der obersten Zeile
+} auf der Tastatur. 
+Auf OSX verlangen die oben genannten Tasten und Delete eine Tastenkombination mit der fn-Taste. 
+
+Zusätzlich zu den im Vorfeld vereinbarten Systemen und Browser finden noch folgende weitere Prüfungen statt: 
+
+\begin{itemize}
+    \item \textbf{Linux (24 LTS)}: Firefox (125), Chromium (127)
+    \item \textbf{iOS (Simulator)}: Safari (17.2)
+    \item \textbf{Android (Pixel Simulator)}: Chrome (124)
+\end{itemize}
+
+Diese Tests beweisen, dass die Komponente über die geforderten Umgebungen hinaus funktioniert. 
+% todo linux
+
+Die mobilen Geräte öffnen keine virtuelle Tastatur. 
+Deswegen sind nur Touch-Inter\-aktionen möglich. 
+Zu diesen Bedienungsmöglichkeiten gehören das Scrollen und das Klicken. 
+Auf iOS und auf Android stellen die Browser das UI meist konsistent – wie auf dem Desktop Safari – dar. 
+Das Highlight und die Cursor Position haben keinen weiteren Nutzen. 
+Die beiden Zustände bewegen sich mit der Selektion mit. 
+Das Highlight verschwindet, wenn das Touch ausserhalb einer Option erfolgt. 
+Die einzige Inkonsistenz auf iOS zeigt sich beim Klick ausserhalb der SelectComponent. 
+Anders als Safari auf Desktop schliesst diese Interaktion den Container nicht. 
+Wnn der Klick auf der X einen bereits selektierten Wert löscht, bleibt der Container ebenfalls offen. 
+Auf dem Pixel Chrome reagiert der Klick auf die Detail-Ansicht abweichend. 
+Ist das Popover bereits geöffnet, schliesst die Interaktion dieses und öffnet es gleich wieder. 
+Trifft die Touch-Geste das X bei einer bereits getroffenen Selektion, passiert dieser Fehler nicht.  
+
+Folgende veraltete Browser finden sich in oberflächlichen Tests wieder: 
+
+\begin{itemize}
+    \item \textbf{Mac}: Firefox Version 123 => vor Popover API Support
+    \item \textbf{iOS}: Safari Version 16.7 => vor Popover API Support
+\end{itemize}
+
+% todo old browser
+
+Die breite Abdeckung der manuellen Tests garantiert und beweist bei den anfangs genannten Browsern eine konsistente Darstellung und einheitliche Interaktionen. 
+Zudem sind Nutzer mit leicht veralteten Browsern nur leicht beeinträchtigt. 
+Eine gewisse Bedienbarkeit ist möglich. 
 
 
 \subsection{Automatisierte Tests}
@@ -860,78 +933,6 @@ Die breite Abdeckung der Einzelteile garantiert die korrekte Funktion der neuen 
 Die Tests im nachfolgenden Kapitel sind für eine gute Anwendbarkeit im Code als auch angenehme Benutzung der Auswahlkomponente im Browser notwendig. 
 
 
-\subsection{Manuelle Tests}
-\label{sec:manuelTests}
-
-Manuell durchgeführte Tests – in den vier aktuellen Browser Edge, Chrome, Firefox und Safari – beweisen die Konsistenz der neuen Komponente. 
-Als Beispiel dient die \codestyle{SelectComponent} mit drei Spalten aus Abbildung \ref{img:manualTestComponent}. 
-
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=100mm]{newComponent/opened.3col.png}
-    \caption{\centering Manuelle Tests – Komponente}
-    \label{img:manualTestComponent}
-\end{figure}
-
-Diese Komponente unterzieht sich einer Prüfung auf Mac als auch Windows. 
-In den Einstellungen sind in einem ersten Durchgang der Light-Mode und in einem Zweiten das Dark-Theme gespeichert. 
-Die genaue Kombination zwischen Browsern und Betriebssystemen ist wie folgt: 
-
-\begin{itemize}
-    \item \textbf{Mac} bzw. \textbf{OSX}: Chrome (127), Firefox (128), Safari (17.5)
-    \item \textbf{Windows}: Chrome (127), Firefox (128), Edge (127)
-\end{itemize}
-
-Die SelectComponent aus Abbildung \ref{img:manualTestComponent} zeigt sich in den aufgezählten Kombinationen grundlegend konsistent. 
-Es existiert nur eine kleine Abweichung. 
-Die Scrollbars auf Windows besitzen auf der rechten Seite einen grösseren Abstand als auf Mac. 
-Dabei spielt der Browser keine Rolle. 
-Bei den Interaktionen verhält sich die Komponente ebenfalls konsistent über alle Browser. 
-Die einzige Abweichung findet sich in der systemabhängigen Interaktion, um eine Aktion auszuführen. 
-Auf Windows-PCs mit Nummer-Pad funktionieren die PageUp-, PageDown-, Home- und End-Keys\footnote{
-    % todo beschreiben zwei tasten
-} auf der Tastatur. 
-Auf OSX verlangen die oben genannten Tasten und Delete eine Tastenkombination mit der fn-Taste. 
-
-Zusätzlich zu den im Vorfeld vereinbarten Systemen und Browser finden noch folgende weitere Prüfungen statt: 
-
-\begin{itemize}
-    \item \textbf{Linux (24 LTS)}: Firefox (125), Chromium (127)
-    \item \textbf{iOS (Simulator)}: Safari (17.2)
-    \item \textbf{Android (Pixel Simulator)}: Chrome (124)
-\end{itemize}
-
-Diese Tests beweisen, dass die Komponente über die geforderten Umgebungen hinaus funktioniert. 
-% todo linux
-
-Die mobilen Geräte öffnen keine virtuelle Tastatur. 
-Deswegen sind nur Touch-Interaktionen möglich. 
-Zu diesen Bedienungsmöglichkeiten gehören das Scrollen und das Klicken. 
-Auf iOS und auf Android stellen die Browser das UI meist konsistent – wie auf dem Desktop Safari – dar. 
-Das Highlight und die Cursor Position haben keinen weiteren Nutzen. 
-Die beiden Zustände bewegen sich mit der Selektion mit. 
-Das Highlight verschwindet, wenn das Touch ausserhalb einer Option erfolgt. 
-Die einzige Inkonsistenz auf iOS zeigt sich beim Klick ausserhalb der SelectComponent. 
-Anders als Safari auf Desktop schliesst diese Interaktion den Container nicht. 
-Wnn der Klick auf der X einen bereits selektierten Wert löscht, bleibt der Container ebenfalls offen. 
-Auf dem Pixel Chrome reagiert der Klick auf die Detail-Ansicht abweichend. 
-Ist das Popover bereits geöffnet, schliesst die Interaktion dieses und öffnet es gleich wieder. 
-Trifft die Touch-Geste das X bei einer bereits getroffenen Selektion, passiert dieser Fehler nicht.  
-
-Folgende veraltete Browser finden sich in oberflächlichen Tests wieder: 
-
-\begin{itemize}
-    \item \textbf{Mac}: Firefox Version 123 => vor Popover API Support
-    \item \textbf{iOS}: Safari Version 16.7 => vor Popover API Support
-\end{itemize}
-
-% todo old browser
-
-Die breite Abdeckung der manuellen Tests garantiert und beweist bei den anfangs genannten Browsern eine konsistente Darstellung und einheitliche Interaktionen. 
-Zudem sind Nutzer mit leicht veralteten Browsern nur leicht beeinträchtigt. 
-Eine gewisse Bedienbarkeit ist möglich. 
-
-
 \subsection{User Tests} % todo
 \label{sec:userTests}
 
@@ -953,17 +954,26 @@ Eine gewisse Bedienbarkeit ist möglich.
 \section{Fazit}
 \label{sec:summeryNew}
 % todo neu 
-Das Kapitel zur neuen Auswahlkomponente umfasst eine umfassende Beschreibung der verschiedenen Aspekte und Überlegungen, die in die Entwicklung eingespielt haben. 
 Das Design der Komponente, inspiriert durch das Kolibri-Designsystem, stellt sicher, dass die visuelle Konsistenz und Benutzerfreundlichkeit erhalten bleiben. 
-Die spezifischen Designoptionen wie Farbpalette und Layout sind sorgfältig ausgewählt und implementiert, um eine optimale Lesbarkeit und Bedienbarkeit zu gewährleisten. 
+Die spezifischen Designoptionen wie Farbpalette und Layout sind sorgfältig ausgewählt und implementiert. 
+Dadurch ist eine optimale Lesbarkeit und Bedienbarkeit gewähltet. 
+Diese Punkte sind durch die durchgeführte Tests bewiesen. 
 
-Der Einsatz von Figma-Prototypen ist entscheidend, um eine realitätsnahe Vorschau und Benutzerfeedback zu erhalten. 
-Dadurch verbessert sich die Benutzerfreundlichkeit kontinuierlich. 
-Die Kombination von durchdachten CSS-Anpassungen und einem klaren Interaktionen stellt sicher, dass die Komponente sowohl für Maus- als auch für Tastaturbenutzer zugänglich und intuitiv ist. 
+Der Einsatz von Figma-Prototypen ist entscheidend. 
+Daraus erfolgen eine realitätsnahe Vorschau und Benutzerfeedback. 
+Aus diesen Gründen verbessert sich die Benutzerfreundlichkeit kontinuierlich. 
+Die Kombination von durchdachten CSS-Anpassungen stellt sicher, dass die Komponente intuitiv bedienbar ist. 
+Eine klare Interaktionen-Definition garantiert Maus- als auch für Tastaturbenutzern eine gute Zugänglichkeit. 
 
-Die Integration von Prinzipien wie KISS und Separation of Concern sowie die Anwendung von Patterns wie Null Object und Projector tragen zur Schaffung eines stabilen und wartbaren Codes bei. 
-Der Dropdown-Container ermöglicht eine konsistente und benutzerfreundliche Darstellung der Optionen. 
+Die Integration von Prinzipien und Patterns führen zu einem stabilen und wartbaren Code. 
+Mit KISS und Separation of Concern bleibt der Code einfach und gut lesbar. 
+Die Umsetzung von dem Null Object und dem Projector Pattern garantieren die Wiederverwendbarkeit und halten sich an das Separation of Concern Prinzip. 
+Ein wichtiger Baustein der \codestyle{SelectComponent} ist der Container mit allen Werten. 
+Die Wahl der Popover-API vereinfacht die Implementation enorm, indem weniger zusätzliche Funktionalität notwendig ist. 
 
-Die durchgeführten User Tests bestätigten die hohe Usability der Komponente, und die automatisierten Tests gewährleisten eine hohe Codequalität. 
-Ein agiles Entwicklungsverfahren ermöglicht durch stetige Optimierung die Entstehung der neuen, effizienten Auswahlkomponente. 
+Stetig durchgeführte, manuelle Tests ermöglichen eine Überwachung und einen Vergleich der Performance. 
+Optimierungen im Code führen zu einer schenlleren Performance und einer angenehmen Benutzererfahrung. 
+Automatische Tests gewährleisten eine hohe Codequalität und die Korrektheit der Funktionalitäten. 
+Die durchgeführten User Tests bestätigten die hohe Usability der Komponente. 
+Ein agiles Entwicklungsverfahren ermöglicht während der Entstehung der neuen, effizienten Auswahlkomponente eine stetige Optimierung. 
 Sie bildet eine solide Grundlage für zukünftige Erweiterungen und Anpassungen. 
