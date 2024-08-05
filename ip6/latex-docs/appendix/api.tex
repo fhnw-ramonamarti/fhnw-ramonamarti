@@ -245,7 +245,7 @@ Creates a column view of a given list of options.
         \tbbr{
             onOptionSelected( \\
                 \ \ \ Consumer<Option>
-            )}                              & void           & Adds listeners to the change of the option selection observable. \\
+            )}                              & void           & Adds a listener to the change of the option selection observable. \\
         isSelectedOptionDisabled()          & Boolean        & Checks if the selected option is disabled to be changed. \\
         setSelectedOptionDisabled(bool)     & void           & Changes the possibility to change the selection. 
                                                                Sets the disabled to the passed value. 
@@ -253,7 +253,7 @@ Creates a column view of a given list of options.
         \tbbr{
             onSelectedOptionDisabledChanged( \\
                 \ \ \ Consumer<Option>
-            )}                              & void           & Adds listeners to the change of the disable observable. \\
+            )}                              & void           & Adds a listener to the change of the disable observable. \\
         getColumnView()                     & HTMLDivElement & Provides the whole column component. 
                                                                It is not linked to an input field. \\
         \bottomrule[1.2pt]
@@ -333,41 +333,44 @@ Provides the functionality to manage a select input component.
         \toprule[1.2pt]
         \textbf{Function}                    & \textbf{Type}          & \textbf{Description} \\
         \midrule
-        getId()                              & String                 &  \\
-        getNumberOfColumns()                 & Number                 &  \\
-        getInputController()                 & SimpleInputController  &  \\
-        isCursorPositionWithSelection()      & Boolean                &  \\
-        isRequired()                         & Boolean                &  \\
-        setRequired(Boolean)                 & void                   &  \\
+        getId()                              & String                 & Provides a unique id for each component. \\
+        getNumberOfColumns()                 & Number                 & Provides the fixed number of columns to show in the ui. \\
+        getInputController()                 & SimpleInputController  & Provides the functionality of the text input hidden behind the component. 
+                                                                        This input will send the data in the from. \\
+        isCursorPositionWithSelection()      & Boolean                & Checks if the keyboard interaction also changes the selection. 
+                                                                        If false the cursor position for the keyboard acts like the highlight for the mouse. \\
+        isRequired()                         & Boolean                & Checks if an option has to be chosen in a form. \\
+        setRequired(Boolean)                 & void                   & Changes the requirement of the select input to the passed value. \\
         \tbbr{
             onRequiredChanged( \\
                 \ \ \ Consumer<Option>
-            )}                               & void                   &  \\
-        isDisabled()                         & Boolean                &  \\
+            )}                               & void                   & Adds a listener to the change of the requirement. \\
+        isDisabled()                         & Boolean                & Checks if the option of the select input can be changed.  \\
         setDisabled(Boolean)                 & void                   &  \\
         \tbbr{
             onDisabledChanged( \\
                 \ \ \ Consumer<Option>
-            )}                               & void                   &  \\
-        isOptionsVisible()                   & Boolean                &  \\
-        setOptionsVisibility(Boolean)        & void                   &  \\
+            )}                               & void                   & Adds a listener to the change of possibility to fill the input. \\
+        isOptionsVisible()                   & Boolean                & Checks if the options container is visible. 
+                                                                        It contains all the category and value options. 
+                                                                        In a default select this would be the not visible part of the component in the initial state. \\
+        setOptionsVisibility(Boolean)        & void                   & Change the visibility of the options container to the passed value. \\
         \tbbr{
             onOptionsVisibilityChange( \\
                 \ \ \ Consumer<Option>
-            )}                               & void                   &  \\
-        isSelectedOptionVisible()            & Boolean                &  \\
-        setSelectedOptionVisibility(Boolean) & void                   &  \\
+            )}                               & void                   & Adds a listener to the change of the visibility of the options container. 
+                                                                        It contains all the category and value options. 
+                                                                        In a default select this would be the not visible part of the component in the initial state. \\
+        isSelectedOptionVisible()            & Boolean                & Checks if the selected option container is visible. 
+                                                                        It contains only the selected option and maybe some action buttons. 
+                                                                        In a default select this would be the always visible part of the component. \\
+        setSelectedOptionVisibility(Boolean) & void                   & Change the visibility of the selected option container to the passed value. \\
         \tbbr{
             onSelectedOptionVisibilityChange( \\
                 \ \ \ Consumer<Option>
-            )}                               & void                   &  \\
-        getCursorPosition()                  & Option                 &  \\
-        setCursorPosition(Option)            & void                   &  \\
-        clearCursorPosition()                & void                   &  \\
-        \tbbr{
-            onCursorPositionChanged( \\
-                \ \ \ Consumer<Option>
-            )}                               & void                   &  \\
+            )}                               & void                   & Adds a listener to the change of the visibility of the selected option container. 
+                                                                        It contains only the selected option and maybe some action buttons. 
+                                                                        In a default select this would be the always visible part of the component. \\
         \bottomrule[0.5pt]
     \end{tabular}
 \end{table}
@@ -381,17 +384,26 @@ Provides the functionality to manage a select input component.
         \toprule[0.5pt]
         \textbf{Function}                    & \textbf{Type}          & \textbf{Description} \\
         \midrule    
-        getSelectedValueOption()             & Option                 &  \\
-        setSelectedValueOption(Option)       & void                   &  \\
-        clearSelectedValueOption()           & void                   &  \\
-        getSelectedOptionOfColumns(Number)   & Option                 &  \\
+        getCursorPosition()                  & Option                 & Provides the option the keyboard cursor is currently at. \\
+        setCursorPosition(Option)            & void                   & Changes the cursor position of the keyboard to the passed option. 
+                                                                        The cursor position can only  contain one option per component. \\
+        clearCursorPosition()                & void                   & Reset the keyboard cursor to no option. \\
         \tbbr{
-            clearColumnOptions( \\
-                \ \ \ max: Number, min: Number 
-            )}                               & void                   &  \\
-        clearSelectedOptions(Number)         & void                   &  \\
+            onCursorPositionChanged( \\
+                \ \ \ Consumer<Option>
+            )}                               & void                   & Adds a listener to the change of the cursor position. \\
+        getSelectedValueOption()             & Option                 & Provides the selected value option of the select input. 
+                                                                        This is the option that is sent in a form. \\
+        setSelectedValueOption(Option)       & void                   & Changes the selected value option to the passed option. 
+                                                                        There can only be one option selected.  \\
+        clearSelectedValueOption()           & void                   & Reset the selected value option to no option.  \\
+        getSelectedOptionOfColumns(Number)   & Option                 & Provides the selected option of the passed column. 
+                                                                        The column 0 contains the same value as in `getSelectedValueOption()` is provided. 
+                                                                        The other columns contain the selected category of the passed column. \\
         getColumnOptionsComponent(Number)    & \raggedright Column\-
-                                               Options\-Component     &  \\
+                                               Options\-Component     & Provides the column options compontent of the passed column with the view and functionality. 
+                                                                        The column 0 provides the value option column component. 
+                                                                        The other columns provide the category option columns of the passed column. \\
         \bottomrule[1.2pt]
     \end{tabular}
 \end{table}
@@ -419,5 +431,44 @@ Provides the functionality to manage a select input component.
 \textbf{Example}
 
 \begin{lstlisting}[style = htmlcssjs, label = api:selectControllerExample]
+const decades = [
+    ValueOption("1990's"),
+    ValueOption("2000's"),
+    ValueOption("2010's"),
+    ValueOption("2020's")
+];
+const currentYear = CategoryOption("2024");
+const years = [
+    CategoryOption("1990"),
+    CategoryOption("1991"),
+    /* ... */
+    CategoryOption("2009"),
+    CategoryOption("2010"),
+    /* ... */
+    CategoryOption("2023"),
+    currentYear
+];
+const selectAttributes = { 
+    name : "year", 
+    label: "Year", 
+    isRequired: true 
+};
+const selectController = SelectController(selectAttributes, 2);
 
+selectController.getColumnOptionsComponent(1).onOptionSelected(
+    newDecade => {
+        selectController.getColumnOptionsComponent(0).clearOptions();
+        selectController.getColumnOptionsComponent(0).addOptions(
+            years.filter(year => year.getLabel().startsWith(
+                newDecade.getLabel().slice(0, 2)))
+        );
+});
+selectController.getColumnOptionsComponent(0).onOptionSelected(
+    newDecade => alert("You chose the year: " + newDecade.getLabel()));
+
+selectController.getColumnOptionsComponent(1).addOptions(descades);
+selectController.getColumnOptionsComponent(0).addOptions(years);
+
+selectController.getColumnOptionsComponent(0)
+                .setSelectedOption(currentYear);
 \end{lstlisting}
