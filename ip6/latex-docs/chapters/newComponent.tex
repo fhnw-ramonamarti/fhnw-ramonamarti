@@ -890,8 +890,9 @@ Trifft die Touch-Geste das X bei einer bereits getroffenen Selektion, passiert d
 Folgende veraltete Browser finden sich in oberflächlichen Tests wieder: 
 
 \begin{itemize}
-    \item \textbf{Mac}: Firefox Version 123 => vor Popover API Support
-    \item \textbf{iOS}: Safari Version 16.7 => vor Popover API Support
+    \item \textbf{Mac}: Firefox Version 123 => vor Popover API
+    \item \textbf{iOS}: Safari Version 16.7 => vor Popover API \& partitial nesting CSS (\&) Support
+    \item \textbf{Windows}: Internet Explorer Version 11 => vor Popover API \& nesting CSS (\&)
 \end{itemize}
 
 % todo old browser
@@ -996,6 +997,32 @@ Die Ergebnisse der Tests liefern wertvolle Erkenntnisse, welche zur Verbesserung
 Die Überarbeitung der Dokumentation als auch der Rückgabe der Komponente behebt die eine grosse Kritik an der Komponente. 
 Die Erstellung des zweiten Konstruktors mit einer Tabelle von Werten ermöglicht das Umgehen des Stolpersteins der Callbacks. 
 
+\textbf{Dokumentation}: In der Code-Dokumentation von \codestyle{SelectComponent} dürfte der Return-Wert besser beschrieben werden (welches Array-Element ist was). Das wird erst in den Anwendungsbeispielen klar.
+\\
+\textbf{Detail}: \codestyle{numberOfColumns} ist etwas "verbose".
+\\
+\textbf{Verständnis}: Am Anfang war nicht klar, was \codestyle{SelectComponent()} zurückgibt und ob das Input-Element sowie das Label-Element selbst erstellt werden sollen. Danach war es intuitiv anzuwenden.
+\\
+\textbf{Callback}: Es wurde als etwas unintuitiv empfunden, beim \codestyle{SelectComponent} neben den offensichtlich verständlichen \codestyle{selectAttributes} (Label, Name, \codestyle{numberOfColumns}) noch ein Callback mitzugeben.
+\\
+\textbf{Beschreibung}: Mehr Beschreibung war gewünscht, wie die Komponente verwendet werden muss. Es musste eher danach gesucht werden.
+\\
+\textbf{Code}: Bessere Dokumentation war verwirrend.
+\\
+\textbf{JSDOC}: Es würde helfen, wenn die Typen im JSDOC spezifiziert wären und wenn die Library eingebunden wäre. Dann wäre die Dokumentation leichter auffindbar.
+\\
+\textbf{Navigation}: Die Tastaturnavigation könnte verbessert werden. Verwendung der Tastatur zum Eingrenzen möglicher Kategorien/Werte (vielleicht unscharfe Suche), sonst dauert es länger, etwas zu finden, als bei einem Standard-Dropdown, selbst wenn die Liste dort größer ist.
+\\
+\textbf{Automatisches Schließen}: Automatisches Schließen der Komponente nach der Auswahl würde als praktisch empfunden.
+\\
+\textbf{\codestyle{numberOfColumns}}: Ist \codestyle{selectAttributes} \codestyle{numberOfColumns} nötig?
+\\
+\textbf{Performance}: Die Performance ist zu langsam. Beim Implementieren von Task 2.2 braucht die Webseite ca. 5 Sekunden zum Laden (rein JavaScript-Execution). Liegt nicht am JavaScript, sondern am HTML-Rendering soweit ersichtlich.
+\\
+\textbf{Reihenfolge}: Es ist speziell, dass \codestyle{serviceCallbacks} array in umgekehrter Reihenfolge eingegeben werden muss, als es dann angezeigt wird.
+\\
+\textbf{Leere} Spalten: Wenn man zwei Kolonnen hat, aber rechts keine Auswahl, dann kann man auch nichts auswählen. Ja, ist zu erwarten, aber ist auch in der Demo vorhanden.
+
 
 \subsubsection{Formular-Ausfüller}
 \label{sec:userTestsEnduser}
@@ -1003,7 +1030,33 @@ Die Erstellung des zweiten Konstruktors mit einer Tabelle von Werten ermöglicht
 % 
 
 
-\section{Fazit}
+\subsubsection{Fazit}
+\label{sec:userTestsSummery}
+
+Die Entwicklung und Implementierung der neuen Auswahlkomponente auf Basis des Kolibri-Designsystems stellte eine Herausforderung dar, die durch eine strukturierte Vorgehensweise und kontinuierliche Verbesserungen erfolgreich umsetzbar ist. Die Usability-Tests mit Programmierern und Formular-Ausfüllern liefern Einblicke in die Benutzerfreundlichkeit und Funktionalität der Komponente.
+
+\noindent
+\textbf{Wichtige Erkenntnisse und Erfolge}:
+
+\textbf{Design und Konsistenz}: Die Nutzung des Kolibri-Designsystems ermöglichte eine konsistente und ansprechende Benutzererfahrung. Die Farbauswahl und Kontraste wurden so angepasst, dass eine hohe Lesbarkeit und Benutzerfreundlichkeit gewährleistet sind.
+\\
+\textbf{Interaktion und Benutzerfreundlichkeit}: Die neue Komponente bietet eine intuitive Bedienung sowohl für Maus- als auch für Tastaturbenutzer. Die Rückmeldungen aus den Tests zeigten, dass die Komponente nach einer kurzen Einarbeitungszeit gut verständlich und benutzerfreundlich ist.
+\\
+\textbf{Performance-Optimierungen}: Durch gezielte Performance-Optimierungen, wie die Verwendung des Shadow-DOMs, konnte die Ladezeit bei großen Datenmengen erheblich reduziert werden. Dies trägt zu einer flüssigeren Benutzererfahrung bei.
+
+\noindent
+\textbf{Verbesserungspotenziale}:
+
+\textbf{Dokumentation}: Eine detailliertere Dokumentation der Rückgabewerte und der Verwendung der Komponente ist notwendig, um Missverständnisse zu vermeiden und die Einarbeitung zu erleichtern.
+\\
+\textbf{Interaktion}: Die Implementierung einer automatischen Schließfunktion nach der Auswahl eines Wertes und eine verbesserte Tastaturnavigation wurden als wünschenswert identifiziert.
+\\
+\textbf{Code-Komplexität}: Die Reduzierung der Komplexität der Parameter und Callbacks würde die Komponente einfacher verwendbar machen und die Entwicklerfreundlichkeit erhöhen.
+
+Die neue Auswahlkomponente erfüllt die Anforderungen an Konsistenz, Benutzerfreundlichkeit und Performance und bietet gleichzeitig Raum für weitere Optimierungen. Die kontinuierliche Weiterentwicklung und Verbesserung der Komponente basierend auf Nutzerfeedback stellt sicher, dass sie den hohen Ansprüchen an moderne Webanwendungen gerecht ist. 
+
+
+\section{Fazit der neuen Komponente}
 \label{sec:summeryNew}
 
 Das Design der Komponente, inspiriert durch das Kolibri-Designsystem, stellt sicher, dass die visuelle Konsistenz und Benutzerfreundlichkeit erhalten bleiben. 
