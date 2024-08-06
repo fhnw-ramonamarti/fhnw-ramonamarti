@@ -290,7 +290,7 @@ Diese Kombination von CSS und JavaScript bietet dem Highlighting und der Auswahl
 \subsection{Optionen und Scrollbar-Styling}
 \label{sec:sizeLayoutChanges}
 
-Diese CSS-Regeln gestalten die Optionen einer einzelnen Spalte sowie das Scroll-Verhalten des Containers. 
+Diese CSS-Regeln gestalten die Optionen einer einzelnen Spalte sowie das Scroll-Ver\-hal\-ten des Containers. 
 Das \codestyle{.options-column} aus Code \ref{code:optionStyling} definiert das Layout sowie weitere Listen-abhängige Eigenschaften, während das \codestyle{.option-item} das Erscheinungsbild und die Interaktivität der einzelnen Optionen festlegt. 
 
 \begin{lstlisting}[style = htmlcssjs, caption = Optionen und Scrollbar-Styling, label = code:optionStyling]
@@ -318,7 +318,7 @@ Das \codestyle{.options-column} aus Code \ref{code:optionStyling} definiert das 
 \end{lstlisting}
 
 Die Nutzung von den CSS-Styles im JavaScript stellt sicher, dass die dynamischen Klassen und Stile bei den Elementen bei Erstellung oder Aktualisierung ihre Anwendung finden. 
-Das Beispiel \ref{code:cssSyleInJs} aus den Dateien \codestyle{selectProjector.js} und \codestyle{columnOptionsProjector.js} verwenden die erwänhten CSS-Klassen:
+Das Beispiel \ref{code:cssSyleInJs} aus den Files \codestyle{select\-Projector.js} und \codestyle{columnOptions\-Projector.js} verwenden die erwänhten CSS-Klassen:
 
 \begin{lstlisting}[style = htmlcssjs, caption = CSS-Styles im JavaScript, label = code:cssSyleInJs]
 // selectProjector.js
@@ -349,7 +349,7 @@ Diese Kombination aus CSS und JS stellt sicher, dass die Dropdown- und Popover-K
 
 
 \subsection{Prototyping und Benutzerfeedback}
-\label{sec:userFeedbackPtototyping}
+\label{sec:userFeedbackPrototyping}
 
 Der Einsatz von interaktiven Figma-Prototypen ist hilfreich beim Evaluieren der initialen Benutzerfreundlichkeit und intuitiven Bedienung. 
 Mit der Integration der Rückmeldungen von Benutzerinteraktionen in das Design verbessert sich die Usability kontinuierlich. 
@@ -947,9 +947,9 @@ Die Korrektheit des Zusammenspiels zwischen Projektor und Controller findet sich
 
 Die restlichen Test-Bibliotheken decken die Korrektheit der auf Abbildung \ref{img:diagramSelectComponent} sichtbaren Bausteine ab. 
 Diese drei Dateien prüfen das Zusammenspiel der Columns als auch der allgemeinen Komponenten-Funktionalitäten. 
-In einzelnen Units prüft die \codestyle{SelectController}-Test-Suite verschiedene Varianten der Anwendung. 
-In dem \codestyle{projectSelectViews}-Test befindet sich – wie bereits bei der Column – die Prüfungen der Korrektheit der Bindings und View-Elemente. 
-Die letzte Datei kümmert sich um die Kontrolle verschieden angewendeter \codestyle{SelectComponent\-ByCallbacks} und \codestyle{SelectComponent\-By\-TableValues}. 
+In einzelnen Units prüft die \codestyle{Select\-Controller}-Test-Suite verschiedene Varianten der Anwendung. 
+In dem \codestyle{project\-Select\-Views}-Test befindet sich – wie bereits bei der Column – die Prüfungen der Korrektheit der Bindings und View-Elemente. 
+Die letzte Datei kümmert sich um die Kontrolle verschieden angewendeter \codestyle{SelectComponent\-By\-Callbacks} und \codestyle{SelectComponent\-By\-TableValues}. 
 Die breite Abdeckung der Einzelteile garantiert die korrekte Funktion der neuen Komponente. 
 Die Tests im nachfolgenden Kapitel sind für eine gute Anwendbarkeit im Code als auch angenehme Benutzung der Auswahlkomponente im Browser notwendig. 
 
@@ -1016,34 +1016,48 @@ Die Ergebnisse der Tests liefern wertvolle Erkenntnisse, welche zur Verbesserung
 Die Überarbeitung der Dokumentation als auch der Rückgabe der Komponente behebt die eine grosse Kritik an der Komponente. 
 Die Erstellung des zweiten Konstruktors mit einer Tabelle von Werten ermöglicht das Umgehen des Stolpersteins der Callbacks. 
 
-\textbf{Dokumentation}: In der Code-Dokumentation von \codestyle{SelectComponent} dürfte der Return-Wert besser beschrieben werden (welches Array-Element ist was). Das wird erst in den Anwendungsbeispielen klar.
+Die nachfolgende Liste zählt die Verbessrungsvorschläge und Bemerkungen der Test-Programmierer Zusammengefasst auf. 
+Die genauen Feedbacks befinden sich in Anhang \textbf{\ref{chap:userTestProgrammers}}. 
+ \\
+\textbf{Dokumentation \& Return-Wert}: 
+Das JSDoc von \codestyle{SelectComponent} benötigt eine detailliertere Beschreibung des Return-Arrays. 
+Die Elemente erklären sich erst in den Anwendungsbeispielen. 
+Tester mussten nach der Beschreibung suchen. 
+Die Dokumentation erweist sich als verwirrend. 
+Wenn sich die Komponente nicht im Projektordner befindet, erscheinen keine Typen-Informationen bzw. Dokumentationshinweise. 
 \\
-\textbf{Detail}: \codestyle{numberOfColumns} ist etwas "verbose".
+\codestyle{\textbf{numberOfColumns}}: 
+Ein Tester versuchte den Parameter falsch anzuwenden, um Fehler aufzudecken. 
+Ist \codestyle{selectAttributes} $\Rightarrow$ \codestyle{numberOfColumns} nötig? 
 \\
-\textbf{Verständnis}: Am Anfang war nicht klar, was \codestyle{SelectComponent()} zurückgibt und ob das Input-Element sowie das Label-Element selbst erstellt werden sollen. Danach war es intuitiv anzuwenden.
+\codestyle{\textbf{selectAttributes}}: 
+Der Parameter ist intuitiv anwendbar. 
+Label, Name und \codestyle{numberOf\-Columns} sind klar. 
 \\
-\textbf{Callback}: Es wurde als etwas unintuitiv empfunden, beim \codestyle{SelectComponent} neben den offensichtlich verständlichen \codestyle{selectAttributes} (Label, Name, \codestyle{numberOfColumns}) noch ein Callback mitzugeben.
+\textbf{Callback}: 
+Der Parameter ist nicht intuitiv anwendbar. 
+Callbacks sind nicht allen Programmierern klar in der Anwendung bzw. bekannt. 
+Es ist speziell, dass \codestyle{serviceCallbacks}-Array in umgekehrter Reihenfolge – im Gegensatz zum UI – einzugeben ist.
 \\
-\textbf{Beschreibung}: Mehr Beschreibung war gewünscht, wie die Komponente verwendet werden muss. Es musste eher danach gesucht werden.
+\textbf{Navigation}: 
+Die Tastaturnavigation ist nicht ideal. 
+Die Verwendung der Tastatur zum Eingrenzen möglicher Kategorien/Werte – unscharfe Suche – wäre eine Möglichkeit. 
+Sonst dauert die Suche länger als in den existierenden Komponenten. 
 \\
-\textbf{Code}: Bessere Dokumentation war verwirrend.
+\textbf{Automatisches Schliessen}: 
+Automatisches Schliessen der Komponente nach der Auswahl wäre praktisch. 
 \\
-\textbf{JSDOC}: Es würde helfen, wenn die Typen im JSDOC spezifiziert wären und wenn die Library eingebunden wäre. Dann wäre die Dokumentation leichter auffindbar.
+\textbf{Performance}: 
+Die Performance ist zu langsam. 
+Beim Implementieren von Task 2.2 benötigt die Webseite ca. 5 Sekunden zum Laden. 
+Dies liegt – soweit ersichtlich – am HTML-Rendering. 
 \\
-\textbf{Navigation}: Die Tastaturnavigation könnte verbessert werden. Verwendung der Tastatur zum Eingrenzen möglicher Kategorien/Werte (vielleicht unscharfe Suche), sonst dauert es länger, etwas zu finden, als bei einem Standard-Dropdown, selbst wenn die Liste dort größer ist.
-\\
-\textbf{Automatisches Schließen}: Automatisches Schließen der Komponente nach der Auswahl würde als praktisch empfunden.
-\\
-\textbf{\codestyle{numberOfColumns}}: Ist \codestyle{selectAttributes} \codestyle{numberOfColumns} nötig?
-\\
-\textbf{Performance}: Die Performance ist zu langsam. Beim Implementieren von Task 2.2 braucht die Webseite ca. 5 Sekunden zum Laden (rein JavaScript-Execution). Liegt nicht am JavaScript, sondern am HTML-Rendering soweit ersichtlich.
-\\
-\textbf{Reihenfolge}: Es ist speziell, dass \codestyle{serviceCallbacks} array in umgekehrter Reihenfolge eingegeben werden muss, als es dann angezeigt wird.
-\\
-\textbf{Leere} Spalten: Wenn man zwei Kolonnen hat, aber rechts keine Auswahl, dann kann man auch nichts auswählen. Ja, ist zu erwarten, aber ist auch in der Demo vorhanden.
+\textbf{Leere Spalten}: 
+Wenn man zwei Kolonnen hat, aber rechts keine Auswahl, dann kann man auch nichts auswählen. 
+Ja, ist zu erwarten, aber nicht ideal für die Demo. 
 
 
-\subsubsection{Formular-Ausfüller}
+\subsubsection{Endanwendern}
 \label{sec:userTestsEnduser}
 
 % 
@@ -1052,27 +1066,47 @@ Die Erstellung des zweiten Konstruktors mit einer Tabelle von Werten ermöglicht
 \subsubsection{Fazit}
 \label{sec:userTestsSummery}
 
-Die Entwicklung und Implementierung der neuen Auswahlkomponente auf Basis des Kolibri-Designsystems stellte eine Herausforderung dar, die durch eine strukturierte Vorgehensweise und kontinuierliche Verbesserungen erfolgreich umsetzbar ist. Die Usability-Tests mit Programmierern und Formular-Ausfüllern liefern Einblicke in die Benutzerfreundlichkeit und Funktionalität der Komponente.
+Die Entwicklung und Implementierung der neuen Auswahlkomponente stellt eine Herausforderung dar. 
+Dies ist durch eine strukturierte Vorgehensweise und kontinuierliche Verbesserungen erfolgreich umsetzbar. 
+Die Usability-Tests mit Programmierern und Endanwendern liefern Einblicke in die Benutzerfreundlichkeit und Funktionalität der Komponente. 
 
+ \\
 \noindent
-\textbf{Wichtige Erkenntnisse und Erfolge}:
+\emph{Wichtige Erkenntnisse und Erfolge}:
 \\
-\textbf{Design und Konsistenz}: Die Nutzung des Kolibri-Designsystems ermöglichte eine konsistente und ansprechende Benutzererfahrung. Die Farbauswahl und Kontraste wurden so angepasst, dass eine hohe Lesbarkeit und Benutzerfreundlichkeit gewährleistet sind.
+\textbf{Design und Konsistenz}: 
+Die Nutzung des Kolibri-Designsystems ermöglicht eine konsistente und ansprechende Benutzererfahrung. 
+Die Anpassung der Farbauswahl und Kontraste ist wichtig, dass eine hohe Lesbarkeit und Benutzerfreundlichkeit gewährleistet sind. 
 \\
-\textbf{Interaktion und Benutzerfreundlichkeit}: Die neue Komponente bietet eine intuitive Bedienung sowohl für Maus- als auch für Tastaturbenutzer. Die Rückmeldungen aus den Tests zeigten, dass die Komponente nach einer kurzen Einarbeitungszeit gut verständlich und benutzerfreundlich ist.
+\textbf{Interaktion und Benutzerfreundlichkeit}: 
+Die neue Komponente bietet eine intuitive Bedienung sowohl für Maus- als auch für Tastaturbenutzer. 
+Die Rückmeldungen aus den Tests zeigen, dass die Komponente nach einer kurzen Einarbeitungszeit gut verständlich und benutzerfreundlich ist. 
 \\
-\textbf{Performance-Optimierungen}: Durch gezielte Performance-Optimierungen, wie die Verwendung des Shadow-DOMs, konnte die Ladezeit bei großen Datenmengen erheblich reduziert werden. Dies trägt zu einer flüssigeren Benutzererfahrung bei.
+\textbf{Performance-Optimierungen}: 
+Durch gezielte Performance-Optimierungen – wie die Verwendung des Shadow-DOMs – reduziert sich die Ladezeit bei grossen Datenmengen erheblich. 
+Dies trägt zu einer flüssigeren Benutzererfahrung bei. 
 
+ \\
 \noindent
-\textbf{Verbesserungspotenziale}:
+\emph{Verbesserungspotenziale}:
 \\
-\textbf{Dokumentation}: Eine detailliertere Dokumentation der Rückgabewerte und der Verwendung der Komponente ist notwendig, um Missverständnisse zu vermeiden und die Einarbeitung zu erleichtern.
+\textbf{Dokumentation}: 
+Eine detailliertere Dokumentation der Rückgabewerte und der Verwendung der Komponente ist notwendig. 
+Die Ausarbeitung des JSDoc vermeidet Missverständnisse und erleichtert die Einarbeitung. 
+Dazu unterützt eine Umgestaltung des Return-Werts die Verständlichkeit der Elemente. 
 \\
-\textbf{Interaktion}: Die Implementierung einer automatischen Schließfunktion nach der Auswahl eines Wertes und eine verbesserte Tastaturnavigation wurden als wünschenswert identifiziert.
+\textbf{Interaktion}: 
+Die Implementierung einer automatischen Schliessfunktion nach der Auswahl eines Wertes ist als wünschenswert identifiziert. 
+Eine verbesserte Tastaturnavigation ist ebenfalls erwünscht und findet in der verbesserten Implementation ihren Platz. 
 \\
-\textbf{Code-Komplexität}: Die Reduzierung der Komplexität der Parameter und Callbacks würde die Komponente einfacher verwendbar machen und die Entwicklerfreundlichkeit erhöhen.
+\textbf{Code-Komplexität}: 
+Die Reduzierung der Komplexität der Parameter vereinfacht die Komponente in der Verwendung. 
+Die daraus resultierende Version der Komponente erhöht Entwicklerfreundlichkeit durch einen alternativen Konstruktor. 
 
-Die neue Auswahlkomponente erfüllt die Anforderungen an Konsistenz, Benutzerfreundlichkeit und Performance und bietet gleichzeitig Raum für weitere Optimierungen. Die kontinuierliche Weiterentwicklung und Verbesserung der Komponente basierend auf Nutzerfeedback stellt sicher, dass sie den hohen Ansprüchen an moderne Webanwendungen gerecht ist. 
+Die neue Auswahlkomponente erfüllt die Anforderungen an Konsistenz, Benutzerfreundlichkeit und Performance. 
+Sie bietet gleichzeitig Raum für weitere Optimierungen. 
+Gewisse Kritiken finden ihre Lösung in der neuen Version der Komponente. 
+Die kontinuierliche Weiterentwicklung und Verbesserung der Komponente basierend auf Nutzerfeedback stellt sicher, dass sie den hohen Ansprüchen an moderne Webanwendungen gerecht ist. 
 
 
 \section{Fazit der neuen Komponente}
