@@ -1,4 +1,4 @@
-\documentclass[twoside]{report}
+\documentclass[twoside,a4paper,12pt]{report}
 
 % rule: label after caption declaration
 
@@ -10,7 +10,7 @@
 \usepackage[T1]{fontenc} % coping umlaute in pdf
 
 % layout & design
-\usepackage{geometry} % page layout
+\usepackage[a4paper]{geometry} % page layout
 \usepackage{setspace} % line spacing
 \usepackage{fancyhdr} % custom header footer on pages
 \usepackage{color} % colors font / background
@@ -318,9 +318,6 @@
 }
 % define code styles - end
 
-\newgeometry{inner=5cm, outer=2.5cm, top=3cm, bottom=3cm}
-\setstretch{1.1}
-
 % page header and footer - start
 % \rightmark = sub heading, \leftmark = chapter
 \fancypagestyle{kolibri}{
@@ -352,13 +349,16 @@
     \renewcommand{\headruleskip}{0pt}
     \renewcommand{\footruleskip}{2pt}
 }
-\setlength{\headheight}{16pt}
+\setlength{\headheight}{17pt}
 % page header and footer - end
 
 % define source folders - start
 \graphicspath{ {./img/} }
 \addbibresource{chapters/references.bib}
 % define source folders - end
+
+\newgeometry{inner=5cm, outer=2.5cm, top=3cm, bottom=3cm}
+\setstretch{1.1}
 
 % title page - start
 \title{ Generalisierte Auswahlkomponente für das \\
@@ -372,7 +372,16 @@ Web UI Toolkit "Kolibri"\\ {\large Bachelor Thesis}}
 \begin{document}
 
 \pagestyle{empty}
-\maketitle
+
+\begin{titlepage}
+\includepdf[pages=-]{titlePage.pdf}
+\end{titlepage}
+
+% empty page
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
 
 \pagenumbering{Roman}
 \pagestyle{kolibri}
