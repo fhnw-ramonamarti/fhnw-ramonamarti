@@ -1,8 +1,7 @@
 import {
     SelectComponentByCallbacks as SelectComponent,
     pageCss,
-} from "http://127.0.0.1:5500/docs/src/kolibri/projector/selectComponent/selectComponent.js";
-// } from "https://fhnw-ramonamarti.github.io/Kolibri/src/examples/select-new/selectComponent.js";
+} from "https://fhnw-ramonamarti.github.io/Kolibri/src/kolibri/projector/selectComponent/selectComponent.js";
 import * as Service from "./userTest/dataService.js";
 
 // load style for new component

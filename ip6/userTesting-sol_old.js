@@ -1,7 +1,7 @@
 import {
     SelectComponent,
     pageCss,
-} from "https://fhnw-ramonamarti.github.io/Kolibri/src/examples/select-new/selectComponent.js";
+} from "https://fhnw-ramonamarti.github.io/Kolibri/src/kolibri/projector/selectComponent/selectComponent.js";
 import * as Service from "./userTest/dataService_old.js";
 
 // load style for new component
