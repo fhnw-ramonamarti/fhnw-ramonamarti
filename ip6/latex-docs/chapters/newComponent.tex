@@ -833,13 +833,13 @@ Die Auswahl der Nutzer fällt auf eine grosse Vielfalt, damit die Resultate unte
 \label{sec:manuelTests}
 
 Manuell durchgeführte Tests – in den vier aktuellen Browser Edge, Chrome, Firefox und Safari – beweisen die Konsistenz der neuen Komponente. 
-Als Beispiel dient die \codestyle{SelectComponent} mit drei Spalten aus Abbildung \ref{img:manualTestComponent}. 
+Als Beispiel dient die \codestyle{SelectComponent} mit drei Spalten aus Abbildung \ref{img:manualTestComponentOsx}. 
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=80mm]{newComponent/opened.3col.png}
-    \caption{\centering Manuelle Tests – Komponente}
-    \label{img:manualTestComponent}
+    \caption{\centering Manuelle Tests – Komponente auf Osx}
+    \label{img:manualTestComponentOsx}
 \end{figure}
 
 Diese Komponente unterzieht sich einer Prüfung auf Mac als auch Windows. 
@@ -851,9 +851,17 @@ Die genaue Kombination zwischen Browsern und Betriebssystemen ist wie folgt:
     \item \textbf{Windows (10/11)}: Chrome (127), Firefox (128), Edge (127)
 \end{itemize}
 
-Die SelectComponent aus Abbildung \ref{img:manualTestComponent} zeigt sich in den aufgezählten Kombinationen grundlegend konsistent. 
+Die SelectComponent aus Abbildung \ref{img:manualTestComponentOsx} zeigt sich in den aufgezählten Kombinationen grundlegend konsistent. 
 Es existiert nur eine kleine Abweichung. 
-Die Scrollbars auf Windows besitzen auf der rechten Seite einen grösseren Abstand als auf Mac. 
+Die Scrollbars auf Windows (Abbildung \ref{img:manualTestComponentWin}) besitzen auf der rechten Seite einen grösseren Abstand als auf Mac (Abbildung \ref{img:manualTestComponentOsx}). 
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=80mm]{newComponent/win.chrome.png}
+    \caption{\centering Manuelle Tests – Komponente auf Windows}
+    \label{img:manualTestComponentWin}
+\end{figure}
+
 Dabei spielt der Browser keine Rolle. 
 Bei den Interaktionen verhält sich die Komponente ebenfalls konsistent über alle Browser. 
 Die einzige Abweichung findet sich in der systemabhängigen Interaktion, um eine Aktion auszuführen. 
@@ -871,12 +879,16 @@ Zusätzlich zu den im Vorfeld vereinbarten Systemen und Browser finden noch folg
 \end{itemize}
 
 Diese Tests beweisen, dass die Komponente über die geforderten Umgebungen hinaus funktioniert. 
-% todo linux
+Firefox zeigt die \codestyle{SelectComponent} auf Linux wie auf OSX an. 
+Speziell die Scrollbar in den Spalten ist rechts anliegend. 
+In Chromium besteht ein Abstand von der Scrollbar zum rechten Rand. 
+Ansonsten ist die Komponente konsistent im UI und der Interaktion. 
 
 Die mobilen Geräte öffnen keine virtuelle Tastatur. 
 Deswegen sind nur Touch-Inter\-aktionen möglich. 
 Zu diesen Bedienungsmöglichkeiten gehören das Scrollen und das Klicken. 
 Auf iOS und auf Android stellen die Browser das UI meist konsistent – wie auf dem Desktop Safari – dar. 
+Die Scrollbar ist anliegend an der rechten Seite. 
 Das Highlight und die Cursor Position haben keinen weiteren Nutzen. 
 Die beiden Zustände bewegen sich mit der Selektion mit. 
 Das Highlight verschwindet, wenn das Touch ausserhalb einer Option erfolgt. 
@@ -891,11 +903,18 @@ Folgende veraltete Browser finden sich in oberflächlichen Tests wieder:
 
 \begin{itemize}
     \item \textbf{Mac}: Firefox Version 123 => vor Popover API
-    \item \textbf{iOS}: Safari Version 16.7 => vor Popover API \& partitial nesting CSS (\&) Support
-    \item \textbf{Windows}: Internet Explorer Version 11 => vor Popover API \& nesting CSS (\&)
+    \item \textbf{iOS}: Safari Version 16.7 => vor Popover API
 \end{itemize}
 
-% todo old browser
+In veraltete Browser ist die \codestyle{SelectComponent} mit leichten Einbussen nutzbar. 
+Der aufgelistete Firefox als auch Safari öffnen die neue Komponente normal. 
+Im offenen Zustand ist das Toggle-Icon dasselbe wie im geschlossenen. 
+Ein Klick ausserhalb der Komponente schliesst den Listencontainer nicht. 
+Daher existiert die Inkonsistenz, dass mehrere Auswahlkomponenten parallel geöffnet sein können. 
+Die ermöglicht eine unerwünschte Darstellung von überschneidenden Listencontainer. 
+Das restliche UI zeigt kaum Abweichungen. 
+Die Interaktionen funktionieren alle wie in den aktuellen Versionen der Browser. 
+Im Controller sind jedoch gewisse Zustände nicht konsistent mitgeführt, da ohne das Popover das Toggle-Event nicht reagiert. 
 
 Die breite Abdeckung der manuellen Tests garantiert und beweist bei den anfangs genannten Browsern eine konsistente Darstellung und einheitliche Interaktionen. 
 Zudem sind Nutzer mit leicht veralteten Browsern nur leicht beeinträchtigt. 
@@ -1037,7 +1056,7 @@ Die Entwicklung und Implementierung der neuen Auswahlkomponente auf Basis des Ko
 
 \noindent
 \textbf{Wichtige Erkenntnisse und Erfolge}:
-
+\\
 \textbf{Design und Konsistenz}: Die Nutzung des Kolibri-Designsystems ermöglichte eine konsistente und ansprechende Benutzererfahrung. Die Farbauswahl und Kontraste wurden so angepasst, dass eine hohe Lesbarkeit und Benutzerfreundlichkeit gewährleistet sind.
 \\
 \textbf{Interaktion und Benutzerfreundlichkeit}: Die neue Komponente bietet eine intuitive Bedienung sowohl für Maus- als auch für Tastaturbenutzer. Die Rückmeldungen aus den Tests zeigten, dass die Komponente nach einer kurzen Einarbeitungszeit gut verständlich und benutzerfreundlich ist.
@@ -1046,7 +1065,7 @@ Die Entwicklung und Implementierung der neuen Auswahlkomponente auf Basis des Ko
 
 \noindent
 \textbf{Verbesserungspotenziale}:
-
+\\
 \textbf{Dokumentation}: Eine detailliertere Dokumentation der Rückgabewerte und der Verwendung der Komponente ist notwendig, um Missverständnisse zu vermeiden und die Einarbeitung zu erleichtern.
 \\
 \textbf{Interaktion}: Die Implementierung einer automatischen Schließfunktion nach der Auswahl eines Wertes und eine verbesserte Tastaturnavigation wurden als wünschenswert identifiziert.
