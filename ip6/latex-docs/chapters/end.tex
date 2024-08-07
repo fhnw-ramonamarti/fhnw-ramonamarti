@@ -4,7 +4,9 @@
 Die in Kapitel \textbf{\ref{chap:existingComponents}} beschriebenen Komponenten Select und Datalist kommen in vielen Webseiten zu Anwendung. 
 Das Auswählen eines Wertes aus einer vorgegebenen Menge ist mit diesen Elementen ineffizient und unästhetisch.
 Die in Projekt 5 erstellte Länderauswahl löst das Problem aber nur für diesen einen spezifischen Anwendungsfall. 
-Die neue Komponente \codestyle{SelectComponent} baut auf der Länderauswahl auf, ist jedoch generalisiert und lässt sich mit unterschiedlichsten Werten anwenden. 
+Die neue \codestyle{SelectComponent} baut auf der Länderauswahl auf, ist jedoch generalisiert. 
+Sie lässt sich mit unterschiedlichsten Werten und Inhalten anwenden. 
+Zuedem ist der Code strukturiert aufgebaut. 
 Dabei spielt es keine Rolle, welcher Konstruktor bzw. welche Art der Datenübergabe zur Anwendung kommt. 
 
 Die Datalist und das Select zeigen im UI als auch der Interaktion einige Inkonsistenzen auf. 
@@ -15,7 +17,7 @@ Der Container mit den Werten lässt sich bei beiden Elementen nicht umgestalten 
 Die Lösungen von Frameworks und Libraries blasen eine ansonsten schlanke Codebasis unnötig auf. 
 Zudem bieten diese Komponenten häufig zu viele Funktionen an, welche die Anwendung verkomplizieren. 
 
-An diesem Punkt bietet die \codestyle{SelectComponent} des Kolibri ohne externe Abhängigkeiten eine konsistente und anpassbare Auswahlkomponente an. 
+An diesem Punkt bietet Kolibri mit der \codestyle{SelectComponent} eine konsistente und anpassbare Auswahlkomponente – ohne externe Abhängigkeiten – an. 
 Das Konsistenzproblem ist durch ein klar gestaltetes Design gelöst. 
 Die Implementation ist auf den gängisten Browsern Edge (127), Chrome (127), Firefox (128) und Safari (17.5) auf Desktop getestet. 
 User-Tests mit Endnutzern zeigen, dass die Komponente dessen Bedürfnisse abdecken und die Auswahl vereinfacht. 
@@ -26,8 +28,8 @@ Ein weiterer Vorteil der einzelnen Komponenten ist, dass andere Projektoren zur 
 
 Diese Arbeit ist zeitlich und personell begrenzt. 
 Deswegen bietet die Komponente nur einen Projektor für die Auswahlkomponente. 
-Die spät durchgeführten User Tests mit Programmierern führen dazu, dass nach der Implementation der Feedbacks keine zusätzliche Kontrolle mehr durchführbar ist. 
-Dies ist als erstes Future Feature im nachfolgenden Kapitel genauer beschrieben. 
+Die spät durchgeführten User Tests mit Programmierern führen dazu, dass sich nach den Verbesserungen keine zusätzliche Prüfung mehr durchführbar lässt. 
+Diese ist als erstes Future Feature im nachfolgenden Kapitel genauer beschrieben. 
 
 
 \section{Future Features}
@@ -139,6 +141,7 @@ Dazu zählt zum Beispiel die bekannte Rot-Grün-Schwäche.
 \subsection{Abschliessende Bemerkungen}
 \label{sec:endSumup}
 
-All diese Erweiterungen und Verbesserungen zielen darauf ab, die Auswahlkomponente für alle Endnutzer zugänglich zu machen und eine angenehme Benutzung zu ermöglichen. 
+All diese Erweiterungen und Verbesserungen zielen darauf ab, die Auswahlkomponente für alle Endnutzer zugänglich zu machen. 
+Sie ermöglichen eine angenehme Benutzung. 
 Zudem soll die \codestyle{SelectComponent} einfach in jeden bestehenden JavaScript Code einzubinden sein. 
 Anschliessend an diese Arbeit steht die Integration in das Toolkit Kolibri an. 

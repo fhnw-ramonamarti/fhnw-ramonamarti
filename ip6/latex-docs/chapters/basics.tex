@@ -76,7 +76,8 @@ Zudem sind keine speziellen Voreinstellungen getroffen.
 \end{figure}
 
 Je nach Darstellung der Komponente kann diese \emph{offen} oder \emph{geschlossen} sein. 
-Im geschlossenen Status (Abbildung \ref{img:componentClose}) zeigt das Erscheinungsbild nur die Detail-Ansicht an, welcher mindestens den selektierten Wert anzeigt. 
+Im geschlossenen Status (Abbildung \ref{img:componentClose}) zeigt das Erscheinungsbild nur die Detail-Ansicht an.
+Diese zeigt mindestens den selektierten Wert an. 
 Eine offene Auswahlkomponente wie in Abbildung \ref{img:componentOpen} stellt beide Elemente der Master-Detail-View dar. 
 Die Master-Ansicht zeigt alle Optionen in einer Liste an. 
 
@@ -116,7 +117,8 @@ Für eine verständliche Darstellung der Inhalte auf dem UI verwendet die Browse
 Die Benutzeroberfläche dient als Schnittstelle zwischen dem Benutzer und der Datenschicht. 
 Die Rendering-Engine interpretiert die Inhalte anhand des vorgegebenen Inhaltstyps. 
 Einer der Engines ist der HTML-Renderer. 
-Beim UI und der Bedienung zeigen sich die Uneinigkeiten zwischen den Browser-Herstellern, indem die Rendering-Engine den Code nicht gleich interpretiert. 
+Beim UI und der Bedienung zeigen sich die Uneinigkeiten zwischen den Browser-Herstellern. 
+Der Grund liegt darin, dass die Rendering-Engine den Code nicht gleich interpretiert. 
 Anschliessend sind Informationen über den detaillierten Ablauf zur Anzeige eines HTML-Dokuments und die Rolle des Rendering dokumentiert. 
 
 
@@ -154,7 +156,7 @@ Zu viele Änderungen am DOM führen dazu, dass der Nutzer länger warten muss, b
 
 Gründe für ein erneutes Rendern\citemarktext{
     [\cite{browserRendering3}]
-}:
+}: 
 
 \begin{itemize}
     \item Manipulation der Elemente des DOM
@@ -174,7 +176,7 @@ Gründe für ein erneutes Rendern\citemarktext{
 Die neue Komponente soll in möglichst allen Browsern eine konsistente Erscheinung als auch Interaktion bieten. 
 Durch die Erklärung aus Kapitel \textbf{\nameref{sec:structureRendering}} ist klar, dass die Renderer die Unterschiede im UI bewirken. 
 Die Bedienungsabweichungen stammen grösstenteils vom zu Grunde liegenden Betriebssystem. 
-Diese Erkenntnisse führen dazu, dass die neue Komponente auf Mac und Windows in den Browsern der jeweils geläufigsten Rendering-Implementationen zu testen ist. 
+Diese Erkenntnisse führen dazu, dass die neue Komponente auf Mac und Windows mit den geläufigsten Renderern zu testen ist. 
 Zu den ausgewählten Webbrowser zählen Google Chrome, Firefox (Mac und Windows), Safari (nur Mac) und Edge (nur Windows). 
 Die Erläuterung dazu folgt im nächsten Abschnitt. 
 

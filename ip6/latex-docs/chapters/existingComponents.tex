@@ -36,7 +36,7 @@ Die beiden Auswahlkomponenten – \codestyle{datalist} und \codestyle{select} �
 Die einzelnen Optionen wie in Code \ref{code:optionExample} Zeile 1 besitzen ein \codestyle{value}-Attribut und einen Inhalt – das Label. 
 Alternativ ist das \codestyle{label}-Attribut zu nutzen und dafür das Value an die Stelle des Inhalts zu platzieren. 
 Firefox unterstützt diese Variante jedoch nicht. 
-Das Weglassen des \codestyle{value}- und \codestyle{label}-Attributes führt dazu, dass beide den Wert innerhalb des öffnenden und schliessenden Tags erhalten. 
+Das Weglassen von \codestyle{value} und \codestyle{label} führt dazu, dass beide den Wert innerhalb des öffnenden und schliessenden Tags erhalten. 
 
 \begin{lstlisting}[style = htmlcssjs, caption = Option Beispiel, label = code:optionExample]
 <option value="dog"         > Dog   </option>
@@ -74,10 +74,12 @@ Eine möglich Anwendung ist in Code \ref{code:selectExample} ersichtlich.
 </select>
 \end{lstlisting}
 
-Die typischen Attribute für Eingabefelder wie \codestyle{disabled}, \codestyle{form}, \codestyle{name} und \codestyle{required} sind bei einem Select ebenfalls verwendbar. 
+Die typischen Attribute für Eingabefelder – wie \codestyle{disabled}, \codestyle{name} und \codestyle{required} 
+– sind beim Select ebenfalls verwendbar. % line break
 Durch das \codestyle{disabled} zeigt sich das Element in einer ausgegrauten Erscheinung und bietet dem Nutzer keine Interaktionsmöglichkeiten mehr. 
 Der Container – z.B. \codestyle{fieldset} – vererbt dieses Attribut weiter an seine Kinder. 
-Die \codestyle{form}-Eigenschaft definiert das dazugehörige Formular und \codestyle{name} den Key für das Key-Value Paar bzw. Name des Feldes im Formular. 
+Die \codestyle{form}-Eigenschaft definiert das dazugehörige Formular. 
+Der \codestyle{name} stellt den Key für das Key-Value Paar bzw. Name des Feldes im Formular dar. 
 Das \codestyle{required} erzwingt eine Eingabe, um das Senden des Formulars freizuschalten. 
 Für eine bessere Accessibility benötigt das Select eine \codestyle{id}, um das Label zuweisen zu können. 
 Standardmässig ist für dieses Feld nur eine einzelne Auswahl möglich. 
@@ -86,8 +88,9 @@ Bei einer Vorauswahl mehrerer Listenelemente durch \codestyle{selected} muss die
 Wenn jedoch bei einem Signle-Select mehrere Optionen das \codestyle{selected}-Attribut enthalten, gilt das zuletzt Definierte als Default. 
 Das \codestyle{autocomplete} funktioniert wie bei anderen Inputs, indem Vorschläge vom User-Agent-Feature auftauchen. 
 Durch die \codestyle{autofocus}-Eigenschaft sind Interaktionen mit dem Feld direkt nach dem Laden möglich. 
-Die Definition des \codestyle{size}-Attributs steuert die Anzahl sichtbarer Elemente, wobei der Default für Single-Selects bei eins und mehrfache Auswahl bei vier liegt. 
-Die in Kapitel \textbf{\nameref{sec:implementationsRenderer}} definierten Browser unterstützen alle Attribute des Selects – ausser der \codestyle{size}. 
+Die Definition des \codestyle{size}-Attributs steuert die Anzahl sichtbarer Elemente. 
+Der Default für Single-Selects liegt bei eins und für eine mehrfache Auswahl bei vier. 
+Die in Kapitel \textbf{\nameref{sec:implementationsRenderer}} definierten Browser unterstützen alle \codestyle{select}-Attribute – ausser \codestyle{size}.
 Die meisten Mobile-Browser supporten die Grösse nicht. 
 
 Abgesehen von der Grösse ist die Umgestaltung des Elements browserunabhängig kaum möglich. 
@@ -105,7 +108,7 @@ Die ARIA-Rolle gibt der Komponente die Funktion einer Combobox (ohne \codestyle{
 Die mehrfache Auswahl rein per Tastatur bietet in der Interaktion geringere Möglichkeiten als mit der Maus. 
 Die Maus kann mit gedrückter Cmd (Mac) bzw. Ctrl (Windows) Taste weitere Elemente dazu selektieren. 
 Mit dem Drücken der Shift-Taste lassen sich alle Elemente zwischen der ersten und der letzten Option markieren. 
-Damit sich die zuvor markierte Auswahl nicht aufhebt, ist darauf zu achten, beim Anwenden beider Techniken den Bereich mit Shift zuerst auszuwählen. 
+Damit die zuvor markierte Auswahl erhalten bleibt, ist beim Anwenden beider Techniken der Bereich mit Shift zuerst auszuwählen. 
 Für das Markieren mehrerer Werte mittels Tastatur ist es unabdingbar, zuerst zum ersten Element zu navigieren. 
 Mit Shift und den Pfeiltasten $\uparrow$ und $\downarrow$ ist ein Bereich wählbar. 
 Firefox unterstützt noch die einzelne Mehrfachauswahl über die Tastatur. 
@@ -198,14 +201,15 @@ Dadurch erscheinen die Auswahloptionen während der Bedienung des Input-Feldes.
 Dieser Paragraph behandelt die in diesem Kontext für alle Typen geltenden Attribute. 
 Das \codestyle{autocomplete}-Attribut dient zur Anzeige der Hinweise für das Autofill-Feature der Browser. 
 Das \codestyle{disabled} schaltet die Interaktionsmöglichkeiten aus und deaktiviert somit die Komponente. 
-Ist das Eingabefeld ausserhalb eines Formulars platziert, kann das Attribut \codestyle{form} eine Verknüpfung zu einem auf der Seite existierenden Formular herstellen. 
+Ist das Eingabefeld ausserhalb eines Formulars platziert, kann das \codestyle{form} eine Verknüpfung zu einem existierenden Formular herstellen. 
 Im abgesendeten Formular dient die Eigenschaft \codestyle{name} zur Identifizierung des Wertes im \codestyle{value}-Attribut. 
-Der Typ des Eingabefeldes – angegeben durch das \codestyle{type} – definiert welche UI-Erscheinung das Input im Browser erhält und welche Werte zulässig sind. 
+Der Typ des Eingabefeldes – angegeben durch \codestyle{type} – definiert welche UI-Erscheinung das Input erhält und welche Werte zulässig sind. 
 Als Standard-Typ ist \codestyle{text} definiert, wodurch dieses Attribut optional ist. 
 Mehr zu den für diese Arbeit wichtigen Typen ist im Unterkapitel \textbf{\nameref{sec:inputTypesDatalist}} zu lesen. 
-Die \codestyle{id} als globale Eigenschaft dient bei den Eingabefeldern zusätzlich noch zur Verknüpfung mit einem Label-Element und somit einer bessern Accessibility. 
+Die globale \codestyle{id} dient bei den Eingabefeldern zusätzlich zur Verknüpfung mit einem Label-Element und somit einer bessern Accessibility. 
 
-Weiter existieren noch die zwei Attribute \codestyle{readonly} und \codestyle{required}, welche bei allen Typen ausser \codestyle{range} und \codestyle{color} definiert sind. 
+Weiter existieren die zwei Attribute \codestyle{readonly} und \codestyle{required}. 
+Diese sind bei allen Typen ausser \codestyle{range} und \codestyle{color} definiert. 
 Durch die Ergänzung der ersten Eigenschaft ist der Wert nicht mehr änderbar, aber es bleibt im Verlauf der fokussierbaren Komponenten enthalten. 
 Das \codestyle{required} erzwingt eine Eingabe. 
 Die Eigenschaften \codestyle{min}, \codestyle{max} und \codestyle{step} unterstützen die Konfiguration der numerischen Typen\footnote{
@@ -225,7 +229,7 @@ Mit \codestyle{size} lässt sich die Grösse bzw. Anzahl sichtbarer Zeichen ange
 Weitere Informationen zum Styling eines Input-Feldes stehen im Unterkapitel \textbf{\nameref{sec:inputCss}}. 
 
 Das Input besteht aus einem selbst-schliessenden Tag. 
-Die ARIA-Rolle ist vom Typ abhängig und kann als Textbox, Combobox, Spinbutton, Slider, Searchbox, Telbox oder keiner speziellen Rolle zugeordent sein. 
+Die ARIA-Rolle ist vom Typ abhängig und ist einer Textbox, Combobox, Spinbutton, Slider, Searchbox, Telbox oder keiner speziellen Rolle zuzuordenen.  
 In den hier erwähnten Möglichkeiten der Komponente existiert eine grossflächige Browserunterstützung. 
 Die einzigen Ausnahmen beziehen sich auf die Typen \codestyle{week} und \codestyle{month}, welche im Firefox und Safari nicht funktionieren. 
 
@@ -295,7 +299,8 @@ Nachfolgend sind die Inkonsistenzen genauer erläutert.
 
 Das Select ist in der geschlossenen Form auf der rechten Seite immer mit mindestens einem Pfeil nach unten ausgestattet. 
 Safari (OSX und iOS) verwendet als Icon einen Doppelpfeil (Abbildung \ref{img:closedSelectSafari}). 
-Firefox zeigt das Feld in grau (Abbildung \ref{img:closedSelectFirefox}), während Chrome und Edge einen weissen Hintergrund (Abbildung \ref{img:closedSelectChrome}) verwenden. 
+Firefox zeigt das Feld in grau (Abbildung \ref{img:closedSelectFirefox}). 
+Chrome und Edge verwenden hingegen einen weissen Hintergrund (Abbildung \ref{img:closedSelectChrome}). 
 Safari auf iOS stellt die Komponente ohne Rahmen dar und deswegen ist der Hintergrund in einem hellen Grau gehalten. 
 Da der Fokus dieser Arbeit auf der Desktop-Anwendung liegt, finden sich die Bilder der Mobile-Browser im Anhang \textbf{\ref{chap:existingImgs}}. 
 
@@ -342,12 +347,13 @@ Da der Fokus dieser Arbeit auf der Desktop-Anwendung liegt, finden sich die Bild
 
 Die geöffnete Liste ist bei Firefox als einziges relativ konsistent. 
 Sie erscheint in einem mittel- bis hellgrauen Container. 
-Die anderen Browser sind einstellungsabhängig und zeigen den Container weiss oder dunkelgrau (Abbildungen \ref{img:openedSelectWin} und \ref{img:openedSelectOsx}) an. 
+Die anderen Browser sind einstellungsabhängig. 
+Sie zeigen den Container weiss oder dunkelgrau (Abbildungen \ref{img:openedSelectWin} und \ref{img:openedSelectOsx}) an. 
 Je nach Anzahl der enthaltenen Elemente erscheint die Liste darunter (darüber) oder überdeckt den Container des ausgewählten Wertes. 
 Am Wenigsten lässt sich das Element in Safari stylen. 
 
 Da nicht jeder Browser ein Icon anzeigt, ist die Datalist weniger konsistent. 
-Safari (Mac) und Firefox stellen keinen visuellen Hinweis (Abbildungen \ref{img:closedDatalistSafari} und \ref{img:closedDatalistFirefox}) auf einen Listen-Container dar. 
+Safari (Mac) und Firefox stellen keinen visuellen Hinweis (Abbildungen \ref{img:closedDatalistSafari} und \ref{img:closedDatalistFirefox}) auf eine Liste dar. 
 Safari auf iOS zeigt hingegen in jedem Fall – bezogen auf den textuellen Typ – einen nach unten zeigenden Pfeil an. 
 Andere Browser blenden auf der rechten Seite beim Hovern oder beim Besitzen des Fokus das Icon (Dreieck nach unten zeigend) ein. 
 
@@ -408,14 +414,15 @@ Die Selektionen erscheinen gegenüber der anderen Optionen in keinem speziellen 
 Weitere Inkonsistenzen sind in den Bildern im Anhang \textbf{\ref{chap:existingImgs}} zu sehen. 
 Die nachfolgenden Abschnitte \textbf{\ref{sec:edgeBrowser}} bis \textbf{\ref{sec:mobileBrowser}} beschreiben die möglichen Interaktionen. 
 Die Tabellen stellen das Datalist, Single- als auch Multiselect einander gegenüber. 
-Im Anschluss an die Gegenüberstellungen der diversen Browser weist das Kapitel \textbf{\nameref{sec:summeryExisting}} detaillierter auf die Inkonsistenzen hin. 
+Im Anschluss an die Gegenüberstellungen der Browser weist das Kapitel \textbf{\nameref{sec:summeryExisting}} auf die Inkonsistenzen hin. 
 
 
 \clearpage
 \subsection{Edge Browser}
 \label{sec:edgeBrowser}
 
-Die folgende Tabelle \ref{table:interactionEdge} zeigt den Vergleich der typischen Interaktionen zwischen Datalist, Single- und Multiselect in Edge auf Windows. 
+Die folgende Tabelle \ref{table:interactionEdge} zeigt den Vergleich der typischen Interaktionen in Edge auf Windows. 
+Der Vergleich folgt zwischen der Datalist, dem Single- und dem Multiselect. 
 Auf Windows verhält sich Edge sehr ähnlich wie Chrome, da die Codebasis beider Browser Chromium ist. 
 
 \import{../tables}{c.edge.tex}
@@ -425,7 +432,7 @@ Auf Windows verhält sich Edge sehr ähnlich wie Chrome, da die Codebasis beider
 \subsection{Chrome Browser}
 \label{sec:chromeBrowser}
 
-Die Gegenüberstellung \ref{table:interactionChrome} beschreibt die bekannten Bedienungsmöglichkeiten der drei existierenden Auswahlkomponenten in Chrome. 
+Die Gegenüberstellung \ref{table:interactionChrome} beschreibt die Bedienungsmöglichkeiten der existierenden Auswahlkomponenten in Chrome. 
 Dabei spielt das System (Windows oder Mac) nur bei der Tastenkombination und nicht bei der Reaktion eine Rolle. 
 Auf dem Mac verhält sich Chrome ähnlich wie auf Windows, Designaspekte können sich unterscheiden. 
 
@@ -457,15 +464,15 @@ Der Mac Standard-Browser zeigt zu den bisher gesehenen Vergleichen die grösste 
 \subsection{Browser auf Android \& iOS}
 \label{sec:mobileBrowser}
 
-Der Vergleich der Tabellen \ref{table:interactionFirefoxAndroid} und \ref{table:interactionDuckduckAndroid} zeigt, dass auf dem selben Android-Gerät Abweichungen existieren. 
+Der Vergleich der Tabellen \ref{table:interactionFirefoxAndroid} und \ref{table:interactionDuckduckAndroid} zeigt, dass auf Android-Geräten Abweichungen existieren. 
 Nicht alle Bedienungsmöglichkeiten führen zur selblen Reaktion. 
 
 \import{../tables}{c.firefox.android.tex}
 \import{../tables}{c.duckduck.android.tex}
 
 \clearpage
-Im Gegensatz zu den oben gezeigten Andriod-Browser zeigen die meisten iOS-Browser die \codestyle{datalist} und die \codestyle{select}s auf der selben Basis an. 
-Der iOS-Safari als Stellvertreter zeigt den Vergleich in Tabelle \ref{table:interactionSafariIos} auf. 
+Im Gegensatz zu den oben gezeigten Andriod-Browser zeigen die meisten iOS-Browser die \codestyle{datalist} und die \codestyle{select}s auf derselben Basis an. 
+Der iOS-Safari – als Stellvertreter – zeigt den Vergleich in Tabelle \ref{table:interactionSafariIos} auf. 
 
 \import{../tables}{c.safari.ios.tex}
 
@@ -510,7 +517,8 @@ Das System-Theme\footnote{
     Dark- bzw. Light-Mode; auf Systemebene oder Browserebene einstellbar
 } spielt für die Darstellung ebenfalls eine grosse Rolle. 
 Hierbei spielen das betriebssystemspezifische Styling und die individuellen Implementierungen der Browser eine Rolle. 
-Der Fokus dieses Abschnitts liegt aber auf der Interaktion, da das UI bereits im Kapitel \textbf{\nameref{sec:uiDifferences}} genauer beschrieben ist. 
+Der Fokus dieses Abschnitts liegt aber auf der Interaktion. 
+Das UI ist bereits im Kapitel \textbf{\nameref{sec:uiDifferences}} genauer beschrieben. 
 
 Zwischen Edge und Chrome bestehen keine gravierenden Inkonsistenzen. 
 Dies liegt daran, dass die beiden Browser mit der selben Rendering Engine\footnote{
@@ -519,8 +527,8 @@ Dies liegt daran, dass die beiden Browser mit der selben Rendering Engine\footno
 Zwischen Mac und Windows bestehen nur die systemspezifischen Unterschiede wie die zu drückenden Tasten (z.B. Home vs. fn \& $\leftarrow$). 
 
 Firefox unterscheidet sich von Chrome in mehreren Interaktionen. 
-Während die offene Datalist auf Firefox mit den seitlichen Pfeiltasten zwei unterschiedliche Reaktionen zeigt, reagiert sie im Chrome-Browser immer auf dieselbe Weise. 
-Das Multiselect zeigt in den beiden Browsern bei $\leftarrow$ und $\rightarrow$ ebenfalls inkonsistentes Verhalten. 
+Während die offene Datalist auf Firefox mit $\leftarrow$ und $\rightarrow$ zwei unterschiedliche Reaktionen zeigt, reagiert sie im Chrome auf dieselbe Weise. 
+Das Multiselect zeigt in den beiden Browsern ebenfalls inkonsistentes Verhalten. 
 Die Enter-Taste löst auf Firefox im geschlossen Single-Select nichts aus, während Chrome die Liste öffnet. 
 Dafür reagiert Firefox im Multiselect auf Tab (Input verlassen), wo Chrome kein Verhalten zeigt. 
 Die Interaktionen PageUp/-Down zeigen sich bei Datalist als auch dem Select unterschiedlich. 
@@ -537,7 +545,8 @@ Die einzige Interaktion, welche nicht von den anderen Browsern abweicht, ist das
 
 Die inkonsistente Darstellung und Funktionalität dieser Komponenten erschwert eine einheitliche Benutzererfahrung über verschiedene Plattformen hinweg. 
 Für eine optimale User-Experience ist die Konsistenzprüfung unabdingbar. 
-Diese Erkenntnisse legen den Grundstein für die Entwicklung einer neuen, optimierten Auswahlkomponente, die die bestehenden Probleme adressieren soll. 
+Diese Erkenntnisse legen den Grundstein für die Entwicklung einer neuen, optimierten Auswahlkomponente. 
+Diese soll die bestehenden Probleme adressieren. 
 Die bereits erstellte Länderkomponente löst die Inkonsistenzen. 
 Details dazu folgen im nächsten Kapitel. 
 
@@ -545,9 +554,10 @@ Details dazu folgen im nächsten Kapitel.
 \section{Länderauswahl Komponente}
 \label{sec:countryChoice}
 
-Alternativ zu den bekannten HTML-Elementen \codestyle{datalist} und \codestyle{select} existiert eine weitere, spezielle Auswahlkomponente – die Länderauswahl\citemarktext{
+Alternativ zu den bekannten HTML-Elementen \codestyle{datalist} und \codestyle{select} existiert eine weitere, spezielle Auswahlkomponente. 
+Die Länderauswahl\citemarktext{
     [\cite{ip5}]
-}. 
+} ist das Resultat des vorausgegangenen Projekt 5. 
 Diese vereinfacht die Selektion eines Landes in einer vorgegebenen Liste. 
 Die Komponente ist jedoch nur auf den spezifischen Anwendungsfall – der Wahl eines Landes – getestet. 
 Das Desgin, die Funktionen und die Anwendung unterscheiden sich aber zu den oben genannten HTML-Elementen. 
@@ -557,8 +567,9 @@ Das Desgin, die Funktionen und die Anwendung unterscheiden sich aber zu den oben
 \label{sec:countryChoiceDesign}
 
 Die Länderauswahl erscheint moderner als die alten HTML-Elemente. 
-Die Komponente ist in geschlossenem als auch geöffnetem Zustand durch einen immer sichtbaren Container mit dem gewählten Land (Abbildung \ref{img:countryInputComponentClose}) visualisiert. 
-Ist die Länderauswahl geöffnet, erscheint ein Listencontainer mit allen Ländern (Abbildung \ref{img:countryInputComponentOpen}). 
+Die Komponente ist in geschlossenem Zustand durch einen immer sichtbaren Container (Abbildung \ref{img:countryInputComponentClose}) visualisiert. 
+Darin befindet sich das gewählte Land. 
+Ist die Länderauswahl geöffnet, erscheint ergänzend ein Listencontainer mit allen Ländern (Abbildung \ref{img:countryInputComponentOpen}). 
 Der Aufbau zeigt sich in einem Spaltendesign – Kontinente links und Länder rechts. 
 
 \begin{figure}[!htb]
