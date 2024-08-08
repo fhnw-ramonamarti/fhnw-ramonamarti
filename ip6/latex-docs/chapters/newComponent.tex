@@ -291,7 +291,7 @@ Daher sind keine Low-Fi-Gestaltungen notwendig.
 Die Einbindung der in der Vorarbeit erhaltenen Feedbacks der Länderkomponente findet in den neuen Hi-Fi-Prototypen ihre Anwendung. 
 Beispiele für die Designs sind in der Grafik \ref{img:figmaPrototype1} ersichtlich. 
 Im oberen Bereich des Bildes befinden sich die Zustände der Optionen. 
-Nutzertests decken die Mängel und Wünsche der Probanden auf. 
+Benutzertests decken die Mängel und Wünsche der Probanden auf. 
 Mit der Integration der Rückmeldungen von Benutzerinteraktionen in das Design verbessert sich die Usability kontinuierlich. 
 Mehr zu den Nutzerfeedbacks folgt im Kapitel \textbf{\nameref{sec:userTests}}. 
 Das Resultat des umgesetzen Prototypen ist im nachfolgenden Kapitel genauer beschrieben. 
@@ -751,7 +751,7 @@ Die lange Wahrtezeit bestätigten mehrere Feedbacks der Nutzer, später mehr daz
 Ein Refactoring der früheren Implementation führt zur Auslagerung der aufwendigen Arbeiten auf den Shadow-DOM. 
 Dadurch verkürzt sich der Ladevorgang um vier bis fünf Sekunden auf knapp 0.4 Sekunden (rechts unten in blau). 
 Der Vergleich zwischen Abbildung \ref{img:performanceTestBefore} und \ref{img:performanceTestAfter} zeigt, dass die Seite um Faktor 13 schneller lädt. 
-Feedbacks zu den durchgeführten User-Tests mit Programmierern als auch Endnutzern sowie manuelle Tests sind im nachfolgenden Kapitel aufgeführt. 
+Feedbacks zu den durchgeführten User Tests mit Programmierern als auch Endnutzern sowie manuelle Tests sind im nachfolgenden Kapitel aufgeführt. 
 
 
 \section{Testing}
@@ -891,14 +891,24 @@ Die breite Abdeckung der Einzelteile garantiert die korrekte Funktion der neuen 
 Die Tests im nachfolgenden Kapitel sind für eine gute Anwendbarkeit im Code als auch angenehme Benutzung der Auswahlkomponente im Browser notwendig. 
 
 
-\subsection{User Tests} % todo
+\subsection{User Tests}
 \label{sec:userTests}
 
-% personas im anhang reference to them
+Die Bewertung des Design und der Benutzerfreundlichkeit ist ein wichtiger Bestandteil der Entwicklung. 
+Die im Vorfeld definierten Personas – Anhang \textbf{\ref{chap:perosnas}} – finden sich in den getesteten User wieder. 
+Estrid Miller arbeitet als Webentwicklerin und stört sich an schlechter Code-Dokumentation. 
+Sie wünscht sich eine flexible und anpassbare UI-Komponente, welche ihre tägliche Arbeit vereinfacht. 
+Der Alltagsnutzer Love Berg ist ein typischer Webanwender und ärgert sich über umständliche und langsame Anwendungen. 
+Er wünscht sich ein effizientes und versändliches User-Interface. 
+Die folgenden zwei Unterkapitel decken mit den zwei Nutzergruppen Programmierer und Endanwender die Personas ab. 
 
 
 \subsubsection{Programmierer}
 \label{sec:userTestsProgrammer}
+
+Die Probanden dieser User Tests sind alles Studenten der FHNW. 
+Deswegen haben die Testpersonen ein ähnliches Hintergrundwissen wie Estrid. 
+Die Vorlieben der Probanden ist unterschiedlich und decken dadurch die Vorgaben durch die Persona ab. 
 
 Im Rahmen der Evaluierung der neuen Dropdown-Komponente sind Programmierer dazu eingeladen, spezifische Aufgaben zu erfüllen. 
 Diese Aufgaben umfassen die Implementierung der Dropdown-Komponente in eine bestehende Webanwendung. 
@@ -921,7 +931,7 @@ Für den Erhalt eines möglichst realistischen Feedbacks sind die Teilnehmer geb
     \end{minipage}
 \end{figure}
 
-Insgesammt haben 9 Studenten an dem User-Test teilgenommen und die Aufgaben versucht zu lösen. 
+Insgesammt haben 9 Studenten an dem User Test teilgenommen und die Aufgaben versucht zu lösen. 
 Die Grafiken \ref{img:userTestsSemester} und \ref{img:userTestsStudy} zeigen, dass die Hintergründe der Probanden breit gefächert sind. 
 Zwei der Testpersonen konnten die Aufgabe nicht korrekt lösen. 
 
@@ -997,7 +1007,7 @@ Wenn zwei Kolonnen sichtbar sind, aber rechts nichts selektierbar ist.
 Das ist ein zu erwartender Fall, aber nicht ideal für die Demo. 
 
 
-\subsubsection{Endanwendern}
+\subsubsection{Endanwendern} % todo
 \label{sec:userTestsEnduser}
 
 % 
