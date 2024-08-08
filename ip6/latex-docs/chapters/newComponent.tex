@@ -46,17 +46,17 @@ Unter den vorhandenen Farbwerten, bieten sich die Folgenden am besten an:
 
 \begin{itemize}
     \item Kolibri-Light/Yellow/100 $\rightarrow$ helles Weiss-Gelb
-    \item Kolibri-Light/Yellow/300 (\codestyle{--kb-color-select}) $\rightarrow$ helles Gelb
-    \item Kolibri-Light/Warning/\codestyle{--kb-warning-dark} $\rightarrow$ dunkles Gelb
-    \item Kolibri-Light/Danger/\codestyle{--kb-danger-accent} (\codestyle{--kolibri-color-accent}) $\rightarrow$ mittleres Rosa
-    \item Kolibri-Light/Success/\codestyle{--kb-success-accent} $\rightarrow$ mittleres Grün
-    \item Kolibri-Light/Success/\codestyle{--kb-success-light} $\rightarrow$ helles Grün
-    \item Kolibri-Light/Primary/\codestyle{--kb-primary-accent} $\rightarrow$ mittleres Violett
-    \item Kolibri-Light/Primary/\codestyle{--kb-primary-light} $\rightarrow$ helles Violett
-    \item Kolibri-Light/Secondary/\codestyle{--kb-secondary-accent} $\rightarrow$ mittleres Blau
-    \item Kolibri-Light/Secondary/\codestyle{--kb-secondary-light} $\rightarrow$ helles Blau
-    \item Kolibri-Light/Monochrome/\codestyle{--kb-color-body} $\rightarrow$ mittleres Grau
-    \item Kolibri-Light/Monochrome/\codestyle{--kb-color-line} $\rightarrow$ helles Grau
+    \item Kolibri-Light/Yellow/300 (\codestyle{-{}-kb-color-select}) $\rightarrow$ helles Gelb
+    \item Kolibri-Light/Warning/\codestyle{-{}-kb-warning-dark} $\rightarrow$ dunkles Gelb
+    \item Kolibri-Light/Danger/\codestyle{-{}-kb-danger-accent} (\codestyle{-{}-kolibri-color-accent}) $\rightarrow$ mittleres Rosa
+    \item Kolibri-Light/Success/\codestyle{-{}-kb-success-accent} $\rightarrow$ mittleres Grün
+    \item Kolibri-Light/Success/\codestyle{-{}-kb-success-light} $\rightarrow$ helles Grün
+    \item Kolibri-Light/Primary/\codestyle{-{}-kb-primary-accent} $\rightarrow$ mittleres Violett
+    \item Kolibri-Light/Primary/\codestyle{-{}-kb-primary-light} $\rightarrow$ helles Violett
+    \item Kolibri-Light/Secondary/\codestyle{-{}-kb-secondary-accent} $\rightarrow$ mittleres Blau
+    \item Kolibri-Light/Secondary/\codestyle{-{}-kb-secondary-light} $\rightarrow$ helles Blau
+    \item Kolibri-Light/Monochrome/\codestyle{-{}-kb-color-body} $\rightarrow$ mittleres Grau
+    \item Kolibri-Light/Monochrome/\codestyle{-{}-kb-color-line} $\rightarrow$ helles Grau
 \end{itemize}
 
 Da die Elemente drei verschiedene Zustände gleichzeitig erhalten können, müssen die Styles kombinierbar sein. 
@@ -64,13 +64,13 @@ Nicht jede der erwähnten Eigenschaften und Farben eigenen sich in gleichem Mass
 \emph{Yellow-100} fällt schnell wieder weg, da je nach Display der Kontrast zu gering ist. 
 Unter den restlichen hellen Schattierungen passt \emph{Yellow-300} am besten. 
 Diese Farbe ist bereits als Selektionsfarbe im Code hinterlegt. 
-Als Hintergrundfarbe eignet sich am ehesten das vordefinierte \codestyle{--kb-color-select}. 
+Als Hintergrundfarbe eignet sich am ehesten das vordefinierte \codestyle{-{}-kb-color-select}. 
 Dadurch ist klar, dass die anderen beiden Zustände eine eher kräftige bzw. dunkle Färbung benötigen. 
 Der Blick auf die Namen im Designsystem zeigt eine weitere Farbe zur Hervorhebung eines Elements. 
-Die Benennung des mittleren Rosa mit Accent (\codestyle{--kolibri-color-accent}) bietet einen guten Kontrast zur Selektion. 
+Die Benennung des mittleren Rosa mit Accent (\codestyle{-{}-kolibri-color-accent}) bietet einen guten Kontrast zur Selektion. 
 Diese Farbe ist ebenfalls im Code vordefiniert. 
 Da die dritte Farbe nicht zu viel Unruhe in das Design bringen soll, schränkt sich die Farbauswahl weiter ein. 
-Mit einem gut erkennbaren Kontrast zur Selektion bietet sich das dunkle Gelb \codestyle{--kb-warning-dark} an. 
+Mit einem gut erkennbaren Kontrast zur Selektion bietet sich das dunkle Gelb \codestyle{-{}-kb-warning-dark} an. 
 
 Wie erwähnt ist die Eigenschaft Hintergrundfarbe durch die Wahl der Farbe bereits festgelegt. 
 Die Änderung der Schrift sollte maximal die Farbe betreffen. 
@@ -142,8 +142,8 @@ Die Zustände verbinden sich wie folgt mit der getroffene Wahl der Farben.
 \begin{itemize}
     \item \textbf{Original} $\rightarrow$ \textbf{Neu}
     \item Kolibri-Light/Yellow/300 $\rightarrow$ selected
-    \item Kolibri-Light/Danger/\codestyle{--kb-danger-accent} $\rightarrow$ highlighted
-    \item Kolibri-Light/Warning/\codestyle{--kb-warning-dark} $\rightarrow$ cursor position
+    \item Kolibri-Light/Danger/\codestyle{-{}-kb-danger-accent} $\rightarrow$ highlighted
+    \item Kolibri-Light/Warning/\codestyle{-{}-kb-warning-dark} $\rightarrow$ cursor position
 \end{itemize}
 
 Bei der Verwendung dieser Farben in der neuen Komponente sind einige CSS-Dateien notwendig. 
@@ -244,7 +244,7 @@ Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein Curso
     bottom:        0.4em;
     transform:     translateX(-50%);
 
-    background:    var(--kb-hsla-warning-dark);
+    background:    var(-{}-kb-hsla-warning-dark);
     border-radius: 1px;
     width:         2px;
 }
@@ -610,7 +610,7 @@ Der Grundaufbau des Popover-Container ist im folgenden Code \ref{code:popoverExa
 <div popover="auto"
      id="select-component-0-options" 
      class="options-component" 
-> <!-- content --> </div>
+> <!-{}- content -{}-> </div>
 \end{lstlisting}
 
 Bei diesem Codeausschnitt ist wichtig, dass das Attribut \codestyle{popover} den Wert \codestyle{auto} erhält. 
