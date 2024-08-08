@@ -90,8 +90,10 @@ Zur Visualisierung und zum interaktiven Testing des Designs kommt Figma zum Eins
 Figma ist ein webbasiertes Tool zur Erstellung von UI/UX-Designs, das Echtzeit-Kollaboration ermöglicht. 
 Das Sammeln der Feedbacks von Staskholdern und Nutzern unterstützt eine effiziente Entwicklung. 
 Dafür ist es unabdingbar, im Vorfeld mit Figma schnell Prototypen zu erstellen und mit den Probanden zu teilen. 
+Das Arbeiten mit Figma-Components erleichtert das Entwickeln enorm. 
+Dies ermöglicht das Erstellen von Varianten ohne viel Aufwand. 
 
-Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3} zeigen die Prototypen der neuen Drop\-down-Kom\-po\-nente: 
+Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3} zeigen die Prototypen der neuen Drop\-down-Kom\-po\-nente. 
 
 \begin{figure}[!htb]
     \centering
@@ -114,14 +116,17 @@ Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3
     \label{img:figmaPrototype3}
 \end{figure}
 
+Die ersten beiden Grafiken bilden die Komponente in verschiedenen Anwendungsgebieten ab. 
+Die Abbildung \ref{img:figmaPrototype3} zeigt ein mögliches Design für einen Dark-Mode. 
+Dabei sind die Farben soweit angepasst, dass der Kontrast weiterhin gegeben ist. 
 
-\subsection{Farbpalette und Kontrast}
+
+\subsection{Farbpalette}
 \label{sec:colorContrast}
 
 Das Kolibri-Designsystem bietet eine Vielzahl von Farben. 
 Der Figma-Prototyp enthält spezifische Anpassungen, so dass die Dropdown-Komponente gut lesbar ist. 
 Für den Erhalt einer besseren Nutzerfreundlichkeit gestaltet sich die Farbauswahl aus Abbildung \ref{img:designColors}. 
-Diese bietet hohen Kontrast und verbessert somit die Barrierefreiheit der Anwendung. 
 
 \begin{figure}[!htb]
     \centering
@@ -130,8 +135,9 @@ Diese bietet hohen Kontrast und verbessert somit die Barrierefreiheit der Anwend
     \label{img:designColors}
 \end{figure}
 
-\noindent
-Die Kolibri-Base Farben erhalten im neuen Dropdown eine angepasste Verwendung: 
+Diese bietet hohen Kontrast und verbessert somit die Barrierefreiheit der Anwendung. 
+Die Gründe der Auswahl befinden sich im früheren Kapitel \textbf{\nameref{sec:possibleDesignOptions}}. 
+Die Zustände verbinden sich wie folgt mit der getroffene Wahl der Farben. 
 
 \begin{itemize}
     \item \textbf{Original} $\rightarrow$ \textbf{Neu}
@@ -140,113 +146,123 @@ Die Kolibri-Base Farben erhalten im neuen Dropdown eine angepasste Verwendung:
     \item Kolibri-Light/Warning/\codestyle{--kb-warning-dark} $\rightarrow$ cursor position
 \end{itemize}
 
-\noindent
-Der Code \ref{code:cssImports} zeigt die importierten CSS-Dateien, die als Grundlage für dieses Styling dienen: 
+Bei der Verwendung dieser Farben in der neuen Komponente sind einige CSS-Dateien notwendig. 
+Diese dienen als Grundlage für das weitere Design. 
+Der Code \ref{code:cssImports} zeigt die importierten CSS-Files. 
 
-\begin{lstlisting}[style = htmlcssjs, caption = CSS Imports, label = code:cssImports]
+\begin{lstlisting}[style = htmlcssjs, caption = Notwendige CSS Imports, label = code:cssImports]
 @import "../../../css/kolibri-base.css";
 @import "../../../css/kolibri-light-colors.css";
 \end{lstlisting}
 
+Die erste Zeile enthält die grundlegenden Kolibri Designs. 
+Dazu gehören einige vordefinierte Farben wie eine Selektion oder ein Highlight. 
+Weiter sind die Schriften und die Invadität von Inputs festgelegt. 
+Die zweite Datei ist für die breite Palette an Farben im Light-Mode zuständig. 
 
-\subsection{Layout und Typografie}
+
+\subsection{Layout und Animation}
 \label{sec:layoutTypo}
 
-Die Umsetzung der Dropdown-Komponente des in Figma entworfenen Designs erhält eigenes CSS. 
-Nachfolgender Codeausschnitt \ref{code:popoverStyle} zeigt den bei der Gestaltung des Popover- und Option-Styles relevanten Code: 
+Die Dropdown-Komponente besteht aus der Detail- und der Master-Ansicht. 
+Dieser Aufbau ist im Kapitel \textbf{\nameref{sec:masterDetailView}} genauer beschrieben. 
+Das Layout innerhalb des Option-Popover liegt in Spalten vor. 
+Die einzelnen Optionen listen sich zeilenweise in den Spalten auf. 
+Der Listencontainer öffnet sich mit einer Animation. 
+Nachfolgender Codeausschnitt \ref{code:popoverStyle} zeigt die dafür relevanten Zeilen. 
 
-% todo reduzieren auf wesentliche stellen \& beschreiben => .options-component[popover] inhalt weg kürzen?
-\begin{lstlisting}[style = htmlcssjs, caption = CSS für das Popover-Element, label = code:popoverStyle]
+\begin{lstlisting}[style = htmlcssjs, caption = Animation zum Öffnen des Popovers, label = code:popoverStyle]
+/* animation */
 @keyframes open {
-    0% {
-        transform: scaleY(0);
-    }
-    100% {
-        transform: scaleY(1);
-    }
+    0%   { transform: scaleY(0); }
+    100% { transform: scaleY(1); }
 }
-@keyframes close {
-    0% {
-        transform: scaleY(1);
-    }
-    100% {
-        transform: scaleY(0);
-    }
-}
-.options-component[popover] {
-    position:         absolute;
-    z-index:          20;
-    max-height:       240px;
-    border-radius:    0 0 4px 4px;
-    border: 1px       solid #ccc;
-    border-top:       none;
-    background:       #fff;
-    overflow:         hidden;
-    align-items:      stretch;
-    flex-wrap:        nowrap;
-    padding:          0;
-    margin:           0;
-    box-shadow:       0px 5px 15px #0002;
+/* popover closed */
+[popover] {
+    display:          none;
     animation:        open 300ms ease-in-out;
     transform-origin: top center;
 }
-.options-component[popover]:popover-open {
-    display: flex;
-    height:  fit-content;
-} 
+@starting-style {
+    [popover]:popover-open {
+        height:       0;
+    }
+}
+/* popover opened */
+[popover]:popover-open {
+    display:          flex;
+    height:           fit-content;
+}
 \end{lstlisting}
 
-Diese CSS-Regeln definieren die Animationen für das Öffnen und Schliessen des Popovers und das grundlegende Styling des Popover-Containers. 
-Die \codestyle{@keyframes} regeln die Transformation. 
-Das \codestyle{.options-component[popover]} steuert das Layout und das Erscheinungsbild des Popovers. 
+Die grundlegenden Styling-Properties des Popover-Containers sind nicht aufgeführt. 
+Die CSS-Regeln aus Code \ref{code:popoverStyle} definieren die öffnende Animation des Popovers. 
+Das \codestyle{@keyframes} regelt die Transformation bzw. Animation, welche das Ausfahren des Containers festlegt. 
+Das \codestyle{[popover]} steuert das Erscheinungsbild des geschlossenen Popovers. 
+Die Animation ist mit Zeile 9 an den Popover-Container gebunden. 
+Die Zeilen 12 bis 16 definieren die CSS-Regeln, welche zum Start des Öffnens gelten. 
+Der Selektor \codestyle{:popover-open} legt die Darstellung des offenen Zustands fest. 
+
+Das Togglen des Popover erhält zusätzlichen Code, damit der Controller aktuell bleibt. 
+Das entsprechende Event aus Codeausschnitt \ref{code:popoverToggle} führt ein Update auf dem Controller aus. 
+
+\begin{lstlisting}[style = htmlcssjs, caption = Event-Handling für Popover-Toggle, label = code:popoverToggle]
+optionsContainer.addEventListener("toggle", (event) => {
+    if (event.newState === "open") {
+        optionsContainer.classList.toggle("opened", true);
+        selectController.setOptionsVisibility(true);
+    } else {
+        optionsContainer.classList.toggle("opened", false);
+        selectController.setOptionsVisibility(false);
+    }
+    // more code to update scrollbars in columns
+});
+\end{lstlisting}
+
+Dieser Code prüft beim Togglen den neuen Status des Events. 
+Anhand des Status erhält das Popover ein Update bei den Klassen. 
+Die weiteren Zustände sind im nachfolgenden Kapitel genauer beschrieben. 
 
 
 \subsection{Implementation der Zustände}
 \label{sec:implementStates}
 
-Die Dropdown-Komponente ist so gestaltet, dass sie sowohl für Maus- als auch Tastaturbenutzer optimal funktioniert. 
+Die Auswahlkomponente ist so gestaltet, dass sie sowohl für Maus- als auch Tastaturbenutzer optimal funktioniert. 
 Das Design der Interaktionen bietet eine intuitive und leicht zugängliche Bedienung der Komponente. 
 Spezifische CSS-Klassen erleichtern die Benutzerführung. 
 Sie definieren die Styles der hervorgehobenen (highlighted) bzw. ausgewählten (selected) Optionen. 
-Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein aktuelles\footnote{
-    Element, welches sich unter der Cursor Position befindet
-} und selektiertes Element. 
+Die Cursor Position erhält ebenfalls eine eigene CSS-Klasse. 
+Dieser Zusand als auch das Highlight sind unter anderem durch einen Spiegelstrich dargestellt. 
+Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein Cursor Position Element. 
 
-\begin{lstlisting}[style = htmlcssjs, caption = Aktuelle (\codestyle{cursor-position}) und ausgewählte (\codestyle{selected}) Option, label = code:styledElement]
-.cursor-position {
-    color: var(--kb-hsla-warning-dark);
+\begin{lstlisting}[style = htmlcssjs, caption = Spiegelstrich der Cursor Position, label = code:styledElement]
+.cursor-position::before {
+    content:       '';
+    position:      absolute;
+    left:          7px;
+    top:           0.5em;
+    bottom:        0.4em;
+    transform:     translateX(-50%);
 
-    &:not(.disabled)::before {
-        content:       '';
-        position:      absolute;
-        left:          7px;
-        top:           0.5em;
-        bottom:        0.4em;
-        transform:     translateX(-50%);
-
-        background:    var(--kb-hsla-warning-dark);
-        border-radius: 1px;
-        width:         2px;
-    }
-}
-.selected {
-    background:    var(--kolibri-color-select);
-    border-radius: 4px;
+    background:    var(--kb-hsla-warning-dark);
+    border-radius: 1px;
+    width:         2px;
 }
 \end{lstlisting}
 
-\codestyle{cursor-position}: 
-Definiert die Hervorhebung der Option, die gerade durch den Cursor\footnote{
-    Tastatur-Position-Anker (nicht Maus-Cursor)
-} fokussiert ist. 
-Eine dunkle Farbe und eine linksseitige Markierung betonen das Element. 
+Der Selektor \codestyle{.cursor-position} befindet sich immer nur auf einem Element – der Cursor Position. 
+Die Zeilen 2 bis 6 in Code \ref{code:styledElement} definieren die Position des Spiegelstrichs. 
+Das Erscheinungsbild ist durch die Zeilen 8 bis 10 beschrieben. 
+Eine dunkle Farbe und eine linksseitige Markierung betonen das Element der Cursor Position. 
+Das Highlight verwendet einen sehr ähnlichen Code. 
+Die Farbe als auch die Position sind jedoch angepasst. 
+Zudem hält sich das Highlight nicht an eine Klasse, sondern nutzt die Pseudo-Klasse \codestyle{:hover}. 
 
-\codestyle{selected}: 
-Stellt die ausgewählte Option durch einen speziellen Hintergrund und abgerundete Ecken dar. 
+Für ein konsistent gehaltenes UI sind diverse Event-Handler und UI-Update-Funktionen notwendig. 
+Im \codestyle{columnOptionsProjector.js} existiert beispielsweise ein Event-Handler, der das Setzen und Entfernen der Selektions-Klasse steuert. 
+Dieser ist im nachfolgende Code \ref{code:selectionChange} ersichtlich. 
 
-Im \codestyle{columnOptionsProjector.js} gibt es Event-Handler, die das Setzen und Entfernen der Highlighting-Klassen steuern: 
-
-\begin{lstlisting}[style = htmlcssjs, caption = Steuerung der Highlighting-Klassen, label = code:highlightChange]
+\begin{lstlisting}[style = htmlcssjs, caption = Änderung der Selektion, label = code:selectionChange]
 const selectOptionItem = (root) => (newOption, oldOption) => {
     const oldItem = getHtmlElementByOption(oldOption, root);
     if (oldItem) {
@@ -258,115 +274,27 @@ const selectOptionItem = (root) => (newOption, oldOption) => {
         newItem.classList.add("selected");
     }
 }; 
-const cursorPositionItem = (root) => (newOption, oldOption) => {
-    // same structure as selectOptionItem for the cursor-position class
-}; 
 \end{lstlisting}
 
-\codestyle{selectOptionItem}: 
-Verschiebt die Klasse \codestyle{.selected} und somit die Hervorhebung auf das neue Element. 
-
-\codestyle{cursorPositionItem}: 
-Entfernt bzw. setzt die Klasse \codestyle{.cursor-position} – ähnlich wie beim \codestyle{selectOptionItem}. 
-
-Die entsprechenden CSS-Klassen aus Codeausschnitt \ref{code:eventSelection} steuern die Selektion einer Option.
-
-\begin{lstlisting}[style = htmlcssjs, caption = Event-Handling für die Auswahl einer Option, label = code:eventSelection]
-const projectSelectedValueOptionView = (selectController, popoverElement) => {
-    const rootElement = document.createElement("div");
-    rootElement.id    = selectController.getId() + "-selected-option";
-    rootElement.classList.add("selected-option-component");
-    rootElement.setAttribute("data-id", selectController.getId());
-    
-    const selectedOptionContainer     = document.createElement("div");
-    selectedOptionContainer.innerHTML = selectController.getSelectedValueOption().getLabel();
-    selectedOptionContainer.onclick   = togglePopover;
-    selectedOptionContainer.classList.add("selected-value");
-    
-    rootElement.append(selectedOptionContainer);
-    return [rootElement, selectedOptionContainer];
-}; 
-\end{lstlisting}
-
-\codestyle{projectSelectedValueOptionView}: 
-Erstellt die Ansicht für die ausgewählte Option und verknüpft die Klick-Events mit dem Umschalten des Popovers. 
-Diese Kombination von CSS und JavaScript bietet dem Highlighting und der Selektion von Optionen eine visuell ansprechende Umsetzung. 
+Die Funktion \codestyle{selectOptionItem} verschiebt die Klasse \codestyle{selected} vom alten auf das neue Element. 
+Dadurch passt sich das UI automatisch an. 
+Damit sich die Änderung nur die Selektion der aktuellen Spalte auswirkt, verlangt die Funktion ein Elternelement. 
+Das hier versendete \codestyle{getHtmlElementByOption} sucht im Teilbaum des DOMs das HTML-Element zur mitgegenen Option. 
 
 
-\subsection{Optionen und Scrollbar-Styling}
-\label{sec:sizeLayoutChanges}
-
-Diese CSS-Regeln gestalten die Optionen einer einzelnen Spalte sowie das Scroll-Ver\-hal\-ten des Containers. 
-Das \codestyle{.options-column} aus Code \ref{code:optionStyling} definiert das Layout sowie weitere Listen-abhängige Eigenschaften. 
-Das \codestyle{.option-item} legt das Erscheinungsbild und die Interaktivität der einzelnen Optionen fest. 
-
-\begin{lstlisting}[style = htmlcssjs, caption = Optionen und Scrollbar-Styling, label = code:optionStyling]
-.options-column {
-    position:    relative;
-    width:       100%;
-    overflow-y:  scroll;
-    overflow-x:  hidden;
-    max-height:  240px;
-    min-height:  100%;
-    padding:     5px;
-    flex-grow:   2;
-    flex-shrink: 1;
-}
-.option-item {
-    position:      relative;
-    padding:       10px 20px;
-    display:       block;
-    cursor:        pointer;
-    width:         100%;
-    line-height:   1.2;
-    overflow:      hidden;
-    text-overflow: ellipsis;
-} 
-\end{lstlisting}
-
-Die Nutzung von den CSS-Styles im JavaScript stellt sicher, dass die dynamischen Klassen und Stile ihre Anwendung finden. 
-Das Beispiel \ref{code:cssSyleInJs} aus den Projector-Files verwendt die erwänhten folgenden CSS-Klassen: 
-
-\begin{lstlisting}[style = htmlcssjs, caption = CSS-Styles im JavaScript, label = code:cssSyleInJs]
-// selectProjector.js
-const projectOptionsView = (selectController) => {
-    const optionsContainer = document.createElement("div");
-    optionsContainer.id    = selectController.getId() + "-options";
-    optionsContainer.classList.add(optionsClassName);
-    optionsContainer.setAttribute("popover", "auto");
-    // more popover logic
-};
-
-// columnOptionsProjector.js
-const projectOption = (selectedOptionController, option, optionType, cursorPositionController) => {
-    const item     = document.createElement("div");
-    item.innerHTML = option.getLabel();
-    item.setAttribute("data-id"   , elementId(option));
-    item.setAttribute("data-value", option.getValue());
-    item.setAttribute("data-label", elementDataLabel(option));
-    item.classList.add(optionClassName);
-    item.classList.add(optionType + "-" + optionClassName);
-    // more option logic
-}; 
-\end{lstlisting}
-
-Dieser JavaScript Code erstellt die HTML-Elemente und ergänzt die CSS-Klassen, um das Styling und die Funktionalität sicherzustellen. 
-Das \codestyle{selectProjector.js} erstellt und stylt den Popover-Container und die Detail-Ansicht. 
-Das \codestyle{columnOptionsProjector.js} gestaltet die Options-Elemente und die einzelnen Spalten. 
-Diese Kombination aus CSS und JS stellt sicher, dass die Dropdown- und Popover-Komponenten korrekt angezeigt und interaktiv sind. 
-
-
-\subsection{Prototyping und Benutzerfeedback}
+\subsection{Prototyping}
 \label{sec:userFeedbackPrototyping}
 
-Der Einsatz von interaktiven Figma-Prototypen ist hilfreich beim Evaluieren der initialen Benutzerfreundlichkeit und intuitiven Bedienung. 
+Der Einsatz von interaktiven Figma-Prototypen ist hilfreich beim Evaluieren der Benutzerfreundlichkeit und intuitiven Bedienung. 
+Die Prototypen der neuen Auswahlkomponente bauen auf dem Resultat der Vorabeit auf. 
+Daher sind keine Low-Fi-Gestaltungen notwendig. 
+Die Einbindung der in der Vorarbeit erhaltenen Feedbacks der Länderkomponente findet in den neuen Hi-Fi-Prototypen ihre Anwendung. 
+Beispiele für die Designs sind in der Grafik \ref{img:figmaPrototype1} ersichtlich. 
+Im oberen Bereich des Bildes befinden sich die Zustände der Optionen. 
+Nutzertests decken die Mängel und Wünsche der Probanden auf. 
 Mit der Integration der Rückmeldungen von Benutzerinteraktionen in das Design verbessert sich die Usability kontinuierlich. 
-Beispiele für die Prototypen und die verschiedenen Zustände sind in der oberen Hälfte des Bildes \ref{img:figmaPrototype1} ersichtlich. 
-
-Die Gestaltung der Auswahlkomponente umfasst sowohl visuelle als auch funktionale Aspekte. 
-Gezielte CSS-Anpassungen und ein durchdachtes Interaktionsdesign finden in der Realisierung ihren Platz. 
-Das Ziel ist, eine ansprechende und benutzerfreundliche Komponente zu schaffen. 
-Sie fügt sich nahtlos in das Kolibri-Designsystem ein und überzeugt gleichzeitig durch optimierte Les- und Bedienbarkeit. 
+Mehr zu den Nutzerfeedbacks folgt im Kapitel \textbf{\nameref{sec:userTests}}. 
+Das Resultat des umgesetzen Prototypen ist im nachfolgenden Kapitel genauer beschrieben. 
 
 
 \subsection{Implementationsresultat}
