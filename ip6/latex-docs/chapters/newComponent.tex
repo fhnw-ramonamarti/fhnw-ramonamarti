@@ -258,8 +258,8 @@ Das Highlight verwendet einen sehr ähnlichen Code.
 Die Farbe als auch die Position sind jedoch angepasst. 
 Zudem hält sich das Highlight nicht an eine Klasse, sondern nutzt die Pseudo-Klasse \codestyle{:hover}. 
 
-Für ein konsistent gehaltenes UI sind diverse Event-Handler und UI-Update-Funktionen notwendig. 
-Im \codestyle{columnOptionsProjector.js} existiert beispielsweise ein Event-Handler. 
+Für ein konsistent gehaltenes UI sind diverse Event-Handler und UI-Update-Funk\-tion\-en notwendig. 
+Im \codestyle{columnOptionsProjector.js} existiert beispielsweise ein Event-Hand\-ler. 
 Er steuert das Setzen und Entfernen der Selektions-Klasse. 
 Dieser ist im nachfolgenden Code \ref{code:selectionChange} ersichtlich. 
 
@@ -1008,62 +1008,121 @@ Wenn zwei Kolonnen sichtbar sind, aber rechts nichts selektierbar ist.
 Das ist ein zu erwartender Fall, aber nicht ideal für die Demo. 
 
 
-\subsubsection{Endanwender} % todo
+\subsubsection{Endanwender}
 \label{sec:userTestsEnduser}
 
-Formular-Ausfüller
+Im Rahmen der Usability-Tests erfolgt eine Untersuchung der Benutzerfreundlichkeit der neuen Dropdown-Komponente.  
+Die Komponente nutzt eine mehrstufige Filterung, um die Navigation innerhalb langer Listen zu erleichtern. 
+Testpersonen durchlaufen Aufgaben, die auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser Dropdown-Funktion abzielen. 
 
-Im Rahmen der Usability-Tests erfolgt eine Untersuchung der Benutzerfreundlichkeit der neuen Dropdown-Komponente.  Die Komponente nutzt eine mehrstufige Filterung, um die Navigation innerhalb langer Listen zu erleichtern. Testpersonen durchlaufen Aufgaben, die auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser Dropdown-Funktion abzielen.
+ \\
+\emph{Aufgabenbeschreibung}: 
+\\
+\textbf{1. Jahresauswahl}: 
+Testpersonen wählen das gewünschte Jahr aus einer Liste aus. 
+Der Prozess beinhaltet die Vorauswahl eines Jahrzehnts, gefolgt von der Auswahl des spezifischen Jahres. 
+Diese Aufgabe dient der Bewertung der Benutzerfreundlichkeit und Effizienz der Filteroptionen. 
+\\
+\textbf{2. Stadtauswahl}: 
+Die Testpersonen wählen eine speziefische Stadt aus einer dreispaltigen Dropdown-Liste. 
+Die Auswahl erfolgt schrittweise: Beginnend mit dem Kontinent, gefolgt vom Land, und schliesslich der Stadt. 
+Der Fokus liegt hierbei auf der Bedienbarkeit und der Wirksamkeit der Filterfunktion. 
 
-Aufgabenbeschreibung:
+ \\
+\emph{Feedback der Testpersonen}: 
 
-1. Jahresauswahl:
-Testpersonen wählen das gewünschte Jahr aus einer Liste aus. Der Prozess beinhaltet die Vorauswahl eines Jahrzehnts, gefolgt von der Auswahl des spezifischen Jahres. Diese Aufgabe dient der Bewertung der Benutzerfreundlichkeit und Effizienz der Filteroptionen.
-2. Stadtauswahl:
-Die Testpersonen wählen eine speziefische Stadt aus einer dreispaltigen Dropdown-Liste. Die Auswahl erfolgt schrittweise: Beginnend mit dem Kontinent, gefolgt vom Land, und schliesslich der Stadt. Der Fokus liegt hierbei auf der Bedienbarkeit und der Wirksamkeit der Filterfunktion.
+\noindent
+Allgemeine Benutzerfreundlichkeit: 
 
-Feedback der Testpersonen:
+\begin{itemize}
+    \item \textbf{Robert (Junger Alltagsbenutzer, digital native)}: 
+          Empfindet die Dropdown-Menüführung als intuitiv und zügig bedienbar. 
+          Sowohl das Jahr als auch die Stadt lassen sich mühelos finden. 
+    \item \textbf{Sara (Semi-aufmerksam, nicht so schnell auf der Tastatur)}: 
+          Beginnt mit Schwierigkeiten in der Dreispaltenansicht, findet jedoch nach kurzer Einarbeitung die Filteroptionen nützlich. 
+    \item \textbf{Nick (Alltagsbenutzer/Student)}: 
+          Zeigt sich zufrieden mit der Handhabung und hebt hervor, dass die Filterfunktion das Auffinden des Jahres beschleunigt. 
+    \item \textbf{Reto (Unternehmer, über 60 Jahre alt)}: 
+          Erlebt die Menüführung als etwas komplex, besonders die dreispaltige Filterung. 
+          Nach einer Eingewöhnungszeit erkennt er jedoch die Vorteile gegenüber einer langen Liste. 
+\end{itemize}
 
-- Allgemeine Benutzerfreundlichkeit:
-- Robert (Junger Alltagsbenutzer, digital native): Empfindet die Dropdown-Menüführung als intuitiv und zügig bedienbar. Sowohl das Jahr als auch die Stadt lassen sich mühelos finden.
-- Sara (Semi-aufmerksam, nicht so schnell auf der Tastatur): Beginnt mit Schwierigkeiten in der Dreispaltenansicht, findet jedoch nach kurzer Einarbeitung die Filteroptionen nützlich.
-- Nick (Alltagsbenutzer/Student): Zeigt sich zufrieden mit der Handhabung und hebt hervor, dass die Filterfunktion das Auffinden des Jahres beschleunigt.
-- Reto (Unternehmer, über 60 Jahre alt): Erlebt die Menüführung als etwas komplex, besonders die dreispaltige Filterung. Nach einer Eingewöhnungszeit erkennt er jedoch die Vorteile gegenüber einer langen Liste.
-- Funktionalität der Filteroptionen:
-- Robert: Schätzt die Filteroptionen als sehr nützlich ein. Das Finden spezifischer Jahre und Städte gelingt schneller als erwartet.
-- Sara: Nutzt zuerst nicht alle Filter bei der Stadtauswahl, scrollt somit ein bisschen mehr.
-- Nick: Die Möglichkeit, zuerst das Jahrzehnt und anschliessend das spezifische Jahr auszuwählen, beschleunigt den Prozess erheblich.
-- Reto: Ist unsicher bei der Nutzung der Filter, erkennt jedoch nach einiger Zeit deren Vorteil.
+\noindent
+Funktionalität der Filteroptionen: 
 
-Visuelle Gestaltung und Übersichtlichkeit:
+\begin{itemize}
+    \item \textbf{Robert}: 
+          Schätzt die Filteroptionen als sehr nützlich ein. 
+          Das Finden spezifischer Jahre und Städte gelingt schneller als erwartet. 
+    \item \textbf{Sara}: 
+          Nutzt zuerst nicht alle Filter bei der Stadtauswahl, scrollt somit ein bisschen mehr. 
+    \item \textbf{Nick}: 
+          Die Möglichkeit, zuerst das Jahrzehnt und anschliessend das spezifische Jahr auszuwählen, beschleunigt den Prozess erheblich. 
+    \item \textbf{Reto}: 
+          Ist unsicher bei der Nutzung der Filter, erkennt jedoch nach einiger Zeit deren Vorteil. 
+\end{itemize}
 
-- Robert: Beurteilt das Design als klar und ansprechend. Die Struktur erscheint ihm logisch und nachvollziehbar.
-- Sara: Findet die visuelle Gestaltung in Ordnung, vermisst jedoch eine deutlichere Hervorhebung aktiver Filteroptionen.
-- Nick: Ist zufrieden mit der Übersichtlichkeit und der klaren Struktur des Dropdown-Menüs.
-- Reto: Findet das Design zunächst verwirrend, besonders in der Dreispaltenansicht, gewöhnt sich jedoch daran.
+ \\
+\emph{Visuelle Gestaltung und Übersichtlichkeit}: 
 
-Intuitivität der Bedienung:
+\begin{itemize}
+    \item \textbf{Robert}: 
+          Beurteilt das Design als klar und ansprechend. 
+          Die Struktur erscheint ihm logisch und nachvollziehbar. 
+    \item \textbf{Sara}: 
+          Findet die visuelle Gestaltung in Ordnung, vermisst jedoch eine deutlichere Hervorhebung aktiver Filteroptionen. 
+    \item \textbf{Nick}: 
+          Ist zufrieden mit der Übersichtlichkeit und der klaren Struktur des Drop\-down-Menüs. 
+    \item \textbf{Reto}: 
+          Findet das Design zunächst verwirrend, besonders in der Dreispaltenansicht, gewöhnt sich jedoch daran. 
+\end{itemize}
 
-- Robert: Erlebt die Bedienung als sehr intuitiv und benötigt keine weiteren Erklärungen.
-- Sara: Muss sich an die Bedienung gewöhnen, findet diese jedoch nach kurzer Zeit einfach zu handhaben.
-- Nick: Empfindet die Bedienung als leicht nachvollziehbar und intuitiv.
-- Reto: Hat anfänglich Schwierigkeiten und wünscht sich eine einfache Einführung.
+ \\
+\emph{Intuitivität der Bedienung}: 
 
-Gesamtzufriedenheit:
-- Robert: 10/10 – Sehr zufrieden, bewertet die Filteroptionen als hervorragend.
-- Sara: 7/10 – Zufrieden, dreispaltige Navigation ist ihr jedoch nicht so gängig.
-- Nick: 9/10 – Zufrieden, bevorzugt diese Art der Auswahl.
-- Reto: 8/10 – Zufrieden, jedoch mit anfänglichen Schwierigkeiten. Mag speziell die schnelle Jahresauswahl.
+\begin{itemize}
+    \item \textbf{Robert}: 
+          Erlebt die Bedienung als sehr intuitiv und benötigt keine weiteren Erklärungen. 
+    \item \textbf{Sara}: 
+          Muss sich an die Bedienung gewöhnen, findet diese jedoch nach kurzer Zeit einfach zu handhaben. 
+    \item \textbf{Nick}: 
+          Empfindet die Bedienung als leicht nachvollziehbar und intuitiv. 
+    \item \textbf{Reto}: 
+          Hat anfänglich Schwierigkeiten und wünscht sich eine einfache Einführung. 
+\end{itemize}
 
-Verbesserungsvorschläge:
+ \\
+\emph{Gesamtzufriedenheit}: 
 
-- Robert: Hat keine weiteren Vorschläge.
-- Sara: Findet die dreispaltige zwar nützlich jedoch müssen damit mehrere Spalten bearbeitet werden.
-- Nick: Schlägt eine kurze Anleitung oder Hinweistext für Erstnutzer vor.
-- Reto: Eventuell eine vereinfachte Variante mit nicht gleich vielen Informationen bei der Länderauswahl.
+\begin{itemize}
+    \item \textbf{Robert}: 
+          {\color{editorGreen} 10/10} – Sehr zufrieden, bewertet die Filteroptionen als hervorragend. 
+    \item \textbf{Sara}: 
+          {\color{editorGreen} 7/10} – Zufrieden, dreispaltige Navigation ist ihr jedoch nicht so gängig. 
+    \item \textbf{Nick}: 
+          {\color{editorGreen} 9/10} – Zufrieden, bevorzugt diese Art der Auswahl. 
+    \item \textbf{Reto}: 
+          {\color{editorGreen} 8/10} – Zufrieden, jedoch mit anfänglichen Schwierigkeiten. 
+          Mag speziell die schnelle Jahresauswahl. 
+\end{itemize}
 
+ \\
+\emph{Verbesserungsvorschläge}: 
 
-Der Usability-Test zeigt, dass die neue Dropdown-Komponente insgesamt beliebt ist. Besonders die Filteroptionen nach Jahrzehnten und Kontinenten erweisen sich als hilfreich. Einige Nutzer benötigen jedoch eine Eingewöhnungszeit, um sich an die Bedienung der mehrstufigen Auswahl zu gewöhnen.
+\begin{itemize}
+    \item \textbf{Robert}: 
+          Hat keine weiteren Vorschläge. 
+    \item \textbf{Sara}: 
+          Findet die dreispaltige zwar nützlich jedoch müssen damit mehrere Spalten bearbeitet werden. 
+    \item \textbf{Nick}: 
+          Schlägt eine kurze Anleitung oder Hinweistext für Erstnutzer vor. 
+    \item \textbf{Reto}: 
+          Eventuell eine vereinfachte Variante mit nicht gleich vielen Informationen bei der Länderauswahl. 
+\end{itemize}
+
+Der Usability-Test zeigt, dass die neue Dropdown-Komponente insgesamt beliebt ist. 
+Besonders die Filteroptionen nach Jahrzehnten und Kontinenten erweisen sich als hilfreich. 
+Einige Nutzer benötigen jedoch eine Eingewöhnungszeit, um sich an die Bedienung der mehrstufigen Auswahl zu gewöhnen. 
 
 
 \subsubsection{Fazit}
