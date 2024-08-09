@@ -133,9 +133,9 @@ Anschliessend sind Informationen über den detaillierten Ablauf zur Anzeige eine
 \subsection{Rendering Prozess}
 \label{sec:structureRendering}
 
-Der Aufruf einer Webseite beginnt mit dem HTTP-Request auf welchen eine HTTP-Response folgt. 
-In diesem Bericht sind die gerade genannten Schritte vor dem eigentlichen erhalten der Daten nicht weiter wichtig. 
-Der Response liefert schlussendlich die anzuzeigenden Daten, welche in diesem Fall die tragende Rolle spielen. 
+Der Aufruf einer Webseite beginnt mit dem HTTP-Request auf welchen eine HTTP-Response folgt.
+Die zuvor genannten Schritte sind in diesem Bericht vor der eigentlichen Datenerhebung nicht weiter von Bedeutung.
+Der Response liefert letztlich die anzuzeigenden Daten, welche in diesem Fall die tragende Rolle spielen.
 
 \begin{figure}[!htb]
     \centering
@@ -150,7 +150,7 @@ Aus den resultierenden Nodes entsteht durch Verknüpfungen eine Baumstruktur - d
 Das Document Object Model (DOM) (Abbildung \ref{img:renderingProcess} links oben) beschreibt die Eltern-Kind- und Geschwister-Beziehung der Nodes. 
 Der Prozess bis zum CSS Object Model (CSSOM) gestaltet sich relativ ähnlich, ist aber nicht weiter wichtig. 
 
-Der DOM und der CSSOM sind unabhängig von einander. 
+Der DOM und der CSSOM sind unabhängig voneinander.
 Der Browser kombiniert die beiden Bäume zu einem gemeinsamen Renderbaum (Abbildung \ref{img:renderingProcess} rechts). 
 Der resultierende Baum repräsentiert nur sichtbare Elemente, wohingegen der DOM alle Elemente enthält. 
 Der Renderbaum ist browserabhängig. 
@@ -191,16 +191,16 @@ Die Erläuterung dazu folgt im nächsten Abschnitt.
 Die populärsten Browser mit 65\% Marktabdeckung basieren auf der Chromium-Basis und verwenden alle den HTML-Renderer Blink\citemarktext{
     [\cite{blinkRenderer}]
 }. 
-Die Entwickler dieser Rendering-Engine sind die Open Source Community Chromium, Google, Intel und Samsung. 
-Zu den Verwendern\citemarktext{
+Die Entwickler dieser Rendering-Engine sind die Open Source Community Chromium, Google, Intel und Samsung.
+Zu den Browsern, die Blink als Rendering-Engine nutzen, gehören unter anderem Google Chrome, Brave, Microsoft Edge, Opera und Vivaldi.\citemarktext{
     [\cite{chromiumBrowser}]
-} von Blink zählen unter anderem Google Chrome, Brave, Microsoft Edge, Opera und Vivaldi. 
+}
 WebKit\citemarktext{
     [\cite{webkitRenderer}]
 } – der Vorgänger des geläufigsten Renderer – findet sich im OSX Webbrowser Safari wieder. 
 Diese von Apple, Google, KDE und Nokia entwickelte Rendering-Engine deckt 15\% ab. 
-Als bekannester Vertreter des Restes zählt Firefox\citemarktext{
+AFirefox und weitere auf Mozilla\citemarktext{
     [\cite{mozillaBrowser}]
-} sowie weitere mozilla-basierte Browser, welche die Webseiten mit Gecko renderen. 
+} basierende Browser, die Webseiten mit Gecko rendern, sind die bekanntesten Vertreter der verbleibenden Browser.
 Es existieren noch weitaus mehr Renderer, welche aber eine sehr geringe Verbreitung aufweisen. 
-Deswegen sind diese nicht weiter von Belang. 
+Deswegen sind diese nicht weiter von Belang.
