@@ -1,7 +1,7 @@
 \chapter{Hintergrund}
 \label{chap:background}
 
-Die Grundlagen stellen ein gemeinsames Verständnis zur Auswahlkomponente her. 
+Die Grundlagen stellen ein gemeinsames Verständnis der Auswahlkomponente her. 
 Dazu zählen die Zustände, welche in diesem Zusammenhang auftreten können. 
 Ausserdem behandelt es eine Basis zu den Themen Browser und Rendering. 
 Dieses Verständnis ermöglicht es, eine neue, konsistente Komponente zu entwickeln.
@@ -10,10 +10,10 @@ Dieses Verständnis ermöglicht es, eine neue, konsistente Komponente zu entwick
 \section{Ausgangslage}
 \label{sec:basics}
 
-Studenten als auch Mitarbeiter entwickeln das Toolkit Kolibri laufend weiter. 
-Entwickler können die Open Source Werkzeuge einfach importieren und verwenden.
+Studenten wie auch Mitarbeiter entwickeln das Toolkit Kolibri laufend weiter. 
+Entwickler können die Open-Source-Werkzeuge einfach importieren und verwenden.
 Damit das Kolibri-Toolkit schlank bleibt, kommen keine externen Abhängigkeiten zur Verwendung. 
-Mit einer VanillaJS Codebasis bietet das Tool eine breite Auswahl an, deckt aber noch nicht alle Interaktionen ab. 
+Mit einer VanillaJS-Codebasis bietet das Tool eine breite Auswahl an, deckt aber noch nicht alle Interaktionen ab. 
 
 Der in der Vorarbeit hergestellte Fork dient als Ausgangslage.
 Ein Merge – des Branches \emph{experimental} dieses Forks und des \emph{Kolibri-16} der originalen Codebasis – stellt die Aktualität sicher. 
@@ -21,9 +21,9 @@ Das \codestyle{SimpleInput} ist eines der Tools, welches sich bei der Implementa
 
 Die Vorarbeit\citemarktext{
     [\cite{ip5}]
-} beinhaltet einen Recherche- als auch einen Design- und Implementationsbestandteil. 
-Die Recherche legt den Fokus auf das Prototyping und diverse Code- und Implementations-Bausteine. 
-Die Anwendung der Informationen aus den Recherchen finden sich im Weg zur Länderauswahl als auch der Komponente wieder. 
+} beinhaltet sowohl einen Recherche- als auch einen Design- und Implementationsbestandteil. 
+Die Recherche legt den Fokus auf das Prototyping und diverse Code- und Implementationsbausteine. 
+Die Anwendung der Informationen aus den Recherchen findet sich im Weg zur Länderauswahl wieder. 
 Mehr zum Resultat dieser Arbeit folgt im Kapitel \textbf{\nameref{sec:countryChoice}}. 
 Der komplette Bericht ist in der Quelle (\cite{ip5}) nachzulesen. 
 
@@ -32,7 +32,7 @@ Der Aufbau der Elemente als Komponenten vereinfacht die Wiederverwendung.
 Das Ergänzen des Icon-Sets ist bei Bedarf erlaubt. 
 
 Eine weitere, wichtige Ausgangslage ist ein gemeinsames Verständnis der verwendeten Begriffe. 
-Dies sicherzustellen ist die Aufgabe des nächsten Kapitels mit der Beschreibung der Zustände einer Auswahlkomponente als auch derer Elemente. 
+Dies sicherzustellen, ist die Aufgabe des nächsten Kapitels mit der Beschreibung der Zustände einer Auswahlkomponente sowie deren Elemente. 
 Diese Definitionen gelten im gesamten Bericht. 
 
 
@@ -55,7 +55,7 @@ Anders als bei der typischen Master-Detail-View beinhaltet die Detail-Ansicht ke
 Der Master listet alle möglichen Optionen auf. 
 Dieser View-Baustein findet sich im aufklappenden, scrollbaren Container wieder. 
 Die dauerhaft sichtbare Komponente stellt die Detail-View dar. 
-Dieser Container beinhaltet den aktuell selektierten Wert als auch das Dropdown-Icon. 
+Dieser Container beinhaltet sowohl den aktuell selektierten Wert als auch das Dropdown-Icon. 
 Weiteres zu den möglichen Zuständen ist im nachfolgenden Kapitel zu finden. 
 
 
@@ -96,7 +96,7 @@ Als einzige Ausnahme gilt Tab, welche den Fokus auf die Komponente legen kann.
 In den meisten Erscheinungen ist nur die Detail-Ansicht sichtbar und der Master-Container ist ausgeblendet. 
 Wählt der Nutzer die Komponente mit der Maus oder der Tastatur an, steht sie im \emph{Fokus} bzw. ist sie \emph{fokussiert}. 
 Bedienungen über das Keyboard beziehen sich hierbei auf den Baustein. 
-In den meisten Fällen ändert sich die Darstellung des Eingabefeldes z.B. durch einen blauen Rahmen. 
+In den meisten Fällen ändert sich die Darstellung des Eingabefeldes – z. B. durch einen blauen Rahmen. 
 
 Ist ein Wert in der Master-Ansicht ausgewählt und erscheint in der Detail-View, ist dieser \emph{selektiert}. 
 Das Formular enthält beim Versenden das Value der \emph{Selektion}. 
@@ -106,14 +106,14 @@ Durch das Hervorheben zeigt sich in der Liste aller Werte eine getätigte Auswah
 In gewissen Situationen existiert noch der Zustand, dass in der Master-View ein Wert im \emph{Highlight} steht. 
 Bestätigt der Nutzer das \emph{Highlight} mit der Maus, wechselt der Status auf selektiert. 
 Das Hovern kann den Highlight-Wert ändern. 
-Geschieht die Navigation durch die Werte mit der Tastatur, erhält genau ein Wert die \emph{Cursor Position}. 
-Durch das Betätigen gewisser vordefinierter Tasten ändert sich die \emph{Cursor Position}. 
-Bei einer Bestätigung mit der Tastatur ändert sich der Wert der \emph{Cursor Position} auf selektiert. 
+Geschieht die Navigation durch die Werte mit der Tastatur, erhält genau ein einzelner Wert die \emph{Cursor-Position}. 
+Durch das Betätigen gewisser vordefinierter Tasten ändert sich die \emph{Cursor-Position}. 
+Bei einer Bestätigung mit der Tastatur ändert sich der Wert der \emph{Cursor-Position} auf selektiert. 
 Die letzten zwei Zustandswerte haben keinen Einfluss auf das versendete Formular und sind nur im Master zu finden. 
 Nachfolgend sind noch die Details zum Thema Browser erklärt. 
 
 
-\section{Browser \& HTML Renderer}
+\section{Browser \& HTML-Renderer}
 \label{sec:browserRenderer}
 
 Die wichtigsten Aspekte von der Theorie über die populären Browser bis hin zum Ablauf des Renderings sind hier aufgeführt. 
@@ -121,19 +121,19 @@ Dabei sind nur die bekanntesten Implementationen von Belang.
 
 Ein Webbrowser dient als Zugang ins Internet und zur Anzeige von Webressourcen wie HTML, CSS und JavaScript. 
 Er besteht aus einer Benutzeroberfläche, einer Browser- und einer Rendering-Engine. 
-Für eine verständliche Darstellung der Inhalte auf dem UI verwendet die Browser-Engine einen sogenannten Renderer - mehr dazu später. 
+Für eine verständliche Darstellung der Inhalte auf dem UI verwendet die Browser-Engine einen sogenannten Renderer – mehr dazu später. 
 Die Benutzeroberfläche dient als Schnittstelle zwischen dem Benutzer und der Datenschicht. 
 Die Rendering-Engine interpretiert die Inhalte anhand des vorgegebenen Inhaltstyps. 
 Einer der Engines ist der HTML-Renderer. 
 Beim UI und der Bedienung zeigen sich die Uneinigkeiten zwischen den Browser-Herstellern. 
 Der Grund liegt darin, dass die Rendering-Engine den Code nicht gleich interpretiert. 
-Anschliessend sind Informationen über den detaillierten Ablauf zur Anzeige eines HTML-Dokuments und die Rolle des Rendering dokumentiert. 
+Anschliessend sind Informationen über den detaillierten Ablauf zur Anzeige eines HTML-Dokuments und die Rolle des Renderings dokumentiert. 
 
 
 \subsection{Rendering Prozess}
 \label{sec:structureRendering}
 
-Der Aufruf einer Webseite beginnt mit dem HTTP-Request auf welchen eine HTTP-Response folgt.
+Der Aufruf einer Webseite beginnt mit dem HTTP-Request, auf welchen eine HTTP-Response folgt.
 Die zuvor genannten Schritte vor der eigentlichen Datenerhebung sind in diesem Bericht nicht weiter von Bedeutung.
 Der Response liefert letztlich die anzuzeigenden Daten, welche in diesem Fall die tragende Rolle spielen.
 
@@ -145,8 +145,8 @@ Der Response liefert letztlich die anzuzeigenden Daten, welche in diesem Fall di
 \end{figure}
 
 Der Browser verarbeitet die erhaltenen Daten im HTML-Format weiter. 
-Mehrere Schritte wandeln die einzelnen HTML-Elementen in sogenannte Nodes um. 
-Aus den resultierenden Nodes entsteht durch Verknüpfungen eine Baumstruktur - der DOM. 
+Mehrere Schritte wandeln die einzelnen HTML-Elemente in sogenannte Nodes um. 
+Aus den resultierenden Nodes entsteht durch Verknüpfungen eine Baumstruktur – der DOM. 
 Das Document Object Model (DOM) (Abbildung \ref{img:renderingProcess} links oben) beschreibt die Eltern-Kind- und Geschwister-Beziehung der Nodes. 
 Der Prozess bis zum CSS Object Model (CSSOM) gestaltet sich relativ ähnlich, ist aber nicht weiter wichtig. 
 
@@ -181,23 +181,23 @@ Gründe für ein erneutes Rendern\citemarktext{
 \subsection{Bekannte Implementationen}
 \label{sec:implementationsRenderer}
 
-Die neue Komponente soll in möglichst allen Browsern eine konsistente Erscheinung als auch Interaktion bieten. 
+Die neue Komponente soll in möglichst allen Browsern eine konsistente Erscheinung wie auch Interaktion bieten. 
 Durch die Erklärung aus Kapitel \textbf{\nameref{sec:structureRendering}} ist klar, dass die Renderer die Unterschiede im UI bewirken. 
-Die Bedienungsabweichungen stammen grösstenteils vom zu Grunde liegenden Betriebssystem. 
+Die Bedienungsabweichungen stammen grösstenteils vom zugrunde liegenden Betriebssystem. 
 Diese Erkenntnisse führen dazu, dass die neue Komponente auf Mac und Windows mit den geläufigsten Renderern zu testen ist. 
-Zu den ausgewählten Webbrowser zählen Google Chrome, Firefox (Mac und Windows), Safari (nur Mac) und Edge (nur Windows). 
+Zu den ausgewählten Webbrowsern zählen Google Chrome, Firefox (Mac und Windows), Safari (nur Mac) und Edge (nur Windows). 
 Die Erläuterung dazu folgt im nächsten Abschnitt. 
 
 Die populärsten Browser mit 65\% Marktabdeckung basieren auf der Chromium-Basis und verwenden alle den HTML-Renderer Blink\citemarktext{
     [\cite{blinkRenderer}]
 }. 
-Die Entwickler dieser Rendering-Engine sind die Open Source Community Chromium, Google, Intel und Samsung.
+Die Entwickler dieser Rendering-Engine sind die Open-Source-Community Chromium, Google, Intel und Samsung.
 Zu den Browsern\citemarktext{
     [\cite{chromiumBrowser}]
 }, die Blink als Rendering-Engine nutzen, gehören unter anderem Google Chrome, Brave, Microsoft Edge, Opera und Vivaldi. 
 WebKit\citemarktext{
     [\cite{webkitRenderer}]
-} – der Vorgänger des geläufigsten Renderer – findet sich im OSX Webbrowser Safari wieder. 
+} – der Vorgänger des geläufigsten Renderers – findet sich im OSX-Webbrowser Safari wieder. 
 Diese von Apple, Google, KDE und Nokia entwickelte Rendering-Engine deckt 15\% ab. 
 Firefox und weitere auf Mozilla basierende Browser\citemarktext{
     [\cite{mozillaBrowser}]

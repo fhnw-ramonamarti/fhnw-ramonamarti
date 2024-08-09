@@ -1,27 +1,27 @@
 \chapter{Neue Auswahlkomponenten}
 \label{chap:newComponent}
 
-Dieses Kapitel beschreibt die Bausteine der neuen Komponente in verschiedenen Ebenen. 
-Als erstes zeigt das Design die visuelle Darstellungsmöglichkeiten über die getroffene Auswahl bis hin zu den Prototypen. 
-Dazu gesellen sich die Implementation der Zustände als auch die Umsetzung des Designs.
-Darauffolgend findet sich die Definition der Interaktion mit der Maus als auch der Tastatur. 
+Dieses Kapitel beschreibt die Bausteine der neuen Komponente auf verschiedenen Ebenen. 
+Als Erstes zeigt das Design die visuellen Darstellungsmöglichkeiten über die getroffene Auswahl bis hin zu den Prototypen. 
+Dazu gesellen sich sowohl die Implementation der Zustände als auch die Umsetzung des Designs.
+Darauffolgend findet sich die Definition der Interaktion mit der Maus wie auch der Tastatur. 
 Die für einen stabilen Code wichtigen Regeln und Prinzipien sind ebenfalls festgelegt. 
 Die Anwendung diverser Patterns führt zu einer klaren Struktur und hoher Wiederverwendbarkeit. 
-Als spezielles Element in der View zählt der Dropdown Container, welcher sich unterschiedlich implementieren lässt. 
+Als spezielles Element in der View zählt der Dropdown-Container, welcher sich unterschiedlich implementieren lässt. 
 Für ein angenehmes Nutzerfeeling spielt eine gute Performance eine tragende Rolle. 
-Dies zeigen auch die ausgeführten User Tests mit Endanwendern als auch Programmierern. 
+Dies zeigen auch die ausgeführten User-Tests mit Endanwendern wie auch Programmierern. 
 Automatisierte Tests für jede Komponente beweisen eine gute Codequalität. 
 
 
 \section{Design}
 \label{sec:design}
 
-Das Ziel ist eine konsistente und ansprechende Benutzererfahrung zu schaffen, die sich über alle modernen Browser hinweg hält. 
+Das Ziel ist, eine konsistente und ansprechende Benutzererfahrung zu schaffen, die sich über alle modernen Browser hinweg hält. 
 Das Design der neuen Auswahlkomponente ist stark vom Kolibri-Designsystem inspiriert. 
 Das Designsystem bietet bereits ein umfassendes Set von Richtlinien und Komponenten. 
 Diese ermöglichen eine einheitliche und benutzerfreundliche Gestaltung von Anwendungen. 
 Das neue Design enthält jedoch einige Anpassungen, um die Lesbarkeit zu optimieren. 
-Dazu benötigt es eine Analye der Möglichkeit, welche im nachfolgenden Kapitel beschrieben sind. 
+Dazu benötigt es eine Analyse der Möglichkeiten, welche im nachfolgenden Kapitel beschrieben sind. 
 
 
 \subsection{Mögliche Designoptionen eines Elements \& deren Wahl}
@@ -31,18 +31,18 @@ Elemente lassen sich durch diverse Eigenschaften stylen.
 Die Anpassung der Hintergrundfarbe fällt am schnellsten ins Auge. 
 Diese ist hell zu gestalten, damit der Kontrast zur dunklen Default-Schriftfarbe erhalten bleibt. 
 Der Rahmen bietet eine weitere Designmöglichkeit. 
-Seine Farbe, Dicke oder Struktur kann varriieren. 
-Eine andere Alternative ist nur eine Seite des Rahmens zu verwenden. 
+Seine Farbe, Dicke oder Struktur können varriieren. 
+Eine andere Alternative ist, nur eine Seite des Rahmens zu verwenden. 
 Als Beispiel dafür gilt der sogenannte Spiegelstrich, welcher auf der linken Seite platziert ist. 
-Für eine gute Erkennbarkeit sollte die Färbung Rund um den Rahmen in einer eher dunklen Schattierung Anwendung finden. 
-Als weitere Style-Eigenschaften bietet sich Änderungen der Schrift an. 
-Bei der Farbe ist der Kontrast zu beachten, weswegen eine eher Dunkle zu wählen ist. 
-Alternativ lässt sich die Dicke, Schriftart, Neigung, Grösse oder Dekoration ändern. 
+Für eine gute Erkennbarkeit sollte die Färbung rund um den Rahmen in einer eher dunklen Schattierung Anwendung finden. 
+Als weitere Style-Eigenschaften bieten sich Änderungen der Schrift an. 
+Bei der Farbe ist der Kontrast zu beachten, weswegen eine eher dunkle zu wählen ist. 
+Alternativ lassen sich die Dicke, Schriftart, Neigung, Grösse oder Dekoration ändern. 
 All diese Style-Anpassungen lassen sich auf unterschiedliche Art und Weise kombinieren. 
 
 Bei den Farben existiert eine grosse Bandbreite. 
 Da Kolibri bereits ein Designsystem besitzt, schränkt sich die Menge ein. 
-Unter den vorhandenen Farbwerten, bieten sich die Folgenden am besten an: 
+Unter den vorhandenen Farbwerten bieten sich die Folgenden am besten an: 
 
 \begin{itemize}
     \item Kolibri-Light/Yellow/100 $\rightarrow$ helles Weiss-Gelb
@@ -60,14 +60,14 @@ Unter den vorhandenen Farbwerten, bieten sich die Folgenden am besten an:
 \end{itemize}
 
 Da die Elemente drei verschiedene Zustände gleichzeitig erhalten können, müssen die Styles kombinierbar sein. 
-Nicht jede der erwähnten Eigenschaften und Farben eigenen sich in gleichem Masse. 
+Nicht jede der erwähnten Eigenschaften und Farben eignet sich in gleichem Masse. 
 \emph{Yellow-100} fällt schnell wieder weg, da je nach Display der Kontrast zu gering ist. 
 Unter den restlichen hellen Schattierungen passt \emph{Yellow-300} am besten. 
 Diese Farbe ist bereits als Selektionsfarbe im Code hinterlegt. 
 Als Hintergrundfarbe eignet sich am ehesten das vordefinierte \codestyle{-{}-kb-color-select}. 
 Dadurch ist klar, dass die anderen beiden Zustände eine eher kräftige bzw. dunkle Färbung benötigen. 
 Der Blick auf die Namen im Designsystem zeigt eine weitere Farbe zur Hervorhebung eines Elements. 
-Die Benennung des mittleren Rosa mit Accent (\codestyle{-{}-kolibri-color-accent}) bietet einen guten Kontrast zur Selektion. 
+Die Benennung des mittleren Rosas mit Accent (\codestyle{-{}-kolibri-color-accent}) bietet einen guten Kontrast zur Selektion. 
 Diese Farbe ist ebenfalls im Code vordefiniert. 
 Da die dritte Farbe nicht zu viel Unruhe in das Design bringen soll, schränkt sich die Farbauswahl weiter ein. 
 Mit einem gut erkennbaren Kontrast zur Selektion bietet sich das dunkle Gelb \codestyle{-{}-kb-warning-dark} an. 
@@ -90,7 +90,7 @@ Zur Visualisierung und zum interaktiven Testing des Designs kommt Figma zum Eins
 Figma ist ein webbasiertes Tool zur Erstellung von UI/UX-Designs, das Echtzeit-Kollaboration ermöglicht. 
 Das Sammeln der Feedbacks von Stakeholdern und Nutzern unterstützt eine effiziente Entwicklung. 
 Dafür ist es unabdingbar, im Vorfeld mit Figma schnell Prototypen zu erstellen und mit den Probanden zu teilen. 
-Das Arbeiten mit Figma-Komponenten erleichtern das Entwickeln enorm. 
+Das Arbeiten mit Figma-Komponenten erleichtert das Entwickeln enorm. 
 Dies ermöglicht das Erstellen von Varianten ohne viel Aufwand. 
 
 Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3} zeigen die Prototypen der neuen Drop\-down-Kom\-po\-nente. 
@@ -98,27 +98,27 @@ Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=100mm]{figma-prototype-1.png}
-    \caption{\centering Figma Prototyp – Dropdown Komponente 1}
+    \caption{\centering Figma-Prototyp – Dropdown-Komponente 1}
     \label{img:figmaPrototype1}
 \end{figure}
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=100mm]{figma-prototype-2.png}
-    \caption{\centering Figma Prototyp – Dropdown Komponente 2}
+    \caption{\centering Figma-Prototyp – Dropdown-Komponente 2}
     \label{img:figmaPrototype2}
 \end{figure}
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=100mm]{figma-prototype-3.png}
-    \caption{\centering Figma Prototyp – Dropdown Komponente 3}
+    \caption{\centering Figma-Prototyp – Dropdown-Komponente 3}
     \label{img:figmaPrototype3}
 \end{figure}
 
 Die ersten beiden Grafiken bilden die Komponente in verschiedenen Anwendungsgebieten ab. 
 Die Abbildung \ref{img:figmaPrototype3} zeigt ein mögliches Design für einen Dark-Mode. 
-Dabei sind die Farben soweit angepasst, dass der Kontrast weiterhin gegeben ist. 
+Dabei sind die Farben so weit angepasst, dass der Kontrast weiterhin gegeben ist. 
 
 
 \subsection{Farbpalette}
@@ -150,14 +150,14 @@ Bei der Verwendung dieser Farben in der neuen Komponente sind einige CSS-Dateien
 Diese dienen als Grundlage für das weitere Design. 
 Der Code \ref{code:cssImports} zeigt die importierten CSS-Files. 
 
-\begin{lstlisting}[style = htmlcssjs, caption = Notwendige CSS Imports, label = code:cssImports]
+\begin{lstlisting}[style = htmlcssjs, caption = Notwendige CSS-Imports, label = code:cssImports]
 @import "../../../css/kolibri-base.css";
 @import "../../../css/kolibri-light-colors.css";
 \end{lstlisting}
 
 Die erste Zeile enthält die grundlegenden Kolibri Designs. 
 Dazu gehören einige vordefinierte Farben wie eine Selektion oder ein Highlight. 
-Weiter sind die Schriften und die Invadität von Inputs festgelegt. 
+Weiterhin sind die Schriften und die Invalidität von Inputs festgelegt. 
 Die zweite Datei ist für die breite Palette an Farben im Light-Mode zuständig. 
 
 
@@ -166,7 +166,7 @@ Die zweite Datei ist für die breite Palette an Farben im Light-Mode zuständig.
 
 Die Dropdown-Komponente besteht aus der Detail- und der Master-Ansicht. 
 Dieser Aufbau ist im Kapitel \textbf{\nameref{sec:masterDetailView}} genauer beschrieben. 
-Das Layout innerhalb des Option-Popover liegt in Spalten vor. 
+Das Layout innerhalb des Option-Popovers liegt in Spalten vor. 
 Die einzelnen Optionen listen sich zeilenweise in den Spalten auf. 
 Der Listencontainer öffnet sich mit einer Animation. 
 Nachfolgender Codeausschnitt \ref{code:popoverStyle} zeigt die dafür relevanten Zeilen. 
@@ -231,11 +231,11 @@ Die Auswahlkomponente ist so gestaltet, dass sie sowohl für Maus- als auch Tast
 Das Design der Interaktionen bietet eine intuitive und leicht zugängliche Bedienung der Komponente. 
 Spezifische CSS-Klassen erleichtern die Benutzerführung. 
 Sie definieren die Styles der hervorgehobenen (highlighted) bzw. ausgewählten (selected) Optionen. 
-Die Cursor Position erhält ebenfalls eine eigene CSS-Klasse. 
-Dieser Zusand als auch das Highlight sind unter anderem durch einen Spiegelstrich dargestellt. 
-Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein Cursor Position Element. 
+Die Cursor-Position erhält ebenfalls eine eigene CSS-Klasse. 
+Dieser Zustand wie auch das Highlight sind unter anderem durch einen Spiegelstrich dargestellt. 
+Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein Cursor-Position-Element. 
 
-\begin{lstlisting}[style = htmlcssjs, caption = Spiegelstrich der Cursor Position, label = code:styledElement]
+\begin{lstlisting}[style = htmlcssjs, caption = Spiegelstrich der Cursor-Position, label = code:styledElement]
 .cursor-position::before {
     content:       '';
     position:      absolute;
@@ -250,17 +250,17 @@ Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein Curso
 }
 \end{lstlisting}
 
-Der Selektor \codestyle{.cursor-position} befindet sich immer nur auf einem Element – der Cursor Position. 
+Der Selektor \codestyle{.cursor-position} befindet sich immer nur auf einem Element – der Cursor-Position. 
 Die Zeilen 2 bis 6 in Code \ref{code:styledElement} definieren die Position des Spiegelstrichs. 
 Das Erscheinungsbild ist durch die Zeilen 8 bis 10 beschrieben. 
-Eine dunkle Farbe und eine linksseitige Markierung betonen das Element der Cursor Position. 
+Eine dunkle Farbe und eine linksseitige Markierung betonen das Element der Cursor-Position. 
 Das Highlight verwendet einen sehr ähnlichen Code. 
-Die Farbe als auch die Position sind jedoch angepasst. 
+Die Farbe wie auch die Position sind jedoch angepasst. 
 Zudem hält sich das Highlight nicht an eine Klasse, sondern nutzt die Pseudo-Klasse \codestyle{:hover}. 
 
 Für ein konsistent gehaltenes UI sind diverse Event-Handler und UI-Update-Funk\-tion\-en notwendig. 
 Im \codestyle{columnOptionsProjector.js} existiert beispielsweise ein Event-Hand\-ler. 
-Er steuert das Setzen und Entfernen der Selektions-Klasse. 
+Er steuert das Setzen und Entfernen der Selektionsklasse. 
 Dieser ist im nachfolgenden Code \ref{code:selectionChange} ersichtlich. 
 
 \begin{lstlisting}[style = htmlcssjs, caption = Änderung der Selektion, label = code:selectionChange]
@@ -287,7 +287,7 @@ Das hier versendete \codestyle{getHtmlElementByOption} sucht im Teilbaum des DOM
 \label{sec:userFeedbackPrototyping}
 
 Der Einsatz von interaktiven Figma-Prototypen ist hilfreich beim Evaluieren der Benutzerfreundlichkeit und intuitiven Bedienung. 
-Die Prototypen der neuen Auswahlkomponente bauen auf dem Resultat der Vorabeit auf. 
+Die Prototypen der neuen Auswahlkomponente bauen auf dem Resultat der Vorarbeit auf. 
 Daher sind keine Low-Fi-Gestaltungen notwendig. 
 Die Einbindung der in der Vorarbeit erhaltenen Feedbacks der Länderkomponente findet in den neuen Hi-Fi-Prototypen ihre Anwendung. 
 Beispiele für die Designs sind in der Grafik \ref{img:figmaPrototype1} ersichtlich. 
@@ -344,16 +344,16 @@ Das Icon ändert beim Öffnen der neuen Komponente die Richtung und zeigt nach o
 Die selektierte Option kann wie in der Grafik \ref{img:closedImgNewComponent} ein Bild enthalten. 
 Der Fokus auf der \codestyle{SelectComponent} ist durch einen gelben Rahmen um die Detail-Ansicht visualisiert. 
 Dies ist in Abbildung \ref{img:openedTwoColCatNewComponent} im oberen Bereich ersichtlich. 
-Ist das Feld \codestyle{required}, erhält der Rahmen einen rosa-farbenen Rahmen. 
+Ist das Feld \codestyle{required}, erhält der Rahmen einen rosafarbenen Rahmen. 
 Dabei ist der Fokus aber nicht überdeckt. 
 Die \codestyle{disabled} \codestyle{SelectComponent} zeigt sich wie die anderen Eingabefelder ebenfalls ausgegraut. 
 
 Die offene Komponente stellt den Options-Container in jedem Fall unterhalb dar. 
-Die Abbildung \ref{img:openedHighlightedCursoredSelectedNewComponent} enthält – nebst normal – die drei möglichen Zustände der einzelnen Optionen. 
+Die Abbildung \ref{img:openedHighlightedCursoredSelectedNewComponent} enthält – nebst Normal – die drei möglichen Zustände der einzelnen Optionen. 
 Der Wert \emph{Macedonia} visualisiert die Selektion, welche sich ebenfalls im oberhalb befindlichen Detail-Container wiederfindet. 
-\emph{Moldova} zeigt die Optionen mit der Cursor Position und somit die Stelle, an welcher sich die Tastatur befindet. 
+\emph{Moldova} zeigt die Optionen mit der Cursor-Position und somit die Stelle, an welcher sich die Tastatur befindet. 
 Das Highlight enthält den Wert \emph{Montenegro}. 
-Die Cursor Position und das Highlight können auf der gemeinsamen Option liegen. 
+Die Cursor-Position und das Highlight können auf der gemeinsamen Option liegen. 
 Dabei sind beide Zustände sichtbar. 
 
 Die Abbildungen \ref{img:openedTwoColCatNewComponent} bis \ref{img:openedThreeColCatNewComponent} zeigen, dass die \codestyle{SelectComponent} mehrere Spalten besitzen kann. 
@@ -379,37 +379,37 @@ In diesen Beispielen befindet sich die Value-Option\footnote{
 } jeweils in der rechten Spalte. 
 Die anderen Spalten dienen zur Filterung der Werte. 
 Die Grafik \ref{img:openedTwoColImgNewComponent} mit der Selektion \emph{2000's} begrenzt die Jahreszahlen von ursprünglich 70 auf noch 10 Werte. 
-Wenn mehrere Kategorien existieren, bewirkt eine Selektion ganz links eine Reduktion aller Optionen die auf der rechten Seite liegen. 
+Wenn mehrere Kategorien existieren, bewirkt eine Selektion ganz links eine Reduktion aller Optionen, die auf der rechten Seite liegen. 
 In der Abbildung \ref{img:openedThreeColCatNewComponent} bewirkt die Wahl von \emph{North America} die Reduktion der Länder und der Städte. 
 
 
 \section{Interaktionen} % todo controll bullets with table and paragraph after
 \label{sec:interaction}
 
-Damit ein gemeinsames Verständis entsteht, gilt es für die Bedienung der Komponente Regeln festzulegen. 
+Damit ein gemeinsames Verständnis entsteht, gilt es für die Bedienung der Komponente Regeln festzulegen. 
 Wie in den Grundlagen bereits beschrieben kann sich ein Wert aus dem Optionen-Container in verschiedenen Zuständen befinden. 
-In diesem Absatz spielen Selektion, Highlight und Cursor Position eine Rolle. 
+In diesem Absatz spielen Selektion, Highlight und Cursor-Position eine Rolle. 
 Zur Auffrischung: 
 
 \begin{itemize}
     \item \textbf{\emph{Selektion}}: Ausgewählter Wert der Spalte
     \item \textbf{\emph{Highlight}}: Element unterhalb des Mauszeigers
-    \item \textbf{\emph{Cursor Position}}: Position (Element) der Tastatur
+    \item \textbf{\emph{Cursor-Position}}: Position (Element) der Tastatur
 \end{itemize}
 
 \noindent
-Bei der Festlegung der Maus-Interaktion fällt die Entscheidung auf folgendes: 
+Bei der Festlegung der Maus-Interaktion fällt die Entscheidung auf Folgendes: 
 
 \begin{itemize}
     \item \textbf{mouseover}: visuelles Highlighting des Elements ohne Selektionsänderung
-    \item \textbf{click}: Änderung der Cursor Position \& Selektionsänderung
+    \item \textbf{click}: Änderung der Cursor-Position \& Selektionsänderung
 \end{itemize}
 
 \noindent
-Die Tastatur-Steuerung mit den Pfeiltasten hingegen hält sich an diese Bedienungen: 
+Die Tastatursteuerung mit den Pfeiltasten hingegen hält sich an diese Bedienungen: 
 
 \begin{itemize}
-    \item Änderung der Cursor Position
+    \item Änderung der Cursor-Position
     \item keine Selektionsänderung
 \end{itemize}
 
@@ -418,10 +418,10 @@ Als Basis für den ersten Projektor der neuen Komponente ergeben sich aus den ob
 
 \import{../tables}{d.newComponent.tex}
 
-Das Undo und das Redo auf der Komponente erhält im ersten Projektor keine spezielle Definition. 
-Gewisse Verhaltensweisen finden sich im geschlossenen als auch offenen Zustand der Komponente wieder. 
+Das Undo und das Redo auf der Komponente erhalten im ersten Projektor keine spezielle Definition. 
+Gewisse Verhaltensweisen finden sich sowohl im geschlossenen als auch offenen Zustand der Komponente wieder. 
 Anders als bei den existierenden Komponenten, ist bei der Neuen die Leertaste neu belegt. 
-Ist die Liste bereits offen, selektiert diese Interaktion den sich aktuell unter der Cursor Position befindliche Wert. 
+Ist die Liste bereits offen, selektiert diese Interaktion den sich aktuell unter der Cursor-Position befindlichen Wert. 
 Andere Projektoren können eigene Interaktionen definieren. 
 
 
@@ -431,7 +431,7 @@ Andere Projektoren können eigene Interaktionen definieren.
 Diverse Prinzipien garantieren einen stabilen und verständlichen Code. 
 Ein Ansatz ist, alle Objekte so immutable als möglich zu halten. 
 Dadurch lassen sich unerwartete Änderungen verhindern. 
-Weiter gilt es, die Bestandteile im KISS-Stil umzusetzen. 
+Weiterhin gilt es, die Bestandteile im KISS-Stil umzusetzen. 
 Dazu zählt, dass die einzelnen Objekte und Funktionen möglichst privat zu gestalten sind. 
 Die Bausteine sind kurz und übersichtlich aufzubauen. 
 Zu diesem Zweck soll Separation of Concern zum Einsatz kommen, so dass jede Funktion nur eine Aufgabe zu erfüllen hat. 
@@ -439,28 +439,28 @@ Damit der Code einfach und lesbar bleibt bzw. wird, gilt es, Entscheidungen zu t
 Zu diesen Entschlüssen zählt das bewusste Weglassen von Funktionalität und somit auch Komplexität. 
 
 Beim Implementieren ist darauf zu achten, den Code sauber zu formatieren. 
-Zudem ist es sinnvoll, die Änderungen regelmässig mit dem Code-Analyse-Tool von Intellij auf ihre Qualität zu prüfen. 
+Zudem ist es sinnvoll, die Änderungen regelmässig mit dem Code-Analyse-Tool von IntelliJ auf ihre Qualität zu prüfen. 
 Diese Prinzipien und Regeln unterstützen eine ordentliche Entwicklungsumgebung für eine stabile Komponente. 
-Das Kapitel Patterns bietet eine weitere Möglichkeit den Code strukturiert zu halten. 
+Das Kapitel Patterns bietet eine weitere Möglichkeit, den Code strukturiert zu halten. 
 
 
 \section{Patterns}
 \label{sec:patterns}
 
 In diesem Projekt finden sich einige Code-Patterns wieder. 
-Die Wichtigesten wie Null-Object, Projector und Decorator sind in den nachfolgenden Unterkapitel genauer erläutert. 
+Die wichtigesten wie Null-Object, Projector und Decorator sind in den nachfolgenden Unterkapiteln genauer erläutert. 
 Eine weitere Rolle spielt unter anderem die Master-Detail-View, aber im Zusammenhang mit der Komponente eher nebensächlich. 
 Zudem ist die Anwendung nicht typisch bzw. genau abgegrenzt. 
 Die Implementation erhält durch die verwendeten Patterns eine Struktur und läuft stabiler. 
 
 
-\subsection{Null Object Pattern}
+\subsection{Null-Object Pattern}
 \label{sec:nullPattern}
 
-Ein Pattern, welches im Verlauf der Arbeit eine wichtige Rolle eingenommen hat, ist das Null-Object Pattern\citemarktext{
+Ein Pattern, welches im Verlauf der Arbeit eine wichtige Rolle eingenommen hat, ist das Null-Object-Pattern\citemarktext{
     [\cite{nullObjectPattern}]
 }. 
-Null hat den Nachteil, dass alle Funktionsaufrufe darauf zu Fehlern führen. 
+Null hat den Nachteil, dass alle Funktionsaufrufe zu Fehlern führen. 
 Das Null-Object besteht aus vordefinierten Default-Werten und besitzt für alle Funktionen eine \emph{Do-Nothing}-Implementation. 
 Durch die Verwendung dieses speziellen Objekts entfällt eine ansonsten notwendige Nullwertprüfung. 
 Zudem ist jedes erstellte Null-Object wertegleich. 
@@ -479,30 +479,30 @@ const reset = () => {
 const nullOption = reset();
 \end{lstlisting}
 
-Mit dem Erhalt des Typs \codestyle{Option} bietet die Konstante die selbe Funktionalität wie die gewünschten Objekte. 
+Mit dem Erhalt des Typs \codestyle{Option} bietet die Konstante dieselbe Funktionalität wie die gewünschten Objekte. 
 Der Codeausschnitt \ref{code:nullOption} befindet sich in der Datei \codestyle{optionsModel.js}. 
-Mehr zur File Aufteilung ist in den nächsten zwei Unterkapiteln zu lesen. 
+Mehr zur Dateiaufteilung ist in den nächsten zwei Unterkapiteln zu lesen. 
 
 
 \subsection{Projector Pattern}
 \label{sec:projectorPattern}
 
-Das Projector Pattern\citemarktext{
+Das Projector-Pattern\citemarktext{
     [\cite{projectorPattern}]
-} basiert auf dem verbreiteten Model-View-Controll Pattern. 
+} basiert auf dem verbreiteten Model-View-Controll-Pattern. 
 Das Model verwaltet die dargestellten Daten. 
 Zudem enthält die Komponente des Patterns die Geschäftslogik und verarbeitet die Regeln und Anfragen für die Daten. 
 Ein Controller generiert privat gehaltene Modelle. 
 Dabei stellt dieser nur die notwendigen Funktionen zur Verfügung. 
 Diese Funktionen können Getter, Setter und Listener der observierten Modelle und Werte sein. 
-Der Projektor bindet Daten-Modelle über den Controller an die View. 
+Der Projektor bindet Datenmodelle über den Controller an die View. 
 Auf der anderen Seite bindet sich die View an die Models. 
-Aus den Bindings und den Daten generiert ein Projetor die passende View. 
-Die View ist passiv und hat keine Kenntnis über die anderen Komponenten. 
+Aus den Bindings und den Daten generiert ein Projector die passende View. 
+Die View ist passiv und hat keine Kenntnis der anderen Komponenten. 
 
 Dieses Pattern zeigte sich als eines der Wichtigsten für die Erstellung der neuen Komponente. 
 In den folgenden Grafiken sind Models als Zylinder, Controller als schiefes Rechteck und Projectors als Oval dargestellt. 
-Die Raute mit Option ist ein Daten-Typ, der über das gesamte Projekt seine Anwendung findet. 
+Die Raute mit Option ist ein Datentyp, der über das gesamte Projekt seine Anwendung findet. 
 Das \codestyle{starter.js} beinhaltet alle Bestandteile, welche für eine Anwendung notwendig sind. 
 Eine genauere Beschreibung des Puzzles folgt im Unterkapitel \textbf{\nameref{sec:decoratorPattern}}. 
 Die erste Implementation, welche dieses Pattern verwendet, ist auf Abbildung \ref{img:diagramSelectComponentOld}. 
@@ -522,15 +522,15 @@ Die Implementation der dargestellten Diagramme resultiert aus einem Refactoring 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{diagram-column-component-with-desc.png}
-    \caption{\centering Diagramm \codestyle{ColumnComponent}}
+    \caption{\centering Diagramm \codestyle{ColumnOptionsComponent}}
     \label{img:diagramColumnComponent}
 \end{figure}
 
-Zum einen findet sich das Projector Pattern in einer einzelnen Spalte in der Options-Liste wieder. 
-Pro Kolonne existiert eine Auswahl und eine Menge von Optionen. 
+Zum einen findet sich das Projector-Pattern in einer einzelnen Spalte in der Options-Liste wieder. 
+Pro Kolonne existieren eine Auswahl und eine Menge von Optionen. 
 Diese beiden Bestandteile besitzen je ein eigenes Model und einen eigenen Controller. 
 Der Projektor generiert eine gemeinsame View und bindet diese an die beiden Controller. 
-Bei einer Anwendung übernimmt die \codestyle{ColumnComponent} die Verwaltung gewisser Bausteine (Mehr dazu später). 
+Bei einer Anwendung übernimmt die \codestyle{ColumnOptions\-Component} die Verwaltung gewisser Bausteine (Mehr dazu später). 
 
 \begin{figure}[!htb]
     \centering
@@ -539,17 +539,17 @@ Bei einer Anwendung übernimmt die \codestyle{ColumnComponent} die Verwaltung ge
     \label{img:diagramSelectComponent}
 \end{figure}
 
-Die Anwendungskomponente einer Column findet sich als Bestandteil des zweiten Projector Pattern wieder. 
-Ein \codestyle{SelectController} verwaltet eine bis mehrere \codestyle{ColumnComponent}s als auch ein Element für die Tastaturnavigation. 
-Die sogenannte Cursor Position verwendet im Hintergrund ebenfalls einen \codestyle{SelectedOptionController}. 
+Die Anwendungskomponente einer Column findet sich als Bestandteil des zweiten Projector-Patterns wieder. 
+Ein \codestyle{SelectController} verwaltet eine bis mehrere \codestyle{Column\-Optoions\-Component}s sowie ein Element für die Tastaturnavigation. 
+Die sogenannte Cursor-Position verwendet im Hintergrund ebenfalls einen \codestyle{SelectedOptionController}. 
 Dieser ist derselbe wie in der Abbildung \ref{img:diagramColumnComponent} und findet hier eine Wiederverwendung. 
-Für die Definition der Bindings greifen die einzelnen Projektoren auf den selben Controller zu. 
+Für die Definition der Bindings greifen die einzelnen Projektoren auf denselben Controller zu. 
 Der Master-Detail-Aufbau der neuen Komponente findet sich in der Aufteilung der Projektoren wieder. 
 Der Detail-Baustein kümmert sich um die aktuelle Auswahl und das Eingabefeld. 
-Die Master-Komponente verwaltet alle Spalten mit den Kategorie- und Werte-Optionen, sowie dessen Bindings. 
+Die Master-Komponente verwaltet alle Spalten mit den Kategorie- und Werte-Optionen sowie deren Bindings. 
 Eine weitere Funktion ist die Einbettung der beiden Projektoren in eine gemeinsame View. 
-Auch diese Projector Pattern Anwendung schliesst mit einer Component – der \codestyle{SelectComponent} – ab. 
-Mehr zu dieser und der \codestyle{ColumnComponent} steht im nächsten Kapitel. 
+Auch diese Projector-Pattern-Anwendung schliesst mit einer Component – der \codestyle{SelectComponent} – ab. 
+Mehr zu dieser und der \codestyle{ColumnOptions\-Component} steht im nächsten Kapitel. 
 
 
 \subsection{Decorator Pattern}
@@ -557,8 +557,8 @@ Mehr zu dieser und der \codestyle{ColumnComponent} steht im nächsten Kapitel.
 
 Ein Decorator\citemarktext{
     [\cite{decoratorPattern}]
-} bietet zusätzliches Verhalten ohne das Originale Objekt zu verändern. 
-Dabei lassem sich verschiedene Funktionen kombinieren. 
+} bietet zusätzliches Verhalten, ohne das originale Objekt zu verändern. 
+Dabei lassen sich verschiedene Funktionen kombinieren. 
 Dieses Pattern ermöglicht die Erstellung eines modularen und anpassbaren Codes. 
 In diesem Projekt unterstützt es die Gestaltung und Erweiterung der Auswahlkomponente. 
 
@@ -597,15 +597,15 @@ Für den gewünschten Zweck erfordert das Dialog-Element noch einiges an benutze
 
 Eine weitere Variante ist, ein normales \codestyle{div} als Options-Container zu verwenden. 
 Dies erfordert ebenfalls einen enormen Implementationsaufwand. 
-Eine Andwendung dieses Ansatzes findet sich in der ersten Version der Komponente. 
-Hierbei eröffnet sich das Problem von der Inkonsistenz zwischen UI und Controller. 
+Eine Anwendung dieses Ansatzes findet sich in der ersten Version der Komponente. 
+Hierbei eröffnet sich das Problem der Inkonsistenz zwischen UI und Controller. 
 Zudem ist es möglich, dass unerwünscht mehrere Dropdown-Container gleichzeitig offen sind. 
 
 Als dritte Möglichkeit bietet sich die Popover-API an. 
 Seit 2024 unterstützen alle gängigen Browser diese Schnittstelle. 
 Durch das Refactoring der Variante mit dem normalen Div-Container resultiert eine Version mit der Anwendung dieser API. 
 Im Gegensatz zu den beiden oben erwähnten Container-Implementationen reduziert sich durch diese Schnittstelle der Zusatzaufwand. 
-Der Grundaufbau des Popover-Container ist im folgenden Code \ref{code:popoverExample} dargestellt. 
+Der Grundaufbau des Popover-Containers ist im folgenden Code \ref{code:popoverExample} dargestellt. 
 
 \begin{lstlisting}[style = htmlcssjs, caption = Popover-Container Beispiel, label = code:popoverExample]
 <div popover="auto"
@@ -615,12 +615,12 @@ Der Grundaufbau des Popover-Container ist im folgenden Code \ref{code:popoverExa
 \end{lstlisting}
 
 Bei diesem Codeausschnitt ist wichtig, dass das Attribut \codestyle{popover} den Wert \codestyle{auto} erhält. 
-Dies bewirkt, dass die Popover sich automatisch schliessen, wenn ein Klick ausserhalb des Container passiert. 
+Dies bewirkt, dass die Popover sich automatisch schliessen, wenn ein Klick ausserhalb des Containers passiert. 
 Das Öffnen und Schliessen des Dropdown-Elements lässt sich über das \codestyle{popovertarget}-Attribut auf der Bedienkomponente steuern. 
 Dieses Target enthält die \codestyle{id} des Div-Containers mit dem Attribut \codestyle{popover}. 
 Als Alternative dazu besteht die Möglichkeit, das Popover über JavaScript zu steuern. 
-Hierbei besteht die Möglichkeit auf den Status und das Event des Togglens zuzugreifen. 
-Diese Funktionalitäten erlauben den Controller konsistent zum UI zu halten. 
+Hierbei besteht die Möglichkeit, auf den Status und das Event des Togglens zuzugreifen. 
+Diese Funktionalitäten erlauben dem Controller, sich konsistent zum UI zu halten. 
 
 Obwohl nur die Unterstützung der aktuellen Browser verlangt ist, soll die Komponente ältere Browser-Versionen nicht komplett ignorieren. 
 Erst seit April 2024 unterstützen alle Browser die Popover-API. 
@@ -644,7 +644,7 @@ Ein Alert-Popup informiert den Nutzer über Einschränkungen (Abbildung \ref{img
 Einige zusätzliche CSS-Definitionen garantieren eine halbwegs ansehnliche Darstellung. 
 Veraltete Browser, welche das nested CSS\footnote{
     Verschachtelter CSS-Code mit Verwendung der \&-Funktionalität
-} und das CSS-\codestyle{:has()} nicht unterstützen, zeigen die neue Komponente inkonsistent an. 
+} und das CSS-\codestyle{:has()} nicht unterstützen, zeigen die neue Komponenten inkonsistent an. 
 
 
 \section{Performance}
@@ -661,7 +661,7 @@ Die folgende Abbildung \ref{img:renderingProcessRecap} zeigt die Kernelemente de
     \label{img:renderingProcessRecap}
 \end{figure}
 
-Zur Auffrischung die wichtigesten Punkte nochmals: 
+Zur Auffrischung die wichtigsten Punkte nochmals: 
 Der Browser kann die Webseite maximal 60 Mal pro Sekunde neu zeichnen. 
 Änderungen am DOM (Abbildung \ref{img:renderingProcessRecap}) lösen das Rendern aus. 
 
@@ -690,22 +690,22 @@ const addAllOptions = (options) => {
 
 Code \ref{code:performanceOptimization} ist eine Stelle, die diese Technik verwendet. 
 Das Anzeigen eines Platzhalters mit einem Lade-Indikator an der Ursprungsstelle bewirkt, dass der Nutzer ein Feedback erhält. 
-Sobald der SpaltenContainer abgekoppelt ist, lädt die Funktion die Optionen in den Shadow-DOM. 
+Sobald der Spalten-Container abgekoppelt ist, lädt die Funktion die Optionen in den Shadow-DOM. 
 Nach Abschluss ersetzt sich der Lade-Indikator der originalen Stelle im Renderbaum durch den Container mit den neuen Elementen. 
 
-Weiter ist darauf achten, dass CSS-Klassen\citemarktext{
+Weiterhin ist darauf zu achten, dass CSS-Klassen\citemarktext{
     [\cite{efficientDomManipulation}]
 } an Stelle von Inline-Styles\footnote{
     Offizieller Begriff: Element attached style $\Rightarrow$ Styles direkt im HTML-Element mit Attribut \codestyle{style} definiert
 } ihre Verwendung finden. 
 Die Selektoren sollten hierarchisch möglichst flach und nicht verschachtelt sein. 
 Wenn es die Situation erlaubt, ist es besser, nicht mit \codestyle{innerHTML} zu arbeiten. 
-In diesem Projekt ist es für die Anzeige der Label jedoch nötig \codestyle{innerHTML} zu nutzen. 
+In diesem Projekt ist es für die Anzeige der Label jedoch nötig, \codestyle{innerHTML} zu nutzen. 
 Dies liegt daran, dass ein Label auch ein Bild enthalten kann. 
 Generell verwendet die neue Auswahlkomponente keine Inline-Styles. 
 Die einzige Ausnahme betrifft das verborgene Eingabefeld. 
 Durch den Code \ref{code:inlineStyle} sind die Properties vor dem einfachen Überschreiben\footnote{
-    \codestyle{!important} besser nicht verwenden
+    \codestyle{!important} nicht verwenden
 } geschützt. 
 
 \begin{lstlisting}[style = htmlcssjs, caption = Inline-Style für Input-Feld, label = code:inlineStyle]
@@ -719,15 +719,15 @@ inputElement.setAttribute(
 );
 \end{lstlisting}
 
-Die Regeln in Code \ref{code:inlineStyle} sorgen dafür, dass das Input-Feld transparent als auch resetet ist. 
-Zudem befindet es sich im Hintergrund und besitzt dieselben Grösse wie der Container mit dem ausgewählten Wert. 
+Die Regeln in Code \ref{code:inlineStyle} sorgen dafür, dass das Input-Feld sowohl transparent als auch resettet ist. 
+Zudem befindet es sich im Hintergrund und besitzt dieselbe Grösse wie der Container mit dem ausgewählten Wert. 
 
 
-\subsection{Performance Vergleich}
+\subsection{Performance-Vergleich}
 \label{sec:performanceCompare}
 
-Durch die Anpassungen der Performance Optimierung, verschnellert sich die Ladezeit bei grossen Datenmenge enorm. 
-Die Testseite enthält vier existierende und vier neue Auswahlkomponenten mit den selben Inhalten wie je eines der Existierenden. 
+Durch die Anpassungen der Performance-Optimierung verschnellert sich die Ladezeit bei grossen Datenmengen enorm. 
+Die Testseite enthält vier existierende und vier neue Auswahlkomponenten mit denselben Inhalten wie je eine der existierenden. 
 Je eine der Selects enthält eine grosse Datenmenge von über 4'000 Werten. 
 Die folgenden zwei Bilder \ref{img:performanceTestBefore} und \ref{img:performanceTestAfter} zeigen die Messung während des Seitenaufbaus. 
 
@@ -738,9 +738,9 @@ Die folgenden zwei Bilder \ref{img:performanceTestBefore} und \ref{img:performan
     \label{img:performanceTestBefore}
 \end{figure}
 
-Die Grafik \ref{img:performanceTestBefore} zeigt die mit über 5 Sekunden (rechts unten in blau) lange Ladedauer der früheren Version. 
+Die Grafik \ref{img:performanceTestBefore} zeigt die mit über 5 Sekunden (rechts unten in Blau) lange Ladedauer der früheren Version. 
 Die Implementation führte sehr viele Aktionen auf dem Renderbaum aus. 
-Die lange Wahrtezeit bestätigten mehrere Feedbacks der Nutzer, später mehr dazu. 
+Die lange Wartezeit bestätigten mehrere Feedbacks der Nutzer, später mehr dazu. 
 
 \begin{figure}[!htb]
     \centering
@@ -750,9 +750,9 @@ Die lange Wahrtezeit bestätigten mehrere Feedbacks der Nutzer, später mehr daz
 \end{figure}
 
 Ein Refactoring der früheren Implementation führt zur Auslagerung der aufwendigen Arbeiten auf den Shadow-DOM. 
-Dadurch verkürzt sich der Ladevorgang um vier bis fünf Sekunden auf knapp 0.4 Sekunden (rechts unten in blau). 
+Dadurch verkürzt sich der Ladevorgang um vier bis fünf Sekunden auf knapp 0.4 Sekunden (rechts unten in Blau). 
 Der Vergleich zwischen Abbildung \ref{img:performanceTestBefore} und \ref{img:performanceTestAfter} zeigt, dass die Seite um Faktor 13 schneller lädt. 
-Feedbacks zu den durchgeführten User Tests mit Programmierern als auch Endnutzern sowie manuelle Tests sind im nachfolgenden Kapitel aufgeführt. 
+Feedbacks zu den durchgeführten User-Tests mit Programmierern wie auch Endnutzern sowie manuelle Tests sind im nachfolgenden Kapitel aufgeführt. 
 
 
 \section{Testing}
@@ -761,25 +761,25 @@ Feedbacks zu den durchgeführten User Tests mit Programmierern als auch Endnutze
 Verschiedene Arten von Tests garantieren die Korrektheit der einzelnen Funktionen und Komponenten. 
 In manuellen Tests findet die Kontrolle der Konsistenz im UI und der Interaktion statt. 
 Die automatisierten Code-Tests stellen sicher, dass das Aufrufen der gebotenen Funktionalität die gewünschten Änderungen ausführt. 
-Komponenten, welche für die Erstellung des UI zusändig sind, prüfen die Existenz von Elementen als auch das Triggern der Events. 
-Die User Tests mit unterschiedlichen Personen gewährleisten eine gute Nutzerzufriedenheit als auch die intuitive Anwendung durch Programmierer. 
+Komponenten, welche für die Erstellung des UI zuständig sind, prüfen sowohl die Existenz von Elementen als auch das Triggern der Events. 
+Die User-Tests mit unterschiedlichen Personen gewährleisten eine gute Nutzerzufriedenheit sowie die intuitive Anwendung durch Programmierer. 
 Die Auswahl der Nutzer fällt auf eine grosse Vielfalt, damit die Resultate unterschiedliche Sichtweisen einbeziehen. 
 
 
 \subsection{Manuelle Tests}
 \label{sec:manuelTests}
 
-Manuell durchgeführte Tests – in den vier aktuellen Browser Edge, Chrome, Firefox und Safari – beweisen die Konsistenz der neuen Komponente. 
+Manuell durchgeführte Tests – in den vier aktuellen Browsern Edge, Chrome, Firefox und Safari – beweisen die Konsistenz der neuen Komponente. 
 Als Beispiel dient die \codestyle{SelectComponent} mit drei Spalten (Abbildung \ref{img:manualTestComponentOsx}). 
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=80mm]{newComponent/opened.3col.png}
-    \caption{\centering Manuelle Tests – Komponente auf Osx}
+    \caption{\centering Manuelle Tests – Komponente auf OSX}
     \label{img:manualTestComponentOsx}
 \end{figure}
 
-Diese Komponente unterzieht sich einer Prüfung auf Mac als auch Windows. 
+Diese Komponente unterzieht sich sowohl einer Prüfung auf Mac als auch Windows. 
 In den Einstellungen sind in einem ersten Durchgang der Light-Mode und in einem Zweiten das Dark-Theme gespeichert. 
 Die genaue Kombination zwischen Browsern und Betriebssystemen ist wie folgt: 
 
@@ -801,13 +801,13 @@ Die Scrollbars auf Windows (Abbildung \ref{img:manualTestComponentWin}) besitzen
 
 Dabei spielt der Browser keine Rolle. 
 Bei den Interaktionen verhält sich die Komponente ebenfalls konsistent über alle Browser. 
-Die einzige Abweichung findet sich beim Ausführen einer Aktionen. 
-Auf Windows-PCs mit Nummer-Pad funktionieren die Page\-Up-, Page\-Down-, Home- und End-Keys\footnote{
-    Gewisse Tastaturen besitzen die genannten Tasten doppelt – einmal im Nummer-Pad und einmal in der obersten Zeile
+Die einzige Abweichung findet sich beim Ausführen von Aktionen. 
+Auf Windows-PCs mit Nummernpad funktionieren die Page\-Up-, Page\-Down-, Home- und End-Keys\footnote{
+    Gewisse Tastaturen besitzen die genannten Tasten doppelt – einmal im Nummernpad und einmal in der obersten Zeile
 } auf der Tastatur. 
 Auf OSX verlangen die oben genannten Tasten und Delete eine Tastenkombination mit der fn-Taste. 
 
-Zusätzlich zu den im Vorfeld vereinbarten Systemen und Browser finden noch folgende weitere Prüfungen statt: 
+Zusätzlich zu den im Vorfeld vereinbarten Systemen und Browsern finden noch folgende weitere Prüfungen statt: 
 
 \begin{itemize}
     \item \textbf{Linux (24 LTS)}: Firefox (125), Chromium (127)
@@ -826,7 +826,7 @@ Deswegen sind nur Touch-Inter\-aktionen möglich.
 Zu diesen Bedienungsmöglichkeiten gehören das Scrollen und das Klicken. 
 Auf iOS und auf Android stellen die Browser das UI meist konsistent – wie auf dem Desktop Safari – dar. 
 Die Scrollbar ist anliegend an der rechten Seite. 
-Das Highlight und die Cursor Position haben keinen weiteren Nutzen. 
+Das Highlight und die Cursor-Position haben keinen weiteren Nutzen. 
 Die beiden Zustände bewegen sich mit der Selektion mit. 
 Das Highlight verschwindet, wenn das Touch ausserhalb einer Option erfolgt. 
 Die einzige Inkonsistenz auf iOS zeigt sich beim Klick ausserhalb der SelectComponent. 
@@ -839,19 +839,19 @@ Trifft die Touch-Geste das X bei einer bereits getroffenen Selektion, passiert d
 Folgende veraltete Browser finden sich in oberflächlichen Tests wieder: 
 
 \begin{itemize}
-    \item \textbf{Mac}: Firefox Version 123 => vor Popover API
-    \item \textbf{iOS}: Safari Version 16.7 => vor Popover API
+    \item \textbf{Mac}: Firefox Version 123 => vor Popover-API
+    \item \textbf{iOS}: Safari Version 16.7 => vor Popover-API
 \end{itemize}
 
 In veralteten Browsern ist die \codestyle{SelectComponent} mit leichten Einbussen nutzbar. 
-Der aufgelistete Firefox als auch Safari öffnen die neue Komponente normal. 
-Im offenen Zustand ist das Toggle-Icon dasselbe wie im Geschlossenen. 
+Der aufgelistete Firefox und auch Safari öffnen die neue Komponente normal. 
+Im offenen Zustand ist das Toggle-Icon dasselbe wie im geschlossenen. 
 Ein Klick ausserhalb der Komponente schliesst den Listencontainer nicht. 
 Daher existiert die Inkonsistenz, dass mehrere Auswahlkomponenten parallel geöffnet sein können. 
 Dies ermöglicht eine unerwünschte Darstellung von überschneidenden Listencontainern. 
 Das restliche UI zeigt kaum Abweichungen. 
 Die Interaktionen funktionieren alle wie in den aktuellen Browserversionen. 
-Gewisse Zustaende sind im Controller nicht konsistent mitgeführt. 
+Gewisse Zustände sind im Controller nicht konsistent mitgeführt. 
 Ohne das Popover reagiert das Toggle-Event nicht.
 
 Die breite Abdeckung der manuellen Tests beweist bei den anfangs genannten Browsern eine konsistente Darstellung und Interaktion. 
@@ -862,8 +862,8 @@ Eine gewisse Bedienbarkeit ist möglich.
 \subsection{Automatisierte Tests}
 \label{sec:automatedTests}
 
-Tests für Komponente der \codestyle{SelectComponent} beweisen die Stabilität des Codes. 
-Generell befinden sich die einzelnen Komponenten nach Separation of Concern je in einer eingenen Test-Einheit. 
+Tests für Komponenten der \codestyle{SelectComponent} beweisen die Stabilität des Codes. 
+Generell befinden sich die einzelnen Komponenten nach Separation of Concern je in einer eigenen Testeinheit. 
 Dies garantiert das schnelle Auffinden von Bugs und unerwünschtem Verhalten direkt in einer Komponente. 
 Auf der Abbildung \ref{img:automatedTests} ist zu sehen, dass eine breite Palette an Kontrollen stattfindet und sauber durchläuft. 
 
@@ -876,27 +876,27 @@ Auf der Abbildung \ref{img:automatedTests} ist zu sehen, dass eine breite Palett
 
 Die oberen vier Zeilen auf Abbildung \ref{img:automatedTests} zeigen Tests zu den Bausteinen aus Abbildung \ref{img:diagramColumnComponent}. 
 Diese decken den Level der Options bis zur Column ab. 
-Die ersten zwei Test-Suites kümmern sich genauer um die Korrektheit der Models und Controller. 
+Die ersten zwei Testsuites kümmern sich genauer um die Korrektheit der Models und Controller. 
 Dabei besteht das erste File aus den Tests der Typen \codestyle{ValueOption} und \codestyle{CategoryOption}. 
 Dazu gesellen sich Prüfungen der Komponenten \codestyle{OptionsModel} und \codestyle{SelectedOption\-Model}. 
 Der \codestyle{Options\-Controller} und der \codestyle{SelectedOption\-Controller} finden sich in der Test-Datei wieder. 
 Der \codestyle{project\-ColumnOptions\-View}-Test deckt die Kontrolle des Bindings und die Existenz der View-Elemente ab. 
 Die Korrektheit des Zusammenspiels zwischen Projektor und Controller findet sich im \codestyle{Column\-Options\-Component}-Testing wieder. 
 
-Die restlichen Test-Bibliotheken decken die Korrektheit der auf Abbildung \ref{img:diagramSelectComponent} sichtbaren Bausteine ab. 
-Diese drei Dateien prüfen das Zusammenspiel der Columns als auch der allgemeinen Komponenten-Funktionalitäten. 
+Die restlichen Testbibliotheken decken die Korrektheit der auf Abbildung \ref{img:diagramSelectComponent} sichtbaren Bausteine ab. 
+Diese drei Dateien prüfen das Zusammenspiel der Columns sowie der allgemeinen Komponentenfunktionalitäten. 
 In einzelnen Units prüft die \codestyle{Select\-Controller}-Test-Suite verschiedene Varianten der Anwendung. 
-Im \codestyle{project\-Select\-Views}-Test befindet sich – wie bereits bei der Column – die Prüfungen der Korrektheit der Bindings und View-Elemente. 
+Im \codestyle{project\-Select\-Views}-Test befinden sich – wie bereits bei der Column – die Prüfungen der Korrektheit der View-Elemente und Bindings. 
 Die letzte Datei kümmert sich um die Kontrolle der \codestyle{Select\-Component\-By\-Callbacks} und \codestyle{Select\-Component\-By\-TableValues}. 
 Die breite Abdeckung der Einzelteile garantiert die korrekte Funktion der neuen Komponente. 
-Die Tests im nachfolgenden Kapitel sind für eine gute Anwendbarkeit im Code als auch angenehme Benutzung der Auswahlkomponente im Browser notwendig. 
+Die Tests im nachfolgenden Kapitel sind sowohl für eine gute Anwendbarkeit im Code als auch für eine angenehme Benutzung der Auswahlkomponente im Browser notwendig. 
 
 
-\subsection{User Tests}
+\subsection{User-Tests}
 \label{sec:userTests}
 
-Die Bewertung des Design und der Benutzerfreundlichkeit ist ein wichtiger Bestandteil der Entwicklung. 
-Die im Vorfeld definierten Personas – Anhang \textbf{\ref{chap:perosnas}} – finden sich in den getesteten User wieder. 
+Die Bewertung des Designs und der Benutzerfreundlichkeit ist ein wichtiger Bestandteil der Entwicklung. 
+Die im Vorfeld definierten Personas – Anhang \textbf{\ref{chap:perosnas}} – finden sich in den getesteten Usern wieder. 
 Estrid Miller arbeitet als Webentwicklerin und stört sich an schlechter Code-Dokumentation. 
 Sie wünscht sich eine flexible und anpassbare UI-Komponente, welche ihre tägliche Arbeit vereinfacht. 
 Der Alltagsnutzer Love Berg ist ein typischer Webanwender und ärgert sich über umständliche und langsame Anwendungen. 
@@ -907,9 +907,9 @@ Die folgenden zwei Unterkapitel decken mit den zwei Nutzergruppen Programmierer 
 \subsubsection{\color{dblue} Programmierer}
 \label{sec:userTestsProgrammer}
 
-Die Probanden dieser User Tests sind alles Studenten der FHNW. 
+Die Probanden dieser User-Tests sind alle Studenten der FHNW. 
 Deswegen haben die Testpersonen ein ähnliches Hintergrundwissen wie Estrid. 
-Die Vorlieben der Probanden ist unterschiedlich und decken dadurch die Vorgaben durch die Persona ab. 
+Die Vorlieben der Probanden sind unterschiedlich und decken dadurch die Vorgaben durch die Persona ab. 
 
 Im Rahmen der Evaluierung der neuen Dropdown-Komponente sind Programmierer dazu eingeladen, spezifische Aufgaben zu erfüllen. 
 Diese Aufgaben umfassen die Implementierung der Dropdown-Komponente in eine bestehende Webanwendung. 
@@ -932,7 +932,7 @@ Für den Erhalt eines möglichst realistischen Feedbacks sind die Teilnehmer geb
     \end{minipage}
 \end{figure}
 
-Insgesammt haben 9 Studenten an dem User Test teilgenommen und die Aufgaben versucht zu lösen. 
+Insgesamt haben 9 Studenten an dem User-Test teilgenommen und die Aufgaben versucht zu lösen. 
 Die Grafiken \ref{img:userTestsSemester} und \ref{img:userTestsStudy} zeigen, dass die Hintergründe der Probanden breit gefächert sind. 
 Zwei der Testpersonen konnten die Aufgabe nicht korrekt lösen. 
 
@@ -962,11 +962,11 @@ Die Testperson ohne jegliche JavaScript-Kenntnisse konnte die Aufgaben nicht kor
 Für einige Testnutzer ist die Verwendung von Callbacks als Service-Funktionen eine Stolperfalle. 
 
 Die Ergebnisse der Tests liefern wertvolle Erkenntnisse, welche zur Verbesserung der Dokumentation beitragen. 
-Die Überarbeitung der Dokumentation als auch der Rückgabe der Komponente hebt die eine grosse Kritik auf. 
+Die Überarbeitung der Dokumentation wie auch die der Rückgabe der Komponente heben die Kritik auf. 
 Die Erstellung des zweiten Konstruktors mit einer Tabelle von Werten ermöglicht das Umgehen des Stolpersteins der Callbacks. 
 
-Die nachfolgende Liste zählt die Verbessrungsvorschläge und Bemerkungen der Test-Programmierer zusammengefasst auf. 
-Die genauen Feedbacks befinden sich in Anhang \textbf{\ref{chap:userTestProgrammers}}. 
+Die nachfolgende Liste zählt die Verbesserungsvorschläge und Bemerkungen der Testprogrammierer zusammengefasst auf. 
+Die genauen Feedbacks befinden sich im Anhang \textbf{\ref{chap:userTestProgrammers}}. 
  \\
 \textbf{Dokumentation \& Return-Wert}: 
 Das JSDoc von \codestyle{SelectComponent} benötigt eine detailliertere Beschreibung des Return-Arrays. 
@@ -1027,7 +1027,7 @@ Diese zielen auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser 
               Diese Aufgabe dient der Bewertung der Benutzerfreundlichkeit und Effizienz der Filteroption. 
     \item[2.] \textbf{Stadtauswahl}: 
               Die Testpersonen wählen eine spezifische Stadt aus einer dreispaltigen Dropdown-Liste. 
-              Die Auswahl erfolgt schrittweise: Beginnend mit dem Kontinenten, gefolgt vom Land, und schliesslich der Stadt. 
+              Die Auswahl erfolgt schrittweise: Beginnend mit dem Kontinent, gefolgt vom Land und schliesslich der Stadt. 
               Der Fokus liegt hierbei auf der Bedienbarkeit und der Wirksamkeit der Filterfunktion. 
 \end{itemize}
 
@@ -1037,11 +1037,11 @@ Diese zielen auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser 
 \begin{itemize}
     \item Allgemeine Benutzerfreundlichkeit: 
     \begin{itemize}
-        \item \textbf{Robert (Junger Alltagsbenutzer, digital native)}: 
+        \item \textbf{Robert (Junger Alltagsbenutzer, Digital Native)}: 
               Empfindet die Drop\-down-Menü\-führung als intuitiv und zügig bedienbar. 
               Sowohl das Jahr als auch die Stadt lassen sich mühelos finden. 
         \item \textbf{Sara (Semi-aufmerksam, nicht so schnell auf der Tastatur)}: 
-              Beginnt mit Schwierigkeiten in der Dreispalten-Ansicht. 
+              Beginnt mit Schwierigkeiten in der Dreispaltenansicht. 
               Nach kurzer Einarbeitung findet sie die Filteroptionen jedoch nützlich. 
         \item \textbf{Nick (Alltagsbenutzer/Student)}: 
               Zeigt sich zufrieden mit der Handhabung. 
@@ -1120,8 +1120,8 @@ Diese zielen auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser 
     \item \textbf{Robert}: 
           Hat keine weiteren Vorschläge. 
     \item \textbf{Sara}: 
-          Findet die dreispaltige zwar nützlich. 
-          Aber leide müssen mehrere Spalten bearbeitet werden. 
+          Findet die Dreispaltige zwar nützlich. 
+          Aber leider müssen mehrere Spalten bearbeitet werden. 
     \item \textbf{Nick}: 
           Schlägt eine kurze Anleitung oder Hinweistext für Erstnutzer vor. 
     \item \textbf{Reto}: 
@@ -1136,7 +1136,7 @@ Einige Nutzer benötigen jedoch eine Eingewöhnungszeit, um sich an die Bedienun
 \subsubsection{\color{dblue} Fazit}
 \label{sec:userTestsSummery}
 
-Die Entwicklung und Implementierung der neuen Auswahlkomponente stellt eine Herausforderung dar. 
+Die Entwicklung und Implementierung der neuen Auswahlkomponente stellen eine Herausforderung dar. 
 Dies ist durch eine strukturierte Vorgehensweise und kontinuierliche Verbesserungen erfolgreich umsetzbar. 
 Die Usability-Tests mit Programmierern und Endanwendern liefern Einblicke in die Benutzerfreundlichkeit und Funktionalität der Komponente. 
 
@@ -1146,8 +1146,8 @@ Die Usability-Tests mit Programmierern und Endanwendern liefern Einblicke in die
 \\
 \textbf{Design und Konsistenz}: 
 Die Nutzung des Kolibri-Designsystems ermöglicht eine konsistente und ansprechende Benutzererfahrung. 
-Es ist wichtig die Farbauswahl und den Kontrast anzupassen. 
-Damit ist eine hohe Lesbarkeit sowie auch die Benutzerfreundlichkeit gewährleistet.
+Es ist wichtig, die Farbauswahl und den Kontrast anzupassen. 
+Damit sind eine hohe Lesbarkeit sowie auch die Benutzerfreundlichkeit gewährleistet.
 \\
 \textbf{Interaktion und Benutzerfreundlichkeit}: 
 Die neue Komponente bietet eine intuitive Bedienung sowohl für Maus- als auch für Tastaturbenutzer. 
@@ -1185,25 +1185,25 @@ Die \codestyle{SelectComponent} erfüllt durch die kontinuierliche Weiterentwick
 
 Das Design der Komponente – inspiriert durch das Kolibri-Designsystem – stellt sicher, dass die visuelle Konsistenz und Benutzerfreundlichkeit erhalten bleiben. 
 Die spezifischen Designoptionen wie Farbpalette und Layout sind sorgfältig ausgewählt und implementiert. 
-Dadurch ist eine optimale Lesbarkeit und Bedienbarkeit gewährleistet. 
+Dadurch sind eine optimale Lesbarkeit und Bedienbarkeit gewährleistet. 
 Diese Punkte sind durch die durchgeführten Tests bewiesen. 
 
 Der Einsatz von Figma-Prototypen ist entscheidend. 
 Daraus erfolgen eine realitätsnahe Vorschau und Benutzerfeedback. 
 Aus diesen Gründen verbessert sich die Benutzerfreundlichkeit kontinuierlich. 
 Die Kombination von durchdachten CSS-Anpassungen stellt sicher, dass die Komponente intuitiv bedienbar ist. 
-Eine klare Interaktions-Definition garantiert Maus- als auch für Tastaturbenutzern eine gute Zugänglichkeit. 
+Eine klare Interaktionsdefinition garantiert sowohl für Maus- als auch für Tastaturbenutzer eine gute Zugänglichkeit. 
 
-Die Integration von Prinzipien und Patterns führen zu einem stabilen und wartbaren Code. 
+Die Integration von Prinzipien und Patterns führt zu einem stabilen und wartbaren Code. 
 Mit KISS und Separation of Concern bleibt der Code einfach und gut lesbar. 
-Die Umsetzung vom Null Object und Projector Pattern garantieren die Wiederverwendbarkeit. 
-Diese Pattern halten sich an das Separation of Concern Prinzip. 
+Die Umsetzung vom Null-Object und Projector Pattern garantiert die Wiederverwendbarkeit. 
+Diese Patterns halten sich an das Separation of Concern-Prinzip. 
 Ein wichtiger Baustein der \codestyle{SelectComponent} ist der Container mit allen Werten. 
 Die Wahl der Popover-API vereinfacht die Implementation enorm, da weniger zusätzliche Funktionalität notwendig ist. 
 
 Stetig durchgeführte, manuelle Tests ermöglichen eine Überwachung und einen Vergleich der Performance. 
 Optimierungen im Code führen zu einer schnelleren Performance und einer angenehmen Benutzererfahrung. 
 Automatische Tests gewährleisten eine hohe Codequalität und die Korrektheit der Funktionalitäten. 
-Die durchgeführten User Tests bestätigten die hohe Usability der Komponente. 
+Die durchgeführten User-Tests bestätigten die hohe Usability der Komponente. 
 Ein agiles Entwicklungsverfahren ermöglicht während der Entstehung der neuen, effizienten Auswahlkomponente eine stetige Optimierung. 
 Die \codestyle{SelectComponent} bildet eine solide Grundlage für zukünftige Erweiterungen und Anpassungen. 

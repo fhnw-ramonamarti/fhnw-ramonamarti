@@ -1,7 +1,7 @@
 \chapter{Diskussion}
 \label{chap:discussion}
 
-Die in Kapitel \textbf{\ref{chap:existingComponents}} beschriebenen Komponenten Select und Datalist kommen in vielen Webseiten zu Anwendung. 
+Die in Kapitel \textbf{\ref{chap:existingComponents}} beschriebenen Komponenten Select und Datalist kommen auf vielen Webseiten zur Anwendung. 
 Das Auswählen eines Wertes aus einer vorgegebenen Menge ist mit diesen Elementen ineffizient und unästhetisch.
 Die in der Vorarbeit erstellte Länderauswahl löst das Problem aber nur für diesen einen spezifischen Anwendungsfall. 
 Die neue \codestyle{SelectComponent} baut auf der Länderauswahl auf, ist jedoch generalisiert. 
@@ -9,9 +9,9 @@ Sie lässt sich mit unterschiedlichsten Werten und Inhalten anwenden.
 Zudem ist der Code strukturiert aufgebaut. 
 Dabei spielt es keine Rolle, welcher Konstruktor bzw. welche Art der Datenübergabe zur Anwendung kommt. 
 
-Die Datalist und das Select zeigen im UI als auch der Interaktion einige Inkonsistenzen auf. 
-Die Darstellung lässt sich mit den wenigen Styling-Möglichkeiten der HTML-Elemente teilweise beheben. 
-Richtig unangenehm gestaltet sich die Anwendung dieser Auswahlkomponenten bei einer grossen aber doch begrenzten Menge von Optionen. 
+Die Datalist und das Select zeigen sowohl im UI als auch in der Interaktion einige Inkonsistenzen auf. 
+Die Darstellung lässt sich mit den wenigen Stylingmöglichkeiten der HTML-Elemente teilweise beheben. 
+Richtig unangenehm gestaltet sich die Anwendung dieser Auswahlkomponenten bei einer grossen, aber doch begrenzten Menge von Optionen. 
 Eine saubere Integration in eine konsistent designte Webseite ist jedoch nicht möglich.
 Der Container mit den Werten lässt sich bei beiden Elementen nicht umgestalten und zerstört das Bild des abgestimmten Designs. 
 Die Lösungen von Frameworks und Libraries blasen eine ansonsten schlanke Codebasis unnötig auf. 
@@ -20,15 +20,15 @@ Zudem bieten diese Komponenten häufig zu viele Funktionen an, welche die Anwend
 An diesem Punkt bietet Kolibri mit der \codestyle{SelectComponent} eine konsistente und anpassbare Auswahlkomponente – ohne externe Abhängigkeiten – an. 
 Das Konsistenzproblem ist durch ein klar gestaltetes Design gelöst. 
 Die Implementation ist auf den gängisten Browsern Edge (127), Chrome (127), Firefox (128) und Safari (17.5) auf Desktop getestet. 
-User Tests mit Endnutzern zeigen, dass die Komponente dessen Bedürfnisse abdecken und die Auswahl vereinfacht. 
+User-Tests mit Endnutzern zeigen, dass die Komponente dessen Bedürfnisse abdeckt und die Auswahl vereinfacht. 
 Der modulare Aufbau ermöglicht eine hohe Wiederverwendbarkeit. 
 Die Subkomponente \codestyle{ColumnOptionsComponent} kann für ein Einsatzgebiet ausserhalb der Auswahlkomponente zur Anwendung kommen. 
-Eine mögliche Verwendung kann bei einer Tabellen-Ansicht sein. 
+Eine mögliche Verwendung kann bei einer Tabellenansicht sein. 
 Ein weiterer Vorteil der einzelnen Komponenten ist, dass andere Projektoren zur Visualisierung zum Einsatz kommen können. 
 
 Diese Arbeit ist zeitlich und personell begrenzt. 
 Deswegen bietet die Komponente nur einen Projektor für die Auswahlkomponente. 
-Die spät durchgeführten User Tests mit Programmierern führen dazu, dass sich nach den Verbesserungen keine zusätzliche Prüfung mehr durchführen lässt. 
+Die spät durchgeführten User-Tests mit Programmierern führen dazu, dass sich nach den Verbesserungen keine zusätzliche Prüfung mehr durchführen lässt. 
 Diese ist als erstes Future Feature im nachfolgenden Kapitel genauer beschrieben. 
 
 
@@ -36,26 +36,26 @@ Diese ist als erstes Future Feature im nachfolgenden Kapitel genauer beschrieben
 \label{sec:future}
 
 Die Zukunft der zwei entstandenen \codestyle{SelectComponent}s zeigt sich sehr vielfältig. 
-Durch die modulare Struktur vereinfacht sich die Erweiterung, indem einzelne Komponente wie Projektoren austauschbar sind. 
+Durch die modulare Struktur vereinfacht sich die Erweiterung, indem einzelne Komponenten wie Projektoren austauschbar sind. 
 Nachfolgend sind mögliche Verbesserungen und Features aufgelistet. 
 
 
-\subsection{Weitergehende User Tests und Nutzerbefragungen}
+\subsection{Weitergehende User-Tests und Nutzerbefragungen}
 \label{sec:moreUserTests}
 
-Die aus den Feedback der Programmierer entstandene \codestyle{SelectComponent} sollte sich weiteren Tests mit Entwicklern stellen. 
+Die aus den Feedbacks der Programmierer entstandene \codestyle{SelectComponent} sollte sich weiteren Tests mit Entwicklern stellen. 
 Dies garantiert eine gut verständliche Dokumentation und effiziente Einbindung in den Code. 
 Allenfalls lassen sich weitere Bugs aufdecken. 
-Die weiteren Tests bieten die Möglichkeit einen Vergleich zu den bereits durchgeführten Tests zu ziehen. 
-Spezifische Fragen können die Vereinfachung der Anwendung beweisen oder wiederlegen. 
+Die weiteren Tests bieten die Möglichkeit, einen Vergleich zu den bereits durchgeführten Tests zu ziehen. 
+Spezifische Fragen können die Vereinfachung der Anwendung beweisen oder widerlegen. 
 
-Die Anzahl Personen der Testgruppe massiv zu erhöhen, führt zu mehr Feedback. 
+Die Anzahl der Personen der Testgruppe massiv zu erhöhen, führt zu mehr Feedback. 
 Gewisse Interaktionen der Nutzer können möglicherweise auf bisher unentdeckte Probleme hinweisen. 
 Diese lassen sich in einem weiteren Schritt beheben. 
 
 Eine Umfrage bei den Endanwendern weist auf bisher unbekannte Wünsche hin. 
 Durch eine grosse Diversität beim Hintergrundwissen der Befragten entstehen neue Designansätze. 
-Aus den Feedbacks lassen sich neue Projektoren – ob UI oder Interaktion - designen und umsetzen. 
+Aus den Feedbacks lassen sich neue Projektoren – ob UI oder Interaktion – designen und umsetzen. 
 
 
 \subsection{Weitere UI-Projektoren}
@@ -68,16 +68,16 @@ Aus diesen Designskizzen lassen sich in Figma ausgearbeitete Prototypen erstelle
 Diese finden sich in der späteren Implementation zu einzelnen Projektoren wieder. 
 
 Weitere Projektoren könnten den gleichen Aufbau besitzen, aber mit alternativen Design-Implementationen ausgestattet sein. 
-Dabei zeigen sich die Unterschiede beispielsweise in der Visualisierung des Highlights, der Cursor Position oder der Selektion. 
+Dabei zeigen sich die Unterschiede beispielsweise in der Visualisierung des Highlights, der Cursor-Position oder der Selektion. 
 Das Design kann jedoch wie beim Darkmode die komplette Komponente betreffen. 
 
 Statt einer Spalten-Darstellung visualisiert sich eine Idee als Zeilen-Darstellung (Abbildung \ref{img:futureUi}). 
 Die Kategorien zeigen initial nur die ausgewählte Option in einer Zeile an. 
 Die \codestyle{ValueOption} stellt die Werte in einer normalen Spalte dar. 
 Beim Eintreten\footnote{
-    Wechsel der Cursor Position in die Kategorie oder ein Klick auf die Kategorie
-} in eine Kategorie ändert sich die Darstellung der aktiven Zeile in ein Rad (Mitte Abbildung \ref{img:futureUi}). 
-Sobald das Highlight bzw. die Cursor Position die Kategorie-Zeile verlässt, minimiert sich die Visualisierung zurück auf den selektierten Wert. 
+    Wechsel der Cursor-Position in die Kategorie oder ein Klick auf die Kategorie
+} in eine Kategorie ändert die Darstellung der aktiven Zeile in ein Rad (Mitte Abbildung \ref{img:futureUi}). 
+Sobald das Highlight bzw. die Cursor-Position die Kategorie-Zeile verlässt, minimiert sich die Visualisierung zurück auf den selektierten Wert. 
 Nach dem Erstellen eines Figma-Prototypen findet sich in dieser Idee ein neuer UI-Projektor wieder. 
 
 \begin{figure}[!htb]
@@ -87,8 +87,8 @@ Nach dem Erstellen eines Figma-Prototypen findet sich in dieser Idee ein neuer U
     \label{img:futureUi}
 \end{figure}
 
-Die entstandenen als auch zukünftige UI-Projektoren lassen sich mit unterschiedlichen Interaktionen verbinden. 
-Dabei ist es hilfreich, verschiedene Interaktions-Projektoren\footnote{
+Die entstandenen wie auch zukünftigen UI-Projektoren lassen sich mit unterschiedlichen Interaktionen verbinden. 
+Dabei ist es hilfreich, verschiedene Interaktions-Pro\-jek\-toren\footnote{
     Projektoren, die nur die Tastatur-Interaktion definieren
 } zu bieten. 
 
@@ -97,23 +97,23 @@ Dabei ist es hilfreich, verschiedene Interaktions-Projektoren\footnote{
 \label{sec:moreInteraction}
 
 Neue UI-Projektoren lassen sich nicht ausnahmslos mit den bestehenden Tastatur-Inter\-aktionen kombinieren. 
-Zudem ist nicht in jeder Situation erwünscht, dass die Cursor Position die Selektion beeinflusst. 
-Weitere Projektoren können neue, eventuell UI-Projektor spezifische Interaktionen bieten. 
+Zudem ist nicht in jeder Situation erwünscht, dass die Cursor-Position die Selektion beeinflusst. 
+Weitere Projektoren können neue, eventuell UI-Pro\-jektor-spezifische Interaktionen bieten. 
 
-Ein Interaktions-Projektor kann das Auswahlkomponente bezogene Undo und Redo enthalten. 
+Ein Interaktions-Projektor kann das Auswahlkomponentenbezogene Undo und Redo enthalten. 
 Diese Funktion bietet an, eine geänderte Auswahl rückgängig zu machen oder zu wiederholen. 
 
 
 \subsection{Spezifische Auswahlkomponenten und Erweiterungen}
 \label{sec:specificComponents}
 
-Zukünftig besteht die Möglichkeit Auswahlkomponenten für spezielle Anwendungsfälle zu erstellen. 
+Zukünftig besteht die Möglichkeit, Auswahlkomponenten für spezielle Anwendungsfälle zu erstellen. 
 Ein altbekanntes Beispiel ist die Auswahl eines Datums mit Tag, Monat und Jahr. 
 Dabei kann weitere Logik zur Kontrolle der möglichen Werte zum Einsatz kommen. 
 
 Das Erweitern der Multiselect-Funktionalität führt die Anpassung mehrerer Subkomponenten mit sich. 
 Es betrifft die Implementation von der \codestyle{SelectComponent} bis hin zu der \codestyle{columnOptionsComponent}. 
-Eine mögliche neue Single-Select Komponente bietet die Funktionalität mehrere Kategorien auswählen zu können. 
+Eine mögliche neue Single-Select-Komponente bietet die Funktionalität, mehrere Kategorien auswählen zu können. 
 Hierbei ist zu unterscheiden, ob die ausgewählten Kategorien als \emph{AND}- oder \emph{OR}-Verknüpfung zu verstehen sind. 
 
 
@@ -121,12 +121,12 @@ Hierbei ist zu unterscheiden, ob die ausgewählten Kategorien als \emph{AND}- od
 \label{sec:betterPerformance}
 
 Die \codestyle{SelectComponent} garantiert bis 5'000 Werte eine annehmbare\footnote{
-    Ladezeit < 500ms bis die Webseite fertig geladen ist
+    Ladezeit < 500 ms, bis die Webseite fertig geladen ist
 } Ladezeit. 
 Diese Performance lässt sich weiter optimieren. 
 Zudem führen diese Verbesserungen dazu, dass sich eine noch höhere Anzahl Optionen anwenden lässt. 
 Eine Kombination der Auswahlkomponente mit der Lazy Table des Kolibri ermöglicht eine optimierte Performance. 
-Denn die Lazy Table kann eine Datenmenge von über 100'000 Werte verwalten. 
+Denn die Lazy Table kann eine Datenmenge von über 100'000 Werten verwalten. 
 
 
 \subsection{Accessability verbessern}
@@ -143,5 +143,5 @@ Dazu zählt zum Beispiel die bekannte Rot-Grün-Schwäche.
 
 All diese Erweiterungen und Verbesserungen zielen darauf ab, die Auswahlkomponente für alle Endnutzer zugänglich zu machen. 
 Sie ermöglichen eine angenehme Benutzung. 
-Zudem soll die \codestyle{SelectComponent} einfach in jeden bestehenden JavaScript Code einzubinden sein. 
+Zudem soll die \codestyle{SelectComponent} einfach in jeden bestehenden JavaScript-Code einzubinden sein. 
 Anschliessend an diese Arbeit steht die Integration in das Toolkit Kolibri an. 
