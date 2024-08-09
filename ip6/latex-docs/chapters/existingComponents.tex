@@ -46,7 +46,7 @@ Das Weglassen von \codestyle{value} und \codestyle{label} führt dazu, dass beid
 
 Das HTML-Element kann das Attribut \codestyle{disabled} oder \codestyle{selected} erhalten. 
 Code \ref{code:optionExample} Zeile 2 definiert durch eine \codestyle{selected} Option den initial ausgefüllten Wert. 
-Dies Attribut funktioniert nur im Zusammenhang mit dem \codestyle{select}-Container. 
+Dieses Attribut funktioniert nur im Zusammenhang mit dem \codestyle{select}-Container.
 Bei einem \codestyle{disabled} Element – wie in Code \ref{code:optionExample} Zeile 3 – erscheint das UI ausgegraut. 
 Dieser Eintrag lässt keine Interaktion zu. 
 
@@ -84,7 +84,7 @@ Für eine bessere Accessibility benötigt das Select eine \codestyle{id}, um das
 Standardmässig ist für dieses Feld nur eine einzelne Auswahl möglich. 
 Durch die Ergänzung des Attributs \codestyle{multiple} ist es möglich mehrere Werte zu markieren. 
 Bei einer Vorauswahl mehrerer Listenelemente durch \codestyle{selected} muss die Komponente ein Multiselect sein. 
-Wenn jedoch bei einem Signle-Select mehrere Optionen das \codestyle{selected}-Attribut enthalten, gilt das zuletzt Definierte als Default. 
+Wenn jedoch bei einem Single-Select mehrere Optionen das \codestyle{selected}-Attribut enthalten, gilt das zuletzt Definierte als Default.
 Das \codestyle{autocomplete} funktioniert wie bei anderen Inputs, indem Vorschläge vom User-Agent-Feature auftauchen. 
 Durch die \codestyle{autofocus}-Eigenschaft sind Interaktionen mit dem Feld direkt nach dem Laden möglich. 
 Die Definition des \codestyle{size}-Attributs steuert die Anzahl sichtbarer Elemente. 
@@ -223,7 +223,7 @@ Die textlichen Felder\footnote{
 Diese Texttypen zusammen mit \codestyle{number} können durch \codestyle{placeholder} einen Patzhaltertext erhalten. 
 Die Min- und Max-Länge schränken die Textlänge der Eingabe ein. 
 Die Vorgabe eines Regex-Musters im \codestyle{pattern}-Attribut kann die Eingabe weiter eingrenzen. 
-Das Formular validiert die Felder vor dem Senden anhand des Patterns und markiert fehlerhafte Einhaben als invalide. 
+Das Formular validiert die Felder vor dem Senden anhand des Patterns und markiert fehlerhafte Eingaben als invalide.
 Gewisse Typen – wie z.B. \codestyle{url}, \codestyle{tel} und \codestyle{email} – haben bereits eine Pattern hinterlegt. 
 Mit \codestyle{size} lässt sich die Grösse bzw. Anzahl sichtbarer Zeichen angeben. 
 Weitere Informationen zum Styling eines Input-Feldes stehen im Unterkapitel \textbf{\nameref{sec:inputCss}}. 
@@ -290,7 +290,7 @@ Im Gegensatz zur \codestyle{datalist} und dem \codestyle{select} lässt sich das
 \label{sec:browserInconsistency}
 
 Die Komponenten Select \& Datalist variieren in der Ansicht als auch in der Interaktion. 
-Die Unterschiede sind system-, browser- und komonentenabhängig. 
+Die Unterschiede sind system-, browser- und komponentenabhängig.
 Nachfolgend sind die Inkonsistenzen genauer erläutert. 
 
 
@@ -346,14 +346,14 @@ Da der Fokus dieser Arbeit auf der Desktop-Anwendung liegt, finden sich die Bild
 \end{figure}
 
 Die geöffnete Liste ist bei Firefox als einziges relativ konsistent. 
-Sie erscheint in einem mittel- bis hellgrauen Container. 
+Sie erscheint in einem grauen Container.
 Die anderen Browser sind einstellungsabhängig. 
 Sie zeigen den Container weiss oder dunkelgrau (Abbildungen \ref{img:openedSelectWin} und \ref{img:openedSelectOsx}) an. 
 Je nach Anzahl der enthaltenen Elemente erscheint die Liste darunter (darüber) oder überdeckt den Container des ausgewählten Wertes. 
 Am Wenigsten lässt sich das Element in Safari stylen. 
 
 Da nicht jeder Browser ein Icon anzeigt, ist die Datalist weniger konsistent. 
-Safari (Mac) und Firefox stellen keinen visuellen Hinweis (Abbildungen \ref{img:closedDatalistSafari} und \ref{img:closedDatalistFirefox}) auf die Liste dar. 
+Safari und Firefox stellen keinen visuellen Hinweis (Abbildungen \ref{img:closedDatalistSafari} und \ref{img:closedDatalistFirefox}) auf die Liste dar.
 Safari auf iOS zeigt hingegen in jedem Fall – bezogen auf den textuellen Typ – einen nach unten zeigenden Pfeil an. 
 Andere Browser blenden auf der rechten Seite beim Hovern oder beim Besitzen des Fokus das Icon (Dreieck nach unten zeigend) ein. 
 
@@ -395,7 +395,7 @@ Bei Firefox unterscheidet sich das Öffnen der Liste ebenfalls.
 Wenn das Feld den Fokus noch nicht besitzt, benötigt es zwei Klicks. 
 Die anderen Browser lassen die Liste bereits beim ersten Kick erscheinen. 
 Die Liste selbst verhält sich je nach Browser und Inhalt verschieden, indem sie seitlich oder darunter (darüber) erscheint. 
-Die Übernamhe des Dark- bzw. Light-Modes als Container-Farbe hängt vom Browser und dem Anwendungskontext ab. 
+Die Übernahme des Dark- bzw. Light-Modes als Container-Farbe hängt vom Browser und dem Anwendungskontext ab.
 Die Liste überdeckt das Eingabefeld nie. 
 Die Abbildungen \ref{img:openedDatalistWin} und \ref{img:openedDatalistOsx} zeigen Beispiele der geöffneten Datalist. 
 
@@ -408,7 +408,7 @@ Der Listen-Container erscheint ähnlich zum OSX-Browser als Dropdown-Liste.
 Nach einer Auswahl schliessen die mobilen Selects automatisch. 
 
 Die Datalist zeigt ihren Inhalt nur bei der Interaktion mit Pfeil auf der rechten Seite. 
-Abgesehen von der Grösse der einzelnen Einträge für die Bedienbarkeit unterscheiden diese sich kaum von den Desktop-Versionen. 
+Abgesehen von der Grösse der einzelnen Einträge für die Bedienbarkeit unterscheiden sich diese kaum von den Desktop-Versionen.
 Die Selektionen erscheinen gegenüber der anderen Optionen in keinem speziellen Design. 
 
 Weitere Inkonsistenzen sind in den Bildern im Anhang \textbf{\ref{chap:existingImgs}} zu sehen. 
@@ -465,7 +465,7 @@ Der Mac Standard-Browser zeigt zu den bisher gesehenen Vergleichen die grösste 
 \label{sec:mobileBrowser}
 
 Der Vergleich der Tabellen \ref{table:interactionFirefoxAndroid} und \ref{table:interactionDuckduckAndroid} zeigt, dass auf Android-Geräten Abweichungen existieren. 
-Nicht alle Bedienungsmöglichkeiten führen zur selblen Reaktion. 
+Nicht alle Bedienungsmöglichkeiten führen zur selben Reaktion.
 
 \import{../tables}{c.firefox.android.tex}
 \import{../tables}{c.duckduck.android.tex}
@@ -560,7 +560,7 @@ Die Länderauswahl\citemarktext{
 } ist das Resultat des vorausgegangenen Projekts. 
 Diese vereinfacht die Selektion eines Landes in einer vorgegebenen Liste. 
 Die Komponente ist jedoch nur auf den spezifischen Anwendungsfall – der Wahl eines Landes – getestet. 
-Das Desgin, die Funktionen und die Anwendung unterscheiden sich aber zu den oben genannten HTML-Elementen. 
+Das Design, die Funktionen und die Anwendung unterscheiden sich aber zu den oben genannten HTML-Elementen.
 
 
 \subsection{Design}
