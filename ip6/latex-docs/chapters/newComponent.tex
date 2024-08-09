@@ -31,7 +31,7 @@ Elemente lassen sich durch diverse Eigenschaften stylen.
 Die Anpassung der Hintergrundfarbe fällt am schnellsten ins Auge. 
 Diese ist hell zu gestalten, damit der Kontrast zur dunklen Default-Schriftfarbe erhalten bleibt. 
 Der Rahmen bietet eine weitere Designmöglichkeit. 
-Seine Farbe, Dicke oder Struktur können varriieren. 
+Seine Farbe, Dicke oder Struktur können variieren. 
 Eine andere Alternative ist, nur eine Seite des Rahmens zu verwenden. 
 Als Beispiel dafür gilt der sogenannte Spiegelstrich, welcher auf der linken Seite platziert ist. 
 Für eine gute Erkennbarkeit sollte die Färbung rund um den Rahmen in einer eher dunklen Schattierung Anwendung finden. 
@@ -489,7 +489,7 @@ Mehr zur Dateiaufteilung ist in den nächsten zwei Unterkapiteln zu lesen.
 
 Das Projector-Pattern\citemarktext{
     [\cite{projectorPattern}]
-} basiert auf dem verbreiteten Model-View-Controll-Pattern. 
+} basiert auf dem verbreiteten Model-View-Control-Pattern. 
 Das Model verwaltet die dargestellten Daten. 
 Zudem enthält die Komponente des Patterns die Geschäftslogik und verarbeitet die Regeln und Anfragen für die Daten. 
 Ein Controller generiert privat gehaltene Modelle. 
@@ -530,7 +530,7 @@ Zum einen findet sich das Projector-Pattern in einer einzelnen Spalte in der Opt
 Pro Kolonne existieren eine Auswahl und eine Menge von Optionen. 
 Diese beiden Bestandteile besitzen je ein eigenes Model und einen eigenen Controller. 
 Der Projektor generiert eine gemeinsame View und bindet diese an die beiden Controller. 
-Bei einer Anwendung übernimmt die \codestyle{ColumnOptions\-Component} die Verwaltung gewisser Bausteine (Mehr dazu später). 
+Bei einer Anwendung übernimmt die \codestyle{ColumnOptions\-Component} die Verwaltung gewisser Bausteine – mehr dazu später. 
 
 \begin{figure}[!htb]
     \centering
@@ -740,7 +740,7 @@ Die folgenden zwei Bilder \ref{img:performanceTestBefore} und \ref{img:performan
 
 Die Grafik \ref{img:performanceTestBefore} zeigt die mit über 5 Sekunden (rechts unten in Blau) lange Ladedauer der früheren Version. 
 Die Implementation führte sehr viele Aktionen auf dem Renderbaum aus. 
-Die lange Wartezeit bestätigten mehrere Feedbacks der Nutzer, später mehr dazu. 
+Die lange Wartezeit bestätigten mehrere Feedbacks der Nutzer – später mehr dazu. 
 
 \begin{figure}[!htb]
     \centering
@@ -829,7 +829,7 @@ Die Scrollbar ist anliegend an der rechten Seite.
 Das Highlight und die Cursor-Position haben keinen weiteren Nutzen. 
 Die beiden Zustände bewegen sich mit der Selektion mit. 
 Das Highlight verschwindet, wenn das Touch ausserhalb einer Option erfolgt. 
-Die einzige Inkonsistenz auf iOS zeigt sich beim Klick ausserhalb der SelectComponent. 
+Die einzige Inkonsistenz auf iOS zeigt sich beim Klick ausserhalb der \codestyle{SelectComponent}. 
 Anders als Safari auf Desktop schliesst diese Interaktion den Container nicht. 
 Wenn der Klick auf der X einen bereits selektierten Wert löscht, bleibt der Container ebenfalls offen. 
 Auf dem Pixel Chrome reagiert der Klick auf die Detail-Ansicht abweichend. 
