@@ -20,7 +20,7 @@ Das Ziel ist eine konsistente und ansprechende Benutzererfahrung zu schaffen, di
 Das Design der neuen Auswahlkomponente ist stark vom Kolibri-Designsystem inspiriert. 
 Das Designsystem bietet bereits ein umfassendes Set von Richtlinien und Komponenten. 
 Diese ermöglichen eine einheitliche und benutzerfreundliche Gestaltung von Anwendungen. 
-Das neue Design enthält jedoch einigen Anpassungen, um die Lesbarkeit zu optimieren. 
+Das neue Design enthält jedoch einige Anpassungen, um die Lesbarkeit zu optimieren. 
 Dazu benötigt es eine Analye der Möglichkeit, welche im nachfolgenden Kapitel beschrieben sind. 
 
 
@@ -88,9 +88,9 @@ Die Zuordnung der Designwahl zu den fehlenden Zuständen steht im Kapitel \textb
 
 Zur Visualisierung und zum interaktiven Testing des Designs kommt Figma zum Einsatz. 
 Figma ist ein webbasiertes Tool zur Erstellung von UI/UX-Designs, das Echtzeit-Kollaboration ermöglicht. 
-Das Sammeln der Feedbacks von Staskholdern und Nutzern unterstützt eine effiziente Entwicklung. 
+Das Sammeln der Feedbacks von Stakeholdern und Nutzern unterstützt eine effiziente Entwicklung. 
 Dafür ist es unabdingbar, im Vorfeld mit Figma schnell Prototypen zu erstellen und mit den Probanden zu teilen. 
-Das Arbeiten mit Figma-Components erleichtert das Entwickeln enorm. 
+Das Arbeiten mit Figma-Komponenten erleichtern das Entwickeln enorm. 
 Dies ermöglicht das Erstellen von Varianten ohne viel Aufwand. 
 
 Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3} zeigen die Prototypen der neuen Drop\-down-Kom\-po\-nente. 
@@ -137,7 +137,7 @@ Für den Erhalt einer besseren Nutzerfreundlichkeit gestaltet sich die Farbauswa
 
 Diese bietet hohen Kontrast und verbessert somit die Barrierefreiheit der Anwendung. 
 Die Gründe der Auswahl befinden sich im früheren Kapitel \textbf{\nameref{sec:possibleDesignOptions}}. 
-Die Zustände verbinden sich wie folgt mit der getroffene Wahl der Farben. 
+Die Zustände verbinden sich wie folgt mit der getroffenen Wahl der Farben. 
 
 \begin{itemize}
     \item \textbf{Original} $\rightarrow$ \textbf{Neu}
@@ -259,8 +259,9 @@ Die Farbe als auch die Position sind jedoch angepasst.
 Zudem hält sich das Highlight nicht an eine Klasse, sondern nutzt die Pseudo-Klasse \codestyle{:hover}. 
 
 Für ein konsistent gehaltenes UI sind diverse Event-Handler und UI-Update-Funktionen notwendig. 
-Im \codestyle{columnOptionsProjector.js} existiert beispielsweise ein Event-Handler, der das Setzen und Entfernen der Selektions-Klasse steuert. 
-Dieser ist im nachfolgende Code \ref{code:selectionChange} ersichtlich. 
+Im \codestyle{columnOptionsProjector.js} existiert beispielsweise ein Event-Handler. 
+Er steuert das Setzen und Entfernen der Selektions-Klasse. 
+Dieser ist im nachfolgenden Code \ref{code:selectionChange} ersichtlich. 
 
 \begin{lstlisting}[style = htmlcssjs, caption = Änderung der Selektion, label = code:selectionChange]
 const selectOptionItem = (root) => (newOption, oldOption) => {
@@ -276,10 +277,10 @@ const selectOptionItem = (root) => (newOption, oldOption) => {
 }; 
 \end{lstlisting}
 
-Die Funktion \codestyle{selectOptionItem} verschiebt die Klasse \codestyle{selected} vom alten auf das neue Element. 
+Die Funktion \codestyle{selectOptionItem} verschiebt die Klasse \codestyle{selected} vom Alten auf das neue Element. 
 Dadurch passt sich das UI automatisch an. 
-Damit sich die Änderung nur die Selektion der aktuellen Spalte auswirkt, verlangt die Funktion ein Elternelement. 
-Das hier versendete \codestyle{getHtmlElementByOption} sucht im Teilbaum des DOMs das HTML-Element zur mitgegenen Option. 
+Damit sich die Änderung nur auf die Selektion der aktuellen Spalte auswirkt, verlangt die Funktion ein Elternelement. 
+Das hier versendete \codestyle{getHtmlElementByOption} sucht im Teilbaum des DOMs das HTML-Element zur mitgegebenen Option. 
 
 
 \subsection{Prototyping}
@@ -1077,7 +1078,7 @@ Eine klare Interaktions-Definition garantiert Maus- als auch für Tastaturbenutz
 Die Integration von Prinzipien und Patterns führen zu einem stabilen und wartbaren Code. 
 Mit KISS und Separation of Concern bleibt der Code einfach und gut lesbar. 
 Die Umsetzung vom Null Object und Projector Pattern garantieren die Wiederverwendbarkeit. 
-Diese Patterns halten sich an das Separation of Concern Prinzip. 
+Diese Pattern halten sich an das Separation of Concern Prinzip. 
 Ein wichtiger Baustein der \codestyle{SelectComponent} ist der Container mit allen Werten. 
 Die Wahl der Popover-API vereinfacht die Implementation enorm, da weniger zusätzliche Funktionalität notwendig ist. 
 

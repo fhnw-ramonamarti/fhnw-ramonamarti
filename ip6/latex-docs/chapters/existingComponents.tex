@@ -89,7 +89,7 @@ Das \codestyle{autocomplete} funktioniert wie bei anderen Inputs, indem Vorschl�
 Durch die \codestyle{autofocus}-Eigenschaft sind Interaktionen mit dem Feld direkt nach dem Laden möglich. 
 Die Definition des \codestyle{size}-Attributs steuert die Anzahl sichtbarer Elemente. 
 Der Default für Single-Selects liegt bei eins und für eine mehrfache Auswahl bei vier. 
-Die in Kapitel \textbf{\nameref{sec:implementationsRenderer}} definierten Browser unterstützen alle \codestyle{select}-Attribute – ausser \codestyle{size}.
+Die in Kapitel \textbf{\nameref{sec:implementationsRenderer}} definierten Browser unterstützen alle \codestyle{select}-Attribute – ausser der \codestyle{size}.
 Die meisten Mobile-Browser supporten die Grösse nicht. 
 
 Abgesehen von der Grösse ist die Umgestaltung des Elements browserunabhängig kaum möglich. 
@@ -209,7 +209,8 @@ Die globale \codestyle{id} dient bei den Eingabefeldern zusätzlich zur Verknüp
 
 Weiter existieren die zwei Attribute \codestyle{readonly} und \codestyle{required}. 
 Diese sind bei allen Typen – ausser \codestyle{range} und \codestyle{color} – definiert. 
-Durch die Ergänzung der ersten Eigenschaft ist der Wert nicht mehr änderbar, aber es bleibt im Verlauf der fokussierbaren Komponenten enthalten. 
+Durch die Ergänzung der ersten Eigenschaft ist der Wert nicht mehr änderbar. 
+Das Input bleibt aber im Verlauf der fokussierbaren Komponenten enthalten. 
 Das \codestyle{required} erzwingt eine Eingabe. 
 Die Eigenschaften \codestyle{min}, \codestyle{max} und \codestyle{step} unterstützen die Konfiguration der numerischen Typen\footnote{
     \codestyle{date}, \codestyle{month}, \codestyle{week}, \codestyle{time}, \codestyle{datetime-local}, \codestyle{number}, \codestyle{range}
@@ -352,7 +353,7 @@ Je nach Anzahl der enthaltenen Elemente erscheint die Liste darunter (darüber) 
 Am Wenigsten lässt sich das Element in Safari stylen. 
 
 Da nicht jeder Browser ein Icon anzeigt, ist die Datalist weniger konsistent. 
-Safari (Mac) und Firefox stellen keinen visuellen Hinweis (Abbildungen \ref{img:closedDatalistSafari} und \ref{img:closedDatalistFirefox}) auf eine Liste dar. 
+Safari (Mac) und Firefox stellen keinen visuellen Hinweis (Abbildungen \ref{img:closedDatalistSafari} und \ref{img:closedDatalistFirefox}) auf die Liste dar. 
 Safari auf iOS zeigt hingegen in jedem Fall – bezogen auf den textuellen Typ – einen nach unten zeigenden Pfeil an. 
 Andere Browser blenden auf der rechten Seite beim Hovern oder beim Besitzen des Fokus das Icon (Dreieck nach unten zeigend) ein. 
 
@@ -516,7 +517,7 @@ Das System-Theme\footnote{
     Dark- bzw. Light-Mode; auf Systemebene oder Browserebene einstellbar
 } spielt für die Darstellung ebenfalls eine grosse Rolle. 
 Hierbei spielen das betriebssystemspezifische Styling und die individuellen Implementierungen der Browser eine Rolle. 
-Der Fokus dieses Abschnitts liegt aber auf der Interaktion. 
+Der Fokus dieses Abschnitts liegt auf der Interaktion. 
 Das UI ist bereits im Kapitel \textbf{\nameref{sec:uiDifferences}} genauer beschrieben. 
 
 Zwischen Edge und Chrome bestehen keine gravierenden Inkonsistenzen. 
