@@ -1,4 +1,4 @@
-\chapter{Neue Auswahlkomponenten}
+\chapter{Neue Auswahlkomponente}
 \label{chap:newComponent}
 
 Dieses Kapitel beschreibt die Bausteine der neuen Komponente auf verschiedenen Ebenen. 
@@ -99,21 +99,21 @@ Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=100mm]{figma-prototype-1.png}
-    \caption{\centering Figma-Prototyp – Dropdown-Komponente 1}
+    \caption{\centering Neue Komponente – Menüauswahl}
     \label{img:figmaPrototype1}
 \end{figure}
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=100mm]{figma-prototype-2.png}
-    \caption{\centering Figma-Prototyp – Dropdown-Komponente 2}
+    \caption{\centering Neue Komponente – Geburtstag}
     \label{img:figmaPrototype2}
 \end{figure}
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=100mm]{figma-prototype-3.png}
-    \caption{\centering Figma-Prototyp – Dropdown-Komponente 3}
+    \caption{\centering Neue Komponente im Darkmode}
     \label{img:figmaPrototype3}
 \end{figure}
 
@@ -132,7 +132,7 @@ Für den Erhalt einer besseren Nutzerfreundlichkeit gestaltet sich die Farbauswa
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=70mm]{design-colors.png}
-    \caption{\centering Kolibri Design System – Farbpalette}
+    \caption{\centering Farbpalette der neuen Komponente}
     \label{img:designColors}
 \end{figure}
 
@@ -363,7 +363,7 @@ Die Abbildungen \ref{img:openedTwoColCatNewComponent} bis \ref{img:openedThreeCo
     \begin{minipage}[b]{0.43\textwidth}
         \centering
         \includegraphics[width=0.9\textwidth]{newComponent/opened.img.png}
-        \caption{\centering Offene \codestyle{SelectComponent} mit Bilder}
+        \caption{\centering Offene \codestyle{SelectComponent} mit Bildern}
         \label{img:openedTwoColImgNewComponent}
     \end{minipage}
     \hfill
@@ -608,7 +608,7 @@ Durch das Refactoring der Variante mit dem normalen Div-Container resultiert ein
 Im Gegensatz zu den beiden oben erwähnten Container-Implementationen reduziert sich durch diese Schnittstelle der Zusatzaufwand. 
 Der Grundaufbau des Popover-Containers ist im folgenden Code \ref{code:popoverExample} dargestellt. 
 
-\begin{lstlisting}[style = htmlcssjs, caption = Popover-Container Beispiel, label = code:popoverExample]
+\begin{lstlisting}[style = htmlcssjs, caption = Beispiel: Popover-Container, label = code:popoverExample]
 <div popover="auto"
      id="select-component-0-options" 
      class="options-component" 
@@ -651,14 +651,14 @@ Veraltete Browser, welche das nested CSS\footnote{
 \section{Performance}
 \label{sec:performance}
 
-Mit der Kenntnis des Rendering Prozesses einer Webseite lässt sich eine gute Performance umsetzen. 
+Mit der Kenntnis des Rendering-Prozesses einer Webseite lässt sich eine gute Performance umsetzen. 
 Dieser Ablauf ist im Kapitel \textbf{\nameref{chap:background}} unter \textbf{\nameref{sec:structureRendering}} genau beschrieben. 
 Die folgende Abbildung \ref{img:renderingProcessRecap} zeigt die Kernelemente des Prozesses nochmals im Überblick. 
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=80mm]{rendering-process.png}
-    \caption{\centering Rendering Prozess}
+    \caption{\centering Rendering-Prozess}
     \label{img:renderingProcessRecap}
 \end{figure}
 
@@ -673,7 +673,7 @@ Ein Shadow-DOM ist ein Teilbaum, welcher nicht am Browser-DOM angehängt ist.
 Für einen reibungslosen Ablauf ist es sinnvoll, die Änderungen nach dem Abhängen des Elternknotens zu vollziehen. 
 Nach den Änderungen ist der Teilbaum wieder an den gewünschten Ort einzuhängen. 
 
-\begin{lstlisting}[style = htmlcssjs, caption = Performance Optimierung (aus \codestyle{columnOptionsComponent.js}), label = code:performanceOptimization]
+\begin{lstlisting}[style = htmlcssjs, caption = Performance-Optimierung, label = code:performanceOptimization]
 const addAllOptions = (options) => {
     const placeHolder = createHolder();
     columnView.replaceWith(placeHolder);
@@ -735,7 +735,7 @@ Die folgenden zwei Bilder \ref{img:performanceTestBefore} und \ref{img:performan
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{performance-before-user-tests-zoom.png}
-    \caption{\centering Performance Test vor Anpassungen}
+    \caption{\centering Performance-Test vor Anpassungen}
     \label{img:performanceTestBefore}
 \end{figure}
 
@@ -746,7 +746,7 @@ Die lange Wartezeit bestätigten mehrere Feedbacks der Nutzer – später mehr d
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=120mm]{performance-after-user-tests-zoom.png}
-    \caption{\centering Performance Test nach Anpassungen}
+    \caption{\centering Performance-Test nach Anpassungen}
     \label{img:performanceTestAfter}
 \end{figure}
 
@@ -776,7 +776,7 @@ Als Beispiel dient die \codestyle{SelectComponent} mit drei Spalten (Abbildung \
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=80mm]{newComponent/opened.3col.png}
-    \caption{\centering Manuelle Tests – Komponente auf OSX}
+    \caption{\centering Neue Komponente auf OSX}
     \label{img:manualTestComponentOsx}
 \end{figure}
 
@@ -796,7 +796,7 @@ Die Scrollbars auf Windows (Abbildung \ref{img:manualTestComponentWin}) besitzen
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=80mm]{newComponent/win.chrome.png}
-    \caption{\centering Manuelle Tests – Komponente auf Windows}
+    \caption{\centering Neue Komponente auf Windows}
     \label{img:manualTestComponentWin}
 \end{figure}
 

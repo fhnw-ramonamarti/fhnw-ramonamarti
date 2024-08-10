@@ -39,7 +39,7 @@ An die Stelle des Inhalts ist das Value zu platzieren.
 Firefox unterstützt diese Variante jedoch nicht. 
 Das Weglassen von \codestyle{value} und \codestyle{label} führt dazu, dass beide den Wert innerhalb des öffnenden und schliessenden Tags erhalten. 
 
-\begin{lstlisting}[style = htmlcssjs, caption = Option Beispiel, label = code:optionExample]
+\begin{lstlisting}[style = htmlcssjs, caption = Beispiel: Option, label = code:optionExample]
 <option value="dog"         > Dog   </option>
 <option label="Cat" selected> cat   </option>
 <option             disabled> Mouse </option>
@@ -67,7 +67,7 @@ Alle gängigen Browser unterstützen das \codestyle{option}-Element.
 Das \codestyle{select}-Element speichert Werte durch die einzelnen \codestyle{option}-Kinder. 
 Eine mögliche Anwendung ist in Code \ref{code:selectExample} ersichtlich. 
 
-\begin{lstlisting}[style = htmlcssjs, caption = Disabled Select Beispiel, label = code:selectExample]
+\begin{lstlisting}[style = htmlcssjs, caption = Beispiel: Select, label = code:selectExample]
 <select name="animal" disabled>
     <option value="dog"  > Dog   </option>
     <option value="cat"  > Cat   </option>
@@ -124,7 +124,7 @@ Die \codestyle{optgroup} dient als Zusatzelement.
 Das Element gruppiert die Optionen in einem \codestyle{select} und versieht die enthaltenen \codestyle{option}s mit einem Zwischentitel. 
 Der Titel lässt sich durch das \codestyle{label}-Attribut – wie in Code \ref{code:optgroupExample} – setzen, ist aber nicht selektierbar. 
 
-\begin{lstlisting}[style = htmlcssjs, caption = Optgroup Beispiel, label = code:optgroupExample]
+\begin{lstlisting}[style = htmlcssjs, caption = Beispiel: Optgroup, label = code:optgroupExample]
 <select name="animal">
     <optgroup label="Big animal">
         <option value="dog"> Dog </option>
@@ -154,7 +154,7 @@ Das Element benötigt von den globalen Attributen zumindest eine \codestyle{id}.
 Die Id dient zur Verknüpfung der Liste mit dem Input-Feld. 
 Das folgende Unterkapitel \textbf{\nameref{sec:input}} beschreibt das Eingabefeld und dessen Typen im Detail. 
 
-\begin{lstlisting}[style = htmlcssjs, caption = Datalist Beispiel, label = code:datalistExample]
+\begin{lstlisting}[style = htmlcssjs, caption = Beispiel: Datalist, label = code:datalistExample]
 <input type="text" name="animal" 
        list="data" placeholder="Animal" />
 <datalist id="data">
@@ -626,7 +626,7 @@ Diese Komponente benötigt in der Anwendung kein HTML.
 Die Einbindung findet via JavaScript statt. 
 Der folgende Code \ref{code:countryInputExample} zeigt einen möglichen Anwendungsfall. 
 
-\begin{lstlisting}[style = htmlcssjs, caption = Länderauswahl Beispiel, label = code:countryInputExample]
+\begin{lstlisting}[style = htmlcssjs, caption = Beispiel: Länderauswahl, label = code:countryInputExample]
 const container = document.querySelector("#inputContainer");
 if (null != container) {
     const countryList = [
