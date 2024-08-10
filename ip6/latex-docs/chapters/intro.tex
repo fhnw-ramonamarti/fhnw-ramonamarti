@@ -14,7 +14,7 @@ Die Komponente ist nicht effizient bedienbar – besonders bei einer grossen Men
 Als Alternative zu den Basiselementen existieren unzählige Bibliotheken, welche solche Eingabemöglichkeiten unterstützen. 
 Diese besitzen externe Abhängigkeiten, welche das eigene Projekt unnötig aufblasen. 
 Zudem benötigen viele dieser Libraries eine längere Einarbeitungszeit, um die Funktionalitäten verstehen und anwenden zu können. 
-Das Vorgängerprojekt deckt die Probleme ab, ist aber nur auf die Auswahl eines Landes zugeschnitten. 
+Das Vorgängerprojekt \textbf{Länderkomponente} deckt die Probleme ab, ist aber nur auf die Auswahl eines Landes zugeschnitten. 
 Eine Anwendung dieser Komponente mit anderen Inhalten kann zu unerwünschtem Verhalten führen. 
 Die oben genannten Probleme dienen als Basis für das folgende Kapitel. 
 
@@ -22,7 +22,7 @@ Die oben genannten Probleme dienen als Basis für das folgende Kapitel.
 \section{Ziel}
 \label{sec:goal}
 
-Die neue Komponente zielt darauf ab, die Auswahl eines Wertes aus einer begrenzten, vorgegebenen Menge zu ermöglichen.
+Die neue Komponente \codestyle{SelectComponent} zielt darauf ab, die Auswahl eines Wertes aus einer begrenzten, vorgegebenen Menge zu ermöglichen.
 Dazu finden die Generalisierung und der Ausbau der vorangegangenen Länderauswahl statt. 
 Die Eingabe soll weiterhin effizient bleiben und sich konsistent über alle Browser zeigen. 
 Dabei liegt der Fokus auf Browsern von Desktop-Computern bzw. Laptops. 
@@ -62,13 +62,15 @@ Dieser Bericht gliedert sich in die Teile \textbf{Hintergrund}, \textbf{existier
 Jedes Kapitel baut auf dem Vorherigen auf und führt den Leser Schritt für Schritt durch die Entwicklung und Optimierung der neuen Auswahlkomponente. 
 
 Im Kapitel \textbf{Hintergrund} (\textbf{\ref{chap:background}}) ist die \textbf{Ausgangslage} (\textbf{\ref{sec:basics}}) des Kolibri-Toolkits und des Projekts erläutert. 
-Es folgt eine Erklärung der \textbf{Master-Detail-View} (\textbf{\ref{sec:masterDetailView}}) und der verschiedenen \textbf{Zustände} (\textbf{\ref{sec:states}}), die eine Auswahlkomponente besitzen kann. 
+Es folgt eine Erklärung der \textbf{Master-Detail-View} (\textbf{\ref{sec:masterDetailView}}). 
+Nachfolgend sind die verschiedenen \textbf{Zustände} (\textbf{\ref{sec:states}}), die eine Auswahlkomponente besitzen kann, aufgeführt. 
 Eine Beschreibung der \textbf{Browser und deren Rendering-Engines} (\textbf{\ref{sec:browserRenderer}}) ist ebenfalls enthalten. 
 Der \textbf{Rendering-Prozess} einer HTML-Seite sowie die wichtigsten \textbf{Browser-Implementationen} sind ebenfalls auf dem Plan. 
 
 Das Kapitel \textbf{existierende Komponenten} (\textbf{\ref{chap:existingComponents}}) vergleicht die \textbf{HTML-Elemente Datalist und Select} (\textbf{\ref{sec:datalistSelect}}). 
 Die Nutzung und Unterschiede der verschiedenen Elemente sind hier ebenfalls beschrieben. 
-Dabei hebt es die \textbf{Browser-Inkonsistenzen} (\textbf{\ref{sec:browserInconsistency}}) hervor, die zu \textbf{unterschiedlichen UI-Erfahrungen} führen können. 
+Dabei hebt es die \textbf{Browser-Inkonsistenzen} (\textbf{\ref{sec:browserInconsistency}}) hervor. 
+Sie führen zu \textbf{unterschiedlichen UI-Erfahrungen}. 
 Die \textbf{Länderauswahl-Komponente} (\textbf{\ref{sec:countryChoice}}) aus der Vorarbeit ist nur auf die Auswahl eines Landes zugeschnitten. 
 Mögliche \textbf{Anwendungsfälle} (\textbf{\ref{sec:useCases}}) der existierenden Komponenten zeigen die dabei entstehenden Probleme auf. 
 
@@ -80,7 +82,8 @@ Die \textbf{Implementation der Zustände} optimiert die Benutzerführung für Ma
 Das \textbf{Implementationsresultat} visualisiert und beschreibt die neue Komponente in diversen Beispielen.
 Im Abschnitt \textbf{Interaktionen} (\textbf{\ref{sec:interaction}}) sind Regeln für die Maus- und Tastaturinteraktion festgelegt. 
 Für einen stabilen und verständlichen Code sorgt die Einhaltung diverser \textbf{Prinzipien und Regeln} (\textbf{\ref{sec:principleRules}}). 
-Der Einsatz von \textbf{Patterns} (\textbf{\ref{sec:patterns}}) wie \textbf{Null-Object}, \textbf{Projector} und \textbf{Decorator} strukturiert die Implementation und erhöht die Wartbarkeit des Codes. 
+Der Einsatz von \textbf{Patterns} (\textbf{\ref{sec:patterns}}) wie \textbf{Null-Object}, \textbf{Projector} und \textbf{Decorator} strukturiert die Implementation. 
+Die Patterns erhöhen die Wartbarkeit des Codes. 
 Der \textbf{Dropdown-Container} (\textbf{\ref{sec:dropdownContainer}}) lässt sich auf verschiedene Weisen umsetzen. 
 Das Kapitel \textbf{Performance} (\textbf{\ref{sec:performance}}) beschreibt Optimierungen zur Verbesserung der Ladezeit sowie des Leistungspotenzials der neuen Auswahlkomponente. 
 Das \textbf{Testing}-Kapitel (\textbf{\ref{sec:testing}}) dokumentiert die Durchführung sowie die Auswertung von \textbf{manueller}, \textbf{automatisierter Tests} und \textbf{Usability-Tests}. 
