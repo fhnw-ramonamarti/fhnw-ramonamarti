@@ -7,7 +7,8 @@ Dazu gesellen sich sowohl die Implementation der Zustände als auch die Umsetzun
 Darauffolgend findet sich die Definition der Interaktion mit der Maus wie auch der Tastatur. 
 Die für einen stabilen Code wichtigen Regeln und Prinzipien sind ebenfalls festgelegt. 
 Die Anwendung diverser Patterns führt zu einer klaren Struktur und hoher Wiederverwendbarkeit. 
-Als spezielles Element in der View zählt der Dropdown-Container, welcher sich unterschiedlich implementieren lässt. 
+Als spezielles Element in der View zählt der Dropdown-Container. 
+Dieser lässt sich unterschiedlich implementieren. 
 Für ein angenehmes Nutzerfeeling spielt eine gute Performance eine tragende Rolle. 
 Dies zeigen auch die ausgeführten User-Tests mit Endanwendern wie auch Programmierern. 
 Automatisierte Tests für jede Komponente beweisen eine gute Codequalität. 
@@ -219,7 +220,7 @@ optionsContainer.addEventListener("toggle", (event) => {
 });
 \end{lstlisting}
 
-Dieser Code prüft beim Togglen den neuen Status des Events. 
+Dieser Code (\ref{code:popoverToggle}) prüft beim Togglen den neuen Status des Events. 
 Anhand des Status erhält das Popover ein Update bei den Klassen. 
 Die weiteren Zustände sind im nachfolgenden Kapitel genauer beschrieben. 
 
@@ -448,7 +449,7 @@ Das Kapitel Patterns bietet eine weitere Möglichkeit, den Code strukturiert zu 
 \label{sec:patterns}
 
 In diesem Projekt finden sich einige Code-Patterns wieder. 
-Die wichtigesten wie Null-Object, Projector und Decorator sind in den nachfolgenden Unterkapiteln genauer erläutert. 
+Die wichtigsten wie Null-Object, Projector und Decorator sind in den nachfolgenden Unterkapiteln genauer erläutert. 
 Eine weitere Rolle spielt unter anderem die Master-Detail-View, aber im Zusammenhang mit der Komponente eher nebensächlich. 
 Zudem ist die Anwendung nicht typisch bzw. genau abgegrenzt. 
 Die Implementation erhält durch die verwendeten Patterns eine Struktur und läuft stabiler. 
@@ -640,10 +641,10 @@ try {
 }
 \end{lstlisting}
 
-Ein Alert-Popup informiert den Nutzer über Einschränkungen (Abbildung \ref{img:msgOldFirefoxNewComp}). 
+Ein Alert-Popup informiert den Nutzer über Einschränkungen (Abbildung \ref{img:msgOldFirefoxNewComp} im Anhang \ref{chap:newImgs}). 
 Einige zusätzliche CSS-Definitionen garantieren eine halbwegs ansehnliche Darstellung. 
 Veraltete Browser, welche das nested CSS\footnote{
-    Verschachtelter CSS-Code mit Verwendung der \&-Funktionalität
+    Verschachtelter CSS-Code mit Verwendung der \codestyle{\&}-Funktionalität
 } und das CSS-\codestyle{:has()} nicht unterstützen, zeigen die neue Komponenten inkonsistent an. 
 
 
@@ -900,7 +901,7 @@ Die im Vorfeld definierten Personas – Anhang \textbf{\ref{chap:perosnas}} – 
 Estrid Miller arbeitet als Webentwicklerin und stört sich an schlechter Code-Dokumentation. 
 Sie wünscht sich eine flexible und anpassbare UI-Komponente, welche ihre tägliche Arbeit vereinfacht. 
 Der Alltagsnutzer Love Berg ist ein typischer Webanwender und ärgert sich über umständliche und langsame Anwendungen. 
-Er wünscht sich ein effizientes und versändliches User-Interface. 
+Er wünscht sich ein effizientes und verständliches User-Interface. 
 Die folgenden zwei Unterkapitel decken mit den zwei Nutzergruppen Programmierer und Endanwender die Personas ab. 
 
 
@@ -986,7 +987,7 @@ Label, Name und \codestyle{numberOf\-Columns} sind klar.
 \textbf{Callback}: 
 Der Parameter ist nicht intuitiv anwendbar. 
 Callbacks sind nicht allen Programmierern klar in der Anwendung bzw. bekannt. 
-Es ist speziell, dass – im Gegensatz zum UI – \codestyle{serviceCallbacks}-Array in umgekehrter Reihenfolge einzugeben ist. 
+Es ist speziell, dass – im Gegensatz zum UI – das \codestyle{serviceCallbacks}-Array in umgekehrter Reihenfolge einzugeben ist. 
 \\
 \textbf{Navigation}: 
 Die Tastaturnavigation ist nicht ideal. 

@@ -34,7 +34,8 @@ Hierbei liegt der Fokus mehr auf der Interaktion mit den Komponenten als auf der
 
 Die beiden Auswahlkomponenten – \codestyle{datalist} und \codestyle{select} – verwenden \codestyle{option}-Elemente. 
 Die einzelnen Optionen – wie in Code \ref{code:optionExample} Zeile 1 – besitzen ein \codestyle{value}-Attribut und einen Inhalt – das Label. 
-Alternativ ist das \codestyle{label}-Attribut zu nutzen und dafür das Value an der Stelle des Inhalts zu platzieren. 
+Alternativ ist das \codestyle{label}-Attribut zu nutzen. 
+An die Stelle des Inhalts ist das Value zu platzieren. 
 Firefox unterstützt diese Variante jedoch nicht. 
 Das Weglassen von \codestyle{value} und \codestyle{label} führt dazu, dass beide den Wert innerhalb des öffnenden und schliessenden Tags erhalten. 
 
@@ -75,7 +76,8 @@ Eine mögliche Anwendung ist in Code \ref{code:selectExample} ersichtlich.
 \end{lstlisting}
 
 Die typischen Attribute für Eingabefelder – wie \codestyle{disabled}, \codestyle{name} und \codestyle{required} – sind beim Select ebenfalls verwendbar. 
-Durch das \codestyle{disabled} zeigt sich das Element in einer ausgegrauten Erscheinung und bietet dem Nutzer keine Interaktionsmöglichkeiten mehr. 
+Durch das \codestyle{disabled} zeigt sich das Element in einer ausgegrauten Erscheinung. 
+In diesem Zustand bietet das Select dem Nutzer keine Interaktionsmöglichkeiten mehr. 
 Der Container – z. B. \codestyle{fieldset} – vererbt dieses Attribut weiter an seine Kinder. 
 Die \codestyle{form}-Eigenschaft definiert das dazugehörige Formular. 
 Der \codestyle{name} stellt den Key für das Key-Value-Paar bzw. den Name des Feldes im Formular dar. 
@@ -89,7 +91,7 @@ Das \codestyle{autocomplete} funktioniert wie bei anderen Inputs, indem Vorschl�
 Durch die \codestyle{autofocus}-Eigenschaft sind Interaktionen mit dem Feld direkt nach dem Laden möglich. 
 Die Definition des \codestyle{size}-Attributs steuert die Anzahl sichtbarer Elemente. 
 Der Default für Single-Selects liegt bei eins und für eine mehrfache Auswahl bei vier. 
-Die in Kapitel \textbf{\nameref{sec:implementationsRenderer}} definierten Browser unterstützen alle \codestyle{select}-Attribute – ausser der \codestyle{size}.
+Die – in Kapitel \textbf{\nameref{sec:implementationsRenderer}} – definierten Browser unterstützen alle \codestyle{select}-Attribute – ausser der \codestyle{size}.
 Die meisten Mobile-Browser supporten die Grösse nicht. 
 
 Abgesehen von der Grösse ist die Umgestaltung des Elements browserunabhängig kaum möglich. 
@@ -115,10 +117,11 @@ Auf dem Mac sind die Tastenkombinationen Systembefehle.
 Daher gibt es keine Alternative, als sie zuvor auszuschalten bzw. umzustellen. 
 
 
-\subsubsection{\color{dblue} \color{dgray} Optgroup}
+\subsubsection{\color{dblue} Optgroup}
 \label{sec:optgroup}
 
-Die \codestyle{optgroup} dient als Zusatzelement, um in \codestyle{select}s Optionen zu gruppieren und mit einem Zwischentitel zu versehen. 
+Die \codestyle{optgroup} dient als Zusatzelement. 
+Das Element gruppiert die Optionen in einem \codestyle{select} und versieht die enthaltenen \codestyle{option}s mit einem Zwischentitel. 
 Der Titel lässt sich durch das \codestyle{label}-Attribut – wie in Code \ref{code:optgroupExample} – setzen, ist aber nicht selektierbar. 
 
 \begin{lstlisting}[style = htmlcssjs, caption = Optgroup Beispiel, label = code:optgroupExample]
@@ -189,7 +192,7 @@ Unter den gängigen Browsern ist Firefox auf OSX der einzige, welcher die Liste 
 Zusammengefasst bieten für Listen mit den unterschliedlichsten Typen Chromium-basierte Browser die beste Unterstützung. 
 
 
-\subsubsection{\color{dblue} \color{dgray} Input}
+\subsubsection{\color{dblue} Input}
 \label{sec:input}
 
 Dieser Abschnitt behandelt nur den Teil, welcher in Bezug auf die \codestyle{datalist} von Belang ist. 
@@ -234,7 +237,7 @@ In den hier erwähnten Möglichkeiten der Komponente existiert eine grossflächi
 Die einzigen Ausnahmen beziehen sich auf die Typen \codestyle{week} und \codestyle{month}, welche im Firefox und Safari nicht funktionieren. 
 
 
-\subsubsection{\color{dblue} {\color{dgray} Input-Typen mit Datalist-Unterstützung}}
+\subsubsection{{\color{dgray} Input-Typen mit Datalist-Unterstützung}}
 \label{sec:inputTypesDatalist}
 
 Bei den textuellen Typen\citemarktext{
@@ -257,7 +260,7 @@ Die gängigen Browser zeigen nach dem Aufklappen Farbpaletten, welche sich aber 
 Firefox beispielsweise greift auf die vom System gestellte Farbpalette zurück, wo Chromium-basierte Browser eine eigene bieten. 
 
 
-\subsubsection{\color{dblue} {\color{dgray} CSS für Input-Felder}}
+\subsubsection{{\color{dgray} CSS für Input-Felder}}
 \label{sec:inputCss}
 
 Bei einem Input\citemarktext{
@@ -394,7 +397,8 @@ Andere Browser blenden auf der rechten Seite beim Hovern oder beim Besitzen des 
 Bei Firefox unterscheidet sich das Öffnen der Liste ebenfalls. 
 Wenn das Feld den Fokus noch nicht besitzt, benötigt es zwei Klicks. 
 Die anderen Browser lassen die Liste bereits beim ersten Kick erscheinen. 
-Die Liste selbst verhält sich je nach Browser und Inhalt verschieden, indem sie seitlich oder darunter (darüber) erscheint. 
+Die Liste selbst verhält sich je nach Browser und Inhalt verschieden. 
+Sie erscheint seitlich oder darunter (darüber). 
 Die Übernahme des Dark- bzw. Light-Modes als Container-Farbe hängt vom Browser und dem Anwendungskontext ab.
 Die Liste überdeckt das Eingabefeld nie. 
 Die Abbildungen \ref{img:openedDatalistWin} und \ref{img:openedDatalistOsx} zeigen Beispiele der geöffneten Datalist. 
@@ -498,7 +502,7 @@ Die Tastatur-Interaktionen Undo\footnote{
     Ctrl \& Y auf Windows; Cmd \& Shift \& Z auf Mac
 } verhalten sich in allen Desktop-Browsern gleich. 
 Beim Select – Single als auch Multi – passiert nichts. 
-Im Input-Feld mit der Datalist regieren die Aktionen auf den geschriebenen Text. 
+Im Input-Feld mit der Datalist reagieren die Aktionen auf den geschriebenen Text. 
 Die einzige Ausnahme ist Safari, welcher das Undo/Redo auf Browserebene ausführt. 
 Das bedeutet, die Interaktion betrifft nicht nur das fokussierte Eingabefeld, sondern alle Änderungen im Browser wie das Schliessen von Tabs. 
 
@@ -543,7 +547,7 @@ PageUp/-Down zeigt bei den Einzelauswahl-Elementen ein komplett anderes Verhalte
 Beim Single-Select ist die Reaktion dieselbe wie beim Drücken von Home/End. 
 Die einzige Interaktion, welche nicht von den anderen Browsern abweicht, ist das Klicken auf ein Element. 
 
-Die inkonsistente Darstellung und Funktionalität dieser Komponenten erschweren eine einheitliche Benutzererfahrung über verschiedene Plattformen hinweg. 
+Über verschiedene Plattformen hinweg erschweren die inkonsistente Darstellung und Funktionalität dieser Komponenten eine einheitliche Benutzererfahrung. 
 Für eine optimale User-Experience ist die Konsistenzprüfung unabdingbar. 
 Diese Erkenntnisse legen den Grundstein für die Entwicklung einer neuen, optimierten Auswahlkomponente. 
 Diese soll die bestehenden Probleme adressieren. 
