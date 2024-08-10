@@ -10,11 +10,10 @@ Die HTML-Elemente bieten über die verschiedenen Browser keine konsistente Darst
 Dazu sind sie nicht schön anzusehen und nur geringfügig anpassbar. 
 Die Werte sind begrenzt auf Text und Unicode-Symbole. 
 Die Komponente ist nicht effizient bedienbar – besonders bei einer grossen Menge an Werten. 
-
 Als Alternative zu den Basiselementen existieren unzählige Bibliotheken, welche solche Eingabemöglichkeiten unterstützen. 
 Diese besitzen externe Abhängigkeiten, welche das eigene Projekt unnötig aufblasen. 
 Zudem benötigen viele dieser Libraries eine längere Einarbeitungszeit, um die Funktionalitäten verstehen und anwenden zu können. 
-Das Vorgängerprojekt \textbf{Länderkomponente} deckt die Probleme ab, ist aber nur auf die Auswahl eines Landes zugeschnitten. 
+Das Vorgängerprojekt \textbf{Länderauswahl-Komponente} deckt die Probleme ab, ist aber nur auf die Auswahl eines Landes zugeschnitten. 
 Eine Anwendung dieser Komponente mit anderen Inhalten kann zu unerwünschtem Verhalten führen. 
 Die oben genannten Probleme dienen als Basis für das folgende Kapitel. 
 
@@ -48,7 +47,6 @@ Für die generalisierte Komponente reicht es, wenn die Auswahl eines einzelnen W
 Die Auswahl mehrerer Werte im selben Eingabeelement ist nicht gefordert. 
 Die Komponente ist nicht speziell auf Mobile-Geräte auszurichten. 
 Eine Undo- wie auch eine Redo-Funktion der ausgewählten Werte ist ausserhalb des geforderten Rahmens. 
-
 Ein Bestandteil dieser Arbeit ist das Erweitern des \codestyle{SimpleInput}s um ein Select und eine Datalist. 
 Damit der Fokus des Projekts auf der generalisierten Auswahlkomponente bleibt, sind keine Änderungen ausserhalb der oben genannten Ziele gefordert. 
 Anpassungen der Kern-Codebasis gehören nicht in den Rahmen dieses Projekts. 
@@ -60,7 +58,6 @@ Die Eingrenzung der Anforderungen stellt sicher, dass die Ressourcen auf das Zie
 
 Dieser Bericht gliedert sich in die Teile \textbf{Hintergrund}, \textbf{existierende} und \textbf{neue Komponenten} sowie die \textbf{Diskussion}. 
 Jedes Kapitel baut auf dem Vorherigen auf und führt den Leser Schritt für Schritt durch die Entwicklung und Optimierung der neuen Auswahlkomponente. 
-
 Im Kapitel \textbf{Hintergrund} (\textbf{\ref{chap:background}}) ist die \textbf{Ausgangslage} (\textbf{\ref{sec:basics}}) des Kolibri-Toolkits und des Projekts erläutert. 
 Es folgt eine Erklärung der \textbf{Master-Detail-View} (\textbf{\ref{sec:masterDetailView}}). 
 Nachfolgend sind die verschiedenen \textbf{Zustände} (\textbf{\ref{sec:states}}), die eine Auswahlkomponente besitzen kann, aufgeführt. 
@@ -71,7 +68,7 @@ Das Kapitel \textbf{existierende Komponenten} (\textbf{\ref{chap:existingCompone
 Die Nutzung und Unterschiede der verschiedenen Elemente sind hier ebenfalls beschrieben. 
 Dabei hebt es die \textbf{Browser-Inkonsistenzen} (\textbf{\ref{sec:browserInconsistency}}) hervor. 
 Sie führen zu \textbf{unterschiedlichen UI-Erfahrungen}. 
-Die \textbf{Länderauswahl-Komponente} (\textbf{\ref{sec:countryChoice}}) aus der Vorarbeit ist nur auf die Auswahl eines Landes zugeschnitten. 
+Die \textbf{Länderauswahl-Kom\-po\-nente} (\textbf{\ref{sec:countryChoice}}) aus der Vorarbeit ist nur auf die Auswahl eines Landes zugeschnitten. 
 Mögliche \textbf{Anwendungsfälle} (\textbf{\ref{sec:useCases}}) der existierenden Komponenten zeigen die dabei entstehenden Probleme auf. 
 
 Eine detaillierte Beschreibung der \textbf{neuen Komponente} findet sich im gleichnamigen Kapitel \textbf{\ref{chap:newComponent}}. 
