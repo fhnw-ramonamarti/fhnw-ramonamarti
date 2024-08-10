@@ -113,7 +113,7 @@ Die folgenden Screenshots \ref{img:figmaPrototype1} bis \ref{img:figmaPrototype3
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=100mm]{figma-prototype-3.png}
-    \caption{\centering Neue Komponente im Darkmode}
+    \caption{\centering Neue Komponente im Dark-Mode}
     \label{img:figmaPrototype3}
 \end{figure}
 
@@ -608,14 +608,14 @@ Durch das Refactoring der Variante mit dem normalen Div-Container resultiert ein
 Im Gegensatz zu den beiden oben erwähnten Container-Implementationen reduziert sich durch diese Schnittstelle der Zusatzaufwand. 
 Der Grundaufbau des Popover-Containers ist im folgenden Code \ref{code:popoverExample} dargestellt. 
 
-\begin{lstlisting}[style = htmlcssjs, caption = Beispiel: Popover-Container, label = code:popoverExample]
+\begin{lstlisting}[style = htmlcssjs, caption = Beispiel – Popover-Container, label = code:popoverExample]
 <div popover="auto"
      id="select-component-0-options" 
      class="options-component" 
 > <!-{}- content -{}-> </div>
 \end{lstlisting}
 
-Bei diesem Codeausschnitt ist wichtig, dass das Attribut \codestyle{popover} den Wert \codestyle{auto} erhält. 
+Bei diesem Codeausschnitt (\ref{code:popoverExample}) ist wichtig, dass das Attribut \codestyle{popover} den Wert \codestyle{auto} erhält. 
 Dies bewirkt, dass die Popover sich automatisch schliessen, wenn ein Klick ausserhalb des Containers passiert. 
 Das Öffnen und Schliessen des Dropdown-Elements lässt sich über das \codestyle{popovertarget}-Attribut auf der Bedienkomponente steuern. 
 Dieses Target enthält die \codestyle{id} des Div-Containers mit dem Attribut \codestyle{popover}. 
@@ -840,8 +840,8 @@ Trifft die Touch-Geste das X bei einer bereits getroffenen Selektion, passiert d
 Folgende veraltete Browser finden sich in oberflächlichen Tests wieder: 
 
 \begin{itemize}
-    \item \textbf{Mac}: Firefox Version 123 => vor Popover-API
-    \item \textbf{iOS}: Safari Version 16.7 => vor Popover-API
+    \item \textbf{Mac}: Firefox Version 123 $\Rightarrow$ vor Popover-API
+    \item \textbf{iOS}: Safari Version 16.7 $\Rightarrow$ vor Popover-API
 \end{itemize}
 
 In veralteten Browsern ist die \codestyle{SelectComponent} mit leichten Einbussen nutzbar. 
