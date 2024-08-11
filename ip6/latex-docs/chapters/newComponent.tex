@@ -631,17 +631,15 @@ Der folgende Code \ref{code:popoverWorkaround} fängt die Fehlermeldung ab.
 
 \begin{lstlisting}[style = htmlcssjs, caption = Workaround für ältere Browser, label = code:popoverWorkaround]
 try {
-    /* code block with 
-        `popoverContainer.showPopover();`
-    or  `popoverContainer.hidePopover();`
-    */
+    /* code block with `popoverContainer.showPopover();`
+                    or `popoverContainer.hidePopover();` */
 } catch (e) {
     /* inform user about unsupported popover 
        the first time an alert popup appears */
 }
 \end{lstlisting}
 
-Ein Alert-Popup informiert den Nutzer über Einschränkungen (Abbildung \ref{img:msgOldFirefoxNewComp} im Anhang \ref{chap:newImgs}). 
+Ein Alert-Popup informiert den Nutzer über Einschränkungen (Abbildung \ref{img:msgOldFirefoxNewComp} im Anhang \textbf{\ref{chap:newImgs}}). 
 Einige zusätzliche CSS-Definitionen garantieren eine halbwegs ansehnliche Darstellung. 
 Veraltete Browser, welche das nested CSS\footnote{
     Verschachtelter CSS-Code mit Verwendung der \codestyle{\&}-Funktionalität
@@ -734,7 +732,7 @@ Die folgenden zwei Bilder \ref{img:performanceTestBefore} und \ref{img:performan
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=120mm]{performance-before-user-tests-zoom.png}
+    \includegraphics[width=100mm]{performance-before-user-tests-zoom.png}
     \caption{\centering Performance-Test vor Anpassungen}
     \label{img:performanceTestBefore}
 \end{figure}
@@ -745,7 +743,7 @@ Die lange Wartezeit bestätigten mehrere Feedbacks der Nutzer – später mehr d
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=120mm]{performance-after-user-tests-zoom.png}
+    \includegraphics[width=100mm]{performance-after-user-tests-zoom.png}
     \caption{\centering Performance-Test nach Anpassungen}
     \label{img:performanceTestAfter}
 \end{figure}
@@ -927,7 +925,7 @@ Für den Erhalt eines möglichst realistischen Feedbacks sind die Teilnehmer geb
     \hfill
     \begin{minipage}[b]{0.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{userTests/richtung9.png}
+        \includegraphics[width=0.9\textwidth]{userTests/richtung9.png}
         \caption{\centering Aufteilung Studienrichtung}
         \label{img:userTestsStudy}
     \end{minipage}
@@ -939,7 +937,7 @@ Zwei der Testpersonen konnten die Aufgabe nicht korrekt lösen.
 
 Die Aufgaben beinhalten verschiedene Szenarien. 
 Die Entwickler sollen die neue Komponente unter anderem für das Mittagessen, eine Heimatregion oder ein Geburtsjahr einsetzen. 
-Der bereitgestellte Code (Anhang \ref{chap:userTestProgrammers}) dient als Basis für die Implementierung. 
+Der bereitgestellte Code (Anhang \textbf{\ref{chap:userTestProgrammers}}) dient als Basis für die Implementierung. 
 Dabei fällt der Fokus darauf, dass die Programmierer die Anbindung an die vorhandene Infrastruktur korrekt umsetzen. 
 
 Nach der systematischen Erfassung der Umfrage-Rückmeldungen erfolgt das Analysieren dieser. 

@@ -14,6 +14,7 @@
 \usepackage{setspace} % line spacing
 \usepackage{fancyhdr} % custom header footer on pages
 \usepackage{color} % colors font / background
+\usepackage[titles]{tocloft} % table of content spacing
 
 % references
 \usepackage{csquotes} % citing
@@ -192,13 +193,18 @@
 \setlength{\headheight}{17pt}
 % page header and footer - end
 
+% define spacing - start
+\newgeometry{inner=5cm, outer=2.5cm, top=3cm, bottom=3cm}
+\patchcmd{\@makechapterhead}{\vspace*{50\p@}}{}{}{} % minimize space above \chapter
+\patchcmd{\@makeschapterhead}{\vspace*{50\p@}}{}{}{} % minimize space above \chapter*
+\setlength{\cftbeforechapskip}{2ex} % minimize table of contents spacing above characters
+\setstretch{1.1} % line height
+% define spacing - end
+
 % define source folders - start
 \graphicspath{ {./img/} }
 \addbibresource{chapters/references.bib}
 % define source folders - end
-
-\newgeometry{inner=5cm, outer=2.5cm, top=3cm, bottom=3cm}
-\setstretch{1.1}
 
 % title page - start
 \title{ Generalisierte Auswahlkomponente für das \\
@@ -254,7 +260,9 @@ Web UI Toolkit "Kolibri"\\ {\large Bachelor Thesis}}
 \printbibliography[title={Quellenverzeichnis}]
 \addcontentsline{toc}{chapter}{Quellenverzeichnis}
 
+\setstretch{1.05}
 \listoffigures
+\setstretch{1.1}
 \addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
 
 \lstlistoflistings
