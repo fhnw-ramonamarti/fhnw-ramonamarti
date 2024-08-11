@@ -10,7 +10,7 @@ Dieses Verständnis ermöglicht es, eine neue, konsistente Komponente zu entwick
 \section{Ausgangslage}
 \label{sec:basics}
 
-Studenten wie auch Mitarbeiter entwickeln das Toolkit Kolibri laufend weiter. 
+Studenten wie auch Mitarbeiter der FHNW entwickeln das Toolkit Kolibri laufend weiter. 
 Entwickler können die Open-Source-Werkzeuge einfach importieren und verwenden.
 Damit das Kolibri-Toolkit schlank bleibt, kommen keine externen Abhängigkeiten zur Verwendung. 
 Mit einer VanillaJS-Codebasis bietet das Tool eine breite Auswahl an, deckt aber noch nicht alle Interaktionen ab. 
@@ -25,14 +25,14 @@ Die Vorarbeit beinhaltet sowohl einen Recherche- als auch einen Design- und Impl
 Die Recherche legt den Fokus auf das Prototyping und diverse Code- und Implementationsbausteine. 
 Die Anwendung der Informationen aus den Recherchen findet sich im Weg zur Länderauswahl wieder. 
 Mehr zum Resultat dieser Arbeit folgt im Kapitel \textbf{\nameref{sec:countryChoice}}. 
-Der komplette Bericht ist in der Quelle (\cite{ip5}) nachzulesen. 
+Der komplette Bericht ist in der Quelle [\cite{ip5}] nachzulesen. 
 
 Der Zugriff auf das Tool Figma ermöglicht das Verwenden des existierenden Designsystems und der bereits eingebundenen Elemente. 
 Der Aufbau der Elemente als Komponenten vereinfacht die Wiederverwendung. 
 Das Ergänzen des Icon-Sets ist bei Bedarf erlaubt. 
 
 Eine weitere, wichtige Ausgangslage ist ein gemeinsames Verständnis der verwendeten Begriffe. 
-Dies sicherzustellen, ist die Aufgabe des nächsten Kapitels mit der Beschreibung der Zustände einer Auswahlkomponente sowie deren Elemente. 
+Dies sicherzustellen, ist die Aufgabe der nächsten zwei Kapitels mit der Beschreibung der Master-Detail-View und der Zustände eines Dropdown sowie dessen Elemente. 
 Diese Definitionen gelten im gesamten Bericht. 
 
 
@@ -96,7 +96,7 @@ Als einzige Ausnahme gilt Tab, welche den Fokus auf die Komponente legen kann.
 In den meisten Erscheinungen ist nur die Detail-Ansicht sichtbar und der Master-Container ist ausgeblendet. 
 Wählt der Nutzer die Komponente mit der Maus oder der Tastatur an, steht sie im \emph{Fokus} bzw. ist sie \emph{fokussiert}. 
 Bedienungen über das Keyboard beziehen sich hierbei auf den Baustein. 
-In den meisten Fällen ändert sich die Darstellung des Eingabefeldes – z. B. durch einen blauen Rahmen. 
+In den meisten Fällen ändert sich die Darstellung des Eingabefeldes – z. B. durch einen gelben Rahmen. 
 
 Ist ein Wert in der Master-Ansicht ausgewählt und erscheint in der Detail-View, ist dieser \emph{selektiert}. 
 Das Formular enthält beim Versenden das Value der \emph{Selektion}. 
@@ -149,7 +149,7 @@ Der Browser verarbeitet die erhaltenen Daten im HTML-Format weiter.
 Mehrere Schritte wandeln die einzelnen HTML-Elemente in sogenannte Nodes um. 
 Aus den resultierenden Nodes entsteht durch Verknüpfungen eine Baumstruktur – der DOM. 
 Das Document Object Model (DOM) (Abbildung \ref{img:renderingProcess} links oben) beschreibt die Eltern-Kind- und Geschwister-Beziehung der Nodes. 
-Der Prozess bis zum CSS Object Model (CSSOM) gestaltet sich relativ ähnlich, ist aber nicht weiter wichtig. 
+Der Prozess des CSS Object Models (CSSOM) gestaltet sich relativ ähnlich, ist aber nicht weiter wichtig. 
 
 Der DOM und der CSSOM sind unabhängig voneinander.
 Der Browser kombiniert die beiden Bäume zu einem gemeinsamen Renderbaum (Abbildung \ref{img:renderingProcess} rechts). 
@@ -169,13 +169,13 @@ Gründe für ein erneutes Rendern\citemarktext{
 
 \begin{itemize}
     \item Manipulation der Elemente des DOM
-    \item Änderungen vom Inhalt (auch von Formularfeldern)
-    \item Änderungen in den CSS-Eigenschaften
-    \item Hinzufügen oder Entfernen von Stylesheets
+    \item Änderungen des Inhalts (auch von Formularfeldern)
+    \item Änderungen der CSS-Eigenschaften
+    \item Hinzufügen oder Entfernen der Stylesheets
     \item Ändern des Attributs \codestyle{class}
     \item Grössenänderung des Browserfensters
-    \item Scrollen
-    \item Pseudo-Klassenaktivierung
+    \item Scrollen des Browserfensters oder der Elemente
+    \item Aktivieren der Pseudo-Klassen
 \end{itemize}
 
 
