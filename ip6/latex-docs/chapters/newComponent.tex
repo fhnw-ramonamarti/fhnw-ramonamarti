@@ -30,7 +30,7 @@ Dazu benötigt es eine Analyse der Möglichkeiten, welche im nachfolgenden Kapit
 
 Elemente lassen sich durch diverse Eigenschaften stylen. 
 Die Anpassung der Hintergrundfarbe fällt am schnellsten ins Auge. 
-Diese ist hell zu gestalten, damit der Kontrast zur dunklen Default-Schriftfarbe erhalten bleibt. 
+Diese ist hell zu gestalten, damit der Kontrast zur dunklen Standard-Schriftfarbe erhalten bleibt. 
 Der Rahmen bietet eine weitere Designmöglichkeit. 
 Seine Farbe, Dicke oder Struktur können variieren. 
 Eine andere Alternative ist, nur eine Seite des Rahmens zu verwenden. 
@@ -65,7 +65,7 @@ Nicht jede der erwähnten Eigenschaften und Farben eignet sich in gleichem Masse
 \emph{Yellow-100} fällt schnell wieder weg, da je nach Display der Kontrast zu gering ist. 
 Unter den restlichen hellen Schattierungen passt \emph{Yellow-300} am besten. 
 Diese Farbe ist bereits als Selektionsfarbe im Code hinterlegt. 
-Als Hintergrundfarbe eignet sich am ehesten das vordefinierte \codestyle{-{}-kb-color-select}. 
+Das vordefinierte \codestyle{-{}-kb-color-select} eignet sich am ehesten als Hintergrundfarbe. 
 Dadurch ist klar, dass die anderen beiden Zustände eine eher kräftige bzw. dunkle Färbung benötigen. 
 Der Blick auf die Namen im Designsystem zeigt eine weitere Farbe zur Hervorhebung eines Elements. 
 Die Benennung des mittleren Rosas mit Accent (\codestyle{-{}-kolibri-color-accent}) bietet einen guten Kontrast zur Selektion. 
@@ -142,7 +142,7 @@ Die Zustände verbinden sich wie folgt mit der getroffenen Wahl der Farben.
 
 \begin{itemize}
     \item \textbf{Original} $\rightarrow$ \textbf{Neu}
-    \item Kolibri-Light/Yellow/300 $\rightarrow$ selected
+    \item Kolibri-Light/Yellow/300 bzw. \codestyle{-{}-kb-color-select} $\rightarrow$ selected
     \item Kolibri-Light/Danger/\codestyle{-{}-kb-danger-accent} $\rightarrow$ highlighted
     \item Kolibri-Light/Warning/\codestyle{-{}-kb-warning-dark} $\rightarrow$ cursor position
 \end{itemize}
@@ -232,7 +232,7 @@ Die Auswahlkomponente ist so gestaltet, dass sie sowohl für Maus- als auch Tast
 Das Design der Interaktionen bietet eine intuitive und leicht zugängliche Bedienung der Komponente. 
 Spezifische CSS-Klassen erleichtern die Benutzerführung. 
 Sie definieren die Styles der hervorgehobenen (highlighted) bzw. ausgewählten (selected) Optionen. 
-Die Cursor-Position erhält ebenfalls eine eigene CSS-Klasse. 
+Die Cursor-Position für die Tastatur erhält ebenfalls eine eigene CSS-Klasse. 
 Dieser Zustand wie auch das Highlight sind unter anderem durch einen Spiegelstrich dargestellt. 
 Der CSS-Code \ref{code:styledElement} zeigt einen Style-Ausschnitt auf ein Cursor-Position-Element. 
 
@@ -281,7 +281,7 @@ const selectOptionItem = (root) => (newOption, oldOption) => {
 Die Funktion \codestyle{selectOptionItem} verschiebt die Klasse \codestyle{selected} vom Alten auf das neue Element. 
 Dadurch passt sich das UI automatisch an. 
 Damit sich die Änderung nur auf die Selektion der aktuellen Spalte auswirkt, verlangt die Funktion ein Elternelement. 
-Das hier versendete \codestyle{getHtmlElementByOption} sucht im Teilbaum des DOMs das HTML-Element zur mitgegebenen Option. 
+Das hier verwendete \codestyle{getHtmlElementByOption} sucht nur im mitgebenen Teilbaum des DOMs das HTML-Element zur mitgegebenen Option. 
 
 
 \subsection{Prototyping}
@@ -294,7 +294,7 @@ Die Einbindung der in der Vorarbeit erhaltenen Feedbacks der Länderkomponente f
 Beispiele für die Designs sind in der Grafik \ref{img:figmaPrototype1} ersichtlich. 
 Im oberen Bereich des Bildes befinden sich die Zustände der Optionen. 
 Benutzertests decken die Mängel und Wünsche der Probanden auf. 
-Mit der Integration der Rückmeldungen von Benutzerinteraktionen in das Design verbessert sich die Usability kontinuierlich. 
+Mit der Integration der Rückmeldungen von Benutzerinteraktionen in das Design verbessert sich die Usability. 
 Mehr zu den Nutzerfeedbacks folgt im Kapitel \textbf{\nameref{sec:userTests}}. 
 Das Resultat des umgesetzen Prototypen ist im nachfolgenden Kapitel genauer beschrieben. 
 
@@ -356,7 +356,6 @@ Der Wert \emph{Macedonia} visualisiert die Selektion, welche sich ebenfalls im o
 Das Highlight enthält den Wert \emph{Montenegro}. 
 Die Cursor-Position und das Highlight können auf der gemeinsamen Option liegen. 
 Dabei sind beide Zustände sichtbar. 
-
 Die Abbildungen \ref{img:openedTwoColCatNewComponent} bis \ref{img:openedThreeColCatNewComponent} zeigen, dass die \codestyle{SelectComponent} mehrere Spalten besitzen kann. 
 
 \begin{figure}[!htb]
@@ -379,7 +378,8 @@ In diesen Beispielen befindet sich die Value-Option\footnote{
     Formular-Wert, wenn einer selektiert ist
 } jeweils in der rechten Spalte. 
 Die anderen Spalten dienen zur Filterung der Werte. 
-Die Grafik \ref{img:openedTwoColImgNewComponent} mit der Selektion \emph{2000's} begrenzt die Jahreszahlen von ursprünglich 70 auf noch 10 Werte. 
+Die Grafik \ref{img:openedTwoColCatNewComponent} mit der Selektion \emph{2000's} begrenzt die Jahreszahlen von ursprünglich 70 auf noch 10 Werte. 
+Nebst der selektierten Option kann jedes andere Element ebenfalls ein Bild enthalten (Abbildung \ref{img:openedTwoColImgNewComponent}). 
 Wenn mehrere Kategorien existieren, bewirkt eine Selektion ganz links eine Reduktion aller Optionen, die auf der rechten Seite liegen. 
 In der Abbildung \ref{img:openedThreeColCatNewComponent} bewirkt die Wahl von \emph{North America} die Reduktion der Länder und der Städte. 
 
@@ -388,7 +388,7 @@ In der Abbildung \ref{img:openedThreeColCatNewComponent} bewirkt die Wahl von \e
 \label{sec:interaction}
 
 Damit ein gemeinsames Verständnis entsteht, gilt es für die Bedienung der Komponente Regeln festzulegen. 
-Wie in den Grundlagen bereits beschrieben kann sich ein Wert aus dem Optionen-Container in verschiedenen Zuständen befinden. 
+Wie in den Grundlagen bereits beschrieben kann sich ein Wert aus dem Options-Container in verschiedenen Zuständen befinden. 
 In diesem Absatz spielen Selektion, Highlight und Cursor-Position eine Rolle. 
 Zur Auffrischung: 
 
@@ -403,7 +403,7 @@ Bei der Festlegung der Maus-Interaktion fällt die Entscheidung auf Folgendes:
 
 \begin{itemize}
     \item \textbf{mouseover}: visuelles Highlighting des Elements ohne Selektionsänderung
-    \item \textbf{click}: Änderung der Cursor-Position \& Selektionsänderung
+    \item \textbf{click}: Änderung der Cursor-Position \& der Selektion
 \end{itemize}
 
 \noindent
