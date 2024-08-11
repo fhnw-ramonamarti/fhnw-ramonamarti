@@ -449,7 +449,7 @@ Das Kapitel Patterns bietet eine weitere Möglichkeit, den Code strukturiert zu 
 \label{sec:patterns}
 
 In diesem Projekt finden sich einige Code-Patterns wieder. 
-Die wichtigsten wie Null-Object, Projector und Decorator sind in den nachfolgenden Unterkapiteln genauer erläutert. 
+Die Wichtigsten wie Null-Object, Projector und Decorator sind in den nachfolgenden Unterkapiteln genauer erläutert.
 Eine weitere Rolle spielt unter anderem die Master-Detail-View, aber im Zusammenhang mit der Komponente eher nebensächlich. 
 Zudem ist die Anwendung nicht typisch bzw. genau abgegrenzt. 
 Die Implementation erhält durch die verwendeten Patterns eine Struktur und läuft stabiler. 
@@ -502,7 +502,7 @@ Aus den Bindings und den Daten generiert ein Projector die passende View.
 Die View ist passiv und hat keine Kenntnis der anderen Komponenten. 
 
 Dieses Pattern zeigte sich als eines der Wichtigsten für die Erstellung der neuen Komponente. 
-In den folgenden Grafiken sind Models als Zylinder, Controller als schiefes Rechteck und Projectors als Oval dargestellt. 
+In den folgenden Grafiken sind Models als Zylinder, Controller als Parallelogramm und Projectors als Oval dargestellt.
 Die Raute mit Option ist ein Datentyp, der über das gesamte Projekt seine Anwendung findet. 
 Das \codestyle{starter.js} beinhaltet alle Bestandteile, welche für eine Anwendung notwendig sind. 
 Eine genauere Beschreibung des Puzzles folgt im Unterkapitel \textbf{\nameref{sec:decoratorPattern}}. 
@@ -531,7 +531,8 @@ Zum einen findet sich das Projector-Pattern in einer einzelnen Spalte in der Opt
 Pro Kolonne existieren eine Auswahl und eine Menge von Optionen. 
 Diese beiden Bestandteile besitzen je ein eigenes Model und einen eigenen Controller. 
 Der Projektor generiert eine gemeinsame View und bindet diese an die beiden Controller. 
-Bei einer Anwendung übernimmt die \codestyle{ColumnOptions\-Component} die Verwaltung gewisser Bausteine – mehr dazu später. 
+Bei einer Anwendung übernimmt die \codestyle{ColumnOptions\-Component} die Verwaltung gewisser Bausteine – mehr dazu später.
+% TODO: wo? (mehr dazu)
 
 \begin{figure}[!htb]
     \centering
@@ -582,7 +583,7 @@ const SelectComponentByTableValues = (
 };
 \end{lstlisting}
 
-Ein weiterer Einsatzort ist in der Abbildung \ref{img:diagramSelectComponent} aus dem Vorkapitel zu sehen. 
+Ein weiterer Einsatzort ist in der Abbildung \ref{img:diagramSelectComponent} zu sehen.
 Der \codestyle{SelectComponentByTableValues} in Code \ref{code:componentDecorator} dekoriert die \codestyle{SelectComponentByCallbacks}. 
 Damit bietet die neue Komponente zwei verschiedene Möglichkeiten der Anwendung. 
 Das nächste Kapitel geht genauer auf den Master-View-Bereich des \codestyle{SelectProjector}s – Abbildung \ref{img:diagramSelectComponent} – ein. 
@@ -1038,8 +1039,10 @@ Diese zielen auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser 
     \begin{itemize}
         \item \textbf{Robert (Junger Alltagsbenutzer, Digital Native)}: 
               Empfindet die Drop\-down-Menü\-führung als intuitiv und zügig bedienbar. 
-              Sowohl das Jahr als auch die Stadt lassen sich mühelos finden. 
-        \item \textbf{Sara (Semi-aufmerksam, nicht so schnell auf der Tastatur)}: 
+              Sowohl das Jahr als auch die Stadt lassen sich mühelos finden.
+        \item \textbf{Luca (Junger Alltagsbenutzer)}:
+Findets gut. Mann kann auch Spalten überspringen wenn das Resultat schon ersichtlich ist, das finde gut, so dass man nicht gezwungen wird alles auszufüllen wenn es nicht nötig ist.
+\item \textbf{Sara (Semi-aufmerksam, nicht so schnell auf der Tastatur)}:
               Beginnt mit Schwierigkeiten in der Dreispaltenansicht. 
               Nach kurzer Einarbeitung findet sie die Filteroptionen jedoch nützlich. 
         \item \textbf{Nick (Alltagsbenutzer/Student)}: 
@@ -1051,9 +1054,11 @@ Diese zielen auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser 
     \end{itemize}
     \item Funktionalität der Filteroptionen: 
     \begin{itemize}
-        \item \textbf{Robert}: 
-              Schätzt die Filteroptionen als sehr nützlich ein. 
-              Das Finden spezifischer Jahre und Städte gelingt schneller als erwartet. 
+        \item \textbf{Robert}:
+              Schätzt die Filteroptionen als sehr nützlich ein.
+              Das Finden spezifischer Jahre und Städte gelingt schneller als erwartet.
+\item \textbf{Luca}:
+Hat mir die Auswahl nicht erschwert, wenn ich es nicht gebraucht habe, aber wenn ich es gebraucht habe, hat es mir die Auswahl erleichtert.
         \item \textbf{Sara}: 
               Nutzt zuerst nicht alle Filter bei der Stadtauswahl. 
               Somit scrollt sie ein bisschen mehr. 
@@ -1071,8 +1076,10 @@ Diese zielen auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser 
 \begin{itemize}
     \item \textbf{Robert}: 
           Beurteilt das Design als klar und ansprechend. 
-          Die Struktur erscheint ihm logisch und nachvollziehbar. 
-    \item \textbf{Sara}: 
+          Die Struktur erscheint ihm logisch und nachvollziehbar.
+\item \textbf{Luca}:
+Design war unaufgeregt. Nicht zu aufdringlich aber klar.
+\item \textbf{Sara}:
           Findet die visuelle Gestaltung in Ordnung. 
           Sie vermisst jedoch eine deutlichere Hervorhebung aktiver Filteroptionen. 
     \item \textbf{Nick}: 
@@ -1087,7 +1094,9 @@ Diese zielen auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser 
 
 \begin{itemize}
     \item \textbf{Robert}: 
-          Erlebt die Bedienung als sehr intuitiv und benötigt keine weiteren Erklärungen. 
+          Erlebt die Bedienung als sehr intuitiv und benötigt keine weiteren Erklärungen.
+\item \textbf{Robert}:
+Fand es intuitiv.
     \item \textbf{Sara}: 
           Muss sich an die Bedienung gewöhnen. 
           Jedoch nach kurzer Zeit findet sie die Handhabung einfach. 
@@ -1102,7 +1111,9 @@ Diese zielen auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser 
 
 \begin{itemize}
     \item \textbf{Robert}: 
-          {\color{editorGreen} 10/10} – Sehr zufrieden, bewertet die Filteroptionen als hervorragend. 
+          {\color{editorGreen} 10/10} – Sehr zufrieden, bewertet die Filteroptionen als super.
+\item \textbf{Robert}:
+{\color{editorGreen} 9/10} – Zufrieden, lediglich bei den Jahreszahlen hätte ich mir gewünscht dass, man weiter scrollen kann falls man sich im Jahrzehnt verdrückt hat..
     \item \textbf{Sara}: 
           {\color{editorGreen} 7/10} – Zufrieden, dreispaltige Navigation ist ihr jedoch nicht so gängig. 
     \item \textbf{Nick}: 
@@ -1117,8 +1128,10 @@ Diese zielen auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser 
 
 \begin{itemize}
     \item \textbf{Robert}: 
-          Hat keine weiteren Vorschläge. 
-    \item \textbf{Sara}: 
+          Hat keine weiteren Vorschläge.
+\item \textbf{Luca}:
+Bei den Jahreszahlen hätte ich mir gewünscht dass, man weiter scrollen kann falls man sich im Jahrzehnt verdrückt hat.
+\item \textbf{Sara}:
           Findet die Dreispaltige zwar nützlich. 
           Aber leider müssen mehrere Spalten bearbeitet werden. 
     \item \textbf{Nick}: 
