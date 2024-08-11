@@ -2,12 +2,11 @@
 \label{chap:existingComponents}
 
 Hier sind die Gegenüberstellungen der bereits vorhandenen Möglichkeiten zur Darstellung einer Optionsauswahl aufgelistet. 
-Eine Auflistung der möglichen Funktionalitäten zeigt die Grenzen dieser Elemente auf. 
+Eine Gegenüberstellung der möglichen Funktionalitäten zeigt die Grenzen dieser Elemente auf. 
 Dabei spielen sowohl die UI- als auch die Interaktionsunterschiede dieser Komponenten in verschiedenen Browsern eine tragende Rolle. 
-
 Als Basis dieser Arbeit dient das Country Select. 
-Weiter existieren bereits die Elemente Buttons bzw. Links, \codestyle{select} und \codestyle{datalist}. 
 Unter dem Country Select ist das Resultat der Vorarbeit zu verstehen. 
+Weiter existieren bereits die Elemente Buttons bzw. Links, \codestyle{select} und \codestyle{datalist}. 
 Die folgende Tabelle \ref{table:generalComparing} zeigt einen Vergleich der genannten Möglichkeiten. 
 
 \import{../tables}{c.choice.general.tex}
@@ -34,10 +33,11 @@ Hierbei liegt der Fokus mehr auf der Interaktion mit den Komponenten als auf der
 
 Die beiden Auswahlkomponenten – \codestyle{datalist} und \codestyle{select} – verwenden \codestyle{option}-Elemente. 
 Die einzelnen Optionen – wie in Code \ref{code:optionExample} Zeile 1 – besitzen ein \codestyle{value}-Attribut und einen Inhalt – das Label. 
-Alternativ ist das \codestyle{label}-Attribut zu nutzen. 
+Alternativ ist das \codestyle{label}-Attribut (Zeile 2 ohne das \codestyle{selected}) zu nutzen. 
 An die Stelle des Inhalts ist das Value zu platzieren. 
 Firefox unterstützt diese Variante jedoch nicht. 
 Das Weglassen von \codestyle{value} und \codestyle{label} führt dazu, dass beide den Wert innerhalb des öffnenden und schliessenden Tags erhalten. 
+Diese Variante ist in Zeile 3 (ohne das \codestyle{disabled}) verwendet. 
 
 \begin{lstlisting}[style = htmlcssjs, caption = Beispiel – Option, label = code:optionExample]
 <option value="dog"         > Dog   </option>
@@ -54,7 +54,7 @@ Dieser Eintrag lässt keine Interaktion zu.
 Das Designen von \codestyle{option}s\citemarktext{
     [\cite{optionMdn}]
 } beschränkt sich auf die Text-/Hintergrundfarbe, welche jedoch nur in Firefox funktionieren. 
-Die anderen Browser lassen kein Styling der Auswahl-Elemente zu bzw. zeigen diese nicht an. 
+Die anderen Browser lassen kein Styling der Auswahl-Elemente zu bzw. zeigen dieses nicht an. 
 Es ist nur ein skalarer Text als Inhalt erlaubt. 
 Das bedeutet, keine weitere Verschachtelung von Elementen ist möglich. 
 Als Eltern-Elemente sind \codestyle{select}, \codestyle{optgroup} und \codestyle{datalist} erlaubt. 
@@ -76,18 +76,18 @@ Eine mögliche Anwendung ist in Code \ref{code:selectExample} ersichtlich.
 \end{lstlisting}
 
 Die typischen Attribute für Eingabefelder – wie \codestyle{disabled}, \codestyle{name} und \codestyle{required} – sind beim Select ebenfalls verwendbar. 
-Durch das \codestyle{disabled} zeigt sich das Element in einer ausgegrauten Erscheinung. 
+Durch das \codestyle{disabled} (Zeile 1) zeigt sich das Element in einer ausgegrauten Erscheinung. 
 In diesem Zustand bietet das Select dem Nutzer keine Interaktionsmöglichkeiten mehr. 
 Der Container – z. B. \codestyle{fieldset} – vererbt dieses Attribut weiter an seine Kinder. 
 Die \codestyle{form}-Eigenschaft definiert das dazugehörige Formular. 
-Der \codestyle{name} stellt den Key für das Key-Value-Paar bzw. den Name des Feldes im Formular dar. 
+Der \codestyle{name} (Zeile 1) stellt den Key für das Key-Value-Paar bzw. den Name des Feldes im Formular dar. 
 Das \codestyle{required} erzwingt eine Eingabe, um das Senden des Formulars freizuschalten. 
 Für eine bessere Accessibility benötigt das Select eine \codestyle{id}, um das Label zuweisen zu können. 
 Standardmässig ist für dieses Feld nur eine einzelne Auswahl möglich. 
 Durch die Ergänzung des Attributs \codestyle{multiple} ist es möglich, mehrere Werte zu markieren. 
 Bei einer Vorauswahl mehrerer Listenelemente durch \codestyle{selected} muss die Komponente ein Multiselect sein. 
-Wenn jedoch bei einem Single-Select mehrere Optionen das \codestyle{selected}-Attribut enthalten, gilt das zuletzt Definierte als Default.
-Das \codestyle{autocomplete} funktioniert wie bei anderen Inputs, indem Vorschläge vom User-Agent-Feature auftauchen. 
+Wenn jedoch bei einem Single-Select mehrere Optionen das \codestyle{selected}-Attribut enthalten, gilt das zuletzt Definierte als vorausgewählt.
+Das \codestyle{autocomplete} funktioniert wie bei anderen Inputs, indem Vorschläge des User-Agent-Features auftauchen. 
 Durch die \codestyle{autofocus}-Eigenschaft sind Interaktionen mit dem Feld direkt nach dem Laden möglich. 
 Die Definition des \codestyle{size}-Attributs steuert die Anzahl sichtbarer Elemente. 
 Der Default für Single-Selects liegt bei eins und für eine mehrfache Auswahl bei vier. 
@@ -122,7 +122,7 @@ Daher gibt es keine Alternative, als sie zuvor auszuschalten bzw. umzustellen.
 
 Die \codestyle{optgroup} dient als Zusatzelement. 
 Das Element gruppiert die Optionen in einem \codestyle{select} und versieht die enthaltenen \codestyle{option}s mit einem Zwischentitel. 
-Der Titel lässt sich durch das \codestyle{label}-Attribut – wie in Code \ref{code:optgroupExample} – setzen, ist aber nicht selektierbar. 
+Der Titel lässt sich durch das \codestyle{label}-Attribut – wie in Code \ref{code:optgroupExample} Zeile 2 – setzen, ist aber nicht selektierbar. 
 
 \begin{lstlisting}[style = htmlcssjs, caption = Beispiel – Optgroup, label = code:optgroupExample]
 <select name="animal">
@@ -150,7 +150,7 @@ Alle Browser unterstützen dieses Element.
 
 Wie in Code \ref{code:datalistExample} ersichtlich besteht die Datalist aus zwei Elementen – einem Input-Feld und einem Daten-Container. 
 Die Datenliste besitzt keine speziellen eigenen Attribute. 
-Das Element benötigt von den globalen Attributen zumindest eine \codestyle{id}. 
+Das Element benötigt von den globalen Attributen zumindest eine \codestyle{id} (Zeile 3). 
 Die Id dient zur Verknüpfung der Liste mit dem Input-Feld. 
 Das folgende Unterkapitel \textbf{\nameref{sec:input}} beschreibt das Eingabefeld und dessen Typen im Detail. 
 
@@ -189,7 +189,7 @@ Firefox und Safari zeigen den normalen Eingabe-Container, als ob die Liste nicht
 Bei der Verwendung einer Liste mit einer Range zeigen alle Browser die Optionen durch Markierungen auf dem Slider an. 
 Die Kombination einer \codestyle{datalist} mit einer Farbpalette zeigt eine breite, aber unterschiedliche Unterstützung. 
 Unter den gängigen Browsern ist Firefox auf OSX der einzige, welcher die Liste nicht darstellt. 
-Zusammengefasst bieten für Listen mit den unterschliedlichsten Typen Chromium-basierte Browser die beste Unterstützung. 
+Zusammengefasst bieten Chromium-basierte Browser für Listen mit den unterschliedlichsten Typen die beste Unterstützung. 
 
 
 \subsubsection{\color{dblue} Input}
@@ -272,7 +272,7 @@ Es existieren eigene CSS-Pseudo-Klassen, wobei die folgende Aufzählung nur eine
 \begin{itemize}
     \item \codestyle{:enabled} bzw. \codestyle{:disabled} – reagiert auf das \codestyle{disabled}-Attribut
     \item \codestyle{:read-write} bzw. \codestyle{:read-only} – reagiert auf das \codestyle{readonly}-Attribut
-    \item \codestyle{:valid} bzw. \codestyle{:invalid} – reagiert beim Abschicken des Formulars auf die Client-Side Validität\footnote{
+    \item \codestyle{:valid} bzw. \codestyle{:invalid} – reagiert beim Abschicken des Formulars auf die Client-Side-Validität\footnote{
             Einhaltung der Regeln für das Input – z. B. ein gegebenes \codestyle{pattern}
         } des Felds
     \item \codestyle{:user-invalid} – reagiert beim Verlassen des Inputs auf die Client-Side-Validität des Felds
