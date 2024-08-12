@@ -3,7 +3,7 @@
 
 Die in Kapitel \textbf{\ref{chap:existingComponents}} beschriebenen Komponenten Select und Datalist kommen auf vielen Webseiten zur Anwendung. 
 Das Auswählen eines Wertes aus einer vorgegebenen Menge ist mit diesen Elementen ineffizient und unästhetisch.
-Die in der Vorarbeit erstellte Länderauswahl löst das Problem aber nur für diesen einen spezifischen Anwendungsfall. 
+Die in der Vorarbeit erstellte Länderauswahl löst das Problem nur für diesen einen spezifischen Anwendungsfall. 
 Die neue \codestyle{SelectComponent} baut auf der Länderauswahl auf, ist jedoch generalisiert. 
 Sie lässt sich mit unterschiedlichsten Werten und Inhalten anwenden. 
 Zudem ist der Code strukturiert aufgebaut. 
@@ -100,7 +100,7 @@ Neue UI-Projektoren lassen sich nicht ausnahmslos mit den bestehenden Tastatur-I
 Zudem ist nicht in jeder Situation erwünscht, dass die Cursor-Position die Selektion beeinflusst. 
 Weitere Projektoren können eventuell neue UI-Pro\-jektor-spezifische Interaktionen bieten. 
 
-Ein Interaktions-Projektor kann das Auswahlkomponentenbezogene Undo und Redo enthalten. 
+Ein Interaktionsprojektor kann das Auswahlkomponentenbezogene Undo und Redo enthalten. 
 Diese Funktion bietet an, eine geänderte Auswahl rückgängig zu machen oder zu wiederholen. 
 
 
@@ -112,7 +112,7 @@ Ein altbekanntes Beispiel ist die Auswahl eines Datums mit Tag, Monat und Jahr.
 Dabei kann weitere Logik zur Kontrolle der möglichen Werte zum Einsatz kommen. 
 
 Das Erweitern der Multiselect-Funktionalität führt die Anpassung mehrerer Subkomponenten mit sich. 
-Es betrifft die Implementation von der \codestyle{SelectComponent} bis hin zu der \codestyle{columnOptionsComponent}. 
+Es betrifft die Implementation von der \codestyle{SelectComponent} bis hin zu der \codestyle{ColumnOptionsComponent}. 
 Eine mögliche neue Single-Select-Komponente bietet die Funktionalität, mehrere Kategorien auswählen zu können. 
 Hierbei ist zu unterscheiden, ob die ausgewählten Kategorien als \emph{AND}- oder \emph{OR}-Verknüpfung zu verstehen sind. 
 
@@ -133,7 +133,7 @@ Denn die Lazy Table kann eine Datenmenge von über 100'000 Werten verwalten.
 \label{sec:betterAccessability}
 
 Die entstandene Auswahlkomponente ist nur für nicht beeinträchtigte Menschen optimiert. 
-Zukünftig ist die Komponente noch für Screen-Reader und somit für Blinde zu ergänzen. 
+Zukünftig ist die Komponente noch für Screenreader und somit für Blinde zu ergänzen. 
 Die getroffenen Styles benötigen ein Testing mit Sehbeeinträchtigten, um die Accessability garantieren zu können. 
 Dazu zählt zum Beispiel die bekannte Rot-Grün-Schwäche. 
 

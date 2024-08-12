@@ -879,8 +879,8 @@ Diese decken den Level der Options bis zur Column ab.
 Die ersten zwei Testsuites kümmern sich genauer um die Korrektheit der Models und Controller. 
 Dabei besteht das erste File aus den Tests der Typen \codestyle{ValueOption} und \codestyle{CategoryOption}. 
 Dazu gesellen sich Prüfungen der Komponenten \codestyle{OptionsModel} und \codestyle{SelectedOption\-Model}. 
-Der \codestyle{Options\-Controller} und der \codestyle{SelectedOption\-Controller} finden sich in der Test-Datei wieder. 
-Der \codestyle{project\-ColumnOptions\-View}-Test deckt die Kontrolle des Bindings und die Existenz der View-Elemente ab. 
+Der \codestyle{Options\-Controller} und der \codestyle{SelectedOption\-Controller} finden sich in einer gemeinsamen Test-Datei wieder. 
+Der \codestyle{project\-ColumnOptions\-View}-Test deckt die Kontrolle der Bindings und die Existenz der View-Elemente ab. 
 Die Korrektheit des Zusammenspiels zwischen Projektor und Controller findet sich im \codestyle{Column\-Options\-Component}-Testing wieder. 
 
 Die restlichen Testbibliotheken decken die Korrektheit der auf Abbildung \ref{img:diagramSelectComponent} sichtbaren Bausteine ab. 
@@ -939,9 +939,9 @@ Zwei der Testpersonen konnten die Aufgabe nicht korrekt lösen.
 Die Aufgaben beinhalten verschiedene Szenarien. 
 Die Entwickler sollen die neue Komponente unter anderem für das Mittagessen, eine Heimatregion oder ein Geburtsjahr einsetzen. 
 Der bereitgestellte Code (Anhang \textbf{\ref{chap:userTestProgrammers}}) dient als Basis für die Implementierung. 
-Dabei fällt der Fokus darauf, dass die Programmierer die Anbindung an die vorhandene Infrastruktur korrekt umsetzen. 
+Dabei fällt der Fokus darauf, dass die Programmierer die Einbindung in die vorhandene Infrastruktur korrekt umsetzen. 
 
-Nach der systematischen Erfassung der Umfrage-Rückmeldungen erfolgt das Analysieren dieser. 
+Nach der systematischen Erfassung der Umfrage-Rückmeldungen erfolgt die Analyse dieser. 
 Programmierer bewerten die Komponente als benutzerfreundlich und ästhetisch ansprechend. 
 
 \begin{figure}[!htb]
@@ -954,7 +954,7 @@ Programmierer bewerten die Komponente als benutzerfreundlich und ästhetisch ans
 Die Umfrageergebnisse zeigen eine überwiegend positive Bewertung der Komponente (Abbildung \ref{img:userTestsDescription}). 
 Sie sind in den Abbildungen \ref{img:userTestSemester} bis \ref{img:userTestUsage} im Anhang \ref{chap:userTestProgrammers} illustriert. 
 Einige Teilnehmer äussern jedoch Kritikpunkte hinsichtlich der Dokumentation. 
-Insbesondere die Beschreibung der Rückgabewerte und die Integration von Callbacks wiesen vor der Anpassung Schwierigkeiten auf. 
+Insbesondere die Beschreibung der Rückgabewerte und die Integration von Callbacks wiesen vor der Anpassung Mängel auf. 
 Weitere Verbesserungsvorschläge umfassen die Möglichkeit, die Komponente nach der Auswahl automatisch zu schliessen. 
 
 Personen mit nur geringen JavaScript-Kenntnissen fällt es schwer, die Komponente intuitiv zu verwenden. 
@@ -969,7 +969,7 @@ Die nachfolgende Liste zählt die Verbesserungsvorschläge und Bemerkungen der T
 Die genauen Feedbacks befinden sich im Anhang \textbf{\ref{chap:userTestProgrammers}}. 
  \\
 \textbf{Dokumentation \& Return-Wert}: 
-Das JSDoc von \codestyle{SelectComponent} benötigt eine detailliertere Beschreibung des Return-Arrays. 
+Das JSDoc der \codestyle{SelectComponent}s benötigt eine detailliertere Beschreibung des Return-Arrays. 
 Die Elemente erklären sich erst in den Anwendungsbeispielen. 
 Tester mussten nach der Beschreibung suchen. 
 Die Dokumentation erweist sich als verwirrend. 
@@ -1043,7 +1043,7 @@ Diese zielen auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser 
         \item \textbf{Luca (Junger Alltagsbenutzer)}: 
               Findet es gut. 
               Wenn das Resultat bereits sichtbar ist, kann die Filterfunktion ausgelassen werden. 
-              Die Vorauswahl ist nicht pflicht, wenn es nicht notwendig ist.
+              Die Vorauswahl ist optional und kann ignoriert werden, wenn es nicht notwendig ist. 
         \item \textbf{Sara (Semi-aufmerksam, nicht so schnell auf der Tastatur)}:
               Beginnt mit Schwierigkeiten in der Dreispaltenansicht. 
               Nach kurzer Einarbeitung findet sie die Filteroptionen jedoch nützlich. 
@@ -1099,7 +1099,7 @@ Diese zielen auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser 
 \begin{itemize}
     \item \textbf{Robert}: 
           Erlebt die Bedienung als sehr intuitiv und benötigt keine weiteren Erklärungen.
-    \item \textbf{Robert}: 
+    \item \textbf{Luca}: 
           Findet es intuitiv. 
     \item \textbf{Sara}: 
           Muss sich an die Bedienung gewöhnen. 
@@ -1116,7 +1116,7 @@ Diese zielen auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser 
 \begin{itemize}
     \item \textbf{Robert}: 
           {\color{editorGreen} 10/10} – Sehr zufrieden, bewertet die Filteroptionen als super.
-    \item \textbf{Robert}: 
+    \item \textbf{Luca}: 
           {\color{editorGreen} 9/10} – Zufrieden, lediglich bei den Jahreszahlen wäre Weiterscrollen bei einer Falschauswahl praktisch. 
     \item \textbf{Sara}: 
           {\color{editorGreen} 7/10} – Zufrieden, dreispaltige Navigation ist ihr jedoch nicht so gängig. 
@@ -1124,7 +1124,7 @@ Diese zielen auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser 
           {\color{editorGreen} 9/10} – Zufrieden, bevorzugt diese Art der Auswahl. 
     \item \textbf{Reto}: 
           {\color{editorGreen} 8/10} – Zufrieden, jedoch mit anfänglichen Schwierigkeiten. 
-          Mag speziell die schnelle Jahresauswahl. 
+          Er mag speziell die schnelle Jahresauswahl. 
 \end{itemize}
 
  \\
@@ -1135,9 +1135,9 @@ Diese zielen auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser 
           Hat keine weiteren Vorschläge.
     \item \textbf{Luca}: 
           Es wäre praktisch, wenn die Jahreszahlen nach der Selektion der Dekade nicht verschwinden. 
-          Bei der Selektion des falschen Jahrzehnts sollte das Weiterscrollen möglich bleiben. 
+          Das Weiterscrollen sollte bei der Selektion des falschen Jahrzehnts noch möglich bleiben. 
     \item \textbf{Sara}:
-          Findet die Dreispaltige zwar nützlich. 
+          Findet die dreispaltige Version nützlich. 
           Aber leider müssen mehrere Spalten bearbeitet werden. 
     \item \textbf{Nick}: 
           Schlägt eine kurze Anleitung oder Hinweistext für Erstnutzer vor. 
@@ -1153,7 +1153,7 @@ Einige Nutzer benötigen jedoch eine Eingewöhnungszeit, um sich an die Bedienun
 \subsubsection{\color{dblue} Fazit}
 \label{sec:userTestsSummery}
 
-Die Entwicklung und Implementierung der neuen Auswahlkomponente stellen eine Herausforderung dar. 
+Die Entwicklung und die Implementierung der neuen Auswahlkomponente stellen eine Herausforderung dar. 
 Dies ist durch eine strukturierte Vorgehensweise und kontinuierliche Verbesserungen erfolgreich umsetzbar. 
 Die Usability-Tests mit Programmierern und Endanwendern liefern Einblicke in die Benutzerfreundlichkeit und Funktionalität der Komponente. 
 
