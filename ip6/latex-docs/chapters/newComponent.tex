@@ -131,7 +131,7 @@ Für den Erhalt einer besseren Nutzerfreundlichkeit gestaltet sich die Farbauswa
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=70mm]{design-colors.png}
+    \includegraphics[width=100mm]{design-colors.png}
     \caption{\centering Farbpalette der neuen Komponente}
     \label{img:designColors}
 \end{figure}
@@ -178,7 +178,6 @@ Nachfolgender Codeausschnitt \ref{code:popoverStyle} zeigt die dafür relevanten
     0%   { transform: scaleY(0); }
     100% { transform: scaleY(1); }
 }
-/* popover closed */
 [popover] {
     display:          none;
     animation:        open 300ms ease-in-out;
@@ -189,7 +188,6 @@ Nachfolgender Codeausschnitt \ref{code:popoverStyle} zeigt die dafür relevanten
         height:       0;
     }
 }
-/* popover opened */
 [popover]:popover-open {
     display:          flex;
     height:           fit-content;
@@ -774,7 +772,7 @@ Als Beispiel dient die \codestyle{SelectComponent} mit drei Spalten (Abbildung \
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=80mm]{newComponent/opened.3col.png}
+    \includegraphics[width=70mm]{newComponent/opened.3col.png}
     \caption{\centering Neue Komponente auf OSX}
     \label{img:manualTestComponentOsx}
 \end{figure}
@@ -794,7 +792,7 @@ Die Scrollbars auf Windows (Abbildung \ref{img:manualTestComponentWin}) besitzen
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=80mm]{newComponent/win.chrome.png}
+    \includegraphics[width=70mm]{newComponent/win.chrome.png}
     \caption{\centering Neue Komponente auf Windows}
     \label{img:manualTestComponentWin}
 \end{figure}
@@ -946,7 +944,7 @@ Programmierer bewerten die Komponente als benutzerfreundlich und ästhetisch ans
 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=100mm]{userTests/desc9.png}
+    \includegraphics[width=95mm]{userTests/desc9.png}
     \caption{\centering Meinungen der Testpersonen}
     \label{img:userTestsDescription}
 \end{figure}
@@ -966,7 +964,7 @@ Die Überarbeitung der Dokumentation wie auch die der Rückgabe der Komponente h
 Die Erstellung des zweiten Konstruktors mit einer Tabelle von Werten ermöglicht das Umgehen des Stolpersteins der Callbacks. 
 
 Die nachfolgende Liste zählt die Verbesserungsvorschläge und Bemerkungen der Testprogrammierer zusammengefasst auf. 
-Die genauen Feedbacks befinden sich im Anhang \textbf{\ref{chap:userTestProgrammers}}. 
+Die originalen Feedbacks befinden sich im Anhang \textbf{\ref{chap:userTestProgrammers}}. 
  \\
 \textbf{Dokumentation \& Return-Wert}: 
 Das JSDoc der \codestyle{SelectComponent} benötigt eine detailliertere Beschreibung des Return-Arrays. 
@@ -1017,6 +1015,7 @@ Dies erleichtert die Navigation innerhalb langer Listen.
 Die Probanden durchlaufen zwei Aufgaben. 
 Diese zielen auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser Dropdown-Funktion ab. 
 
+\setstretch{1.0}
  \\
 \emph{Aufgabenbeschreibung}: 
 
@@ -1157,6 +1156,7 @@ Diese zielen auf die Evaluation der Effizienz und Anwenderfreundlichkeit dieser 
     \item \textbf{Regula}: 
           Eventuell eine vereinfachte Variante mit weniger Informationen bei der Länderauswahl. 
 \end{itemize}
+\setstretch{1.1}
 
 Der Usability-Test zeigt, dass die neue Dropdown-Komponente insgesamt beliebt ist. 
 Besonders die Filteroptionen nach Jahrzehnten und Kontinenten erweisen sich als hilfreich. 
