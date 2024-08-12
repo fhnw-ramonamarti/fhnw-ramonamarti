@@ -450,7 +450,7 @@ Das Kapitel Patterns bietet eine weitere Möglichkeit, den Code strukturiert zu 
 
 In diesem Projekt finden sich einige Code-Patterns wieder. 
 Die wichtigsten Patterns wie Null-Object, Projector und Decorator sind in den nachfolgenden Unterkapiteln genauer erläutert.
-Eine weitere Rolle spielt unter anderem die Master-Detail-View, aber im Zusammenhang mit der Komponente eher nebensächlich. 
+Eine weitere Rolle spielt unter anderem die Master-Detail-View, welche bereits im Kapitel \textbf{\nameref{sec:masterDetailView}} erläutert ist. 
 Zudem ist die Anwendung nicht typisch bzw. genau abgegrenzt. 
 Die Implementation erhält durch die verwendeten Patterns eine Struktur und läuft stabiler. 
 
@@ -462,13 +462,13 @@ Ein Pattern, welches im Verlauf der Arbeit eine wichtige Rolle eingenommen hat, 
     [\cite{nullObjectPattern}]
 }. 
 Null hat den Nachteil, dass alle Funktionsaufrufe zu Fehlern führen. 
-Das Null-Object besteht aus vordefinierten Default-Werten und besitzt für alle Funktionen eine \emph{Do-Nothing}-Implementation. 
+Das Null-Object besteht aus vordefinierten Werten und besitzt für alle Funktionen eine \emph{Do-Nothing}-Implementation. 
 Durch die Verwendung dieses speziellen Objekts entfällt eine ansonsten notwendige Nullwertprüfung. 
 Zudem ist jedes erstellte Null-Object wertegleich. 
 
 Eine Null-Option ist notwendig, um eine Selektion zurücksetzen zu können. 
 Die Verwendung des Null-Objects findet sich an mehreren Stellen des Codes wieder. 
-Die Definition der angewendeten Null-Option zeigt der nachfolgende Code. 
+Die Definition der angewendeten Null-Option zeigt der nachfolgende Code \ref{code:nullOption}. 
 
 \begin{lstlisting}[style = htmlcssjs, caption = Null-Option Definition, label = code:nullOption]
 /** @private @returns { OptionType } */
@@ -506,7 +506,7 @@ In den folgenden Grafiken sind Models als Zylinder, Controller als Parallelogram
 Die Raute mit Option ist ein Datentyp, der über das gesamte Projekt seine Anwendung findet. 
 Das \codestyle{starter.js} beinhaltet alle Bestandteile, welche für eine Anwendung notwendig sind. 
 Eine genauere Beschreibung des Puzzles folgt im Unterkapitel \textbf{\nameref{sec:decoratorPattern}}. 
-Die erste Implementation, welche dieses Pattern verwendet, ist auf Abbildung \ref{img:diagramSelectComponentOld}. 
+Die erste Implementation, welche dieses Pattern verwendet, ist auf Abbildung \ref{img:diagramSelectComponentOld} ersichtlich. 
 
 \begin{figure}[!htb]
     \centering
@@ -617,7 +617,7 @@ Der Grundaufbau des Popover-Containers ist im folgenden Code \ref{code:popoverEx
 \end{lstlisting}
 
 Bei diesem Codeausschnitt (\ref{code:popoverExample}) ist wichtig, dass das Attribut \codestyle{popover} den Wert \codestyle{auto} erhält. 
-Dies bewirkt, dass die Popover sich automatisch schliessen, wenn ein Klick ausserhalb des Containers passiert. 
+Dies bewirkt, dass sich die Popover automatisch schliessen, wenn ein Klick ausserhalb des Containers passiert. 
 Das Öffnen und Schliessen des Dropdown-Elements lässt sich über das \codestyle{popovertarget}-Attribut auf der Bedienkomponente steuern. 
 Dieses Target enthält die \codestyle{id} des Div-Containers mit dem Attribut \codestyle{popover}. 
 Als Alternative dazu besteht die Möglichkeit, das Popover über JavaScript zu steuern. 
@@ -663,11 +663,11 @@ Die folgende Abbildung \ref{img:renderingProcessRecap} zeigt die Kernelemente de
 
 Zur Auffrischung die wichtigsten Punkte nochmals: 
 Der Browser kann die Webseite maximal 60 Mal pro Sekunde neu zeichnen. 
-Änderungen am DOM (Abbildung \ref{img:renderingProcessRecap}) lösen das Rendern aus. 
+Änderungen am DOM und am CSSOM (Abbildung \ref{img:renderingProcessRecap}) lösen das Rendern aus. 
 
 Deswegen müssen viele kleine Änderungen ausserhalb des Browser-DOMs\footnote{
     Im Renderbaum verwendeter und im Browser angezeigter DOM
-} – am besten in einem sogenannten Shadow-DOM – geschehen. 
+} (Abbildung \ref{img:renderingProcessRecap} rechts) – am besten in einem sogenannten Shadow-DOM – geschehen. 
 Ein Shadow-DOM ist ein Teilbaum, welcher nicht am Browser-DOM angehängt ist. 
 Für einen reibungslosen Ablauf ist es sinnvoll, die Änderungen nach dem Abhängen des Elternknotens zu vollziehen. 
 Nach den Änderungen ist der Teilbaum wieder an den gewünschten Ort einzuhängen. 
@@ -740,7 +740,7 @@ Die folgenden zwei Bilder \ref{img:performanceTestBefore} und \ref{img:performan
 
 Die Grafik \ref{img:performanceTestBefore} zeigt die mit über 5 Sekunden (rechts unten in Blau) lange Ladedauer der früheren Version. 
 Die Implementation führte sehr viele Aktionen auf dem Renderbaum aus. 
-Die lange Wartezeit bestätigten mehrere Feedbacks der Nutzer – später mehr dazu. 
+Die lange Wartezeit bestätigten mehrere Feedbacks der Nutzer – mehr dazu im Kapitel \textbf{\nameref{sec:userTests}}. 
 
 \begin{figure}[!htb]
     \centering
@@ -750,7 +750,7 @@ Die lange Wartezeit bestätigten mehrere Feedbacks der Nutzer – später mehr d
 \end{figure}
 
 Ein Refactoring der früheren Implementation führt zur Auslagerung der aufwendigen Arbeiten auf den Shadow-DOM. 
-Dadurch verkürzt sich der Ladevorgang um vier bis fünf Sekunden auf knapp 0.4 Sekunden (rechts unten in Blau). 
+Dadurch verkürzt sich der Ladevorgang um vier bis fünf Sekunden auf knapp 0.4 Sekunden (Abbildung \ref{img:performanceTestAfter} rechts unten in Blau). 
 Der Vergleich zwischen Abbildung \ref{img:performanceTestBefore} und \ref{img:performanceTestAfter} zeigt, dass die Seite um Faktor 13 schneller lädt. 
 Feedbacks zu den durchgeführten User-Tests mit Programmierern wie auch Endnutzern sowie manuelle Tests sind im nachfolgenden Kapitel aufgeführt. 
 
