@@ -84,7 +84,7 @@ Creates an input component with the functionality: selecting an option in a give
                                               The number of callbacks in the array define the number of colums in the component. 
                                               The most right or biggest indexed callback in the array contains the value providing function. 
                                               The order is defined as in the view: from most general categry to specific value.
-        The callbacks take the string representing the parent category of the current column as a parameter. \\
+                                              The callbacks take the string representing the parent category of the current column as a parameter. \\
         \bottomrule[1.2pt]
     \end{tabular}
 \end{table}
@@ -233,10 +233,10 @@ Creates a column view of a given list of options.
                                                                The order is the one from adding the options. \\
         addOptions(Array<Option>)           & void           & Adds all passed options to the end of the column. 
                                                                If an option already exists, it is ignored while adding.
-        Options are considered identical if they have the same label and value. \\
+                                                               Options are considered identical if they have the same label and value. \\
         delOptions(Array<Option>)           & void           & Removes all passed options from the column.
-        If an option is not found, the code simply proceeds.
-        Options are considered identical if they have the same label and value. \\
+                                                               If an option is not found, the code simply proceeds.
+                                                               Options are considered identical if they have the same label and value. \\
         clearOptions()                      & void           & Removes all options from the column. \\
         getSelectedOption()                 & Option         & Read the selected option. \\
         setSelectedOption(Option)           & void           & Changes the selected option to the passed option. 
@@ -353,14 +353,14 @@ Provides the functionality to manage a select input component.
             )}                               & void                   & Adds a listener to the change of possibility to fill the input. \\
         isOptionsVisible()                   & Boolean                & Checks if the options container is visible. 
                                                                         It contains all the category and value options.
-        In a default select, this would be the hidden part of the component in its initial state. \\
+                                                                        In a default select, this would be the hidden part of the component in its initial state. \\
         setOptionsVisibility(Boolean)        & void                   & Change the visibility of the options container to the passed value. \\
         \tbbr{
             onOptionsVisibilityChange( \\
                 \ \ \ Consumer<Option>
             )}                               & void                   & Adds a listener to the change of the visibility of the options container. 
                                                                         It contains all the category and value options.
-        In a default select, this would be the part of the component that is hidden in its initial state. \\
+                                                                        In a default select, this would be the part of the component that is hidden in its initial state. \\
         \bottomrule[0.5pt]
     \end{tabular}
 \end{table}
@@ -376,7 +376,7 @@ Provides the functionality to manage a select input component.
         \midrule    
         isSelectedOptionVisible()            & Boolean                & Checks if the selected option container is visible. 
                                                                         It only contains the selected option and maybe some action buttons.
-        In a default select, this refers to the part of the component that remains always visible. \\
+                                                                        In a default select, this refers to the part of the component that remains always visible. \\
         setSelectedOptionVisibility(Boolean) & void                   & Change the visibility of the selected option container to the passed value. \\
         \tbbr{
             onSelectedOptionVisibilityChange( \\
