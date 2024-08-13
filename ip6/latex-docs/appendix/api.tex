@@ -30,7 +30,7 @@ The \codestyle{SelectAttributes} object contains the following properties:
         label                         & String        & Content of the Label for the input. \\
         name                          & String        & Name of the input that is sent with the form. \\
         isRequired                    & Boolean       & Defines if the selection of an option is required to send the form. \\
-        isDisabled                    & Boolean       & Defines if the value can be changedand if the interaction work. \\
+        isDisabled                    & Boolean       & Defines if the value can be changedand if the interaction works. \\
         isCursorPositionWithSelection & Boolean       & Defines if the cursor position is linked with the selection. 
                                                         If true: the keyboard interaction directly changes the selection. \\
         \bottomrule[1.2pt]
@@ -83,8 +83,8 @@ Creates an input component with the functionality: selecting an option in a give
         serviceCallbacks & Array<Callback>  & Lists the Callback functions that provide the data for the options. 
                                               The number of callbacks in the array define the number of colums in the component. 
                                               The most right or biggest indexed callback in the array contains the value providing function. 
-                                              The order is defined as in the view: from most general categry to specific value. 
-                                              As parameter the callbacks take the string of the parent category of the current column. \\
+                                              The order is defined as in the view: from most general categry to specific value.
+        The callbacks take the string representing the parent category of the current column as a parameter. \\
         \bottomrule[1.2pt]
     \end{tabular}
 \end{table}
@@ -163,7 +163,7 @@ Creates an input component with the functionality: selecting an option in a give
                                                            Each Entry in the outer array contains one OptionData per column. 
                                                            If a value has multiple categories in the same column, it needs multiple entries. 
                                                            If a value has no categry in a column `null` can be placed in that place. 
-                                                           Every entry shuold have the same length and defines the options from most general category to value. 
+                                                           Every entry should have the same length and define the options from the most general category to the value.
                                                            The shortest entry array defines the number of columns. 
                                                            The category columns will use the distinct OptionData as options. \\
         sortColumnOptionsAlphabetical & Boolean          & Defines if the options of each column are sorted alphabetically. 
@@ -232,11 +232,11 @@ Creates a column view of a given list of options.
         getOptions()                        & Array<Option>  & Lists all options contained in the column. 
                                                                The order is the one from adding the options. \\
         addOptions(Array<Option>)           & void           & Adds all passed options to the end of the column. 
-                                                               If an option is alreayd contained it is ignored while adding. 
-                                                               Options count as same if the label and the value are same. \\
-        delOptions(Array<Option>)           & void           & Removes all passed options from the column. 
-                                                               If an option is not contained the code just continues. 
-                                                               Options count as same if the label and the value are same. \\
+                                                               If an option already exists, it is ignored while adding.
+        Options are considered identical if they have the same label and value. \\
+        delOptions(Array<Option>)           & void           & Removes all passed options from the column.
+        If an option is not found, the code simply proceeds.
+        Options are considered identical if they have the same label and value. \\
         clearOptions()                      & void           & Removes all options from the column. \\
         getSelectedOption()                 & Option         & Read the selected option. \\
         setSelectedOption(Option)           & void           & Changes the selected option to the passed option. 
@@ -336,9 +336,9 @@ Provides the functionality to manage a select input component.
         getId()                              & String                 & Provides a unique id for each component. \\
         getNumberOfColumns()                 & Number                 & Provides the fixed number of columns to show in the ui. \\
         getInputController()                 & SimpleInputController  & Provides the functionality of the text input hidden behind the component. 
-                                                                        This input will send the data in the from. \\
+                                                                        This input will send the data in the form. \\
         isCursorPositionWithSelection()      & Boolean                & Checks if the keyboard interaction also changes the selection. 
-                                                                        If false the cursor position for the keyboard acts like the highlight for the mouse. \\
+                                                                        If false, the cursor position for the keyboard acts like the highlight for the mouse. \\
         isRequired()                         & Boolean                & Checks if an option has to be chosen in a form. \\
         setRequired(Boolean)                 & void                   & Changes the requirement of the select input to the passed value. \\
         \tbbr{
@@ -352,15 +352,15 @@ Provides the functionality to manage a select input component.
                 \ \ \ Consumer<Option>
             )}                               & void                   & Adds a listener to the change of possibility to fill the input. \\
         isOptionsVisible()                   & Boolean                & Checks if the options container is visible. 
-                                                                        It contains all the category and value options. 
-                                                                        In a default select this would be the not visible part of the component in the initial state. \\
+                                                                        It contains all the category and value options.
+        In a default select, this would be the hidden part of the component in its initial state. \\
         setOptionsVisibility(Boolean)        & void                   & Change the visibility of the options container to the passed value. \\
         \tbbr{
             onOptionsVisibilityChange( \\
                 \ \ \ Consumer<Option>
             )}                               & void                   & Adds a listener to the change of the visibility of the options container. 
-                                                                        It contains all the category and value options. 
-                                                                        In a default select this would be the not visible part of the component in the initial state. \\
+                                                                        It contains all the category and value options.
+        In a default select, this would be the part of the component that is hidden in its initial state. \\
         \bottomrule[0.5pt]
     \end{tabular}
 \end{table}
@@ -375,8 +375,8 @@ Provides the functionality to manage a select input component.
         \textbf{Function}                    & \textbf{Type}          & \textbf{Description} \\
         \midrule    
         isSelectedOptionVisible()            & Boolean                & Checks if the selected option container is visible. 
-                                                                        It contains only the selected option and maybe some action buttons. 
-                                                                        In a default select this would be the always visible part of the component. \\
+                                                                        It only contains the selected option and maybe some action buttons.
+        In a default select, this refers to the part of the component that remains always visible. \\
         setSelectedOptionVisibility(Boolean) & void                   & Change the visibility of the selected option container to the passed value. \\
         \tbbr{
             onSelectedOptionVisibilityChange( \\
@@ -386,7 +386,7 @@ Provides the functionality to manage a select input component.
                                                                         In a default select this would be the always visible part of the component. \\
         getCursorPosition()                  & Option                 & Provides the option the keyboard cursor is currently at. \\
         setCursorPosition(Option)            & void                   & Changes the cursor position of the keyboard to the passed option. 
-                                                                        The cursor position can only  contain one option per component. \\
+                                                                        The cursor position can only contain one option per component. \\
         clearCursorPosition()                & void                   & Reset the keyboard cursor to no option. \\
         \tbbr{
             onCursorPositionChanged( \\
