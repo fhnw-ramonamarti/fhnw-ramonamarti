@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Existierende vs. Neue Auswahlkomponente</title>
+    </head>
+    <link
+        rel="shortcut icon"
+        type="image/png"
+        href="https://fhnw-ramonamarti.github.io/Kolibri/img/logo/logo-60x54.png"
+    />
+    <link rel="stylesheet" href="https://fhnw-ramonamarti.github.io/Kolibri/css/kolibri-base.css" />
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .container {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            inset: 0;
+        }
+        .title {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        section {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 1rem;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 2rem;
+
+            &:first-child {
+                background-color: #ddd;
+            }
+        }
+        label,
+        select,
+        input {
+            margin: 0.5rem;
+            width: 10rem;
+
+            .container:nth-child(2) & {
+                width: 15rem;
+            }
+        }
+        .select-component,
+        .input {
+            display: flex;
+            gap: 0;
+            flex-direction: column;
+
+            .container:nth-child(2) & .select-input-component {
+                width: 20rem;
+            }
+        }
+    </style>
+    <body>
+        <div class="container">
+            <section>
+                <h2 class="title">Alte Komponenten</h2>
+                <div class="input">
+                    <label for="yearOldSelect">Jahr (select)</label>
+                    <select name="yearOldSelect" id="yearOldSelect"> </select>
+                </div>
+                <div class="input">
+                    <label for="yearOldList">Jahr (datalist)</label>
+                    <input type="text" name="yearOldList" list="yearList" id="yearOldList" />
+                    <datalist id="yearList"></datalist>
+                </div>
+            </section>
+            <section id="newComponent">
+                <h2 class="title">Neue Komponente</h2>
+            </section>
+        </div>
+        <div class="container">
+            <section>
+                <h2 class="title">Alte Komponenten</h2>
+                <div class="input">
+                    <label for="countryOldSelect">Land (select)</label>
+                    <select name="countryOldSelect" id="countryOldSelect"> </select>
+                </div>
+                <div class="input">
+                    <label for="countryOldList">Land (datalist)</label>
+                    <input type="text" name="countryOldList" list="countryList" id="countryOldList" />
+                    <datalist id="countryList"></datalist>
+                </div>
+            </section>
+            <section id="newComponent2">
+                <h2 class="title">Neue Komponente</h2>
+            </section>
+        </div>
+        <script type="module">
+            import {
+                SelectComponentByCallbacks,
+                pageCss,
+            } from "https://fhnw-ramonamarti.github.io/Kolibri/src/kolibri/projector/selectComponent/selectComponent.js";
+
+            // data
+            const decades = [...Array(10).keys()].map((e) => e * 10 + 1920 + "'s");
+            const years   = [...Array(100).keys()].map((e) => e + 1924 + "");
+            const options = years.map((e) => `<option>${e}</option>`);
+
+            // old components select and datalist
+            yearOldSelect.innerHTML = options.join(" ");
+            yearList.innerHTML      = options.join(" ");
+
+            // new component
+            const selectAttributes = {
+                name: "yearNew",
+                label: "Jahr",
+            };
+            const selectComponent = SelectComponentByCallbacks(selectAttributes, [
+                () => decades,
+                (...decadeList) => {
+                    const decadeStarts = decadeList.map((decade) => decade.slice(0, 3));
+                    return years.filter(
+                        (e) => decadeStarts.length === 0 || decadeStarts.includes(e.slice(0, 3))
+                    );
+                },
+            ]).getComponentView();
+
+            const newComponentContainer = document.getElementById("newComponent");
+            newComponentContainer.append(selectComponent);
+
+            // styling
+            const style = document.createElement("style");
+            style.textContent = pageCss;
+            document.querySelector("head").append(style);
+        </script>
+        <script type="module">
+            import {
+                SelectComponentByTableValues,
+            } from "https://fhnw-ramonamarti.github.io/Kolibri/src/kolibri/projector/selectComponent/selectComponent.js";
+
+            // data
+            const tableData = [
+            ['Asia',{value:'af',label:'Afghanistan'}],['Europe',{value:'al',label:'Albania'}],['Africa',{value:'dz',label:'Algeria'}],['Oceania',{value:'as',label:'American Samoa'}],['Europe',{value:'ad',label:'Andorra'}],['Africa',{value:'ao',label:'Angola'}],['North America',{value:'ai',label:'Anguilla'}],['Antarctica',{value:'aq',label:'Antarctica'}],['North America',{value:'ag',label:'Antigua and Barbuda'}],['South America',{value:'ar',label:'Argentina'}],['Asia',{value:'am',label:'Armenia'}],['North America',{value:'aw',label:'Aruba'}],['Oceania',{value:'au',label:'Australia'}],['Europe',{value:'at',label:'Austria'}],['Asia',{value:'az',label:'Azerbaijan'}],['North America',{value:'bs',label:'Bahamas'}],['Asia',{value:'bh',label:'Bahrain'}],['Asia',{value:'bd',label:'Bangladesh'}],['North America',{value:'bb',label:'Barbados'}],['Europe',{value:'by',label:'Belarus'}],['Europe',{value:'be',label:'Belgium'}],['North America',{value:'bz',label:'Belize'}],['Africa',{value:'bj',label:'Benin'}],['North America',{value:'bm',label:'Bermuda'}],['Asia',{value:'bt',label:'Bhutan'}],['South America',{value:'bo',label:'Bolivia'}],['Europe',{value:'ba',label:'Bosnia and Herzegovina'}],['Africa',{value:'bw',label:'Botswana'}],['South America',{value:'br',label:'Brazil'}],['Asia',{value:'io',label:'British Indian Ocean Territory'}],['North America',{value:'vg',label:'British Virgin Islands'}],['Asia',{value:'bn',label:'Brunei'}],['Europe',{value:'bg',label:'Bulgaria'}],['Africa',{value:'bf',label:'Burkina Faso'}],['Africa',{value:'bi',label:'Burundi'}],['Asia',{value:'kh',label:'Cambodia'}],['Africa',{value:'cm',label:'Cameroon'}],['North America',{value:'ca',label:'Canada'}],['Africa',{value:'cv',label:'Cape Verde'}],['North America',{value:'ky',label:'Cayman Islands'}],['Africa',{value:'cf',label:'Central African Republic'}],['Africa',{value:'td',label:'Chad'}],['South America',{value:'cl',label:'Chile'}],['Asia',{value:'cn',label:'China'}],['Asia',{value:'cx',label:'Christmas Island'}],['Asia',{value:'cc',label:'Cocos Islands'}],['South America',{value:'co',label:'Colombia'}],['Africa',{value:'km',label:'Comoros'}],['Oceania',{value:'ck',label:'Cook Islands'}],['North America',{value:'cr',label:'Costa Rica'}],['Europe',{value:'hr',label:'Croatia'}],['North America',{value:'cu',label:'Cuba'}],['North America',{value:'cw',label:'Curacao'}],['Europe',{value:'cy',label:'Cyprus'}],['Europe',{value:'cz',label:'Czech Republic'}],['Africa',{value:'cd',label:'Democratic Republic of the Congo'}],['Europe',{value:'dk',label:'Denmark'}],['Africa',{value:'dj',label:'Djibouti'}],['North America',{value:'dm',label:'Dominica'}],['North America',{value:'do',label:'Dominican Republic'}],['South America',{value:'ec',label:'Ecuador'}],['Africa',{value:'eg',label:'Egypt'}],['North America',{value:'sv',label:'El Salvador'}],['Africa',{value:'gq',label:'Equatorial Guinea'}],['Africa',{value:'er',label:'Eritrea'}],['Europe',{value:'ee',label:'Estonia'}],['Africa',{value:'et',label:'Ethiopia'}],['South America',{value:'fk',label:'Falkland Islands'}],['Europe',{value:'fo',label:'Faroe Islands'}],['Oceania',{value:'fj',label:'Fiji'}],['Europe',{value:'fi',label:'Finland'}],['Europe',{value:'fr',label:'France'}],['Oceania',{value:'pf',label:'French Polynesia'}],['Africa',{value:'ga',label:'Gabon'}],['Africa',{value:'gm',label:'Gambia'}],['Asia',{value:'ge',label:'Georgia'}],['Europe',{value:'de',label:'Germany'}],['Africa',{value:'gh',label:'Ghana'}],['Europe',{value:'gi',label:'Gibraltar'}],['Europe',{value:'gr',label:'Greece'}],['North America',{value:'gl',label:'Greenland'}],['North America',{value:'gd',label:'Grenada'}],['Oceania',{value:'gu',label:'Guam'}],['North America',{value:'gt',label:'Guatemala'}],['Europe',{value:'gg',label:'Guernsey'}],['Africa',{value:'gn',label:'Guinea'}],['Africa',{value:'gw',label:'Guinea-Bissau'}],['South America',{value:'gy',label:'Guyana'}],['North America',{value:'ht',label:'Haiti'}],['North America',{value:'hn',label:'Honduras'}],['Asia',{value:'hk',label:'Hong Kong'}],['Europe',{value:'hu',label:'Hungary'}],['Europe',{value:'is',label:'Iceland'}],['Asia',{value:'in',label:'India'}],['Asia',{value:'id',label:'Indonesia'}],['Asia',{value:'ir',label:'Iran'}],['Asia',{value:'iq',label:'Iraq'}],['Europe',{value:'ie',label:'Ireland'}],['Europe',{value:'im',label:'Isle of Man'}],['Asia',{value:'il',label:'Israel'}],['Europe',{value:'it',label:'Italy'}],['Africa',{value:'ci',label:'Ivory Coast'}],['North America',{value:'jm',label:'Jamaica'}],['Asia',{value:'jp',label:'Japan'}],['Europe',{value:'je',label:'Jersey'}],['Asia',{value:'jo',label:'Jordan'}],['Asia',{value:'kz',label:'Kazakhstan'}],['Africa',{value:'ke',label:'Kenya'}],['Oceania',{value:'ki',label:'Kiribati'}],['Europe',{value:'xk',label:'Kosovo'}],['Asia',{value:'kw',label:'Kuwait'}],['Asia',{value:'kg',label:'Kyrgyzstan'}],['Asia',{value:'la',label:'Laos'}],['Europe',{value:'lv',label:'Latvia'}],['Asia',{value:'lb',label:'Lebanon'}],['Africa',{value:'ls',label:'Lesotho'}],['Africa',{value:'lr',label:'Liberia'}],['Africa',{value:'ly',label:'Libya'}],['Europe',{value:'li',label:'Liechtenstein'}],['Europe',{value:'lt',label:'Lithuania'}],['Europe',{value:'lu',label:'Luxembourg'}],['Asia',{value:'mo',label:'Macau'}],['Europe',{value:'mk',label:'Macedonia'}],['Africa',{value:'mg',label:'Madagascar'}],['Africa',{value:'mw',label:'Malawi'}],['Asia',{value:'my',label:'Malaysia'}],['Asia',{value:'mv',label:'Maldives'}],['Africa',{value:'ml',label:'Mali'}],['Europe',{value:'mt',label:'Malta'}],['Oceania',{value:'mh',label:'Marshall Islands'}],['Africa',{value:'mr',label:'Mauritania'}],['Africa',{value:'mu',label:'Mauritius'}],['Africa',{value:'yt',label:'Mayotte'}],['North America',{value:'mx',label:'Mexico'}],['Oceania',{value:'fm',label:'Micronesia'}],['Europe',{value:'md',label:'Moldova'}],['Europe',{value:'mc',label:'Monaco'}],['Asia',{value:'mn',label:'Mongolia'}],['Europe',{value:'me',label:'Montenegro'}],['North America',{value:'ms',label:'Montserrat'}],['Africa',{value:'ma',label:'Morocco'}],['Africa',{value:'mz',label:'Mozambique'}],['Asia',{value:'mm',label:'Myanmar'}],['Africa',{value:'na',label:'Namibia'}],['Oceania',{value:'nr',label:'Nauru'}],['Asia',{value:'np',label:'Nepal'}],['Europe',{value:'nl',label:'Netherlands'}],['North America',{value:'an',label:'Netherlands Antilles'}],['Oceania',{value:'nc',label:'New Caledonia'}],['Oceania',{value:'nz',label:'New Zealand'}],['North America',{value:'ni',label:'Nicaragua'}],['Africa',{value:'ne',label:'Niger'}],['Africa',{value:'ng',label:'Nigeria'}],['Oceania',{value:'nu',label:'Niue'}],['Asia',{value:'kp',label:'North Korea'}],['Oceania',{value:'mp',label:'Northern Mariana Islands'}],['Europe',{value:'no',label:'Norway'}],['Asia',{value:'om',label:'Oman'}],['Asia',{value:'pk',label:'Pakistan'}],['Oceania',{value:'pw',label:'Palau'}],['Asia',{value:'ps',label:'Palestine'}],['North America',{value:'pa',label:'Panama'}],['Oceania',{value:'pg',label:'Papua New Guinea'}],['South America',{value:'py',label:'Paraguay'}],['South America',{value:'pe',label:'Peru'}],['Asia',{value:'ph',label:'Philippines'}],['Oceania',{value:'pn',label:'Pitcairn'}],['Europe',{value:'pl',label:'Poland'}],['Europe',{value:'pt',label:'Portugal'}],['North America',{value:'pr',label:'Puerto Rico'}],['Asia',{value:'qa',label:'Qatar'}],['Africa',{value:'cg',label:'Republic of the Congo'}],['Africa',{value:'re',label:'Reunion'}],['Europe',{value:'ro',label:'Romania'}],['Europe',{value:'ru',label:'Russia'}],['Africa',{value:'rw',label:'Rwanda'}],['North America',{value:'bl',label:'Saint Barthelemy'}],['Africa',{value:'sh',label:'Saint Helena'}],['North America',{value:'kn',label:'Saint Kitts and Nevis'}],['North America',{value:'lc',label:'Saint Lucia'}],['North America',{value:'mf',label:'Saint Martin'}],['North America',{value:'pm',label:'Saint Pierre and Miquelon'}],['North America',{value:'vc',label:'Saint Vincent and the Grenadines'}],['Oceania',{value:'ws',label:'Samoa'}],['Europe',{value:'sm',label:'San Marino'}],['Africa',{value:'st',label:'Sao Tome and Principe'}],['Asia',{value:'sa',label:'Saudi Arabia'}],['Africa',{value:'sn',label:'Senegal'}],['Europe',{value:'rs',label:'Serbia'}],['Africa',{value:'sc',label:'Seychelles'}],['Africa',{value:'sl',label:'Sierra Leone'}],['Asia',{value:'sg',label:'Singapore'}],['North America',{value:'sx',label:'Sint Maarten'}],['Europe',{value:'sk',label:'Slovakia'}],['Europe',{value:'si',label:'Slovenia'}],['Oceania',{value:'sb',label:'Solomon Islands'}],['Africa',{value:'so',label:'Somalia'}],['Africa',{value:'za',label:'South Africa'}],['Asia',{value:'kr',label:'South Korea'}],['Africa',{value:'ss',label:'South Sudan'}],['Europe',{value:'es',label:'Spain'}],['Asia',{value:'lk',label:'Sri Lanka'}],['Africa',{value:'sd',label:'Sudan'}],['South America',{value:'sr',label:'Suriname'}],['Europe',{value:'sj',label:'Svalbard and Jan Mayen'}],['Africa',{value:'sz',label:'Swaziland'}],['Europe',{value:'se',label:'Sweden'}],['Europe',{value:'ch',label:'Switzerland'}],['Asia',{value:'sy',label:'Syria'}],['Asia',{value:'tw',label:'Taiwan'}],['Asia',{value:'tj',label:'Tajikistan'}],['Africa',{value:'tz',label:'Tanzania'}],['Asia',{value:'th',label:'Thailand'}],['Oceania',{value:'tl',label:'Timor-Leste'}],['Africa',{value:'tg',label:'Togo'}],['Oceania',{value:'tk',label:'Tokelau'}],['Oceania',{value:'to',label:'Tonga'}],['North America',{value:'tt',label:'Trinidad and Tobago'}],['Africa',{value:'tn',label:'Tunisia'}],['Asia',{value:'tr',label:'Turkey'}],['Asia',{value:'tm',label:'Turkmenistan'}],['North America',{value:'tc',label:'Turks and Caicos Islands'}],['Oceania',{value:'tv',label:'Tuvalu'}],['North America',{value:'vi',label:'U.S. Virgin Islands'}],['Africa',{value:'ug',label:'Uganda'}],['Europe',{value:'ua',label:'Ukraine'}],['Asia',{value:'ae',label:'United Arab Emirates'}],['Europe',{value:'gb',label:'United Kingdom'}],['North America',{value:'us',label:'United States'}],['South America',{value:'uy',label:'Uruguay'}],['Asia',{value:'uz',label:'Uzbekistan'}],['Oceania',{value:'vu',label:'Vanuatu'}],['Europe',{value:'va',label:'Vatican'}],['South America',{value:'ve',label:'Venezuela'}],['Asia',{value:'vn',label:'Vietnam'}],['Oceania',{value:'wf',label:'Wallis and Futuna'}],['Africa',{value:'eh',label:'Western Sahara'}],['Asia',{value:'ye',label:'Yemen'}],['Africa',{value:'zm',label:'Zambia'}],['Africa',{value:'zw',label:'Zimbabwe'}]
+            ];
+            const options2 = tableData.map((e) => `<option value="${e[1].value}">${e[1].label}</option>`);
+
+            // old components select and datalist
+            countryOldSelect.innerHTML = options2.join(" ");
+            countryList.innerHTML      = options2.join(" ");
+
+            // new component
+            const selectAttributes2 = {
+                name: "countryNew",
+                label: "Land",
+            };
+            const selectComponent2 = SelectComponentByTableValues(selectAttributes2, tableData).getComponentView();
+
+            const newComponentContainer2 = document.getElementById("newComponent2");
+            newComponentContainer2.append(selectComponent2);
+        </script>
+    </body>
+</html>
