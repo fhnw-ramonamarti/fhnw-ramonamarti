@@ -1,0 +1,60 @@
+@import "https://fhnw-ramonamarti.github.io/Kolibri/css/kolibri-base.css";
+@import "https://fhnw-ramonamarti.github.io/Kolibri/css/kolibri-light-colors.css";
+
+body {
+    perspective: 100vw;
+}
+
+.card {
+    max-width:  40em;
+    margin:     1em auto 2em auto;
+    padding:    2em 4em;
+    box-shadow: var(--kolibri-box-shadow);
+    min-width:  620px;
+}
+
+.holder {
+    min-width: 160px;
+    width:     fit-content;
+    margin:    1rem 0;
+}
+.holder > div {
+    margin: 0;
+    width:  100%;
+}
+
+h1 {
+    text-align:  center;
+    font-family: var(--font-sans-serif), sans-serif;
+    margin-top:  0;
+}
+
+h3, h4 {
+    margin-top: 3rem;
+}
+
+form {
+    display:     flex;
+    gap:         2rem;
+    align-items: center;
+
+    > button {
+        border-radius:    5px;
+        color:          white;
+        background-color: var(--kolibri-color-output);
+        font-weight:      bold;
+        outline:          none;
+        border:           none;
+        padding:          0.5rem;
+        max-height:       2.5rem;
+
+        &:focus {
+            filter:    brightness(150%);
+        }
+    }
+}
+
+label {
+    display:     flex;
+    align-items: center;
+}
